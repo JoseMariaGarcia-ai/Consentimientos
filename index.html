@@ -2093,17 +2093,39 @@ function populateDocClinicaSelect() {
     clinicas.map(c => `<option value="${c.id}"${cur===c.id?' selected':''}>${c.nombre}</option>`).join('');
 }
 
-function saveDoctor() {
+function saveDoctor() { try {
+  // Limpiar errores previos
+  ['doc-nombre','doc-apellidos','doc-dni','doc-tel','doc-colegiado'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.borderColor = '';
+    const prev = el.parentNode.querySelector('.field-error');
+    if (prev) prev.remove();
+  });
+
+  function markError(id, msg) {
+    const el = document.getElementById(id);
+    el.style.borderColor = '#ef4444';
+    const span = document.createElement('span');
+    span.className = 'field-error';
+    span.style.cssText = 'color:#ef4444;font-size:0.75rem;margin-top:3px;display:block';
+    span.textContent = msg;
+    el.parentNode.appendChild(span);
+    el.focus();
+  }
+
   const nombre    = document.getElementById('doc-nombre').value.trim();
   const apellidos = document.getElementById('doc-apellidos').value.trim();
   const dni       = document.getElementById('doc-dni').value.trim().toUpperCase();
   const tel       = document.getElementById('doc-tel').value.trim();
   const colegiado = document.getElementById('doc-colegiado').value.trim();
-  if (!nombre)    { alert('El nombre es obligatorio'); return; }
-  if (!apellidos) { alert('Los apellidos son obligatorios'); return; }
-  if (!dni)       { alert('El DNI / NIE es obligatorio'); return; }
-  if (!tel)       { alert('El teléfono es obligatorio'); return; }
-  if (!colegiado) { alert('El número de colegiado es obligatorio'); return; }
+
+  let hasError = false;
+  if (!colegiado) { markError('doc-colegiado', 'Nº de colegiado obligatorio'); hasError = true; }
+  if (!tel)       { markError('doc-tel', 'Teléfono obligatorio'); hasError = true; }
+  if (!dni)       { markError('doc-dni', 'DNI / NIE obligatorio'); hasError = true; }
+  if (!apellidos) { markError('doc-apellidos', 'Apellidos obligatorios'); hasError = true; }
+  if (!nombre)    { markError('doc-nombre', 'Nombre obligatorio'); hasError = true; }
+  if (hasError) return;
 
   const espSel  = document.getElementById('doc-especialidad').value;
   const espOtra = document.getElementById('doc-especialidad-otra').value.trim();
@@ -2140,7 +2162,7 @@ function saveDoctor() {
   clearDoctorForm();
   renderDoctores();
   updateBadges();
-}
+} catch(e) { alert('Error al guardar doctor: ' + e.message); console.error(e); } }
 
 function clearDoctorForm() {
   ['doc-nombre','doc-apellidos','doc-dni','doc-tel','doc-colegiado','doc-email','doc-tel2',
