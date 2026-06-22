@@ -2142,7 +2142,7 @@ function saveDoctor() { try {
     universidad: document.getElementById('doc-universidad').value.trim(),
     experiencia: document.getElementById('doc-experiencia').value,
     idiomas:     document.getElementById('doc-idiomas').value.trim(),
-    firma:       document.getElementById('doc-firma').value.trim(),
+    firma:       '',
     clinica:     document.getElementById('doc-clinica').value,
     estado:      document.getElementById('doc-estado').value,
     notas:       document.getElementById('doc-notas').value.trim(),
@@ -2167,7 +2167,7 @@ function saveDoctor() { try {
 function clearDoctorForm() {
   ['doc-nombre','doc-apellidos','doc-dni','doc-tel','doc-colegiado','doc-email','doc-tel2',
    'doc-direccion','doc-localidad','doc-provincia','doc-cp','doc-universidad',
-   'doc-experiencia','doc-idiomas','doc-firma','doc-notas','doc-especialidad-otra']
+   'doc-experiencia','doc-idiomas','doc-notas','doc-especialidad-otra']
     .forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
   document.getElementById('doc-especialidad').value = '';
   document.getElementById('doc-estado').value       = 'activo';
@@ -2194,7 +2194,7 @@ function editDoctor(id) {
   set('doc-localidad',d.localidad);   set('doc-provincia',d.provincia);
   set('doc-cp',d.cp);                 set('doc-universidad',d.universidad);
   set('doc-experiencia',d.experiencia); set('doc-idiomas',d.idiomas);
-  set('doc-firma',d.firma);           set('doc-notas',d.notas);
+  set('doc-notas',d.notas);
   set('doc-estado',d.estado||'activo');
 
   const especialidades = ['Medicina Estética','Cirugía Plástica','Dermatología','Odontología',
