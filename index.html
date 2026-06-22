@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consentimientos Informados</title>
+<title>ConsentsPro</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -373,14 +373,9 @@
 <!-- ══ HEADER ══ -->
 <header>
   <div class="header-logo">
-    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="30" height="30" rx="8" fill="rgba(255,255,255,0.12)"/>
-      <path d="M15 6v18M6 15h18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="15" cy="15" r="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    </svg>
-    <div class="header-brand">
-      MediConsent
-      <span>Gestión de Consentimientos Informados</span>
+    <div class="header-brand" style="font-size:1.3rem;font-weight:700;letter-spacing:-0.5px;line-height:1.15">
+      <span style="color:white">Consents</span><span style="color:#C9A227;border-bottom:2px solid #C9A227;padding-bottom:1px">Pro</span>
+      <span style="font-size:0.68rem;font-weight:400;opacity:0.75;display:block;letter-spacing:0.02em;color:white;margin-top:2px">Consentimientos Digitales · Huella Digital</span>
     </div>
   </div>
   <div class="header-right">
@@ -1903,7 +1898,7 @@ function exportAllPacientesPDF() {
   const pacientes = db.get('pacientes');
   if (!pacientes.length) { alert('No hay pacientes para exportar'); return; }
 
-  const clinica = db.getS('cfg_nombre') || 'MediConsent';
+  const clinica = db.getS('cfg_nombre') || 'ConsentsPro';
   doc.setFontSize(14); doc.setFont(undefined,'bold');
   doc.text(`${clinica} — Listado de Pacientes`, 14, 16);
   doc.setFontSize(8); doc.setFont(undefined,'normal');
@@ -1943,8 +1938,8 @@ function exportPacientePDF() {
   if (!p) return;
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit:'mm', format:'a4' });
-  const clinica = db.getS('cfg_nombre') || 'MediConsent';
-  const legalText = db.getS('cfg_legal') || 'Documento generado por MediConsent.';
+  const clinica = db.getS('cfg_nombre') || 'ConsentsPro';
+  const legalText = db.getS('cfg_legal') || 'Documento generado por ConsentsPro.';
 
   let y = 20;
   const lm = 18, rw = 174;
@@ -2654,7 +2649,7 @@ function renderPlantillas() {
 function verPlantilla(id) {
   const p = db.get('plantillas').find(x => x.id === id);
   if (!p) return;
-  const clinica = db.getS('cfg_nombre') || 'MediConsent';
+  const clinica = db.getS('cfg_nombre') || 'ConsentsPro';
   document.getElementById('cprev-title').textContent = p.nombre;
   document.getElementById('cprev-firmar-btn').style.display = 'none';
   document.getElementById('cprev-body').innerHTML = buildConsentDocHtml(p, null, null, null, clinica);
@@ -3239,7 +3234,7 @@ function renderConsentimientos() {
 // ════════════════════════════════════════════════
 function buildConsentDocHtml(plt, pac, doc, conObj, clinica) {
   const fechaDoc  = conObj ? fmtDate(conObj.fecha) : new Date().toLocaleDateString('es-ES');
-  const legalText = db.getS('cfg_legal') || 'Documento generado por MediConsent. En cumplimiento de la normativa vigente en materia de protección de datos personales y sanitaria.';
+  const legalText = db.getS('cfg_legal') || 'Documento generado por ConsentsPro. En cumplimiento de la normativa vigente en materia de protección de datos personales y sanitaria.';
   const clinicaDireccion = db.getS('cfg_direccion') || '';
   const clinicaTel       = db.getS('cfg_tel') || '';
 
