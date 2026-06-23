@@ -7,6 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6f9; color: #1a2535; min-height: 100vh; }
@@ -346,6 +347,59 @@
   .ct-meta { font-size: 0.75rem; color: #9ca3af; margin-top: 2px; display: flex; gap: 12px; flex-wrap: wrap; }
 
   /* ── IMPRESIÓN ── */
+  /* ─── AUTH OVERLAY ─── */
+  #auth-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0a2342 0%,#0d3060 50%,#1a4a7a 100%);display:flex;align-items:center;justify-content:center;}
+  #auth-overlay.hidden{display:none;}
+  .auth-card{background:white;border-radius:20px;padding:40px;width:420px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+  .auth-brand{text-align:center;margin-bottom:28px;}
+  .auth-brand .abname{font-size:1.9rem;font-weight:800;color:#0a2342;letter-spacing:-0.5px;}
+  .auth-brand .abname span{color:#c9a227;}
+  .auth-brand .absub{font-size:0.75rem;color:#6b7280;margin-top:2px;}
+  .auth-tabs-row{display:flex;gap:4px;background:#f4f6f9;border-radius:10px;padding:4px;margin-bottom:24px;}
+  .auth-tabx{flex:1;padding:8px;text-align:center;border-radius:7px;cursor:pointer;font-size:0.82rem;font-weight:600;color:#6b7280;transition:all 0.15s;border:none;background:none;}
+  .auth-tabx.active{background:white;color:#0a2342;box-shadow:0 1px 4px rgba(0,0,0,0.1);}
+  .auth-lbl{font-size:0.8rem;font-weight:600;color:#374151;margin-bottom:6px;display:block;}
+  .auth-inp{width:100%;padding:11px 14px;border:1.5px solid #e4e8ef;border-radius:10px;font-size:0.9rem;outline:none;transition:border-color 0.15s;margin-bottom:14px;box-sizing:border-box;font-family:inherit;}
+  .auth-inp:focus{border-color:#1a4a7a;}
+  .auth-btn-main{width:100%;padding:12px;background:linear-gradient(135deg,#0a2342,#1a4a7a);color:white;border:none;border-radius:10px;font-size:0.92rem;font-weight:700;cursor:pointer;transition:opacity 0.15s;font-family:inherit;}
+  .auth-btn-main:hover{opacity:0.9;}
+  .auth-btn-main:disabled{opacity:0.5;cursor:not-allowed;}
+  .auth-btn-out{background:transparent!important;border:1.5px solid #0a2342!important;color:#0a2342!important;margin-top:8px;}
+  .auth-btn-out:hover{background:#f0f4ff!important;opacity:1!important;}
+  .auth-btn-bio{background:linear-gradient(135deg,#059669,#047857)!important;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;}
+  .auth-info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:12px;font-size:0.8rem;color:#0369a1;margin-bottom:14px;}
+  .auth-err-box{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 12px;font-size:0.82rem;color:#dc2626;margin-bottom:14px;display:none;}
+  .auth-code-row{display:flex;gap:8px;margin-bottom:16px;}
+  .auth-code-box{flex:1;padding:12px 0;text-align:center;font-size:1.3rem;font-weight:700;border:1.5px solid #e4e8ef;border-radius:10px;outline:none;box-sizing:border-box;}
+  .auth-code-box:focus{border-color:#1a4a7a;}
+  .auth-stepx{display:none;}
+  .auth-stepx.active{display:block;}
+  .auth-backx{background:none;border:none;color:#6b7280;font-size:0.82rem;cursor:pointer;padding:0;margin-bottom:14px;display:flex;align-items:center;gap:4px;}
+  .auth-backx:hover{color:#374151;}
+  .auth-alink{font-size:0.78rem;color:#6b7280;cursor:pointer;text-decoration:underline;}
+  .auth-divx{text-align:center;color:#9ca3af;font-size:0.78rem;margin:12px 0;position:relative;}
+  .auth-divx::before,.auth-divx::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:#e4e8ef;}
+  .auth-divx::before{left:0;}.auth-divx::after{right:0;}
+  .amodal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;}
+  .amodal.show{display:flex;}
+  .amodal-card{background:white;border-radius:16px;padding:32px;width:460px;max-width:95vw;}
+  .rec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0;}
+  .rec-code{background:#f4f6f9;border:1px solid #e4e8ef;border-radius:8px;padding:8px 12px;font-family:monospace;font-size:0.88rem;text-align:center;letter-spacing:2px;}
+  .sess-optx{width:100%;padding:10px;background:white;border:1.5px solid #e4e8ef;color:#0a2342;border-radius:10px;font-weight:600;cursor:pointer;margin-bottom:8px;font-size:0.9rem;transition:all 0.15s;font-family:inherit;}
+  .sess-optx:hover{border-color:#1a4a7a;background:#f0f4ff;}
+  .quota-bar{background:#e4e8ef;border-radius:4px;height:5px;margin-top:3px;}
+  .quota-fill{height:100%;border-radius:4px;background:#059669;transition:width 0.3s;}
+  .quota-fill.warn{background:#d97706;}.quota-fill.crit{background:#dc2626;}
+  .cpro-toast{position:fixed;top:20px;right:20px;padding:12px 20px;border-radius:10px;z-index:10001;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:0.88rem;animation:toastIn 0.3s;}
+  @keyframes toastIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+  .cpro-toast.ok{background:#059669;color:white;}.cpro-toast.err{background:#dc2626;color:white;}.cpro-toast.inf{background:#1a4a7a;color:white;}
+  #logout-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:white;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:0.78rem;}
+  #logout-btn:hover{background:rgba(255,255,255,0.2);}
+  .nav-admin-only{display:none;}
+  .perm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px;}
+  .perm-item{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#f9fafb;border-radius:6px;font-size:0.82rem;cursor:pointer;}
+  .perm-item input[type=checkbox]{width:15px;height:15px;cursor:pointer;}
+
   @media print {
     header, .sidebar, .pd-header, .pd-actions, .pd-back, .btn, .nav-item, .toolbar { display: none !important; }
     .patient-detail-overlay { position: static !important; }
@@ -369,6 +423,119 @@
 </style>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════════════
+     AUTH OVERLAY — ConsentsPro
+══════════════════════════════════════════════ -->
+<div id="auth-overlay">
+
+  <!-- Recovery codes modal (shown once after seeding) -->
+  <div id="rec-modal" class="amodal">
+    <div class="amodal-card">
+      <h2 style="font-size:1.05rem;font-weight:800;color:#dc2626;margin-bottom:6px">⚠️ Códigos de recuperación</h2>
+      <p style="font-size:0.82rem;color:#6b7280">Guarda estos 10 códigos en un lugar seguro. <strong>Solo se muestran UNA VEZ.</strong></p>
+      <div class="rec-grid" id="rec-codes-list"></div>
+      <button class="auth-btn-main" onclick="closeRecModal()">He guardado los códigos de forma segura</button>
+    </div>
+  </div>
+
+  <!-- Biometric setup modal -->
+  <div id="bio-modal" class="amodal">
+    <div class="amodal-card" style="text-align:center">
+      <div style="font-size:3rem;margin-bottom:12px">🔐</div>
+      <h2 style="font-size:1.1rem;font-weight:800;color:#0a2342;margin-bottom:8px">Activar acceso biométrico</h2>
+      <p style="font-size:0.83rem;color:#6b7280;margin-bottom:20px">Para mayor seguridad, activa el acceso con huella o Face ID en este dispositivo.</p>
+      <button class="auth-btn-main auth-btn-bio" onclick="doBioRegister()"><span>🖐</span> Activar Face ID / Huella</button>
+      <button class="auth-btn-main auth-btn-out" onclick="skipBio()" style="display:block;margin-top:0">Ahora no</button>
+    </div>
+  </div>
+
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="abname">Consents<span>Pro</span></div>
+      <div class="absub">Sistema de Consentimientos Digitales · RGPD</div>
+    </div>
+
+    <div class="auth-tabs-row">
+      <button class="auth-tabx active" id="atp-clinic" onclick="authSwitchMode('clinic')">Acceso Clínica</button>
+      <button class="auth-tabx" id="atp-admin" onclick="authSwitchMode('admin')">Panel Administrador</button>
+    </div>
+
+    <div class="auth-err-box" id="auth-err"></div>
+
+    <!-- CLINIC PANEL -->
+    <div id="auth-clinic">
+      <div class="auth-stepx active" id="cls-bio">
+        <div id="cls-bio-available" style="display:none">
+          <button class="auth-btn-main auth-btn-bio" onclick="clinicBioLogin()"><span>🖐</span> Acceder con Face ID / Huella</button>
+          <div class="auth-divx">o introduce tu email</div>
+        </div>
+        <label class="auth-lbl">Email de acceso</label>
+        <input type="email" id="auth-email" class="auth-inp" placeholder="clinica@ejemplo.com" onkeydown="if(event.key==='Enter')sendMagicCode()">
+        <button class="auth-btn-main" onclick="sendMagicCode()">Enviar código de acceso</button>
+        <div class="auth-info-box" style="margin-top:12px;margin-bottom:0">No necesitas contraseña. Recibirás un código de 6 dígitos en tu email.</div>
+      </div>
+
+      <div class="auth-stepx" id="cls-code">
+        <button class="auth-backx" onclick="authBackToEmail()">← Volver</button>
+        <p style="text-align:center;font-size:0.82rem;font-weight:600;color:#374151;margin-bottom:4px">Código de verificación</p>
+        <p style="text-align:center;font-size:0.78rem;color:#6b7280;margin-bottom:14px">Código enviado a <strong id="auth-email-shown"></strong></p>
+        <div class="auth-code-row" id="code-boxes">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+          <input class="auth-code-box" maxlength="1" inputmode="numeric">
+        </div>
+        <button class="auth-btn-main" onclick="verifyMagicCode()">Verificar código</button>
+        <div id="demo-code-box" class="auth-info-box" style="margin-top:12px;margin-bottom:0;display:none">
+          <strong>Demo:</strong> Código generado: <strong id="demo-code" style="font-family:monospace;letter-spacing:3px;font-size:1.05rem"></strong>
+        </div>
+        <p style="text-align:center;margin-top:10px"><span class="auth-alink" onclick="sendMagicCode()">Reenviar código</span></p>
+      </div>
+
+      <div class="auth-stepx" id="cls-sess">
+        <p style="text-align:center;font-weight:600;color:#374151;margin-bottom:14px">¿Recordar este dispositivo?</p>
+        <button class="sess-optx" onclick="pickSession(7)">7 días</button>
+        <button class="sess-optx" onclick="pickSession(30)">30 días</button>
+        <button class="sess-optx" onclick="pickSession(90)">90 días</button>
+        <button class="auth-btn-main auth-btn-out" onclick="pickSession(0)" style="display:block">No recordar este dispositivo</button>
+      </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="auth-admin" style="display:none">
+      <div class="auth-stepx active" id="adm-pwd">
+        <div id="adm-bio-available" style="display:none">
+          <button class="auth-btn-main auth-btn-bio" onclick="adminBioLogin()"><span>🖐</span> Acceder con Face ID / Huella</button>
+          <div class="auth-divx">o usa contraseña</div>
+        </div>
+        <label class="auth-lbl">Usuario</label>
+        <input type="text" id="adm-user" class="auth-inp" placeholder="AdminMaster" value="AdminMaster">
+        <label class="auth-lbl">Contraseña</label>
+        <input type="password" id="adm-pass" class="auth-inp" placeholder="Contraseña" onkeydown="if(event.key==='Enter')adminLogin()">
+        <button class="auth-btn-main" onclick="adminLogin()">Acceder al panel</button>
+      </div>
+
+      <div class="auth-stepx" id="adm-totp">
+        <button class="auth-backx" onclick="authBackToAdmPwd()">← Volver</button>
+        <p style="text-align:center;font-size:0.82rem;font-weight:600;margin-bottom:4px">Verificación en dos pasos</p>
+        <p style="text-align:center;font-size:0.78rem;color:#6b7280;margin-bottom:14px">Código de tu aplicación autenticadora</p>
+        <input type="text" id="adm-totp-inp" class="auth-inp" maxlength="6" inputmode="numeric" placeholder="000000" style="text-align:center;font-size:1.3rem;letter-spacing:6px" onkeydown="if(event.key==='Enter')adminVerifyTOTP()">
+        <button class="auth-btn-main" onclick="adminVerifyTOTP()">Verificar</button>
+        <p style="text-align:center;margin-top:10px"><span class="auth-alink" onclick="showRecoveryInput()">Usar código de recuperación</span></p>
+      </div>
+
+      <div class="auth-stepx" id="adm-rec">
+        <button class="auth-backx" onclick="authBackToTOTP()">← Volver</button>
+        <label class="auth-lbl">Código de recuperación</label>
+        <input type="text" id="adm-rec-inp" class="auth-inp" placeholder="XXXX-XXXX-XXXX" style="font-family:monospace;letter-spacing:2px" onkeydown="if(event.key==='Enter')adminVerifyRecovery()">
+        <button class="auth-btn-main" onclick="adminVerifyRecovery()">Usar código</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ══ HEADER ══ -->
 <header>
@@ -435,6 +602,17 @@
     <div class="sidebar-footer">
       <div class="nav-item" onclick="showTab('configuracion')" id="nav-configuracion">
         <div class="nav-icon">⚙️</div> Configuración
+      </div>
+    </div>
+
+    <!-- Admin-only nav section -->
+    <div class="sidebar-section nav-admin-only" id="admin-nav-section">
+      <div class="sidebar-label">Administración</div>
+      <div class="nav-item nav-admin-only" onclick="showTab('clientes')" id="nav-clientes">
+        <div class="nav-icon">🏢</div> Clínicas Clientes
+      </div>
+      <div class="nav-item nav-admin-only" onclick="showTab('paquetes')" id="nav-paquetes">
+        <div class="nav-icon">📦</div> Paquetes
       </div>
     </div>
   </aside>
@@ -781,12 +959,107 @@
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════
+         CLIENTES — PANEL ADMIN
+    ══════════════════════════════════════════ -->
+    <div id="tab-clientes" class="tab-content">
+      <div class="page-header">
+        <div class="row">
+          <div>
+            <h1>Gestión de Clínicas</h1>
+            <p>Administra acceso, permisos y cuotas de cada clínica cliente</p>
+          </div>
+          <button class="btn btn-primary" style="margin-left:auto" onclick="openClinicModal()">+ Nueva Clínica</button>
+        </div>
+      </div>
+      <div id="clientes-list"></div>
+    </div>
+
+    <!-- TAB PAQUETES (solo admin) -->
+    <div id="tab-paquetes" class="tab-content">
+      <div class="page-header">
+        <div class="row">
+          <div>
+            <h1>Gestión de Paquetes</h1>
+            <p>Configura los paquetes de cuotas disponibles para las clínicas</p>
+          </div>
+          <button class="btn btn-primary" style="margin-left:auto" onclick="openPaqueteModal()">+ Nuevo Paquete</button>
+        </div>
+      </div>
+      <div id="paquetes-list"></div>
+    </div>
+
+    <!-- QUOTA WIDGET (solo clínicas) -->
+    <div id="quota-widget" style="display:none;position:fixed;bottom:18px;right:18px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 18px;box-shadow:0 4px 20px rgba(0,0,0,.10);z-index:900;min-width:220px;font-size:0.82rem">
+      <div style="font-weight:600;margin-bottom:8px;color:#374151">Cuotas disponibles</div>
+      <div id="quota-widget-body"></div>
+    </div>
+
   </main>
 </div>
 
 <!-- ════════════════════════════════════════════
      MODALES
 ════════════════════════════════════════════ -->
+
+<!-- ════ MODAL PAQUETE ════ -->
+<div class="modal-overlay" id="modal-paquete">
+  <div class="modal" style="width:min(500px,97vw)">
+    <div class="modal-header">
+      <span style="font-size:1.3rem">📦</span>
+      <h2 id="modal-paquete-title">Nuevo Paquete</h2>
+      <button class="modal-close" onclick="closeModal('modal-paquete')">×</button>
+    </div>
+    <div class="field-group">
+      <label>Nombre del paquete *</label>
+      <input type="text" id="paq-nombre" placeholder="Ej: Pack Oro" />
+    </div>
+    <div class="two-col">
+      <div class="field-group">
+        <label>Consentimientos incluidos</label>
+        <input type="number" id="paq-consentimientos" min="0" value="0" />
+      </div>
+      <div class="field-group">
+        <label>Historias clínicas incluidas</label>
+        <input type="number" id="paq-historias" min="0" value="0" />
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field-group">
+        <label>Sesiones de fotos incluidas</label>
+        <input type="number" id="paq-fotos" min="0" value="0" />
+      </div>
+      <div class="field-group">
+        <label>Precio (€)</label>
+        <input type="number" id="paq-precio" min="0" step="0.01" value="0" />
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Descripción (opcional)</label>
+      <textarea id="paq-desc" rows="2" placeholder="Descripción del paquete..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-paquete')">Cancelar</button>
+      <button class="btn btn-primary" onclick="savePaquete()">Guardar paquete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ MODAL ASIGNAR PAQUETE A CLÍNICA ════ -->
+<div class="modal-overlay" id="modal-asignar-paquete">
+  <div class="modal" style="width:min(480px,97vw)">
+    <div class="modal-header">
+      <span style="font-size:1.3rem">🔄</span>
+      <h2>Recargar cuotas</h2>
+      <button class="modal-close" onclick="closeModal('modal-asignar-paquete')">×</button>
+    </div>
+    <p style="font-size:.85rem;color:#6b7280;margin-bottom:12px">Selecciona un paquete para asignar a <strong id="asignar-clinica-nombre"></strong></p>
+    <div id="asignar-paquetes-list"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-asignar-paquete')">Cancelar</button>
+    </div>
+  </div>
+</div>
 
 <!-- ════ MODAL FIRMA / HUELLA DIGITAL ════ -->
 <div class="modal-overlay" id="modal-firma">
@@ -1401,15 +1674,802 @@
   </div>
 </div>
 
+<!-- ════ MODAL NUEVA/EDITAR CLÍNICA (ADMIN) ════ -->
+<div class="modal-overlay" id="modal-client" onclick="if(event.target===this)closeModal('modal-client')">
+  <div class="modal" style="width:min(560px,95vw)">
+    <div class="modal-header">
+      <span style="font-size:1.3rem">🏢</span>
+      <h2 id="client-modal-title">Nueva Clínica</h2>
+      <button class="modal-close" onclick="closeModal('modal-client')">×</button>
+    </div>
+    <input type="hidden" id="client-id">
+    <div class="two-col">
+      <div class="field-group">
+        <label>Nombre de la Clínica *</label>
+        <input type="text" id="client-nombre" placeholder="Clínica Ejemplo">
+      </div>
+      <div class="field-group">
+        <label>Teléfono</label>
+        <input type="tel" id="client-tel" placeholder="612345678">
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Email de acceso *</label>
+      <input type="email" id="client-email" placeholder="clinica@ejemplo.com">
+    </div>
+    <div style="background:#f4f6f9;border-radius:10px;padding:14px;margin-bottom:14px">
+      <p style="font-size:0.82rem;font-weight:700;color:#0a2342;margin-bottom:10px">📊 Cuotas de uso</p>
+      <div class="three-col">
+        <div class="field-group" style="margin-bottom:0">
+          <label>Consentimientos</label>
+          <input type="number" id="client-q-con" placeholder="100" min="0">
+        </div>
+        <div class="field-group" style="margin-bottom:0">
+          <label>Historias clínicas</label>
+          <input type="number" id="client-q-his" placeholder="200" min="0">
+        </div>
+        <div class="field-group" style="margin-bottom:0">
+          <label>Sesiones de fotos</label>
+          <input type="number" id="client-q-fot" placeholder="50" min="0">
+        </div>
+      </div>
+    </div>
+    <div style="background:#f4f6f9;border-radius:10px;padding:14px;margin-bottom:16px">
+      <p style="font-size:0.82rem;font-weight:700;color:#0a2342;margin-bottom:4px">🔓 Módulos habilitados</p>
+      <p style="font-size:0.75rem;color:#6b7280;margin-bottom:8px">Todos activados por defecto. Desactiva los que no necesite esta clínica.</p>
+      <div class="perm-grid">
+        <label class="perm-item"><input type="checkbox" id="perm-dashboard" checked> Dashboard</label>
+        <label class="perm-item"><input type="checkbox" id="perm-pacientes" checked> Pacientes</label>
+        <label class="perm-item"><input type="checkbox" id="perm-doctores" checked> Doctores</label>
+        <label class="perm-item"><input type="checkbox" id="perm-clinicas" checked> Clínicas</label>
+        <label class="perm-item"><input type="checkbox" id="perm-consentimientos" checked> Consentimientos</label>
+        <label class="perm-item"><input type="checkbox" id="perm-historias" checked> Historias Clínicas</label>
+        <label class="perm-item"><input type="checkbox" id="perm-fotos" checked> Fotos Paciente</label>
+        <label class="perm-item"><input type="checkbox" id="perm-configuracion" checked> Configuración</label>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-primary" onclick="saveClinicAccount()" style="flex:1">💾 Guardar</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-client')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// AUTH — ConsentsPro v1.0
+// Magic Link · WebAuthn · Sessions · bcrypt · TOTP
+// ════════════════════════════════════════════════
+
+// ── TOTP (RFC 6238) — native Web Crypto, no external library ──
+const TOTP = {
+  b32(s) {
+    const a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+    s = s.replace(/=/g, '').toUpperCase();
+    let bits = 0, val = 0; const out = [];
+    for (const c of s) { val = (val << 5) | a.indexOf(c); bits += 5; if (bits >= 8) { out.push((val >>> (bits - 8)) & 255); bits -= 8; } }
+    return new Uint8Array(out);
+  },
+  async gen(secret, off = 0) {
+    const key = await crypto.subtle.importKey('raw', this.b32(secret), { name: 'HMAC', hash: 'SHA-1' }, false, ['sign']);
+    const T = Math.floor((Date.now() / 1000 + off * 30) / 30);
+    const msg = new DataView(new ArrayBuffer(8)); msg.setUint32(4, T, false);
+    const sig = new Uint8Array(await crypto.subtle.sign('HMAC', key, msg.buffer));
+    const o = sig[19] & 0xf;
+    return (((sig[o] & 0x7f) << 24 | (sig[o + 1] & 0xff) << 16 | (sig[o + 2] & 0xff) << 8 | (sig[o + 3] & 0xff)) % 1000000).toString().padStart(6, '0');
+  },
+  async verify(secret, token) {
+    for (const o of [0, -1, 1]) if (await this.gen(secret, o) === token) return true;
+    return false;
+  },
+  secret() {
+    const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567', b = new Uint8Array(20);
+    crypto.getRandomValues(b);
+    return [...b].map(x => c[x % 32]).join('');
+  },
+};
+
+// ── Auth storage helpers ──
+const AS = {
+  admins:   () => JSON.parse(localStorage.getItem('mc_auth_admins') || '[]'),
+  setAdm:   v  => localStorage.setItem('mc_auth_admins', JSON.stringify(v)),
+  users:    () => JSON.parse(localStorage.getItem('mc_auth_users') || '[]'),
+  setUsr:   v  => localStorage.setItem('mc_auth_users', JSON.stringify(v)),
+  tokens:   () => JSON.parse(localStorage.getItem('mc_auth_tokens') || '[]'),
+  setTok:   v  => localStorage.setItem('mc_auth_tokens', JSON.stringify(v)),
+  wn:       () => JSON.parse(localStorage.getItem('mc_auth_wn') || '[]'),
+  setWN:    v  => localStorage.setItem('mc_auth_wn', JSON.stringify(v)),
+  ds:       () => JSON.parse(localStorage.getItem('mc_auth_ds') || '[]'),
+  setDS:    v  => localStorage.setItem('mc_auth_ds', JSON.stringify(v)),
+  accounts: () => JSON.parse(localStorage.getItem('mc_clinic_accounts') || '[]'),
+  setAcc:   v  => localStorage.setItem('mc_clinic_accounts', JSON.stringify(v)),
+  sess:     () => { try { return JSON.parse(sessionStorage.getItem('mc_sess')); } catch (e) { return null; } },
+  setSess:  v  => sessionStorage.setItem('mc_sess', JSON.stringify(v)),
+  clrSess:  () => sessionStorage.removeItem('mc_sess'),
+  devId:    () => { let id = localStorage.getItem('mc_dev_id'); if (!id) { id = crypto.randomUUID(); localStorage.setItem('mc_dev_id', id); } return id; },
+  rl:       k  => JSON.parse(localStorage.getItem('mc_rl_' + k) || '{"att":[],"blk":0}'),
+  setRL:    (k, v) => localStorage.setItem('mc_rl_' + k, JSON.stringify(v)),
+  log:      v  => { const l = JSON.parse(localStorage.getItem('mc_auth_log') || '[]'); l.push(v); if (l.length > 5000) l.splice(0, l.length - 5000); localStorage.setItem('mc_auth_log', JSON.stringify(l)); },
+};
+
+async function sha256x(txt) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function rlCheck(k, max, win) {
+  const r = AS.rl(k), now = Date.now();
+  if (r.blk > now) return { ok: false, wait: Math.ceil((r.blk - now) / 60000) };
+  r.att = r.att.filter(t => t > now - win);
+  if (r.att.length >= max) { r.blk = now + win; AS.setRL(k, r); return { ok: false, wait: Math.ceil(win / 60000) }; }
+  return { ok: true };
+}
+function rlRecord(k) { const r = AS.rl(k); r.att.push(Date.now()); AS.setRL(k, r); }
+
+// ── Auth module ──
+const AUTH = {
+  getSession() {
+    const s = AS.sess(); if (!s) return null;
+    const now = Date.now();
+    if (now > s.ref_exp) { AS.clrSess(); return null; }
+    if (now > s.acc_exp) { s.acc_exp = now + (s.role === 'superadmin' ? 4 * 3600000 : 15 * 60000); AS.setSess(s); }
+    return s;
+  },
+  async createSession(userId, role, clinicId, days) {
+    const now = Date.now();
+    const s = { sub: userId, role, clinic_id: clinicId, iat: now, acc_exp: now + (role === 'superadmin' ? 4 * 3600000 : 15 * 60000), ref_exp: now + (days > 0 ? days * 86400000 : 30 * 86400000) };
+    AS.setSess(s);
+    if (days > 0) {
+      const dt = crypto.randomUUID(), h = await sha256x(dt);
+      const ds = AS.ds();
+      ds.push({ id: 'ds_' + Date.now(), user_id: userId, clinic_id: clinicId, role, hash: h, exp: s.ref_exp, ua: navigator.userAgent.slice(0, 150), created: new Date().toISOString() });
+      AS.setDS(ds);
+      localStorage.setItem('mc_dt', dt);
+      localStorage.setItem('mc_du', userId);
+    }
+    return s;
+  },
+  async checkDeviceSession() {
+    const dt = localStorage.getItem('mc_dt'), du = localStorage.getItem('mc_du');
+    if (!dt || !du) return null;
+    const h = await sha256x(dt);
+    const found = AS.ds().find(d => d.hash === h && d.user_id === du && d.exp > Date.now());
+    if (found) { await this.createSession(found.user_id, found.role, found.clinic_id, 0); return found; }
+    localStorage.removeItem('mc_dt'); localStorage.removeItem('mc_du');
+    return null;
+  },
+  logout() {
+    const dt = localStorage.getItem('mc_dt');
+    if (dt) sha256x(dt).then(h => AS.setDS(AS.ds().filter(d => d.hash !== h)));
+    localStorage.removeItem('mc_dt'); localStorage.removeItem('mc_du');
+    AS.clrSess();
+  },
+
+  async seed() {
+    if (AS.admins().length) return null;
+    const hash = await bcrypt.hash('consentspro2026€admin@', 12);
+    const totpSec = TOTP.secret();
+    const codes = [], hashes = [];
+    for (let i = 0; i < 10; i++) {
+      const C = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', b = new Uint8Array(12);
+      crypto.getRandomValues(b);
+      const raw = [...b].map(x => C[x % 36]).join('');
+      const code = `${raw.slice(0, 4)}-${raw.slice(4, 8)}-${raw.slice(8, 12)}`;
+      codes.push(code); hashes.push(await sha256x(code));
+    }
+    AS.setAdm([{ id: 'adm_1', username: 'AdminMaster', password_hash: hash, totp_secret: totpSec, totp_enabled: false, recovery_codes: hashes, last_login: null, created_at: new Date().toISOString() }]);
+    console.log('%c⚠ CONSENTSPRO ADMIN SEEDING', 'color:#c9a227;font-size:14px;font-weight:bold');
+    console.log('Usuario: AdminMaster | Contraseña: consentspro2026€admin@');
+    console.log('Códigos de recuperación (GUARDAR AHORA — solo se muestran una vez):');
+    codes.forEach((c, i) => console.log(`  ${i + 1}. ${c}`));
+    return codes;
+  },
+
+  async sendCode(email) {
+    const key = await sha256x('ml' + email.toLowerCase());
+    const rl = rlCheck(key, 3, 10 * 60000); if (!rl.ok) return { ok: false, err: `Demasiados intentos. Espera ${rl.wait} min.` };
+    rlRecord(key);
+    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    const hash = await sha256x(code);
+    const tokens = AS.tokens().filter(t => t.email !== email.toLowerCase());
+    tokens.push({ email: email.toLowerCase(), hash, exp: Date.now() + 15 * 60000, used: false, created: new Date().toISOString() });
+    AS.setTok(tokens);
+    AS.log({ ts: new Date().toISOString(), action: 'MAGIC_REQUEST', uid: email, ok: true });
+    return { ok: true, code };
+  },
+  async verifyCode(email, code) {
+    const hash = await sha256x(code);
+    const tokens = AS.tokens();
+    const tok = tokens.find(t => t.email === email.toLowerCase() && t.hash === hash && !t.used && t.exp > Date.now());
+    if (!tok) { AS.log({ ts: new Date().toISOString(), action: 'MAGIC_VERIFY', uid: email, ok: false }); return { ok: false, err: 'Código inválido o expirado.' }; }
+    tok.used = true; AS.setTok(tokens);
+    let users = AS.users();
+    let user = users.find(u => u.email === email.toLowerCase());
+    if (!user) {
+      const acct = AS.accounts().find(a => a.email.toLowerCase() === email.toLowerCase());
+      if (!acct) return { ok: false, err: 'No hay ninguna clínica registrada con este email. Contacta al administrador.' };
+      user = { id: 'u_' + Date.now(), email: email.toLowerCase(), clinic_id: acct.id, role: 'clinic', is_active: true, created: new Date().toISOString() };
+      users.push(user); AS.setUsr(users);
+    }
+    AS.log({ ts: new Date().toISOString(), action: 'MAGIC_VERIFY', uid: user.id, ok: true });
+    return { ok: true, userId: user.id, clinicId: user.clinic_id };
+  },
+
+  async adminLogin(username, password) {
+    const key = 'adm_' + username.toLowerCase();
+    const rl = rlCheck(key, 5, 15 * 60000); if (!rl.ok) return { ok: false, err: `Bloqueado. Espera ${rl.wait} min.` };
+    const adm = AS.admins().find(a => a.username.toLowerCase() === username.toLowerCase());
+    if (!adm || !(await bcrypt.compare(password, adm.password_hash))) {
+      rlRecord(key);
+      AS.log({ ts: new Date().toISOString(), action: 'ADMIN_LOGIN', uid: username, ok: false });
+      return { ok: false, err: 'Credenciales incorrectas.' };
+    }
+    AS.log({ ts: new Date().toISOString(), action: 'ADMIN_LOGIN', uid: adm.id, ok: true });
+    return { ok: true, admin: adm, needTOTP: adm.totp_enabled };
+  },
+  async adminVerifyTOTP(adminId, token) {
+    const adm = AS.admins().find(a => a.id === adminId);
+    if (!adm) return { ok: false, err: 'Error.' };
+    const ok = await TOTP.verify(adm.totp_secret, token);
+    AS.log({ ts: new Date().toISOString(), action: 'ADMIN_TOTP', uid: adminId, ok });
+    return ok ? { ok: true } : { ok: false, err: 'Código TOTP incorrecto.' };
+  },
+  async adminVerifyRecovery(adminId, code) {
+    const admins = AS.admins(), adm = admins.find(a => a.id === adminId);
+    if (!adm) return { ok: false, err: 'Error.' };
+    const h = await sha256x(code.replace(/-/g, '').toUpperCase());
+    const idx = adm.recovery_codes.indexOf(h);
+    if (idx < 0) { AS.log({ ts: new Date().toISOString(), action: 'ADMIN_RECOVERY', uid: adminId, ok: false }); return { ok: false, err: 'Código de recuperación inválido.' }; }
+    adm.recovery_codes.splice(idx, 1); AS.setAdm(admins);
+    AS.log({ ts: new Date().toISOString(), action: 'ADMIN_RECOVERY', uid: adminId, ok: true });
+    return { ok: true };
+  },
+  adminUpdateLastLogin(id) { const a = AS.admins(), adm = a.find(x => x.id === id); if (adm) { adm.last_login = new Date().toISOString(); AS.setAdm(a); } },
+
+  isWN: () => !!(window.PublicKeyCredential && navigator.credentials),
+  hasCredential(userId) { return AS.wn().some(c => c.user_id === userId && c.dev_id === AS.devId()); },
+  getCredForDevice() { return AS.wn().find(c => c.dev_id === AS.devId()); },
+  async wnRegister(userId, role) {
+    if (!this.isWN()) return false;
+    if (AS.wn().filter(c => c.user_id === userId).length >= 3) return false;
+    try {
+      const ch = new Uint8Array(32); crypto.getRandomValues(ch);
+      const cred = await navigator.credentials.create({ publicKey: { challenge: ch, rp: { name: 'ConsentsPro', id: location.hostname || 'localhost' }, user: { id: new TextEncoder().encode(userId), name: userId, displayName: role === 'superadmin' ? 'Admin' : 'Clínica' }, pubKeyCredParams: [{ alg: -7, type: 'public-key' }, { alg: -257, type: 'public-key' }], authenticatorSelection: { authenticatorAttachment: 'platform', userVerification: 'required' }, timeout: 60000, attestation: 'none' } });
+      if (cred) { const wn = AS.wn(); wn.push({ id: 'wn_' + Date.now(), user_id: userId, role, cred_id: btoa(String.fromCharCode(...new Uint8Array(cred.rawId))), dev_id: AS.devId(), created: new Date().toISOString() }); AS.setWN(wn); return true; }
+    } catch (e) { console.warn('WebAuthn register:', e.message); }
+    return false;
+  },
+  async wnAuth(userId) {
+    if (!this.isWN()) return false;
+    const creds = AS.wn().filter(c => c.user_id === userId && c.dev_id === AS.devId());
+    if (!creds.length) return false;
+    try {
+      const ch = new Uint8Array(32); crypto.getRandomValues(ch);
+      const a = await navigator.credentials.get({ publicKey: { challenge: ch, allowCredentials: creds.map(c => ({ id: Uint8Array.from(atob(c.cred_id), x => x.charCodeAt(0)), type: 'public-key' })), userVerification: 'required', timeout: 60000, rpId: location.hostname || 'localhost' } });
+      return !!a;
+    } catch (e) { console.warn('WebAuthn auth:', e.message); }
+    return false;
+  },
+
+  getAccounts: () => AS.accounts(),
+  setAccounts: v => AS.setAcc(v),
+  getAccount:  id => AS.accounts().find(a => a.id === id),
+
+  canUse(clinicId, key) { const a = AS.accounts().find(a => a.id === clinicId); if (!a || !a.quotas) return true; return (a.quotas[key] ?? 0) > 0; },
+  decrementQuota(clinicId, key) { const acc = AS.accounts(), a = acc.find(x => x.id === clinicId); if (a && a.quotas && a.quotas[key] > 0) { a.quotas[key]--; AS.setAcc(acc); } },
+};
+
+// ── Auth UI ──
+let _pendingEmail = '', _pendingUserId = '', _pendingAdminId = '', _bioUserId = '', _bioRole = '';
+let _clinicId = ''; // Global clinic namespace — set after login
+
+function showAuthOverlay() {
+  document.getElementById('auth-overlay').classList.remove('hidden');
+  const l = document.querySelector('.layout'), h = document.querySelector('header');
+  if (l) l.style.display = 'none'; if (h) h.style.display = 'none';
+}
+function hideAuthOverlay() {
+  document.getElementById('auth-overlay').classList.add('hidden');
+  const l = document.querySelector('.layout'), h = document.querySelector('header');
+  if (l) l.style.display = ''; if (h) h.style.display = '';
+}
+function showAuthErr(msg) {
+  const el = document.getElementById('auth-err');
+  el.textContent = msg; el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 6000);
+}
+function toast(msg, type = 'ok') {
+  const el = document.createElement('div');
+  el.className = `cpro-toast ${type}`; el.textContent = msg;
+  document.body.appendChild(el); setTimeout(() => el.remove(), 3500);
+}
+function authSwitchMode(mode) {
+  document.getElementById('atp-clinic').classList.toggle('active', mode === 'clinic');
+  document.getElementById('atp-admin').classList.toggle('active', mode === 'admin');
+  document.getElementById('auth-clinic').style.display = mode === 'clinic' ? '' : 'none';
+  document.getElementById('auth-admin').style.display = mode === 'admin' ? '' : 'none';
+  document.getElementById('auth-err').style.display = 'none';
+  if (mode === 'admin') checkAdminBio();
+}
+function authSetStep(panelId, stepId) {
+  document.getElementById(panelId).querySelectorAll('.auth-stepx').forEach(s => s.classList.remove('active'));
+  document.getElementById(stepId).classList.add('active');
+}
+
+// ── Clinic login ──
+async function checkClinicBio() {
+  if (!AUTH.isWN()) return;
+  const c = AUTH.getCredForDevice();
+  if (c && c.role === 'clinic') document.getElementById('cls-bio-available').style.display = 'block';
+}
+async function clinicBioLogin() {
+  const c = AUTH.getCredForDevice(); if (!c) return;
+  const ok = await AUTH.wnAuth(c.user_id);
+  if (!ok) { showAuthErr('Error biométrico. Usa tu email.'); return; }
+  const u = AS.users().find(x => x.id === c.user_id);
+  if (u) { await AUTH.createSession(u.id, 'clinic', u.clinic_id, 30); await onAuthSuccess('clinic', u.clinic_id); }
+}
+async function sendMagicCode() {
+  const email = document.getElementById('auth-email').value.trim();
+  if (!email.includes('@')) { showAuthErr('Introduce un email válido.'); return; }
+  const result = await AUTH.sendCode(email);
+  if (!result.ok) { showAuthErr(result.err); return; }
+  _pendingEmail = email;
+  document.getElementById('auth-email-shown').textContent = email;
+  document.getElementById('demo-code-box').style.display = 'block';
+  document.getElementById('demo-code').textContent = result.code;
+  authSetStep('auth-clinic', 'cls-code');
+  setupAuthCodeBoxes();
+}
+function setupAuthCodeBoxes() {
+  const boxes = [...document.querySelectorAll('#code-boxes .auth-code-box')];
+  boxes.forEach((b, i) => {
+    b.value = '';
+    b.oninput = () => { b.value = b.value.replace(/\D/g, '').slice(0, 1); if (b.value && i < boxes.length - 1) boxes[i + 1].focus(); if (i === boxes.length - 1 && b.value) verifyMagicCode(); };
+    b.onkeydown = e => { if (e.key === 'Backspace' && !b.value && i > 0) boxes[i - 1].focus(); };
+  });
+  boxes[0].focus();
+}
+function authBackToEmail() { authSetStep('auth-clinic', 'cls-bio'); }
+async function verifyMagicCode() {
+  const code = [...document.querySelectorAll('#code-boxes .auth-code-box')].map(b => b.value).join('');
+  if (code.length !== 6) { showAuthErr('Introduce los 6 dígitos.'); return; }
+  const result = await AUTH.verifyCode(_pendingEmail, code);
+  if (!result.ok) { showAuthErr(result.err); return; }
+  _pendingUserId = result.userId;
+  document.getElementById('auth-clinic').dataset.cid = result.clinicId;
+  authSetStep('auth-clinic', 'cls-sess');
+}
+async function pickSession(days) {
+  const clinicId = document.getElementById('auth-clinic').dataset.cid;
+  await AUTH.createSession(_pendingUserId, 'clinic', clinicId, days);
+  if (AUTH.isWN() && !AUTH.hasCredential(_pendingUserId)) {
+    _bioUserId = _pendingUserId; _bioRole = 'clinic';
+    document.getElementById('bio-modal').classList.add('show');
+  } else { await onAuthSuccess('clinic', clinicId); }
+}
+
+// ── Admin login ──
+async function checkAdminBio() {
+  if (!AUTH.isWN()) return;
+  const c = AUTH.getCredForDevice();
+  if (c && c.role === 'superadmin') document.getElementById('adm-bio-available').style.display = 'block';
+}
+async function adminBioLogin() {
+  const c = AUTH.getCredForDevice(); if (!c) return;
+  const ok = await AUTH.wnAuth(c.user_id);
+  if (!ok) { showAuthErr('Error biométrico. Usa contraseña.'); return; }
+  await AUTH.createSession(c.user_id, 'superadmin', null, 0);
+  await onAuthSuccess('superadmin', null);
+}
+async function adminLogin() {
+  const u = document.getElementById('adm-user').value.trim();
+  const p = document.getElementById('adm-pass').value;
+  if (!u || !p) { showAuthErr('Introduce usuario y contraseña.'); return; }
+  const result = await AUTH.adminLogin(u, p);
+  if (!result.ok) { showAuthErr(result.err); return; }
+  _pendingAdminId = result.admin.id;
+  if (result.needTOTP) authSetStep('auth-admin', 'adm-totp');
+  else await completeAdminLogin(result.admin);
+}
+async function adminVerifyTOTP() {
+  const tok = document.getElementById('adm-totp-inp').value.trim();
+  const result = await AUTH.adminVerifyTOTP(_pendingAdminId, tok);
+  if (!result.ok) { showAuthErr(result.err); return; }
+  await completeAdminLogin(AS.admins().find(a => a.id === _pendingAdminId));
+}
+async function adminVerifyRecovery() {
+  const code = document.getElementById('adm-rec-inp').value.trim().toUpperCase();
+  const result = await AUTH.adminVerifyRecovery(_pendingAdminId, code);
+  if (!result.ok) { showAuthErr(result.err); return; }
+  await completeAdminLogin(AS.admins().find(a => a.id === _pendingAdminId));
+}
+function authBackToAdmPwd() { authSetStep('auth-admin', 'adm-pwd'); }
+function authBackToTOTP()   { authSetStep('auth-admin', 'adm-totp'); }
+function showRecoveryInput(){ authSetStep('auth-admin', 'adm-rec'); }
+async function completeAdminLogin(admin) {
+  AUTH.adminUpdateLastLogin(admin.id);
+  await AUTH.createSession(admin.id, 'superadmin', null, 0);
+  if (AUTH.isWN() && !AUTH.hasCredential(admin.id)) {
+    _bioUserId = admin.id; _bioRole = 'superadmin';
+    document.getElementById('bio-modal').classList.add('show');
+  } else await onAuthSuccess('superadmin', null);
+}
+
+// ── Biometric modal ──
+async function doBioRegister() {
+  document.getElementById('bio-modal').classList.remove('show');
+  const ok = await AUTH.wnRegister(_bioUserId, _bioRole);
+  if (ok) toast('✓ Biometría activada correctamente');
+  const sess = AUTH.getSession();
+  await onAuthSuccess(_bioRole, sess ? sess.clinic_id : null);
+}
+async function skipBio() {
+  document.getElementById('bio-modal').classList.remove('show');
+  const sess = AUTH.getSession();
+  await onAuthSuccess(_bioRole, sess ? sess.clinic_id : null);
+}
+
+// ── Recovery codes modal ──
+function showRecCodes(codes) {
+  document.getElementById('rec-codes-list').innerHTML = codes.map(c => `<div class="rec-code">${c}</div>`).join('');
+  document.getElementById('rec-modal').classList.add('show');
+}
+function closeRecModal() { document.getElementById('rec-modal').classList.remove('show'); }
+
+// ── Auth success handler ──
+async function onAuthSuccess(role, clinicId) {
+  hideAuthOverlay();
+  _clinicId = clinicId || '';
+
+  // Add logout button to header
+  const hr = document.querySelector('.header-right');
+  if (hr && !document.getElementById('logout-btn')) {
+    const btn = document.createElement('button');
+    btn.id = 'logout-btn'; btn.textContent = 'Cerrar sesión';
+    btn.onclick = () => { if (confirm('¿Cerrar sesión?')) { AUTH.logout(); location.reload(); } };
+    hr.appendChild(btn);
+  }
+
+  if (role === 'superadmin') {
+    // Admin: show only admin nav
+    document.querySelectorAll('.sidebar-section').forEach(el => el.style.display = 'none');
+    const sf = document.querySelector('.sidebar-footer'); if (sf) sf.style.display = 'none';
+    document.querySelectorAll('.nav-admin-only').forEach(el => el.style.display = '');
+    showTab('clientes');
+    renderClinicAccounts();
+  } else {
+    // Clinic user: apply module permissions
+    document.querySelectorAll('.nav-admin-only').forEach(el => el.style.display = 'none');
+    const acct = AUTH.getAccount(clinicId);
+    if (acct && acct.permissions) {
+      Object.entries(acct.permissions).forEach(([mod, enabled]) => {
+        const nav = document.getElementById('nav-' + mod);
+        if (nav) nav.style.display = enabled ? '' : 'none';
+      });
+    }
+    initMainApp();
+    showTab('dashboard');
+    setTimeout(() => { if (typeof renderQuotaWidget === 'function') renderQuotaWidget(); }, 100);
+  }
+
+  // Session refresh watchdog
+  setInterval(() => { if (!AUTH.getSession()) { AUTH.logout(); location.reload(); } }, 60000);
+}
+
+// ── Quota check helper ──
+function checkAndDecrementQuota(key) {
+  const sess = AUTH.getSession();
+  if (!sess || !sess.clinic_id) return true;
+  if (!AUTH.canUse(sess.clinic_id, key)) {
+    const names = { consentimientos: 'consentimientos informativos', historias: 'historias clínicas', fotos: 'sesiones de fotos' };
+    toast(`⚠ Límite de ${names[key] || key} agotado. Contacta con ConsentsPro para recargar.`, 'err');
+    return false;
+  }
+  AUTH.decrementQuota(sess.clinic_id, key);
+  return true;
+}
+
+// ── Auth init (called on page load) ──
+async function authInit() {
+  const codes = await AUTH.seed();
+  if (codes) showRecCodes(codes);
+  const sess = AUTH.getSession();
+  if (sess) { await onAuthSuccess(sess.role, sess.clinic_id); return; }
+  const dev = await AUTH.checkDeviceSession();
+  if (dev) { await onAuthSuccess(dev.role, dev.clinic_id); return; }
+  showAuthOverlay();
+  checkClinicBio();
+}
+
+// ════════════════════════════════════════════════
+// CLINIC ACCOUNT MANAGEMENT (Admin only)
+// ════════════════════════════════════════════════
+let _editClinicId = null;
+const PERM_MODS = ['dashboard', 'pacientes', 'doctores', 'clinicas', 'consentimientos', 'historias', 'fotos', 'configuracion'];
+
+function renderClinicAccounts() {
+  const accounts = AUTH.getAccounts();
+  const cont = document.getElementById('clientes-list');
+  if (!accounts.length) {
+    cont.innerHTML = '<div style="text-align:center;padding:48px;color:#9ca3af;font-size:0.9rem">No hay clínicas registradas.<br>Crea la primera con el botón superior.</div>';
+    return;
+  }
+  cont.innerHTML = accounts.map(a => {
+    const qc = a.quotas?.consentimientos ?? 0;
+    const qh = a.quotas?.historias ?? 0;
+    const qf = a.quotas?.fotos ?? 0;
+    const pct = (v, max) => Math.min(100, Math.round(v / max * 100));
+    const permStr = PERM_MODS.filter(m => a.permissions?.[m] !== false).map(m => ({ dashboard: 'Dashboard', pacientes: 'Pacientes', doctores: 'Doctores', clinicas: 'Clínicas', consentimientos: 'Consents', historias: 'Historias', fotos: 'Fotos', configuracion: 'Config' }[m])).join(', ');
+    return `<div class="card" style="margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+        <div style="width:44px;height:44px;border-radius:12px;background:#e8f0fe;color:#1a4a7a;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;flex-shrink:0">${a.name.charAt(0).toUpperCase()}</div>
+        <div style="flex:1;min-width:180px">
+          <div style="font-weight:700;font-size:0.95rem;color:#0a2342">${a.name}</div>
+          <div style="font-size:0.78rem;color:#6b7280;margin-top:2px">${a.email}${a.phone ? ' · ' + a.phone : ''}</div>
+          <div style="font-size:0.72rem;color:#9ca3af;margin-top:2px">Módulos: ${permStr}</div>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <div style="min-width:110px">
+            <div style="font-size:0.72rem;color:#6b7280">Consentimientos</div>
+            <div style="font-weight:700;font-size:1rem;color:${qc <= 5 ? '#dc2626' : qc <= 20 ? '#d97706' : '#059669'}">${qc} restantes</div>
+            <div class="quota-bar"><div class="quota-fill ${qc <= 5 ? 'crit' : qc <= 20 ? 'warn' : ''}" style="width:${pct(qc, 200)}%"></div></div>
+          </div>
+          <div style="min-width:100px">
+            <div style="font-size:0.72rem;color:#6b7280">Historias</div>
+            <div style="font-weight:700;font-size:1rem;color:${qh <= 5 ? '#dc2626' : qh <= 20 ? '#d97706' : '#059669'}">${qh} restantes</div>
+            <div class="quota-bar"><div class="quota-fill ${qh <= 5 ? 'crit' : qh <= 20 ? 'warn' : ''}" style="width:${pct(qh, 200)}%"></div></div>
+          </div>
+          <div style="min-width:90px">
+            <div style="font-size:0.72rem;color:#6b7280">Fotos</div>
+            <div style="font-weight:700;font-size:1rem;color:${qf <= 5 ? '#dc2626' : qf <= 20 ? '#d97706' : '#059669'}">${qf} restantes</div>
+            <div class="quota-bar"><div class="quota-fill ${qf <= 5 ? 'crit' : qf <= 20 ? 'warn' : ''}" style="width:${pct(qf, 50)}%"></div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-shrink:0;flex-direction:column">
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-outline btn-sm" onclick="openClinicModal('${a.id}')">✏️ Editar</button>
+            <button class="btn btn-red btn-sm" onclick="deleteClinicAccount('${a.id}')">🗑 Eliminar</button>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="openAsignarPaquete('${a.id}')">🔄 Recargar cuotas</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openClinicModal(id) {
+  _editClinicId = id || null;
+  document.getElementById('client-modal-title').textContent = id ? 'Editar Clínica' : 'Nueva Clínica';
+  if (id) {
+    const a = AUTH.getAccount(id);
+    if (a) {
+      document.getElementById('client-id').value = a.id;
+      document.getElementById('client-nombre').value = a.name;
+      document.getElementById('client-email').value = a.email;
+      document.getElementById('client-tel').value = a.phone || '';
+      document.getElementById('client-q-con').value = a.quotas?.consentimientos ?? 100;
+      document.getElementById('client-q-his').value = a.quotas?.historias ?? 200;
+      document.getElementById('client-q-fot').value = a.quotas?.fotos ?? 50;
+      PERM_MODS.forEach(m => { const el = document.getElementById('perm-' + m); if (el) el.checked = a.permissions?.[m] !== false; });
+    }
+  } else {
+    ['client-id', 'client-nombre', 'client-email', 'client-tel'].forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('client-q-con').value = 100;
+    document.getElementById('client-q-his').value = 200;
+    document.getElementById('client-q-fot').value = 50;
+    PERM_MODS.forEach(m => { const el = document.getElementById('perm-' + m); if (el) el.checked = true; });
+  }
+  document.getElementById('modal-client').classList.add('open');
+}
+
+function saveClinicAccount() {
+  const nombre = document.getElementById('client-nombre').value.trim();
+  const email  = document.getElementById('client-email').value.trim().toLowerCase();
+  const tel    = document.getElementById('client-tel').value.trim();
+  const qCon   = parseInt(document.getElementById('client-q-con').value) || 0;
+  const qHis   = parseInt(document.getElementById('client-q-his').value) || 0;
+  const qFot   = parseInt(document.getElementById('client-q-fot').value) || 0;
+  if (!nombre) { alert('El nombre de la clínica es obligatorio.'); return; }
+  if (!email || !email.includes('@')) { alert('Introduce un email válido.'); return; }
+  const permissions = {};
+  PERM_MODS.forEach(m => { const el = document.getElementById('perm-' + m); permissions[m] = el ? el.checked : true; });
+  const accounts = AUTH.getAccounts();
+  if (_editClinicId) {
+    const idx = accounts.findIndex(a => a.id === _editClinicId);
+    if (idx >= 0) accounts[idx] = { ...accounts[idx], name: nombre, email, phone: tel, quotas: { consentimientos: qCon, historias: qHis, fotos: qFot }, permissions, updated: new Date().toISOString() };
+  } else {
+    if (accounts.some(a => a.email === email)) { alert('Ya existe una clínica con ese email.'); return; }
+    accounts.push({ id: 'ac_' + Date.now(), name: nombre, email, phone: tel, quotas: { consentimientos: qCon, historias: qHis, fotos: qFot }, permissions, is_active: true, created: new Date().toISOString() });
+  }
+  AUTH.setAccounts(accounts);
+  closeModal('modal-client');
+  renderClinicAccounts();
+  toast(_editClinicId ? '✓ Clínica actualizada' : '✓ Clínica creada');
+}
+
+function deleteClinicAccount(id) {
+  if (!confirm('¿Eliminar esta clínica? Perderá el acceso al sistema.')) return;
+  AUTH.setAccounts(AUTH.getAccounts().filter(a => a.id !== id));
+  renderClinicAccounts();
+  toast('Clínica eliminada', 'err');
+}
+
+// ── PAQUETES ─────────────────────────────────────────────────────
+function getPaquetes() {
+  try { return JSON.parse(localStorage.getItem('mc_paquetes')) || []; } catch(e) { return []; }
+}
+function setPaquetes(v) {
+  localStorage.setItem('mc_paquetes', JSON.stringify(v));
+}
+
+let _editPaqueteId = null;
+
+function renderPaquetes() {
+  const list = getPaquetes();
+  const el = document.getElementById('paquetes-list');
+  if (!el) return;
+  if (!list.length) {
+    el.innerHTML = '<div style="text-align:center;padding:60px;color:#9ca3af">No hay paquetes configurados. Crea el primero.</div>';
+    return;
+  }
+  el.innerHTML = list.map(p => `
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:12px;display:flex;align-items:center;gap:16px">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:1rem;color:#1e293b">${p.nombre}</div>
+        ${p.descripcion ? `<div style="font-size:.8rem;color:#6b7280;margin-top:2px">${p.descripcion}</div>` : ''}
+        <div style="margin-top:8px;display:flex;gap:16px;font-size:.83rem;color:#374151">
+          <span>📄 ${p.consentimientos} consentimientos</span>
+          <span>🏥 ${p.historias} historias</span>
+          <span>📷 ${p.fotos} fotos</span>
+        </div>
+      </div>
+      <div style="font-size:1.3rem;font-weight:700;color:#059669;min-width:70px;text-align:right">${Number(p.precio).toFixed(2)} €</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-outline btn-sm" onclick="openPaqueteModal('${p.id}')">✏️ Editar</button>
+        <button class="btn btn-red btn-sm" onclick="deletePaquete('${p.id}')">🗑</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openPaqueteModal(id) {
+  _editPaqueteId = id || null;
+  const title = document.getElementById('modal-paquete-title');
+  if (id) {
+    const p = getPaquetes().find(x => x.id === id);
+    if (!p) return;
+    title.textContent = 'Editar Paquete';
+    document.getElementById('paq-nombre').value = p.nombre;
+    document.getElementById('paq-consentimientos').value = p.consentimientos;
+    document.getElementById('paq-historias').value = p.historias;
+    document.getElementById('paq-fotos').value = p.fotos;
+    document.getElementById('paq-precio').value = p.precio;
+    document.getElementById('paq-desc').value = p.descripcion || '';
+  } else {
+    title.textContent = 'Nuevo Paquete';
+    ['paq-nombre','paq-desc'].forEach(id => document.getElementById(id).value = '');
+    ['paq-consentimientos','paq-historias','paq-fotos','paq-precio'].forEach(id => document.getElementById(id).value = 0);
+  }
+  document.getElementById('modal-paquete').classList.add('open');
+}
+
+function savePaquete() {
+  const nombre = document.getElementById('paq-nombre').value.trim();
+  if (!nombre) { alert('El nombre es obligatorio'); return; }
+  const paquete = {
+    nombre,
+    consentimientos: parseInt(document.getElementById('paq-consentimientos').value) || 0,
+    historias:       parseInt(document.getElementById('paq-historias').value) || 0,
+    fotos:           parseInt(document.getElementById('paq-fotos').value) || 0,
+    precio:          parseFloat(document.getElementById('paq-precio').value) || 0,
+    descripcion:     document.getElementById('paq-desc').value.trim(),
+  };
+  const list = getPaquetes();
+  if (_editPaqueteId) {
+    const idx = list.findIndex(p => p.id === _editPaqueteId);
+    if (idx >= 0) list[idx] = { ...list[idx], ...paquete };
+  } else {
+    list.push({ ...paquete, id: Date.now().toString(36) + Math.random().toString(36).slice(2,5) });
+  }
+  setPaquetes(list);
+  closeModal('modal-paquete');
+  renderPaquetes();
+  toast('Paquete guardado', 'ok');
+}
+
+function deletePaquete(id) {
+  if (!confirm('¿Eliminar este paquete?')) return;
+  setPaquetes(getPaquetes().filter(p => p.id !== id));
+  renderPaquetes();
+  toast('Paquete eliminado', 'err');
+}
+
+function openAsignarPaquete(clinicId) {
+  const acc = AUTH.getAccount(clinicId);
+  if (!acc) return;
+  document.getElementById('asignar-clinica-nombre').textContent = acc.nombre;
+  const paquetes = getPaquetes();
+  const el = document.getElementById('asignar-paquetes-list');
+  if (!paquetes.length) {
+    el.innerHTML = '<p style="color:#6b7280;text-align:center;padding:20px">No hay paquetes configurados. Ve a <strong>Paquetes</strong> para crear uno.</p>';
+  } else {
+    el.innerHTML = paquetes.map(p => `
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;margin-bottom:8px;display:flex;align-items:center;gap:12px">
+        <div style="flex:1">
+          <div style="font-weight:600">${p.nombre}</div>
+          <div style="font-size:.8rem;color:#6b7280">📄 ${p.consentimientos} · 🏥 ${p.historias} · 📷 ${p.fotos}</div>
+        </div>
+        <div style="font-weight:700;color:#059669">${Number(p.precio).toFixed(2)} €</div>
+        <button class="btn btn-primary btn-sm" onclick="aplicarPaquete('${clinicId}','${p.id}')">Asignar</button>
+      </div>
+    `).join('');
+  }
+  document.getElementById('modal-asignar-paquete').classList.add('open');
+}
+
+function aplicarPaquete(clinicId, paqueteId) {
+  const p = getPaquetes().find(x => x.id === paqueteId);
+  if (!p) return;
+  const accounts = AUTH.getAccounts();
+  const idx = accounts.findIndex(a => a.id === clinicId);
+  if (idx < 0) return;
+  accounts[idx].quotas = accounts[idx].quotas || {};
+  accounts[idx].quotas.consentimientos = (accounts[idx].quotas.consentimientos || 0) + p.consentimientos;
+  accounts[idx].quotas.historias = (accounts[idx].quotas.historias || 0) + p.historias;
+  accounts[idx].quotas.fotos = (accounts[idx].quotas.fotos || 0) + p.fotos;
+  AUTH.setAccounts(accounts);
+  closeModal('modal-asignar-paquete');
+  renderClinicAccounts();
+  toast(`Paquete "${p.nombre}" asignado a ${accounts[idx].nombre}`, 'ok');
+}
+
+// ── QUOTA WIDGET (visible en vista clínica) ───────────────────────
+function renderQuotaWidget() {
+  const widget = document.getElementById('quota-widget');
+  const body   = document.getElementById('quota-widget-body');
+  if (!widget || !body) return;
+  if (!_clinicId) { widget.style.display = 'none'; return; }
+  const acc = AUTH.getAccount(_clinicId);
+  if (!acc) { widget.style.display = 'none'; return; }
+  const q = acc.quotas || {};
+  const items = [
+    { key: 'consentimientos', label: 'Consentimientos', icon: '📄' },
+    { key: 'historias',       label: 'Historias',       icon: '🏥' },
+    { key: 'fotos',           label: 'Fotos',           icon: '📷' },
+  ];
+  let html = '';
+  let hasWarning = false;
+  items.forEach(({ key, label, icon }) => {
+    const val = q[key] ?? 0;
+    const warn = val < 10;
+    if (warn) hasWarning = true;
+    html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+      <span>${icon}</span>
+      <span style="flex:1;color:#374151">${label}</span>
+      <span style="font-weight:700;color:${warn ? '#dc2626' : '#059669'}">${val}</span>
+    </div>`;
+  });
+  if (hasWarning) {
+    html += `<div style="margin-top:8px;padding:8px 10px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;font-size:.78rem;color:#dc2626">
+      ⚠️ Cuotas próximas a agotarse
+    </div>`;
+  }
+  body.innerHTML = html;
+  widget.style.display = 'block';
+}
+</script>
+
 <script>
 // ════════════════════════════════════════════════
 // STORAGE
 // ════════════════════════════════════════════════
 const db = {
-  get:  (k, d=[]) => { try { return JSON.parse(localStorage.getItem('mc_'+k)) ?? d; } catch(e){ return d; } },
-  set:  (k, v)    => { try { localStorage.setItem('mc_'+k, JSON.stringify(v)); } catch(e){} },
-  getS: (k, d='') => { try { return localStorage.getItem('mc_'+k) ?? d; } catch(e){ return d; } },
-  setS: (k, v)    => { try { localStorage.setItem('mc_'+k, v); } catch(e){} },
+  _p: () => (typeof _clinicId !== 'undefined' && _clinicId) ? `mc_${_clinicId}_` : 'mc_',
+  get:  (k, d=[]) => { try { return JSON.parse(localStorage.getItem(db._p()+k)) ?? d; } catch(e){ return d; } },
+  set:  (k, v)    => { try { localStorage.setItem(db._p()+k, JSON.stringify(v)); } catch(e){} },
+  getS: (k, d='') => { try { return localStorage.getItem(db._p()+k) ?? d; } catch(e){ return d; } },
+  setS: (k, v)    => { try { localStorage.setItem(db._p()+k, v); } catch(e){} },
 };
 
 function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
@@ -1424,7 +2484,7 @@ function fmtAge(dob) {
 // ════════════════════════════════════════════════
 // TABS + NAVEGACIÓN
 // ════════════════════════════════════════════════
-const TABS = ['dashboard','pacientes','doctores','clinicas','consentimientos','historias','fotos','configuracion'];
+const TABS = ['dashboard','pacientes','doctores','clinicas','consentimientos','historias','fotos','configuracion','clientes','paquetes'];
 
 function showTab(tab) {
   TABS.forEach(t => {
@@ -1441,6 +2501,8 @@ function showTab(tab) {
   if (tab === 'historias')       renderHistorias();
   if (tab === 'fotos')           renderFotos();
   if (tab === 'configuracion')   loadConfig();
+  if (tab === 'clientes')        { if (typeof renderClinicAccounts === 'function') renderClinicAccounts(); }
+  if (tab === 'paquetes')        { if (typeof renderPaquetes === 'function') renderPaquetes(); }
 }
 
 // ════════════════════════════════════════════════
@@ -2801,6 +3863,7 @@ function saveConsentimiento() {
     data.firmadoAt = list[idx].firmadoAt;
     list[idx] = { ...list[idx], ...data, updatedAt: new Date().toISOString() };
   } else {
+    if (typeof checkAndDecrementQuota === 'function' && !checkAndDecrementQuota('consentimientos')) return;
     list.push({ ...data, id: uid(), createdAt: new Date().toISOString() });
   }
   db.set('consentimientos', list);
@@ -3574,6 +4637,7 @@ function saveHistoria() {
     const idx = list.findIndex(h => h.id === editingHistoriaId);
     list[idx] = { ...list[idx], ...data, updatedAt: new Date().toISOString() };
   } else {
+    if (typeof checkAndDecrementQuota === 'function' && !checkAndDecrementQuota('historias')) return;
     list.push({ ...data, id: uid(), createdAt: new Date().toISOString() });
   }
   db.set('historias', list);
@@ -3784,6 +4848,7 @@ function handleFotoUpload(event) {
   const tipo  = document.getElementById('filter-fotos-tipo').value || 'otros';
   const files = Array.from(event.target.files);
   if (!pac || !files.length) return;
+  if (typeof checkAndDecrementQuota === 'function' && !checkAndDecrementQuota('fotos')) return;
 
   let processed = 0;
   const fotos = db.get(`fotos_${pac}`);
@@ -3899,10 +4964,13 @@ function updateBadges() {
 }
 
 // Init
-loadConfig();
-updateBadges();
-initPlantillas();
-renderDashboard();
+let _appInitialized = false;
+function initMainApp() {
+  if (_appInitialized) return;
+  _appInitialized = true;
+  loadConfig(); updateBadges(); initPlantillas(); renderDashboard();
+}
+if (typeof authInit === 'function') { authInit(); } else { initMainApp(); }
 </script>
 </body>
 </html>
