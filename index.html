@@ -373,14 +373,9 @@
 <!-- ══ HEADER ══ -->
 <header>
   <div class="header-logo">
-    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="30" height="30" rx="8" fill="rgba(255,255,255,0.12)"/>
-      <path d="M15 6v18M6 15h18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="15" cy="15" r="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    </svg>
-    <div class="header-brand">
-      MediConsent
-      <span>Gestión de Consentimientos Informados</span>
+    <div class="header-brand" style="line-height:1.15">
+      <span style="font-size:1.18rem;font-weight:700;letter-spacing:-0.5px;color:#fff">Consents<span style="color:#c9a227">Pro</span><span style="display:inline-block;width:2.2em;height:2px;background:#c9a227;vertical-align:middle;margin-left:2px;border-radius:2px"></span></span>
+      <span style="font-size:0.63rem;opacity:0.75;letter-spacing:0.03em">Consentimientos Digitales · Huella Digital</span>
     </div>
   </div>
   <div class="header-right">
@@ -1211,7 +1206,11 @@
 
     <div class="field-group"><label>Nombre de la clínica *</label><input id="cli-nombre" type="text" placeholder="Clínica Ejemplo"></div>
     <div class="field-group"><label>Teléfono *</label><input id="cli-tel" type="tel" placeholder="+34 91 000 0000"></div>
-    <div class="field-group"><label>Domicilio / Dirección *</label><input id="cli-direccion" type="text" placeholder="Calle Mayor 1, 28001 Madrid"></div>
+    <div class="field-group"><label>Domicilio / Dirección *</label><input id="cli-direccion" type="text" placeholder="Calle Mayor, 1"></div>
+    <div class="two-col">
+      <div class="field-group"><label>Ciudad</label><input id="cli-ciudad" type="text" placeholder="Madrid"></div>
+      <div class="field-group"><label>Provincia</label><input id="cli-provincia" type="text" placeholder="Madrid"></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-red btn-sm" id="cli-delete-btn" style="margin-right:auto;display:none" onclick="deleteClinicaFromModal()">Eliminar</button>
       <button class="btn btn-outline" onclick="closeModal('modal-clinica')">Cancelar</button>
@@ -2328,7 +2327,9 @@ function saveClinica() {
   if (!tel)       { alert('El teléfono es obligatorio'); return; }
   if (!direccion) { alert('El domicilio es obligatorio'); return; }
 
-  const data = { nombre, tel, direccion, logo: cliLogoDataUrl || null };
+  const ciudad   = document.getElementById('cli-ciudad').value.trim();
+  const provincia = document.getElementById('cli-provincia').value.trim();
+  const data = { nombre, tel, direccion, ciudad, provincia, logo: cliLogoDataUrl || null };
   const clinicas = db.get('clinicas');
   if (editingClinicaId) {
     const idx = clinicas.findIndex(c => c.id === editingClinicaId);
@@ -2343,7 +2344,7 @@ function saveClinica() {
 }
 
 function clearClinicaForm() {
-  ['cli-nombre','cli-tel','cli-direccion'].forEach(id => document.getElementById(id).value = '');
+  ['cli-nombre','cli-tel','cli-direccion','cli-ciudad','cli-provincia'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('modal-clinica-title').textContent = 'Nueva clínica';
   document.getElementById('cli-delete-btn').style.display = 'none';
   cliLogoDataUrl = null;
@@ -2359,6 +2360,8 @@ function editClinica(id) {
   document.getElementById('cli-nombre').value    = c.nombre;
   document.getElementById('cli-tel').value       = c.tel||'';
   document.getElementById('cli-direccion').value = c.direccion||'';
+  document.getElementById('cli-ciudad').value    = c.ciudad||'';
+  document.getElementById('cli-provincia').value = c.provincia||'';
   document.getElementById('cli-delete-btn').style.display = 'inline-flex';
   cliLogoDataUrl = c.logo || null;
   setCliLogoPreview(c.logo || null);
