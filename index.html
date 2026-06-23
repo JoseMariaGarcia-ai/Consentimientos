@@ -1932,6 +1932,51 @@ const I18N = {
     // Purchase
     assign_title:'Recargar cuotas', assign_subtitle:'Selecciona un paquete para asignar a',
     assign_no_pkgs:'No hay paquetes configurados.',
+    // Consent document structural text
+    con_doc_title:'CONSENTIMIENTO INFORMADO',
+    con_doc_patient:'Datos del Paciente',
+    con_doc_name:'Nombre',
+    con_doc_dni:'DNI/NIE',
+    con_doc_dob:'Fecha de nacimiento',
+    con_doc_doctor:'Médico Responsable',
+    con_doc_doctor_name:'Dr/a.',
+    con_doc_specialty:'Especialidad',
+    con_doc_college:'Nº Colegiado',
+    con_doc_procedure:'Descripción del Procedimiento',
+    con_doc_risks:'Riesgos e Información de Seguridad',
+    con_doc_alternatives:'Alternativas Terapéuticas',
+    con_doc_aftercare:'Cuidados Post-Tratamiento',
+    con_doc_declaration_title:'Declaración de Consentimiento Informado',
+    con_doc_declaration_name:'Don/Doña',
+    con_doc_declaration_p1:'con DNI/NIE',
+    con_doc_declaration_p2:'en pleno uso de sus facultades mentales y de forma libre, voluntaria y consciente, DECLARA:',
+    con_doc_declaration_1:'Que ha recibido información suficiente y comprensible —de forma verbal y por escrito— sobre el procedimiento médico indicado, su naturaleza, objetivos, beneficios esperados, riesgos previsibles (tanto genéricos como específicos), posibles complicaciones y alternativas terapéuticas disponibles, en cumplimiento de lo establecido en la <strong>Ley 41/2002, de 14 de noviembre</strong>, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica.',
+    con_doc_declaration_2:'Que ha tenido la oportunidad de formular cuantas preguntas ha estimado necesarias, habiendo sido respondidas de manera satisfactoria por el médico responsable.',
+    con_doc_declaration_3:'Que comprende que puede revocar este consentimiento en cualquier momento antes de la realización del procedimiento, sin necesidad de justificación y sin que ello suponga menoscabo alguno en la calidad de la atención sanitaria recibida (art. 8.5 Ley 41/2002).',
+    con_doc_declaration_4:'Que otorga su <strong>consentimiento libre, voluntario e informado</strong> para la realización del procedimiento indicado por el médico responsable.',
+    con_doc_gdpr_title:'Protección de Datos (RGPD / LOPDGDD)',
+    con_doc_gdpr_text:'En cumplimiento del <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>, se informa al paciente de que sus datos personales y de salud serán tratados por <strong>{clinic}</strong> con la finalidad de gestionar su historia clínica y la prestación de asistencia sanitaria (base jurídica: art. 9.2.h RGPD). Los datos se conservarán durante el período mínimo legal establecido en la normativa sanitaria aplicable. El paciente podrá ejercer sus derechos de acceso, rectificación, supresión, portabilidad y limitación del tratamiento dirigiéndose al responsable del tratamiento.',
+    con_doc_location:'En',
+    con_doc_date_at:'a',
+    con_doc_sign_patient:'Firma del Paciente / Representante Legal',
+    con_doc_sign_doctor:'Firma y Sello del Médico Responsable',
+    con_doc_copies:'ORIGINAL: Historia Clínica | COPIA: Paciente',
+    // Form labels for consent
+    con_form_patient:'Paciente *', con_form_doctor:'Doctor *', con_form_procedure:'Procedimiento *',
+    con_form_clinic:'Clínica', con_form_date:'Fecha', con_form_hour:'Hora',
+    con_form_description:'Descripción del procedimiento',
+    con_form_risks:'Riesgos informados', con_form_alternatives:'Alternativas ofrecidas',
+    con_form_aftercare:'Cuidados post-tratamiento',
+    // Historia form labels
+    hc_form_patient:'Paciente *', hc_form_doctor:'Doctor *', hc_form_clinic:'Clínica',
+    hc_form_date:'Fecha', hc_form_hour:'Hora', hc_form_type:'Tipo de consulta',
+    hc_form_motive:'Motivo de consulta *', hc_form_anamnesis:'Anamnesis',
+    hc_form_history:'Antecedentes', hc_form_medication:'Medicación habitual',
+    hc_form_vitals:'Constantes vitales', hc_form_exploration:'Exploración física',
+    hc_form_diagnosis:'Diagnóstico principal *', hc_form_secondary:'Diagnóstico secundario',
+    hc_form_cie:'Código CIE-10', hc_form_treatment:'Tratamiento aplicado',
+    hc_form_prescribed:'Medicación prescrita', hc_form_recommendations:'Recomendaciones',
+    hc_form_next_visit:'Próxima cita', hc_form_referral:'Derivación', hc_form_notes:'Observaciones',
   },
   en: {
     nav_dashboard:'Dashboard', nav_patients:'Patients', nav_doctors:'Doctors',
@@ -2005,6 +2050,38 @@ const I18N = {
     hist_date:'Date', hist_hour:'Time', hist_package:'Package', hist_includes:'Includes', hist_amount:'Amount', hist_status:'Status',
     assign_title:'Reload quotas', assign_subtitle:'Select a package to assign to',
     assign_no_pkgs:'No packages configured.',
+    con_doc_title:'INFORMED CONSENT',
+    con_doc_patient:'Patient Data', con_doc_name:'Name', con_doc_dni:'ID/Passport', con_doc_dob:'Date of birth',
+    con_doc_doctor:'Responsible Physician', con_doc_doctor_name:'Dr.', con_doc_specialty:'Specialty', con_doc_college:'Medical Licence No.',
+    con_doc_procedure:'Procedure Description', con_doc_risks:'Risks & Safety Information',
+    con_doc_alternatives:'Therapeutic Alternatives', con_doc_aftercare:'Post-Treatment Care',
+    con_doc_declaration_title:'Informed Consent Declaration',
+    con_doc_declaration_name:'Mr/Ms',
+    con_doc_declaration_p1:'ID/Passport',
+    con_doc_declaration_p2:'being of sound mind and acting freely, voluntarily and consciously, DECLARES:',
+    con_doc_declaration_1:'That they have received sufficient and comprehensible information —verbally and in writing— about the indicated medical procedure, its nature, objectives, expected benefits, foreseeable risks (both generic and specific), possible complications and available therapeutic alternatives.',
+    con_doc_declaration_2:'That they have had the opportunity to ask all questions they considered necessary, and that these have been answered satisfactorily by the responsible physician.',
+    con_doc_declaration_3:'That they understand they may revoke this consent at any time before the procedure is carried out, without need of justification and without any detriment to the quality of healthcare received.',
+    con_doc_declaration_4:'That they grant their <strong>free, voluntary and informed consent</strong> for the procedure indicated by the responsible physician.',
+    con_doc_gdpr_title:'Data Protection (GDPR)',
+    con_doc_gdpr_text:'In compliance with <strong>Regulation (EU) 2016/679 (GDPR)</strong>, the patient is informed that their personal and health data will be processed by <strong>{clinic}</strong> for the purpose of managing their clinical history and providing healthcare (legal basis: art. 9.2.h GDPR). Data will be retained for the minimum legally established period. The patient may exercise their rights of access, rectification, erasure, portability and restriction by contacting the data controller.',
+    con_doc_location:'In', con_doc_date_at:'on',
+    con_doc_sign_patient:'Patient / Legal Representative Signature',
+    con_doc_sign_doctor:'Physician Signature & Stamp',
+    con_doc_copies:'ORIGINAL: Clinical Record | COPY: Patient',
+    con_form_patient:'Patient *', con_form_doctor:'Doctor *', con_form_procedure:'Procedure *',
+    con_form_clinic:'Clinic', con_form_date:'Date', con_form_hour:'Time',
+    con_form_description:'Procedure description', con_form_risks:'Informed risks',
+    con_form_alternatives:'Offered alternatives', con_form_aftercare:'Post-treatment care',
+    hc_form_patient:'Patient *', hc_form_doctor:'Doctor *', hc_form_clinic:'Clinic',
+    hc_form_date:'Date', hc_form_hour:'Time', hc_form_type:'Consultation type',
+    hc_form_motive:'Reason for visit *', hc_form_anamnesis:'Anamnesis',
+    hc_form_history:'Medical history', hc_form_medication:'Current medication',
+    hc_form_vitals:'Vital signs', hc_form_exploration:'Physical examination',
+    hc_form_diagnosis:'Main diagnosis *', hc_form_secondary:'Secondary diagnosis',
+    hc_form_cie:'ICD-10 code', hc_form_treatment:'Treatment applied',
+    hc_form_prescribed:'Prescribed medication', hc_form_recommendations:'Recommendations',
+    hc_form_next_visit:'Next appointment', hc_form_referral:'Referral', hc_form_notes:'Notes',
   },
   fr: {
     nav_dashboard:'Tableau de bord', nav_patients:'Patients', nav_doctors:'Médecins',
@@ -2071,6 +2148,25 @@ const I18N = {
     hist_date:'Date', hist_hour:'Heure', hist_package:'Forfait', hist_includes:'Inclut', hist_amount:'Montant', hist_status:'Statut',
     assign_title:'Recharger les quotas', assign_subtitle:'Sélectionner un forfait pour',
     assign_no_pkgs:'Aucun forfait configuré.',
+    con_doc_title:'CONSENTEMENT ÉCLAIRÉ',
+    con_doc_patient:'Données du patient', con_doc_name:'Nom', con_doc_dni:'CNI/Passeport', con_doc_dob:'Date de naissance',
+    con_doc_doctor:'Médecin responsable', con_doc_doctor_name:'Dr.', con_doc_specialty:'Spécialité', con_doc_college:'N° Ordre',
+    con_doc_procedure:'Description de la procédure', con_doc_risks:'Risques et informations de sécurité',
+    con_doc_alternatives:'Alternatives thérapeutiques', con_doc_aftercare:'Soins post-traitement',
+    con_doc_declaration_title:'Déclaration de consentement éclairé',
+    con_doc_declaration_name:'M./Mme',
+    con_doc_declaration_p1:'CNI/Passeport',
+    con_doc_declaration_p2:'en pleine possession de ses facultés mentales et de façon libre, volontaire et consciente, DÉCLARE :',
+    con_doc_declaration_1:'Avoir reçu des informations suffisantes et compréhensibles —verbalement et par écrit— sur la procédure médicale indiquée, sa nature, ses objectifs, les bénéfices attendus, les risques prévisibles et les alternatives thérapeutiques disponibles.',
+    con_doc_declaration_2:'Avoir eu la possibilité de poser toutes les questions jugées nécessaires, auxquelles le médecin responsable a répondu de manière satisfaisante.',
+    con_doc_declaration_3:'Comprendre qu\'il/elle peut révoquer ce consentement à tout moment avant la réalisation de la procédure, sans justification et sans préjudice pour la qualité des soins reçus.',
+    con_doc_declaration_4:'Accorder son <strong>consentement libre, volontaire et éclairé</strong> pour la réalisation de la procédure indiquée par le médecin responsable.',
+    con_doc_gdpr_title:'Protection des données (RGPD)',
+    con_doc_gdpr_text:'Conformément au <strong>Règlement (UE) 2016/679 (RGPD)</strong>, le patient est informé que ses données personnelles et de santé seront traitées par <strong>{clinic}</strong> aux fins de gestion de son dossier médical et de prestation de soins de santé. Le patient peut exercer ses droits d\'accès, de rectification, d\'effacement, de portabilité et de limitation du traitement en contactant le responsable du traitement.',
+    con_doc_location:'À', con_doc_date_at:'le',
+    con_doc_sign_patient:'Signature du patient / représentant légal',
+    con_doc_sign_doctor:'Signature et cachet du médecin responsable',
+    con_doc_copies:'ORIGINAL : Dossier médical | COPIE : Patient',
   },
   de: {
     nav_dashboard:'Dashboard', nav_patients:'Patienten', nav_doctors:'Ärzte',
@@ -2137,6 +2233,25 @@ const I18N = {
     hist_date:'Datum', hist_hour:'Uhrzeit', hist_package:'Paket', hist_includes:'Enthält', hist_amount:'Betrag', hist_status:'Status',
     assign_title:'Kontingente aufladen', assign_subtitle:'Paket auswählen für',
     assign_no_pkgs:'Keine Pakete konfiguriert.',
+    con_doc_title:'EINWILLIGUNGSERKLÄRUNG',
+    con_doc_patient:'Patientendaten', con_doc_name:'Name', con_doc_dni:'Ausweis/Pass', con_doc_dob:'Geburtsdatum',
+    con_doc_doctor:'Verantwortlicher Arzt', con_doc_doctor_name:'Dr.', con_doc_specialty:'Fachgebiet', con_doc_college:'Approbationsnr.',
+    con_doc_procedure:'Beschreibung des Eingriffs', con_doc_risks:'Risiken und Sicherheitsinformationen',
+    con_doc_alternatives:'Therapeutische Alternativen', con_doc_aftercare:'Nachbehandlungspflege',
+    con_doc_declaration_title:'Einwilligungserklärung',
+    con_doc_declaration_name:'Herr/Frau',
+    con_doc_declaration_p1:'Ausweis/Pass',
+    con_doc_declaration_p2:'in vollem Besitz der geistigen Kräfte und frei, freiwillig und bewusst handelnd, ERKLÄRT:',
+    con_doc_declaration_1:'Ausreichende und verständliche Informationen —mündlich und schriftlich— über den angezeigten medizinischen Eingriff, seine Natur, Ziele, erwarteten Vorteile, absehbaren Risiken und verfügbaren therapeutischen Alternativen erhalten zu haben.',
+    con_doc_declaration_2:'Die Möglichkeit gehabt zu haben, alle für notwendig erachteten Fragen zu stellen, die vom verantwortlichen Arzt zufriedenstellend beantwortet wurden.',
+    con_doc_declaration_3:'Zu verstehen, dass diese Einwilligung jederzeit vor Durchführung des Eingriffs widerrufen werden kann, ohne Begründung und ohne Beeinträchtigung der Qualität der erhaltenen Gesundheitsversorgung.',
+    con_doc_declaration_4:'Die <strong>freie, freiwillige und informierte Einwilligung</strong> für den vom verantwortlichen Arzt angezeigten Eingriff zu erteilen.',
+    con_doc_gdpr_title:'Datenschutz (DSGVO)',
+    con_doc_gdpr_text:'Gemäß der <strong>Verordnung (EU) 2016/679 (DSGVO)</strong> wird der Patient informiert, dass seine persönlichen Daten und Gesundheitsdaten von <strong>{clinic}</strong> zum Zweck der Verwaltung der Krankenakte und der Erbringung von Gesundheitsleistungen verarbeitet werden. Der Patient kann seine Rechte auf Auskunft, Berichtigung, Löschung, Portabilität und Einschränkung beim Verantwortlichen geltend machen.',
+    con_doc_location:'In', con_doc_date_at:'am',
+    con_doc_sign_patient:'Unterschrift Patient / gesetzlicher Vertreter',
+    con_doc_sign_doctor:'Unterschrift und Stempel des verantwortlichen Arztes',
+    con_doc_copies:'ORIGINAL: Krankenakte | KOPIE: Patient',
   },
   it: {
     nav_dashboard:'Dashboard', nav_patients:'Pazienti', nav_doctors:'Medici',
@@ -2203,6 +2318,25 @@ const I18N = {
     hist_date:'Data', hist_hour:'Ora', hist_package:'Pacchetto', hist_includes:'Include', hist_amount:'Importo', hist_status:'Stato',
     assign_title:'Ricarica quote', assign_subtitle:'Seleziona un pacchetto per',
     assign_no_pkgs:'Nessun pacchetto configurato.',
+    con_doc_title:'CONSENSO INFORMATO',
+    con_doc_patient:'Dati del paziente', con_doc_name:'Nome', con_doc_dni:'Documento', con_doc_dob:'Data di nascita',
+    con_doc_doctor:'Medico responsabile', con_doc_doctor_name:'Dr.', con_doc_specialty:'Specialità', con_doc_college:'N. Iscrizione Albo',
+    con_doc_procedure:'Descrizione della procedura', con_doc_risks:'Rischi e informazioni sulla sicurezza',
+    con_doc_alternatives:'Alternative terapeutiche', con_doc_aftercare:'Cure post-trattamento',
+    con_doc_declaration_title:'Dichiarazione di consenso informato',
+    con_doc_declaration_name:'Il/La sig./sig.ra',
+    con_doc_declaration_p1:'documento',
+    con_doc_declaration_p2:'in pieno possesso delle proprie facoltà mentali e in modo libero, volontario e consapevole, DICHIARA:',
+    con_doc_declaration_1:'Di aver ricevuto informazioni sufficienti e comprensibili —verbalmente e per iscritto— sulla procedura medica indicata, la sua natura, obiettivi, benefici attesi, rischi prevedibili e alternative terapeutiche disponibili.',
+    con_doc_declaration_2:'Di aver avuto la possibilità di porre tutte le domande ritenute necessarie, cui il medico responsabile ha risposto in modo soddisfacente.',
+    con_doc_declaration_3:'Di comprendere che può revocare questo consenso in qualsiasi momento prima dell\'esecuzione della procedura, senza necessità di giustificazione e senza pregiudizio per la qualità delle cure ricevute.',
+    con_doc_declaration_4:'Di accordare il proprio <strong>consenso libero, volontario e informato</strong> per l\'esecuzione della procedura indicata dal medico responsabile.',
+    con_doc_gdpr_title:'Protezione dei dati (GDPR)',
+    con_doc_gdpr_text:'In conformità con il <strong>Regolamento (UE) 2016/679 (GDPR)</strong>, il paziente è informato che i suoi dati personali e sanitari saranno trattati da <strong>{clinic}</strong> allo scopo di gestire la sua cartella clinica e la prestazione di assistenza sanitaria. Il paziente può esercitare i propri diritti di accesso, rettifica, cancellazione, portabilità e limitazione del trattamento contattando il responsabile del trattamento.',
+    con_doc_location:'A', con_doc_date_at:'il',
+    con_doc_sign_patient:'Firma del paziente / rappresentante legale',
+    con_doc_sign_doctor:'Firma e timbro del medico responsabile',
+    con_doc_copies:'ORIGINALE: Cartella clinica | COPIA: Paziente',
   },
   pt: {
     nav_dashboard:'Dashboard', nav_patients:'Pacientes', nav_doctors:'Médicos',
@@ -2269,6 +2403,25 @@ const I18N = {
     hist_date:'Data', hist_hour:'Hora', hist_package:'Pacote', hist_includes:'Inclui', hist_amount:'Valor', hist_status:'Estado',
     assign_title:'Recarregar cotas', assign_subtitle:'Selecionar um pacote para',
     assign_no_pkgs:'Nenhum pacote configurado.',
+    con_doc_title:'CONSENTIMENTO INFORMADO',
+    con_doc_patient:'Dados do paciente', con_doc_name:'Nome', con_doc_dni:'BI/Passaporte', con_doc_dob:'Data de nascimento',
+    con_doc_doctor:'Médico responsável', con_doc_doctor_name:'Dr./Dra.', con_doc_specialty:'Especialidade', con_doc_college:'Cédula Profissional',
+    con_doc_procedure:'Descrição do procedimento', con_doc_risks:'Riscos e informações de segurança',
+    con_doc_alternatives:'Alternativas terapêuticas', con_doc_aftercare:'Cuidados pós-tratamento',
+    con_doc_declaration_title:'Declaração de consentimento informado',
+    con_doc_declaration_name:'O/A Sr./Sra.',
+    con_doc_declaration_p1:'BI/Passaporte',
+    con_doc_declaration_p2:'no pleno uso das suas faculdades mentais e de forma livre, voluntária e consciente, DECLARA:',
+    con_doc_declaration_1:'Que recebeu informação suficiente e compreensível —verbal e por escrito— sobre o procedimento médico indicado, a sua natureza, objetivos, benefícios esperados, riscos previsíveis e alternativas terapêuticas disponíveis.',
+    con_doc_declaration_2:'Que teve a oportunidade de formular todas as questões que considerou necessárias, tendo sido respondidas de forma satisfatória pelo médico responsável.',
+    con_doc_declaration_3:'Que compreende que pode revogar este consentimento em qualquer momento antes da realização do procedimento, sem necessidade de justificação e sem prejuízo para a qualidade dos cuidados de saúde recebidos.',
+    con_doc_declaration_4:'Que outorga o seu <strong>consentimento livre, voluntário e informado</strong> para a realização do procedimento indicado pelo médico responsável.',
+    con_doc_gdpr_title:'Proteção de dados (RGPD)',
+    con_doc_gdpr_text:'Em cumprimento do <strong>Regulamento (UE) 2016/679 (RGPD)</strong>, o paciente é informado de que os seus dados pessoais e de saúde serão tratados por <strong>{clinic}</strong> com a finalidade de gerir o seu processo clínico e a prestação de assistência de saúde. O paciente pode exercer os seus direitos de acesso, retificação, apagamento, portabilidade e limitação do tratamento junto do responsável pelo tratamento.',
+    con_doc_location:'Em', con_doc_date_at:'em',
+    con_doc_sign_patient:'Assinatura do paciente / representante legal',
+    con_doc_sign_doctor:'Assinatura e carimbo do médico responsável',
+    con_doc_copies:'ORIGINAL: Processo clínico | CÓPIA: Paciente',
   },
   'pt-BR': {
     nav_dashboard:'Painel', nav_patients:'Pacientes', nav_doctors:'Médicos',
@@ -2335,6 +2488,25 @@ const I18N = {
     hist_date:'Data', hist_hour:'Hora', hist_package:'Pacote', hist_includes:'Inclui', hist_amount:'Valor', hist_status:'Status',
     assign_title:'Recarregar cotas', assign_subtitle:'Selecionar pacote para',
     assign_no_pkgs:'Nenhum pacote configurado.',
+    con_doc_title:'CONSENTIMENTO INFORMADO',
+    con_doc_patient:'Dados do paciente', con_doc_name:'Nome', con_doc_dni:'CPF/RG', con_doc_dob:'Data de nascimento',
+    con_doc_doctor:'Médico responsável', con_doc_doctor_name:'Dr./Dra.', con_doc_specialty:'Especialidade', con_doc_college:'CRM',
+    con_doc_procedure:'Descrição do procedimento', con_doc_risks:'Riscos e informações de segurança',
+    con_doc_alternatives:'Alternativas terapêuticas', con_doc_aftercare:'Cuidados pós-tratamento',
+    con_doc_declaration_title:'Declaração de consentimento informado',
+    con_doc_declaration_name:'O/A Sr./Sra.',
+    con_doc_declaration_p1:'CPF/RG',
+    con_doc_declaration_p2:'no pleno uso de suas faculdades mentais e de forma livre, voluntária e consciente, DECLARA:',
+    con_doc_declaration_1:'Que recebeu informações suficientes e compreensíveis —verbalmente e por escrito— sobre o procedimento médico indicado, sua natureza, objetivos, benefícios esperados, riscos previsíveis e alternativas terapêuticas disponíveis.',
+    con_doc_declaration_2:'Que teve oportunidade de fazer todas as perguntas que julgou necessárias, tendo sido respondidas satisfatoriamente pelo médico responsável.',
+    con_doc_declaration_3:'Que compreende que pode revogar este consentimento a qualquer momento antes da realização do procedimento, sem necessidade de justificativa e sem prejuízo para a qualidade dos cuidados recebidos.',
+    con_doc_declaration_4:'Que outorga seu <strong>consentimento livre, voluntário e informado</strong> para a realização do procedimento indicado pelo médico responsável.',
+    con_doc_gdpr_title:'Proteção de dados (LGPD)',
+    con_doc_gdpr_text:'Em conformidade com a <strong>Lei nº 13.709/2018 (LGPD)</strong>, o paciente é informado de que seus dados pessoais e de saúde serão tratados por <strong>{clinic}</strong> com a finalidade de gerir seu prontuário e a prestação de assistência à saúde. O paciente pode exercer seus direitos de acesso, retificação, exclusão, portabilidade e limitação do tratamento junto ao responsável pelo tratamento.',
+    con_doc_location:'Em', con_doc_date_at:'em',
+    con_doc_sign_patient:'Assinatura do paciente / representante legal',
+    con_doc_sign_doctor:'Assinatura e carimbo do médico responsável',
+    con_doc_copies:'ORIGINAL: Prontuário | CÓPIA: Paciente',
   },
   ru: {
     nav_dashboard:'Панель управления', nav_patients:'Пациенты', nav_doctors:'Врачи',
@@ -2401,6 +2573,25 @@ const I18N = {
     hist_date:'Дата', hist_hour:'Время', hist_package:'Пакет', hist_includes:'Включает', hist_amount:'Сумма', hist_status:'Статус',
     assign_title:'Пополнить квоты', assign_subtitle:'Выбрать пакет для',
     assign_no_pkgs:'Пакеты не настроены.',
+    con_doc_title:'ИНФОРМИРОВАННОЕ СОГЛАСИЕ',
+    con_doc_patient:'Данные пациента', con_doc_name:'Имя', con_doc_dni:'Паспорт/ИНН', con_doc_dob:'Дата рождения',
+    con_doc_doctor:'Лечащий врач', con_doc_doctor_name:'Доктор', con_doc_specialty:'Специализация', con_doc_college:'Лицензия',
+    con_doc_procedure:'Описание процедуры', con_doc_risks:'Риски и информация о безопасности',
+    con_doc_alternatives:'Терапевтические альтернативы', con_doc_aftercare:'Уход после лечения',
+    con_doc_declaration_title:'Декларация информированного согласия',
+    con_doc_declaration_name:'Г-н/Г-жа',
+    con_doc_declaration_p1:'паспорт/ИНН',
+    con_doc_declaration_p2:'находясь в здравом уме и действуя свободно, добровольно и осознанно, ЗАЯВЛЯЕТ:',
+    con_doc_declaration_1:'Что получил(а) достаточную и понятную информацию —устно и письменно— о показанной медицинской процедуре, её характере, целях, ожидаемых преимуществах, предсказуемых рисках и доступных терапевтических альтернативах.',
+    con_doc_declaration_2:'Что имел(а) возможность задать все необходимые вопросы, на которые лечащий врач ответил удовлетворительно.',
+    con_doc_declaration_3:'Что понимает возможность отозвать данное согласие в любое время до выполнения процедуры, без необходимости обоснования и без ущерба для качества получаемой медицинской помощи.',
+    con_doc_declaration_4:'Что даёт своё <strong>свободное, добровольное и информированное согласие</strong> на выполнение процедуры, назначенной лечащим врачом.',
+    con_doc_gdpr_title:'Защита данных (GDPR)',
+    con_doc_gdpr_text:'В соответствии с <strong>Регламентом (ЕС) 2016/679 (GDPR)</strong>, пациент информирован о том, что его персональные и медицинские данные будут обрабатываться <strong>{clinic}</strong> в целях ведения истории болезни и оказания медицинской помощи. Пациент вправе воспользоваться правами на доступ, исправление, удаление, переносимость и ограничение обработки, обратившись к ответственному за обработку данных.',
+    con_doc_location:'В', con_doc_date_at:'',
+    con_doc_sign_patient:'Подпись пациента / законного представителя',
+    con_doc_sign_doctor:'Подпись и печать лечащего врача',
+    con_doc_copies:'ОРИГИНАЛ: Медицинская карта | КОПИЯ: Пациент',
   },
   zh: {
     nav_dashboard:'仪表板', nav_patients:'患者', nav_doctors:'医生',
@@ -2467,6 +2658,25 @@ const I18N = {
     hist_date:'日期', hist_hour:'时间', hist_package:'套餐', hist_includes:'包含', hist_amount:'金额', hist_status:'状态',
     assign_title:'充值配额', assign_subtitle:'为以下诊所选择套餐',
     assign_no_pkgs:'暂无套餐配置。',
+    con_doc_title:'知情同意书',
+    con_doc_patient:'患者信息', con_doc_name:'姓名', con_doc_dni:'身份证/护照', con_doc_dob:'出生日期',
+    con_doc_doctor:'主治医生', con_doc_doctor_name:'医生', con_doc_specialty:'专科', con_doc_college:'执照号',
+    con_doc_procedure:'手术/诊疗描述', con_doc_risks:'风险和安全信息',
+    con_doc_alternatives:'替代治疗方案', con_doc_aftercare:'术后护理',
+    con_doc_declaration_title:'知情同意声明',
+    con_doc_declaration_name:'先生/女士',
+    con_doc_declaration_p1:'身份证/护照',
+    con_doc_declaration_p2:'精神状态良好，自愿、主动、清醒地声明：',
+    con_doc_declaration_1:'已以口头和书面方式获得了关于所指定医疗手术/诊疗的充分且可理解的信息，包括其性质、目标、预期效益、可预见风险以及可用的替代治疗方案。',
+    con_doc_declaration_2:'有机会提出所有认为必要的问题，并已由主治医生给予满意答复。',
+    con_doc_declaration_3:'理解可在实施手术/诊疗前随时撤回本同意书，无需说明理由，且不影响所接受的医疗护理质量。',
+    con_doc_declaration_4:'对主治医生指定的手术/诊疗给予<strong>自由、自愿和知情的同意</strong>。',
+    con_doc_gdpr_title:'数据保护 (GDPR)',
+    con_doc_gdpr_text:'根据<strong>《欧盟通用数据保护条例》(GDPR) 第2016/679号条例</strong>，患者被告知其个人和健康数据将由<strong>{clinic}</strong>处理，用于管理病历和提供医疗保健服务。患者可联系数据控制者行使访问、更正、删除、可携带和限制处理等权利。',
+    con_doc_location:'于', con_doc_date_at:'',
+    con_doc_sign_patient:'患者/法定代表人签名',
+    con_doc_sign_doctor:'主治医生签名及印章',
+    con_doc_copies:'正本：病历 | 副本：患者',
   },
   ar: {
     nav_dashboard:'لوحة التحكم', nav_patients:'المرضى', nav_doctors:'الأطباء',
@@ -2533,6 +2743,25 @@ const I18N = {
     hist_date:'التاريخ', hist_hour:'الوقت', hist_package:'الحزمة', hist_includes:'يتضمن', hist_amount:'المبلغ', hist_status:'الحالة',
     assign_title:'تجديد الحصص', assign_subtitle:'اختر حزمة لـ',
     assign_no_pkgs:'لا توجد حزم مكوّنة.',
+    con_doc_title:'موافقة مستنيرة',
+    con_doc_patient:'بيانات المريض', con_doc_name:'الاسم', con_doc_dni:'الهوية/جواز السفر', con_doc_dob:'تاريخ الميلاد',
+    con_doc_doctor:'الطبيب المسؤول', con_doc_doctor_name:'الدكتور/ة', con_doc_specialty:'التخصص', con_doc_college:'رقم الترخيص',
+    con_doc_procedure:'وصف الإجراء', con_doc_risks:'المخاطر ومعلومات السلامة',
+    con_doc_alternatives:'البدائل العلاجية', con_doc_aftercare:'الرعاية بعد العلاج',
+    con_doc_declaration_title:'إعلان الموافقة المستنيرة',
+    con_doc_declaration_name:'السيد/السيدة',
+    con_doc_declaration_p1:'رقم الهوية',
+    con_doc_declaration_p2:'وهو/هي بكامل قواه/قواها العقلية وبشكل حر وطوعي وواعٍ، يُعلن/تُعلن:',
+    con_doc_declaration_1:'أنه/أنها تلقّى/تلقّت معلومات كافية ومفهومة —شفهياً وكتابةً— حول الإجراء الطبي المشار إليه، طبيعته وأهدافه والفوائد المتوقعة والمخاطر المتوقعة والبدائل العلاجية المتاحة.',
+    con_doc_declaration_2:'أنه/أنها أتيحت له/لها الفرصة لطرح جميع الأسئلة التي رآها/رأتها ضرورية، وقد أجاب عليها الطبيب المسؤول بشكل مُرضٍ.',
+    con_doc_declaration_3:'أنه/أنها يفهم/تفهم إمكانية إلغاء هذه الموافقة في أي وقت قبل تنفيذ الإجراء، دون الحاجة إلى تبرير ودون أي تأثير على جودة الرعاية الصحية المتلقاة.',
+    con_doc_declaration_4:'أنه/أنها يمنح/تمنح <strong>موافقته/موافقتها الحرة والطوعية والمستنيرة</strong> لإجراء الإجراء المحدد من قِبَل الطبيب المسؤول.',
+    con_doc_gdpr_title:'حماية البيانات (GDPR)',
+    con_doc_gdpr_text:'وفقاً للائحة <strong>(EU) 2016/679 (GDPR)</strong>، يُبلَّغ المريض بأن بياناته الشخصية والصحية ستُعالَج من قِبَل <strong>{clinic}</strong> بهدف إدارة سجله الطبي وتقديم الرعاية الصحية. يمكن للمريض ممارسة حقوقه في الوصول والتصحيح والحذف والنقل وتقييد المعالجة بالتواصل مع المسؤول عن معالجة البيانات.',
+    con_doc_location:'في', con_doc_date_at:'بتاريخ',
+    con_doc_sign_patient:'توقيع المريض / الممثل القانوني',
+    con_doc_sign_doctor:'توقيع وختم الطبيب المسؤول',
+    con_doc_copies:'الأصل: السجل الطبي | النسخة: المريض',
   },
 };
 
@@ -5376,79 +5605,80 @@ function buildConsentDocHtml(plt, pac, doc, conObj, clinica) {
   const clinicaDireccion = db.getS('cfg_direccion') || '';
   const clinicaTel       = db.getS('cfg_tel') || '';
 
+  const _td = typeof t === 'function' ? t : k => k;
   return `
-    <div class="consent-doc-title">CONSENTIMIENTO INFORMADO</div>
+    <div class="consent-doc-title">${_td('con_doc_title')}</div>
     <div class="consent-doc-subtitle">${plt?.nombre||conObj?.procedimiento||''}</div>
     <div style="background:#f8fafc;border:1px solid #e4e8ef;border-radius:8px;padding:12px 16px;margin-bottom:18px;font-size:0.82rem">
       <strong>${clinica}</strong>${clinicaDireccion?' · '+clinicaDireccion:''}${clinicaTel?' · Tel: '+clinicaTel:''}
     </div>
 
     ${pac?`<div class="consent-doc-section">
-      <h4>Datos del Paciente</h4>
-      <p><strong>Nombre:</strong> ${pac.nombre} ${pac.apellidos}<br>
-      <strong>DNI/NIE:</strong> ${pac.dni||'—'}<br>
-      <strong>Fecha de nacimiento:</strong> ${pac.nacimiento?fmtDate(pac.nacimiento):'—'}</p>
+      <h4>${_td('con_doc_patient')}</h4>
+      <p><strong>${_td('con_doc_name')}:</strong> ${pac.nombre} ${pac.apellidos}<br>
+      <strong>${_td('con_doc_dni')}:</strong> ${pac.dni||'—'}<br>
+      <strong>${_td('con_doc_dob')}:</strong> ${pac.nacimiento?fmtDate(pac.nacimiento):'—'}</p>
     </div>`:''}
 
     ${doc?`<div class="consent-doc-section">
-      <h4>Médico Responsable</h4>
-      <p><strong>Dr/a.:</strong> ${doc.nombre} ${doc.apellidos}<br>
-      <strong>Especialidad:</strong> ${doc.especialidad||'—'}<br>
-      <strong>Nº Colegiado:</strong> ${doc.colegiado||'—'}</p>
+      <h4>${_td('con_doc_doctor')}</h4>
+      <p><strong>${_td('con_doc_doctor_name')}:</strong> ${doc.nombre} ${doc.apellidos}<br>
+      <strong>${_td('con_doc_specialty')}:</strong> ${doc.especialidad||'—'}<br>
+      <strong>${_td('con_doc_college')}:</strong> ${doc.colegiado||'—'}</p>
     </div>`:''}
 
     <div class="consent-doc-section">
-      <h4>Descripción del Procedimiento</h4>
+      <h4>${_td('con_doc_procedure')}</h4>
       <p>${(conObj?.descripcion||plt?.descripcion||'').replace(/\n/g,'<br>')}</p>
     </div>
 
     <div class="consent-doc-section">
-      <h4>Riesgos e Información de Seguridad</h4>
+      <h4>${_td('con_doc_risks')}</h4>
       <p>${(conObj?.riesgos||plt?.riesgos||'').replace(/\n/g,'<br>')}</p>
     </div>
 
     ${(conObj?.alternativas||plt?.alternativas)?`<div class="consent-doc-section">
-      <h4>Alternativas Terapéuticas</h4>
+      <h4>${_td('con_doc_alternatives')}</h4>
       <p>${(conObj?.alternativas||plt?.alternativas||'').replace(/\n/g,'<br>')}</p>
     </div>`:''}
 
     ${(conObj?.cuidados||plt?.cuidadosPost)?`<div class="consent-doc-section">
-      <h4>Cuidados Post-Tratamiento</h4>
+      <h4>${_td('con_doc_aftercare')}</h4>
       <p>${(conObj?.cuidados||plt?.cuidadosPost||'').replace(/\n/g,'<br>')}</p>
     </div>`:''}
 
     <div class="consent-doc-section" style="background:#f0f4ff;border:1px solid #c7d2fe;border-radius:8px;padding:14px 16px">
-      <h4 style="color:#3730a3">Declaración de Consentimiento Informado</h4>
-      <p>Don/Doña <strong>${pac?pac.nombre+' '+pac.apellidos:'___________________________'}</strong>, con DNI/NIE <strong>${pac?.dni||'_______________'}</strong>, en pleno uso de sus facultades mentales y de forma libre, voluntaria y consciente, DECLARA:</p>
+      <h4 style="color:#3730a3">${_td('con_doc_declaration_title')}</h4>
+      <p>${_td('con_doc_declaration_name')} <strong>${pac?pac.nombre+' '+pac.apellidos:'___________________________'}</strong>, ${_td('con_doc_declaration_p1')} <strong>${pac?.dni||'_______________'}</strong>, ${_td('con_doc_declaration_p2')}</p>
       <p style="margin-top:10px">
-        <strong>1.</strong> Que ha recibido información suficiente y comprensible —de forma verbal y por escrito— sobre el procedimiento médico indicado, su naturaleza, objetivos, beneficios esperados, riesgos previsibles (tanto genéricos como específicos), posibles complicaciones y alternativas terapéuticas disponibles, en cumplimiento de lo establecido en la <strong>Ley 41/2002, de 14 de noviembre</strong>, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica.<br><br>
-        <strong>2.</strong> Que ha tenido la oportunidad de formular cuantas preguntas ha estimado necesarias, habiendo sido respondidas de manera satisfactoria por el médico responsable.<br><br>
-        <strong>3.</strong> Que comprende que puede revocar este consentimiento en cualquier momento antes de la realización del procedimiento, sin necesidad de justificación y sin que ello suponga menoscabo alguno en la calidad de la atención sanitaria recibida (art. 8.5 Ley 41/2002).<br><br>
-        <strong>4.</strong> Que otorga su <strong>consentimiento libre, voluntario e informado</strong> para la realización del procedimiento indicado por el médico responsable.
+        <strong>1.</strong> ${_td('con_doc_declaration_1')}<br><br>
+        <strong>2.</strong> ${_td('con_doc_declaration_2')}<br><br>
+        <strong>3.</strong> ${_td('con_doc_declaration_3')}<br><br>
+        <strong>4.</strong> ${_td('con_doc_declaration_4')}
       </p>
       ${plt?.texto?`<p style="margin-top:10px;font-style:italic;color:#4b5563">${plt.texto}</p>`:''}
     </div>
 
     <div class="consent-doc-section" style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px 16px;font-size:0.8rem">
-      <h4 style="color:#9a3412">Protección de Datos (RGPD / LOPDGDD)</h4>
-      <p>En cumplimiento del <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>, se informa al paciente de que sus datos personales y de salud serán tratados por <strong>${clinica}</strong> con la finalidad de gestionar su historia clínica y la prestación de asistencia sanitaria (base jurídica: art. 9.2.h RGPD). Los datos se conservarán durante el período mínimo legal establecido en la normativa sanitaria aplicable. El paciente podrá ejercer sus derechos de acceso, rectificación, supresión, portabilidad y limitación del tratamiento dirigiéndose al responsable del tratamiento.</p>
+      <h4 style="color:#9a3412">${_td('con_doc_gdpr_title')}</h4>
+      <p>${_td('con_doc_gdpr_text').replace('{clinic}', clinica)}</p>
     </div>
 
     <div class="consent-sign-area">
-      <p style="font-size:0.8rem;color:#6b7280;text-align:center">En <strong>${db.getS('cfg_localidad')||'_______________'}</strong>, a <strong>${fechaDoc}</strong></p>
+      <p style="font-size:0.8rem;color:#6b7280;text-align:center">${_td('con_doc_location')} <strong>${db.getS('cfg_localidad')||'_______________'}</strong> ${_td('con_doc_date_at')} <strong>${fechaDoc}</strong></p>
       <div class="consent-sign-row">
         <div class="consent-sign-field">
           <div class="sign-line"></div>
-          <div class="sign-label">Firma del Paciente / Representante Legal</div>
-          ${pac?`<div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">${pac.nombre} ${pac.apellidos}<br>DNI/NIE: ${pac.dni||'_______________'}</div>`:''}
+          <div class="sign-label">${_td('con_doc_sign_patient')}</div>
+          ${pac?`<div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">${pac.nombre} ${pac.apellidos}<br>${_td('con_doc_dni')}: ${pac.dni||'_______________'}</div>`:''}
         </div>
         <div class="consent-sign-field">
           <div class="sign-line"></div>
-          <div class="sign-label">Firma y Sello del Médico Responsable</div>
-          ${doc?`<div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">Dr/a. ${doc.nombre} ${doc.apellidos}<br>Nº Colegiado: ${doc.colegiado||'_______________'}</div>`:''}
+          <div class="sign-label">${_td('con_doc_sign_doctor')}</div>
+          ${doc?`<div style="font-size:0.75rem;color:#9ca3af;margin-top:4px">${_td('con_doc_doctor_name')} ${doc.nombre} ${doc.apellidos}<br>${_td('con_doc_college')}: ${doc.colegiado||'_______________'}</div>`:''}
         </div>
       </div>
-      <p style="font-size:0.72rem;color:#9ca3af;text-align:center;margin-top:14px">ORIGINAL: Historia Clínica &nbsp;|&nbsp; COPIA: Paciente</p>
+      <p style="font-size:0.72rem;color:#9ca3af;text-align:center;margin-top:14px">${_td('con_doc_copies')}</p>
     </div>
     <div style="margin-top:16px;font-size:0.68rem;color:#9ca3af;border-top:1px solid #e4e8ef;padding-top:10px">${legalText}</div>
     ${conObj?.huella ? buildHuellaBlock(conObj.huella, conObj.firmaDocImg, conObj.firmaPacImg) : ''}
