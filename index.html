@@ -34,6 +34,32 @@
   .clinic-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 4px 13px; font-size: 0.78rem; color: rgba(255,255,255,0.85); }
   .header-avatar { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
 
+  /* ── LANGUAGE PICKER ── */
+  .lang-picker { position: relative; }
+  .lang-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 20px; padding: 5px 12px; cursor: pointer; color: white;
+    font-size: 0.82rem; font-weight: 600; transition: background .15s;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.2); }
+  .lang-flag { font-size: 1.1rem; line-height: 1; }
+  .lang-dropdown {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0;
+    background: white; border: 1px solid #e5e7eb; border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(10,35,66,0.18); z-index: 500;
+    min-width: 210px; max-height: 380px; overflow-y: auto; padding: 6px 0;
+  }
+  .lang-dropdown.open { display: block; }
+  .lang-option {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 14px; cursor: pointer; font-size: 0.84rem; color: #1a2535;
+    transition: background .12s;
+  }
+  .lang-option:hover { background: #f0f4ff; }
+  .lang-option.active { background: #e8f0fe; font-weight: 700; color: #1a4a7a; }
+  .lang-option .lf { font-size: 1.2rem; }
+
   /* ── SIDEBAR ── */
   .layout { display: flex; min-height: calc(100vh - 64px); }
   .sidebar {
@@ -546,6 +572,15 @@
     </div>
   </div>
   <div class="header-right">
+    <!-- Language picker -->
+    <div class="lang-picker" id="lang-picker">
+      <button class="lang-btn" onclick="toggleLangDropdown(event)" id="lang-btn-label">
+        <span class="lang-flag" id="lang-current-flag">🇪🇸</span>
+        <span id="lang-current-name">Español</span>
+        <span style="font-size:.7rem;opacity:.7">▼</span>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown"></div>
+    </div>
     <span class="clinic-badge" id="clinic-name-badge">Mi Clínica</span>
     <div class="header-avatar" title="Perfil">DR</div>
   </div>
@@ -560,65 +595,65 @@
       <div class="sidebar-label">Principal</div>
 
       <div class="nav-item active" onclick="showTab('dashboard')" id="nav-dashboard">
-        <div class="nav-icon">🏠</div> Dashboard
+        <div class="nav-icon">🏠</div> <span data-i18n="nav_dashboard">Dashboard</span>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <div class="sidebar-label">Gestión</div>
+      <div class="sidebar-label" data-i18n="nav_patients">Gestión</div>
 
       <div class="nav-item" onclick="showTab('pacientes')" id="nav-pacientes">
-        <div class="nav-icon">👤</div> Pacientes
+        <div class="nav-icon">👤</div> <span data-i18n="nav_patients">Pacientes</span>
         <span class="nav-badge green" id="badge-pacientes">0</span>
       </div>
 
       <div class="nav-item" onclick="showTab('doctores')" id="nav-doctores">
-        <div class="nav-icon">🩺</div> Doctores
+        <div class="nav-icon">🩺</div> <span data-i18n="nav_doctors">Doctores</span>
         <span class="nav-badge" id="badge-doctores">0</span>
       </div>
 
       <div class="nav-item" onclick="showTab('clinicas')" id="nav-clinicas">
-        <div class="nav-icon">🏥</div> Clínicas
+        <div class="nav-icon">🏥</div> <span data-i18n="nav_clinics">Clínicas</span>
       </div>
     </div>
 
     <div class="sidebar-section">
-      <div class="sidebar-label">Documentación</div>
+      <div class="sidebar-label" data-i18n="nav_consents">Documentación</div>
 
       <div class="nav-item" onclick="showTab('consentimientos')" id="nav-consentimientos">
-        <div class="nav-icon">📋</div> Consentimientos
+        <div class="nav-icon">📋</div> <span data-i18n="nav_consents">Consentimientos</span>
         <span class="nav-badge amber" id="badge-consentimientos">0</span>
       </div>
 
       <div class="nav-item" onclick="showTab('historias')" id="nav-historias">
-        <div class="nav-icon">📁</div> Historias Clínicas
+        <div class="nav-icon">📁</div> <span data-i18n="nav_histories">Historias Clínicas</span>
       </div>
 
       <div class="nav-item" onclick="showTab('fotos')" id="nav-fotos">
-        <div class="nav-icon">📸</div> Fotos Paciente
+        <div class="nav-icon">📸</div> <span data-i18n="nav_photos">Fotos Paciente</span>
       </div>
     </div>
 
     <div class="sidebar-footer">
       <div class="nav-item" onclick="showTab('configuracion')" id="nav-configuracion">
-        <div class="nav-icon">⚙️</div> Configuración
+        <div class="nav-icon">⚙️</div> <span data-i18n="nav_config">Configuración</span>
       </div>
     </div>
 
     <!-- Admin-only nav section -->
     <div class="sidebar-section nav-admin-only" id="admin-nav-section">
-      <div class="sidebar-label">Administración</div>
+      <div class="sidebar-label" data-i18n="nav_admin">Administración</div>
       <div class="nav-item nav-admin-only" onclick="showTab('clientes')" id="nav-clientes">
-        <div class="nav-icon">🏢</div> Clínicas Clientes
+        <div class="nav-icon">🏢</div> <span data-i18n="nav_clients">Clínicas Clientes</span>
       </div>
       <div class="nav-item nav-admin-only" onclick="showTab('paquetes')" id="nav-paquetes">
-        <div class="nav-icon">📦</div> Paquetes
+        <div class="nav-icon">📦</div> <span data-i18n="nav_packages">Paquetes</span>
       </div>
       <div class="nav-item nav-admin-only" onclick="showTab('resumen-clinicas')" id="nav-resumen-clinicas">
-        <div class="nav-icon">📊</div> Resumen Cuotas
+        <div class="nav-icon">📊</div> <span data-i18n="nav_quota_summary">Resumen Cuotas</span>
       </div>
       <div class="nav-item nav-admin-only" onclick="showTab('historial-clinicas')" id="nav-historial-clinicas">
-        <div class="nav-icon">🧾</div> Historial Compras
+        <div class="nav-icon">🧾</div> <span data-i18n="nav_purchase_history">Historial Compras</span>
       </div>
     </div>
   </aside>
@@ -631,14 +666,14 @@
     ══════════════════════════════════════════ -->
     <div id="tab-dashboard" class="tab-content visible">
       <div class="page-header">
-        <h1>Dashboard</h1>
-        <p>Resumen general de la actividad clínica</p>
+        <h1 data-i18n="dash_title">Dashboard</h1>
+        <p data-i18n="dash_subtitle">Resumen general de la actividad clínica</p>
       </div>
 
       <div class="stat-grid" id="dash-stats">
         <div class="stat-card">
           <div class="val" id="ds-pacientes">0</div>
-          <div class="lbl">Pacientes registrados</div>
+          <div class="lbl" data-i18n="dash_patients">Pacientes registrados</div>
           <div class="trend trend-ok">👤 Total</div>
         </div>
         <div class="stat-card">
@@ -684,7 +719,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-pacientes" class="tab-content">
       <div class="page-header">
-        <h1>Pacientes</h1>
+        <h1 data-i18n="pat_title">Pacientes</h1>
         <p>Registro, gestión y documentación de pacientes</p>
         <div class="row">
           <button class="btn btn-primary" onclick="newPaciente()">+ Nuevo paciente</button>
@@ -730,7 +765,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-doctores" class="tab-content">
       <div class="page-header">
-        <h1>Doctores</h1>
+        <h1 data-i18n="doc_title">Doctores</h1>
         <p>Equipo médico y especialistas</p>
         <div class="row">
           <button class="btn btn-primary" onclick="openModal('modal-doctor')">+ Añadir doctor</button>
@@ -771,7 +806,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-clinicas" class="tab-content">
       <div class="page-header">
-        <h1>Clínicas</h1>
+        <h1 data-i18n="cli_title">Clínicas</h1>
         <p>Centros y sedes registradas</p>
         <div class="row">
           <button class="btn btn-primary" onclick="openModal('modal-clinica')">+ Nueva clínica</button>
@@ -800,7 +835,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-consentimientos" class="tab-content">
       <div class="page-header">
-        <h1>Consentimientos Informados</h1>
+        <h1 data-i18n="con_title">Consentimientos Informados</h1>
         <p>Biblioteca de plantillas y gestión de consentimientos de pacientes</p>
       </div>
 
@@ -880,7 +915,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-historias" class="tab-content">
       <div class="page-header">
-        <h1>Historias Clínicas</h1>
+        <h1 data-i18n="hc_title">Historias Clínicas</h1>
         <p>Registro clínico completo y seguimiento de pacientes</p>
         <div class="row">
           <button class="btn btn-primary" onclick="openHistoriaModal(null)">+ Nueva historia</button>
@@ -915,7 +950,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-fotos" class="tab-content">
       <div class="page-header">
-        <h1>Fotos del Paciente</h1>
+        <h1 data-i18n="pho_title">Fotos del Paciente</h1>
         <p>Registro fotográfico antes / después de procedimientos</p>
       </div>
 
@@ -945,7 +980,7 @@
     ══════════════════════════════════════════ -->
     <div id="tab-configuracion" class="tab-content">
       <div class="page-header">
-        <h1>Configuración</h1>
+        <h1 data-i18n="cfg_title">Configuración</h1>
         <p>Datos de la clínica y preferencias del sistema</p>
       </div>
 
@@ -1768,6 +1803,838 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════
+     i18n — Multi-language support
+══════════════════════════════════════════════ -->
+<script>
+const LANGS = [
+  { code:'ar', flag:'🇸🇦', name:'العربية',           rtl:true  },
+  { code:'ca', flag:'🇪🇸', name:'Català',            rtl:false },
+  { code:'zh', flag:'🇨🇳', name:'中文 (简体)',        rtl:false },
+  { code:'da', flag:'🇩🇰', name:'Dansk',             rtl:false },
+  { code:'de', flag:'🇩🇪', name:'Deutsch',           rtl:false },
+  { code:'en', flag:'🇬🇧', name:'English',           rtl:false },
+  { code:'es', flag:'🇪🇸', name:'Español',           rtl:false },
+  { code:'fi', flag:'🇫🇮', name:'Suomi',             rtl:false },
+  { code:'fr', flag:'🇫🇷', name:'Français',          rtl:false },
+  { code:'it', flag:'🇮🇹', name:'Italiano',          rtl:false },
+  { code:'ja', flag:'🇯🇵', name:'日本語',             rtl:false },
+  { code:'ko', flag:'🇰🇷', name:'한국어',             rtl:false },
+  { code:'nl', flag:'🇳🇱', name:'Nederlands',        rtl:false },
+  { code:'no', flag:'🇳🇴', name:'Norsk',             rtl:false },
+  { code:'pl', flag:'🇵🇱', name:'Polski',            rtl:false },
+  { code:'pt', flag:'🇵🇹', name:'Português',         rtl:false },
+  { code:'pt-BR', flag:'🇧🇷', name:'Português (BR)', rtl:false },
+  { code:'ro', flag:'🇷🇴', name:'Română',            rtl:false },
+  { code:'ru', flag:'🇷🇺', name:'Русский',           rtl:false },
+  { code:'sv', flag:'🇸🇪', name:'Svenska',           rtl:false },
+  { code:'tr', flag:'🇹🇷', name:'Türkçe',            rtl:false },
+  { code:'uk', flag:'🇺🇦', name:'Українська',        rtl:false },
+];
+
+// ─── Translation dictionary ───────────────────────────────────────
+const I18N = {
+  es: {
+    // Nav
+    nav_dashboard:'Dashboard', nav_patients:'Pacientes', nav_doctors:'Doctores',
+    nav_clinics:'Clínicas', nav_consents:'Consentimientos', nav_histories:'Historias Clínicas',
+    nav_photos:'Fotos', nav_config:'Configuración', nav_admin:'Administración',
+    nav_clients:'Clínicas Clientes', nav_packages:'Paquetes', nav_quota_summary:'Resumen Cuotas',
+    nav_purchase_history:'Historial Compras',
+    // Header
+    header_subtitle:'Consentimientos Digitales · Huella Digital',
+    // Dashboard
+    dash_title:'Dashboard', dash_subtitle:'Resumen de actividad clínica',
+    dash_patients:'Pacientes', dash_consents:'Consentimientos', dash_doctors:'Doctores',
+    dash_signed:'Firmados', dash_pending:'Pendientes', dash_today:'Hoy',
+    dash_recent_consents:'Últimos consentimientos', dash_recent_patients:'Últimos pacientes',
+    dash_view_all:'Ver todos',
+    // Patients
+    pat_title:'Pacientes', pat_subtitle:'Gestiona el listado de pacientes',
+    pat_new:'+ Nuevo paciente', pat_search:'Buscar paciente...',
+    pat_name:'Nombre', pat_dob:'F. Nac.', pat_phone:'Teléfono', pat_actions:'Acciones',
+    pat_empty:'No se encontraron pacientes',
+    // Doctors
+    doc_title:'Doctores', doc_subtitle:'Gestiona el equipo médico',
+    doc_new:'+ Nuevo doctor', doc_search:'Buscar doctor...',
+    doc_specialty:'Especialidad', doc_clinic:'Clínica', doc_actions:'Acciones',
+    doc_empty:'No hay doctores registrados',
+    // Clinics
+    cli_title:'Clínicas', cli_subtitle:'Gestiona las clínicas del sistema',
+    cli_new:'+ Nueva clínica', cli_search:'Buscar clínica...',
+    cli_empty:'No hay clínicas registradas',
+    // Consents
+    con_title:'Consentimientos', con_subtitle:'Gestiona los consentimientos informados',
+    con_new:'+ Nuevo consentimiento', con_search:'Buscar...', con_filter_status:'Estado',
+    con_all:'Todos', con_pending:'Pendiente', con_signed:'Firmado', con_cancelled:'Cancelado',
+    con_patient:'Paciente', con_procedure:'Procedimiento', con_doctor:'Doctor', con_date:'Fecha',
+    con_status:'Estado', con_actions:'Acciones', con_empty:'No hay consentimientos',
+    con_sign:'Firmar', con_preview:'Vista previa', con_edit:'Editar', con_delete:'Eliminar',
+    // Histories
+    hc_title:'Historias Clínicas', hc_subtitle:'Gestiona las historias clínicas',
+    hc_new:'+ Nueva historia', hc_search:'Buscar...', hc_filter_type:'Tipo',
+    hc_patient:'Paciente', hc_doctor:'Doctor', hc_date:'Fecha', hc_type:'Tipo',
+    hc_diagnosis:'Diagnóstico', hc_actions:'Acciones', hc_empty:'No hay historias clínicas',
+    // Photos
+    pho_title:'Sesiones de Fotos', pho_subtitle:'Gestiona las sesiones fotográficas',
+    pho_search:'Buscar paciente...', pho_type:'Tipo',
+    pho_upload:'Subir fotos', pho_empty:'Sin fotos para este paciente',
+    // Config
+    cfg_title:'Configuración', cfg_subtitle:'Personaliza el sistema',
+    cfg_clinic_name:'Nombre de la clínica', cfg_address:'Dirección', cfg_phone:'Teléfono',
+    cfg_email:'Email', cfg_save:'Guardar cambios', cfg_logo:'Logo',
+    // Admin
+    adm_clients_title:'Gestión de Clínicas',
+    adm_clients_subtitle:'Administra acceso, permisos y cuotas de cada clínica cliente',
+    adm_new_client:'+ Nueva Clínica',
+    adm_pkg_title:'Gestión de Paquetes',
+    adm_pkg_subtitle:'Configura los paquetes de cuotas disponibles para las clínicas',
+    adm_new_pkg:'+ Nuevo Paquete',
+    adm_quota_title:'Resumen de cuotas por clínica',
+    adm_quota_subtitle:'Estado actual de cuotas compradas, usadas y disponibles de cada clínica cliente',
+    adm_hist_title:'Historial de compras',
+    adm_hist_subtitle:'Registro de todos los paquetes asignados a cada clínica',
+    // Buttons
+    btn_save:'Guardar', btn_cancel:'Cancelar', btn_edit:'Editar', btn_delete:'Eliminar',
+    btn_close:'Cerrar', btn_sign:'Firmar', btn_preview:'Vista previa',
+    btn_export:'Exportar', btn_print:'Imprimir', btn_reload:'Recargar cuotas',
+    btn_new_pkg:'Nuevo Paquete', btn_assign:'Asignar',
+    // Auth
+    auth_email:'Correo electrónico', auth_send_code:'Enviar código',
+    auth_code:'Código de verificación', auth_verify:'Verificar',
+    auth_bio:'Usar biometría', auth_admin_title:'Acceso Administrador',
+    auth_username:'Usuario', auth_password:'Contraseña', auth_login:'Entrar',
+    auth_totp:'Código TOTP (Google Authenticator)', auth_recovery:'Código de recuperación',
+    auth_session_day:'1 día', auth_session_week:'7 días', auth_session_month:'30 días',
+    auth_session_quarter:'90 días', auth_session_title:'¿Cuánto tiempo recordar este dispositivo?',
+    // Quota widget
+    quota_title:'Cuotas disponibles', quota_low:'⚠️ Cuotas próximas a agotarse',
+    // Status
+    status_active:'Activo', status_depleted:'Agotado', status_signed:'Firmado',
+    status_pending:'Pendiente', status_cancelled:'Cancelado',
+    // Common
+    lbl_name:'Nombre', lbl_email:'Email', lbl_phone:'Teléfono', lbl_date:'Fecha',
+    lbl_hour:'Hora', lbl_notes:'Notas', lbl_address:'Dirección',
+    confirm_delete:'¿Eliminar este registro?', logout:'Cerrar sesión',
+    logout_confirm:'¿Cerrar sesión?', no_records:'Sin registros',
+    // Clinic modal
+    cm_title_new:'Nueva Clínica', cm_title_edit:'Editar Clínica',
+    cm_clinic_name:'Nombre de la clínica *', cm_email:'Email de acceso *', cm_phone:'Teléfono',
+    cm_quota_consents:'Consentimientos', cm_quota_histories:'Historias clínicas', cm_quota_photos:'Sesiones de fotos',
+    cm_permissions:'Módulos habilitados',
+    // Package modal
+    pm_title_new:'Nuevo Paquete', pm_title_edit:'Editar Paquete',
+    pm_name:'Nombre del paquete *', pm_consents:'Consentimientos incluidos',
+    pm_histories:'Historias clínicas incluidas', pm_photos:'Sesiones de fotos incluidas',
+    pm_price:'Precio (€)', pm_desc:'Descripción (opcional)', pm_save:'Guardar paquete',
+    // History modal
+    hist_date:'Fecha', hist_hour:'Hora', hist_package:'Paquete', hist_includes:'Incluye', hist_amount:'Importe', hist_status:'Estado',
+    // Purchase
+    assign_title:'Recargar cuotas', assign_subtitle:'Selecciona un paquete para asignar a',
+    assign_no_pkgs:'No hay paquetes configurados.',
+  },
+  en: {
+    nav_dashboard:'Dashboard', nav_patients:'Patients', nav_doctors:'Doctors',
+    nav_clinics:'Clinics', nav_consents:'Consents', nav_histories:'Clinical Histories',
+    nav_photos:'Photos', nav_config:'Settings', nav_admin:'Administration',
+    nav_clients:'Client Clinics', nav_packages:'Packages', nav_quota_summary:'Quota Summary',
+    nav_purchase_history:'Purchase History',
+    header_subtitle:'Digital Consents · Digital Signature',
+    dash_title:'Dashboard', dash_subtitle:'Clinical activity summary',
+    dash_patients:'Patients', dash_consents:'Consents', dash_doctors:'Doctors',
+    dash_signed:'Signed', dash_pending:'Pending', dash_today:'Today',
+    dash_recent_consents:'Latest consents', dash_recent_patients:'Latest patients',
+    dash_view_all:'View all',
+    pat_title:'Patients', pat_subtitle:'Manage your patient list',
+    pat_new:'+ New patient', pat_search:'Search patient...',
+    pat_name:'Name', pat_dob:'Date of Birth', pat_phone:'Phone', pat_actions:'Actions',
+    pat_empty:'No patients found',
+    doc_title:'Doctors', doc_subtitle:'Manage medical team',
+    doc_new:'+ New doctor', doc_search:'Search doctor...',
+    doc_specialty:'Specialty', doc_clinic:'Clinic', doc_actions:'Actions', doc_empty:'No doctors registered',
+    cli_title:'Clinics', cli_subtitle:'Manage system clinics',
+    cli_new:'+ New clinic', cli_search:'Search clinic...', cli_empty:'No clinics registered',
+    con_title:'Consents', con_subtitle:'Manage informed consents',
+    con_new:'+ New consent', con_search:'Search...', con_filter_status:'Status',
+    con_all:'All', con_pending:'Pending', con_signed:'Signed', con_cancelled:'Cancelled',
+    con_patient:'Patient', con_procedure:'Procedure', con_doctor:'Doctor', con_date:'Date',
+    con_status:'Status', con_actions:'Actions', con_empty:'No consents found',
+    con_sign:'Sign', con_preview:'Preview', con_edit:'Edit', con_delete:'Delete',
+    hc_title:'Clinical Histories', hc_subtitle:'Manage clinical histories',
+    hc_new:'+ New history', hc_search:'Search...', hc_filter_type:'Type',
+    hc_patient:'Patient', hc_doctor:'Doctor', hc_date:'Date', hc_type:'Type',
+    hc_diagnosis:'Diagnosis', hc_actions:'Actions', hc_empty:'No clinical histories',
+    pho_title:'Photo Sessions', pho_subtitle:'Manage photo sessions',
+    pho_search:'Search patient...', pho_type:'Type', pho_upload:'Upload photos', pho_empty:'No photos for this patient',
+    cfg_title:'Settings', cfg_subtitle:'Customize the system',
+    cfg_clinic_name:'Clinic name', cfg_address:'Address', cfg_phone:'Phone',
+    cfg_email:'Email', cfg_save:'Save changes', cfg_logo:'Logo',
+    adm_clients_title:'Clinic Management',
+    adm_clients_subtitle:'Manage access, permissions and quotas for each client clinic',
+    adm_new_client:'+ New Clinic', adm_pkg_title:'Package Management',
+    adm_pkg_subtitle:'Configure quota packages available to clinics',
+    adm_new_pkg:'+ New Package', adm_quota_title:'Quota summary by clinic',
+    adm_quota_subtitle:'Current status of purchased, used and available quotas for each clinic',
+    adm_hist_title:'Purchase history', adm_hist_subtitle:'Record of all packages assigned to each clinic',
+    btn_save:'Save', btn_cancel:'Cancel', btn_edit:'Edit', btn_delete:'Delete',
+    btn_close:'Close', btn_sign:'Sign', btn_preview:'Preview',
+    btn_export:'Export', btn_print:'Print', btn_reload:'Reload quotas',
+    btn_new_pkg:'New Package', btn_assign:'Assign',
+    auth_email:'Email address', auth_send_code:'Send code',
+    auth_code:'Verification code', auth_verify:'Verify',
+    auth_bio:'Use biometrics', auth_admin_title:'Administrator Access',
+    auth_username:'Username', auth_password:'Password', auth_login:'Login',
+    auth_totp:'TOTP code (Google Authenticator)', auth_recovery:'Recovery code',
+    auth_session_day:'1 day', auth_session_week:'7 days', auth_session_month:'30 days',
+    auth_session_quarter:'90 days', auth_session_title:'How long to remember this device?',
+    quota_title:'Available quotas', quota_low:'⚠️ Quotas running low',
+    status_active:'Active', status_depleted:'Depleted', status_signed:'Signed',
+    status_pending:'Pending', status_cancelled:'Cancelled',
+    lbl_name:'Name', lbl_email:'Email', lbl_phone:'Phone', lbl_date:'Date',
+    lbl_hour:'Time', lbl_notes:'Notes', lbl_address:'Address',
+    confirm_delete:'Delete this record?', logout:'Log out',
+    logout_confirm:'Log out?', no_records:'No records',
+    cm_title_new:'New Clinic', cm_title_edit:'Edit Clinic',
+    cm_clinic_name:'Clinic name *', cm_email:'Access email *', cm_phone:'Phone',
+    cm_quota_consents:'Consents', cm_quota_histories:'Clinical histories', cm_quota_photos:'Photo sessions',
+    cm_permissions:'Enabled modules',
+    pm_title_new:'New Package', pm_title_edit:'Edit Package',
+    pm_name:'Package name *', pm_consents:'Consents included',
+    pm_histories:'Clinical histories included', pm_photos:'Photo sessions included',
+    pm_price:'Price (€)', pm_desc:'Description (optional)', pm_save:'Save package',
+    hist_date:'Date', hist_hour:'Time', hist_package:'Package', hist_includes:'Includes', hist_amount:'Amount', hist_status:'Status',
+    assign_title:'Reload quotas', assign_subtitle:'Select a package to assign to',
+    assign_no_pkgs:'No packages configured.',
+  },
+  fr: {
+    nav_dashboard:'Tableau de bord', nav_patients:'Patients', nav_doctors:'Médecins',
+    nav_clinics:'Cliniques', nav_consents:'Consentements', nav_histories:'Dossiers médicaux',
+    nav_photos:'Photos', nav_config:'Paramètres', nav_admin:'Administration',
+    nav_clients:'Cliniques clientes', nav_packages:'Forfaits', nav_quota_summary:'Résumé quotas',
+    nav_purchase_history:'Historique achats',
+    header_subtitle:'Consentements numériques · Signature numérique',
+    dash_title:'Tableau de bord', dash_subtitle:'Résumé de l\'activité clinique',
+    dash_patients:'Patients', dash_consents:'Consentements', dash_doctors:'Médecins',
+    dash_signed:'Signés', dash_pending:'En attente', dash_today:'Aujourd\'hui',
+    dash_recent_consents:'Derniers consentements', dash_recent_patients:'Derniers patients', dash_view_all:'Voir tout',
+    pat_title:'Patients', pat_subtitle:'Gérer la liste des patients', pat_new:'+ Nouveau patient',
+    pat_search:'Rechercher...', pat_name:'Nom', pat_dob:'Date de naissance', pat_phone:'Téléphone',
+    pat_actions:'Actions', pat_empty:'Aucun patient trouvé',
+    doc_title:'Médecins', doc_subtitle:'Gérer l\'équipe médicale', doc_new:'+ Nouveau médecin',
+    doc_search:'Rechercher...', doc_specialty:'Spécialité', doc_clinic:'Clinique', doc_actions:'Actions', doc_empty:'Aucun médecin enregistré',
+    cli_title:'Cliniques', cli_subtitle:'Gérer les cliniques', cli_new:'+ Nouvelle clinique', cli_search:'Rechercher...', cli_empty:'Aucune clinique enregistrée',
+    con_title:'Consentements', con_subtitle:'Gérer les consentements éclairés',
+    con_new:'+ Nouveau consentement', con_search:'Rechercher...', con_filter_status:'Statut',
+    con_all:'Tous', con_pending:'En attente', con_signed:'Signé', con_cancelled:'Annulé',
+    con_patient:'Patient', con_procedure:'Procédure', con_doctor:'Médecin', con_date:'Date',
+    con_status:'Statut', con_actions:'Actions', con_empty:'Aucun consentement',
+    con_sign:'Signer', con_preview:'Aperçu', con_edit:'Modifier', con_delete:'Supprimer',
+    hc_title:'Dossiers médicaux', hc_subtitle:'Gérer les dossiers médicaux',
+    hc_new:'+ Nouveau dossier', hc_search:'Rechercher...', hc_filter_type:'Type',
+    hc_patient:'Patient', hc_doctor:'Médecin', hc_date:'Date', hc_type:'Type',
+    hc_diagnosis:'Diagnostic', hc_actions:'Actions', hc_empty:'Aucun dossier médical',
+    pho_title:'Sessions photo', pho_subtitle:'Gérer les sessions photo',
+    pho_search:'Rechercher patient...', pho_type:'Type', pho_upload:'Charger des photos', pho_empty:'Aucune photo pour ce patient',
+    cfg_title:'Paramètres', cfg_subtitle:'Personnaliser le système',
+    cfg_clinic_name:'Nom de la clinique', cfg_address:'Adresse', cfg_phone:'Téléphone',
+    cfg_email:'Email', cfg_save:'Enregistrer', cfg_logo:'Logo',
+    adm_clients_title:'Gestion des cliniques', adm_clients_subtitle:'Gérer l\'accès, permissions et quotas',
+    adm_new_client:'+ Nouvelle clinique', adm_pkg_title:'Gestion des forfaits',
+    adm_pkg_subtitle:'Configurer les forfaits disponibles', adm_new_pkg:'+ Nouveau forfait',
+    adm_quota_title:'Résumé des quotas par clinique', adm_quota_subtitle:'État actuel des quotas achetés, utilisés et disponibles',
+    adm_hist_title:'Historique des achats', adm_hist_subtitle:'Registre de tous les forfaits assignés',
+    btn_save:'Enregistrer', btn_cancel:'Annuler', btn_edit:'Modifier', btn_delete:'Supprimer',
+    btn_close:'Fermer', btn_sign:'Signer', btn_preview:'Aperçu',
+    btn_export:'Exporter', btn_print:'Imprimer', btn_reload:'Recharger quotas',
+    btn_new_pkg:'Nouveau forfait', btn_assign:'Attribuer',
+    auth_email:'Adresse email', auth_send_code:'Envoyer le code', auth_code:'Code de vérification',
+    auth_verify:'Vérifier', auth_bio:'Utiliser la biométrie', auth_admin_title:'Accès administrateur',
+    auth_username:'Utilisateur', auth_password:'Mot de passe', auth_login:'Connexion',
+    auth_totp:'Code TOTP (Google Authenticator)', auth_recovery:'Code de récupération',
+    auth_session_day:'1 jour', auth_session_week:'7 jours', auth_session_month:'30 jours',
+    auth_session_quarter:'90 jours', auth_session_title:'Mémoriser cet appareil pendant ?',
+    quota_title:'Quotas disponibles', quota_low:'⚠️ Quotas bientôt épuisés',
+    status_active:'Actif', status_depleted:'Épuisé', status_signed:'Signé',
+    status_pending:'En attente', status_cancelled:'Annulé',
+    lbl_name:'Nom', lbl_email:'Email', lbl_phone:'Téléphone', lbl_date:'Date',
+    lbl_hour:'Heure', lbl_notes:'Notes', lbl_address:'Adresse',
+    confirm_delete:'Supprimer cet enregistrement ?', logout:'Déconnexion',
+    logout_confirm:'Se déconnecter ?', no_records:'Aucun enregistrement',
+    cm_title_new:'Nouvelle clinique', cm_title_edit:'Modifier la clinique',
+    cm_clinic_name:'Nom de la clinique *', cm_email:'Email d\'accès *', cm_phone:'Téléphone',
+    cm_quota_consents:'Consentements', cm_quota_histories:'Dossiers médicaux', cm_quota_photos:'Sessions photo',
+    cm_permissions:'Modules activés',
+    pm_title_new:'Nouveau forfait', pm_title_edit:'Modifier le forfait',
+    pm_name:'Nom du forfait *', pm_consents:'Consentements inclus',
+    pm_histories:'Dossiers inclus', pm_photos:'Sessions photo incluses',
+    pm_price:'Prix (€)', pm_desc:'Description (optionnel)', pm_save:'Enregistrer le forfait',
+    hist_date:'Date', hist_hour:'Heure', hist_package:'Forfait', hist_includes:'Inclut', hist_amount:'Montant', hist_status:'Statut',
+    assign_title:'Recharger les quotas', assign_subtitle:'Sélectionner un forfait pour',
+    assign_no_pkgs:'Aucun forfait configuré.',
+  },
+  de: {
+    nav_dashboard:'Dashboard', nav_patients:'Patienten', nav_doctors:'Ärzte',
+    nav_clinics:'Kliniken', nav_consents:'Einwilligungen', nav_histories:'Krankenakten',
+    nav_photos:'Fotos', nav_config:'Einstellungen', nav_admin:'Verwaltung',
+    nav_clients:'Kundenpraxen', nav_packages:'Pakete', nav_quota_summary:'Kontingentübersicht',
+    nav_purchase_history:'Kaufhistorie',
+    header_subtitle:'Digitale Einwilligungen · Digitale Unterschrift',
+    dash_title:'Dashboard', dash_subtitle:'Übersicht der klinischen Aktivitäten',
+    dash_patients:'Patienten', dash_consents:'Einwilligungen', dash_doctors:'Ärzte',
+    dash_signed:'Unterschrieben', dash_pending:'Ausstehend', dash_today:'Heute',
+    dash_recent_consents:'Letzte Einwilligungen', dash_recent_patients:'Letzte Patienten', dash_view_all:'Alle anzeigen',
+    pat_title:'Patienten', pat_subtitle:'Patientenliste verwalten', pat_new:'+ Neuer Patient',
+    pat_search:'Patient suchen...', pat_name:'Name', pat_dob:'Geburtsdatum', pat_phone:'Telefon',
+    pat_actions:'Aktionen', pat_empty:'Keine Patienten gefunden',
+    doc_title:'Ärzte', doc_subtitle:'Medizinisches Team verwalten', doc_new:'+ Neuer Arzt',
+    doc_search:'Arzt suchen...', doc_specialty:'Fachgebiet', doc_clinic:'Klinik', doc_actions:'Aktionen', doc_empty:'Keine Ärzte registriert',
+    cli_title:'Kliniken', cli_subtitle:'Kliniken verwalten', cli_new:'+ Neue Klinik', cli_search:'Suchen...', cli_empty:'Keine Kliniken registriert',
+    con_title:'Einwilligungen', con_subtitle:'Patienteneinwilligungen verwalten',
+    con_new:'+ Neue Einwilligung', con_search:'Suchen...', con_filter_status:'Status',
+    con_all:'Alle', con_pending:'Ausstehend', con_signed:'Unterzeichnet', con_cancelled:'Abgebrochen',
+    con_patient:'Patient', con_procedure:'Eingriff', con_doctor:'Arzt', con_date:'Datum',
+    con_status:'Status', con_actions:'Aktionen', con_empty:'Keine Einwilligungen',
+    con_sign:'Unterschreiben', con_preview:'Vorschau', con_edit:'Bearbeiten', con_delete:'Löschen',
+    hc_title:'Krankenakten', hc_subtitle:'Krankenakten verwalten',
+    hc_new:'+ Neue Akte', hc_search:'Suchen...', hc_filter_type:'Typ',
+    hc_patient:'Patient', hc_doctor:'Arzt', hc_date:'Datum', hc_type:'Typ',
+    hc_diagnosis:'Diagnose', hc_actions:'Aktionen', hc_empty:'Keine Krankenakten',
+    pho_title:'Fotositzungen', pho_subtitle:'Fotositzungen verwalten',
+    pho_search:'Patient suchen...', pho_type:'Typ', pho_upload:'Fotos hochladen', pho_empty:'Keine Fotos für diesen Patienten',
+    cfg_title:'Einstellungen', cfg_subtitle:'System anpassen',
+    cfg_clinic_name:'Name der Praxis', cfg_address:'Adresse', cfg_phone:'Telefon',
+    cfg_email:'E-Mail', cfg_save:'Änderungen speichern', cfg_logo:'Logo',
+    adm_clients_title:'Praxisverwaltung', adm_clients_subtitle:'Zugang, Berechtigungen und Kontingente verwalten',
+    adm_new_client:'+ Neue Praxis', adm_pkg_title:'Paketverwaltung',
+    adm_pkg_subtitle:'Kontingentpakete konfigurieren', adm_new_pkg:'+ Neues Paket',
+    adm_quota_title:'Kontingentübersicht', adm_quota_subtitle:'Aktueller Status der Kontingente',
+    adm_hist_title:'Kaufhistorie', adm_hist_subtitle:'Alle Paketzuweisungen',
+    btn_save:'Speichern', btn_cancel:'Abbrechen', btn_edit:'Bearbeiten', btn_delete:'Löschen',
+    btn_close:'Schließen', btn_sign:'Unterschreiben', btn_preview:'Vorschau',
+    btn_export:'Exportieren', btn_print:'Drucken', btn_reload:'Kontingente aufladen',
+    btn_new_pkg:'Neues Paket', btn_assign:'Zuweisen',
+    auth_email:'E-Mail-Adresse', auth_send_code:'Code senden', auth_code:'Bestätigungscode',
+    auth_verify:'Verifizieren', auth_bio:'Biometrie verwenden', auth_admin_title:'Administratorzugang',
+    auth_username:'Benutzername', auth_password:'Passwort', auth_login:'Anmelden',
+    auth_totp:'TOTP-Code (Google Authenticator)', auth_recovery:'Wiederherstellungscode',
+    auth_session_day:'1 Tag', auth_session_week:'7 Tage', auth_session_month:'30 Tage',
+    auth_session_quarter:'90 Tage', auth_session_title:'Wie lange soll dieses Gerät gespeichert bleiben?',
+    quota_title:'Verfügbare Kontingente', quota_low:'⚠️ Kontingente fast erschöpft',
+    status_active:'Aktiv', status_depleted:'Erschöpft', status_signed:'Unterzeichnet',
+    status_pending:'Ausstehend', status_cancelled:'Abgebrochen',
+    lbl_name:'Name', lbl_email:'E-Mail', lbl_phone:'Telefon', lbl_date:'Datum',
+    lbl_hour:'Uhrzeit', lbl_notes:'Notizen', lbl_address:'Adresse',
+    confirm_delete:'Diesen Eintrag löschen?', logout:'Abmelden',
+    logout_confirm:'Abmelden?', no_records:'Keine Einträge',
+    cm_title_new:'Neue Praxis', cm_title_edit:'Praxis bearbeiten',
+    cm_clinic_name:'Name der Praxis *', cm_email:'Zugangs-E-Mail *', cm_phone:'Telefon',
+    cm_quota_consents:'Einwilligungen', cm_quota_histories:'Krankenakten', cm_quota_photos:'Fotositzungen',
+    cm_permissions:'Aktivierte Module',
+    pm_title_new:'Neues Paket', pm_title_edit:'Paket bearbeiten',
+    pm_name:'Paketname *', pm_consents:'Einwilligungen inklusive',
+    pm_histories:'Krankenakten inklusive', pm_photos:'Fotositzungen inklusive',
+    pm_price:'Preis (€)', pm_desc:'Beschreibung (optional)', pm_save:'Paket speichern',
+    hist_date:'Datum', hist_hour:'Uhrzeit', hist_package:'Paket', hist_includes:'Enthält', hist_amount:'Betrag', hist_status:'Status',
+    assign_title:'Kontingente aufladen', assign_subtitle:'Paket auswählen für',
+    assign_no_pkgs:'Keine Pakete konfiguriert.',
+  },
+  it: {
+    nav_dashboard:'Dashboard', nav_patients:'Pazienti', nav_doctors:'Medici',
+    nav_clinics:'Cliniche', nav_consents:'Consensi', nav_histories:'Cartelle cliniche',
+    nav_photos:'Foto', nav_config:'Impostazioni', nav_admin:'Amministrazione',
+    nav_clients:'Cliniche clienti', nav_packages:'Pacchetti', nav_quota_summary:'Riepilogo quote',
+    nav_purchase_history:'Storico acquisti',
+    header_subtitle:'Consensi digitali · Firma digitale',
+    dash_title:'Dashboard', dash_subtitle:'Riepilogo attività clinica',
+    dash_patients:'Pazienti', dash_consents:'Consensi', dash_doctors:'Medici',
+    dash_signed:'Firmati', dash_pending:'In attesa', dash_today:'Oggi',
+    dash_recent_consents:'Ultimi consensi', dash_recent_patients:'Ultimi pazienti', dash_view_all:'Vedi tutti',
+    pat_title:'Pazienti', pat_subtitle:'Gestisci la lista pazienti', pat_new:'+ Nuovo paziente',
+    pat_search:'Cerca paziente...', pat_name:'Nome', pat_dob:'Data di nascita', pat_phone:'Telefono',
+    pat_actions:'Azioni', pat_empty:'Nessun paziente trovato',
+    doc_title:'Medici', doc_subtitle:'Gestisci il team medico', doc_new:'+ Nuovo medico',
+    doc_search:'Cerca medico...', doc_specialty:'Specialità', doc_clinic:'Clinica', doc_actions:'Azioni', doc_empty:'Nessun medico registrato',
+    cli_title:'Cliniche', cli_subtitle:'Gestisci le cliniche', cli_new:'+ Nuova clinica', cli_search:'Cerca...', cli_empty:'Nessuna clinica registrata',
+    con_title:'Consensi', con_subtitle:'Gestisci i consensi informati',
+    con_new:'+ Nuovo consenso', con_search:'Cerca...', con_filter_status:'Stato',
+    con_all:'Tutti', con_pending:'In attesa', con_signed:'Firmato', con_cancelled:'Annullato',
+    con_patient:'Paziente', con_procedure:'Procedura', con_doctor:'Medico', con_date:'Data',
+    con_status:'Stato', con_actions:'Azioni', con_empty:'Nessun consenso',
+    con_sign:'Firma', con_preview:'Anteprima', con_edit:'Modifica', con_delete:'Elimina',
+    hc_title:'Cartelle cliniche', hc_subtitle:'Gestisci le cartelle cliniche',
+    hc_new:'+ Nuova cartella', hc_search:'Cerca...', hc_filter_type:'Tipo',
+    hc_patient:'Paziente', hc_doctor:'Medico', hc_date:'Data', hc_type:'Tipo',
+    hc_diagnosis:'Diagnosi', hc_actions:'Azioni', hc_empty:'Nessuna cartella clinica',
+    pho_title:'Sessioni fotografiche', pho_subtitle:'Gestisci le sessioni fotografiche',
+    pho_search:'Cerca paziente...', pho_type:'Tipo', pho_upload:'Carica foto', pho_empty:'Nessuna foto per questo paziente',
+    cfg_title:'Impostazioni', cfg_subtitle:'Personalizza il sistema',
+    cfg_clinic_name:'Nome della clinica', cfg_address:'Indirizzo', cfg_phone:'Telefono',
+    cfg_email:'Email', cfg_save:'Salva modifiche', cfg_logo:'Logo',
+    adm_clients_title:'Gestione cliniche', adm_clients_subtitle:'Gestisci accesso, permessi e quote',
+    adm_new_client:'+ Nuova clinica', adm_pkg_title:'Gestione pacchetti',
+    adm_pkg_subtitle:'Configura i pacchetti disponibili', adm_new_pkg:'+ Nuovo pacchetto',
+    adm_quota_title:'Riepilogo quote per clinica', adm_quota_subtitle:'Stato attuale delle quote',
+    adm_hist_title:'Storico acquisti', adm_hist_subtitle:'Registro di tutti i pacchetti assegnati',
+    btn_save:'Salva', btn_cancel:'Annulla', btn_edit:'Modifica', btn_delete:'Elimina',
+    btn_close:'Chiudi', btn_sign:'Firma', btn_preview:'Anteprima',
+    btn_export:'Esporta', btn_print:'Stampa', btn_reload:'Ricarica quote',
+    btn_new_pkg:'Nuovo pacchetto', btn_assign:'Assegna',
+    auth_email:'Indirizzo email', auth_send_code:'Invia codice', auth_code:'Codice di verifica',
+    auth_verify:'Verifica', auth_bio:'Usa biometria', auth_admin_title:'Accesso amministratore',
+    auth_username:'Utente', auth_password:'Password', auth_login:'Accedi',
+    auth_totp:'Codice TOTP (Google Authenticator)', auth_recovery:'Codice di recupero',
+    auth_session_day:'1 giorno', auth_session_week:'7 giorni', auth_session_month:'30 giorni',
+    auth_session_quarter:'90 giorni', auth_session_title:'Per quanto tempo ricordare questo dispositivo?',
+    quota_title:'Quote disponibili', quota_low:'⚠️ Quote in esaurimento',
+    status_active:'Attivo', status_depleted:'Esaurito', status_signed:'Firmato',
+    status_pending:'In attesa', status_cancelled:'Annullato',
+    lbl_name:'Nome', lbl_email:'Email', lbl_phone:'Telefono', lbl_date:'Data',
+    lbl_hour:'Ora', lbl_notes:'Note', lbl_address:'Indirizzo',
+    confirm_delete:'Eliminare questo record?', logout:'Disconnetti',
+    logout_confirm:'Disconnettersi?', no_records:'Nessun record',
+    cm_title_new:'Nuova clinica', cm_title_edit:'Modifica clinica',
+    cm_clinic_name:'Nome clinica *', cm_email:'Email di accesso *', cm_phone:'Telefono',
+    cm_quota_consents:'Consensi', cm_quota_histories:'Cartelle cliniche', cm_quota_photos:'Sessioni fotografiche',
+    cm_permissions:'Moduli abilitati',
+    pm_title_new:'Nuovo pacchetto', pm_title_edit:'Modifica pacchetto',
+    pm_name:'Nome pacchetto *', pm_consents:'Consensi inclusi',
+    pm_histories:'Cartelle incluse', pm_photos:'Sessioni fotografiche incluse',
+    pm_price:'Prezzo (€)', pm_desc:'Descrizione (opzionale)', pm_save:'Salva pacchetto',
+    hist_date:'Data', hist_hour:'Ora', hist_package:'Pacchetto', hist_includes:'Include', hist_amount:'Importo', hist_status:'Stato',
+    assign_title:'Ricarica quote', assign_subtitle:'Seleziona un pacchetto per',
+    assign_no_pkgs:'Nessun pacchetto configurato.',
+  },
+  pt: {
+    nav_dashboard:'Dashboard', nav_patients:'Pacientes', nav_doctors:'Médicos',
+    nav_clinics:'Clínicas', nav_consents:'Consentimentos', nav_histories:'Histórias clínicas',
+    nav_photos:'Fotos', nav_config:'Configurações', nav_admin:'Administração',
+    nav_clients:'Clínicas clientes', nav_packages:'Pacotes', nav_quota_summary:'Resumo cotas',
+    nav_purchase_history:'Histórico de compras',
+    header_subtitle:'Consentimentos digitais · Assinatura digital',
+    dash_title:'Dashboard', dash_subtitle:'Resumo de atividade clínica',
+    dash_patients:'Pacientes', dash_consents:'Consentimentos', dash_doctors:'Médicos',
+    dash_signed:'Assinados', dash_pending:'Pendentes', dash_today:'Hoje',
+    dash_recent_consents:'Últimos consentimentos', dash_recent_patients:'Últimos pacientes', dash_view_all:'Ver todos',
+    pat_title:'Pacientes', pat_subtitle:'Gerir lista de pacientes', pat_new:'+ Novo paciente',
+    pat_search:'Pesquisar paciente...', pat_name:'Nome', pat_dob:'Data de nascimento', pat_phone:'Telefone',
+    pat_actions:'Ações', pat_empty:'Nenhum paciente encontrado',
+    doc_title:'Médicos', doc_subtitle:'Gerir equipa médica', doc_new:'+ Novo médico',
+    doc_search:'Pesquisar médico...', doc_specialty:'Especialidade', doc_clinic:'Clínica', doc_actions:'Ações', doc_empty:'Nenhum médico registado',
+    cli_title:'Clínicas', cli_subtitle:'Gerir clínicas', cli_new:'+ Nova clínica', cli_search:'Pesquisar...', cli_empty:'Nenhuma clínica registada',
+    con_title:'Consentimentos', con_subtitle:'Gerir consentimentos informados',
+    con_new:'+ Novo consentimento', con_search:'Pesquisar...', con_filter_status:'Estado',
+    con_all:'Todos', con_pending:'Pendente', con_signed:'Assinado', con_cancelled:'Cancelado',
+    con_patient:'Paciente', con_procedure:'Procedimento', con_doctor:'Médico', con_date:'Data',
+    con_status:'Estado', con_actions:'Ações', con_empty:'Nenhum consentimento',
+    con_sign:'Assinar', con_preview:'Pré-visualizar', con_edit:'Editar', con_delete:'Eliminar',
+    hc_title:'Histórias clínicas', hc_subtitle:'Gerir histórias clínicas',
+    hc_new:'+ Nova história', hc_search:'Pesquisar...', hc_filter_type:'Tipo',
+    hc_patient:'Paciente', hc_doctor:'Médico', hc_date:'Data', hc_type:'Tipo',
+    hc_diagnosis:'Diagnóstico', hc_actions:'Ações', hc_empty:'Nenhuma história clínica',
+    pho_title:'Sessões fotográficas', pho_subtitle:'Gerir sessões fotográficas',
+    pho_search:'Pesquisar paciente...', pho_type:'Tipo', pho_upload:'Carregar fotos', pho_empty:'Nenhuma foto para este paciente',
+    cfg_title:'Configurações', cfg_subtitle:'Personalizar o sistema',
+    cfg_clinic_name:'Nome da clínica', cfg_address:'Endereço', cfg_phone:'Telefone',
+    cfg_email:'Email', cfg_save:'Guardar alterações', cfg_logo:'Logo',
+    adm_clients_title:'Gestão de clínicas', adm_clients_subtitle:'Gerir acesso, permissões e cotas',
+    adm_new_client:'+ Nova clínica', adm_pkg_title:'Gestão de pacotes',
+    adm_pkg_subtitle:'Configurar pacotes disponíveis', adm_new_pkg:'+ Novo pacote',
+    adm_quota_title:'Resumo de cotas por clínica', adm_quota_subtitle:'Estado atual das cotas',
+    adm_hist_title:'Histórico de compras', adm_hist_subtitle:'Registo de todos os pacotes atribuídos',
+    btn_save:'Guardar', btn_cancel:'Cancelar', btn_edit:'Editar', btn_delete:'Eliminar',
+    btn_close:'Fechar', btn_sign:'Assinar', btn_preview:'Pré-visualizar',
+    btn_export:'Exportar', btn_print:'Imprimir', btn_reload:'Recarregar cotas',
+    btn_new_pkg:'Novo pacote', btn_assign:'Atribuir',
+    auth_email:'Endereço de email', auth_send_code:'Enviar código', auth_code:'Código de verificação',
+    auth_verify:'Verificar', auth_bio:'Usar biometria', auth_admin_title:'Acesso administrador',
+    auth_username:'Utilizador', auth_password:'Palavra-passe', auth_login:'Entrar',
+    auth_totp:'Código TOTP (Google Authenticator)', auth_recovery:'Código de recuperação',
+    auth_session_day:'1 dia', auth_session_week:'7 dias', auth_session_month:'30 dias',
+    auth_session_quarter:'90 dias', auth_session_title:'Por quanto tempo lembrar este dispositivo?',
+    quota_title:'Cotas disponíveis', quota_low:'⚠️ Cotas quase esgotadas',
+    status_active:'Ativo', status_depleted:'Esgotado', status_signed:'Assinado',
+    status_pending:'Pendente', status_cancelled:'Cancelado',
+    lbl_name:'Nome', lbl_email:'Email', lbl_phone:'Telefone', lbl_date:'Data',
+    lbl_hour:'Hora', lbl_notes:'Notas', lbl_address:'Endereço',
+    confirm_delete:'Eliminar este registo?', logout:'Sair',
+    logout_confirm:'Terminar sessão?', no_records:'Sem registos',
+    cm_title_new:'Nova clínica', cm_title_edit:'Editar clínica',
+    cm_clinic_name:'Nome da clínica *', cm_email:'Email de acesso *', cm_phone:'Telefone',
+    cm_quota_consents:'Consentimentos', cm_quota_histories:'Histórias clínicas', cm_quota_photos:'Sessões fotográficas',
+    cm_permissions:'Módulos ativados',
+    pm_title_new:'Novo pacote', pm_title_edit:'Editar pacote',
+    pm_name:'Nome do pacote *', pm_consents:'Consentimentos incluídos',
+    pm_histories:'Histórias incluídas', pm_photos:'Sessões fotográficas incluídas',
+    pm_price:'Preço (€)', pm_desc:'Descrição (opcional)', pm_save:'Guardar pacote',
+    hist_date:'Data', hist_hour:'Hora', hist_package:'Pacote', hist_includes:'Inclui', hist_amount:'Valor', hist_status:'Estado',
+    assign_title:'Recarregar cotas', assign_subtitle:'Selecionar um pacote para',
+    assign_no_pkgs:'Nenhum pacote configurado.',
+  },
+  'pt-BR': {
+    nav_dashboard:'Painel', nav_patients:'Pacientes', nav_doctors:'Médicos',
+    nav_clinics:'Clínicas', nav_consents:'Consentimentos', nav_histories:'Prontuários',
+    nav_photos:'Fotos', nav_config:'Configurações', nav_admin:'Administração',
+    nav_clients:'Clínicas clientes', nav_packages:'Pacotes', nav_quota_summary:'Resumo de cotas',
+    nav_purchase_history:'Histórico de compras',
+    header_subtitle:'Consentimentos digitais · Assinatura digital',
+    dash_title:'Painel', dash_subtitle:'Resumo de atividade clínica',
+    dash_patients:'Pacientes', dash_consents:'Consentimentos', dash_doctors:'Médicos',
+    dash_signed:'Assinados', dash_pending:'Pendentes', dash_today:'Hoje',
+    dash_recent_consents:'Últimos consentimentos', dash_recent_patients:'Últimos pacientes', dash_view_all:'Ver todos',
+    pat_title:'Pacientes', pat_subtitle:'Gerenciar lista de pacientes', pat_new:'+ Novo paciente',
+    pat_search:'Pesquisar paciente...', pat_name:'Nome', pat_dob:'Data de nascimento', pat_phone:'Telefone',
+    pat_actions:'Ações', pat_empty:'Nenhum paciente encontrado',
+    doc_title:'Médicos', doc_subtitle:'Gerenciar equipe médica', doc_new:'+ Novo médico',
+    doc_search:'Pesquisar médico...', doc_specialty:'Especialidade', doc_clinic:'Clínica', doc_actions:'Ações', doc_empty:'Nenhum médico cadastrado',
+    cli_title:'Clínicas', cli_subtitle:'Gerenciar clínicas', cli_new:'+ Nova clínica', cli_search:'Pesquisar...', cli_empty:'Nenhuma clínica cadastrada',
+    con_title:'Consentimentos', con_subtitle:'Gerenciar consentimentos informados',
+    con_new:'+ Novo consentimento', con_search:'Pesquisar...', con_filter_status:'Status',
+    con_all:'Todos', con_pending:'Pendente', con_signed:'Assinado', con_cancelled:'Cancelado',
+    con_patient:'Paciente', con_procedure:'Procedimento', con_doctor:'Médico', con_date:'Data',
+    con_status:'Status', con_actions:'Ações', con_empty:'Nenhum consentimento',
+    con_sign:'Assinar', con_preview:'Visualizar', con_edit:'Editar', con_delete:'Excluir',
+    hc_title:'Prontuários', hc_subtitle:'Gerenciar prontuários',
+    hc_new:'+ Novo prontuário', hc_search:'Pesquisar...', hc_filter_type:'Tipo',
+    hc_patient:'Paciente', hc_doctor:'Médico', hc_date:'Data', hc_type:'Tipo',
+    hc_diagnosis:'Diagnóstico', hc_actions:'Ações', hc_empty:'Nenhum prontuário',
+    pho_title:'Sessões fotográficas', pho_subtitle:'Gerenciar sessões fotográficas',
+    pho_search:'Pesquisar paciente...', pho_type:'Tipo', pho_upload:'Enviar fotos', pho_empty:'Nenhuma foto para este paciente',
+    cfg_title:'Configurações', cfg_subtitle:'Personalizar o sistema',
+    cfg_clinic_name:'Nome da clínica', cfg_address:'Endereço', cfg_phone:'Telefone',
+    cfg_email:'Email', cfg_save:'Salvar alterações', cfg_logo:'Logo',
+    adm_clients_title:'Gestão de clínicas', adm_clients_subtitle:'Gerenciar acesso, permissões e cotas',
+    adm_new_client:'+ Nova clínica', adm_pkg_title:'Gestão de pacotes',
+    adm_pkg_subtitle:'Configurar pacotes disponíveis', adm_new_pkg:'+ Novo pacote',
+    adm_quota_title:'Resumo de cotas por clínica', adm_quota_subtitle:'Estado atual das cotas',
+    adm_hist_title:'Histórico de compras', adm_hist_subtitle:'Registro de todos os pacotes atribuídos',
+    btn_save:'Salvar', btn_cancel:'Cancelar', btn_edit:'Editar', btn_delete:'Excluir',
+    btn_close:'Fechar', btn_sign:'Assinar', btn_preview:'Visualizar',
+    btn_export:'Exportar', btn_print:'Imprimir', btn_reload:'Recarregar cotas',
+    btn_new_pkg:'Novo pacote', btn_assign:'Atribuir',
+    auth_email:'Endereço de email', auth_send_code:'Enviar código', auth_code:'Código de verificação',
+    auth_verify:'Verificar', auth_bio:'Usar biometria', auth_admin_title:'Acesso administrador',
+    auth_username:'Usuário', auth_password:'Senha', auth_login:'Entrar',
+    auth_totp:'Código TOTP (Google Authenticator)', auth_recovery:'Código de recuperação',
+    auth_session_day:'1 dia', auth_session_week:'7 dias', auth_session_month:'30 dias',
+    auth_session_quarter:'90 dias', auth_session_title:'Por quanto tempo lembrar este dispositivo?',
+    quota_title:'Cotas disponíveis', quota_low:'⚠️ Cotas quase esgotadas',
+    status_active:'Ativo', status_depleted:'Esgotado', status_signed:'Assinado',
+    status_pending:'Pendente', status_cancelled:'Cancelado',
+    lbl_name:'Nome', lbl_email:'Email', lbl_phone:'Telefone', lbl_date:'Data',
+    lbl_hour:'Hora', lbl_notes:'Observações', lbl_address:'Endereço',
+    confirm_delete:'Excluir este registro?', logout:'Sair',
+    logout_confirm:'Encerrar sessão?', no_records:'Sem registros',
+    cm_title_new:'Nova clínica', cm_title_edit:'Editar clínica',
+    cm_clinic_name:'Nome da clínica *', cm_email:'Email de acesso *', cm_phone:'Telefone',
+    cm_quota_consents:'Consentimentos', cm_quota_histories:'Prontuários', cm_quota_photos:'Sessões fotográficas',
+    cm_permissions:'Módulos habilitados',
+    pm_title_new:'Novo pacote', pm_title_edit:'Editar pacote',
+    pm_name:'Nome do pacote *', pm_consents:'Consentimentos incluídos',
+    pm_histories:'Prontuários incluídos', pm_photos:'Sessões fotográficas incluídas',
+    pm_price:'Preço (€)', pm_desc:'Descrição (opcional)', pm_save:'Salvar pacote',
+    hist_date:'Data', hist_hour:'Hora', hist_package:'Pacote', hist_includes:'Inclui', hist_amount:'Valor', hist_status:'Status',
+    assign_title:'Recarregar cotas', assign_subtitle:'Selecionar pacote para',
+    assign_no_pkgs:'Nenhum pacote configurado.',
+  },
+  ru: {
+    nav_dashboard:'Панель управления', nav_patients:'Пациенты', nav_doctors:'Врачи',
+    nav_clinics:'Клиники', nav_consents:'Согласия', nav_histories:'Истории болезней',
+    nav_photos:'Фото', nav_config:'Настройки', nav_admin:'Администрирование',
+    nav_clients:'Клиники-клиенты', nav_packages:'Пакеты', nav_quota_summary:'Обзор квот',
+    nav_purchase_history:'История покупок',
+    header_subtitle:'Цифровые согласия · Цифровая подпись',
+    dash_title:'Панель управления', dash_subtitle:'Сводка клинической деятельности',
+    dash_patients:'Пациенты', dash_consents:'Согласия', dash_doctors:'Врачи',
+    dash_signed:'Подписаны', dash_pending:'Ожидают', dash_today:'Сегодня',
+    dash_recent_consents:'Последние согласия', dash_recent_patients:'Последние пациенты', dash_view_all:'Показать все',
+    pat_title:'Пациенты', pat_subtitle:'Управление списком пациентов', pat_new:'+ Новый пациент',
+    pat_search:'Найти пациента...', pat_name:'Имя', pat_dob:'Дата рождения', pat_phone:'Телефон',
+    pat_actions:'Действия', pat_empty:'Пациенты не найдены',
+    doc_title:'Врачи', doc_subtitle:'Управление медицинской командой', doc_new:'+ Новый врач',
+    doc_search:'Найти врача...', doc_specialty:'Специализация', doc_clinic:'Клиника', doc_actions:'Действия', doc_empty:'Врачи не зарегистрированы',
+    cli_title:'Клиники', cli_subtitle:'Управление клиниками', cli_new:'+ Новая клиника', cli_search:'Поиск...', cli_empty:'Клиники не зарегистрированы',
+    con_title:'Согласия', con_subtitle:'Управление информированными согласиями',
+    con_new:'+ Новое согласие', con_search:'Поиск...', con_filter_status:'Статус',
+    con_all:'Все', con_pending:'Ожидает', con_signed:'Подписано', con_cancelled:'Отменено',
+    con_patient:'Пациент', con_procedure:'Процедура', con_doctor:'Врач', con_date:'Дата',
+    con_status:'Статус', con_actions:'Действия', con_empty:'Согласий нет',
+    con_sign:'Подписать', con_preview:'Предпросмотр', con_edit:'Редактировать', con_delete:'Удалить',
+    hc_title:'Истории болезней', hc_subtitle:'Управление историями болезней',
+    hc_new:'+ Новая история', hc_search:'Поиск...', hc_filter_type:'Тип',
+    hc_patient:'Пациент', hc_doctor:'Врач', hc_date:'Дата', hc_type:'Тип',
+    hc_diagnosis:'Диагноз', hc_actions:'Действия', hc_empty:'Историй болезней нет',
+    pho_title:'Фото-сессии', pho_subtitle:'Управление фото-сессиями',
+    pho_search:'Найти пациента...', pho_type:'Тип', pho_upload:'Загрузить фото', pho_empty:'Нет фото для этого пациента',
+    cfg_title:'Настройки', cfg_subtitle:'Настройка системы',
+    cfg_clinic_name:'Название клиники', cfg_address:'Адрес', cfg_phone:'Телефон',
+    cfg_email:'Email', cfg_save:'Сохранить изменения', cfg_logo:'Логотип',
+    adm_clients_title:'Управление клиниками', adm_clients_subtitle:'Управление доступом, разрешениями и квотами',
+    adm_new_client:'+ Новая клиника', adm_pkg_title:'Управление пакетами',
+    adm_pkg_subtitle:'Настройка доступных пакетов квот', adm_new_pkg:'+ Новый пакет',
+    adm_quota_title:'Обзор квот по клиникам', adm_quota_subtitle:'Текущий статус квот',
+    adm_hist_title:'История покупок', adm_hist_subtitle:'Все назначенные пакеты',
+    btn_save:'Сохранить', btn_cancel:'Отмена', btn_edit:'Редактировать', btn_delete:'Удалить',
+    btn_close:'Закрыть', btn_sign:'Подписать', btn_preview:'Предпросмотр',
+    btn_export:'Экспорт', btn_print:'Печать', btn_reload:'Пополнить квоты',
+    btn_new_pkg:'Новый пакет', btn_assign:'Назначить',
+    auth_email:'Адрес email', auth_send_code:'Отправить код', auth_code:'Код подтверждения',
+    auth_verify:'Подтвердить', auth_bio:'Использовать биометрию', auth_admin_title:'Доступ администратора',
+    auth_username:'Пользователь', auth_password:'Пароль', auth_login:'Войти',
+    auth_totp:'Код TOTP (Google Authenticator)', auth_recovery:'Код восстановления',
+    auth_session_day:'1 день', auth_session_week:'7 дней', auth_session_month:'30 дней',
+    auth_session_quarter:'90 дней', auth_session_title:'Как долго запомнить это устройство?',
+    quota_title:'Доступные квоты', quota_low:'⚠️ Квоты заканчиваются',
+    status_active:'Активен', status_depleted:'Исчерпан', status_signed:'Подписано',
+    status_pending:'Ожидает', status_cancelled:'Отменено',
+    lbl_name:'Имя', lbl_email:'Email', lbl_phone:'Телефон', lbl_date:'Дата',
+    lbl_hour:'Время', lbl_notes:'Примечания', lbl_address:'Адрес',
+    confirm_delete:'Удалить эту запись?', logout:'Выйти',
+    logout_confirm:'Выйти из системы?', no_records:'Нет записей',
+    cm_title_new:'Новая клиника', cm_title_edit:'Редактировать клинику',
+    cm_clinic_name:'Название клиники *', cm_email:'Email доступа *', cm_phone:'Телефон',
+    cm_quota_consents:'Согласия', cm_quota_histories:'Истории болезней', cm_quota_photos:'Фото-сессии',
+    cm_permissions:'Включённые модули',
+    pm_title_new:'Новый пакет', pm_title_edit:'Редактировать пакет',
+    pm_name:'Название пакета *', pm_consents:'Согласий включено',
+    pm_histories:'Историй включено', pm_photos:'Фото-сессий включено',
+    pm_price:'Цена (€)', pm_desc:'Описание (необязательно)', pm_save:'Сохранить пакет',
+    hist_date:'Дата', hist_hour:'Время', hist_package:'Пакет', hist_includes:'Включает', hist_amount:'Сумма', hist_status:'Статус',
+    assign_title:'Пополнить квоты', assign_subtitle:'Выбрать пакет для',
+    assign_no_pkgs:'Пакеты не настроены.',
+  },
+  zh: {
+    nav_dashboard:'仪表板', nav_patients:'患者', nav_doctors:'医生',
+    nav_clinics:'诊所', nav_consents:'知情同意书', nav_histories:'病历',
+    nav_photos:'照片', nav_config:'设置', nav_admin:'管理',
+    nav_clients:'客户诊所', nav_packages:'套餐', nav_quota_summary:'配额摘要',
+    nav_purchase_history:'购买历史',
+    header_subtitle:'数字知情同意书 · 数字签名',
+    dash_title:'仪表板', dash_subtitle:'临床活动摘要',
+    dash_patients:'患者', dash_consents:'知情同意书', dash_doctors:'医生',
+    dash_signed:'已签署', dash_pending:'待处理', dash_today:'今天',
+    dash_recent_consents:'最新知情同意书', dash_recent_patients:'最新患者', dash_view_all:'查看全部',
+    pat_title:'患者', pat_subtitle:'管理患者列表', pat_new:'+ 新患者',
+    pat_search:'搜索患者...', pat_name:'姓名', pat_dob:'出生日期', pat_phone:'电话',
+    pat_actions:'操作', pat_empty:'未找到患者',
+    doc_title:'医生', doc_subtitle:'管理医疗团队', doc_new:'+ 新医生',
+    doc_search:'搜索医生...', doc_specialty:'专科', doc_clinic:'诊所', doc_actions:'操作', doc_empty:'暂无注册医生',
+    cli_title:'诊所', cli_subtitle:'管理诊所', cli_new:'+ 新诊所', cli_search:'搜索...', cli_empty:'暂无注册诊所',
+    con_title:'知情同意书', con_subtitle:'管理知情同意书',
+    con_new:'+ 新知情同意书', con_search:'搜索...', con_filter_status:'状态',
+    con_all:'全部', con_pending:'待处理', con_signed:'已签署', con_cancelled:'已取消',
+    con_patient:'患者', con_procedure:'手术/诊疗', con_doctor:'医生', con_date:'日期',
+    con_status:'状态', con_actions:'操作', con_empty:'暂无知情同意书',
+    con_sign:'签署', con_preview:'预览', con_edit:'编辑', con_delete:'删除',
+    hc_title:'病历', hc_subtitle:'管理病历',
+    hc_new:'+ 新病历', hc_search:'搜索...', hc_filter_type:'类型',
+    hc_patient:'患者', hc_doctor:'医生', hc_date:'日期', hc_type:'类型',
+    hc_diagnosis:'诊断', hc_actions:'操作', hc_empty:'暂无病历',
+    pho_title:'照片存档', pho_subtitle:'管理患者照片',
+    pho_search:'搜索患者...', pho_type:'类型', pho_upload:'上传照片', pho_empty:'该患者暂无照片',
+    cfg_title:'设置', cfg_subtitle:'系统设置',
+    cfg_clinic_name:'诊所名称', cfg_address:'地址', cfg_phone:'电话',
+    cfg_email:'邮箱', cfg_save:'保存更改', cfg_logo:'标志',
+    adm_clients_title:'诊所管理', adm_clients_subtitle:'管理访问权限、权限和配额',
+    adm_new_client:'+ 新诊所', adm_pkg_title:'套餐管理',
+    adm_pkg_subtitle:'配置可用套餐', adm_new_pkg:'+ 新套餐',
+    adm_quota_title:'各诊所配额摘要', adm_quota_subtitle:'已购、已用和可用配额的当前状态',
+    adm_hist_title:'购买历史', adm_hist_subtitle:'所有分配套餐的记录',
+    btn_save:'保存', btn_cancel:'取消', btn_edit:'编辑', btn_delete:'删除',
+    btn_close:'关闭', btn_sign:'签署', btn_preview:'预览',
+    btn_export:'导出', btn_print:'打印', btn_reload:'充值配额',
+    btn_new_pkg:'新套餐', btn_assign:'分配',
+    auth_email:'电子邮件地址', auth_send_code:'发送验证码', auth_code:'验证码',
+    auth_verify:'验证', auth_bio:'使用生物识别', auth_admin_title:'管理员访问',
+    auth_username:'用户名', auth_password:'密码', auth_login:'登录',
+    auth_totp:'TOTP验证码 (Google Authenticator)', auth_recovery:'恢复码',
+    auth_session_day:'1天', auth_session_week:'7天', auth_session_month:'30天',
+    auth_session_quarter:'90天', auth_session_title:'此设备记住多长时间?',
+    quota_title:'可用配额', quota_low:'⚠️ 配额即将耗尽',
+    status_active:'有效', status_depleted:'已耗尽', status_signed:'已签署',
+    status_pending:'待处理', status_cancelled:'已取消',
+    lbl_name:'姓名', lbl_email:'邮箱', lbl_phone:'电话', lbl_date:'日期',
+    lbl_hour:'时间', lbl_notes:'备注', lbl_address:'地址',
+    confirm_delete:'删除此记录?', logout:'退出',
+    logout_confirm:'退出登录?', no_records:'暂无记录',
+    cm_title_new:'新诊所', cm_title_edit:'编辑诊所',
+    cm_clinic_name:'诊所名称 *', cm_email:'访问邮箱 *', cm_phone:'电话',
+    cm_quota_consents:'知情同意书', cm_quota_histories:'病历', cm_quota_photos:'照片档案',
+    cm_permissions:'启用的模块',
+    pm_title_new:'新套餐', pm_title_edit:'编辑套餐',
+    pm_name:'套餐名称 *', pm_consents:'包含知情同意书',
+    pm_histories:'包含病历', pm_photos:'包含照片档案',
+    pm_price:'价格 (€)', pm_desc:'描述 (可选)', pm_save:'保存套餐',
+    hist_date:'日期', hist_hour:'时间', hist_package:'套餐', hist_includes:'包含', hist_amount:'金额', hist_status:'状态',
+    assign_title:'充值配额', assign_subtitle:'为以下诊所选择套餐',
+    assign_no_pkgs:'暂无套餐配置。',
+  },
+  ar: {
+    nav_dashboard:'لوحة التحكم', nav_patients:'المرضى', nav_doctors:'الأطباء',
+    nav_clinics:'العيادات', nav_consents:'الموافقات', nav_histories:'السجلات الطبية',
+    nav_photos:'الصور', nav_config:'الإعدادات', nav_admin:'الإدارة',
+    nav_clients:'عيادات العملاء', nav_packages:'الحزم', nav_quota_summary:'ملخص الحصص',
+    nav_purchase_history:'سجل المشتريات',
+    header_subtitle:'موافقات رقمية · توقيع رقمي',
+    dash_title:'لوحة التحكم', dash_subtitle:'ملخص النشاط السريري',
+    dash_patients:'المرضى', dash_consents:'الموافقات', dash_doctors:'الأطباء',
+    dash_signed:'موقعة', dash_pending:'معلقة', dash_today:'اليوم',
+    dash_recent_consents:'آخر الموافقات', dash_recent_patients:'آخر المرضى', dash_view_all:'عرض الكل',
+    pat_title:'المرضى', pat_subtitle:'إدارة قائمة المرضى', pat_new:'+ مريض جديد',
+    pat_search:'ابحث عن مريض...', pat_name:'الاسم', pat_dob:'تاريخ الميلاد', pat_phone:'الهاتف',
+    pat_actions:'الإجراءات', pat_empty:'لم يتم العثور على مرضى',
+    doc_title:'الأطباء', doc_subtitle:'إدارة الفريق الطبي', doc_new:'+ طبيب جديد',
+    doc_search:'ابحث عن طبيب...', doc_specialty:'التخصص', doc_clinic:'العيادة', doc_actions:'الإجراءات', doc_empty:'لا يوجد أطباء مسجلون',
+    cli_title:'العيادات', cli_subtitle:'إدارة العيادات', cli_new:'+ عيادة جديدة', cli_search:'ابحث...', cli_empty:'لا توجد عيادات مسجلة',
+    con_title:'الموافقات', con_subtitle:'إدارة الموافقات المستنيرة',
+    con_new:'+ موافقة جديدة', con_search:'ابحث...', con_filter_status:'الحالة',
+    con_all:'الكل', con_pending:'معلقة', con_signed:'موقعة', con_cancelled:'ملغاة',
+    con_patient:'المريض', con_procedure:'الإجراء', con_doctor:'الطبيب', con_date:'التاريخ',
+    con_status:'الحالة', con_actions:'الإجراءات', con_empty:'لا توجد موافقات',
+    con_sign:'توقيع', con_preview:'معاينة', con_edit:'تعديل', con_delete:'حذف',
+    hc_title:'السجلات الطبية', hc_subtitle:'إدارة السجلات الطبية',
+    hc_new:'+ سجل جديد', hc_search:'ابحث...', hc_filter_type:'النوع',
+    hc_patient:'المريض', hc_doctor:'الطبيب', hc_date:'التاريخ', hc_type:'النوع',
+    hc_diagnosis:'التشخيص', hc_actions:'الإجراءات', hc_empty:'لا توجد سجلات طبية',
+    pho_title:'جلسات التصوير', pho_subtitle:'إدارة جلسات التصوير',
+    pho_search:'ابحث عن مريض...', pho_type:'النوع', pho_upload:'رفع صور', pho_empty:'لا توجد صور لهذا المريض',
+    cfg_title:'الإعدادات', cfg_subtitle:'تخصيص النظام',
+    cfg_clinic_name:'اسم العيادة', cfg_address:'العنوان', cfg_phone:'الهاتف',
+    cfg_email:'البريد الإلكتروني', cfg_save:'حفظ التغييرات', cfg_logo:'الشعار',
+    adm_clients_title:'إدارة العيادات', adm_clients_subtitle:'إدارة الوصول والصلاحيات والحصص',
+    adm_new_client:'+ عيادة جديدة', adm_pkg_title:'إدارة الحزم',
+    adm_pkg_subtitle:'تكوين الحزم المتاحة', adm_new_pkg:'+ حزمة جديدة',
+    adm_quota_title:'ملخص الحصص حسب العيادة', adm_quota_subtitle:'الحالة الراهنة للحصص المشتراة والمستخدمة والمتاحة',
+    adm_hist_title:'سجل المشتريات', adm_hist_subtitle:'سجل جميع الحزم المخصصة',
+    btn_save:'حفظ', btn_cancel:'إلغاء', btn_edit:'تعديل', btn_delete:'حذف',
+    btn_close:'إغلاق', btn_sign:'توقيع', btn_preview:'معاينة',
+    btn_export:'تصدير', btn_print:'طباعة', btn_reload:'تجديد الحصص',
+    btn_new_pkg:'حزمة جديدة', btn_assign:'تخصيص',
+    auth_email:'عنوان البريد الإلكتروني', auth_send_code:'إرسال الرمز', auth_code:'رمز التحقق',
+    auth_verify:'تحقق', auth_bio:'استخدام القياسات الحيوية', auth_admin_title:'وصول المسؤول',
+    auth_username:'المستخدم', auth_password:'كلمة المرور', auth_login:'دخول',
+    auth_totp:'رمز TOTP (Google Authenticator)', auth_recovery:'رمز الاسترداد',
+    auth_session_day:'يوم واحد', auth_session_week:'7 أيام', auth_session_month:'30 يوماً',
+    auth_session_quarter:'90 يوماً', auth_session_title:'كم من الوقت تريد تذكر هذا الجهاز؟',
+    quota_title:'الحصص المتاحة', quota_low:'⚠️ الحصص على وشك النفاد',
+    status_active:'نشط', status_depleted:'منتهٍ', status_signed:'موقعة',
+    status_pending:'معلقة', status_cancelled:'ملغاة',
+    lbl_name:'الاسم', lbl_email:'البريد الإلكتروني', lbl_phone:'الهاتف', lbl_date:'التاريخ',
+    lbl_hour:'الوقت', lbl_notes:'ملاحظات', lbl_address:'العنوان',
+    confirm_delete:'حذف هذا السجل؟', logout:'تسجيل الخروج',
+    logout_confirm:'تسجيل الخروج؟', no_records:'لا توجد سجلات',
+    cm_title_new:'عيادة جديدة', cm_title_edit:'تعديل العيادة',
+    cm_clinic_name:'اسم العيادة *', cm_email:'بريد الوصول *', cm_phone:'الهاتف',
+    cm_quota_consents:'الموافقات', cm_quota_histories:'السجلات الطبية', cm_quota_photos:'جلسات التصوير',
+    cm_permissions:'الوحدات المفعّلة',
+    pm_title_new:'حزمة جديدة', pm_title_edit:'تعديل الحزمة',
+    pm_name:'اسم الحزمة *', pm_consents:'موافقات مضمّنة',
+    pm_histories:'سجلات طبية مضمّنة', pm_photos:'جلسات تصوير مضمّنة',
+    pm_price:'السعر (€)', pm_desc:'الوصف (اختياري)', pm_save:'حفظ الحزمة',
+    hist_date:'التاريخ', hist_hour:'الوقت', hist_package:'الحزمة', hist_includes:'يتضمن', hist_amount:'المبلغ', hist_status:'الحالة',
+    assign_title:'تجديد الحصص', assign_subtitle:'اختر حزمة لـ',
+    assign_no_pkgs:'لا توجد حزم مكوّنة.',
+  },
+};
+
+// Fill gaps for less-complete languages by falling back to 'es'
+Object.keys(I18N).forEach(code => {
+  if (code === 'es') return;
+  Object.keys(I18N.es).forEach(k => {
+    if (!I18N[code][k]) I18N[code][k] = I18N.es[k];
+  });
+});
+
+// ─── Active language state ────────────────────────────────────────
+let _lang = 'es';
+
+function getLangStorage(clinicId) {
+  return localStorage.getItem(clinicId ? `mc_${clinicId}_lang` : 'mc_lang') || 'es';
+}
+function setLangStorage(code, clinicId) {
+  localStorage.setItem(clinicId ? `mc_${clinicId}_lang` : 'mc_lang', code);
+}
+
+function t(key) {
+  return (I18N[_lang] && I18N[_lang][key]) || (I18N.es && I18N.es[key]) || key;
+}
+
+// ─── Apply translations to DOM ────────────────────────────────────
+function applyLang(code) {
+  _lang = code;
+  const lang = LANGS.find(l => l.code === code) || LANGS.find(l => l.code === 'es');
+  // Update lang picker button
+  const flagEl = document.getElementById('lang-current-flag');
+  const nameEl = document.getElementById('lang-current-name');
+  if (flagEl) flagEl.textContent = lang.flag;
+  if (nameEl) nameEl.textContent = lang.name;
+  // RTL support
+  document.documentElement.dir = lang.rtl ? 'rtl' : 'ltr';
+  // Apply data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    el.placeholder = t(el.getAttribute('data-i18n-ph'));
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    el.title = t(el.getAttribute('data-i18n-title'));
+  });
+  // Update dropdown highlight
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.classList.toggle('active', el.dataset.code === code);
+  });
+  // Re-render dynamic sections if they exist
+  if (typeof renderPacientes === 'function' && document.getElementById('tab-pacientes')?.classList.contains('visible')) renderPacientes();
+  if (typeof renderDoctores  === 'function' && document.getElementById('tab-doctores')?.classList.contains('visible'))  renderDoctores();
+  if (typeof renderConsentimientos === 'function' && document.getElementById('tab-consentimientos')?.classList.contains('visible')) renderConsentimientos();
+  if (typeof renderHistorias === 'function' && document.getElementById('tab-historias')?.classList.contains('visible')) renderHistorias();
+  if (typeof renderClinicAccounts === 'function' && document.getElementById('tab-clientes')?.classList.contains('visible')) renderClinicAccounts();
+  if (typeof renderPaquetes === 'function' && document.getElementById('tab-paquetes')?.classList.contains('visible')) renderPaquetes();
+  if (typeof renderResumenClinícas === 'function' && document.getElementById('tab-resumen-clinicas')?.classList.contains('visible')) renderResumenClinícas();
+  if (typeof renderQuotaWidget === 'function') renderQuotaWidget();
+  if (typeof renderDashboard === 'function' && document.getElementById('tab-dashboard')?.classList.contains('visible')) renderDashboard();
+}
+
+// ─── Language dropdown ────────────────────────────────────────────
+function buildLangDropdown() {
+  const dd = document.getElementById('lang-dropdown');
+  if (!dd) return;
+  dd.innerHTML = LANGS.map(l => `
+    <div class="lang-option${l.code === _lang ? ' active' : ''}" data-code="${l.code}" onclick="selectLang('${l.code}')">
+      <span class="lf">${l.flag}</span>
+      <span>${l.name}</span>
+    </div>
+  `).join('');
+}
+
+function toggleLangDropdown(e) {
+  e.stopPropagation();
+  buildLangDropdown();
+  document.getElementById('lang-dropdown').classList.toggle('open');
+}
+
+function selectLang(code) {
+  const cid = (typeof _clinicId !== 'undefined') ? _clinicId : '';
+  setLangStorage(code, cid);
+  applyLang(code);
+  document.getElementById('lang-dropdown').classList.remove('open');
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', () => {
+  const dd = document.getElementById('lang-dropdown');
+  if (dd) dd.classList.remove('open');
+});
+
+// ─── Init language on load ────────────────────────────────────────
+(function initLang() {
+  const cid = (typeof _clinicId !== 'undefined') ? _clinicId : '';
+  const saved = getLangStorage(cid);
+  applyLang(saved);
+})();
+</script>
+
 <script>
 // ════════════════════════════════════════════════
 // AUTH — ConsentsPro v1.0
@@ -2160,7 +3027,8 @@ async function onAuthSuccess(role, clinicId) {
   if (hr && !document.getElementById('logout-btn')) {
     const btn = document.createElement('button');
     btn.id = 'logout-btn'; btn.textContent = 'Cerrar sesión';
-    btn.onclick = () => { if (confirm('¿Cerrar sesión?')) { AUTH.logout(); location.reload(); } };
+    btn.setAttribute('data-i18n', 'logout');
+    btn.onclick = () => { if (confirm(typeof t === 'function' ? t('logout_confirm') : '¿Cerrar sesión?')) { AUTH.logout(); location.reload(); } };
     hr.appendChild(btn);
   }
 
@@ -2169,6 +3037,7 @@ async function onAuthSuccess(role, clinicId) {
     document.querySelectorAll('.sidebar-section').forEach(el => el.style.display = 'none');
     const sf = document.querySelector('.sidebar-footer'); if (sf) sf.style.display = 'none';
     document.querySelectorAll('.nav-admin-only').forEach(el => el.style.display = '');
+    if (typeof applyLang === 'function') applyLang(getLangStorage(''));
     showTab('clientes');
     renderClinicAccounts();
   } else {
@@ -2181,6 +3050,8 @@ async function onAuthSuccess(role, clinicId) {
         if (nav) nav.style.display = enabled ? '' : 'none';
       });
     }
+    // Load language for this clinic
+    if (typeof applyLang === 'function') applyLang(getLangStorage(clinicId || ''));
     initMainApp();
     showTab('dashboard');
     setTimeout(() => { if (typeof renderQuotaWidget === 'function') renderQuotaWidget(); }, 100);
@@ -2481,10 +3352,11 @@ function renderQuotaWidget() {
   const acc = AUTH.getAccount(_clinicId);
   if (!acc) { widget.style.display = 'none'; return; }
   const q = acc.quotas || {};
+  const _tq = typeof t === 'function' ? t : k => k;
   const items = [
-    { key: 'consentimientos', label: 'Consentimientos', icon: '📄' },
-    { key: 'historias',       label: 'Historias',       icon: '🏥' },
-    { key: 'fotos',           label: 'Fotos',           icon: '📷' },
+    { key: 'consentimientos', label: _tq('nav_consents'), icon: '📄' },
+    { key: 'historias',       label: _tq('nav_histories'), icon: '🏥' },
+    { key: 'fotos',           label: _tq('nav_photos'), icon: '📷' },
   ];
   let html = '';
   let hasWarning = false;
@@ -2500,10 +3372,12 @@ function renderQuotaWidget() {
   });
   if (hasWarning) {
     html += `<div style="margin-top:8px;padding:8px 10px;background:#fef2f2;border:1px solid #fecaca;border-radius:6px;font-size:.78rem;color:#dc2626">
-      ⚠️ Cuotas próximas a agotarse
+      ${typeof t==='function'?t('quota_low'):'⚠️ Cuotas próximas a agotarse'}
     </div>`;
   }
   body.innerHTML = html;
+  const widgetTitle = document.querySelector('#quota-widget div[style*="font-weight:600"]');
+  if (widgetTitle) widgetTitle.textContent = typeof t==='function'?t('quota_title'):'Cuotas disponibles';
   widget.style.display = 'block';
 }
 
@@ -2883,8 +3757,9 @@ function renderPacientes() {
   const iniciales = p => ((p.nombre||'')[0]||'') + ((p.apellidos||'')[0]||'');
   const tbody = document.getElementById('tbody-pacientes');
 
+  const _te = typeof t === 'function' ? t : k => k;
   tbody.innerHTML = !list.length
-    ? '<tr><td colspan="7" class="table-empty">No hay pacientes que mostrar</td></tr>'
+    ? `<tr><td colspan="7" class="table-empty">${_te('pat_empty')}</td></tr>`
     : list.map(p => `<tr style="cursor:pointer" onclick="openPatientDetail('${p.id}')">
         <td>
           <div style="display:flex;align-items:center;gap:10px">
@@ -2904,7 +3779,7 @@ function renderPacientes() {
         <td><span class="badge ${p.estado==='activo'?'badge-green':'badge-gray'}">${p.estado||'activo'}</span></td>
         <td onclick="event.stopPropagation()">
           <div class="table-actions">
-            <button class="btn btn-outline btn-sm" onclick="editPaciente('${p.id}')">Editar</button>
+            <button class="btn btn-outline btn-sm" onclick="editPaciente('${p.id}')">${_te('btn_edit')}</button>
             <button class="btn btn-sm" style="background:#fee2e2;color:#991b1b" onclick="deletePaciente('${p.id}')">×</button>
           </div>
         </td>
@@ -4463,12 +5338,13 @@ function renderConsentimientos() {
     return match&&matchCli&&matchDoc&&matchEst&&matchDesde&&matchHasta;
   }).slice().reverse();
 
+  const _te = typeof t === 'function' ? t : k => k;
   const eBadge={pendiente:'badge-amber',firmado:'badge-green',revocado:'badge-gray'};
-  const eLabel={pendiente:'⏳ Pendiente',firmado:'✓ Firmado',revocado:'✕ Revocado'};
+  const eLabel={pendiente:`⏳ ${_te('status_pending')}`,firmado:`✓ ${_te('status_signed')}`,revocado:`✕ ${_te('status_cancelled')}`};
 
   const tbody=document.getElementById('tbody-consentimientos');
   tbody.innerHTML=!list.length
-    ?'<tr><td colspan="8" class="table-empty">No hay consentimientos que coincidan con los filtros</td></tr>'
+    ?`<tr><td colspan="8" class="table-empty">${_te('con_empty')}</td></tr>`
     :list.map(c=>{
       const pac=pacientes.find(p=>p.id===c.pacienteId);
       const doc=doctores.find(d=>d.id===c.doctorId);
@@ -4482,8 +5358,8 @@ function renderConsentimientos() {
         <td><span class="badge ${eBadge[c.estado]||'badge-gray'}">${eLabel[c.estado]||c.estado}</span></td>
         <td style="font-size:0.78rem;color:#9ca3af">${c.firmadoAt?fmtDate(c.firmadoAt.slice(0,10)):'—'}</td>
         <td><div class="table-actions">
-          <button class="btn btn-outline btn-sm" onclick="verConsentimiento('${c.id}')">👁 Ver</button>
-          ${c.estado==='pendiente'?`<button class="btn btn-green btn-sm" onclick="firmarConsentimiento('${c.id}')">✓ Firmar</button>`:''}
+          <button class="btn btn-outline btn-sm" onclick="verConsentimiento('${c.id}')">👁 ${_te('btn_preview')}</button>
+          ${c.estado==='pendiente'?`<button class="btn btn-green btn-sm" onclick="firmarConsentimiento('${c.id}')">✓ ${_te('con_sign')}</button>`:''}
           <button class="btn btn-sm" style="background:#fee2e2;color:#991b1b" onclick="deleteConsentimiento('${c.id}')">×</button>
         </div></td>
       </tr>`;
