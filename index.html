@@ -366,9 +366,121 @@
     .pd-subtitle { justify-content: center; }
     .pd-tags { justify-content: center; }
   }
+
+/* ── AUTH OVERLAY ── */
+#auth-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: linear-gradient(135deg, #0a2342 0%, #1a4a7a 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+#auth-overlay.hidden { display: none; }
+.auth-box {
+  background: #fff; border-radius: 16px; padding: 40px 36px;
+  width: min(420px, 94vw); box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  text-align: center;
+}
+.auth-logo { margin-bottom: 24px; }
+.auth-logo .logo-main { font-size: 1.8rem; font-weight: 700; color: #0a2342; letter-spacing: -0.5px; }
+.auth-logo .logo-pro { color: #c9a227; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.auth-logo .logo-sub { font-size: 0.7rem; color: #6b7280; margin-top: 2px; }
+.auth-logo .logo-legal { font-size: 0.65rem; color: #c9a227; margin-top: 1px; }
+.auth-title { font-size: 1.1rem; font-weight: 700; color: #1a2535; margin-bottom: 6px; }
+.auth-subtitle { font-size: 0.82rem; color: #6b7280; margin-bottom: 24px; }
+.auth-input {
+  width: 100%; padding: 12px 14px; border: 1.5px solid #e4e8ef; border-radius: 8px;
+  font-size: 0.95rem; outline: none; transition: border-color .2s; margin-bottom: 12px;
+  font-family: inherit;
+}
+.auth-input:focus { border-color: #1a4a7a; }
+.auth-input.error { border-color: #ef4444; }
+.auth-btn {
+  width: 100%; padding: 13px; border: none; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; cursor: pointer; transition: opacity .15s, transform .1s; margin-bottom: 10px;
+  font-family: inherit;
+}
+.auth-btn:active { transform: scale(0.98); }
+.auth-btn-primary { background: linear-gradient(135deg,#0a2342,#1a4a7a); color: #fff; }
+.auth-btn-bio { background: #f0f9ff; color: #0a2342; border: 1.5px solid #bfdbfe; }
+.auth-btn-bio:hover { background: #e0f2fe; }
+.auth-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.auth-error { color: #ef4444; font-size: 0.8rem; margin-bottom: 10px; min-height: 18px; }
+.auth-lockout { color: #b45309; font-size: 0.82rem; background: #fef3c7; border-radius: 8px; padding: 10px; margin-bottom: 12px; }
+.auth-divider { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; color: #9ca3af; font-size: 0.78rem; }
+.auth-divider::before, .auth-divider::after { content:''; flex:1; height:1px; background:#e4e8ef; }
+.auth-setup-steps { text-align: left; margin-bottom: 20px; }
+.auth-setup-step { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; font-size: 0.84rem; color: #374151; }
+.auth-setup-step-num { width: 22px; height: 22px; border-radius: 50%; background: #0a2342; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.auth-strength { height: 4px; border-radius: 2px; margin-bottom: 4px; margin-top: -8px; transition: all .3s; }
+.auth-strength-text { font-size: 0.72rem; margin-bottom: 10px; text-align: left; }
+.auth-session-opts { display: flex; gap: 8px; margin-bottom: 14px; }
+.auth-session-opt { flex:1; padding: 8px 4px; border: 1.5px solid #e4e8ef; border-radius: 8px; font-size: 0.75rem; cursor: pointer; color: #374151; background: #fff; font-family: inherit; transition: all .15s; }
+.auth-session-opt.selected { border-color: #1a4a7a; background: #eff6ff; color: #1a4a7a; font-weight: 600; }
+#logout-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); border-radius: 6px; padding: 5px 12px; font-size: 0.78rem; cursor: pointer; font-family: inherit; transition: background .15s; }
+#logout-btn:hover { background: rgba(255,255,255,0.2); }
 </style>
 </head>
 <body>
+
+<!-- ══ AUTH OVERLAY ══ -->
+<div id="auth-overlay">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="logo-main">Consents<span class="logo-pro">Pro</span></div>
+      <div class="logo-sub">Consentimientos Digitales · Huella Digital</div>
+      <div class="logo-legal">eIDAS (UE 910/2014) · Ley 41/2002 · RGPD</div>
+    </div>
+
+    <!-- PANEL: Setup inicial -->
+    <div id="auth-panel-setup">
+      <div class="auth-title">Configuración inicial</div>
+      <div class="auth-subtitle">Crea tu contraseña de acceso para proteger los datos clínicos</div>
+      <div class="auth-setup-steps">
+        <div class="auth-setup-step"><div class="auth-setup-step-num">1</div><div>Mínimo 8 caracteres. Usa letras, números y símbolos.</div></div>
+        <div class="auth-setup-step"><div class="auth-setup-step-num">2</div><div>Guárdala en un lugar seguro. No hay recuperación automática.</div></div>
+        <div class="auth-setup-step"><div class="auth-setup-step-num">3</div><div>Después podrás activar acceso biométrico (huella / Face ID).</div></div>
+      </div>
+      <input class="auth-input" type="password" id="setup-pass1" placeholder="Nueva contraseña" autocomplete="new-password">
+      <div id="setup-strength" class="auth-strength" style="background:#e4e8ef"></div>
+      <div id="setup-strength-text" class="auth-strength-text" style="color:#9ca3af">Introduce tu contraseña</div>
+      <input class="auth-input" type="password" id="setup-pass2" placeholder="Confirmar contraseña" autocomplete="new-password">
+      <div class="auth-error" id="setup-error"></div>
+      <button class="auth-btn auth-btn-primary" onclick="AUTH.doSetup()">Crear contraseña y acceder</button>
+    </div>
+
+    <!-- PANEL: Login normal -->
+    <div id="auth-panel-login" style="display:none">
+      <div class="auth-title">Acceso seguro</div>
+      <div class="auth-subtitle">Introduce tu contraseña para continuar</div>
+      <div class="auth-lockout" id="auth-lockout-msg" style="display:none"></div>
+      <div id="auth-bio-section" style="display:none">
+        <button class="auth-btn auth-btn-bio" id="auth-bio-btn" onclick="AUTH.doBiometric()">
+          🔐 Acceder con biometría
+        </button>
+        <div class="auth-divider">o con contraseña</div>
+      </div>
+      <input class="auth-input" type="password" id="login-pass" placeholder="Contraseña" autocomplete="current-password" onkeydown="if(event.key==='Enter')AUTH.doLogin()">
+      <div class="auth-error" id="login-error"></div>
+      <div style="text-align:left;font-size:0.78rem;color:#374151;margin-bottom:8px;font-weight:500">Recordar sesión:</div>
+      <div class="auth-session-opts">
+        <button class="auth-session-opt selected" data-days="1" onclick="AUTH.selectDays(this)">Solo hoy</button>
+        <button class="auth-session-opt" data-days="7" onclick="AUTH.selectDays(this)">7 días</button>
+        <button class="auth-session-opt" data-days="30" onclick="AUTH.selectDays(this)">30 días</button>
+        <button class="auth-session-opt" data-days="90" onclick="AUTH.selectDays(this)">90 días</button>
+      </div>
+      <button class="auth-btn auth-btn-primary" id="login-submit-btn" onclick="AUTH.doLogin()">Entrar</button>
+    </div>
+
+    <!-- PANEL: Registrar biometría -->
+    <div id="auth-panel-bio-register" style="display:none">
+      <div style="font-size:2.5rem;margin-bottom:12px">🔐</div>
+      <div class="auth-title">¿Activar acceso biométrico?</div>
+      <div class="auth-subtitle">Podrás entrar con huella dactilar o Face ID sin escribir la contraseña</div>
+      <button class="auth-btn auth-btn-primary" onclick="AUTH.registerBiometric()">Activar biometría</button>
+      <button class="auth-btn" style="background:#f3f4f6;color:#374151" onclick="AUTH.skipBiometric()">Ahora no</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══ HEADER ══ -->
 <header>
@@ -387,6 +499,7 @@
   </div>
   <div class="header-right">
     <span class="clinic-badge" id="clinic-name-badge">Mi Clínica</span>
+    <button id="logout-btn" onclick="AUTH.logout()" title="Cerrar sesión">⏻ Cerrar sesión</button>
     <div class="header-avatar" title="Perfil">DR</div>
   </div>
 </header>
@@ -3905,11 +4018,309 @@ function updateBadges() {
   document.getElementById('badge-consentimientos').textContent = consentimientos.filter(c=>c.estado==='pendiente').length;
 }
 
+// ════════════════════════════════════════════════
+// AUTH MODULE
+// ════════════════════════════════════════════════
+const AUTH = (() => {
+  const K = {
+    CREDS:    'mc_auth_creds',
+    SESSION:  'mc_auth_session',
+    ATTEMPTS: 'mc_auth_attempts',
+    WEBAUTHN: 'mc_auth_webauthn',
+    BIO_ASKED:'mc_auth_bio_asked',
+  };
+  const LOCKOUT_MAX = 5;
+  const LOCKOUT_MS  = 15 * 60 * 1000;
+  const INACTIVITY_MS = 30 * 60 * 1000;
+  let sessionDays = 1;
+  let inactivityTimer = null;
+
+  // ── Crypto helpers ──────────────────────────────
+  async function pbkdf2Hash(password, salt) {
+    const enc = new TextEncoder();
+    const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+    const bits = await crypto.subtle.deriveBits(
+      { name: 'PBKDF2', salt: enc.encode(salt), iterations: 200000, hash: 'SHA-256' },
+      keyMaterial, 256
+    );
+    return Array.from(new Uint8Array(bits)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function randomHex(len) {
+    return Array.from(crypto.getRandomValues(new Uint8Array(len))).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  // ── Password strength ───────────────────────────
+  function strength(p) {
+    let s = 0;
+    if (p.length >= 8)  s++;
+    if (p.length >= 12) s++;
+    if (/[A-Z]/.test(p)) s++;
+    if (/[0-9]/.test(p)) s++;
+    if (/[^A-Za-z0-9]/.test(p)) s++;
+    return s;
+  }
+
+  // ── Rate limiting ───────────────────────────────
+  function getAttempts() { try { return JSON.parse(localStorage.getItem(K.ATTEMPTS)) || {count:0,until:0}; } catch(e){ return {count:0,until:0}; } }
+  function saveAttempts(a) { localStorage.setItem(K.ATTEMPTS, JSON.stringify(a)); }
+
+  function isLocked() {
+    const a = getAttempts();
+    if (a.count >= LOCKOUT_MAX && Date.now() < a.until) return a.until;
+    return false;
+  }
+
+  function recordFail() {
+    const a = getAttempts();
+    a.count = (a.count || 0) + 1;
+    if (a.count >= LOCKOUT_MAX) a.until = Date.now() + LOCKOUT_MS;
+    saveAttempts(a);
+  }
+
+  function clearAttempts() { localStorage.removeItem(K.ATTEMPTS); }
+
+  // ── Session ─────────────────────────────────────
+  function createSession(days) {
+    const s = { token: randomHex(32), exp: Date.now() + days * 86400000 };
+    localStorage.setItem(K.SESSION, JSON.stringify(s));
+    return s;
+  }
+
+  function isAuthenticated() {
+    try {
+      const s = JSON.parse(localStorage.getItem(K.SESSION));
+      return s && s.exp && Date.now() < s.exp;
+    } catch(e) { return false; }
+  }
+
+  function destroySession() {
+    localStorage.removeItem(K.SESSION);
+    clearInactivity();
+  }
+
+  // ── Inactivity lock ─────────────────────────────
+  function resetInactivity() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      destroySession();
+      showPanel('login');
+      show();
+      showError('login', 'Sesión cerrada por inactividad (30 min).');
+    }, INACTIVITY_MS);
+  }
+
+  function clearInactivity() { clearTimeout(inactivityTimer); }
+
+  function startInactivity() {
+    ['click','keydown','mousemove','touchstart'].forEach(ev =>
+      document.addEventListener(ev, resetInactivity, { passive: true })
+    );
+    resetInactivity();
+  }
+
+  // ── UI helpers ───────────────────────────────────
+  function show() { document.getElementById('auth-overlay').classList.remove('hidden'); }
+  function hide() { document.getElementById('auth-overlay').classList.add('hidden'); }
+
+  function showPanel(name) {
+    ['setup','login','bio-register'].forEach(p =>
+      document.getElementById('auth-panel-'+p).style.display = 'none'
+    );
+    document.getElementById('auth-panel-'+name).style.display = '';
+  }
+
+  function showError(panel, msg) {
+    const el = document.getElementById(panel+'-error');
+    if (el) el.textContent = msg;
+  }
+
+  function hasCreds() { return !!localStorage.getItem(K.CREDS); }
+
+  // ── WebAuthn ─────────────────────────────────────
+  function webAuthnAvailable() {
+    return window.PublicKeyCredential !== undefined && location.protocol !== 'file:';
+  }
+
+  async function registerBiometric() {
+    if (!webAuthnAvailable()) { skipBiometric(); return; }
+    try {
+      const challenge = crypto.getRandomValues(new Uint8Array(32));
+      const userId    = crypto.getRandomValues(new Uint8Array(16));
+      const cred = await navigator.credentials.create({ publicKey: {
+        challenge,
+        rp: { name: 'ConsentsPro', id: location.hostname },
+        user: { id: userId, name: 'admin', displayName: 'Administrador' },
+        pubKeyCredParams: [{ type: 'public-key', alg: -7 }, { type: 'public-key', alg: -257 }],
+        authenticatorSelection: { userVerification: 'required', residentKey: 'preferred' },
+        timeout: 60000,
+      }});
+      const stored = { id: btoa(String.fromCharCode(...new Uint8Array(cred.rawId))), device: navigator.userAgent.slice(0,60) };
+      localStorage.setItem(K.WEBAUTHN, JSON.stringify(stored));
+      localStorage.setItem(K.BIO_ASKED, '1');
+      grantAccess();
+    } catch(e) { skipBiometric(); }
+  }
+
+  async function doBiometric() {
+    if (!webAuthnAvailable()) return;
+    const stored = JSON.parse(localStorage.getItem(K.WEBAUTHN) || 'null');
+    if (!stored) return;
+    try {
+      const challenge = crypto.getRandomValues(new Uint8Array(32));
+      const credId = Uint8Array.from(atob(stored.id), c => c.charCodeAt(0));
+      await navigator.credentials.get({ publicKey: {
+        challenge,
+        rpId: location.hostname,
+        allowCredentials: [{ type: 'public-key', id: credId }],
+        userVerification: 'required',
+        timeout: 60000,
+      }});
+      clearAttempts();
+      grantAccess();
+    } catch(e) {
+      showError('login', 'Verificación biométrica fallida. Usa tu contraseña.');
+    }
+  }
+
+  function skipBiometric() {
+    localStorage.setItem(K.BIO_ASKED, '1');
+    grantAccess();
+  }
+
+  // ── Grant access ─────────────────────────────────
+  function grantAccess() {
+    createSession(sessionDays);
+    hide();
+    startInactivity();
+  }
+
+  // ── Public API ───────────────────────────────────
+  async function init() {
+    const a = getAttempts();
+    if (a.until && Date.now() > a.until) clearAttempts();
+
+    if (isAuthenticated()) { hide(); startInactivity(); return; }
+
+    // Seeding automático si no hay credenciales
+    if (!hasCreds()) {
+      const salt = randomHex(16);
+      const hash = await pbkdf2Hash('consentspro2026€admin@', salt);
+      localStorage.setItem(K.CREDS, JSON.stringify({ hash, salt, seeded: true }));
+    }
+
+    show();
+    showPanel('login');
+    initLoginPanel();
+  }
+
+  function setupStrengthMeter() {
+    document.getElementById('setup-pass1').addEventListener('input', function() {
+      const s = strength(this.value);
+      const colors = ['#e4e8ef','#ef4444','#f59e0b','#3b82f6','#10b981','#059669'];
+      const labels = ['','Muy débil','Débil','Aceptable','Fuerte','Muy fuerte'];
+      const txtColors = ['#9ca3af','#ef4444','#f59e0b','#3b82f6','#10b981','#059669'];
+      document.getElementById('setup-strength').style.background = colors[s];
+      document.getElementById('setup-strength').style.width = (s*20)+'%';
+      document.getElementById('setup-strength-text').textContent = this.value ? labels[s] : 'Introduce tu contraseña';
+      document.getElementById('setup-strength-text').style.color = txtColors[s];
+    });
+  }
+
+  function initLoginPanel() {
+    const locked = isLocked();
+    if (locked) {
+      const mins = Math.ceil((locked - Date.now()) / 60000);
+      document.getElementById('auth-lockout-msg').style.display = '';
+      document.getElementById('auth-lockout-msg').textContent = `Demasiados intentos fallidos. Espera ${mins} min.`;
+      document.getElementById('login-submit-btn').disabled = true;
+    }
+    const hasBio = !!localStorage.getItem(K.WEBAUTHN) && webAuthnAvailable();
+    if (hasBio) document.getElementById('auth-bio-section').style.display = '';
+  }
+
+  async function doSetup() {
+    const p1 = document.getElementById('setup-pass1').value;
+    const p2 = document.getElementById('setup-pass2').value;
+    if (p1.length < 8) { showError('setup','La contraseña debe tener al menos 8 caracteres.'); return; }
+    if (p1 !== p2)     { showError('setup','Las contraseñas no coinciden.'); return; }
+    const btn = document.querySelector('#auth-panel-setup .auth-btn');
+    btn.disabled = true; btn.textContent = 'Procesando…';
+    try {
+      const salt = randomHex(16);
+      const hash = await pbkdf2Hash(p1, salt);
+      localStorage.setItem(K.CREDS, JSON.stringify({ hash, salt }));
+      // Offer biometrics if available
+      if (webAuthnAvailable()) { showPanel('bio-register'); }
+      else { localStorage.setItem(K.BIO_ASKED,'1'); grantAccess(); }
+    } catch(e) {
+      showError('setup','Error al guardar credenciales: '+e.message);
+      btn.disabled = false; btn.textContent = 'Crear contraseña y acceder';
+    }
+  }
+
+  async function doLogin() {
+    if (isLocked()) return;
+    const pass = document.getElementById('login-pass').value;
+    if (!pass) { showError('login','Introduce tu contraseña.'); return; }
+    const btn = document.getElementById('login-submit-btn');
+    btn.disabled = true; btn.textContent = 'Verificando…';
+    try {
+      const creds = JSON.parse(localStorage.getItem(K.CREDS));
+      const hash  = await pbkdf2Hash(pass, creds.salt);
+      if (hash === creds.hash) {
+        clearAttempts();
+        const askedBio = localStorage.getItem(K.BIO_ASKED);
+        if (!askedBio && webAuthnAvailable()) { showPanel('bio-register'); }
+        else { grantAccess(); }
+      } else {
+        recordFail();
+        const a = getAttempts();
+        const left = LOCKOUT_MAX - a.count;
+        if (left <= 0) {
+          document.getElementById('auth-lockout-msg').style.display = '';
+          document.getElementById('auth-lockout-msg').textContent = 'Cuenta bloqueada 15 minutos por exceso de intentos.';
+          btn.disabled = true;
+        } else {
+          showError('login', `Contraseña incorrecta. ${left} intento${left!==1?'s':''} restante${left!==1?'s':''}.`);
+          btn.disabled = false; btn.textContent = 'Entrar';
+        }
+      }
+    } catch(e) {
+      showError('login','Error: '+e.message);
+      btn.disabled = false; btn.textContent = 'Entrar';
+    }
+  }
+
+  function selectDays(el) {
+    document.querySelectorAll('.auth-session-opt').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    sessionDays = parseInt(el.dataset.days);
+  }
+
+  function logout() {
+    if (!confirm('¿Cerrar sesión?')) return;
+    destroySession();
+    showPanel('login');
+    document.getElementById('login-pass').value = '';
+    showError('login','');
+    document.getElementById('login-submit-btn').disabled = false;
+    document.getElementById('login-submit-btn').textContent = 'Entrar';
+    initLoginPanel();
+    show();
+  }
+
+  return { init, doSetup, doLogin, doBiometric, registerBiometric, skipBiometric, selectDays, logout };
+})();
+
+// ════════════════════════════════════════════════
 // Init
+// ════════════════════════════════════════════════
 loadConfig();
 updateBadges();
 initPlantillas();
 renderDashboard();
+AUTH.init();
 </script>
 </body>
 </html>
