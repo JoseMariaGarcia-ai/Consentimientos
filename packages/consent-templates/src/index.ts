@@ -11,4 +11,5 @@ export const CONSENT_TEMPLATES = [
   { code: "DEPIL_001", treatment: "Depilación Láser", risks: "Quemaduras, foliculitis, pigmentación anómala" },
   { code: "ULTRA_001", treatment: "Cavitación corporal", risks: "Quemaduras, asimetría, resultado variable" },
   { code: "PLASMA_001", treatment: "Plasma Pen / Fibroblast", risks: "Costras, hiperpigmentación, cicatrices, infección" },
+  { code: "RADIO_001", treatment: "Radiofrecuencia facial y corporal", risks: "Quemaduras, eritema, edema, resultado variable, lesión nerviosa" },
 ];
