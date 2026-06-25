@@ -26,7 +26,7 @@ export default function App() {
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
   if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
 
-  if (loading) return <div className="flex items-center justify-center h-screen text-brand">Cargando…</div>
+  if (loading) return <div className="flex items-center justify-center h-screen bg-slate-50 text-brand">Cargando…</div>
   if (!session) return <Login />
 
   return (
