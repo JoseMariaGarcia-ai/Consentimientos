@@ -1,7 +1,6 @@
 [build]
-  base = "apps/web"
-  command = "npm run build"
-  publish = "dist"
+  command = "npm install && cd apps/web && npm run build"
+  publish = "apps/web/dist"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -13,3 +12,4 @@
 
 [functions]
   directory = "apps/api/netlify/functions"
+  node_bundler = "esbuild"
