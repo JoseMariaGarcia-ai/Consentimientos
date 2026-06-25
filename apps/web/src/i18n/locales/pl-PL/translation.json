@@ -131,7 +131,9 @@
     "success": "Sukces",
     "confirm_delete": "Usunąć ten rekord?",
     "no_data": "Brak danych",
-    "required": "Pole wymagane"
+    "required": "Pole wymagane",
+    "saving": "Zapisywanie…",
+    "saved": "Zapisano"
   },
   "login": {
     "check_email": "Sprawdź swoją pocztę",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Brak szablonów",
+    "title_placeholder": "Świadoma zgoda — Leczenie…",
+    "content_label": "Treść zgody",
+    "content_placeholder": "Napisz tekst świadomej zgody…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

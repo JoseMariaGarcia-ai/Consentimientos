@@ -131,7 +131,9 @@
     "success": "Succes",
     "confirm_delete": "Ștergeți această înregistrare?",
     "no_data": "Fără date",
-    "required": "Câmp obligatoriu"
+    "required": "Câmp obligatoriu",
+    "saving": "Se salvează…",
+    "saved": "Salvat"
   },
   "login": {
     "check_email": "Verificați email-ul",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Fără șabloane",
+    "title_placeholder": "Consimțământ informat — Tratament…",
+    "content_label": "Conținutul consimțământului",
+    "content_placeholder": "Scrieți textul consimțământului informat…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

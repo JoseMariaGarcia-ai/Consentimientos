@@ -131,7 +131,9 @@
     "success": "Erfolg",
     "confirm_delete": "Diesen Datensatz löschen?",
     "no_data": "Keine Daten",
-    "required": "Pflichtfeld"
+    "required": "Pflichtfeld",
+    "saving": "Speichern…",
+    "saved": "Gespeichert"
   },
   "login": {
     "check_email": "Prüfen Sie Ihre E-Mail",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Keine Vorlagen",
+    "title_placeholder": "Einwilligungserklärung — Behandlung…",
+    "content_label": "Einwilligungsinhalt",
+    "content_placeholder": "Schreiben Sie den Text der Einwilligungserklärung…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

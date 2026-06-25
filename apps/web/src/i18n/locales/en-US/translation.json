@@ -131,7 +131,9 @@
     "success": "Success",
     "confirm_delete": "Delete this record?",
     "no_data": "No data",
-    "required": "Required field"
+    "required": "Required field",
+    "saving": "Saving…",
+    "saved": "Saved"
   },
   "login": {
     "check_email": "Check your email",
@@ -149,6 +151,12 @@
     "translate_all": "Translate to 21 languages",
     "translating": "Translating…",
     "legal_framework": "Legal framework",
-    "select_template": "Select a template to edit"
+    "select_template": "Select a template to edit",
+    "empty": "No templates",
+    "title_placeholder": "Informed Consent — Treatment…",
+    "content_label": "Consent content",
+    "content_placeholder": "Write the informed consent text…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

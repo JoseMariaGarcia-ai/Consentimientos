@@ -131,7 +131,9 @@
     "success": "Succes",
     "confirm_delete": "Dit record verwijderen?",
     "no_data": "Geen gegevens",
-    "required": "Verplicht veld"
+    "required": "Verplicht veld",
+    "saving": "Opslaan…",
+    "saved": "Opgeslagen"
   },
   "login": {
     "check_email": "Controleer uw email",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Geen sjablonen",
+    "title_placeholder": "Geïnformeerde toestemming — Behandeling…",
+    "content_label": "Inhoud van de toestemming",
+    "content_placeholder": "Schrijf de tekst van de geïnformeerde toestemming…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

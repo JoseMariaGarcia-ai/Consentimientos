@@ -131,7 +131,9 @@
     "success": "Éxito",
     "confirm_delete": "¿Eliminar este registro?",
     "no_data": "Sin datos",
-    "required": "Campo obligatorio"
+    "required": "Campo obligatorio",
+    "saving": "Guardando…",
+    "saved": "Guardado"
   },
   "login": {
     "check_email": "Revisa tu email",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Sin plantillas",
+    "title_placeholder": "Consentimiento Informado — Tratamiento…",
+    "content_label": "Contenido del consentimiento",
+    "content_placeholder": "Escribe el texto del consentimiento informado…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

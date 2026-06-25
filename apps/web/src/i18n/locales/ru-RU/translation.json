@@ -131,7 +131,9 @@
     "success": "Успех",
     "confirm_delete": "Удалить эту запись?",
     "no_data": "Нет данных",
-    "required": "Обязательное поле"
+    "required": "Обязательное поле",
+    "saving": "Сохранение…",
+    "saved": "Сохранено"
   },
   "login": {
     "check_email": "Проверьте вашу почту",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Нет шаблонов",
+    "title_placeholder": "Информированное согласие — Лечение…",
+    "content_label": "Содержание согласия",
+    "content_placeholder": "Напишите текст информированного согласия…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

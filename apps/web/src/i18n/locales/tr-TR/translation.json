@@ -131,7 +131,9 @@
     "success": "Başarılı",
     "confirm_delete": "Bu kaydı silmek istiyor musunuz?",
     "no_data": "Veri yok",
-    "required": "Zorunlu alan"
+    "required": "Zorunlu alan",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi"
   },
   "login": {
     "check_email": "E-postanızı kontrol edin",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Şablon yok",
+    "title_placeholder": "Aydınlatılmış Onam — Tedavi…",
+    "content_label": "Onam içeriği",
+    "content_placeholder": "Aydınlatılmış onam metnini yazın…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

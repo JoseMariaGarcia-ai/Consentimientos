@@ -131,7 +131,9 @@
     "success": "نجاح",
     "confirm_delete": "هل تريد حذف هذا السجل؟",
     "no_data": "لا توجد بيانات",
-    "required": "حقل مطلوب"
+    "required": "حقل مطلوب",
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم الحفظ"
   },
   "login": {
     "check_email": "تحقق من بريدك الإلكتروني",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "لا توجد قوالب",
+    "title_placeholder": "موافقة مستنيرة — علاج…",
+    "content_label": "محتوى الموافقة",
+    "content_placeholder": "اكتب نص الموافقة المستنيرة…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

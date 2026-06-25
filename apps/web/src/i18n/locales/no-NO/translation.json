@@ -131,7 +131,9 @@
     "success": "Vellykket",
     "confirm_delete": "Slette denne posten?",
     "no_data": "Ingen data",
-    "required": "Obligatorisk felt"
+    "required": "Obligatorisk felt",
+    "saving": "Lagrer…",
+    "saved": "Lagret"
   },
   "login": {
     "check_email": "Sjekk e-posten din",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Ingen maler",
+    "title_placeholder": "Informert samtykke — Behandling…",
+    "content_label": "Innhold i samtykket",
+    "content_placeholder": "Skriv teksten til det informerte samtykket…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

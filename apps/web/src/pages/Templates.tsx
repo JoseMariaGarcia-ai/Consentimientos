@@ -96,7 +96,7 @@ export default function Templates() {
       {/* Left panel — template list */}
       <div className="w-72 flex flex-col gap-3 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-slate-800">Plantillas</h1>
+          <h1 className="text-xl font-bold text-slate-800">{t('templates.title')}</h1>
           <span className="text-xs text-slate-400">{templates.length}</span>
         </div>
 
@@ -105,7 +105,7 @@ export default function Templates() {
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Buscar tratamiento…"
+            placeholder={t('templates.search')}
             className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
           />
         </div>
@@ -114,7 +114,7 @@ export default function Templates() {
           {loading ? (
             <div className="text-center text-slate-400 text-sm py-8">{t('common.loading')}</div>
           ) : filtered.length === 0 ? (
-            <div className="text-center text-slate-400 text-sm py-8">Sin plantillas</div>
+            <div className="text-center text-slate-400 text-sm py-8">{t('templates.empty')}</div>
           ) : (
             filtered.map(tmpl => {
               const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
@@ -130,7 +130,7 @@ export default function Templates() {
                 >
                   <p className="text-sm font-medium truncate">{tmpl.treatmentType}</p>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    {hasLang ? `✓ ${currentLanguage}` : `⚠ Sin traducción en ${currentLanguage}`}
+                    {hasLang ? `✓ ${currentLanguage}` : `⚠ ${t('templates.no_translation')} ${currentLanguage}`}
                   </p>
                 </button>
               )
@@ -146,7 +146,7 @@ export default function Templates() {
           <div className="flex items-center gap-3 flex-wrap">
             <div>
               <h2 className="text-lg font-bold text-slate-800">{selected.treatmentType}</h2>
-              <p className="text-xs text-slate-400">Editor de plantilla</p>
+              <p className="text-xs text-slate-400">{t('templates.editor_title')}</p>
             </div>
             <div className="ml-auto flex items-center gap-2">
               {/* Language picker */}
@@ -170,7 +170,7 @@ export default function Templates() {
                 className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded-xl text-sm text-slate-600 hover:bg-slate-50 disabled:opacity-50"
               >
                 <Globe className="w-3.5 h-3.5" />
-                {translating ? 'Traduciendo…' : 'Traducir a 21 idiomas'}
+                {translating ? t('templates.translating') : t('templates.translate_all')}
               </button>
 
               <button
@@ -179,10 +179,10 @@ export default function Templates() {
                 className="flex items-center gap-1.5 px-4 py-1.5 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
               >
                 <Save className="w-3.5 h-3.5" />
-                {saving ? 'Guardando…' : 'Guardar'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
 
-              {saved && <span className="text-xs text-emerald-600 font-medium">✓ Guardado</span>}
+              {saved && <span className="text-xs text-emerald-600 font-medium">✓ {t('common.saved')}</span>}
 
               <button onClick={() => setSelected(null)} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100">
                 <X className="w-4 h-4" />
@@ -193,12 +193,12 @@ export default function Templates() {
           {/* Title */}
           <div className="flex flex-col gap-1.5">
             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-              Título del consentimiento — {currentLang?.flag ?? ''} {currentLang?.name ?? ''}
+              {t('templates.consent_title_label')} — {currentLang?.flag ?? ''} {currentLang?.name ?? ''}
             </label>
             <input
               value={form.title}
               onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
-              placeholder="Consentimiento Informado — Tratamiento…"
+              placeholder={t('templates.title_placeholder')}
               className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -206,20 +206,20 @@ export default function Templates() {
           {/* WYSIWYG Body */}
           <div className="flex flex-col gap-1.5 flex-1">
             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-              Contenido del consentimiento
+              {t('templates.content_label')}
             </label>
             <ConsentEditor
               key={`${selected.id}-${editLang}`}
               content={form.body}
               onChange={body => setForm(f => ({ ...f, body }))}
-              placeholder="Escribe el texto del consentimiento informado…"
+              placeholder={t('templates.content_placeholder')}
             />
           </div>
 
           {/* Legal clauses summary */}
           {!!selected.legalClausesJson?.[editLang] && (
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Marco legal — {currentLang?.name}</p>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">{t('templates.legal_framework')} — {currentLang?.name}</p>
               <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-600">
                 {Object.entries(selected.legalClausesJson[editLang] as Record<string, unknown>)
                   .filter(([k]) => ['jurisdiction','applicableLaw','minAge','witnessRequired','retentionYears'].includes(k))
@@ -236,7 +236,7 @@ export default function Templates() {
       ) : (
         <div className="flex-1 flex items-center justify-center text-slate-400 flex-col gap-3">
           <Plus className="w-12 h-12 opacity-20" />
-          <p className="text-sm">Selecciona una plantilla para editarla</p>
+          <p className="text-sm">{t('templates.select_template')}</p>
         </div>
       )}
     </div>

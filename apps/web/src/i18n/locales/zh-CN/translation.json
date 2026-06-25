@@ -131,7 +131,9 @@
     "success": "成功",
     "confirm_delete": "确认删除此记录？",
     "no_data": "暂无数据",
-    "required": "必填项"
+    "required": "必填项",
+    "saving": "保存中…",
+    "saved": "已保存"
   },
   "login": {
     "check_email": "请查看您的邮箱",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "没有模板",
+    "title_placeholder": "知情同意书 — 治疗…",
+    "content_label": "同意书内容",
+    "content_placeholder": "写知情同意书文本…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

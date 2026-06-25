@@ -129,7 +129,7 @@ export default function Patients() {
                         <button
                           onClick={() => setGalleryPatient(p)}
                           className="p-1.5 text-slate-400 hover:text-purple-600 rounded-lg hover:bg-purple-50"
-                          title="Galería de fotos"
+                          title={t('patients.gallery')}
                         >
                           <Images className="w-4 h-4" />
                         </button>

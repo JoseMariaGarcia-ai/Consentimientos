@@ -131,7 +131,9 @@
     "success": "성공",
     "confirm_delete": "이 레코드를 삭제하시겠습니까?",
     "no_data": "데이터 없음",
-    "required": "필수 항목"
+    "required": "필수 항목",
+    "saving": "저장 중…",
+    "saved": "저장됨"
   },
   "login": {
     "check_email": "이메일을 확인하세요",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "템플릿 없음",
+    "title_placeholder": "동의서 — 치료…",
+    "content_label": "동의서 내용",
+    "content_placeholder": "동의서 텍스트를 작성하세요…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

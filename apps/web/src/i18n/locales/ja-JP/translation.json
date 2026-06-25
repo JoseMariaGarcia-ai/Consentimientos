@@ -131,7 +131,9 @@
     "success": "成功",
     "confirm_delete": "このレコードを削除しますか？",
     "no_data": "データなし",
-    "required": "必須項目"
+    "required": "必須項目",
+    "saving": "保存中…",
+    "saved": "保存済み"
   },
   "login": {
     "check_email": "メールを確認してください",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "テンプレートなし",
+    "title_placeholder": "インフォームドコンセント — 治療…",
+    "content_label": "同意書の内容",
+    "content_placeholder": "インフォームドコンセントのテキストを書いてください…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

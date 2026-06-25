@@ -131,7 +131,9 @@
     "success": "Lyckades",
     "confirm_delete": "Ta bort denna post?",
     "no_data": "Ingen data",
-    "required": "Obligatoriskt fält"
+    "required": "Obligatoriskt fält",
+    "saving": "Sparar…",
+    "saved": "Sparat"
   },
   "login": {
     "check_email": "Kontrollera din e-post",
@@ -149,6 +151,12 @@
     "translate_all": "Traducir a 21 idiomas",
     "translating": "Traduciendo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla"
+    "select_template": "Selecciona una plantilla para editarla",
+    "empty": "Inga mallar",
+    "title_placeholder": "Informerat samtycke — Behandling…",
+    "content_label": "Samtyckesinnehåll",
+    "content_placeholder": "Skriv texten till det informerade samtycket…",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }
