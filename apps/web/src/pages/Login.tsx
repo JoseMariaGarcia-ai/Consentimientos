@@ -27,7 +27,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50">
       {/* Language selector — always visible, top-right */}
       <div className="fixed top-4 right-4 z-50">
-        <LanguageSelectorDark />
+        <LanguageSelector variant="light" />
       </div>
 
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8">
@@ -87,11 +87,3 @@ export default function Login() {
   )
 }
 
-// Variant with dark border for the light background of the login page
-function LanguageSelectorDark() {
-  return (
-    <div className="[&_button]:bg-white [&_button]:text-slate-700 [&_button]:border-slate-200 [&_button]:hover:bg-slate-50 [&_button]:shadow-sm">
-      <LanguageSelector />
-    </div>
-  )
-}
