@@ -1,14 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { useTranslation } from 'react-i18next'
+import { Fingerprint, Loader2 } from 'lucide-react'
+import {
+  browserSupportsWebAuthn,
+  hasBiometricRegistered,
+  authenticateWithBiometric,
+} from '@/lib/webauthn'
+import { BiometricPrompt } from '@/components/auth/BiometricPrompt'
 
 export default function Login() {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [bioLoading, setBioLoading] = useState(false)
   const [error, setError] = useState('')
+  const [supportsWebAuthn, setSupportsWebAuthn] = useState(false)
+  const [hasBio, setHasBio] = useState(false)
+  const [showBioPrompt, setShowBioPrompt] = useState(false)
+
+  useEffect(() => {
+    setSupportsWebAuthn(browserSupportsWebAuthn())
+    setHasBio(hasBiometricRegistered())
+
+    // After magic link redirect, check if we should prompt for biometric setup
+    const hash = window.location.hash
+    if (hash.includes('access_token') && !hasBiometricRegistered() && browserSupportsWebAuthn()) {
+      setShowBioPrompt(true)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,9 +45,18 @@ export default function Login() {
     setLoading(false)
   }
 
+  const handleBiometric = async () => {
+    if (!email) { setError('Introduce tu email primero'); return }
+    setBioLoading(true)
+    setError('')
+    const ok = await authenticateWithBiometric(email)
+    if (!ok) setError('Verificación biométrica fallida. Usa el Magic Link.')
+    setBioLoading(false)
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50">
-      {/* Language selector — always visible, top-right */}
+      {/* Language selector */}
       <div className="fixed top-4 right-4 z-50">
         <LanguageSelector variant="light" />
       </div>
@@ -63,19 +94,44 @@ export default function Login() {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="tu@email.com"
+                placeholder="tu@clinica.es"
                 required
                 className="px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
+
             {error && <p className="text-sm text-red-500">{error}</p>}
+
+            {/* Biometric button — shown if device supports it and has registered */}
+            {supportsWebAuthn && hasBio && (
+              <button
+                type="button"
+                onClick={handleBiometric}
+                disabled={bioLoading}
+                className="flex items-center justify-center gap-2 py-2.5 bg-slate-800 text-white rounded-xl font-medium hover:bg-slate-700 disabled:opacity-50 transition-colors"
+              >
+                {bioLoading
+                  ? <Loader2 className="w-4 h-4 animate-spin" />
+                  : <Fingerprint className="w-4 h-4" />}
+                {bioLoading ? 'Verificando…' : 'Entrar con huella / Face ID'}
+              </button>
+            )}
+
             <button
               type="submit"
               disabled={loading}
               className="py-2.5 bg-[#0a2342] text-white rounded-xl font-medium hover:bg-[#1a4a7a] disabled:opacity-50 transition-colors"
             >
-              {loading ? t('common.loading', 'Enviando…') : t('login.magic_link', 'Entrar con Magic Link')}
+              {loading
+                ? t('common.loading', 'Enviando…')
+                : t('login.magic_link', 'Entrar con Magic Link')}
             </button>
+
+            {supportsWebAuthn && !hasBio && (
+              <p className="text-xs text-slate-400 text-center">
+                Tras tu primer acceso podrás activar Face ID / huella
+              </p>
+            )}
           </form>
         )}
 
@@ -83,7 +139,8 @@ export default function Login() {
           {t('login.footer', 'Consentimientos digitales válidos · Ley 41/2002 · RGPD')}
         </p>
       </div>
+
+      {showBioPrompt && <BiometricPrompt onClose={() => setShowBioPrompt(false)} />}
     </div>
   )
 }
-
