@@ -18,7 +18,18 @@
     "email_placeholder": "email@clinic.com",
     "send_link": "Send access link",
     "check_email": "Check your email — we sent the access link",
-    "magic_link_sent": "Link sent successfully"
+    "magic_link_sent": "Link sent successfully",
+    "remember_device": "Remember this device",
+    "remember_7": "7 days",
+    "remember_30": "30 days",
+    "remember_90": "90 days",
+    "biometric_activate": "Activate Face ID / fingerprint",
+    "biometric_prompt": "After your first login you can activate Face ID / fingerprint",
+    "biometric_registering": "Activating…",
+    "biometric_success": "Biometrics activated!",
+    "biometric_success_msg": "Next time you'll enter with one touch.",
+    "biometric_error": "Could not activate. Make sure your device has biometrics set up.",
+    "biometric_now": "Not now"
   },
   "patients": {
     "title": "Patients",
@@ -38,7 +49,11 @@
     "cancel": "Cancel",
     "edit": "Edit",
     "delete": "Delete",
-    "no_results": "No patients registered"
+    "no_results": "No patients registered",
+    "gallery": "Photo gallery",
+    "no_photos": "No photos. Upload the first image.",
+    "upload_photos": "Upload photos",
+    "uploading": "Uploading…"
   },
   "doctors": {
     "title": "Doctors",
@@ -92,7 +107,15 @@
     "email": "Email",
     "tax_id": "Tax ID",
     "logo": "Logo",
-    "save": "Save settings"
+    "save": "Save settings",
+    "branches": "Additional locations",
+    "branches_desc": "Manage multiple clinic locations",
+    "add_branch": "Add location",
+    "no_branches": "No additional locations",
+    "branch_name": "Location name",
+    "save_branches": "Save locations",
+    "edit_branch": "Edit location",
+    "new_branch": "New location"
   },
   "language": {
     "select": "Language",
@@ -116,5 +139,16 @@
     "email": "Email",
     "magic_link": "Sign in with Magic Link",
     "footer": "Valid digital consents · HIPAA · State law"
+  },
+  "templates": {
+    "title": "Templates",
+    "search": "Search treatment…",
+    "editor_title": "Template editor",
+    "consent_title_label": "Consent title",
+    "no_translation": "No translation in",
+    "translate_all": "Translate to 21 languages",
+    "translating": "Translating…",
+    "legal_framework": "Legal framework",
+    "select_template": "Select a template to edit"
   }
 }

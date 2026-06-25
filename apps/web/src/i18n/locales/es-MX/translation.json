@@ -18,7 +18,18 @@
     "email_placeholder": "correo@clinica.com.mx",
     "send_link": "Enviar enlace de acceso",
     "check_email": "Revisa tu correo — enviamos el enlace de acceso",
-    "magic_link_sent": "Enlace enviado correctamente"
+    "magic_link_sent": "Enlace enviado correctamente",
+    "remember_device": "Recordar este dispositivo",
+    "remember_7": "7 días",
+    "remember_30": "30 días",
+    "remember_90": "90 días",
+    "biometric_activate": "Activar Face ID / huella",
+    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
+    "biometric_registering": "Activando…",
+    "biometric_success": "¡Biometría activada!",
+    "biometric_success_msg": "La próxima vez entrarás con un toque.",
+    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
+    "biometric_now": "Ahora no"
   },
   "patients": {
     "title": "Pacientes",
@@ -38,7 +49,11 @@
     "cancel": "Cancelar",
     "edit": "Editar",
     "delete": "Eliminar",
-    "no_results": "No hay pacientes registrados"
+    "no_results": "No hay pacientes registrados",
+    "gallery": "Galería de fotos",
+    "no_photos": "Sin fotos. Sube la primera imagen.",
+    "upload_photos": "Subir fotos",
+    "uploading": "Subiendo…"
   },
   "doctors": {
     "title": "Médicos",
@@ -92,7 +107,15 @@
     "email": "Correo",
     "tax_id": "RFC",
     "logo": "Logotipo",
-    "save": "Guardar configuración"
+    "save": "Guardar configuración",
+    "branches": "Sedes adicionales",
+    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
+    "add_branch": "Añadir sede",
+    "no_branches": "Sin sedes adicionales",
+    "branch_name": "Nombre de sede",
+    "save_branches": "Guardar sedes",
+    "edit_branch": "Editar sede",
+    "new_branch": "Nueva sede"
   },
   "language": {
     "select": "Idioma",
@@ -116,5 +139,16 @@
     "email": "Correo",
     "magic_link": "Entrar con Magic Link",
     "footer": "Consentimientos digitales válidos · NOM-012-SSA3 · LFPDPPP"
+  },
+  "templates": {
+    "title": "Plantillas",
+    "search": "Buscar tratamiento…",
+    "editor_title": "Editor de plantilla",
+    "consent_title_label": "Título del consentimiento",
+    "no_translation": "Sin traducción en",
+    "translate_all": "Traducir a 21 idiomas",
+    "translating": "Traduciendo…",
+    "legal_framework": "Marco legal",
+    "select_template": "Selecciona una plantilla para editarla"
   }
 }

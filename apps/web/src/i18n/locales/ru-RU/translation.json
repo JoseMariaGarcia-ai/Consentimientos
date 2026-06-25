@@ -18,7 +18,18 @@
     "email_placeholder": "email@klinika.ru",
     "send_link": "Отправить ссылку доступа",
     "check_email": "Проверьте почту — мы отправили ссылку доступа",
-    "magic_link_sent": "Ссылка успешно отправлена"
+    "magic_link_sent": "Ссылка успешно отправлена",
+    "remember_device": "Recordar este dispositivo",
+    "remember_7": "7 días",
+    "remember_30": "30 días",
+    "remember_90": "90 días",
+    "biometric_activate": "Activar Face ID / huella",
+    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
+    "biometric_registering": "Activando…",
+    "biometric_success": "¡Biometría activada!",
+    "biometric_success_msg": "La próxima vez entrarás con un toque.",
+    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
+    "biometric_now": "Ahora no"
   },
   "patients": {
     "title": "Пациенты",
@@ -38,7 +49,11 @@
     "cancel": "Отмена",
     "edit": "Редактировать",
     "delete": "Удалить",
-    "no_results": "Пациенты не зарегистрированы"
+    "no_results": "Пациенты не зарегистрированы",
+    "gallery": "Galería de fotos",
+    "no_photos": "Sin fotos. Sube la primera imagen.",
+    "upload_photos": "Subir fotos",
+    "uploading": "Subiendo…"
   },
   "doctors": {
     "title": "Врачи",
@@ -92,7 +107,15 @@
     "email": "Email",
     "tax_id": "ИНН / ОГРН",
     "logo": "Логотип",
-    "save": "Сохранить настройки"
+    "save": "Сохранить настройки",
+    "branches": "Sedes adicionales",
+    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
+    "add_branch": "Añadir sede",
+    "no_branches": "Sin sedes adicionales",
+    "branch_name": "Nombre de sede",
+    "save_branches": "Guardar sedes",
+    "edit_branch": "Editar sede",
+    "new_branch": "Nueva sede"
   },
   "language": {
     "select": "Язык",
@@ -116,5 +139,16 @@
     "email": "Email",
     "magic_link": "Войти с Magic Link",
     "footer": "Действительные цифровые согласия · ФЗ-323 · ФЗ-152"
+  },
+  "templates": {
+    "title": "Plantillas",
+    "search": "Buscar tratamiento…",
+    "editor_title": "Editor de plantilla",
+    "consent_title_label": "Título del consentimiento",
+    "no_translation": "Sin traducción en",
+    "translate_all": "Traducir a 21 idiomas",
+    "translating": "Traduciendo…",
+    "legal_framework": "Marco legal",
+    "select_template": "Selecciona una plantilla para editarla"
   }
 }

@@ -18,7 +18,18 @@
     "email_placeholder": "email@klinik.de",
     "send_link": "Zugangslink senden",
     "check_email": "Überprüfen Sie Ihre E-Mail — wir haben den Zugangslink gesendet",
-    "magic_link_sent": "Link erfolgreich gesendet"
+    "magic_link_sent": "Link erfolgreich gesendet",
+    "remember_device": "Recordar este dispositivo",
+    "remember_7": "7 días",
+    "remember_30": "30 días",
+    "remember_90": "90 días",
+    "biometric_activate": "Activar Face ID / huella",
+    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
+    "biometric_registering": "Activando…",
+    "biometric_success": "¡Biometría activada!",
+    "biometric_success_msg": "La próxima vez entrarás con un toque.",
+    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
+    "biometric_now": "Ahora no"
   },
   "patients": {
     "title": "Patienten",
@@ -38,7 +49,11 @@
     "cancel": "Abbrechen",
     "edit": "Bearbeiten",
     "delete": "Löschen",
-    "no_results": "Keine Patienten registriert"
+    "no_results": "Keine Patienten registriert",
+    "gallery": "Galería de fotos",
+    "no_photos": "Sin fotos. Sube la primera imagen.",
+    "upload_photos": "Subir fotos",
+    "uploading": "Subiendo…"
   },
   "doctors": {
     "title": "Ärzte",
@@ -92,7 +107,15 @@
     "email": "E-Mail",
     "tax_id": "Steuernummer / USt-IdNr.",
     "logo": "Logo",
-    "save": "Einstellungen speichern"
+    "save": "Einstellungen speichern",
+    "branches": "Sedes adicionales",
+    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
+    "add_branch": "Añadir sede",
+    "no_branches": "Sin sedes adicionales",
+    "branch_name": "Nombre de sede",
+    "save_branches": "Guardar sedes",
+    "edit_branch": "Editar sede",
+    "new_branch": "Nueva sede"
   },
   "language": {
     "select": "Sprache",
@@ -116,5 +139,16 @@
     "email": "E-Mail",
     "magic_link": "Mit Magic Link anmelden",
     "footer": "Gültige digitale Einwilligungen · PatRG · DSGVO"
+  },
+  "templates": {
+    "title": "Plantillas",
+    "search": "Buscar tratamiento…",
+    "editor_title": "Editor de plantilla",
+    "consent_title_label": "Título del consentimiento",
+    "no_translation": "Sin traducción en",
+    "translate_all": "Traducir a 21 idiomas",
+    "translating": "Traduciendo…",
+    "legal_framework": "Marco legal",
+    "select_template": "Selecciona una plantilla para editarla"
   }
 }
