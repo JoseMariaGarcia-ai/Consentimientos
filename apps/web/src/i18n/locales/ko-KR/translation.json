@@ -1,0 +1,12 @@
+{
+  "app": { "name": "ConsentsPro", "tagline": "디지털 동의서 · 생체인식 서명" },
+  "nav": { "dashboard": "대시보드", "patients": "환자", "doctors": "의사", "consents": "동의서", "clinic": "클리닉", "logout": "로그아웃" },
+  "auth": { "login_title": "보안 접속", "login_subtitle": "이메일을 입력하여 접속 링크를 받으세요", "email_placeholder": "email@clinic.co.kr", "send_link": "접속 링크 보내기", "check_email": "이메일을 확인하세요 — 접속 링크를 보냈습니다", "magic_link_sent": "링크가 성공적으로 전송되었습니다" },
+  "patients": { "title": "환자", "add": "환자 추가", "search": "이름, 주민번호, 전화번호로 검색…", "name": "이름", "surname": "성", "dob": "생년월일", "id_doc": "주민등록증 / 여권", "phone": "전화번호", "email": "이메일", "address": "주소", "allergies": "알레르기", "medications": "복용 약물", "blood_type": "혈액형", "save": "환자 저장", "cancel": "취소", "edit": "편집", "delete": "삭제", "no_results": "등록된 환자가 없습니다" },
+  "doctors": { "title": "의사", "add": "의사 추가", "name": "이름", "specialty": "전문 분야", "license": "의사 면허 번호", "email": "이메일", "role": "역할", "roles": { "admin": "관리자", "doctor": "의사", "receptionist": "접수원" }, "save": "의사 저장", "no_results": "등록된 의사가 없습니다" },
+  "consents": { "title": "동의서", "add": "새 동의서", "search": "동의서 검색…", "status": { "pending": "대기 중", "signed": "서명됨", "revoked": "취소됨", "expired": "만료됨" }, "sign": "서명", "generate_pdf": "PDF 생성", "translate": "모든 언어로 번역", "patient": "환자", "doctor": "의사", "treatment": "치료", "language": "언어", "signed_at": "서명 일시", "no_results": "동의서 없음" },
+  "signature": { "title": "환자 서명", "instructions": "아래 상자에 서명하세요", "clear": "지우기", "confirm": "서명 확인", "legal_notice": "설명서를 읽었으며 동의합니다", "biometric_capture": "생체 데이터 수집 중…" },
+  "clinic": { "title": "클리닉", "name": "클리닉 이름", "address": "주소", "phone": "전화번호", "email": "이메일", "tax_id": "사업자등록번호", "logo": "로고", "save": "설정 저장" },
+  "language": { "select": "언어", "search": "언어 검색…" },
+  "common": { "save": "저장", "cancel": "취소", "edit": "편집", "delete": "삭제", "loading": "로딩 중…", "error": "오류", "success": "성공", "confirm_delete": "이 레코드를 삭제하시겠습니까?", "no_data": "데이터 없음", "required": "필수 항목" }
+}

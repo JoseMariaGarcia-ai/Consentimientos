@@ -1,0 +1,12 @@
+{
+  "app": { "name": "ConsentsPro", "tagline": "Dijital Onaylar · Biyometrik İmza" },
+  "nav": { "dashboard": "Panel", "patients": "Hastalar", "doctors": "Doktorlar", "consents": "Onaylar", "clinic": "Klinik", "logout": "Çıkış yap" },
+  "auth": { "login_title": "Güvenli erişim", "login_subtitle": "Erişim bağlantısı almak için e-postanızı girin", "email_placeholder": "email@klinik.com.tr", "send_link": "Erişim bağlantısı gönder", "check_email": "E-postanızı kontrol edin — erişim bağlantısı gönderdik", "magic_link_sent": "Bağlantı başarıyla gönderildi" },
+  "patients": { "title": "Hastalar", "add": "Hasta ekle", "search": "Ad, TC Kimlik No, telefon ile ara…", "name": "Ad", "surname": "Soyad", "dob": "Doğum tarihi", "id_doc": "TC Kimlik Kartı / Pasaport", "phone": "Telefon", "email": "E-posta", "address": "Adres", "allergies": "Alerjiler", "medications": "İlaçlar", "blood_type": "Kan grubu", "save": "Hastayı kaydet", "cancel": "İptal", "edit": "Düzenle", "delete": "Sil", "no_results": "Kayıtlı hasta yok" },
+  "doctors": { "title": "Doktorlar", "add": "Doktor ekle", "name": "Ad Soyad", "specialty": "Uzmanlık", "license": "Diploma numarası", "email": "E-posta", "role": "Rol", "roles": { "admin": "Yönetici", "doctor": "Doktor", "receptionist": "Resepsiyonist" }, "save": "Doktoru kaydet", "no_results": "Kayıtlı doktor yok" },
+  "consents": { "title": "Onaylar", "add": "Yeni onay", "search": "Onayları ara…", "status": { "pending": "Beklemede", "signed": "İmzalandı", "revoked": "İptal edildi", "expired": "Süresi doldu" }, "sign": "İmzala", "generate_pdf": "PDF oluştur", "translate": "Tüm dillere çevir", "patient": "Hasta", "doctor": "Doktor", "treatment": "Tedavi", "language": "Dil", "signed_at": "İmzalanma tarihi", "no_results": "Onay yok" },
+  "signature": { "title": "Hasta imzası", "instructions": "Aşağıdaki kutuya imzanızı atın", "clear": "Temizle", "confirm": "İmzayı onayla", "legal_notice": "Bilgilendirilmiş onayı okudum ve kabul ediyorum", "biometric_capture": "Biyometrik veriler yakalanıyor…" },
+  "clinic": { "title": "Klinik", "name": "Klinik adı", "address": "Adres", "phone": "Telefon", "email": "E-posta", "tax_id": "Vergi numarası", "logo": "Logo", "save": "Ayarları kaydet" },
+  "language": { "select": "Dil", "search": "Dil ara…" },
+  "common": { "save": "Kaydet", "cancel": "İptal", "edit": "Düzenle", "delete": "Sil", "loading": "Yükleniyor…", "error": "Hata", "success": "Başarılı", "confirm_delete": "Bu kaydı silmek istiyor musunuz?", "no_data": "Veri yok", "required": "Zorunlu alan" }
+}

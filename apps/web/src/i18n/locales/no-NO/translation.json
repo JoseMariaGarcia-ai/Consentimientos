@@ -1,0 +1,12 @@
+{
+  "app": { "name": "ConsentsPro", "tagline": "Digitale Samtykker · Biometrisk Signatur" },
+  "nav": { "dashboard": "Oversikt", "patients": "Pasienter", "doctors": "Leger", "consents": "Samtykker", "clinic": "Klinikk", "logout": "Logg ut" },
+  "auth": { "login_title": "Sikker tilgang", "login_subtitle": "Skriv inn din e-post for å motta en tilgangslenke", "email_placeholder": "email@klinikk.no", "send_link": "Send tilgangslenke", "check_email": "Sjekk e-posten din — vi sendte tilgangslenken", "magic_link_sent": "Lenke sendt" },
+  "patients": { "title": "Pasienter", "add": "Legg til pasient", "search": "Søk etter navn, ID, telefon…", "name": "Fornavn", "surname": "Etternavn", "dob": "Fødselsdato", "id_doc": "Identitetskort / Pass", "phone": "Telefon", "email": "E-post", "address": "Adresse", "allergies": "Allergier", "medications": "Medisiner", "blood_type": "Blodtype", "save": "Lagre pasient", "cancel": "Avbryt", "edit": "Rediger", "delete": "Slett", "no_results": "Ingen pasienter registrert" },
+  "doctors": { "title": "Leger", "add": "Legg til lege", "name": "Navn", "specialty": "Spesialitet", "license": "Autorisasjonsnummer", "email": "E-post", "role": "Rolle", "roles": { "admin": "Administrator", "doctor": "Lege", "receptionist": "Resepsjonist" }, "save": "Lagre lege", "no_results": "Ingen leger registrert" },
+  "consents": { "title": "Samtykker", "add": "Nytt samtykke", "search": "Søk samtykker…", "status": { "pending": "Venter", "signed": "Signert", "revoked": "Trukket tilbake", "expired": "Utløpt" }, "sign": "Signer", "generate_pdf": "Generer PDF", "translate": "Oversett til alle språk", "patient": "Pasient", "doctor": "Lege", "treatment": "Behandling", "language": "Språk", "signed_at": "Signert", "no_results": "Ingen samtykker" },
+  "signature": { "title": "Pasientens signatur", "instructions": "Signer i boksen nedenfor", "clear": "Tøm", "confirm": "Bekreft signatur", "legal_notice": "Jeg har lest og aksepterer informert samtykke", "biometric_capture": "Samler inn biometriske data…" },
+  "clinic": { "title": "Klinikk", "name": "Klinikkens navn", "address": "Adresse", "phone": "Telefon", "email": "E-post", "tax_id": "Organisasjonsnummer / MVA", "logo": "Logo", "save": "Lagre innstillinger" },
+  "language": { "select": "Språk", "search": "Søk språk…" },
+  "common": { "save": "Lagre", "cancel": "Avbryt", "edit": "Rediger", "delete": "Slett", "loading": "Laster…", "error": "Feil", "success": "Vellykket", "confirm_delete": "Slette denne posten?", "no_data": "Ingen data", "required": "Obligatorisk felt" }
+}

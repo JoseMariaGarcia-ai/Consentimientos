@@ -1,0 +1,12 @@
+{
+  "app": { "name": "ConsentsPro", "tagline": "数字知情同意书 · 生物特征签名" },
+  "nav": { "dashboard": "仪表板", "patients": "患者", "doctors": "医生", "consents": "知情同意书", "clinic": "诊所", "logout": "退出登录" },
+  "auth": { "login_title": "安全访问", "login_subtitle": "输入您的电子邮件以接收访问链接", "email_placeholder": "email@clinic.com.cn", "send_link": "发送访问链接", "check_email": "请检查您的电子邮件 — 我们已发送访问链接", "magic_link_sent": "链接发送成功" },
+  "patients": { "title": "患者", "add": "添加患者", "search": "按姓名、身份证、电话搜索…", "name": "姓名", "surname": "姓氏", "dob": "出生日期", "id_doc": "身份证 / 护照", "phone": "电话", "email": "电子邮件", "address": "地址", "allergies": "过敏史", "medications": "用药情况", "blood_type": "血型", "save": "保存患者", "cancel": "取消", "edit": "编辑", "delete": "删除", "no_results": "暂无患者记录" },
+  "doctors": { "title": "医生", "add": "添加医生", "name": "姓名", "specialty": "专科", "license": "医师执照号", "email": "电子邮件", "role": "角色", "roles": { "admin": "管理员", "doctor": "医生", "receptionist": "前台" }, "save": "保存医生", "no_results": "暂无医生记录" },
+  "consents": { "title": "知情同意书", "add": "新建同意书", "search": "搜索同意书…", "status": { "pending": "待处理", "signed": "已签署", "revoked": "已撤销", "expired": "已过期" }, "sign": "签署", "generate_pdf": "生成PDF", "translate": "翻译成所有语言", "patient": "患者", "doctor": "医生", "treatment": "治疗方案", "language": "语言", "signed_at": "签署时间", "no_results": "暂无同意书" },
+  "signature": { "title": "患者签名", "instructions": "请在下方方框内签名", "clear": "清除", "confirm": "确认签名", "legal_notice": "我已阅读并接受知情同意书", "biometric_capture": "正在采集生物特征数据…" },
+  "clinic": { "title": "诊所", "name": "诊所名称", "address": "地址", "phone": "电话", "email": "电子邮件", "tax_id": "统一社会信用代码", "logo": "Logo", "save": "保存设置" },
+  "language": { "select": "语言", "search": "搜索语言…" },
+  "common": { "save": "保存", "cancel": "取消", "edit": "编辑", "delete": "删除", "loading": "加载中…", "error": "错误", "success": "成功", "confirm_delete": "确认删除此记录？", "no_data": "暂无数据", "required": "必填项" }
+}

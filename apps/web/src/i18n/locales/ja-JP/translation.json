@@ -1,0 +1,12 @@
+{
+  "app": { "name": "ConsentsPro", "tagline": "デジタル同意書 · 生体認証署名" },
+  "nav": { "dashboard": "ダッシュボード", "patients": "患者", "doctors": "医師", "consents": "同意書", "clinic": "クリニック", "logout": "ログアウト" },
+  "auth": { "login_title": "セキュアアクセス", "login_subtitle": "メールアドレスを入力してアクセスリンクを受け取ってください", "email_placeholder": "email@clinic.jp", "send_link": "アクセスリンクを送信", "check_email": "メールをご確認ください — アクセスリンクを送信しました", "magic_link_sent": "リンクを正常に送信しました" },
+  "patients": { "title": "患者", "add": "患者を追加", "search": "氏名、マイナンバー、電話番号で検索…", "name": "名前", "surname": "姓", "dob": "生年月日", "id_doc": "マイナンバーカード / パスポート", "phone": "電話番号", "email": "メールアドレス", "address": "住所", "allergies": "アレルギー", "medications": "服薬情報", "blood_type": "血液型", "save": "患者を保存", "cancel": "キャンセル", "edit": "編集", "delete": "削除", "no_results": "登録された患者はいません" },
+  "doctors": { "title": "医師", "add": "医師を追加", "name": "氏名", "specialty": "専門科", "license": "医師免許番号", "email": "メールアドレス", "role": "役割", "roles": { "admin": "管理者", "doctor": "医師", "receptionist": "受付" }, "save": "医師を保存", "no_results": "登録された医師はいません" },
+  "consents": { "title": "同意書", "add": "新しい同意書", "search": "同意書を検索…", "status": { "pending": "保留中", "signed": "署名済み", "revoked": "取り消し済み", "expired": "期限切れ" }, "sign": "署名する", "generate_pdf": "PDFを生成", "translate": "全言語に翻訳", "patient": "患者", "doctor": "医師", "treatment": "治療", "language": "言語", "signed_at": "署名日時", "no_results": "同意書はありません" },
+  "signature": { "title": "患者の署名", "instructions": "下のボックスに署名してください", "clear": "クリア", "confirm": "署名を確認", "legal_notice": "インフォームドコンセントを読み、同意します", "biometric_capture": "生体データを取得中…" },
+  "clinic": { "title": "クリニック", "name": "クリニック名", "address": "住所", "phone": "電話番号", "email": "メールアドレス", "tax_id": "法人番号 / 適格請求書番号", "logo": "ロゴ", "save": "設定を保存" },
+  "language": { "select": "言語", "search": "言語を検索…" },
+  "common": { "save": "保存", "cancel": "キャンセル", "edit": "編集", "delete": "削除", "loading": "読み込み中…", "error": "エラー", "success": "成功", "confirm_delete": "このレコードを削除しますか？", "no_data": "データなし", "required": "必須項目" }
+}

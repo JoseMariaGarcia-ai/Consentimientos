@@ -1,0 +1,10 @@
+{
+  "name": "consentspro",
+  "private": true,
+  "workspaces": ["apps/web", "apps/api/server", "packages/*"],
+  "scripts": {
+    "dev": "cd apps/web && npm run dev",
+    "build": "cd apps/web && npm run build",
+    "seed": "cd apps/web && npx prisma db seed"
+  }
+}

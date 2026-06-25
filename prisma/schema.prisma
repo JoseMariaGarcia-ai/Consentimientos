@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Clinic {
+  id        String   @id @default(uuid())
+  name      String
+  logoUrl   String?  @map("logo_url")
+  address   String?
+  taxId     String?  @unique @map("tax_id")
+  phone     String?
+  email     String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  doctors          Doctor[]
+  patients         Patient[]
+  consentTemplates ConsentTemplate[]
+
+  @@map("clinics")
+}
+
+model Doctor {
+  id            String   @id @default(uuid())
+  clinicId      String   @map("clinic_id")
+  name          String
+  specialty     String?
+  licenseNumber String?  @unique @map("license_number")
+  email         String?  @unique
+  role          String   @default("doctor")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  clinic         Clinic          @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  consentRecords ConsentRecord[]
+
+  @@map("doctors")
+}
+
+model Patient {
+  id          String   @id @default(uuid())
+  clinicId    String   @map("clinic_id")
+  fullName    String   @map("full_name")
+  dateOfBirth DateTime? @map("date_of_birth")
+  idDocument  String?  @map("id_document")
+  idDocType   String?  @default("DNI") @map("id_doc_type")
+  phone       String?
+  email       String?
+  address     String?
+  allergies   String?
+  medications String?
+  bloodType   String?  @map("blood_type")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  clinic         Clinic          @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  consentRecords ConsentRecord[]
+
+  @@map("patients")
+}
+
+model ConsentTemplate {
+  id            String   @id @default(uuid())
+  clinicId      String?  @map("clinic_id")
+  treatmentType String   @map("treatment_type")
+  version       Int      @default(1)
+  isActive      Boolean  @default(true) @map("is_active")
+  contentJson   Json     @default("{}") @map("content_json")
+  legalClausesJson Json  @default("{}") @map("legal_clauses_json")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  clinic         Clinic?         @relation(fields: [clinicId], references: [id], onDelete: Cascade)
+  consentRecords ConsentRecord[]
+
+  @@map("consent_templates")
+}
+
+model ConsentRecord {
+  id               String    @id @default(uuid())
+  patientId        String    @map("patient_id")
+  doctorId         String    @map("doctor_id")
+  templateId       String    @map("template_id")
+  language         String    @default("es-ES")
+  jurisdiction     String?
+  status           String    @default("pending")
+  signatureDataUrl String?   @map("signature_data_url")
+  biometricJson    Json?     @map("biometric_json")
+  documentHash     String?   @map("document_hash")
+  consentUuid      String    @unique @default(uuid()) @map("consent_uuid")
+  clientTimestamp  DateTime? @map("client_timestamp")
+  serverTimestamp  DateTime? @map("server_timestamp")
+  ipAddress        String?   @map("ip_address")
+  userAgent        String?   @map("user_agent")
+  pdfUrl           String?   @map("pdf_url")
+  signedAt         DateTime? @map("signed_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+
+  patient  Patient         @relation(fields: [patientId], references: [id])
+  doctor   Doctor          @relation(fields: [doctorId], references: [id])
+  template ConsentTemplate @relation(fields: [templateId], references: [id])
+  auditLog AuditLog?
+
+  @@map("consent_records")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  consentId String   @unique @map("consent_id")
+  logJson   Json     @map("log_json")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  consent ConsentRecord @relation(fields: [consentId], references: [id])
+
+  @@map("audit_logs")
+}
