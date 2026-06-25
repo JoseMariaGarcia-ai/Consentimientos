@@ -114,7 +114,7 @@ export default function Dashboard() {
                   c.status === 'pending' ? 'bg-amber-50 text-amber-600' :
                   'bg-slate-100 text-slate-500'
                 }`}>
-                  {t(`consents.status.${c.status}`, c.status)}
+                  {String(t(`consents.status.${c.status}`, c.status))}
                 </span>
               </div>
             ))}
