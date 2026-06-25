@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { createClient } from "@supabase/supabase-js";
-import { LEGAL_FRAMEWORKS } from "../../web/src/i18n/legalTexts/index";
+import { LEGAL_FRAMEWORKS } from "../../../web/src/i18n/legalTexts/index";
 
 const SUPPORTED_LANGUAGE_CODES = [
   "es-ES","es-MX","es-AR","en-GB","en-US","fr-FR","de-DE",
