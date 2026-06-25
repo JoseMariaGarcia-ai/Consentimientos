@@ -9,6 +9,7 @@ import Patients from './pages/Patients'
 import Doctors from './pages/Doctors'
 import Consents from './pages/Consents'
 import ClinicPage from './pages/Clinic'
+import Templates from './pages/Templates'
 import PatientPortal from './pages/PatientPortal'
 import VerifyConsent from './pages/VerifyConsent'
 import { useSupabaseAuth } from './lib/supabase'
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/doctors" element={<Doctors />} />
             <Route path="/consents" element={<Consents />} />
             <Route path="/clinic" element={<ClinicPage />} />
+            <Route path="/templates" element={<Templates />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>

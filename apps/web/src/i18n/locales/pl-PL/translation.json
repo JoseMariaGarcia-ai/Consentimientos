@@ -1,12 +1,120 @@
 {
-  "app": { "name": "ConsentsPro", "tagline": "Cyfrowe Zgody · Podpis Biometryczny" },
-  "nav": { "dashboard": "Panel główny", "patients": "Pacjenci", "doctors": "Lekarze", "consents": "Zgody", "clinic": "Klinika", "logout": "Wyloguj" },
-  "auth": { "login_title": "Bezpieczny dostęp", "login_subtitle": "Wprowadź email, aby otrzymać link dostępu", "email_placeholder": "email@klinika.pl", "send_link": "Wyślij link dostępu", "check_email": "Sprawdź email — wysłaliśmy link dostępu", "magic_link_sent": "Link wysłany pomyślnie" },
-  "patients": { "title": "Pacjenci", "add": "Dodaj pacjenta", "search": "Szukaj po nazwisku, PESEL, telefonie…", "name": "Imię", "surname": "Nazwisko", "dob": "Data urodzenia", "id_doc": "Dowód osobisty / Paszport", "phone": "Telefon", "email": "Email", "address": "Adres", "allergies": "Alergie", "medications": "Leki", "blood_type": "Grupa krwi", "save": "Zapisz pacjenta", "cancel": "Anuluj", "edit": "Edytuj", "delete": "Usuń", "no_results": "Brak zarejestrowanych pacjentów" },
-  "doctors": { "title": "Lekarze", "add": "Dodaj lekarza", "name": "Imię i nazwisko", "specialty": "Specjalizacja", "license": "Numer PWZ", "email": "Email", "role": "Rola", "roles": { "admin": "Administrator", "doctor": "Lekarz", "receptionist": "Recepcjonista" }, "save": "Zapisz lekarza", "no_results": "Brak zarejestrowanych lekarzy" },
-  "consents": { "title": "Zgody", "add": "Nowa zgoda", "search": "Szukaj zgód…", "status": { "pending": "Oczekująca", "signed": "Podpisana", "revoked": "Odwołana", "expired": "Wygasła" }, "sign": "Podpisz", "generate_pdf": "Generuj PDF", "translate": "Przetłumacz na wszystkie języki", "patient": "Pacjent", "doctor": "Lekarz", "treatment": "Leczenie", "language": "Język", "signed_at": "Data podpisania", "no_results": "Brak zgód" },
-  "signature": { "title": "Podpis pacjenta", "instructions": "Podpisz w polu poniżej", "clear": "Wyczyść", "confirm": "Potwierdź podpis", "legal_notice": "Przeczytałem/am i akceptuję formularz świadomej zgody", "biometric_capture": "Przechwytywanie danych biometrycznych…" },
-  "clinic": { "title": "Klinika", "name": "Nazwa kliniki", "address": "Adres", "phone": "Telefon", "email": "Email", "tax_id": "NIP / REGON", "logo": "Logo", "save": "Zapisz ustawienia" },
-  "language": { "select": "Język", "search": "Szukaj języka…" },
-  "common": { "save": "Zapisz", "cancel": "Anuluj", "edit": "Edytuj", "delete": "Usuń", "loading": "Ładowanie…", "error": "Błąd", "success": "Sukces", "confirm_delete": "Usunąć ten rekord?", "no_data": "Brak danych", "required": "Pole wymagane" }
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Cyfrowe Zgody · Podpis Biometryczny"
+  },
+  "nav": {
+    "dashboard": "Panel główny",
+    "patients": "Pacjenci",
+    "doctors": "Lekarze",
+    "consents": "Zgody",
+    "clinic": "Klinika",
+    "logout": "Wyloguj",
+    "templates": "Szablony"
+  },
+  "auth": {
+    "login_title": "Bezpieczny dostęp",
+    "login_subtitle": "Wprowadź email, aby otrzymać link dostępu",
+    "email_placeholder": "email@klinika.pl",
+    "send_link": "Wyślij link dostępu",
+    "check_email": "Sprawdź email — wysłaliśmy link dostępu",
+    "magic_link_sent": "Link wysłany pomyślnie"
+  },
+  "patients": {
+    "title": "Pacjenci",
+    "add": "Dodaj pacjenta",
+    "search": "Szukaj po nazwisku, PESEL, telefonie…",
+    "name": "Imię",
+    "surname": "Nazwisko",
+    "dob": "Data urodzenia",
+    "id_doc": "Dowód osobisty / Paszport",
+    "phone": "Telefon",
+    "email": "Email",
+    "address": "Adres",
+    "allergies": "Alergie",
+    "medications": "Leki",
+    "blood_type": "Grupa krwi",
+    "save": "Zapisz pacjenta",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "no_results": "Brak zarejestrowanych pacjentów"
+  },
+  "doctors": {
+    "title": "Lekarze",
+    "add": "Dodaj lekarza",
+    "name": "Imię i nazwisko",
+    "specialty": "Specjalizacja",
+    "license": "Numer PWZ",
+    "email": "Email",
+    "role": "Rola",
+    "roles": {
+      "admin": "Administrator",
+      "doctor": "Lekarz",
+      "receptionist": "Recepcjonista"
+    },
+    "save": "Zapisz lekarza",
+    "no_results": "Brak zarejestrowanych lekarzy"
+  },
+  "consents": {
+    "title": "Zgody",
+    "add": "Nowa zgoda",
+    "search": "Szukaj zgód…",
+    "status": {
+      "pending": "Oczekująca",
+      "signed": "Podpisana",
+      "revoked": "Odwołana",
+      "expired": "Wygasła"
+    },
+    "sign": "Podpisz",
+    "generate_pdf": "Generuj PDF",
+    "translate": "Przetłumacz na wszystkie języki",
+    "patient": "Pacjent",
+    "doctor": "Lekarz",
+    "treatment": "Leczenie",
+    "language": "Język",
+    "signed_at": "Data podpisania",
+    "no_results": "Brak zgód"
+  },
+  "signature": {
+    "title": "Podpis pacjenta",
+    "instructions": "Podpisz w polu poniżej",
+    "clear": "Wyczyść",
+    "confirm": "Potwierdź podpis",
+    "legal_notice": "Przeczytałem/am i akceptuję formularz świadomej zgody",
+    "biometric_capture": "Przechwytywanie danych biometrycznych…"
+  },
+  "clinic": {
+    "title": "Klinika",
+    "name": "Nazwa kliniki",
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "Email",
+    "tax_id": "NIP / REGON",
+    "logo": "Logo",
+    "save": "Zapisz ustawienia"
+  },
+  "language": {
+    "select": "Język",
+    "search": "Szukaj języka…"
+  },
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "loading": "Ładowanie…",
+    "error": "Błąd",
+    "success": "Sukces",
+    "confirm_delete": "Usunąć ten rekord?",
+    "no_data": "Brak danych",
+    "required": "Pole wymagane"
+  },
+  "login": {
+    "check_email": "Sprawdź swoją pocztę",
+    "magic_link_sent": "Wysłaliśmy Magic Link na adres",
+    "email": "Email",
+    "magic_link": "Zaloguj się z Magic Link",
+    "footer": "Ważne zgody cyfrowe · Ustawa o prawach pacjenta · RODO"
+  }
 }

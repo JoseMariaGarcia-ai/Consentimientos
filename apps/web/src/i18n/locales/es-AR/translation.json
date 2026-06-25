@@ -1,12 +1,120 @@
 {
-  "app": { "name": "ConsentsPro", "tagline": "Consentimientos Digitales · Huella Digital" },
-  "nav": { "dashboard": "Inicio", "patients": "Pacientes", "doctors": "Médicos", "consents": "Consentimientos", "clinic": "Clínica", "logout": "Cerrar sesión" },
-  "auth": { "login_title": "Acceso seguro", "login_subtitle": "Ingresá tu email para recibir un enlace de acceso", "email_placeholder": "correo@clinica.com.ar", "send_link": "Enviar enlace de acceso", "check_email": "Revisá tu email — enviamos el enlace de acceso", "magic_link_sent": "Enlace enviado correctamente" },
-  "patients": { "title": "Pacientes", "add": "Agregar paciente", "search": "Buscar por nombre, DNI, teléfono…", "name": "Nombre", "surname": "Apellido", "dob": "Fecha de nacimiento", "id_doc": "DNI / Pasaporte", "phone": "Teléfono", "email": "Email", "address": "Dirección", "allergies": "Alergias", "medications": "Medicamentos", "blood_type": "Grupo sanguíneo", "save": "Guardar paciente", "cancel": "Cancelar", "edit": "Editar", "delete": "Eliminar", "no_results": "No hay pacientes registrados" },
-  "doctors": { "title": "Médicos", "add": "Agregar médico", "name": "Nombre", "specialty": "Especialidad", "license": "Matrícula profesional", "email": "Email", "role": "Rol", "roles": { "admin": "Administrador", "doctor": "Médico", "receptionist": "Recepcionista" }, "save": "Guardar médico", "no_results": "No hay médicos registrados" },
-  "consents": { "title": "Consentimientos", "add": "Nuevo consentimiento", "search": "Buscar consentimientos…", "status": { "pending": "Pendiente", "signed": "Firmado", "revoked": "Revocado", "expired": "Vencido" }, "sign": "Firmar", "generate_pdf": "Generar PDF", "translate": "Traducir a todos los idiomas", "patient": "Paciente", "doctor": "Médico", "treatment": "Tratamiento", "language": "Idioma", "signed_at": "Fecha de firma", "no_results": "No hay consentimientos" },
-  "signature": { "title": "Firma del paciente", "instructions": "Firmá en el recuadro inferior", "clear": "Borrar", "confirm": "Confirmar firma", "legal_notice": "Leí y acepto el consentimiento informado", "biometric_capture": "Capturando datos biométricos…" },
-  "clinic": { "title": "Clínica", "name": "Nombre de la clínica", "address": "Dirección", "phone": "Teléfono", "email": "Email", "tax_id": "CUIT", "logo": "Logo", "save": "Guardar configuración" },
-  "language": { "select": "Idioma", "search": "Buscar idioma…" },
-  "common": { "save": "Guardar", "cancel": "Cancelar", "edit": "Editar", "delete": "Eliminar", "loading": "Cargando…", "error": "Error", "success": "Éxito", "confirm_delete": "¿Eliminar este registro?", "no_data": "Sin datos", "required": "Campo obligatorio" }
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Consentimientos Digitales · Huella Digital"
+  },
+  "nav": {
+    "dashboard": "Inicio",
+    "patients": "Pacientes",
+    "doctors": "Médicos",
+    "consents": "Consentimientos",
+    "clinic": "Clínica",
+    "logout": "Cerrar sesión",
+    "templates": "Plantillas"
+  },
+  "auth": {
+    "login_title": "Acceso seguro",
+    "login_subtitle": "Ingresá tu email para recibir un enlace de acceso",
+    "email_placeholder": "correo@clinica.com.ar",
+    "send_link": "Enviar enlace de acceso",
+    "check_email": "Revisá tu email — enviamos el enlace de acceso",
+    "magic_link_sent": "Enlace enviado correctamente"
+  },
+  "patients": {
+    "title": "Pacientes",
+    "add": "Agregar paciente",
+    "search": "Buscar por nombre, DNI, teléfono…",
+    "name": "Nombre",
+    "surname": "Apellido",
+    "dob": "Fecha de nacimiento",
+    "id_doc": "DNI / Pasaporte",
+    "phone": "Teléfono",
+    "email": "Email",
+    "address": "Dirección",
+    "allergies": "Alergias",
+    "medications": "Medicamentos",
+    "blood_type": "Grupo sanguíneo",
+    "save": "Guardar paciente",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "no_results": "No hay pacientes registrados"
+  },
+  "doctors": {
+    "title": "Médicos",
+    "add": "Agregar médico",
+    "name": "Nombre",
+    "specialty": "Especialidad",
+    "license": "Matrícula profesional",
+    "email": "Email",
+    "role": "Rol",
+    "roles": {
+      "admin": "Administrador",
+      "doctor": "Médico",
+      "receptionist": "Recepcionista"
+    },
+    "save": "Guardar médico",
+    "no_results": "No hay médicos registrados"
+  },
+  "consents": {
+    "title": "Consentimientos",
+    "add": "Nuevo consentimiento",
+    "search": "Buscar consentimientos…",
+    "status": {
+      "pending": "Pendiente",
+      "signed": "Firmado",
+      "revoked": "Revocado",
+      "expired": "Vencido"
+    },
+    "sign": "Firmar",
+    "generate_pdf": "Generar PDF",
+    "translate": "Traducir a todos los idiomas",
+    "patient": "Paciente",
+    "doctor": "Médico",
+    "treatment": "Tratamiento",
+    "language": "Idioma",
+    "signed_at": "Fecha de firma",
+    "no_results": "No hay consentimientos"
+  },
+  "signature": {
+    "title": "Firma del paciente",
+    "instructions": "Firmá en el recuadro inferior",
+    "clear": "Borrar",
+    "confirm": "Confirmar firma",
+    "legal_notice": "Leí y acepto el consentimiento informado",
+    "biometric_capture": "Capturando datos biométricos…"
+  },
+  "clinic": {
+    "title": "Clínica",
+    "name": "Nombre de la clínica",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "email": "Email",
+    "tax_id": "CUIT",
+    "logo": "Logo",
+    "save": "Guardar configuración"
+  },
+  "language": {
+    "select": "Idioma",
+    "search": "Buscar idioma…"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "loading": "Cargando…",
+    "error": "Error",
+    "success": "Éxito",
+    "confirm_delete": "¿Eliminar este registro?",
+    "no_data": "Sin datos",
+    "required": "Campo obligatorio"
+  },
+  "login": {
+    "check_email": "Revisá tu email",
+    "magic_link_sent": "Te enviamos un Magic Link a",
+    "email": "Email",
+    "magic_link": "Entrar con Magic Link",
+    "footer": "Consentimientos digitales válidos · Ley 26.529 · Ley 25.326"
+  }
 }

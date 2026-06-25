@@ -1,12 +1,120 @@
 {
-  "app": { "name": "ConsentsPro", "tagline": "Consimțăminte Digitale · Semnătură Biometrică" },
-  "nav": { "dashboard": "Panou de control", "patients": "Pacienți", "doctors": "Medici", "consents": "Consimțăminte", "clinic": "Clinică", "logout": "Deconectare" },
-  "auth": { "login_title": "Acces securizat", "login_subtitle": "Introduceți email-ul pentru a primi un link de acces", "email_placeholder": "email@clinica.ro", "send_link": "Trimite link de acces", "check_email": "Verificați email-ul — am trimis link-ul de acces", "magic_link_sent": "Link trimis cu succes" },
-  "patients": { "title": "Pacienți", "add": "Adaugă pacient", "search": "Caută după nume, CNP, telefon…", "name": "Prenume", "surname": "Nume", "dob": "Data nașterii", "id_doc": "CI / Pașaport", "phone": "Telefon", "email": "Email", "address": "Adresă", "allergies": "Alergii", "medications": "Medicamente", "blood_type": "Grupă sanguină", "save": "Salvează pacient", "cancel": "Anulare", "edit": "Editează", "delete": "Șterge", "no_results": "Nu există pacienți înregistrați" },
-  "doctors": { "title": "Medici", "add": "Adaugă medic", "name": "Nume", "specialty": "Specialitate", "license": "Cod parafă", "email": "Email", "role": "Rol", "roles": { "admin": "Administrator", "doctor": "Medic", "receptionist": "Recepționist" }, "save": "Salvează medic", "no_results": "Nu există medici înregistrați" },
-  "consents": { "title": "Consimțăminte", "add": "Consimțământ nou", "search": "Caută consimțăminte…", "status": { "pending": "În așteptare", "signed": "Semnat", "revoked": "Revocat", "expired": "Expirat" }, "sign": "Semnează", "generate_pdf": "Generează PDF", "translate": "Traduce în toate limbile", "patient": "Pacient", "doctor": "Medic", "treatment": "Tratament", "language": "Limbă", "signed_at": "Data semnării", "no_results": "Nu există consimțăminte" },
-  "signature": { "title": "Semnătura pacientului", "instructions": "Semnați în caseta de mai jos", "clear": "Șterge", "confirm": "Confirmă semnătura", "legal_notice": "Am citit și accept consimțământul informat", "biometric_capture": "Se capturează datele biometrice…" },
-  "clinic": { "title": "Clinică", "name": "Numele clinicii", "address": "Adresă", "phone": "Telefon", "email": "Email", "tax_id": "CUI / CIF", "logo": "Logo", "save": "Salvează setările" },
-  "language": { "select": "Limbă", "search": "Caută limbă…" },
-  "common": { "save": "Salvează", "cancel": "Anulare", "edit": "Editează", "delete": "Șterge", "loading": "Se încarcă…", "error": "Eroare", "success": "Succes", "confirm_delete": "Ștergeți această înregistrare?", "no_data": "Fără date", "required": "Câmp obligatoriu" }
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Consimțăminte Digitale · Semnătură Biometrică"
+  },
+  "nav": {
+    "dashboard": "Panou de control",
+    "patients": "Pacienți",
+    "doctors": "Medici",
+    "consents": "Consimțăminte",
+    "clinic": "Clinică",
+    "logout": "Deconectare",
+    "templates": "Șabloane"
+  },
+  "auth": {
+    "login_title": "Acces securizat",
+    "login_subtitle": "Introduceți email-ul pentru a primi un link de acces",
+    "email_placeholder": "email@clinica.ro",
+    "send_link": "Trimite link de acces",
+    "check_email": "Verificați email-ul — am trimis link-ul de acces",
+    "magic_link_sent": "Link trimis cu succes"
+  },
+  "patients": {
+    "title": "Pacienți",
+    "add": "Adaugă pacient",
+    "search": "Caută după nume, CNP, telefon…",
+    "name": "Prenume",
+    "surname": "Nume",
+    "dob": "Data nașterii",
+    "id_doc": "CI / Pașaport",
+    "phone": "Telefon",
+    "email": "Email",
+    "address": "Adresă",
+    "allergies": "Alergii",
+    "medications": "Medicamente",
+    "blood_type": "Grupă sanguină",
+    "save": "Salvează pacient",
+    "cancel": "Anulare",
+    "edit": "Editează",
+    "delete": "Șterge",
+    "no_results": "Nu există pacienți înregistrați"
+  },
+  "doctors": {
+    "title": "Medici",
+    "add": "Adaugă medic",
+    "name": "Nume",
+    "specialty": "Specialitate",
+    "license": "Cod parafă",
+    "email": "Email",
+    "role": "Rol",
+    "roles": {
+      "admin": "Administrator",
+      "doctor": "Medic",
+      "receptionist": "Recepționist"
+    },
+    "save": "Salvează medic",
+    "no_results": "Nu există medici înregistrați"
+  },
+  "consents": {
+    "title": "Consimțăminte",
+    "add": "Consimțământ nou",
+    "search": "Caută consimțăminte…",
+    "status": {
+      "pending": "În așteptare",
+      "signed": "Semnat",
+      "revoked": "Revocat",
+      "expired": "Expirat"
+    },
+    "sign": "Semnează",
+    "generate_pdf": "Generează PDF",
+    "translate": "Traduce în toate limbile",
+    "patient": "Pacient",
+    "doctor": "Medic",
+    "treatment": "Tratament",
+    "language": "Limbă",
+    "signed_at": "Data semnării",
+    "no_results": "Nu există consimțăminte"
+  },
+  "signature": {
+    "title": "Semnătura pacientului",
+    "instructions": "Semnați în caseta de mai jos",
+    "clear": "Șterge",
+    "confirm": "Confirmă semnătura",
+    "legal_notice": "Am citit și accept consimțământul informat",
+    "biometric_capture": "Se capturează datele biometrice…"
+  },
+  "clinic": {
+    "title": "Clinică",
+    "name": "Numele clinicii",
+    "address": "Adresă",
+    "phone": "Telefon",
+    "email": "Email",
+    "tax_id": "CUI / CIF",
+    "logo": "Logo",
+    "save": "Salvează setările"
+  },
+  "language": {
+    "select": "Limbă",
+    "search": "Caută limbă…"
+  },
+  "common": {
+    "save": "Salvează",
+    "cancel": "Anulare",
+    "edit": "Editează",
+    "delete": "Șterge",
+    "loading": "Se încarcă…",
+    "error": "Eroare",
+    "success": "Succes",
+    "confirm_delete": "Ștergeți această înregistrare?",
+    "no_data": "Fără date",
+    "required": "Câmp obligatoriu"
+  },
+  "login": {
+    "check_email": "Verificați email-ul",
+    "magic_link_sent": "Am trimis un Magic Link la",
+    "email": "Email",
+    "magic_link": "Conectare cu Magic Link",
+    "footer": "Consimțăminte digitale valide · Legea 95/2006 · GDPR"
+  }
 }

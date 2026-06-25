@@ -1,12 +1,120 @@
 {
-  "app": { "name": "ConsentsPro", "tagline": "Digital Consents · Biometric Signature" },
-  "nav": { "dashboard": "Dashboard", "patients": "Patients", "doctors": "Doctors", "consents": "Consents", "clinic": "Clinic", "logout": "Log out" },
-  "auth": { "login_title": "Secure access", "login_subtitle": "Enter your email to receive an access link", "email_placeholder": "email@clinic.co.uk", "send_link": "Send access link", "check_email": "Check your email — we sent the access link", "magic_link_sent": "Link sent successfully" },
-  "patients": { "title": "Patients", "add": "Add patient", "search": "Search by name, ID, phone…", "name": "First name", "surname": "Surname", "dob": "Date of birth", "id_doc": "ID / Passport", "phone": "Phone", "email": "Email", "address": "Address", "allergies": "Allergies", "medications": "Medications", "blood_type": "Blood type", "save": "Save patient", "cancel": "Cancel", "edit": "Edit", "delete": "Delete", "no_results": "No patients registered" },
-  "doctors": { "title": "Doctors", "add": "Add doctor", "name": "Name", "specialty": "Speciality", "license": "GMC number", "email": "Email", "role": "Role", "roles": { "admin": "Administrator", "doctor": "Doctor", "receptionist": "Receptionist" }, "save": "Save doctor", "no_results": "No doctors registered" },
-  "consents": { "title": "Consents", "add": "New consent", "search": "Search consents…", "status": { "pending": "Pending", "signed": "Signed", "revoked": "Revoked", "expired": "Expired" }, "sign": "Sign", "generate_pdf": "Generate PDF", "translate": "Translate to all languages", "patient": "Patient", "doctor": "Doctor", "treatment": "Treatment", "language": "Language", "signed_at": "Signed at", "no_results": "No consents" },
-  "signature": { "title": "Patient signature", "instructions": "Sign in the box below", "clear": "Clear", "confirm": "Confirm signature", "legal_notice": "I have read and accept the informed consent", "biometric_capture": "Capturing biometric data…" },
-  "clinic": { "title": "Clinic", "name": "Clinic name", "address": "Address", "phone": "Phone", "email": "Email", "tax_id": "Company number / VAT", "logo": "Logo", "save": "Save settings" },
-  "language": { "select": "Language", "search": "Search language…" },
-  "common": { "save": "Save", "cancel": "Cancel", "edit": "Edit", "delete": "Delete", "loading": "Loading…", "error": "Error", "success": "Success", "confirm_delete": "Delete this record?", "no_data": "No data", "required": "Required field" }
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Digital Consents · Biometric Signature"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "doctors": "Doctors",
+    "consents": "Consents",
+    "clinic": "Clinic",
+    "logout": "Log out",
+    "templates": "Templates"
+  },
+  "auth": {
+    "login_title": "Secure access",
+    "login_subtitle": "Enter your email to receive an access link",
+    "email_placeholder": "email@clinic.co.uk",
+    "send_link": "Send access link",
+    "check_email": "Check your email — we sent the access link",
+    "magic_link_sent": "Link sent successfully"
+  },
+  "patients": {
+    "title": "Patients",
+    "add": "Add patient",
+    "search": "Search by name, ID, phone…",
+    "name": "First name",
+    "surname": "Surname",
+    "dob": "Date of birth",
+    "id_doc": "ID / Passport",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "allergies": "Allergies",
+    "medications": "Medications",
+    "blood_type": "Blood type",
+    "save": "Save patient",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "no_results": "No patients registered"
+  },
+  "doctors": {
+    "title": "Doctors",
+    "add": "Add doctor",
+    "name": "Name",
+    "specialty": "Speciality",
+    "license": "GMC number",
+    "email": "Email",
+    "role": "Role",
+    "roles": {
+      "admin": "Administrator",
+      "doctor": "Doctor",
+      "receptionist": "Receptionist"
+    },
+    "save": "Save doctor",
+    "no_results": "No doctors registered"
+  },
+  "consents": {
+    "title": "Consents",
+    "add": "New consent",
+    "search": "Search consents…",
+    "status": {
+      "pending": "Pending",
+      "signed": "Signed",
+      "revoked": "Revoked",
+      "expired": "Expired"
+    },
+    "sign": "Sign",
+    "generate_pdf": "Generate PDF",
+    "translate": "Translate to all languages",
+    "patient": "Patient",
+    "doctor": "Doctor",
+    "treatment": "Treatment",
+    "language": "Language",
+    "signed_at": "Signed at",
+    "no_results": "No consents"
+  },
+  "signature": {
+    "title": "Patient signature",
+    "instructions": "Sign in the box below",
+    "clear": "Clear",
+    "confirm": "Confirm signature",
+    "legal_notice": "I have read and accept the informed consent",
+    "biometric_capture": "Capturing biometric data…"
+  },
+  "clinic": {
+    "title": "Clinic",
+    "name": "Clinic name",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "tax_id": "Company number / VAT",
+    "logo": "Logo",
+    "save": "Save settings"
+  },
+  "language": {
+    "select": "Language",
+    "search": "Search language…"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading…",
+    "error": "Error",
+    "success": "Success",
+    "confirm_delete": "Delete this record?",
+    "no_data": "No data",
+    "required": "Required field"
+  },
+  "login": {
+    "check_email": "Check your email",
+    "magic_link_sent": "We sent a Magic Link to",
+    "email": "Email",
+    "magic_link": "Sign in with Magic Link",
+    "footer": "Valid digital consents · Mental Capacity Act 2005 · UK GDPR"
+  }
 }

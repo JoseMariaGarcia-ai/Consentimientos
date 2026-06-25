@@ -1,12 +1,120 @@
 {
-  "app": { "name": "ConsentsPro", "tagline": "Consentimentos Digitais · Assinatura Biométrica" },
-  "nav": { "dashboard": "Início", "patients": "Pacientes", "doctors": "Médicos", "consents": "Consentimentos", "clinic": "Clínica", "logout": "Sair" },
-  "auth": { "login_title": "Acesso seguro", "login_subtitle": "Digite seu email para receber um link de acesso", "email_placeholder": "email@clinica.com.br", "send_link": "Enviar link de acesso", "check_email": "Verifique seu email — enviamos o link de acesso", "magic_link_sent": "Link enviado com sucesso" },
-  "patients": { "title": "Pacientes", "add": "Adicionar paciente", "search": "Buscar por nome, CPF, telefone…", "name": "Nome", "surname": "Sobrenome", "dob": "Data de nascimento", "id_doc": "CPF / RG / Passaporte", "phone": "Telefone", "email": "Email", "address": "Endereço", "allergies": "Alergias", "medications": "Medicamentos", "blood_type": "Tipo sanguíneo", "save": "Salvar paciente", "cancel": "Cancelar", "edit": "Editar", "delete": "Excluir", "no_results": "Nenhum paciente cadastrado" },
-  "doctors": { "title": "Médicos", "add": "Adicionar médico", "name": "Nome", "specialty": "Especialidade", "license": "CRM", "email": "Email", "role": "Função", "roles": { "admin": "Administrador", "doctor": "Médico", "receptionist": "Recepcionista" }, "save": "Salvar médico", "no_results": "Nenhum médico cadastrado" },
-  "consents": { "title": "Consentimentos", "add": "Novo consentimento", "search": "Buscar consentimentos…", "status": { "pending": "Pendente", "signed": "Assinado", "revoked": "Revogado", "expired": "Expirado" }, "sign": "Assinar", "generate_pdf": "Gerar PDF", "translate": "Traduzir para todos os idiomas", "patient": "Paciente", "doctor": "Médico", "treatment": "Tratamento", "language": "Idioma", "signed_at": "Assinado em", "no_results": "Nenhum consentimento" },
-  "signature": { "title": "Assinatura do paciente", "instructions": "Assine no campo abaixo", "clear": "Limpar", "confirm": "Confirmar assinatura", "legal_notice": "Li e aceito o termo de consentimento informado", "biometric_capture": "Capturando dados biométricos…" },
-  "clinic": { "title": "Clínica", "name": "Nome da clínica", "address": "Endereço", "phone": "Telefone", "email": "Email", "tax_id": "CNPJ", "logo": "Logotipo", "save": "Salvar configurações" },
-  "language": { "select": "Idioma", "search": "Buscar idioma…" },
-  "common": { "save": "Salvar", "cancel": "Cancelar", "edit": "Editar", "delete": "Excluir", "loading": "Carregando…", "error": "Erro", "success": "Sucesso", "confirm_delete": "Excluir este registro?", "no_data": "Sem dados", "required": "Campo obrigatório" }
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Consentimentos Digitais · Assinatura Biométrica"
+  },
+  "nav": {
+    "dashboard": "Início",
+    "patients": "Pacientes",
+    "doctors": "Médicos",
+    "consents": "Consentimentos",
+    "clinic": "Clínica",
+    "logout": "Sair",
+    "templates": "Modelos"
+  },
+  "auth": {
+    "login_title": "Acesso seguro",
+    "login_subtitle": "Digite seu email para receber um link de acesso",
+    "email_placeholder": "email@clinica.com.br",
+    "send_link": "Enviar link de acesso",
+    "check_email": "Verifique seu email — enviamos o link de acesso",
+    "magic_link_sent": "Link enviado com sucesso"
+  },
+  "patients": {
+    "title": "Pacientes",
+    "add": "Adicionar paciente",
+    "search": "Buscar por nome, CPF, telefone…",
+    "name": "Nome",
+    "surname": "Sobrenome",
+    "dob": "Data de nascimento",
+    "id_doc": "CPF / RG / Passaporte",
+    "phone": "Telefone",
+    "email": "Email",
+    "address": "Endereço",
+    "allergies": "Alergias",
+    "medications": "Medicamentos",
+    "blood_type": "Tipo sanguíneo",
+    "save": "Salvar paciente",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "no_results": "Nenhum paciente cadastrado"
+  },
+  "doctors": {
+    "title": "Médicos",
+    "add": "Adicionar médico",
+    "name": "Nome",
+    "specialty": "Especialidade",
+    "license": "CRM",
+    "email": "Email",
+    "role": "Função",
+    "roles": {
+      "admin": "Administrador",
+      "doctor": "Médico",
+      "receptionist": "Recepcionista"
+    },
+    "save": "Salvar médico",
+    "no_results": "Nenhum médico cadastrado"
+  },
+  "consents": {
+    "title": "Consentimentos",
+    "add": "Novo consentimento",
+    "search": "Buscar consentimentos…",
+    "status": {
+      "pending": "Pendente",
+      "signed": "Assinado",
+      "revoked": "Revogado",
+      "expired": "Expirado"
+    },
+    "sign": "Assinar",
+    "generate_pdf": "Gerar PDF",
+    "translate": "Traduzir para todos os idiomas",
+    "patient": "Paciente",
+    "doctor": "Médico",
+    "treatment": "Tratamento",
+    "language": "Idioma",
+    "signed_at": "Assinado em",
+    "no_results": "Nenhum consentimento"
+  },
+  "signature": {
+    "title": "Assinatura do paciente",
+    "instructions": "Assine no campo abaixo",
+    "clear": "Limpar",
+    "confirm": "Confirmar assinatura",
+    "legal_notice": "Li e aceito o termo de consentimento informado",
+    "biometric_capture": "Capturando dados biométricos…"
+  },
+  "clinic": {
+    "title": "Clínica",
+    "name": "Nome da clínica",
+    "address": "Endereço",
+    "phone": "Telefone",
+    "email": "Email",
+    "tax_id": "CNPJ",
+    "logo": "Logotipo",
+    "save": "Salvar configurações"
+  },
+  "language": {
+    "select": "Idioma",
+    "search": "Buscar idioma…"
+  },
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "loading": "Carregando…",
+    "error": "Erro",
+    "success": "Sucesso",
+    "confirm_delete": "Excluir este registro?",
+    "no_data": "Sem dados",
+    "required": "Campo obrigatório"
+  },
+  "login": {
+    "check_email": "Verifique seu email",
+    "magic_link_sent": "Enviamos um Magic Link para",
+    "email": "Email",
+    "magic_link": "Entrar com Magic Link",
+    "footer": "Consentimentos digitais válidos · CFM 1.931/2009 · LGPD"
+  }
 }

@@ -9,7 +9,8 @@
     "doctors": "Médicos",
     "consents": "Consentimientos",
     "clinic": "Clínica",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "templates": "Plantillas"
   },
   "auth": {
     "login_title": "Acceso seguro",
@@ -108,5 +109,12 @@
     "confirm_delete": "¿Eliminar este registro?",
     "no_data": "Sin datos",
     "required": "Campo obligatorio"
+  },
+  "login": {
+    "check_email": "Revisa tu email",
+    "magic_link_sent": "Te hemos enviado un Magic Link a",
+    "email": "Email",
+    "magic_link": "Entrar con Magic Link",
+    "footer": "Consentimientos digitales válidos · Ley 41/2002 · RGPD"
   }
 }
