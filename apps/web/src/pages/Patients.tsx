@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, UserPlus, Pencil, Trash2, FileText } from 'lucide-react'
+import { Search, UserPlus, Pencil, Trash2, FileText, Images } from 'lucide-react'
 import { api } from '@/lib/api'
 import { PatientForm } from '@/components/patients/PatientForm'
+import { PatientGallery } from '@/components/patients/PatientGallery'
 import type { Patient } from '@consentspro/shared-types'
 import { useNavigate } from 'react-router-dom'
 
@@ -21,6 +22,7 @@ export default function Patients() {
   const [formOpen, setFormOpen] = useState(false)
   const [editing, setEditing] = useState<Patient | null>(null)
   const [deleting, setDeleting] = useState<string | null>(null)
+  const [galleryPatient, setGalleryPatient] = useState<Patient | null>(null)
 
   const load = async () => {
     setLoading(true)
@@ -125,6 +127,13 @@ export default function Patients() {
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 justify-end">
                         <button
+                          onClick={() => setGalleryPatient(p)}
+                          className="p-1.5 text-slate-400 hover:text-purple-600 rounded-lg hover:bg-purple-50"
+                          title="Galería de fotos"
+                        >
+                          <Images className="w-4 h-4" />
+                        </button>
+                        <button
                           onClick={() => navigate(`/consents?patient=${p.id}`)}
                           className="p-1.5 text-slate-400 hover:text-blue-600 rounded-lg hover:bg-blue-50"
                           title={t('consents.title')}
@@ -161,6 +170,14 @@ export default function Patients() {
           initial={editing ?? {}}
           onSave={handleSave}
           onClose={() => setFormOpen(false)}
+        />
+      )}
+
+      {galleryPatient && (
+        <PatientGallery
+          patientId={galleryPatient.id}
+          patientName={galleryPatient.fullName}
+          onClose={() => setGalleryPatient(null)}
         />
       )}
     </div>

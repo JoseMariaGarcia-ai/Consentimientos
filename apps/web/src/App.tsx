@@ -10,6 +10,7 @@ import Doctors from './pages/Doctors'
 import Consents from './pages/Consents'
 import ClinicPage from './pages/Clinic'
 import PatientPortal from './pages/PatientPortal'
+import VerifyConsent from './pages/VerifyConsent'
 import { useSupabaseAuth } from './lib/supabase'
 
 export default function App() {
@@ -21,8 +22,9 @@ export default function App() {
     document.documentElement.lang = currentLanguage
   }, [currentLanguage])
 
-  // Patient portal is public — no auth required
+  // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
+  if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
 
   if (loading) return <div className="flex items-center justify-center h-screen text-brand">Cargando…</div>
   if (!session) return <Login />
