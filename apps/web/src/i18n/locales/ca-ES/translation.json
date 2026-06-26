@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Consentiments Digitals · Signatura Digital"
+  },
+  "nav": {
+    "dashboard": "Inici",
+    "patients": "Pacients",
+    "doctors": "Metges",
+    "consents": "Consentiments",
+    "clinic": "Clínica",
+    "logout": "Tancar sessió",
+    "templates": "Plantilles"
+  },
+  "auth": {
+    "login_title": "Accés segur",
+    "login_subtitle": "Introdueix el teu email per rebre un enllaç d'accés",
+    "email_placeholder": "correu@clinica.cat",
+    "send_link": "Enviar enllaç d'accés",
+    "check_email": "Comprova el teu email — hem enviat l'enllaç d'accés",
+    "magic_link_sent": "Enllaç enviat correctament",
+    "remember_device": "Recordar aquest dispositiu",
+    "remember_7": "7 dies",
+    "remember_30": "30 dies",
+    "remember_90": "90 dies",
+    "biometric_activate": "Activar Face ID / empremta",
+    "biometric_prompt": "Després del primer accés podràs activar Face ID / empremta",
+    "biometric_registering": "Activant…",
+    "biometric_success": "Biometria activada!",
+    "biometric_success_msg": "La propera vegada entraràs amb un toc.",
+    "biometric_error": "No s'ha pogut activar. Assegura't que el teu dispositiu té biometria configurada.",
+    "biometric_now": "Ara no"
+  },
+  "patients": {
+    "title": "Pacients",
+    "add": "Afegir pacient",
+    "search": "Cerca per nom, DNI, telèfon…",
+    "name": "Nom",
+    "surname": "Cognoms",
+    "dob": "Data de naixement",
+    "id_doc": "DNI / NIE / Passaport",
+    "phone": "Telèfon",
+    "email": "Email",
+    "address": "Adreça",
+    "allergies": "Al·lèrgies",
+    "medications": "Medicaments",
+    "blood_type": "Grup sanguini",
+    "save": "Desar pacient",
+    "cancel": "Cancel·lar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "no_results": "No hi ha pacients registrats",
+    "gallery": "Galeria de fotos",
+    "no_photos": "Sense fotos. Puja la primera imatge.",
+    "upload_photos": "Pujar fotos",
+    "uploading": "Pujant…"
+  },
+  "doctors": {
+    "title": "Metges",
+    "add": "Afegir metge",
+    "name": "Nom",
+    "specialty": "Especialitat",
+    "license": "Nº Col·legiat",
+    "email": "Email",
+    "role": "Rol",
+    "roles": {
+      "admin": "Administrador",
+      "doctor": "Metge",
+      "receptionist": "Recepcionista"
+    },
+    "save": "Desar metge",
+    "no_results": "No hi ha metges registrats"
+  },
+  "consents": {
+    "title": "Consentiments",
+    "add": "Nou consentiment",
+    "search": "Cercar consentiments…",
+    "status": {
+      "pending": "Pendent",
+      "signed": "Signat",
+      "revoked": "Revocat",
+      "expired": "Caducat"
+    },
+    "sign": "Signar",
+    "generate_pdf": "Generar PDF",
+    "translate": "Traduir a tots els idiomes",
+    "patient": "Pacient",
+    "doctor": "Metge",
+    "treatment": "Tractament",
+    "language": "Idioma",
+    "signed_at": "Data de signatura",
+    "no_results": "No hi ha consentiments"
+  },
+  "signature": {
+    "title": "Signatura del pacient",
+    "instructions": "Signeu al requadre inferior",
+    "clear": "Esborrar",
+    "confirm": "Confirmar signatura",
+    "legal_notice": "He llegit i accepto el consentiment informat",
+    "biometric_capture": "Capturant dades biomètriques…"
+  },
+  "clinic": {
+    "title": "Clínica",
+    "name": "Nom de la clínica",
+    "address": "Adreça",
+    "phone": "Telèfon",
+    "email": "Email",
+    "tax_id": "CIF / NIF",
+    "logo": "Logotip",
+    "save": "Desar configuració",
+    "branches": "Seus addicionals",
+    "branches_desc": "Gestiona múltiples ubicacions",
+    "add_branch": "Afegir seu",
+    "no_branches": "Sense seus addicionals",
+    "branch_name": "Nom de la seu",
+    "save_branches": "Desar seus",
+    "edit_branch": "Editar seu",
+    "new_branch": "Nova seu"
+  },
+  "language": {
+    "select": "Idioma",
+    "search": "Cercar idioma…"
+  },
+  "common": {
+    "save": "Desar",
+    "cancel": "Cancel·lar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "loading": "Carregant…",
+    "error": "Error",
+    "success": "Èxit",
+    "confirm_delete": "Eliminar aquest registre?",
+    "no_data": "Sense dades",
+    "required": "Camp obligatori",
+    "saving": "Desant…",
+    "saved": "Desat"
+  },
+  "login": {
+    "check_email": "Comprova el teu email",
+    "magic_link_sent": "T'hem enviat un Magic Link a",
+    "email": "Email",
+    "magic_link": "Entrar amb Magic Link",
+    "footer": "Consentiments digitals vàlids · Llei 41/2002 · RGPD"
+  },
+  "templates": {
+    "title": "Plantilles",
+    "search": "Cercar tractament…",
+    "editor_title": "Editor de plantilla",
+    "consent_title_label": "Títol del consentiment",
+    "no_translation": "Sense traducció en",
+    "translate_all": "Traduir a 31 idiomes",
+    "translating": "Traduint…",
+    "legal_framework": "Marc legal",
+    "select_template": "Selecciona una plantilla per editar-la",
+    "empty": "Sense plantilles",
+    "title_placeholder": "Consentiment Informat — Tractament…",
+    "content_label": "Contingut del consentiment",
+    "content_placeholder": "Escriu el text del consentiment informat…",
+    "saving": "Desant…",
+    "saved": "Desat"
+  }
+}

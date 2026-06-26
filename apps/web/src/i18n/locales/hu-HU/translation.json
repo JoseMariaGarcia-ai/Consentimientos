@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Digitális Beleegyezések · Digitális Aláírás"
+  },
+  "nav": {
+    "dashboard": "Áttekintés",
+    "patients": "Betegek",
+    "doctors": "Orvosok",
+    "consents": "Beleegyezések",
+    "clinic": "Klinika",
+    "logout": "Kijelentkezés",
+    "templates": "Sablonok"
+  },
+  "auth": {
+    "login_title": "Biztonságos hozzáférés",
+    "login_subtitle": "Adja meg e-mail-címét a hozzáférési link fogadásához",
+    "email_placeholder": "email@klinika.hu",
+    "send_link": "Hozzáférési link küldése",
+    "check_email": "Ellenőrizze e-mailjét — elküldtük a hozzáférési linket",
+    "magic_link_sent": "Link elküldve",
+    "remember_device": "Emlékezzen erre az eszközre",
+    "remember_7": "7 nap",
+    "remember_30": "30 nap",
+    "remember_90": "90 nap",
+    "biometric_activate": "Face ID / ujjlenyomat aktiválása",
+    "biometric_prompt": "Az első bejelentkezés után aktiválhatja a Face ID / ujjlenyomatot",
+    "biometric_registering": "Aktiválás…",
+    "biometric_success": "Biometria aktiválva!",
+    "biometric_success_msg": "Legközelebb egy érintéssel jelentkezhet be.",
+    "biometric_error": "Aktiválás sikertelen. Győződjön meg arról, hogy eszközén be van állítva a biometria.",
+    "biometric_now": "Most nem"
+  },
+  "patients": {
+    "title": "Betegek",
+    "add": "Beteg hozzáadása",
+    "search": "Keresés névvel, személyi azonosítóval, telefonszámmal…",
+    "name": "Keresztnév",
+    "surname": "Vezetéknév",
+    "dob": "Születési dátum",
+    "id_doc": "Személyi igazolvány / Útlevél",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Cím",
+    "allergies": "Allergiák",
+    "medications": "Gyógyszerek",
+    "blood_type": "Vércsoport",
+    "save": "Beteg mentése",
+    "cancel": "Mégse",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "no_results": "Nincsenek regisztrált betegek",
+    "gallery": "Fotógaléria",
+    "no_photos": "Nincs fotó. Töltse fel az első képet.",
+    "upload_photos": "Fotók feltöltése",
+    "uploading": "Feltöltés…"
+  },
+  "doctors": {
+    "title": "Orvosok",
+    "add": "Orvos hozzáadása",
+    "name": "Név",
+    "specialty": "Szakterület",
+    "license": "Orvosi engedélyszám",
+    "email": "E-mail",
+    "role": "Szerepkör",
+    "roles": {
+      "admin": "Adminisztrátor",
+      "doctor": "Orvos",
+      "receptionist": "Recepciós"
+    },
+    "save": "Orvos mentése",
+    "no_results": "Nincsenek regisztrált orvosok"
+  },
+  "consents": {
+    "title": "Beleegyezések",
+    "add": "Új beleegyezés",
+    "search": "Beleegyezések keresése…",
+    "status": {
+      "pending": "Függőben",
+      "signed": "Aláírva",
+      "revoked": "Visszavonva",
+      "expired": "Lejárt"
+    },
+    "sign": "Aláírás",
+    "generate_pdf": "PDF létrehozása",
+    "translate": "Fordítás minden nyelvre",
+    "patient": "Beteg",
+    "doctor": "Orvos",
+    "treatment": "Kezelés",
+    "language": "Nyelv",
+    "signed_at": "Aláírás dátuma",
+    "no_results": "Nincsenek beleegyezések"
+  },
+  "signature": {
+    "title": "Beteg aláírása",
+    "instructions": "Írjon alá az alábbi mezőben",
+    "clear": "Törlés",
+    "confirm": "Aláírás megerősítése",
+    "legal_notice": "Elolvastam és elfogadom a tájékozott beleegyezést",
+    "biometric_capture": "Biometrikus adatok rögzítése…"
+  },
+  "clinic": {
+    "title": "Klinika",
+    "name": "Klinika neve",
+    "address": "Cím",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "tax_id": "Adószám",
+    "logo": "Logó",
+    "save": "Konfiguráció mentése",
+    "branches": "További telephelyek",
+    "branches_desc": "Több telephely kezelése",
+    "add_branch": "Telephely hozzáadása",
+    "no_branches": "Nincsenek további telephelyek",
+    "branch_name": "Telephely neve",
+    "save_branches": "Telephelyek mentése",
+    "edit_branch": "Telephely szerkesztése",
+    "new_branch": "Új telephely"
+  },
+  "language": {
+    "select": "Nyelv",
+    "search": "Nyelv keresése…"
+  },
+  "common": {
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "loading": "Betöltés…",
+    "error": "Hiba",
+    "success": "Siker",
+    "confirm_delete": "Törli ezt a bejegyzést?",
+    "no_data": "Nincs adat",
+    "required": "Kötelező mező",
+    "saving": "Mentés…",
+    "saved": "Mentve"
+  },
+  "login": {
+    "check_email": "Ellenőrizze e-mailjét",
+    "magic_link_sent": "Magic Linket küldtünk a következő címre:",
+    "email": "E-mail",
+    "magic_link": "Bejelentkezés Magic Linkkel",
+    "footer": "Érvényes digitális beleegyezések · 1997. évi CLIV. törvény · GDPR"
+  },
+  "templates": {
+    "title": "Sablonok",
+    "search": "Kezelés keresése…",
+    "editor_title": "Sablonszerkesztő",
+    "consent_title_label": "Beleegyezés címe",
+    "no_translation": "Nincs fordítás erre:",
+    "translate_all": "Fordítás 31 nyelvre",
+    "translating": "Fordítás…",
+    "legal_framework": "Jogi keret",
+    "select_template": "Válasszon sablont a szerkesztéshez",
+    "empty": "Nincsenek sablonok",
+    "title_placeholder": "Tájékozott beleegyezés — Kezelés…",
+    "content_label": "Beleegyezés tartalma",
+    "content_placeholder": "Írja be a tájékozott beleegyezés szövegét…",
+    "saving": "Mentés…",
+    "saved": "Mentve"
+  }
+}

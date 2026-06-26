@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số"
+  },
+  "nav": {
+    "dashboard": "Bảng điều khiển",
+    "patients": "Bệnh nhân",
+    "doctors": "Bác sĩ",
+    "consents": "Chấp thuận",
+    "clinic": "Phòng khám",
+    "logout": "Đăng xuất",
+    "templates": "Mẫu"
+  },
+  "auth": {
+    "login_title": "Truy cập an toàn",
+    "login_subtitle": "Nhập email của bạn để nhận liên kết truy cập",
+    "email_placeholder": "email@phongkham.vn",
+    "send_link": "Gửi liên kết truy cập",
+    "check_email": "Kiểm tra email của bạn — chúng tôi đã gửi liên kết truy cập",
+    "magic_link_sent": "Liên kết đã được gửi",
+    "remember_device": "Ghi nhớ thiết bị này",
+    "remember_7": "7 ngày",
+    "remember_30": "30 ngày",
+    "remember_90": "90 ngày",
+    "biometric_activate": "Kích hoạt Face ID / vân tay",
+    "biometric_prompt": "Sau lần đăng nhập đầu tiên bạn có thể kích hoạt Face ID / vân tay",
+    "biometric_registering": "Đang kích hoạt…",
+    "biometric_success": "Đã kích hoạt sinh trắc học!",
+    "biometric_success_msg": "Lần sau bạn sẽ đăng nhập bằng một cái chạm.",
+    "biometric_error": "Không thể kích hoạt. Đảm bảo thiết bị của bạn đã được cấu hình sinh trắc học.",
+    "biometric_now": "Không phải bây giờ"
+  },
+  "patients": {
+    "title": "Bệnh nhân",
+    "add": "Thêm bệnh nhân",
+    "search": "Tìm kiếm theo tên, CMND, điện thoại…",
+    "name": "Tên",
+    "surname": "Họ",
+    "dob": "Ngày sinh",
+    "id_doc": "CMND / Hộ chiếu",
+    "phone": "Điện thoại",
+    "email": "Email",
+    "address": "Địa chỉ",
+    "allergies": "Dị ứng",
+    "medications": "Thuốc",
+    "blood_type": "Nhóm máu",
+    "save": "Lưu bệnh nhân",
+    "cancel": "Hủy",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "no_results": "Không có bệnh nhân nào được đăng ký",
+    "gallery": "Thư viện ảnh",
+    "no_photos": "Không có ảnh. Tải lên hình ảnh đầu tiên.",
+    "upload_photos": "Tải lên ảnh",
+    "uploading": "Đang tải lên…"
+  },
+  "doctors": {
+    "title": "Bác sĩ",
+    "add": "Thêm bác sĩ",
+    "name": "Tên",
+    "specialty": "Chuyên khoa",
+    "license": "Số giấy phép",
+    "email": "Email",
+    "role": "Vai trò",
+    "roles": {
+      "admin": "Quản trị viên",
+      "doctor": "Bác sĩ",
+      "receptionist": "Lễ tân"
+    },
+    "save": "Lưu bác sĩ",
+    "no_results": "Không có bác sĩ nào được đăng ký"
+  },
+  "consents": {
+    "title": "Chấp thuận",
+    "add": "Chấp thuận mới",
+    "search": "Tìm kiếm chấp thuận…",
+    "status": {
+      "pending": "Đang chờ",
+      "signed": "Đã ký",
+      "revoked": "Đã thu hồi",
+      "expired": "Đã hết hạn"
+    },
+    "sign": "Ký",
+    "generate_pdf": "Tạo PDF",
+    "translate": "Dịch sang tất cả các ngôn ngữ",
+    "patient": "Bệnh nhân",
+    "doctor": "Bác sĩ",
+    "treatment": "Điều trị",
+    "language": "Ngôn ngữ",
+    "signed_at": "Ngày ký",
+    "no_results": "Không có chấp thuận nào"
+  },
+  "signature": {
+    "title": "Chữ ký bệnh nhân",
+    "instructions": "Ký vào ô bên dưới",
+    "clear": "Xóa",
+    "confirm": "Xác nhận chữ ký",
+    "legal_notice": "Tôi đã đọc và chấp nhận sự đồng ý có thông tin",
+    "biometric_capture": "Đang ghi dữ liệu sinh trắc học…"
+  },
+  "clinic": {
+    "title": "Phòng khám",
+    "name": "Tên phòng khám",
+    "address": "Địa chỉ",
+    "phone": "Điện thoại",
+    "email": "Email",
+    "tax_id": "Mã số thuế",
+    "logo": "Logo",
+    "save": "Lưu cấu hình",
+    "branches": "Chi nhánh bổ sung",
+    "branches_desc": "Quản lý nhiều địa điểm",
+    "add_branch": "Thêm chi nhánh",
+    "no_branches": "Không có chi nhánh bổ sung",
+    "branch_name": "Tên chi nhánh",
+    "save_branches": "Lưu chi nhánh",
+    "edit_branch": "Chỉnh sửa chi nhánh",
+    "new_branch": "Chi nhánh mới"
+  },
+  "language": {
+    "select": "Ngôn ngữ",
+    "search": "Tìm kiếm ngôn ngữ…"
+  },
+  "common": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "loading": "Đang tải…",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "confirm_delete": "Xóa bản ghi này?",
+    "no_data": "Không có dữ liệu",
+    "required": "Trường bắt buộc",
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu"
+  },
+  "login": {
+    "check_email": "Kiểm tra email của bạn",
+    "magic_link_sent": "Chúng tôi đã gửi Magic Link tới",
+    "email": "Email",
+    "magic_link": "Đăng nhập bằng Magic Link",
+    "footer": "Chấp thuận kỹ thuật số hợp lệ · Luật Khám bệnh, chữa bệnh · GDPR"
+  },
+  "templates": {
+    "title": "Mẫu",
+    "search": "Tìm kiếm điều trị…",
+    "editor_title": "Trình chỉnh sửa mẫu",
+    "consent_title_label": "Tiêu đề chấp thuận",
+    "no_translation": "Không có bản dịch bằng",
+    "translate_all": "Dịch sang 31 ngôn ngữ",
+    "translating": "Đang dịch…",
+    "legal_framework": "Khung pháp lý",
+    "select_template": "Chọn một mẫu để chỉnh sửa",
+    "empty": "Không có mẫu nào",
+    "title_placeholder": "Chấp thuận có thông tin — Điều trị…",
+    "content_label": "Nội dung chấp thuận",
+    "content_placeholder": "Viết văn bản chấp thuận có thông tin…",
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu"
+  }
+}

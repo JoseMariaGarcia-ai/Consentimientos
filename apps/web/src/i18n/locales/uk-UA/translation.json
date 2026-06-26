@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Цифрові Згоди · Цифровий Підпис"
+  },
+  "nav": {
+    "dashboard": "Панель",
+    "patients": "Пацієнти",
+    "doctors": "Лікарі",
+    "consents": "Згоди",
+    "clinic": "Клініка",
+    "logout": "Вийти",
+    "templates": "Шаблони"
+  },
+  "auth": {
+    "login_title": "Безпечний доступ",
+    "login_subtitle": "Введіть свій email для отримання посилання доступу",
+    "email_placeholder": "email@klinika.ua",
+    "send_link": "Надіслати посилання",
+    "check_email": "Перевірте свій email — ми надіслали посилання доступу",
+    "magic_link_sent": "Посилання надіслано",
+    "remember_device": "Запам'ятати цей пристрій",
+    "remember_7": "7 днів",
+    "remember_30": "30 днів",
+    "remember_90": "90 днів",
+    "biometric_activate": "Активувати Face ID / відбиток пальця",
+    "biometric_prompt": "Після першого входу ви зможете активувати Face ID / відбиток пальця",
+    "biometric_registering": "Активація…",
+    "biometric_success": "Біометрію активовано!",
+    "biometric_success_msg": "Наступного разу ви увійдете одним дотиком.",
+    "biometric_error": "Не вдалося активувати. Переконайтеся, що на вашому пристрої налаштована біометрія.",
+    "biometric_now": "Зараз ні"
+  },
+  "patients": {
+    "title": "Пацієнти",
+    "add": "Додати пацієнта",
+    "search": "Пошук за ім'ям, ідентифікатором, телефоном…",
+    "name": "Ім'я",
+    "surname": "Прізвище",
+    "dob": "Дата народження",
+    "id_doc": "Паспорт / ІПН",
+    "phone": "Телефон",
+    "email": "Email",
+    "address": "Адреса",
+    "allergies": "Алергії",
+    "medications": "Ліки",
+    "blood_type": "Група крові",
+    "save": "Зберегти пацієнта",
+    "cancel": "Скасувати",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "no_results": "Немає зареєстрованих пацієнтів",
+    "gallery": "Фотогалерея",
+    "no_photos": "Немає фото. Завантажте перше зображення.",
+    "upload_photos": "Завантажити фото",
+    "uploading": "Завантаження…"
+  },
+  "doctors": {
+    "title": "Лікарі",
+    "add": "Додати лікаря",
+    "name": "Ім'я",
+    "specialty": "Спеціалізація",
+    "license": "Номер ліцензії",
+    "email": "Email",
+    "role": "Роль",
+    "roles": {
+      "admin": "Адміністратор",
+      "doctor": "Лікар",
+      "receptionist": "Реєстратор"
+    },
+    "save": "Зберегти лікаря",
+    "no_results": "Немає зареєстрованих лікарів"
+  },
+  "consents": {
+    "title": "Згоди",
+    "add": "Нова згода",
+    "search": "Пошук згод…",
+    "status": {
+      "pending": "Очікує",
+      "signed": "Підписано",
+      "revoked": "Відкликано",
+      "expired": "Прострочено"
+    },
+    "sign": "Підписати",
+    "generate_pdf": "Створити PDF",
+    "translate": "Перекласти всіма мовами",
+    "patient": "Пацієнт",
+    "doctor": "Лікар",
+    "treatment": "Лікування",
+    "language": "Мова",
+    "signed_at": "Дата підпису",
+    "no_results": "Немає згод"
+  },
+  "signature": {
+    "title": "Підпис пацієнта",
+    "instructions": "Підпишіться у полі нижче",
+    "clear": "Очистити",
+    "confirm": "Підтвердити підпис",
+    "legal_notice": "Я прочитав/ла та приймаю інформовану згоду",
+    "biometric_capture": "Запис біометричних даних…"
+  },
+  "clinic": {
+    "title": "Клініка",
+    "name": "Назва клініки",
+    "address": "Адреса",
+    "phone": "Телефон",
+    "email": "Email",
+    "tax_id": "ЄДРПОУ / ІПН",
+    "logo": "Логотип",
+    "save": "Зберегти конфігурацію",
+    "branches": "Додаткові філії",
+    "branches_desc": "Управління кількома філіями",
+    "add_branch": "Додати філію",
+    "no_branches": "Немає додаткових філій",
+    "branch_name": "Назва філії",
+    "save_branches": "Зберегти філії",
+    "edit_branch": "Редагувати філію",
+    "new_branch": "Нова філія"
+  },
+  "language": {
+    "select": "Мова",
+    "search": "Пошук мови…"
+  },
+  "common": {
+    "save": "Зберегти",
+    "cancel": "Скасувати",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "loading": "Завантаження…",
+    "error": "Помилка",
+    "success": "Успіх",
+    "confirm_delete": "Видалити цей запис?",
+    "no_data": "Немає даних",
+    "required": "Обов'язкове поле",
+    "saving": "Збереження…",
+    "saved": "Збережено"
+  },
+  "login": {
+    "check_email": "Перевірте свій email",
+    "magic_link_sent": "Ми надіслали Magic Link на",
+    "email": "Email",
+    "magic_link": "Увійти через Magic Link",
+    "footer": "Дійсні цифрові згоди · Закон про захист персональних даних · GDPR"
+  },
+  "templates": {
+    "title": "Шаблони",
+    "search": "Пошук лікування…",
+    "editor_title": "Редактор шаблону",
+    "consent_title_label": "Заголовок згоди",
+    "no_translation": "Немає перекладу для",
+    "translate_all": "Перекласти на 31 мову",
+    "translating": "Переклад…",
+    "legal_framework": "Правова база",
+    "select_template": "Виберіть шаблон для редагування",
+    "empty": "Немає шаблонів",
+    "title_placeholder": "Інформована згода — Лікування…",
+    "content_label": "Зміст згоди",
+    "content_placeholder": "Напишіть текст інформованої згоди…",
+    "saving": "Збереження…",
+    "saved": "Збережено"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Digitální Souhlasy · Digitální Podpis"
+  },
+  "nav": {
+    "dashboard": "Přehled",
+    "patients": "Pacienti",
+    "doctors": "Lékaři",
+    "consents": "Souhlasy",
+    "clinic": "Klinika",
+    "logout": "Odhlásit se",
+    "templates": "Šablony"
+  },
+  "auth": {
+    "login_title": "Zabezpečený přístup",
+    "login_subtitle": "Zadejte svůj e-mail pro získání přístupového odkazu",
+    "email_placeholder": "email@klinika.cz",
+    "send_link": "Odeslat přístupový odkaz",
+    "check_email": "Zkontrolujte svůj e-mail — odeslali jsme přístupový odkaz",
+    "magic_link_sent": "Odkaz odeslán",
+    "remember_device": "Zapamatovat toto zařízení",
+    "remember_7": "7 dní",
+    "remember_30": "30 dní",
+    "remember_90": "90 dní",
+    "biometric_activate": "Aktivovat Face ID / otisk prstu",
+    "biometric_prompt": "Po prvním přihlášení můžete aktivovat Face ID / otisk prstu",
+    "biometric_registering": "Aktivace…",
+    "biometric_success": "Biometrie aktivována!",
+    "biometric_success_msg": "Příště se přihlásíte jedním dotykem.",
+    "biometric_error": "Aktivace se nezdařila. Ujistěte se, že vaše zařízení má nakonfigurovanou biometrii.",
+    "biometric_now": "Teď ne"
+  },
+  "patients": {
+    "title": "Pacienti",
+    "add": "Přidat pacienta",
+    "search": "Hledat podle jména, RČ, telefonu…",
+    "name": "Jméno",
+    "surname": "Příjmení",
+    "dob": "Datum narození",
+    "id_doc": "Rodné číslo / Pas",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Adresa",
+    "allergies": "Alergie",
+    "medications": "Léky",
+    "blood_type": "Krevní skupina",
+    "save": "Uložit pacienta",
+    "cancel": "Zrušit",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "no_results": "Žádní registrovaní pacienti",
+    "gallery": "Fotogalerie",
+    "no_photos": "Žádné fotografie. Nahrajte první snímek.",
+    "upload_photos": "Nahrát fotografie",
+    "uploading": "Nahrávání…"
+  },
+  "doctors": {
+    "title": "Lékaři",
+    "add": "Přidat lékaře",
+    "name": "Jméno",
+    "specialty": "Specializace",
+    "license": "Číslo licence",
+    "email": "E-mail",
+    "role": "Role",
+    "roles": {
+      "admin": "Administrátor",
+      "doctor": "Lékař",
+      "receptionist": "Recepční"
+    },
+    "save": "Uložit lékaře",
+    "no_results": "Žádní registrovaní lékaři"
+  },
+  "consents": {
+    "title": "Souhlasy",
+    "add": "Nový souhlas",
+    "search": "Hledat souhlasy…",
+    "status": {
+      "pending": "Čekající",
+      "signed": "Podepsáno",
+      "revoked": "Odvoláno",
+      "expired": "Vypršelo"
+    },
+    "sign": "Podepsat",
+    "generate_pdf": "Generovat PDF",
+    "translate": "Přeložit do všech jazyků",
+    "patient": "Pacient",
+    "doctor": "Lékař",
+    "treatment": "Léčba",
+    "language": "Jazyk",
+    "signed_at": "Datum podpisu",
+    "no_results": "Žádné souhlasy"
+  },
+  "signature": {
+    "title": "Podpis pacienta",
+    "instructions": "Podepište se do rámečku níže",
+    "clear": "Vymazat",
+    "confirm": "Potvrdit podpis",
+    "legal_notice": "Přečetl/a jsem a souhlasím s informovaným souhlasem",
+    "biometric_capture": "Zaznamenávání biometrických dat…"
+  },
+  "clinic": {
+    "title": "Klinika",
+    "name": "Název kliniky",
+    "address": "Adresa",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "tax_id": "IČO / DIČ",
+    "logo": "Logo",
+    "save": "Uložit konfiguraci",
+    "branches": "Pobočky",
+    "branches_desc": "Spravujte více poboček",
+    "add_branch": "Přidat pobočku",
+    "no_branches": "Žádné pobočky",
+    "branch_name": "Název pobočky",
+    "save_branches": "Uložit pobočky",
+    "edit_branch": "Upravit pobočku",
+    "new_branch": "Nová pobočka"
+  },
+  "language": {
+    "select": "Jazyk",
+    "search": "Hledat jazyk…"
+  },
+  "common": {
+    "save": "Uložit",
+    "cancel": "Zrušit",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "loading": "Načítání…",
+    "error": "Chyba",
+    "success": "Úspěch",
+    "confirm_delete": "Smazat tento záznam?",
+    "no_data": "Žádná data",
+    "required": "Povinné pole",
+    "saving": "Ukládání…",
+    "saved": "Uloženo"
+  },
+  "login": {
+    "check_email": "Zkontrolujte svůj e-mail",
+    "magic_link_sent": "Odeslali jsme Magic Link na",
+    "email": "E-mail",
+    "magic_link": "Přihlásit se pomocí Magic Link",
+    "footer": "Platné digitální souhlasy · Zákon č. 372/2011 Sb. · GDPR"
+  },
+  "templates": {
+    "title": "Šablony",
+    "search": "Hledat léčbu…",
+    "editor_title": "Editor šablony",
+    "consent_title_label": "Název souhlasu",
+    "no_translation": "Žádný překlad v",
+    "translate_all": "Přeložit do 31 jazyků",
+    "translating": "Překládání…",
+    "legal_framework": "Právní rámec",
+    "select_template": "Vyberte šablonu pro úpravy",
+    "empty": "Žádné šablony",
+    "title_placeholder": "Informovaný souhlas — Léčba…",
+    "content_label": "Obsah souhlasu",
+    "content_placeholder": "Napište text informovaného souhlasu…",
+    "saving": "Ukládání…",
+    "saved": "Uloženo"
+  }
+}

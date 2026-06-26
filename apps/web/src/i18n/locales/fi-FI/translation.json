@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus"
+  },
+  "nav": {
+    "dashboard": "Kojelauta",
+    "patients": "Potilaat",
+    "doctors": "Lääkärit",
+    "consents": "Suostumukset",
+    "clinic": "Klinikka",
+    "logout": "Kirjaudu ulos",
+    "templates": "Mallit"
+  },
+  "auth": {
+    "login_title": "Suojattu sisäänpääsy",
+    "login_subtitle": "Anna sähköpostiosoitteesi saadaksesi kirjautumislinkin",
+    "email_placeholder": "email@klinikka.fi",
+    "send_link": "Lähetä kirjautumislinkki",
+    "check_email": "Tarkista sähköpostisi — olemme lähettäneet kirjautumislinkin",
+    "magic_link_sent": "Linkki lähetetty",
+    "remember_device": "Muista tämä laite",
+    "remember_7": "7 päivää",
+    "remember_30": "30 päivää",
+    "remember_90": "90 päivää",
+    "biometric_activate": "Ota Face ID / sormenjälki käyttöön",
+    "biometric_prompt": "Ensimmäisen kirjautumisen jälkeen voit ottaa Face ID / sormenjäljen käyttöön",
+    "biometric_registering": "Aktivoidaan…",
+    "biometric_success": "Biometriikka aktivoitu!",
+    "biometric_success_msg": "Seuraavalla kerralla kirjaudut sisään yhdellä napautuksella.",
+    "biometric_error": "Aktivointi epäonnistui. Varmista, että laitteessasi on biometriikka konfiguroitu.",
+    "biometric_now": "Ei nyt"
+  },
+  "patients": {
+    "title": "Potilaat",
+    "add": "Lisää potilas",
+    "search": "Hae nimellä, henkilötunnuksella, puhelimella…",
+    "name": "Etunimi",
+    "surname": "Sukunimi",
+    "dob": "Syntymäaika",
+    "id_doc": "Henkilötunnus / Passi",
+    "phone": "Puhelin",
+    "email": "Sähköposti",
+    "address": "Osoite",
+    "allergies": "Allergiat",
+    "medications": "Lääkkeet",
+    "blood_type": "Verityyppi",
+    "save": "Tallenna potilas",
+    "cancel": "Peruuta",
+    "edit": "Muokkaa",
+    "delete": "Poista",
+    "no_results": "Ei rekisteröityjä potilaita",
+    "gallery": "Valokuvagalleria",
+    "no_photos": "Ei kuvia. Lataa ensimmäinen kuva.",
+    "upload_photos": "Lataa kuvia",
+    "uploading": "Ladataan…"
+  },
+  "doctors": {
+    "title": "Lääkärit",
+    "add": "Lisää lääkäri",
+    "name": "Nimi",
+    "specialty": "Erikoisala",
+    "license": "Lääkärinumero",
+    "email": "Sähköposti",
+    "role": "Rooli",
+    "roles": {
+      "admin": "Ylläpitäjä",
+      "doctor": "Lääkäri",
+      "receptionist": "Vastaanottovirkailija"
+    },
+    "save": "Tallenna lääkäri",
+    "no_results": "Ei rekisteröityjä lääkäreitä"
+  },
+  "consents": {
+    "title": "Suostumukset",
+    "add": "Uusi suostumus",
+    "search": "Hae suostumuksia…",
+    "status": {
+      "pending": "Odottaa",
+      "signed": "Allekirjoitettu",
+      "revoked": "Peruutettu",
+      "expired": "Vanhentunut"
+    },
+    "sign": "Allekirjoita",
+    "generate_pdf": "Luo PDF",
+    "translate": "Käännä kaikille kielille",
+    "patient": "Potilas",
+    "doctor": "Lääkäri",
+    "treatment": "Hoito",
+    "language": "Kieli",
+    "signed_at": "Allekirjoitettu",
+    "no_results": "Ei suostumuksia"
+  },
+  "signature": {
+    "title": "Potilaan allekirjoitus",
+    "instructions": "Allekirjoita alla olevaan ruutuun",
+    "clear": "Tyhjennä",
+    "confirm": "Vahvista allekirjoitus",
+    "legal_notice": "Olen lukenut ja hyväksyn tietoisen suostumuksen",
+    "biometric_capture": "Tallennetaan biometrisiä tietoja…"
+  },
+  "clinic": {
+    "title": "Klinikka",
+    "name": "Klinikan nimi",
+    "address": "Osoite",
+    "phone": "Puhelin",
+    "email": "Sähköposti",
+    "tax_id": "Y-tunnus",
+    "logo": "Logo",
+    "save": "Tallenna asetukset",
+    "branches": "Lisätoimipisteet",
+    "branches_desc": "Hallinnoi useita toimipisteitä",
+    "add_branch": "Lisää toimipiste",
+    "no_branches": "Ei lisätoimipisteitä",
+    "branch_name": "Toimipisteen nimi",
+    "save_branches": "Tallenna toimipisteet",
+    "edit_branch": "Muokkaa toimipistettä",
+    "new_branch": "Uusi toimipiste"
+  },
+  "language": {
+    "select": "Kieli",
+    "search": "Hae kieltä…"
+  },
+  "common": {
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "edit": "Muokkaa",
+    "delete": "Poista",
+    "loading": "Ladataan…",
+    "error": "Virhe",
+    "success": "Onnistui",
+    "confirm_delete": "Poistetaanko tämä tietue?",
+    "no_data": "Ei tietoja",
+    "required": "Pakollinen kenttä",
+    "saving": "Tallennetaan…",
+    "saved": "Tallennettu"
+  },
+  "login": {
+    "check_email": "Tarkista sähköpostisi",
+    "magic_link_sent": "Olemme lähettäneet Magic Linkin osoitteeseen",
+    "email": "Sähköposti",
+    "magic_link": "Kirjaudu Magic Linkillä",
+    "footer": "Kelvolliset digitaaliset suostumukset · Laki potilaan asemasta · GDPR"
+  },
+  "templates": {
+    "title": "Mallit",
+    "search": "Hae hoitoa…",
+    "editor_title": "Mallieditori",
+    "consent_title_label": "Suostumuksen otsikko",
+    "no_translation": "Ei käännöstä kielelle",
+    "translate_all": "Käännä 31 kielelle",
+    "translating": "Käännetään…",
+    "legal_framework": "Oikeudellinen kehys",
+    "select_template": "Valitse malli muokataksesi sitä",
+    "empty": "Ei malleja",
+    "title_placeholder": "Tietoinen suostumus — Hoito…",
+    "content_label": "Suostumuksen sisältö",
+    "content_placeholder": "Kirjoita tietoisen suostumuksen teksti…",
+    "saving": "Tallennetaan…",
+    "saved": "Tallennettu"
+  }
+}

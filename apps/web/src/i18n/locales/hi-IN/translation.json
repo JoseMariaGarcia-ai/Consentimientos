@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर"
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "patients": "मरीज़",
+    "doctors": "डॉक्टर",
+    "consents": "सहमति",
+    "clinic": "क्लिनिक",
+    "logout": "लॉग आउट",
+    "templates": "टेम्पलेट"
+  },
+  "auth": {
+    "login_title": "सुरक्षित पहुँच",
+    "login_subtitle": "एक्सेस लिंक प्राप्त करने के लिए अपना ईमेल दर्ज करें",
+    "email_placeholder": "email@clinic.in",
+    "send_link": "एक्सेस लिंक भेजें",
+    "check_email": "अपना ईमेल देखें — हमने एक्सेस लिंक भेज दिया है",
+    "magic_link_sent": "लिंक भेज दिया गया",
+    "remember_device": "इस डिवाइस को याद रखें",
+    "remember_7": "7 दिन",
+    "remember_30": "30 दिन",
+    "remember_90": "90 दिन",
+    "biometric_activate": "Face ID / फिंगरप्रिंट सक्रिय करें",
+    "biometric_prompt": "पहली बार लॉगिन के बाद आप Face ID / फिंगरप्रिंट सक्रिय कर सकते हैं",
+    "biometric_registering": "सक्रिय हो रहा है…",
+    "biometric_success": "बायोमेट्रिक्स सक्रिय!",
+    "biometric_success_msg": "अगली बार आप एक स्पर्श से लॉगिन करेंगे।",
+    "biometric_error": "सक्रिय नहीं हो सका। सुनिश्चित करें कि आपके डिवाइस में बायोमेट्रिक्स कॉन्फ़िगर है।",
+    "biometric_now": "अभी नहीं"
+  },
+  "patients": {
+    "title": "मरीज़",
+    "add": "मरीज़ जोड़ें",
+    "search": "नाम, आईडी, फ़ोन से खोजें…",
+    "name": "पहला नाम",
+    "surname": "उपनाम",
+    "dob": "जन्म तिथि",
+    "id_doc": "आधार / पासपोर्ट",
+    "phone": "फ़ोन",
+    "email": "ईमेल",
+    "address": "पता",
+    "allergies": "एलर्जी",
+    "medications": "दवाएं",
+    "blood_type": "रक्त समूह",
+    "save": "मरीज़ सहेजें",
+    "cancel": "रद्द करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "no_results": "कोई मरीज़ पंजीकृत नहीं",
+    "gallery": "फ़ोटो गैलरी",
+    "no_photos": "कोई फ़ोटो नहीं। पहली छवि अपलोड करें।",
+    "upload_photos": "फ़ोटो अपलोड करें",
+    "uploading": "अपलोड हो रहा है…"
+  },
+  "doctors": {
+    "title": "डॉक्टर",
+    "add": "डॉक्टर जोड़ें",
+    "name": "नाम",
+    "specialty": "विशेषज्ञता",
+    "license": "लाइसेंस नंबर",
+    "email": "ईमेल",
+    "role": "भूमिका",
+    "roles": {
+      "admin": "प्रशासक",
+      "doctor": "डॉक्टर",
+      "receptionist": "स्वागतकर्ता"
+    },
+    "save": "डॉक्टर सहेजें",
+    "no_results": "कोई डॉक्टर पंजीकृत नहीं"
+  },
+  "consents": {
+    "title": "सहमति",
+    "add": "नई सहमति",
+    "search": "सहमति खोजें…",
+    "status": {
+      "pending": "लंबित",
+      "signed": "हस्ताक्षरित",
+      "revoked": "रद्द",
+      "expired": "समाप्त"
+    },
+    "sign": "हस्ताक्षर करें",
+    "generate_pdf": "PDF बनाएं",
+    "translate": "सभी भाषाओं में अनुवाद करें",
+    "patient": "मरीज़",
+    "doctor": "डॉक्टर",
+    "treatment": "उपचार",
+    "language": "भाषा",
+    "signed_at": "हस्ताक्षर तिथि",
+    "no_results": "कोई सहमति नहीं"
+  },
+  "signature": {
+    "title": "मरीज़ का हस्ताक्षर",
+    "instructions": "नीचे दिए गए बॉक्स में हस्ताक्षर करें",
+    "clear": "साफ़ करें",
+    "confirm": "हस्ताक्षर की पुष्टि करें",
+    "legal_notice": "मैंने सूचित सहमति पढ़ी और स्वीकार की है",
+    "biometric_capture": "बायोमेट्रिक डेटा रिकॉर्ड हो रहा है…"
+  },
+  "clinic": {
+    "title": "क्लिनिक",
+    "name": "क्लिनिक का नाम",
+    "address": "पता",
+    "phone": "फ़ोन",
+    "email": "ईमेल",
+    "tax_id": "जीएसटी नंबर",
+    "logo": "लोगो",
+    "save": "कॉन्फ़िगरेशन सहेजें",
+    "branches": "अतिरिक्त शाखाएं",
+    "branches_desc": "एकाधिक स्थानों का प्रबंधन करें",
+    "add_branch": "शाखा जोड़ें",
+    "no_branches": "कोई अतिरिक्त शाखा नहीं",
+    "branch_name": "शाखा का नाम",
+    "save_branches": "शाखाएं सहेजें",
+    "edit_branch": "शाखा संपादित करें",
+    "new_branch": "नई शाखा"
+  },
+  "language": {
+    "select": "भाषा",
+    "search": "भाषा खोजें…"
+  },
+  "common": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "loading": "लोड हो रहा है…",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "confirm_delete": "इस रिकॉर्ड को हटाएं?",
+    "no_data": "कोई डेटा नहीं",
+    "required": "आवश्यक फ़ील्ड",
+    "saving": "सहेजा जा रहा है…",
+    "saved": "सहेजा गया"
+  },
+  "login": {
+    "check_email": "अपना ईमेल देखें",
+    "magic_link_sent": "हमने Magic Link भेजा है:",
+    "email": "ईमेल",
+    "magic_link": "Magic Link से लॉगिन करें",
+    "footer": "वैध डिजिटल सहमति · भारतीय चिकित्सा परिषद अधिनियम · GDPR"
+  },
+  "templates": {
+    "title": "टेम्पलेट",
+    "search": "उपचार खोजें…",
+    "editor_title": "टेम्पलेट संपादक",
+    "consent_title_label": "सहमति शीर्षक",
+    "no_translation": "इसमें कोई अनुवाद नहीं",
+    "translate_all": "31 भाषाओं में अनुवाद करें",
+    "translating": "अनुवाद हो रहा है…",
+    "legal_framework": "कानूनी ढांचा",
+    "select_template": "संपादन के लिए एक टेम्पलेट चुनें",
+    "empty": "कोई टेम्पलेट नहीं",
+    "title_placeholder": "सूचित सहमति — उपचार…",
+    "content_label": "सहमति सामग्री",
+    "content_placeholder": "सूचित सहमति का पाठ लिखें…",
+    "saving": "सहेजा जा रहा है…",
+    "saved": "सहेजा गया"
+  }
+}

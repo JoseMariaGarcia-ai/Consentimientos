@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית"
+  },
+  "nav": {
+    "dashboard": "לוח בקרה",
+    "patients": "מטופלים",
+    "doctors": "רופאים",
+    "consents": "הסכמות",
+    "clinic": "קליניקה",
+    "logout": "התנתקות",
+    "templates": "תבניות"
+  },
+  "auth": {
+    "login_title": "גישה מאובטחת",
+    "login_subtitle": "הזן את כתובת האימייל שלך לקבלת קישור גישה",
+    "email_placeholder": "email@clinic.co.il",
+    "send_link": "שלח קישור גישה",
+    "check_email": "בדוק את האימייל שלך — שלחנו את קישור הגישה",
+    "magic_link_sent": "הקישור נשלח",
+    "remember_device": "זכור מכשיר זה",
+    "remember_7": "7 ימים",
+    "remember_30": "30 ימים",
+    "remember_90": "90 ימים",
+    "biometric_activate": "הפעל Face ID / טביעת אצבע",
+    "biometric_prompt": "לאחר הכניסה הראשונה תוכל להפעיל Face ID / טביעת אצבע",
+    "biometric_registering": "מפעיל…",
+    "biometric_success": "ביומטריה הופעלה!",
+    "biometric_success_msg": "בפעם הבאה תיכנס בנגיעה אחת.",
+    "biometric_error": "לא ניתן להפעיל. ודא שהמכשיר שלך מוגדר עם ביומטריה.",
+    "biometric_now": "לא עכשיו"
+  },
+  "patients": {
+    "title": "מטופלים",
+    "add": "הוסף מטופל",
+    "search": "חפש לפי שם, תעודת זהות, טלפון…",
+    "name": "שם פרטי",
+    "surname": "שם משפחה",
+    "dob": "תאריך לידה",
+    "id_doc": "תעודת זהות / דרכון",
+    "phone": "טלפון",
+    "email": "אימייל",
+    "address": "כתובת",
+    "allergies": "אלרגיות",
+    "medications": "תרופות",
+    "blood_type": "סוג דם",
+    "save": "שמור מטופל",
+    "cancel": "ביטול",
+    "edit": "ערוך",
+    "delete": "מחק",
+    "no_results": "אין מטופלים רשומים",
+    "gallery": "גלריית תמונות",
+    "no_photos": "אין תמונות. העלה את התמונה הראשונה.",
+    "upload_photos": "העלה תמונות",
+    "uploading": "מעלה…"
+  },
+  "doctors": {
+    "title": "רופאים",
+    "add": "הוסף רופא",
+    "name": "שם",
+    "specialty": "התמחות",
+    "license": "מספר רישיון",
+    "email": "אימייל",
+    "role": "תפקיד",
+    "roles": {
+      "admin": "מנהל",
+      "doctor": "רופא",
+      "receptionist": "פקיד קבלה"
+    },
+    "save": "שמור רופא",
+    "no_results": "אין רופאים רשומים"
+  },
+  "consents": {
+    "title": "הסכמות",
+    "add": "הסכמה חדשה",
+    "search": "חפש הסכמות…",
+    "status": {
+      "pending": "ממתין",
+      "signed": "חתום",
+      "revoked": "בוטל",
+      "expired": "פג תוקף"
+    },
+    "sign": "חתום",
+    "generate_pdf": "צור PDF",
+    "translate": "תרגם לכל השפות",
+    "patient": "מטופל",
+    "doctor": "רופא",
+    "treatment": "טיפול",
+    "language": "שפה",
+    "signed_at": "תאריך חתימה",
+    "no_results": "אין הסכמות"
+  },
+  "signature": {
+    "title": "חתימת המטופל",
+    "instructions": "חתום בתיבה שלמטה",
+    "clear": "נקה",
+    "confirm": "אשר חתימה",
+    "legal_notice": "קראתי ואני מסכים/ה להסכמה המדעת",
+    "biometric_capture": "מתעד נתונים ביומטריים…"
+  },
+  "clinic": {
+    "title": "קליניקה",
+    "name": "שם הקליניקה",
+    "address": "כתובת",
+    "phone": "טלפון",
+    "email": "אימייל",
+    "tax_id": "מספר עוסק / ח.פ.",
+    "logo": "לוגו",
+    "save": "שמור הגדרות",
+    "branches": "סניפים נוספים",
+    "branches_desc": "נהל מיקומים מרובים",
+    "add_branch": "הוסף סניף",
+    "no_branches": "אין סניפים נוספים",
+    "branch_name": "שם הסניף",
+    "save_branches": "שמור סניפים",
+    "edit_branch": "ערוך סניף",
+    "new_branch": "סניף חדש"
+  },
+  "language": {
+    "select": "שפה",
+    "search": "חפש שפה…"
+  },
+  "common": {
+    "save": "שמור",
+    "cancel": "ביטול",
+    "edit": "ערוך",
+    "delete": "מחק",
+    "loading": "טוען…",
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "confirm_delete": "למחוק רשומה זו?",
+    "no_data": "אין נתונים",
+    "required": "שדה חובה",
+    "saving": "שומר…",
+    "saved": "נשמר"
+  },
+  "login": {
+    "check_email": "בדוק את האימייל שלך",
+    "magic_link_sent": "שלחנו Magic Link ל-",
+    "email": "אימייל",
+    "magic_link": "כניסה עם Magic Link",
+    "footer": "הסכמות דיגיטליות תקפות · חוק זכויות החולה · GDPR"
+  },
+  "templates": {
+    "title": "תבניות",
+    "search": "חפש טיפול…",
+    "editor_title": "עורך תבנית",
+    "consent_title_label": "כותרת ההסכמה",
+    "no_translation": "אין תרגום ב-",
+    "translate_all": "תרגם ל-31 שפות",
+    "translating": "מתרגם…",
+    "legal_framework": "מסגרת משפטית",
+    "select_template": "בחר תבנית לעריכה",
+    "empty": "אין תבניות",
+    "title_placeholder": "הסכמה מדעת — טיפול…",
+    "content_label": "תוכן ההסכמה",
+    "content_placeholder": "כתוב את טקסט ההסכמה המדעת…",
+    "saving": "שומר…",
+    "saved": "נשמר"
+  }
+}

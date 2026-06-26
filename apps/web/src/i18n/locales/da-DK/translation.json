@@ -1,0 +1,162 @@
+{
+  "app": {
+    "name": "ConsentsPro",
+    "tagline": "Digitale Samtykker · Digital Signatur"
+  },
+  "nav": {
+    "dashboard": "Oversigt",
+    "patients": "Patienter",
+    "doctors": "Læger",
+    "consents": "Samtykker",
+    "clinic": "Klinik",
+    "logout": "Log ud",
+    "templates": "Skabeloner"
+  },
+  "auth": {
+    "login_title": "Sikker adgang",
+    "login_subtitle": "Indtast din e-mail for at modtage et adgangslink",
+    "email_placeholder": "email@klinik.dk",
+    "send_link": "Send adgangslink",
+    "check_email": "Tjek din e-mail — vi har sendt adgangslinket",
+    "magic_link_sent": "Link sendt",
+    "remember_device": "Husk denne enhed",
+    "remember_7": "7 dage",
+    "remember_30": "30 dage",
+    "remember_90": "90 dage",
+    "biometric_activate": "Aktiver Face ID / fingeraftryk",
+    "biometric_prompt": "Efter dit første login kan du aktivere Face ID / fingeraftryk",
+    "biometric_registering": "Aktiverer…",
+    "biometric_success": "Biometri aktiveret!",
+    "biometric_success_msg": "Næste gang logger du ind med et tryk.",
+    "biometric_error": "Kunne ikke aktivere. Sørg for at din enhed har biometri konfigureret.",
+    "biometric_now": "Ikke nu"
+  },
+  "patients": {
+    "title": "Patienter",
+    "add": "Tilføj patient",
+    "search": "Søg efter navn, ID, telefon…",
+    "name": "Fornavn",
+    "surname": "Efternavn",
+    "dob": "Fødselsdato",
+    "id_doc": "CPR / Pas",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Adresse",
+    "allergies": "Allergier",
+    "medications": "Medicin",
+    "blood_type": "Blodtype",
+    "save": "Gem patient",
+    "cancel": "Annuller",
+    "edit": "Rediger",
+    "delete": "Slet",
+    "no_results": "Ingen patienter registreret",
+    "gallery": "Fotogalleri",
+    "no_photos": "Ingen fotos. Upload det første billede.",
+    "upload_photos": "Upload fotos",
+    "uploading": "Uploader…"
+  },
+  "doctors": {
+    "title": "Læger",
+    "add": "Tilføj læge",
+    "name": "Navn",
+    "specialty": "Speciale",
+    "license": "Autorisationsnr.",
+    "email": "E-mail",
+    "role": "Rolle",
+    "roles": {
+      "admin": "Administrator",
+      "doctor": "Læge",
+      "receptionist": "Receptionist"
+    },
+    "save": "Gem læge",
+    "no_results": "Ingen læger registreret"
+  },
+  "consents": {
+    "title": "Samtykker",
+    "add": "Nyt samtykke",
+    "search": "Søg samtykker…",
+    "status": {
+      "pending": "Afventer",
+      "signed": "Underskrevet",
+      "revoked": "Tilbagekaldt",
+      "expired": "Udløbet"
+    },
+    "sign": "Underskriv",
+    "generate_pdf": "Generer PDF",
+    "translate": "Oversæt til alle sprog",
+    "patient": "Patient",
+    "doctor": "Læge",
+    "treatment": "Behandling",
+    "language": "Sprog",
+    "signed_at": "Underskrevet dato",
+    "no_results": "Ingen samtykker"
+  },
+  "signature": {
+    "title": "Patientunderskrift",
+    "instructions": "Underskriv i boksen nedenfor",
+    "clear": "Slet",
+    "confirm": "Bekræft underskrift",
+    "legal_notice": "Jeg har læst og accepterer det informerede samtykke",
+    "biometric_capture": "Registrerer biometriske data…"
+  },
+  "clinic": {
+    "title": "Klinik",
+    "name": "Kliniknavn",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "tax_id": "CVR-nr.",
+    "logo": "Logo",
+    "save": "Gem konfiguration",
+    "branches": "Yderligere lokationer",
+    "branches_desc": "Administrer flere lokationer",
+    "add_branch": "Tilføj lokation",
+    "no_branches": "Ingen yderligere lokationer",
+    "branch_name": "Lokationsnavn",
+    "save_branches": "Gem lokationer",
+    "edit_branch": "Rediger lokation",
+    "new_branch": "Ny lokation"
+  },
+  "language": {
+    "select": "Sprog",
+    "search": "Søg sprog…"
+  },
+  "common": {
+    "save": "Gem",
+    "cancel": "Annuller",
+    "edit": "Rediger",
+    "delete": "Slet",
+    "loading": "Indlæser…",
+    "error": "Fejl",
+    "success": "Succes",
+    "confirm_delete": "Slet denne post?",
+    "no_data": "Ingen data",
+    "required": "Påkrævet felt",
+    "saving": "Gemmer…",
+    "saved": "Gemt"
+  },
+  "login": {
+    "check_email": "Tjek din e-mail",
+    "magic_link_sent": "Vi har sendt et Magic Link til",
+    "email": "E-mail",
+    "magic_link": "Log ind med Magic Link",
+    "footer": "Gyldige digitale samtykker · Sundhedsloven · GDPR"
+  },
+  "templates": {
+    "title": "Skabeloner",
+    "search": "Søg behandling…",
+    "editor_title": "Skabeloneditor",
+    "consent_title_label": "Samtykkens titel",
+    "no_translation": "Ingen oversættelse i",
+    "translate_all": "Oversæt til 31 sprog",
+    "translating": "Oversætter…",
+    "legal_framework": "Juridisk ramme",
+    "select_template": "Vælg en skabelon for at redigere den",
+    "empty": "Ingen skabeloner",
+    "title_placeholder": "Informeret samtykke — Behandling…",
+    "content_label": "Samtykkens indhold",
+    "content_placeholder": "Skriv teksten til det informerede samtykke…",
+    "saving": "Gemmer…",
+    "saved": "Gemt"
+  }
+}

@@ -24,6 +24,16 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'sv-SE', name: 'Svenska', flag: '🇸🇪', region: 'Sverige' },
   { code: 'ro-RO', name: 'Română', flag: '🇷🇴', region: 'România' },
   { code: 'no-NO', name: 'Norsk', flag: '🇳🇴', region: 'Norge' },
+  { code: 'da-DK', name: 'Dansk', flag: '🇩🇰', region: 'Danmark' },
+  { code: 'fi-FI', name: 'Suomi', flag: '🇫🇮', region: 'Suomi' },
+  { code: 'el-GR', name: 'Ελληνικά', flag: '🇬🇷', region: 'Ελλάδα' },
+  { code: 'cs-CZ', name: 'Čeština', flag: '🇨🇿', region: 'Česká republika' },
+  { code: 'hu-HU', name: 'Magyar', flag: '🇭🇺', region: 'Magyarország' },
+  { code: 'ca-ES', name: 'Català', flag: '🏴󠁥󠁳󠁣󠁴󠁿', region: 'Catalunya' },
+  { code: 'uk-UA', name: 'Українська', flag: '🇺🇦', region: 'Україна' },
+  { code: 'he-IL', name: 'עברית', flag: '🇮🇱', region: 'ישראל' },
+  { code: 'hi-IN', name: 'हिन्दी', flag: '🇮🇳', region: 'भारत' },
+  { code: 'vi-VN', name: 'Tiếng Việt', flag: '🇻🇳', region: 'Việt Nam' },
 ]
 
 const loadLocale = async (lang: string) => {

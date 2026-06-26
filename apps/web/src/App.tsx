@@ -19,7 +19,7 @@ export default function App() {
   const { currentLanguage } = useLanguageStore()
 
   useEffect(() => {
-    document.documentElement.dir = currentLanguage === 'ar-SA' ? 'rtl' : 'ltr'
+    document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
     document.documentElement.lang = currentLanguage
   }, [currentLanguage])
 
