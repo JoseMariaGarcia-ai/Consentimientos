@@ -10,7 +10,8 @@
     "consents": "동의서",
     "clinic": "클리닉",
     "logout": "로그아웃",
-    "templates": "템플릿"
+    "templates": "템플릿",
+    "settings": "설정"
   },
   "auth": {
     "login_title": "보안 접속",
@@ -158,5 +159,26 @@
     "content_placeholder": "동의서 텍스트를 작성하세요…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "설정",
+    "subtitle": "사용자 및 시스템 액세스 관리",
+    "users": {
+      "title": "사용자",
+      "invite_user": "사용자 초대",
+      "edit_user": "사용자 편집",
+      "full_name": "전체 이름",
+      "role": "역할",
+      "role_admin": "관리자",
+      "role_clinica": "클리닉",
+      "admin_hint": "관리자는 모든 섹션에 완전히 액세스할 수 있습니다.",
+      "permissions": "액세스 권한",
+      "permissions_hint": "액세스 가능한 섹션을 선택하세요.",
+      "send_invite": "초대 보내기",
+      "no_users": "사용자 없음. 첫 번째를 초대하세요.",
+      "inactive": "비활성",
+      "activate": "활성화",
+      "deactivate": "비활성화"
+    }
   }
 }

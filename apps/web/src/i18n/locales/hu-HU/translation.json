@@ -10,7 +10,8 @@
     "consents": "Beleegyezések",
     "clinic": "Klinika",
     "logout": "Kijelentkezés",
-    "templates": "Sablonok"
+    "templates": "Sablonok",
+    "settings": "Beállítások"
   },
   "auth": {
     "login_title": "Biztonságos hozzáférés",
@@ -158,5 +159,26 @@
     "content_placeholder": "Írja be a tájékozott beleegyezés szövegét…",
     "saving": "Mentés…",
     "saved": "Mentve"
+  },
+  "settings": {
+    "title": "Beállítások",
+    "subtitle": "Felhasználók és hozzáférések kezelése",
+    "users": {
+      "title": "Felhasználók",
+      "invite_user": "Felhasználó meghívása",
+      "edit_user": "Felhasználó szerkesztése",
+      "full_name": "Teljes név",
+      "role": "Szerepkör",
+      "role_admin": "Rendszergazda",
+      "role_clinica": "Klinika",
+      "admin_hint": "A rendszergazdának teljes hozzáférése van minden részhez.",
+      "permissions": "Hozzáférési jogosultságok",
+      "permissions_hint": "Válassza ki az elérhető részeket.",
+      "send_invite": "Meghívó küldése",
+      "no_users": "Nincs felhasználó. Hívja meg az elsőt.",
+      "inactive": "Inaktív",
+      "activate": "Aktiválás",
+      "deactivate": "Deaktiválás"
+    }
   }
 }

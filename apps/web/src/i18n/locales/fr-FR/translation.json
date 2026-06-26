@@ -10,7 +10,8 @@
     "consents": "Consentements",
     "clinic": "Clinique",
     "logout": "Se déconnecter",
-    "templates": "Modèles"
+    "templates": "Modèles",
+    "settings": "Paramètres"
   },
   "auth": {
     "login_title": "Accès sécurisé",
@@ -158,5 +159,26 @@
     "content_placeholder": "Rédigez le texte du consentement éclairé…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Gestion des utilisateurs et des accès",
+    "users": {
+      "title": "Utilisateurs",
+      "invite_user": "Inviter un utilisateur",
+      "edit_user": "Modifier l'utilisateur",
+      "full_name": "Nom complet",
+      "role": "Rôle",
+      "role_admin": "Administrateur",
+      "role_clinica": "Clinique",
+      "admin_hint": "L'administrateur a accès à toutes les sections.",
+      "permissions": "Permissions d'accès",
+      "permissions_hint": "Sélectionnez les sections accessibles.",
+      "send_invite": "Envoyer l'invitation",
+      "no_users": "Aucun utilisateur. Invitez le premier.",
+      "inactive": "Inactif",
+      "activate": "Activer",
+      "deactivate": "Désactiver"
+    }
   }
 }

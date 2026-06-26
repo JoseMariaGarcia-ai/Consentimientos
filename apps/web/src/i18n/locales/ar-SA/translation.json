@@ -10,7 +10,8 @@
     "consents": "نماذج الموافقة",
     "clinic": "العيادة",
     "logout": "تسجيل الخروج",
-    "templates": "القوالب"
+    "templates": "القوالب",
+    "settings": "الإعدادات"
   },
   "auth": {
     "login_title": "الوصول الآمن",
@@ -158,5 +159,26 @@
     "content_placeholder": "اكتب نص الموافقة المستنيرة…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "إدارة المستخدمين والوصول إلى النظام",
+    "users": {
+      "title": "المستخدمون",
+      "invite_user": "دعوة مستخدم",
+      "edit_user": "تعديل المستخدم",
+      "full_name": "الاسم الكامل",
+      "role": "الدور",
+      "role_admin": "مدير",
+      "role_clinica": "عيادة",
+      "admin_hint": "يتمتع المدير بوصول كامل إلى جميع الأقسام.",
+      "permissions": "أذونات الوصول",
+      "permissions_hint": "حدد الأقسام التي يمكن الوصول إليها.",
+      "send_invite": "إرسال الدعوة",
+      "no_users": "لا يوجد مستخدمون. ادعُ الأول.",
+      "inactive": "غير نشط",
+      "activate": "تفعيل",
+      "deactivate": "تعطيل"
+    }
   }
 }

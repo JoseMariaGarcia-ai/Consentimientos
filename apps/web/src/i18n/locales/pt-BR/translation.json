@@ -10,7 +10,8 @@
     "consents": "Consentimentos",
     "clinic": "Clínica",
     "logout": "Sair",
-    "templates": "Modelos"
+    "templates": "Modelos",
+    "settings": "Configurações"
   },
   "auth": {
     "login_title": "Acesso seguro",
@@ -158,5 +159,26 @@
     "content_placeholder": "Escreva o texto do consentimento informado…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Configurações",
+    "subtitle": "Gestão de usuários e acessos",
+    "users": {
+      "title": "Usuários",
+      "invite_user": "Convidar usuário",
+      "edit_user": "Editar usuário",
+      "full_name": "Nome completo",
+      "role": "Função",
+      "role_admin": "Administrador",
+      "role_clinica": "Clínica",
+      "admin_hint": "O administrador tem acesso total a todas as seções.",
+      "permissions": "Permissões de acesso",
+      "permissions_hint": "Selecione as seções acessíveis.",
+      "send_invite": "Enviar convite",
+      "no_users": "Sem usuários. Convide o primeiro.",
+      "inactive": "Inativo",
+      "activate": "Ativar",
+      "deactivate": "Desativar"
+    }
   }
 }

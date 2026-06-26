@@ -10,7 +10,8 @@
     "consents": "Chấp thuận",
     "clinic": "Phòng khám",
     "logout": "Đăng xuất",
-    "templates": "Mẫu"
+    "templates": "Mẫu",
+    "settings": "Cài đặt"
   },
   "auth": {
     "login_title": "Truy cập an toàn",
@@ -158,5 +159,26 @@
     "content_placeholder": "Viết văn bản chấp thuận có thông tin…",
     "saving": "Đang lưu…",
     "saved": "Đã lưu"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "subtitle": "Quản lý người dùng và quyền truy cập",
+    "users": {
+      "title": "Người dùng",
+      "invite_user": "Mời người dùng",
+      "edit_user": "Chỉnh sửa người dùng",
+      "full_name": "Họ và tên",
+      "role": "Vai trò",
+      "role_admin": "Quản trị viên",
+      "role_clinica": "Phòng khám",
+      "admin_hint": "Quản trị viên có quyền truy cập đầy đủ vào tất cả các phần.",
+      "permissions": "Quyền truy cập",
+      "permissions_hint": "Chọn các phần có thể truy cập.",
+      "send_invite": "Gửi lời mời",
+      "no_users": "Không có người dùng. Mời người đầu tiên.",
+      "inactive": "Không hoạt động",
+      "activate": "Kích hoạt",
+      "deactivate": "Vô hiệu hóa"
+    }
   }
 }

@@ -10,7 +10,8 @@
     "consents": "Consensi",
     "clinic": "Clinica",
     "logout": "Disconnetti",
-    "templates": "Modelli"
+    "templates": "Modelli",
+    "settings": "Impostazioni"
   },
   "auth": {
     "login_title": "Accesso sicuro",
@@ -158,5 +159,26 @@
     "content_placeholder": "Scrivi il testo del consenso informato…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "subtitle": "Gestione utenti e accessi al sistema",
+    "users": {
+      "title": "Utenti",
+      "invite_user": "Invita utente",
+      "edit_user": "Modifica utente",
+      "full_name": "Nome completo",
+      "role": "Ruolo",
+      "role_admin": "Amministratore",
+      "role_clinica": "Clinica",
+      "admin_hint": "L'amministratore ha accesso completo a tutte le sezioni.",
+      "permissions": "Permessi di accesso",
+      "permissions_hint": "Seleziona le sezioni accessibili.",
+      "send_invite": "Invia invito",
+      "no_users": "Nessun utente. Invita il primo.",
+      "inactive": "Inattivo",
+      "activate": "Attiva",
+      "deactivate": "Disattiva"
+    }
   }
 }

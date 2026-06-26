@@ -10,7 +10,8 @@
     "consents": "Zgody",
     "clinic": "Klinika",
     "logout": "Wyloguj",
-    "templates": "Szablony"
+    "templates": "Szablony",
+    "settings": "Ustawienia"
   },
   "auth": {
     "login_title": "Bezpieczny dostęp",
@@ -158,5 +159,26 @@
     "content_placeholder": "Napisz tekst świadomej zgody…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "subtitle": "Zarządzanie użytkownikami i dostępem",
+    "users": {
+      "title": "Użytkownicy",
+      "invite_user": "Zaproś użytkownika",
+      "edit_user": "Edytuj użytkownika",
+      "full_name": "Imię i nazwisko",
+      "role": "Rola",
+      "role_admin": "Administrator",
+      "role_clinica": "Klinika",
+      "admin_hint": "Administrator ma pełny dostęp do wszystkich sekcji.",
+      "permissions": "Uprawnienia dostępu",
+      "permissions_hint": "Wybierz dostępne sekcje.",
+      "send_invite": "Wyślij zaproszenie",
+      "no_users": "Brak użytkowników. Zaproś pierwszego.",
+      "inactive": "Nieaktywny",
+      "activate": "Aktywuj",
+      "deactivate": "Dezaktywuj"
+    }
   }
 }

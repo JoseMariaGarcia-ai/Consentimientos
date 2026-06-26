@@ -10,7 +10,8 @@
     "consents": "Suostumukset",
     "clinic": "Klinikka",
     "logout": "Kirjaudu ulos",
-    "templates": "Mallit"
+    "templates": "Mallit",
+    "settings": "Asetukset"
   },
   "auth": {
     "login_title": "Suojattu sisäänpääsy",
@@ -158,5 +159,26 @@
     "content_placeholder": "Kirjoita tietoisen suostumuksen teksti…",
     "saving": "Tallennetaan…",
     "saved": "Tallennettu"
+  },
+  "settings": {
+    "title": "Asetukset",
+    "subtitle": "Käyttäjien ja käyttöoikeuksien hallinta",
+    "users": {
+      "title": "Käyttäjät",
+      "invite_user": "Kutsu käyttäjä",
+      "edit_user": "Muokkaa käyttäjää",
+      "full_name": "Koko nimi",
+      "role": "Rooli",
+      "role_admin": "Järjestelmänvalvoja",
+      "role_clinica": "Klinikka",
+      "admin_hint": "Järjestelmänvalvojalla on täysi pääsy kaikkiin osioihin.",
+      "permissions": "Käyttöoikeudet",
+      "permissions_hint": "Valitse käytettävissä olevat osiot.",
+      "send_invite": "Lähetä kutsu",
+      "no_users": "Ei käyttäjiä. Kutsu ensimmäinen.",
+      "inactive": "Ei aktiivinen",
+      "activate": "Aktivoi",
+      "deactivate": "Deaktivoi"
+    }
   }
 }

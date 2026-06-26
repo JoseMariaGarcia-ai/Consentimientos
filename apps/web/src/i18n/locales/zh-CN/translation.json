@@ -10,7 +10,8 @@
     "consents": "知情同意书",
     "clinic": "诊所",
     "logout": "退出登录",
-    "templates": "模板"
+    "templates": "模板",
+    "settings": "设置"
   },
   "auth": {
     "login_title": "安全访问",
@@ -158,5 +159,26 @@
     "content_placeholder": "写知情同意书文本…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "用户和系统访问管理",
+    "users": {
+      "title": "用户",
+      "invite_user": "邀请用户",
+      "edit_user": "编辑用户",
+      "full_name": "全名",
+      "role": "角色",
+      "role_admin": "管理员",
+      "role_clinica": "诊所",
+      "admin_hint": "管理员可完全访问所有部分。",
+      "permissions": "访问权限",
+      "permissions_hint": "选择可访问的部分。",
+      "send_invite": "发送邀请",
+      "no_users": "没有用户。邀请第一位。",
+      "inactive": "不活跃",
+      "activate": "激活",
+      "deactivate": "停用"
+    }
   }
 }

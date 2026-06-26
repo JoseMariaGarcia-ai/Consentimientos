@@ -10,7 +10,8 @@
     "consents": "Toestemmingen",
     "clinic": "Kliniek",
     "logout": "Uitloggen",
-    "templates": "Sjablonen"
+    "templates": "Sjablonen",
+    "settings": "Instellingen"
   },
   "auth": {
     "login_title": "Beveiligde toegang",
@@ -158,5 +159,26 @@
     "content_placeholder": "Schrijf de tekst van de geïnformeerde toestemming…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "subtitle": "Gebruikers- en toegangsbeheer",
+    "users": {
+      "title": "Gebruikers",
+      "invite_user": "Gebruiker uitnodigen",
+      "edit_user": "Gebruiker bewerken",
+      "full_name": "Volledige naam",
+      "role": "Rol",
+      "role_admin": "Beheerder",
+      "role_clinica": "Kliniek",
+      "admin_hint": "De beheerder heeft volledige toegang tot alle secties.",
+      "permissions": "Toegangsrechten",
+      "permissions_hint": "Selecteer de toegankelijke secties.",
+      "send_invite": "Uitnodiging sturen",
+      "no_users": "Geen gebruikers. Nodig de eerste uit.",
+      "inactive": "Inactief",
+      "activate": "Activeren",
+      "deactivate": "Deactiveren"
+    }
   }
 }

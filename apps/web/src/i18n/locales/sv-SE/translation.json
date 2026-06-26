@@ -10,7 +10,8 @@
     "consents": "Samtycken",
     "clinic": "Klinik",
     "logout": "Logga ut",
-    "templates": "Mallar"
+    "templates": "Mallar",
+    "settings": "Inställningar"
   },
   "auth": {
     "login_title": "Säker åtkomst",
@@ -158,5 +159,26 @@
     "content_placeholder": "Skriv texten till det informerade samtycket…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "subtitle": "Hantering av användare och åtkomst",
+    "users": {
+      "title": "Användare",
+      "invite_user": "Bjud in användare",
+      "edit_user": "Redigera användare",
+      "full_name": "Fullständigt namn",
+      "role": "Roll",
+      "role_admin": "Administratör",
+      "role_clinica": "Klinik",
+      "admin_hint": "Administratören har fullständig åtkomst till alla avsnitt.",
+      "permissions": "Åtkomstbehörigheter",
+      "permissions_hint": "Välj tillgängliga avsnitt.",
+      "send_invite": "Skicka inbjudan",
+      "no_users": "Inga användare. Bjud in den första.",
+      "inactive": "Inaktiv",
+      "activate": "Aktivera",
+      "deactivate": "Inaktivera"
+    }
   }
 }

@@ -10,7 +10,8 @@
     "consents": "同意書",
     "clinic": "クリニック",
     "logout": "ログアウト",
-    "templates": "テンプレート"
+    "templates": "テンプレート",
+    "settings": "設定"
   },
   "auth": {
     "login_title": "セキュアアクセス",
@@ -158,5 +159,26 @@
     "content_placeholder": "インフォームドコンセントのテキストを書いてください…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "設定",
+    "subtitle": "ユーザーとシステムアクセスの管理",
+    "users": {
+      "title": "ユーザー",
+      "invite_user": "ユーザーを招待",
+      "edit_user": "ユーザーを編集",
+      "full_name": "氏名",
+      "role": "役割",
+      "role_admin": "管理者",
+      "role_clinica": "クリニック",
+      "admin_hint": "管理者はすべてのセクションに完全にアクセスできます。",
+      "permissions": "アクセス権限",
+      "permissions_hint": "アクセス可能なセクションを選択してください。",
+      "send_invite": "招待を送信",
+      "no_users": "ユーザーなし。最初のユーザーを招待してください。",
+      "inactive": "非アクティブ",
+      "activate": "有効化",
+      "deactivate": "無効化"
+    }
   }
 }

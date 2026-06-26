@@ -10,7 +10,8 @@
     "consents": "Consents",
     "clinic": "Clinic",
     "logout": "Log out",
-    "templates": "Templates"
+    "templates": "Templates",
+    "settings": "Settings"
   },
   "auth": {
     "login_title": "Secure access",
@@ -158,5 +159,26 @@
     "content_placeholder": "Write the informed consent text…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "User and system access management",
+    "users": {
+      "title": "Users",
+      "invite_user": "Invite user",
+      "edit_user": "Edit user",
+      "full_name": "Full name",
+      "role": "Role",
+      "role_admin": "Administrator",
+      "role_clinica": "Clinic",
+      "admin_hint": "Admin has full access to all sections.",
+      "permissions": "Access permissions",
+      "permissions_hint": "Select which sections this user can access.",
+      "send_invite": "Send invitation",
+      "no_users": "No users yet. Invite the first one.",
+      "inactive": "Inactive",
+      "activate": "Activate user",
+      "deactivate": "Deactivate user"
+    }
   }
 }

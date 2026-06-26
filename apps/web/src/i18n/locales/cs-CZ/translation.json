@@ -10,7 +10,8 @@
     "consents": "Souhlasy",
     "clinic": "Klinika",
     "logout": "Odhlásit se",
-    "templates": "Šablony"
+    "templates": "Šablony",
+    "settings": "Nastavení"
   },
   "auth": {
     "login_title": "Zabezpečený přístup",
@@ -158,5 +159,26 @@
     "content_placeholder": "Napište text informovaného souhlasu…",
     "saving": "Ukládání…",
     "saved": "Uloženo"
+  },
+  "settings": {
+    "title": "Nastavení",
+    "subtitle": "Správa uživatelů a přístupu",
+    "users": {
+      "title": "Uživatelé",
+      "invite_user": "Pozvat uživatele",
+      "edit_user": "Upravit uživatele",
+      "full_name": "Celé jméno",
+      "role": "Role",
+      "role_admin": "Administrátor",
+      "role_clinica": "Klinika",
+      "admin_hint": "Administrátor má plný přístup ke všem sekcím.",
+      "permissions": "Přístupová oprávnění",
+      "permissions_hint": "Vyberte dostupné sekce.",
+      "send_invite": "Odeslat pozvánku",
+      "no_users": "Žádní uživatelé. Pozvěte prvního.",
+      "inactive": "Neaktivní",
+      "activate": "Aktivovat",
+      "deactivate": "Deaktivovat"
+    }
   }
 }

@@ -10,7 +10,8 @@
     "consents": "הסכמות",
     "clinic": "קליניקה",
     "logout": "התנתקות",
-    "templates": "תבניות"
+    "templates": "תבניות",
+    "settings": "הגדרות"
   },
   "auth": {
     "login_title": "גישה מאובטחת",
@@ -158,5 +159,26 @@
     "content_placeholder": "כתוב את טקסט ההסכמה המדעת…",
     "saving": "שומר…",
     "saved": "נשמר"
+  },
+  "settings": {
+    "title": "הגדרות",
+    "subtitle": "ניהול משתמשים וגישה למערכת",
+    "users": {
+      "title": "משתמשים",
+      "invite_user": "הזמן משתמש",
+      "edit_user": "ערוך משתמש",
+      "full_name": "שם מלא",
+      "role": "תפקיד",
+      "role_admin": "מנהל",
+      "role_clinica": "קליניקה",
+      "admin_hint": "למנהל יש גישה מלאה לכל הסעיפים.",
+      "permissions": "הרשאות גישה",
+      "permissions_hint": "בחר את הסעיפים הנגישים.",
+      "send_invite": "שלח הזמנה",
+      "no_users": "אין משתמשים. הזמן את הראשון.",
+      "inactive": "לא פעיל",
+      "activate": "הפעל",
+      "deactivate": "השבת"
+    }
   }
 }

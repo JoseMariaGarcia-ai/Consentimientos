@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, Stethoscope, FileText, Building2, BookOpen } from 'lucide-react'
+import { LayoutDashboard, Users, Stethoscope, FileText, Building2, BookOpen, Settings } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 
 const navItems = [
@@ -10,6 +10,10 @@ const navItems = [
   { to: '/consents', icon: FileText, label: 'nav.consents' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic' },
+]
+
+const bottomNavItems = [
+  { to: '/settings', icon: Settings, label: 'nav.settings' },
 ]
 
 export function Sidebar() {
@@ -33,6 +37,24 @@ export function Sidebar() {
           </NavLink>
         ))}
       </nav>
+
+      {/* Settings — above language selector */}
+      <div className="mx-2 pt-2 border-t border-slate-100">
+        {bottomNavItems.map(({ to, icon: Icon, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+              }`
+            }
+          >
+            <Icon className="w-4 h-4" />
+            {t(label)}
+          </NavLink>
+        ))}
+      </div>
 
       {/* Language selector — bottom of sidebar, always visible */}
       <div className="mx-2 mt-4 pt-4 border-t border-slate-100">

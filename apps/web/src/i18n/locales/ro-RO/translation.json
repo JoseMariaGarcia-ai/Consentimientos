@@ -10,7 +10,8 @@
     "consents": "Consimțăminte",
     "clinic": "Clinică",
     "logout": "Deconectare",
-    "templates": "Șabloane"
+    "templates": "Șabloane",
+    "settings": "Setări"
   },
   "auth": {
     "login_title": "Acces securizat",
@@ -158,5 +159,26 @@
     "content_placeholder": "Scrieți textul consimțământului informat…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Setări",
+    "subtitle": "Gestionarea utilizatorilor și accesului",
+    "users": {
+      "title": "Utilizatori",
+      "invite_user": "Invitați utilizator",
+      "edit_user": "Editați utilizatorul",
+      "full_name": "Nume complet",
+      "role": "Rol",
+      "role_admin": "Administrator",
+      "role_clinica": "Clinică",
+      "admin_hint": "Administratorul are acces complet la toate secțiunile.",
+      "permissions": "Permisiuni de acces",
+      "permissions_hint": "Selectați secțiunile accesibile.",
+      "send_invite": "Trimiteți invitația",
+      "no_users": "Niciun utilizator. Invitați primul.",
+      "inactive": "Inactiv",
+      "activate": "Activați",
+      "deactivate": "Dezactivați"
+    }
   }
 }

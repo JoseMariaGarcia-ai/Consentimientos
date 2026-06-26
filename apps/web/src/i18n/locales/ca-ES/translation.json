@@ -10,7 +10,8 @@
     "consents": "Consentiments",
     "clinic": "Clínica",
     "logout": "Tancar sessió",
-    "templates": "Plantilles"
+    "templates": "Plantilles",
+    "settings": "Configuració"
   },
   "auth": {
     "login_title": "Accés segur",
@@ -158,5 +159,26 @@
     "content_placeholder": "Escriu el text del consentiment informat…",
     "saving": "Desant…",
     "saved": "Desat"
+  },
+  "settings": {
+    "title": "Configuració",
+    "subtitle": "Gestió d'usuaris i accessos al sistema",
+    "users": {
+      "title": "Usuaris",
+      "invite_user": "Convidar usuari",
+      "edit_user": "Editar usuari",
+      "full_name": "Nom complet",
+      "role": "Rol",
+      "role_admin": "Administrador",
+      "role_clinica": "Clínica",
+      "admin_hint": "L'administrador té accés total a totes les seccions.",
+      "permissions": "Permisos d'accés",
+      "permissions_hint": "Selecciona les seccions accessibles.",
+      "send_invite": "Enviar invitació",
+      "no_users": "Cap usuari. Convida el primer.",
+      "inactive": "Inactiu",
+      "activate": "Activar",
+      "deactivate": "Desactivar"
+    }
   }
 }

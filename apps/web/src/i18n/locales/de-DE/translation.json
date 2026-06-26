@@ -10,7 +10,8 @@
     "consents": "Einwilligungen",
     "clinic": "Klinik",
     "logout": "Abmelden",
-    "templates": "Vorlagen"
+    "templates": "Vorlagen",
+    "settings": "Einstellungen"
   },
   "auth": {
     "login_title": "Sicherer Zugang",
@@ -158,5 +159,26 @@
     "content_placeholder": "Schreiben Sie den Text der Einwilligungserklärung…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Benutzer- und Zugriffsverwaltung",
+    "users": {
+      "title": "Benutzer",
+      "invite_user": "Benutzer einladen",
+      "edit_user": "Benutzer bearbeiten",
+      "full_name": "Vollständiger Name",
+      "role": "Rolle",
+      "role_admin": "Administrator",
+      "role_clinica": "Klinik",
+      "admin_hint": "Der Administrator hat vollen Zugriff auf alle Bereiche.",
+      "permissions": "Zugriffsberechtigungen",
+      "permissions_hint": "Wählen Sie die zugänglichen Bereiche.",
+      "send_invite": "Einladung senden",
+      "no_users": "Keine Benutzer. Laden Sie den ersten ein.",
+      "inactive": "Inaktiv",
+      "activate": "Aktivieren",
+      "deactivate": "Deaktivieren"
+    }
   }
 }

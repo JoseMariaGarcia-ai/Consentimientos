@@ -10,7 +10,8 @@
     "consents": "Samtykker",
     "clinic": "Klinikk",
     "logout": "Logg ut",
-    "templates": "Maler"
+    "templates": "Maler",
+    "settings": "Innstillinger"
   },
   "auth": {
     "login_title": "Sikker tilgang",
@@ -158,5 +159,26 @@
     "content_placeholder": "Skriv teksten til det informerte samtykket…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Innstillinger",
+    "subtitle": "Bruker- og tilgangsstyring",
+    "users": {
+      "title": "Brukere",
+      "invite_user": "Inviter bruker",
+      "edit_user": "Rediger bruker",
+      "full_name": "Fullt navn",
+      "role": "Rolle",
+      "role_admin": "Administrator",
+      "role_clinica": "Klinikk",
+      "admin_hint": "Administrator har full tilgang til alle seksjoner.",
+      "permissions": "Tilgangstillatelser",
+      "permissions_hint": "Velg tilgjengelige seksjoner.",
+      "send_invite": "Send invitasjon",
+      "no_users": "Ingen brukere. Inviter den første.",
+      "inactive": "Inaktiv",
+      "activate": "Aktiver",
+      "deactivate": "Deaktiver"
+    }
   }
 }

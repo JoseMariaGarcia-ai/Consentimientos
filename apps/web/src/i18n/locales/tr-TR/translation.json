@@ -10,7 +10,8 @@
     "consents": "Onaylar",
     "clinic": "Klinik",
     "logout": "Çıkış yap",
-    "templates": "Şablonlar"
+    "templates": "Şablonlar",
+    "settings": "Ayarlar"
   },
   "auth": {
     "login_title": "Güvenli erişim",
@@ -158,5 +159,26 @@
     "content_placeholder": "Aydınlatılmış onam metnini yazın…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Kullanıcı ve erişim yönetimi",
+    "users": {
+      "title": "Kullanıcılar",
+      "invite_user": "Kullanıcı davet et",
+      "edit_user": "Kullanıcıyı düzenle",
+      "full_name": "Tam ad",
+      "role": "Rol",
+      "role_admin": "Yönetici",
+      "role_clinica": "Klinik",
+      "admin_hint": "Yönetici tüm bölümlere tam erişime sahiptir.",
+      "permissions": "Erişim izinleri",
+      "permissions_hint": "Erişilebilir bölümleri seçin.",
+      "send_invite": "Davet gönder",
+      "no_users": "Kullanıcı yok. İlkini davet edin.",
+      "inactive": "Pasif",
+      "activate": "Etkinleştir",
+      "deactivate": "Devre dışı bırak"
+    }
   }
 }

@@ -10,7 +10,8 @@
     "consents": "Samtykker",
     "clinic": "Klinik",
     "logout": "Log ud",
-    "templates": "Skabeloner"
+    "templates": "Skabeloner",
+    "settings": "Indstillinger"
   },
   "auth": {
     "login_title": "Sikker adgang",
@@ -158,5 +159,26 @@
     "content_placeholder": "Skriv teksten til det informerede samtykke…",
     "saving": "Gemmer…",
     "saved": "Gemt"
+  },
+  "settings": {
+    "title": "Indstillinger",
+    "subtitle": "Bruger- og adgangsstyring",
+    "users": {
+      "title": "Brugere",
+      "invite_user": "Inviter bruger",
+      "edit_user": "Rediger bruger",
+      "full_name": "Fuldt navn",
+      "role": "Rolle",
+      "role_admin": "Administrator",
+      "role_clinica": "Klinik",
+      "admin_hint": "Administrator har fuld adgang til alle sektioner.",
+      "permissions": "Adgangstilladelser",
+      "permissions_hint": "Vælg tilgængelige sektioner.",
+      "send_invite": "Send invitation",
+      "no_users": "Ingen brugere. Inviter den første.",
+      "inactive": "Inaktiv",
+      "activate": "Aktiver",
+      "deactivate": "Deaktiver"
+    }
   }
 }

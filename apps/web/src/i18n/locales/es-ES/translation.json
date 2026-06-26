@@ -10,7 +10,8 @@
     "consents": "Consentimientos",
     "clinic": "Clínica",
     "logout": "Cerrar sesión",
-    "templates": "Plantillas"
+    "templates": "Plantillas",
+    "settings": "Configuración"
   },
   "auth": {
     "login_title": "Acceso seguro",
@@ -158,5 +159,26 @@
     "content_placeholder": "Escribe el texto del consentimiento informado…",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Gestión de usuarios y accesos al sistema",
+    "users": {
+      "title": "Usuarios",
+      "invite_user": "Invitar usuario",
+      "edit_user": "Editar usuario",
+      "full_name": "Nombre completo",
+      "role": "Rol",
+      "role_admin": "Administrador",
+      "role_clinica": "Clínica",
+      "admin_hint": "El administrador tiene acceso total a todas las secciones del sistema.",
+      "permissions": "Permisos de acceso",
+      "permissions_hint": "Selecciona a qué secciones tendrá acceso este usuario.",
+      "send_invite": "Enviar invitación",
+      "no_users": "No hay usuarios registrados. Invita al primero.",
+      "inactive": "Inactivo",
+      "activate": "Activar usuario",
+      "deactivate": "Desactivar usuario"
+    }
   }
 }
