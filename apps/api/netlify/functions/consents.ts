@@ -5,11 +5,9 @@ export async function handleConsents(method: string, path: string, body: any, us
   const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_KEY!);
 
   if (method === "GET" && path.includes("/templates")) {
-    // Return global templates (clinic_id IS NULL) + clinic-specific templates
     const { data, error } = await supabase
       .from("consent_templates")
       .select("*")
-      .or(`clinic_id.is.null,clinic_id.eq.${userId}`)
       .eq("is_active", true)
       .order("treatment_type", { ascending: true });
     if (error) throw error;
