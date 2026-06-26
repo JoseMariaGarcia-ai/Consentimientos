@@ -11,7 +11,13 @@ export async function handleConsents(method: string, path: string, body: any, us
       .eq("is_active", true)
       .order("treatment_type", { ascending: true });
     if (error) throw error;
-    return { status: 200, body: data };
+    const mapped = (data ?? []).map((t: any) => ({
+      id: t.id,
+      treatmentType: t.treatment_type,
+      contentJson: t.content_json,
+      legalClausesJson: t.legal_clauses_json,
+    }));
+    return { status: 200, body: mapped };
   }
   if (method === "GET") {
     const { data, error } = await supabase.from("consent_records").select("*, patient:patients(*), doctor:doctors(*), template:consent_templates(*)").order("created_at", { ascending: false });
