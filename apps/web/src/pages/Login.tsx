@@ -14,6 +14,10 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!email.includes('@') || !email.includes('.')) {
+      setError('Introduce un email válido')
+      return
+    }
     setLoading(true)
     setError('')
     try {
@@ -68,11 +72,12 @@ export default function Login() {
                 {t('login.email', 'Email')}
               </label>
               <input
-                type="email"
+                type="text"
+                inputMode="email"
+                autoComplete="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="tu@clinica.es"
-                required
                 className="px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
