@@ -1,1 +1,3 @@
-export { handlePdf } from "../../netlify/functions/pdf";
+import { Router } from 'express'
+const router = Router()
+export default router
