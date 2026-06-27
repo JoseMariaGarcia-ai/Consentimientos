@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { LanguageSelector } from '../language/LanguageSelector'
-import { supabase } from '../../lib/supabase'
+import { clearSession } from '../../lib/auth'
 
 export function Topbar() {
   const { t } = useTranslation()
@@ -16,7 +16,7 @@ export function Topbar() {
       <div className="ml-auto flex items-center gap-3">
         <LanguageSelector />
         <button
-          onClick={() => supabase.auth.signOut()}
+          onClick={() => { clearSession(); window.location.href = '/' }}
           className="text-white/80 hover:text-white text-sm border border-white/20 rounded-lg px-3 py-1.5 hover:bg-white/10 transition-colors"
         >
           {t('nav.logout')}

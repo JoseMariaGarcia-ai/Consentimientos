@@ -1,44 +1,41 @@
-import { supabase } from './supabase'
+import { getToken } from './auth'
 
 const BASE_URL = import.meta.env.VITE_API_URL
 
-async function getAuthHeader(): Promise<Record<string, string>> {
-  const { data: { session } } = await supabase.auth.getSession()
-  return session?.access_token ? { 'Authorization': `Bearer ${session.access_token}` } : {}
+function authHeaders(): Record<string, string> {
+  const token = getToken()
+  return token ? { Authorization: `Bearer ${token}` } : {}
+}
+
+async function handleResponse(r: Response) {
+  const data = await r.json()
+  if (!r.ok) throw new Error(data.error ?? r.statusText)
+  return data
 }
 
 export const api = {
-  get: async (path: string) => {
-    const auth = await getAuthHeader()
-    return fetch(`${BASE_URL}${path}`, {
-      headers: { 'Content-Type': 'application/json', ...auth },
-      credentials: 'include',
-    }).then(r => r.json())
-  },
-  post: async (path: string, body: unknown) => {
-    const auth = await getAuthHeader()
-    return fetch(`${BASE_URL}${path}`, {
+  get: (path: string) =>
+    fetch(`${BASE_URL}${path}`, {
+      headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    }).then(handleResponse),
+
+  post: (path: string, body: unknown) =>
+    fetch(`${BASE_URL}${path}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', ...auth },
+      headers: { 'Content-Type': 'application/json', ...authHeaders() },
       body: JSON.stringify(body),
-      credentials: 'include',
-    }).then(r => r.json())
-  },
-  put: async (path: string, body: unknown) => {
-    const auth = await getAuthHeader()
-    return fetch(`${BASE_URL}${path}`, {
+    }).then(handleResponse),
+
+  put: (path: string, body: unknown) =>
+    fetch(`${BASE_URL}${path}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', ...auth },
+      headers: { 'Content-Type': 'application/json', ...authHeaders() },
       body: JSON.stringify(body),
-      credentials: 'include',
-    }).then(r => r.json())
-  },
-  delete: async (path: string) => {
-    const auth = await getAuthHeader()
-    return fetch(`${BASE_URL}${path}`, {
+    }).then(handleResponse),
+
+  delete: (path: string) =>
+    fetch(`${BASE_URL}${path}`, {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json', ...auth },
-      credentials: 'include',
-    }).then(r => r.json())
-  },
+      headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    }).then(handleResponse),
 }

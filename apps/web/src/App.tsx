@@ -4,6 +4,7 @@ import { useLanguageStore } from './store/languageStore'
 import { Topbar } from './components/layout/Topbar'
 import { Sidebar } from './components/layout/Sidebar'
 import Login from './pages/Login'
+import AuthVerify from './pages/AuthVerify'
 import Dashboard from './pages/Dashboard'
 import Patients from './pages/Patients'
 import Doctors from './pages/Doctors'
@@ -13,10 +14,10 @@ import Templates from './pages/Templates'
 import Settings from './pages/Settings'
 import PatientPortal from './pages/PatientPortal'
 import VerifyConsent from './pages/VerifyConsent'
-import { useSupabaseAuth } from './lib/supabase'
+import { useAuth } from './lib/auth'
 
 export default function App() {
-  const { session, loading } = useSupabaseAuth()
+  const { isAuthenticated } = useAuth()
   const { currentLanguage } = useLanguageStore()
 
   useEffect(() => {
@@ -27,9 +28,9 @@ export default function App() {
   // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
   if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
+  if (window.location.pathname.startsWith('/auth/verify')) return <AuthVerify />
 
-  if (loading) return <div className="flex items-center justify-center h-screen bg-slate-50 text-brand">Cargando…</div>
-  if (!session) return <Login />
+  if (!isAuthenticated) return <Login />
 
   return (
     <div className="flex flex-col h-screen bg-slate-50">
