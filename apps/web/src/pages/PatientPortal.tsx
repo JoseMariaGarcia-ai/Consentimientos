@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import { useLanguageStore } from '@/store/languageStore'
 
-const API = import.meta.env.VITE_API_URL
+const API = import.meta.env.VITE_API_URL ?? ''
 type PortalStep = 'loading' | 'auth' | 'review' | 'sign' | 'done' | 'error'
 
 export default function PatientPortal() {

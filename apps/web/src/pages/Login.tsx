@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { Loader2 } from 'lucide-react'
 
-const API = import.meta.env.VITE_API_URL || '/.netlify/functions'
+const API = import.meta.env.VITE_API_URL ?? ''
 
 export default function Login() {
   const { t } = useTranslation()

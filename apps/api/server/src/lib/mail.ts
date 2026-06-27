@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function sendMagicLink(to: string, token: string, appUrl: string) {
   const link = `${appUrl}/auth/verify?token=${token}`
   await resend.emails.send({
-    from: process.env.RESEND_FROM ?? 'ConsentsPro <noreply@consentspro.com>',
+    from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to,
     subject: 'Tu enlace de acceso a ConsentsPro',
     html: `

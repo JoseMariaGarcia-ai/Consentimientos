@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { saveSession } from '@/lib/auth'
 
-const API = import.meta.env.VITE_API_URL
+const API = import.meta.env.VITE_API_URL ?? ''
 
 export default function AuthVerify() {
   const [status, setStatus] = useState<'loading' | 'ok' | 'error'>('loading')

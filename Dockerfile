@@ -3,6 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Vite bakes env vars at build time — must be declared as ARG+ENV
+ARG VITE_API_URL
+ARG VITE_CLOUDINARY_CLOUD_NAME
+ARG VITE_CLOUDINARY_UPLOAD_PRESET
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_CLOUDINARY_CLOUD_NAME=$VITE_CLOUDINARY_CLOUD_NAME
+ENV VITE_CLOUDINARY_UPLOAD_PRESET=$VITE_CLOUDINARY_UPLOAD_PRESET
+
 # Copy workspace manifests first for better layer caching
 COPY package.json package-lock.json ./
 COPY apps/web/package.json ./apps/web/
