@@ -12,9 +12,10 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email.includes('@') || !email.includes('.')) {
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  const handleSubmit = async () => {
+    if (!EMAIL_RE.test(email.trim())) {
       setError('Introduce un email válido')
       return
     }
@@ -24,7 +25,7 @@ export default function Login() {
       const res = await fetch(`${API}/auth/magic-link`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: email.trim() }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error ?? 'Error al enviar el enlace')
@@ -66,7 +67,7 @@ export default function Login() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">
                 {t('login.email', 'Email')}
@@ -77,20 +78,22 @@ export default function Login() {
                 autoComplete="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && handleSubmit()}
                 placeholder="tu@clinica.es"
                 className="px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={loading}
               className="py-2.5 bg-[#0a2342] text-white rounded-xl font-medium hover:bg-[#1a4a7a] disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
             >
               {loading && <Loader2 className="w-4 h-4 animate-spin" />}
               {loading ? t('common.loading', 'Enviando…') : t('login.magic_link', 'Entrar con Magic Link')}
             </button>
-          </form>
+          </div>
         )}
 
         <p className="text-xs text-slate-400 text-center mt-6">
