@@ -1,8 +1,7 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function sendMagicLink(to: string, token: string, appUrl: string) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const link = `${appUrl}/auth/verify?token=${token}`
   await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
