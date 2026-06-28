@@ -10,6 +10,7 @@ import signatureRouter from './routes/signature'
 import verifyRouter from './routes/verify'
 import translateRouter from './routes/translate'
 import usersRouter from './routes/users'
+import photosRouter from './routes/photos'
 
 const app = express()
 
@@ -33,6 +34,7 @@ app.use('/api/clinic',    authMiddleware, clinicRouter)
 app.use('/api/signature', authMiddleware, signatureRouter)
 app.use('/api/translate', authMiddleware, translateRouter)
 app.use('/api/users',     authMiddleware, usersRouter)
+app.use('/api/photos',    authMiddleware, photosRouter)
 
 const PORT = process.env.PORT ?? 3001
 app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
