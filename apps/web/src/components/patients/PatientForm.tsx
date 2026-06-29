@@ -11,6 +11,24 @@ interface PatientFormProps {
 const BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 const DOC_TYPES = ['DNI', 'NIE', 'Pasaporte', 'Other']
 
+const COUNTRIES = [
+  'España', 'Alemania', 'Argentina', 'Bélgica', 'Bolivia', 'Brasil', 'Chile', 'China',
+  'Colombia', 'Costa Rica', 'Cuba', 'Ecuador', 'El Salvador', 'EE.UU.', 'Francia',
+  'Guatemala', 'Honduras', 'Italia', 'Marruecos', 'México', 'Nicaragua', 'Países Bajos',
+  'Panamá', 'Paraguay', 'Perú', 'Portugal', 'Reino Unido', 'República Dominicana',
+  'Suiza', 'Uruguay', 'Venezuela', 'Otro',
+]
+
+const PROVINCIAS_ES = [
+  'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares',
+  'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real',
+  'Córdoba', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca',
+  'Jaén', 'La Coruña', 'La Rioja', 'Las Palmas', 'León', 'Lleida', 'Lugo', 'Madrid',
+  'Málaga', 'Murcia', 'Navarra', 'Ourense', 'Palencia', 'Pontevedra', 'Salamanca',
+  'Santa Cruz de Tenerife', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo',
+  'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza', 'Ceuta', 'Melilla',
+]
+
 const PHONE_PREFIXES = [
   { code: '+34', flag: '🇪🇸', label: 'España' },
   { code: '+1',  flag: '🇺🇸', label: 'EE.UU.' },
@@ -42,6 +60,17 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
   }
   const { firstName: initFirst, lastName: initLast } = splitName(initial.fullName)
 
+  const splitAddress = (full = '') => {
+    const parts = full.split('|')
+    return {
+      addrStreet: parts[0] ?? '',
+      addrCity: parts[1] ?? '',
+      addrProvince: parts[2] ?? '',
+      addrCountry: parts[3] ?? 'España',
+    }
+  }
+  const { addrStreet: initStreet, addrCity: initCity, addrProvince: initProvince, addrCountry: initCountry } = splitAddress(initial.address)
+
   const splitPhone = (full = '') => {
     const prefix = PHONE_PREFIXES.find(p => full.startsWith(p.code))
     return prefix
@@ -59,7 +88,10 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     phonePrefix: initPrefix,
     phoneNumber: initNumber,
     email: initial.email ?? '',
-    address: initial.address ?? '',
+    addrStreet: initStreet,
+    addrCity: initCity,
+    addrProvince: initProvince,
+    addrCountry: initCountry,
     allergies: initial.allergies ?? '',
     medications: initial.medications ?? '',
     bloodType: initial.bloodType ?? '',
@@ -82,8 +114,13 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSaving(true)
     try {
-      const { firstName, lastName, phonePrefix, phoneNumber, ...rest } = form
-      await onSave({ ...rest, fullName: [firstName, lastName].filter(Boolean).join(' '), phone: `${phonePrefix} ${phoneNumber}`.trim() })
+      const { firstName, lastName, phonePrefix, phoneNumber, addrStreet, addrCity, addrProvince, addrCountry, ...rest } = form
+      await onSave({
+        ...rest,
+        fullName: [firstName, lastName].filter(Boolean).join(' '),
+        phone: `${phonePrefix} ${phoneNumber}`.trim(),
+        address: [addrStreet, addrCity, addrProvince, addrCountry].join('|'),
+      })
       onClose()
     } finally {
       setSaving(false)
@@ -161,7 +198,29 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
           </div>
           {field('email', t('patients.email'), { type: 'email' })}
-          <div className="col-span-2">{field('address', t('patients.address'))}</div>
+          <div className="col-span-2">{field('addrStreet', 'Dirección')}</div>
+          {field('addrCity', 'Ciudad')}
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Provincia</label>
+            <select
+              value={form.addrProvince}
+              onChange={e => setForm(f => ({ ...f, addrProvince: e.target.value }))}
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">— Seleccionar —</option>
+              {PROVINCIAS_ES.map(p => <option key={p}>{p}</option>)}
+            </select>
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">País</label>
+            <select
+              value={form.addrCountry}
+              onChange={e => setForm(f => ({ ...f, addrCountry: e.target.value }))}
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {COUNTRIES.map(c => <option key={c}>{c}</option>)}
+            </select>
+          </div>
 
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.blood_type')}</label>
