@@ -89,13 +89,10 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
   const handleSign = async (dataUrl: string, points: any[]) => {
     setSaving(true)
     try {
-      await api.post('/signature', {
-        consentId,
-        patientId,
-        signatureDataUrl: dataUrl,
-        biometricPoints: points,
-        documentContent: legalData.body,
-        language: currentLanguage,
+      await api.post(`/signature/${consentId}`, {
+        signature_data_url: dataUrl,
+        biometric_json: JSON.stringify(points),
+        client_timestamp: new Date().toISOString(),
       })
       setStep('done')
       onSaved()
