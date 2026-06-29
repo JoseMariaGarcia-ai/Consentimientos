@@ -3,6 +3,20 @@ import { X } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 
+function getEmbedUrl(url: string): string | null {
+  try {
+    const u = new URL(url)
+    const ytId = u.searchParams.get('v') ?? (u.hostname === 'youtu.be' ? u.pathname.slice(1) : null)
+    if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1`
+    if (u.hostname.includes('youtube.com') && u.pathname.startsWith('/shorts/')) {
+      return `https://www.youtube.com/embed/${u.pathname.split('/')[2]}?autoplay=1`
+    }
+    const vimeoId = u.hostname.includes('vimeo.com') ? u.pathname.split('/').filter(Boolean)[0] : null
+    if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}?autoplay=1`
+  } catch {}
+  return null
+}
+
 const LS_LAST_SHOWN   = 'welcome_media_last_shown'
 const LS_SEQ_INDEX    = 'welcome_media_seq_index'
 const SS_SESSION      = 'welcome_media_shown_session'
@@ -109,7 +123,9 @@ export function WelcomeMediaModal() {
 
   if (!visible || !creative) return null
 
-  const isVideo = creative.content_type?.startsWith('video')
+  const isUrlCreative = creative.content_type === 'video/url'
+  const isVideo = creative.content_type?.startsWith('video') && !isUrlCreative
+  const embedUrl = isUrlCreative ? getEmbedUrl(creative.url) : null
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={close}>
@@ -118,7 +134,30 @@ export function WelcomeMediaModal() {
           <X className="w-5 h-5" />
         </button>
 
-        {isVideo ? (
+        {isUrlCreative ? (
+          embedUrl ? (
+            <iframe
+              src={embedUrl}
+              className="w-full"
+              style={{ height: 'min(80vh, 540px)' }}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={creative.original_name}
+            />
+          ) : (
+            // Direct video URL
+            <video
+              ref={videoRef}
+              src={creative.url}
+              autoPlay
+              controls
+              playsInline
+              className="w-full max-h-[80vh] object-contain"
+              onEnded={close}
+            />
+          )
+        ) : isVideo ? (
           <video ref={videoRef} src={creative.url} autoPlay controls playsInline className="w-full max-h-[80vh] object-contain" onEnded={close} />
         ) : (
           <img src={creative.url} alt="Bienvenida" className="w-full max-h-[80vh] object-contain" />

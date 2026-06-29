@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react'
-import { Upload, Trash2, Film, Image, Loader2, CheckCircle2, Shuffle, ListOrdered, MousePointer } from 'lucide-react'
+import { Upload, Trash2, Film, Image, Loader2, CheckCircle2, Shuffle, ListOrdered, MousePointer, Link, X } from 'lucide-react'
 import { api } from '@/lib/api'
 
 interface Creative {
   id: string
   url: string
+  source_url?: string
   original_name: string
   content_type: string
   order_index: number
@@ -30,10 +31,29 @@ interface Props {
 const MAX = 5
 
 const DISPLAY_MODES = [
-  { value: 'manual',     icon: MousePointer,  label: 'Selección manual',   desc: 'Tú eliges cuál se muestra. Haz clic en una creatividad para activarla.' },
-  { value: 'random',     icon: Shuffle,       label: 'Orden aleatorio',     desc: 'Se elige una creatividad al azar cada vez que toca mostrarla.' },
-  { value: 'sequential', icon: ListOrdered,   label: 'Orden secuencial',    desc: 'Se van mostrando en orden, una por una, cada vez que toca.' },
+  { value: 'manual',     icon: MousePointer, label: 'Selección manual',  desc: 'Tú eliges cuál se muestra. Haz clic en una creatividad para activarla.' },
+  { value: 'random',     icon: Shuffle,      label: 'Orden aleatorio',    desc: 'Se elige una creatividad al azar cada vez que toca mostrarla.' },
+  { value: 'sequential', icon: ListOrdered,  label: 'Orden secuencial',   desc: 'Se van mostrando en orden, una por una, cada vez que toca.' },
 ]
+
+// Detect YouTube / Vimeo and return embed URL
+function getEmbedUrl(url: string): string | null {
+  try {
+    const u = new URL(url)
+    // YouTube
+    const ytId = u.searchParams.get('v') ?? (u.hostname === 'youtu.be' ? u.pathname.slice(1) : null)
+    if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1`
+    if (u.hostname.includes('youtube.com') && u.pathname.startsWith('/shorts/')) {
+      return `https://www.youtube.com/embed/${u.pathname.split('/')[2]}?autoplay=1`
+    }
+    // Vimeo
+    const vimeoId = u.hostname.includes('vimeo.com') ? u.pathname.split('/').filter(Boolean)[0] : null
+    if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}?autoplay=1`
+  } catch {}
+  return null
+}
+
+function isUrlCreative(c: Creative) { return c.content_type === 'video/url' }
 
 export function CreativesGallery({ type, title, description, files, settings, onChanged }: Props) {
   const [uploading, setUploading]   = useState(false)
@@ -41,10 +61,14 @@ export function CreativesGallery({ type, title, description, files, settings, on
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [savingMode, setSavingMode] = useState(false)
   const [error, setError]           = useState('')
+  const [urlInput, setUrlInput]     = useState('')
+  const [urlLabel, setUrlLabel]     = useState('')
+  const [showUrlForm, setShowUrlForm] = useState(false)
+  const [savingUrl, setSavingUrl]   = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const displayMode  = settings?.display_mode ?? 'manual'
-  const activeId     = settings?.active_creative_id ?? null
+  const displayMode = settings?.display_mode ?? 'manual'
+  const activeId    = settings?.active_creative_id ?? null
 
   const handleFile = async (file: File) => {
     if (file.size / 1024 / 1024 > 100) { setError('El archivo supera el límite de 100 MB'); return }
@@ -59,6 +83,18 @@ export function CreativesGallery({ type, title, description, files, settings, on
     finally { setUploading(false); setProgress(0) }
   }
 
+  const handleAddUrl = async () => {
+    if (!urlInput.trim()) return
+    try { new URL(urlInput) } catch { setError('URL no válida'); return }
+    setSavingUrl(true); setError('')
+    try {
+      await api.post(`/media/${type}/url`, { source_url: urlInput.trim(), label: urlLabel.trim() || urlInput.trim() })
+      setUrlInput(''); setUrlLabel(''); setShowUrlForm(false)
+      onChanged()
+    } catch (e: any) { setError(e.message) }
+    finally { setSavingUrl(false) }
+  }
+
   const handleDelete = async (id: string) => {
     if (!confirm('¿Eliminar esta creatividad?')) return
     setDeletingId(id)
@@ -68,10 +104,8 @@ export function CreativesGallery({ type, title, description, files, settings, on
   }
 
   const handleSetActive = async (id: string) => {
-    try {
-      await api.put(`/media/${type}/config`, { active_creative_id: id, display_mode: 'manual' })
-      onChanged()
-    } catch (e: any) { setError(e.message) }
+    try { await api.put(`/media/${type}/config`, { active_creative_id: id, display_mode: 'manual' }); onChanged() }
+    catch (e: any) { setError(e.message) }
   }
 
   const handleModeChange = async (mode: string) => {
@@ -92,8 +126,10 @@ export function CreativesGallery({ type, title, description, files, settings, on
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {files.map(f => {
           const isActive  = activeId === f.id
-          const isVideo   = f.content_type.startsWith('video')
+          const isUrl     = isUrlCreative(f)
+          const isVideo   = f.content_type.startsWith('video') && !isUrl
           const deleting  = deletingId === f.id
+          const embed     = isUrl ? getEmbedUrl(f.url) : null
 
           return (
             <div key={f.id} className="flex flex-col gap-1.5">
@@ -106,7 +142,23 @@ export function CreativesGallery({ type, title, description, files, settings, on
                 style={{ aspectRatio: '9/16' }}
                 onClick={() => displayMode === 'manual' && handleSetActive(f.id)}
               >
-                {isVideo ? (
+                {isUrl ? (
+                  embed ? (
+                    <iframe
+                      src={embed.replace('autoplay=1', 'autoplay=0')}
+                      className="w-full h-full pointer-events-none"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                      allowFullScreen
+                      title={f.original_name}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-800 flex flex-col items-center justify-center gap-1 p-2">
+                      <Link className="w-5 h-5 text-slate-400" />
+                      <p className="text-[9px] text-slate-400 text-center break-all leading-tight">{f.url.slice(0, 40)}…</p>
+                    </div>
+                  )
+                ) : isVideo ? (
                   <video src={f.url} className="w-full h-full object-cover" muted />
                 ) : (
                   <img src={f.url} alt={f.original_name} className="w-full h-full object-cover" />
@@ -124,8 +176,8 @@ export function CreativesGallery({ type, title, description, files, settings, on
 
                 {/* Type badge */}
                 <div className="absolute bottom-1.5 left-1.5 flex items-center gap-0.5 bg-black/60 text-white rounded-full px-1.5 py-0.5 text-[9px] font-medium">
-                  {isVideo ? <Film className="w-2.5 h-2.5" /> : <Image className="w-2.5 h-2.5" />}
-                  {isVideo ? 'Vídeo' : 'Imagen'}
+                  {isUrl ? <Link className="w-2.5 h-2.5" /> : isVideo ? <Film className="w-2.5 h-2.5" /> : <Image className="w-2.5 h-2.5" />}
+                  {isUrl ? 'URL' : isVideo ? 'Vídeo' : 'Imagen'}
                 </div>
 
                 {/* Delete */}
@@ -134,14 +186,10 @@ export function CreativesGallery({ type, title, description, files, settings, on
                   disabled={deleting}
                   className="absolute top-1.5 right-1.5 p-1 bg-black/60 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
                 >
-                  {deleting
-                    ? <Loader2 className="w-3 h-3 animate-spin" />
-                    : <Trash2 className="w-3 h-3" />
-                  }
+                  {deleting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
                 </button>
               </div>
 
-              {/* Manual select button */}
               {displayMode === 'manual' && (
                 <button
                   onClick={() => handleSetActive(f.id)}
@@ -161,9 +209,7 @@ export function CreativesGallery({ type, title, description, files, settings, on
           <div
             onClick={() => !uploading && inputRef.current?.click()}
             className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer transition-colors ${
-              uploading
-                ? 'border-pink-300 bg-pink-50 cursor-not-allowed'
-                : 'border-slate-300 hover:border-pink-400 hover:bg-slate-50'
+              uploading ? 'border-pink-300 bg-pink-50 cursor-not-allowed' : 'border-slate-300 hover:border-pink-400 hover:bg-slate-50'
             }`}
             style={{ aspectRatio: '9/16' }}
           >
@@ -178,7 +224,7 @@ export function CreativesGallery({ type, title, description, files, settings, on
             ) : (
               <>
                 <Upload className="w-6 h-6 text-slate-300 mb-1" />
-                <span className="text-[10px] font-medium text-slate-400">Subir</span>
+                <span className="text-[10px] font-medium text-slate-400">Subir archivo</span>
                 <span className="text-[9px] text-slate-300 mt-0.5">{MAX - files.length} libre{MAX - files.length !== 1 ? 's' : ''}</span>
               </>
             )}
@@ -186,7 +232,56 @@ export function CreativesGallery({ type, title, description, files, settings, on
         )}
       </div>
 
-      {/* Display mode selector — only when there are ≥2 creatives */}
+      {/* URL button */}
+      {files.length < MAX && (
+        <div>
+          {!showUrlForm ? (
+            <button
+              onClick={() => setShowUrlForm(true)}
+              className="flex items-center gap-2 text-xs font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-400 px-3 py-1.5 rounded-lg transition-colors"
+            >
+              <Link className="w-3.5 h-3.5" />
+              Añadir URL de vídeo (YouTube, Vimeo, MP4…)
+            </button>
+          ) : (
+            <div className="flex flex-col gap-2 bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-semibold text-slate-600">Añadir vídeo por URL</p>
+                <button onClick={() => { setShowUrlForm(false); setUrlInput(''); setUrlLabel(''); setError('') }}>
+                  <X className="w-4 h-4 text-slate-400 hover:text-slate-600" />
+                </button>
+              </div>
+              <input
+                type="url"
+                value={urlInput}
+                onChange={e => setUrlInput(e.target.value)}
+                placeholder="https://www.youtube.com/watch?v=… o URL directa a .mp4"
+                className="px-3 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-pink-400"
+                onKeyDown={e => e.key === 'Enter' && handleAddUrl()}
+                autoFocus
+              />
+              <input
+                type="text"
+                value={urlLabel}
+                onChange={e => setUrlLabel(e.target.value)}
+                placeholder="Nombre o descripción (opcional)"
+                className="px-3 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-pink-400"
+              />
+              <p className="text-[10px] text-slate-400">Compatible con YouTube, Vimeo y URLs directas de vídeo (.mp4, .webm…)</p>
+              <button
+                onClick={handleAddUrl}
+                disabled={!urlInput.trim() || savingUrl}
+                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-pink-600 text-white rounded-lg text-xs font-semibold hover:bg-pink-700 disabled:opacity-50"
+              >
+                {savingUrl ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Link className="w-3.5 h-3.5" />}
+                {savingUrl ? 'Guardando…' : 'Añadir'}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Display mode selector — only when ≥2 creatives */}
       {files.length >= 2 && (
         <div className="flex flex-col gap-2 pt-1">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">¿Cómo mostrarlas?</p>
