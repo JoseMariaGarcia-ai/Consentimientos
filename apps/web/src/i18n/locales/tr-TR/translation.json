@@ -11,7 +11,8 @@
     "clinic": "Klinik",
     "logout": "Çıkış yap",
     "templates": "Şablonlar",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "clinicalRecords": "Klinik Kayıt"
   },
   "auth": {
     "login_title": "Güvenli erişim",

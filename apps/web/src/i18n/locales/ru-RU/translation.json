@@ -11,7 +11,8 @@
     "clinic": "Клиника",
     "logout": "Выйти",
     "templates": "Шаблоны",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "clinicalRecords": "История болезни"
   },
   "auth": {
     "login_title": "Безопасный вход",

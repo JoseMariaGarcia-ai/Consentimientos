@@ -11,7 +11,8 @@
     "clinic": "Clínica",
     "logout": "Sair",
     "templates": "Modelos",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "clinicalRecords": "Histórico Clínico"
   },
   "auth": {
     "login_title": "Acesso seguro",

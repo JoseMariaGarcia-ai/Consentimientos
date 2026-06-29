@@ -11,7 +11,8 @@
     "clinic": "Klinik",
     "logout": "Abmelden",
     "templates": "Vorlagen",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "clinicalRecords": "Krankenakte"
   },
   "auth": {
     "login_title": "Sicherer Zugang",

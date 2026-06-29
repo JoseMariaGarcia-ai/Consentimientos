@@ -11,7 +11,8 @@
     "clinic": "诊所",
     "logout": "退出登录",
     "templates": "模板",
-    "settings": "设置"
+    "settings": "设置",
+    "clinicalRecords": "病历"
   },
   "auth": {
     "login_title": "安全访问",

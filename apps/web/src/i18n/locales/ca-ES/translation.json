@@ -11,7 +11,8 @@
     "clinic": "Clínica",
     "logout": "Tancar sessió",
     "templates": "Plantilles",
-    "settings": "Configuració"
+    "settings": "Configuració",
+    "clinicalRecords": "Història Clínica"
   },
   "auth": {
     "login_title": "Accés segur",

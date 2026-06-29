@@ -11,7 +11,8 @@
     "clinic": "Clínica",
     "logout": "Terminar sessão",
     "templates": "Modelos",
-    "settings": "Configurações"
+    "settings": "Configurações",
+    "clinicalRecords": "Historial Clínico"
   },
   "auth": {
     "login_title": "Acesso seguro",

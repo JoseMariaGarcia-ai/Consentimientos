@@ -11,7 +11,8 @@
     "clinic": "Clinic",
     "logout": "Log out",
     "templates": "Templates",
-    "settings": "Settings"
+    "settings": "Settings",
+    "clinicalRecords": "Clinical Records"
   },
   "auth": {
     "login_title": "Secure access",

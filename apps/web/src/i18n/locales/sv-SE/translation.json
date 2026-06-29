@@ -11,7 +11,8 @@
     "clinic": "Klinik",
     "logout": "Logga ut",
     "templates": "Mallar",
-    "settings": "Inställningar"
+    "settings": "Inställningar",
+    "clinicalRecords": "Journalanteckningar"
   },
   "auth": {
     "login_title": "Säker åtkomst",

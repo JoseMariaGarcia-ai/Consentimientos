@@ -11,7 +11,8 @@
     "clinic": "קליניקה",
     "logout": "התנתקות",
     "templates": "תבניות",
-    "settings": "הגדרות"
+    "settings": "הגדרות",
+    "clinicalRecords": "רשומה רפואית"
   },
   "auth": {
     "login_title": "גישה מאובטחת",

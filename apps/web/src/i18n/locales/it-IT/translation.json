@@ -11,7 +11,8 @@
     "clinic": "Clinica",
     "logout": "Disconnetti",
     "templates": "Modelli",
-    "settings": "Impostazioni"
+    "settings": "Impostazioni",
+    "clinicalRecords": "Cartella Clinica"
   },
   "auth": {
     "login_title": "Accesso sicuro",

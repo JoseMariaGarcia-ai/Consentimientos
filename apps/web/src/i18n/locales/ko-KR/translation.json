@@ -11,7 +11,8 @@
     "clinic": "클리닉",
     "logout": "로그아웃",
     "templates": "템플릿",
-    "settings": "설정"
+    "settings": "설정",
+    "clinicalRecords": "진료 기록"
   },
   "auth": {
     "login_title": "보안 접속",

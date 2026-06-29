@@ -11,7 +11,8 @@
     "clinic": "Klinikka",
     "logout": "Kirjaudu ulos",
     "templates": "Mallit",
-    "settings": "Asetukset"
+    "settings": "Asetukset",
+    "clinicalRecords": "Potilaskertomus"
   },
   "auth": {
     "login_title": "Suojattu sisäänpääsy",

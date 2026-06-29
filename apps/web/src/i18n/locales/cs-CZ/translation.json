@@ -11,7 +11,8 @@
     "clinic": "Klinika",
     "logout": "Odhlásit se",
     "templates": "Šablony",
-    "settings": "Nastavení"
+    "settings": "Nastavení",
+    "clinicalRecords": "Klinický Záznam"
   },
   "auth": {
     "login_title": "Zabezpečený přístup",

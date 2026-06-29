@@ -11,7 +11,8 @@
     "clinic": "Клініка",
     "logout": "Вийти",
     "templates": "Шаблони",
-    "settings": "Налаштування"
+    "settings": "Налаштування",
+    "clinicalRecords": "Клінічна Карта"
   },
   "auth": {
     "login_title": "Безпечний доступ",

@@ -133,8 +133,8 @@ export default function Patients() {
                   const lastName = parts.slice(1).join(' ')
                   return (
                   <tr key={p.id} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-4 py-3 font-medium text-slate-800">{(p as any).firstName ?? firstName}</td>
-                    <td className="px-4 py-3 font-medium text-slate-800">{(p as any).lastName ?? lastName}</td>
+                    <td className="px-4 py-3 font-medium text-blue-700 cursor-pointer hover:underline" onClick={() => navigate(`/patients/${p.id}`)}>{(p as any).firstName ?? firstName}</td>
+                    <td className="px-4 py-3 font-medium text-blue-700 cursor-pointer hover:underline" onClick={() => navigate(`/patients/${p.id}`)}>{(p as any).lastName ?? lastName}</td>
                     <td className="px-4 py-3 text-slate-500">
                       <span className="text-xs bg-slate-100 px-1.5 py-0.5 rounded mr-1">{p.idDocType}</span>
                       {p.idDocument}

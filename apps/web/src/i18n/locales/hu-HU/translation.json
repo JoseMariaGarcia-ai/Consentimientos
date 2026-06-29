@@ -11,7 +11,8 @@
     "clinic": "Klinika",
     "logout": "Kijelentkezés",
     "templates": "Sablonok",
-    "settings": "Beállítások"
+    "settings": "Beállítások",
+    "clinicalRecords": "Klinikai Napló"
   },
   "auth": {
     "login_title": "Biztonságos hozzáférés",

@@ -11,7 +11,8 @@
     "clinic": "Clinique",
     "logout": "Se déconnecter",
     "templates": "Modèles",
-    "settings": "Paramètres"
+    "settings": "Paramètres",
+    "clinicalRecords": "Dossiers Cliniques"
   },
   "auth": {
     "login_title": "Accès sécurisé",

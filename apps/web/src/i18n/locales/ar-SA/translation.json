@@ -11,7 +11,8 @@
     "clinic": "العيادة",
     "logout": "تسجيل الخروج",
     "templates": "القوالب",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "clinicalRecords": "السجل الطبي"
   },
   "auth": {
     "login_title": "الوصول الآمن",

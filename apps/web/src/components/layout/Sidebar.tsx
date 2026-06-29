@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, Stethoscope, FileText, Building2, BookOpen, Settings } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard' },
   { to: '/patients', icon: Users, label: 'nav.patients' },
-  { to: '/doctors', icon: Stethoscope, label: 'nav.doctors' },
+  { to: '/doctors', icon: UserCog, label: 'nav.doctors' },
   { to: '/consents', icon: FileText, label: 'nav.consents' },
+  { to: '/clinical-records', icon: ClipboardList, label: 'nav.clinicalRecords' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic' },
 ]

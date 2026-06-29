@@ -11,7 +11,8 @@
     "clinic": "Κλινική",
     "logout": "Αποσύνδεση",
     "templates": "Πρότυπα",
-    "settings": "Ρυθμίσεις"
+    "settings": "Ρυθμίσεις",
+    "clinicalRecords": "Κλινικό Αρχείο"
   },
   "auth": {
     "login_title": "Ασφαλής πρόσβαση",

@@ -11,7 +11,8 @@
     "clinic": "Phòng khám",
     "logout": "Đăng xuất",
     "templates": "Mẫu",
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "clinicalRecords": "Hồ Sơ Bệnh Án"
   },
   "auth": {
     "login_title": "Truy cập an toàn",

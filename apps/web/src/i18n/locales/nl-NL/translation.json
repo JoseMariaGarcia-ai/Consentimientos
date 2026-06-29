@@ -11,7 +11,8 @@
     "clinic": "Kliniek",
     "logout": "Uitloggen",
     "templates": "Sjablonen",
-    "settings": "Instellingen"
+    "settings": "Instellingen",
+    "clinicalRecords": "Klinisch Dossier"
   },
   "auth": {
     "login_title": "Beveiligde toegang",
