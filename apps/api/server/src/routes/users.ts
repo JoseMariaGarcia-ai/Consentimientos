@@ -21,8 +21,11 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { email, full_name, role, clinic_id, lab_partner_id, permissions } = req.body
+  const { email, full_name, role, lab_partner_id, permissions } = req.body
   try {
+    const { userId } = (req as any).user
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const clinic_id = clinicRow?.clinic_id ?? null
     const user = await queryOne<{ id: string }>(
       `INSERT INTO app_users (email, full_name, role, clinic_id, lab_partner_id) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
       [email, full_name, role ?? 'clinica', clinic_id, lab_partner_id ?? null]
