@@ -13,11 +13,19 @@ interface Stats {
   signed: number
 }
 
+function patientName(p: any): string {
+  if (!p) return '—'
+  const name = p.full_name ?? p.fullName ?? [p.first_name ?? p.firstName, p.last_name ?? p.lastName].filter(Boolean).join(' ')
+  return name || '—'
+}
+
 export default function Dashboard() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [stats, setStats] = useState<Stats>({ patients: 0, doctors: 0, consents: 0, pending: 0, signed: 0 })
-  const [recentConsents, setRecentConsents] = useState<any[]>([])
+  const [recentConsents, setRecentConsents]   = useState<any[]>([])
+  const [recentClinical, setRecentClinical]   = useState<any[]>([])
+  const [recentPhotos,   setRecentPhotos]     = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const { credits, low } = useCredits()
 
@@ -26,18 +34,24 @@ export default function Dashboard() {
       api.get('/patients'),
       api.get('/doctors'),
       api.get('/consents'),
-    ]).then(([patients, doctors, consents]) => {
+      api.get('/clinical-records'),
+      api.get('/photo-sessions'),
+    ]).then(([patients, doctors, consents, clinical, photos]) => {
       const p = Array.isArray(patients) ? patients : []
-      const d = Array.isArray(doctors) ? doctors : []
+      const d = Array.isArray(doctors)  ? doctors  : []
       const c = Array.isArray(consents) ? consents : []
+      const cr = Array.isArray(clinical) ? clinical : []
+      const ps = Array.isArray(photos)  ? photos   : []
       setStats({
         patients: p.length,
-        doctors: d.length,
+        doctors:  d.length,
         consents: c.length,
-        pending: c.filter((x: any) => x.status === 'pending').length,
-        signed: c.filter((x: any) => x.status === 'signed').length,
+        pending:  c.filter((x: any) => x.status === 'pending').length,
+        signed:   c.filter((x: any) => x.status === 'signed').length,
       })
       setRecentConsents(c.slice(0, 5))
+      setRecentClinical(cr.slice(0, 5))
+      setRecentPhotos(ps.slice(0, 5))
     }).finally(() => setLoading(false))
   }, [])
 
@@ -103,20 +117,20 @@ export default function Dashboard() {
           </div>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { label: 'Consentimientos',  value: credits.consents_available,         icon: FileText,     color: 'blue'   },
-              { label: 'Historias clínicas', value: credits.clinical_records_available, icon: ClipboardList, color: 'teal'   },
-              { label: 'Sesiones de fotos',  value: credits.photo_sessions_available,   icon: Camera,       color: 'violet' },
+              { label: 'Consentimientos',    value: credits.consents_available,          icon: FileText,      color: 'blue'   },
+              { label: 'Historias clínicas', value: credits.clinical_records_available,  icon: ClipboardList, color: 'teal'   },
+              { label: 'Sesiones de fotos',  value: credits.photo_sessions_available,    icon: Camera,        color: 'violet' },
             ].map(({ label, value, icon: Icon, color }) => {
-              const low = value <= 5
+              const isLow = value <= 5
               const cls: Record<string, string> = { blue: 'bg-blue-50 text-blue-700', teal: 'bg-teal-50 text-teal-700', violet: 'bg-violet-50 text-violet-700' }
               return (
-                <div key={label} className={`rounded-xl p-3 flex items-center gap-3 ${low ? 'bg-red-50' : cls[color]}`}>
-                  <Icon className={`w-4 h-4 flex-shrink-0 ${low ? 'text-red-500' : ''}`} />
+                <div key={label} className={`rounded-xl p-3 flex items-center gap-3 ${isLow ? 'bg-red-50' : cls[color]}`}>
+                  <Icon className={`w-4 h-4 flex-shrink-0 ${isLow ? 'text-red-500' : ''}`} />
                   <div>
-                    <p className={`text-xl font-black leading-none ${low ? 'text-red-600' : ''}`}>{value}</p>
+                    <p className={`text-xl font-black leading-none ${isLow ? 'text-red-600' : ''}`}>{value}</p>
                     <p className="text-[11px] text-slate-500 mt-0.5">{label}</p>
                   </div>
-                  {low && <AlertTriangle className="w-3.5 h-3.5 text-red-400 ml-auto flex-shrink-0" />}
+                  {isLow && <AlertTriangle className="w-3.5 h-3.5 text-red-400 ml-auto flex-shrink-0" />}
                 </div>
               )
             })}
@@ -149,32 +163,104 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Recent consents */}
-      {recentConsents.length > 0 && (
+      {/* Recent activity — 3 columns */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+        {/* Recent consents */}
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-700">Últimos consentimientos</h2>
+            <div className="flex items-center gap-2">
+              <FileText className="w-4 h-4 text-purple-500" />
+              <h2 className="text-sm font-semibold text-slate-700">Últimos consentimientos</h2>
+            </div>
             <button onClick={() => navigate('/consents')} className="text-xs text-blue-600 hover:underline">Ver todos →</button>
           </div>
-          <div className="divide-y divide-slate-50">
-            {recentConsents.map(c => (
-              <div key={c.id} className="px-5 py-3 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-slate-700">{c.patient?.fullName ?? '—'}</p>
-                  <p className="text-xs text-slate-400">{c.template?.treatmentType ?? '—'}</p>
+          {loading ? (
+            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+          ) : recentConsents.length === 0 ? (
+            <div className="p-6 text-center text-xs text-slate-400">Sin consentimientos</div>
+          ) : (
+            <div className="divide-y divide-slate-50">
+              {recentConsents.map(c => (
+                <div key={c.id} className="px-5 py-3 flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-slate-700 truncate">{patientName(c.patient)}</p>
+                    <p className="text-xs text-slate-400 truncate">{c.template?.treatmentType ?? c.template?.treatment_type ?? '—'}</p>
+                  </div>
+                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 ${
+                    c.status === 'signed'  ? 'bg-emerald-50 text-emerald-600' :
+                    c.status === 'pending' ? 'bg-amber-50 text-amber-600' :
+                    'bg-slate-100 text-slate-500'
+                  }`}>
+                    {String(t(`consents.status.${c.status}`, c.status))}
+                  </span>
                 </div>
-                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-                  c.status === 'signed' ? 'bg-emerald-50 text-emerald-600' :
-                  c.status === 'pending' ? 'bg-amber-50 text-amber-600' :
-                  'bg-slate-100 text-slate-500'
-                }`}>
-                  {String(t(`consents.status.${c.status}`, c.status))}
-                </span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+
+        {/* Recent clinical records */}
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+          <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <ClipboardList className="w-4 h-4 text-teal-500" />
+              <h2 className="text-sm font-semibold text-slate-700">Últimas historias clínicas</h2>
+            </div>
+            <button onClick={() => navigate('/clinical-records')} className="text-xs text-blue-600 hover:underline">Ver todas →</button>
+          </div>
+          {loading ? (
+            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+          ) : recentClinical.length === 0 ? (
+            <div className="p-6 text-center text-xs text-slate-400">Sin historias clínicas</div>
+          ) : (
+            <div className="divide-y divide-slate-50">
+              {recentClinical.map(r => (
+                <div key={r.id} className="px-5 py-3 flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-slate-700 truncate">{patientName(r.patient)}</p>
+                    <p className="text-xs text-slate-400 truncate">{r.reason_for_visit ?? r.diagnosis ?? '—'}</p>
+                  </div>
+                  <span className="text-xs text-slate-400 flex-shrink-0">
+                    {r.date ? new Date(r.date).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' }) : '—'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Recent photo sessions */}
+        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+          <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Camera className="w-4 h-4 text-violet-500" />
+              <h2 className="text-sm font-semibold text-slate-700">Últimas sesiones de fotos</h2>
+            </div>
+            <button onClick={() => navigate('/photos')} className="text-xs text-blue-600 hover:underline">Ver todas →</button>
+          </div>
+          {loading ? (
+            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+          ) : recentPhotos.length === 0 ? (
+            <div className="p-6 text-center text-xs text-slate-400">Sin sesiones fotográficas</div>
+          ) : (
+            <div className="divide-y divide-slate-50">
+              {recentPhotos.map(s => (
+                <div key={s.id} className="px-5 py-3 flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-slate-700 truncate">{patientName(s.patient)}</p>
+                    <p className="text-xs text-slate-400 truncate">{s.name ?? '—'}</p>
+                  </div>
+                  <span className="text-xs text-slate-400 flex-shrink-0">
+                    {s.session_date ? new Date(s.session_date).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' }) : '—'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+      </div>
     </div>
   )
 }
