@@ -6,15 +6,17 @@ interface ClinicalRecordFormProps {
   initial?: any
   patients: any[]
   doctors: Doctor[]
+  branches?: { id: string; name: string }[]
   onSave: (data: any) => Promise<void>
   onClose: () => void
 }
 
-export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, onClose }: ClinicalRecordFormProps) {
+export function ClinicalRecordForm({ initial = {}, patients, doctors, branches = [], onSave, onClose }: ClinicalRecordFormProps) {
   const { trigger: triggerWelcome } = useWelcomeMedia()
   const [form, setForm] = useState({
     patient_id:          initial.patient_id  ?? initial.patientId  ?? '',
     doctor_id:           initial.doctor_id   ?? initial.doctorId   ?? '',
+    branch:              initial.branch ?? '',
     date:                initial.date?.split('T')[0] ?? new Date().toISOString().split('T')[0],
     reason_for_visit:    (initial.reason_for_visit    ?? initial.reasonForVisit    ?? '').toUpperCase(),
     anamnesis:           (initial.anamnesis            ?? '').toUpperCase(),
@@ -71,7 +73,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
 
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
 
-          {/* Paciente + Doctor + Fecha */}
+          {/* Paciente + Doctor */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
@@ -99,6 +101,21 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
               </select>
             </div>
           </div>
+
+          {/* Clínica (sede) — solo si hay más de una */}
+          {branches.length > 1 && (
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Clínica / Sede</label>
+              <select
+                value={form.branch}
+                onChange={e => setRaw('branch', e.target.value)}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Sin especificar</option>
+                {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
+              </select>
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">

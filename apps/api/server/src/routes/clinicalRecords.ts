@@ -30,8 +30,8 @@ router.post('/', async (req, res) => {
     await deductCredit(clinicRow!.clinic_id, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
-        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`,
+        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, branch)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING *`,
       [
         clinicRow?.clinic_id,
         b.patient_id ?? b.patientId,
@@ -45,6 +45,7 @@ router.post('/', async (req, res) => {
         b.diagnosis ?? null,
         b.treatment_plan ?? b.treatmentPlan ?? null,
         b.notes ?? null,
+        b.branch ?? null,
       ]
     )
     return res.status(201).json(data)
@@ -58,8 +59,8 @@ router.put('/:id', async (req, res) => {
       `UPDATE clinical_records SET
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
         current_medications=$6, allergies=$7, physical_exam=$8, diagnosis=$9,
-        treatment_plan=$10, notes=$11, updated_at=NOW()
-       WHERE id=$12 RETURNING *`,
+        treatment_plan=$10, notes=$11, branch=$12, updated_at=NOW()
+       WHERE id=$13 RETURNING *`,
       [
         b.patient_id ?? b.patientId,
         b.doctor_id  ?? b.doctorId  ?? null,
@@ -72,6 +73,7 @@ router.put('/:id', async (req, res) => {
         b.diagnosis ?? null,
         b.treatment_plan ?? b.treatmentPlan ?? null,
         b.notes ?? null,
+        b.branch ?? null,
         req.params.id,
       ]
     )

@@ -3,15 +3,17 @@ import { Camera } from 'lucide-react'
 
 interface Props {
   patients: any[]
-  onSave: (data: { patient_id: string; name: string; notes: string; session_date: string }) => Promise<void>
+  doctors?: any[]
+  branches?: { id: string; name: string }[]
+  onSave: (data: { patient_id: string; doctor_id?: string; branch?: string; name: string; notes: string; session_date: string }) => Promise<void>
   onClose: () => void
 }
 
-export function NewSessionModal({ patients, onSave, onClose }: Props) {
+export function NewSessionModal({ patients, doctors = [], branches = [], onSave, onClose }: Props) {
   const now = new Date()
   const localISO = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16)
 
-  const [form, setForm] = useState({ patient_id: '', name: '', notes: '', session_date: localISO })
+  const [form, setForm] = useState({ patient_id: '', doctor_id: '', branch: '', name: '', notes: '', session_date: localISO })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
@@ -23,7 +25,12 @@ export function NewSessionModal({ patients, onSave, onClose }: Props) {
     setSaving(true)
     setError('')
     try {
-      await onSave({ ...form, session_date: new Date(form.session_date).toISOString() })
+      await onSave({
+        ...form,
+        session_date: new Date(form.session_date).toISOString(),
+        doctor_id: form.doctor_id || undefined,
+        branch: form.branch || undefined,
+      })
       onClose()
     } catch (err: any) {
       setError(err.message ?? 'Error desconocido')
@@ -44,6 +51,7 @@ export function NewSessionModal({ patients, onSave, onClose }: Props) {
         </div>
 
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
+          {/* Paciente */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
             <select
@@ -59,6 +67,37 @@ export function NewSessionModal({ patients, onSave, onClose }: Props) {
             </select>
           </div>
 
+          {/* Doctor */}
+          {doctors.length > 0 && (
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
+              <select
+                value={form.doctor_id}
+                onChange={e => set('doctor_id', e.target.value)}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+              >
+                <option value="">Sin asignar</option>
+                {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+              </select>
+            </div>
+          )}
+
+          {/* Clínica / Sede — solo si hay más de una */}
+          {branches.length > 1 && (
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Clínica / Sede</label>
+              <select
+                value={form.branch}
+                onChange={e => set('branch', e.target.value)}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+              >
+                <option value="">Sin especificar</option>
+                {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
+              </select>
+            </div>
+          )}
+
+          {/* Nombre sesión */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Nombre de la sesión</label>
             <input
@@ -70,6 +109,7 @@ export function NewSessionModal({ patients, onSave, onClose }: Props) {
             />
           </div>
 
+          {/* Fecha */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha y hora</label>
             <input
@@ -80,6 +120,7 @@ export function NewSessionModal({ patients, onSave, onClose }: Props) {
             />
           </div>
 
+          {/* Notas */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
             <textarea

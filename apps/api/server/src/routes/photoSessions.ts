@@ -24,9 +24,10 @@ router.get('/', async (req, res) => {
   const { patientId } = req.query
   try {
     const base = `
-      SELECT ps.*, row_to_json(p) AS patient
+      SELECT ps.*, row_to_json(p) AS patient, row_to_json(d) AS doctor
       FROM photo_sessions ps
       LEFT JOIN patients p ON p.id = ps.patient_id
+      LEFT JOIN doctors d ON d.id = ps.doctor_id
       WHERE ps.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
     `
     const sessions = patientId
@@ -45,10 +46,11 @@ router.post('/', async (req, res) => {
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     await deductCredit(clinicRow!.clinic_id, 'photo_sessions_available')
+    const { doctor_id, branch } = req.body
     const session = await queryOne(
-      `INSERT INTO photo_sessions (clinic_id, patient_id, name, notes, session_date)
-       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-      [clinicRow?.clinic_id, patient_id, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
+      `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date, branch)
+       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      [clinicRow?.clinic_id, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString(), branch ?? null]
     )
     return res.status(201).json({ ...session, photos: [] })
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }

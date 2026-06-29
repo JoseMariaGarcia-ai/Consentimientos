@@ -30,7 +30,7 @@ async function getSettings(clinicId: string, type: string) {
 async function enrichFiles(files: any[]) {
   return Promise.all(files.map(async f => ({
     ...f,
-    url: await getPresignedUrl(f.r2_key, 7200),
+    url: f.source_url ?? await getPresignedUrl(f.r2_key, 7200),
   })))
 }
 
@@ -102,6 +102,44 @@ router.post('/:type', async (req, res) => {
 
     const url = await getPresignedUrl(key, 7200)
     return res.status(201).json({ ...row, url })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// POST /api/media/:type/url — add a URL creative (no upload to R2)
+router.post('/:type/url', async (req, res) => {
+  const { userId } = (req as any).user
+  const type = req.params.type as 'welcome' | 'patient'
+  if (!['welcome', 'patient'].includes(type)) return res.status(400).json({ error: 'Invalid type' })
+
+  const { source_url, label } = req.body
+  if (!source_url) return res.status(400).json({ error: 'source_url requerida' })
+  try {
+    new URL(source_url) // validate
+  } catch {
+    return res.status(400).json({ error: 'URL no válida' })
+  }
+
+  try {
+    const clinicId = await getClinicId(userId)
+    const count = await queryOne<{ count: string }>('SELECT COUNT(*) FROM clinic_media WHERE clinic_id=$1 AND type=$2', [clinicId, type])
+    if (parseInt(count?.count ?? '0') >= MAX_CREATIVES) {
+      return res.status(400).json({ error: `Máximo ${MAX_CREATIVES} creatividades por slot` })
+    }
+    const maxIdx = await queryOne<{ max: number }>('SELECT COALESCE(MAX(order_index),0) AS max FROM clinic_media WHERE clinic_id=$1 AND type=$2', [clinicId, type])
+    const orderIndex = (maxIdx?.max ?? 0) + 1
+
+    const row = await queryOne<any>(
+      `INSERT INTO clinic_media (clinic_id, type, r2_key, source_url, original_name, content_type, order_index)
+       VALUES ($1,$2,NULL,$3,$4,'video/url',$5) RETURNING *`,
+      [clinicId, type, source_url, label ?? source_url, orderIndex]
+    )
+
+    const settings = await getSettings(clinicId, type)
+    if (!settings?.active_creative_id) {
+      await query('UPDATE clinic_media_settings SET active_creative_id=$1 WHERE clinic_id=$2 AND media_type=$3', [row!.id, clinicId, type])
+    }
+
+    return res.status(201).json({ ...row, url: source_url })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 

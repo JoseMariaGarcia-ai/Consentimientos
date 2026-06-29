@@ -7,6 +7,8 @@ import { NewSessionModal } from '@/components/photos/NewSessionModal'
 export default function PhotoSessions() {
   const [sessions, setSessions] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
+  const [doctors, setDoctors]   = useState<any[]>([])
+  const [branches, setBranches] = useState<{ id: string; name: string }[]>([])
   const [loading, setLoading]   = useState(true)
   const [search, setSearch]     = useState('')
   const [newOpen, setNewOpen]   = useState(false)
@@ -14,7 +16,12 @@ export default function PhotoSessions() {
   const load = async () => {
     setLoading(true)
     try {
-      const [s, p] = await Promise.all([api.get('/photo-sessions'), api.get('/patients')])
+      const [s, p, d, clinic] = await Promise.all([
+        api.get('/photo-sessions'),
+        api.get('/patients'),
+        api.get('/doctors'),
+        api.get('/clinic'),
+      ])
       setSessions(Array.isArray(s) ? s : [])
       setPatients(Array.isArray(p) ? p.map((x: any) => ({
         ...x,
@@ -22,6 +29,8 @@ export default function PhotoSessions() {
         lastName:  x.last_name  ?? x.lastName,
         fullName:  x.full_name  ?? x.fullName ?? [x.first_name, x.last_name].filter(Boolean).join(' '),
       })) : [])
+      setDoctors(Array.isArray(d) ? d : [])
+      setBranches(Array.isArray((clinic as any)?.branches) ? (clinic as any).branches : [])
     } finally {
       setLoading(false)
     }
@@ -113,6 +122,8 @@ export default function PhotoSessions() {
       {newOpen && (
         <NewSessionModal
           patients={patients}
+          doctors={doctors}
+          branches={branches}
           onSave={handleCreate}
           onClose={() => setNewOpen(false)}
         />
