@@ -12,7 +12,8 @@
     "logout": "Tancar sessió",
     "templates": "Plantilles",
     "settings": "Configuració",
-    "clinicalRecords": "Història Clínica"
+    "clinicalRecords": "Història Clínica",
+    "photos": "Fotos"
   },
   "auth": {
     "login_title": "Accés segur",

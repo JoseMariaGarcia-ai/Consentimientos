@@ -12,7 +12,8 @@
     "logout": "ログアウト",
     "templates": "テンプレート",
     "settings": "設定",
-    "clinicalRecords": "カルテ"
+    "clinicalRecords": "カルテ",
+    "photos": "写真"
   },
   "auth": {
     "login_title": "セキュアアクセス",

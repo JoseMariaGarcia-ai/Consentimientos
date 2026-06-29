@@ -12,7 +12,8 @@
     "logout": "Αποσύνδεση",
     "templates": "Πρότυπα",
     "settings": "Ρυθμίσεις",
-    "clinicalRecords": "Κλινικό Αρχείο"
+    "clinicalRecords": "Κλινικό Αρχείο",
+    "photos": "Φωτογραφίες"
   },
   "auth": {
     "login_title": "Ασφαλής πρόσβαση",

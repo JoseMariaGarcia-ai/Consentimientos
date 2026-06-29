@@ -12,7 +12,8 @@
     "logout": "Đăng xuất",
     "templates": "Mẫu",
     "settings": "Cài đặt",
-    "clinicalRecords": "Hồ Sơ Bệnh Án"
+    "clinicalRecords": "Hồ Sơ Bệnh Án",
+    "photos": "Ảnh"
   },
   "auth": {
     "login_title": "Truy cập an toàn",

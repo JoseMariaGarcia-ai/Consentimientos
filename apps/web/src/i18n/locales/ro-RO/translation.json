@@ -12,7 +12,8 @@
     "logout": "Deconectare",
     "templates": "Șabloane",
     "settings": "Setări",
-    "clinicalRecords": "Dosar Clinic"
+    "clinicalRecords": "Dosar Clinic",
+    "photos": "Fotografii"
   },
   "auth": {
     "login_title": "Acces securizat",

@@ -12,7 +12,8 @@
     "logout": "Çıkış yap",
     "templates": "Şablonlar",
     "settings": "Ayarlar",
-    "clinicalRecords": "Klinik Kayıt"
+    "clinicalRecords": "Klinik Kayıt",
+    "photos": "Fotoğraflar"
   },
   "auth": {
     "login_title": "Güvenli erişim",

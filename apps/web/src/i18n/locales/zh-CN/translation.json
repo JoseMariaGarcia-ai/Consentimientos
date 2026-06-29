@@ -12,7 +12,8 @@
     "logout": "退出登录",
     "templates": "模板",
     "settings": "设置",
-    "clinicalRecords": "病历"
+    "clinicalRecords": "病历",
+    "photos": "照片"
   },
   "auth": {
     "login_title": "安全访问",

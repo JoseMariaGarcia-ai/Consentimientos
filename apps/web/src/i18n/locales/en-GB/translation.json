@@ -12,7 +12,8 @@
     "logout": "Log out",
     "templates": "Templates",
     "settings": "Settings",
-    "clinicalRecords": "Clinical Records"
+    "clinicalRecords": "Clinical Records",
+    "photos": "Photos"
   },
   "auth": {
     "login_title": "Secure access",

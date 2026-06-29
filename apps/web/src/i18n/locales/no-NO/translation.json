@@ -12,7 +12,8 @@
     "logout": "Logg ut",
     "templates": "Maler",
     "settings": "Innstillinger",
-    "clinicalRecords": "Klinisk Journal"
+    "clinicalRecords": "Klinisk Journal",
+    "photos": "Bilder"
   },
   "auth": {
     "login_title": "Sikker tilgang",

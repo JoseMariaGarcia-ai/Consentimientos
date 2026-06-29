@@ -16,6 +16,7 @@ import PatientPortal from './pages/PatientPortal'
 import VerifyConsent from './pages/VerifyConsent'
 import ClinicalRecords from './pages/ClinicalRecords'
 import PatientDetail from './pages/PatientDetail'
+import PhotoSessions from './pages/PhotoSessions'
 import { useAuth } from './lib/auth'
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/templates" element={<Templates />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/clinical-records" element={<ClinicalRecords />} />
+            <Route path="/photos" element={<PhotoSessions />} />
             <Route path="/patients/:id" element={<PatientDetail />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

@@ -12,7 +12,8 @@
     "logout": "تسجيل الخروج",
     "templates": "القوالب",
     "settings": "الإعدادات",
-    "clinicalRecords": "السجل الطبي"
+    "clinicalRecords": "السجل الطبي",
+    "photos": "الصور"
   },
   "auth": {
     "login_title": "الوصول الآمن",

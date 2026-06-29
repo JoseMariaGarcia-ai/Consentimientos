@@ -12,7 +12,8 @@
     "logout": "Kijelentkezés",
     "templates": "Sablonok",
     "settings": "Beállítások",
-    "clinicalRecords": "Klinikai Napló"
+    "clinicalRecords": "Klinikai Napló",
+    "photos": "Fotók"
   },
   "auth": {
     "login_title": "Biztonságos hozzáférés",

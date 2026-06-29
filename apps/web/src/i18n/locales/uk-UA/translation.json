@@ -12,7 +12,8 @@
     "logout": "Вийти",
     "templates": "Шаблони",
     "settings": "Налаштування",
-    "clinicalRecords": "Клінічна Карта"
+    "clinicalRecords": "Клінічна Карта",
+    "photos": "Фото"
   },
   "auth": {
     "login_title": "Безпечний доступ",

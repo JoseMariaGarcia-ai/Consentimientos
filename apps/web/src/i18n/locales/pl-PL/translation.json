@@ -12,7 +12,8 @@
     "logout": "Wyloguj",
     "templates": "Szablony",
     "settings": "Ustawienia",
-    "clinicalRecords": "Historia Kliniczna"
+    "clinicalRecords": "Historia Kliniczna",
+    "photos": "Zdjęcia"
   },
   "auth": {
     "login_title": "Bezpieczny dostęp",

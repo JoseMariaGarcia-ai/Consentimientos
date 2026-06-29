@@ -12,7 +12,8 @@
     "logout": "Logga ut",
     "templates": "Mallar",
     "settings": "Inställningar",
-    "clinicalRecords": "Journalanteckningar"
+    "clinicalRecords": "Journalanteckningar",
+    "photos": "Foton"
   },
   "auth": {
     "login_title": "Säker åtkomst",

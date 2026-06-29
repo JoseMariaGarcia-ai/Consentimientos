@@ -12,7 +12,8 @@
     "logout": "Se déconnecter",
     "templates": "Modèles",
     "settings": "Paramètres",
-    "clinicalRecords": "Dossiers Cliniques"
+    "clinicalRecords": "Dossiers Cliniques",
+    "photos": "Photos"
   },
   "auth": {
     "login_title": "Accès sécurisé",

@@ -12,7 +12,8 @@
     "logout": "Выйти",
     "templates": "Шаблоны",
     "settings": "Настройки",
-    "clinicalRecords": "История болезни"
+    "clinicalRecords": "История болезни",
+    "photos": "Фото"
   },
   "auth": {
     "login_title": "Безопасный вход",

@@ -12,7 +12,8 @@
     "logout": "התנתקות",
     "templates": "תבניות",
     "settings": "הגדרות",
-    "clinicalRecords": "רשומה רפואית"
+    "clinicalRecords": "רשומה רפואית",
+    "photos": "תמונות"
   },
   "auth": {
     "login_title": "גישה מאובטחת",

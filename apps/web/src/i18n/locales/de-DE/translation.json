@@ -12,7 +12,8 @@
     "logout": "Abmelden",
     "templates": "Vorlagen",
     "settings": "Einstellungen",
-    "clinicalRecords": "Krankenakte"
+    "clinicalRecords": "Krankenakte",
+    "photos": "Fotos"
   },
   "auth": {
     "login_title": "Sicherer Zugang",

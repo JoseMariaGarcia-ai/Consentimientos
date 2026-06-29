@@ -12,7 +12,8 @@
     "logout": "Odhlásit se",
     "templates": "Šablony",
     "settings": "Nastavení",
-    "clinicalRecords": "Klinický Záznam"
+    "clinicalRecords": "Klinický Záznam",
+    "photos": "Fotografie"
   },
   "auth": {
     "login_title": "Zabezpečený přístup",

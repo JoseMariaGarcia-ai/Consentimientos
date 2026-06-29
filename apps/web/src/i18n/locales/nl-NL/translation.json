@@ -12,7 +12,8 @@
     "logout": "Uitloggen",
     "templates": "Sjablonen",
     "settings": "Instellingen",
-    "clinicalRecords": "Klinisch Dossier"
+    "clinicalRecords": "Klinisch Dossier",
+    "photos": "Foto's"
   },
   "auth": {
     "login_title": "Beveiligde toegang",

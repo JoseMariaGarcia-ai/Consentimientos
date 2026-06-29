@@ -12,7 +12,8 @@
     "logout": "Kirjaudu ulos",
     "templates": "Mallit",
     "settings": "Asetukset",
-    "clinicalRecords": "Potilaskertomus"
+    "clinicalRecords": "Potilaskertomus",
+    "photos": "Kuvat"
   },
   "auth": {
     "login_title": "Suojattu sisäänpääsy",
