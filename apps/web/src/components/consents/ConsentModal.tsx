@@ -42,7 +42,12 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
       api.get('/doctors'),
       api.get('/consents/templates'),
     ]).then(([p, d, t]) => {
-      setPatients(Array.isArray(p) ? p.map((x: any) => ({ ...x, fullName: x.fullName ?? x.full_name })) : [])
+      setPatients(Array.isArray(p) ? p.map((x: any) => ({
+        ...x,
+        firstName: x.firstName ?? x.first_name,
+        lastName:  x.lastName  ?? x.last_name,
+        fullName:  x.fullName  ?? x.full_name ?? [x.first_name, x.last_name].filter(Boolean).join(' '),
+      })) : [])
       setDoctors(Array.isArray(d) ? d : [])
       setTemplates(Array.isArray(t) ? t : [])
     })
@@ -134,7 +139,7 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Seleccionar paciente…</option>
-                  {patients.map(p => <option key={p.id} value={p.id}>{p.fullName}</option>)}
+                  {patients.map(p => <option key={p.id} value={p.id}>{(p as any).firstName && (p as any).lastName ? `${(p as any).firstName} ${(p as any).lastName}` : p.fullName}</option>)}
                 </select>
               </div>
 

@@ -54,11 +54,8 @@ const PHONE_PREFIXES = [
 
 export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps) {
   const { t } = useTranslation()
-  const splitName = (full = '') => {
-    const parts = full.trim().split(/\s+/)
-    return { firstName: parts[0] ?? '', lastName: parts.slice(1).join(' ') }
-  }
-  const { firstName: initFirst, lastName: initLast } = splitName(initial.fullName)
+  const initFirst = ((initial as any).firstName ?? (initial as any).first_name ?? '').toString()
+  const initLast  = ((initial as any).lastName  ?? (initial as any).last_name  ?? '').toString()
 
   const splitAddress = (full = '') => {
     const parts = full.split('|')
@@ -119,10 +116,12 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
       const { firstName, lastName, phonePrefix, phoneNumber, addrStreet, addrCity, addrProvince, addrCountry, ...rest } = form
       await onSave({
         ...rest,
+        firstName,
+        lastName,
         fullName: [firstName, lastName].filter(Boolean).join(' '),
         phone: `${phonePrefix} ${phoneNumber}`.trim(),
         address: [addrStreet, addrCity, addrProvince, addrCountry].join('|'),
-      })
+      } as any)
       onClose()
     } catch (err: any) {
       setSaveError(err.message ?? 'Error desconocido')
