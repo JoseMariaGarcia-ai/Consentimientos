@@ -4,12 +4,17 @@ import { query, queryOne } from '../lib/db'
 const ALL_MODULES = ['dashboard', 'patients', 'doctors', 'consents', 'templates', 'clinic']
 const router = Router()
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
   try {
+    const { userId } = (req as any).user
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!clinicRow?.clinic_id) return res.json([])
     const users = await query(
       `SELECT u.*, json_agg(json_build_object('module', p.module, 'can_access', p.can_access)) AS user_permissions
        FROM app_users u LEFT JOIN user_permissions p ON p.user_id = u.id
-       GROUP BY u.id ORDER BY u.created_at DESC`
+       WHERE u.clinic_id = $1
+       GROUP BY u.id ORDER BY u.created_at DESC`,
+      [clinicRow.clinic_id]
     )
     return res.json(users)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

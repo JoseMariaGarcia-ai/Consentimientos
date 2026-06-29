@@ -28,6 +28,17 @@ const ROLE_BADGE: Record<string, string> = {
 }
 const roleBadgeClass = (role: string) => ROLE_BADGE[role] ?? 'bg-slate-100 text-slate-600'
 
+const ROLE_LABEL: Record<string, string> = {
+  admin:        'Administrador',
+  clinica:      'Clínica',
+  doctor:       'Doctor',
+  receptionist: 'Recepcionista',
+  lab_partner:  'Laboratorio',
+  patient:      'Paciente',
+  superadmin:   'SuperAdmin',
+}
+const roleLabel = (role: string) => ROLE_LABEL[role] ?? role
+
 const ROLE_FILTERS = [
   { value: 'all', label: 'Todos' },
   { value: 'admin', label: 'Admin' },
@@ -482,7 +493,7 @@ export default function Settings() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-semibold text-slate-800">{user.full_name}</p>
                       <span className={`flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${roleBadgeClass(user.role)}`}>
-                        {user.role}
+                        {roleLabel(user.role)}
                       </span>
                       {!user.is_active && (
                         <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{t('settings.users.inactive')}</span>
@@ -512,32 +523,34 @@ export default function Settings() {
                     )}
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    <button
-                      onClick={() => handleToggleActive(user)}
-                      title={user.is_active ? t('settings.users.deactivate') : t('settings.users.activate')}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
-                    >
-                      {user.is_active
-                        ? <ToggleRight className="w-5 h-5 text-emerald-500" />
-                        : <ToggleLeft className="w-5 h-5" />
-                      }
-                    </button>
-                    <button
-                      onClick={() => setModal({ open: true, user })}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50"
-                    >
-                      <Pencil className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(user.id)}
-                      disabled={deleting === user.id}
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 disabled:opacity-40"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                  </div>
+                  {/* Actions — patients are read-only (managed from Patients page) */}
+                  {user.role !== 'patient' && (
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                      <button
+                        onClick={() => handleToggleActive(user)}
+                        title={user.is_active ? t('settings.users.deactivate') : t('settings.users.activate')}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+                      >
+                        {user.is_active
+                          ? <ToggleRight className="w-5 h-5 text-emerald-500" />
+                          : <ToggleLeft className="w-5 h-5" />
+                        }
+                      </button>
+                      <button
+                        onClick={() => setModal({ open: true, user })}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50"
+                      >
+                        <Pencil className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(user.id)}
+                        disabled={deleting === user.id}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 disabled:opacity-40"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               )
             })}
