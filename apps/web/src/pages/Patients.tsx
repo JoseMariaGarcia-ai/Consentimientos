@@ -52,6 +52,8 @@ export default function Patients() {
     } else {
       await api.post('/patients', data)
     }
+    setFormOpen(false)
+    setEditing(null)
     await load()
   }
 

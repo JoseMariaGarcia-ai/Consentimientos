@@ -98,6 +98,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
   })
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [saveError, setSaveError] = useState('')
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
 
@@ -113,6 +114,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSaving(true)
+    setSaveError('')
     try {
       const { firstName, lastName, phonePrefix, phoneNumber, addrStreet, addrCity, addrProvince, addrCountry, ...rest } = form
       await onSave({
@@ -122,6 +124,8 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
         address: [addrStreet, addrCity, addrProvince, addrCountry].join('|'),
       })
       onClose()
+    } catch (err: any) {
+      setSaveError(err.message ?? 'Error desconocido')
     } finally {
       setSaving(false)
     }
@@ -249,6 +253,12 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
               />
             </div>
           </div>
+
+          {saveError && (
+            <div className="col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+              ⚠️ Error al guardar: <strong>{saveError}</strong>
+            </div>
+          )}
 
           <div className="col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
