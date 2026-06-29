@@ -15,6 +15,7 @@ import pdfRouter from './routes/pdf'
 import clinicalRecordsRouter from './routes/clinicalRecords'
 import photoSessionsRouter from './routes/photoSessions'
 import creditsRouter from './routes/credits'
+import mediaRouter from './routes/media'
 
 const app = express()
 
@@ -43,6 +44,7 @@ app.use('/api/pdf',              authMiddleware, pdfRouter)
 app.use('/api/clinical-records', authMiddleware, clinicalRecordsRouter)
 app.use('/api/photo-sessions',  authMiddleware, photoSessionsRouter)
 app.use('/api/credits',         authMiddleware, creditsRouter)
+app.use('/api/media',           authMiddleware, mediaRouter)
 
 const PORT = process.env.PORT ?? 3001
 app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))

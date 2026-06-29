@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, Zap, FileText, ClipboardList, Camera, AlertTriangle } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, Zap, FileText, ClipboardList, Camera, AlertTriangle, Megaphone } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { useCredits } from '@/hooks/useCredits'
+import { MediaUploadSlot } from '@/components/media/MediaUploadSlot'
 
 const ALL_MODULES = [
   { key: 'dashboard',   labelKey: 'nav.dashboard' },
@@ -219,7 +220,14 @@ export default function Settings() {
 
   const navigate = useNavigate()
   const { credits: creds, loading: credsLoading, refresh: refreshCredits } = useCredits()
-  const [activeTab, setActiveTab] = useState<'users' | 'credits'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'credits' | 'media'>('users')
+  const [mediaData, setMediaData] = useState<any>({})
+
+  const loadMedia = async () => {
+    try { setMediaData(await api.get('/media')) } catch {}
+  }
+
+  useEffect(() => { loadMedia() }, [])
   const [topping, setTopping] = useState(false)
   const [topupMsg, setTopupMsg] = useState('')
 
@@ -252,6 +260,9 @@ export default function Settings() {
         </button>
         <button onClick={() => setActiveTab('credits')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'credits' ? 'bg-white text-amber-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
           <Zap className="w-4 h-4" />Créditos
+        </button>
+        <button onClick={() => setActiveTab('media')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+          <Megaphone className="w-4 h-4" />Publicidad
         </button>
       </div>
 
@@ -308,6 +319,38 @@ export default function Settings() {
             {topupMsg && (
               <div className={`px-4 py-2 rounded-lg text-sm ${topupMsg.startsWith('✅') ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>{topupMsg}</div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Media / Publicidad tab */}
+      {activeTab === 'media' && (
+        <div className="flex flex-col gap-6">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
+            <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+              <Megaphone className="w-4 h-4 text-pink-500" />
+              <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+            </div>
+
+            {/* Slot 1: welcome screen */}
+            <MediaUploadSlot
+              type="welcome"
+              title="Pantalla de bienvenida"
+              description="Se mostrará automáticamente en una ventana emergente cada vez que alguien acceda a la aplicación. Puede ser una imagen o un vídeo (máx. 100 MB)."
+              item={mediaData?.welcome ?? null}
+              onChanged={loadMedia}
+            />
+
+            <div className="border-t border-slate-100" />
+
+            {/* Slot 2: patient content */}
+            <MediaUploadSlot
+              type="patient"
+              title="Contenido para paciente"
+              description="Imagen o vídeo destinado al paciente. Su funcionamiento exacto se configurará próximamente."
+              item={mediaData?.patient ?? null}
+              onChanged={loadMedia}
+            />
           </div>
         </div>
       )}

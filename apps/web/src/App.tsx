@@ -18,6 +18,7 @@ import ClinicalRecords from './pages/ClinicalRecords'
 import PatientDetail from './pages/PatientDetail'
 import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
+import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { useAuth } from './lib/auth'
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
       <Topbar />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
+        <WelcomeMediaModal />
         <main className="flex-1 overflow-auto p-6">
           <Routes>
             <Route path="/" element={<Dashboard />} />
