@@ -14,11 +14,8 @@ router.post('/magic-link', async (req, res) => {
       'SELECT id, email, clinic_id FROM app_users WHERE email = $1', [email]
     )
     if (!user) {
-      const rows = await query<{ id: string; email: string; clinic_id: string }>(
-        `INSERT INTO app_users (email, full_name, role) VALUES ($1, $1, 'clinica') RETURNING id, email, clinic_id`,
-        [email]
-      )
-      user = rows[0]
+      // Don't auto-create users — they must be invited by an admin first
+      return res.status(404).json({ error: 'No tienes acceso. Solicita una invitación al administrador.' })
     }
     const rawToken = crypto.randomBytes(32).toString('hex')
     const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex')
