@@ -17,9 +17,9 @@ function getEmbedUrl(url: string): string | null {
   return null
 }
 
-const LS_LAST_SHOWN   = 'welcome_media_last_shown'
-const LS_SEQ_INDEX    = 'welcome_media_seq_index'
-const SS_SESSION      = 'welcome_media_shown_session'
+const LS_LAST_SHOWN = 'welcome_media_last_shown'
+const LS_SEQ_INDEX  = 'welcome_media_seq_index'
+const SS_SESSION    = 'welcome_media_shown_session'
 
 interface Creative {
   id: string
@@ -41,7 +41,6 @@ interface SlotData {
 function pickCreative(slot: SlotData): Creative | null {
   const { files, settings } = slot
   if (!files.length) return null
-
   if (settings.display_mode === 'manual') {
     return files.find(f => f.id === settings.active_creative_id) ?? files[0]
   }
@@ -49,7 +48,7 @@ function pickCreative(slot: SlotData): Creative | null {
     return files[Math.floor(Math.random() * files.length)]
   }
   // sequential
-  const idx = parseInt(localStorage.getItem(LS_SEQ_INDEX) ?? '0')
+  const idx  = parseInt(localStorage.getItem(LS_SEQ_INDEX) ?? '0')
   const next = idx % files.length
   localStorage.setItem(LS_SEQ_INDEX, String(next + 1))
   return files[next]
@@ -59,17 +58,25 @@ function shouldShow(settings: SlotData['settings']): boolean {
   const trigger = settings.show_trigger ?? 'session'
   if (trigger === 'session')  return !sessionStorage.getItem(SS_SESSION)
   if (trigger === 'interval') {
-    const mins    = Math.max(1, settings.show_interval_minutes ?? 30)
-    const last    = parseInt(localStorage.getItem(LS_LAST_SHOWN) ?? '0')
+    const mins = Math.max(1, settings.show_interval_minutes ?? 30)
+    const last = parseInt(localStorage.getItem(LS_LAST_SHOWN) ?? '0')
     return (Date.now() - last) / 60000 >= mins
   }
-  return false // consent/clinical triggered externally
+  return false
+}
+
+async function fetchSlot(): Promise<SlotData | null> {
+  try {
+    const data: any = await api.get('/media')
+    return data?.welcome ?? null
+  } catch {
+    return null
+  }
 }
 
 export function WelcomeMediaModal() {
   const [creative, setCreative] = useState<Creative | null>(null)
   const [visible, setVisible]   = useState(false)
-  const slotRef = useRef<SlotData | null>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const { registerTrigger } = useWelcomeMedia()
 
@@ -80,10 +87,9 @@ export function WelcomeMediaModal() {
   }, [])
 
   useEffect(() => {
-    api.get('/media').then((data: any) => {
-      const slot: SlotData | undefined = data?.welcome
-      if (!slot?.files?.length) return
-      slotRef.current = slot
+    // Initial load: auto-show for session/interval triggers
+    fetchSlot().then(slot => {
+      if (!slot) return
 
       if (shouldShow(slot.settings)) {
         const c = pickCreative(slot)
@@ -93,22 +99,11 @@ export function WelcomeMediaModal() {
         }
       }
 
-      // External triggers (consent / clinical)
-      registerTrigger((event: 'consent' | 'clinical') => {
-        const s = slotRef.current
-        if (!s) return
-        const t = s.settings.show_trigger
-        if ((t === 'consent' && event === 'consent') || (t === 'clinical' && event === 'clinical')) {
-          const c = pickCreative(s)
-          if (c) show(c)
-        }
-      })
-
       // Interval timer
       if (slot.settings.show_trigger === 'interval') {
         const mins = Math.max(1, slot.settings.show_interval_minutes ?? 30)
-        const id = setInterval(() => {
-          const s = slotRef.current
+        const id = setInterval(async () => {
+          const s = await fetchSlot()
           if (s && shouldShow(s.settings)) {
             const c = pickCreative(s)
             if (c) show(c)
@@ -116,7 +111,18 @@ export function WelcomeMediaModal() {
         }, mins * 60 * 1000)
         return () => clearInterval(id)
       }
-    }).catch(() => {})
+    })
+
+    // External triggers: always re-fetch fresh data so new creatives/settings are picked up
+    registerTrigger(async (event: 'consent' | 'clinical') => {
+      const slot = await fetchSlot()
+      if (!slot) return
+      const t = slot.settings.show_trigger
+      if ((t === 'consent' && event === 'consent') || (t === 'clinical' && event === 'clinical')) {
+        const c = pickCreative(slot)
+        if (c) show(c)
+      }
+    })
   }, [])
 
   const close = () => { setVisible(false); videoRef.current?.pause() }
@@ -124,8 +130,8 @@ export function WelcomeMediaModal() {
   if (!visible || !creative) return null
 
   const isUrlCreative = creative.content_type === 'video/url'
-  const isVideo = creative.content_type?.startsWith('video') && !isUrlCreative
-  const embedUrl = isUrlCreative ? getEmbedUrl(creative.url) : null
+  const isVideo       = creative.content_type?.startsWith('video') && !isUrlCreative
+  const embedUrl      = isUrlCreative ? getEmbedUrl(creative.url) : null
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={close}>
@@ -146,7 +152,6 @@ export function WelcomeMediaModal() {
               title={creative.original_name}
             />
           ) : (
-            // Direct video URL
             <video
               ref={videoRef}
               src={creative.url}
