@@ -29,23 +29,25 @@ const ROLE_BADGE: Record<string, string> = {
 const roleBadgeClass = (role: string) => ROLE_BADGE[role] ?? 'bg-slate-100 text-slate-600'
 
 const ROLE_LABEL: Record<string, string> = {
+  superadmin:   'Super Admin',
   admin:        'Administrador',
   clinica:      'Clínica',
   doctor:       'Doctor',
   receptionist: 'Recepcionista',
   lab_partner:  'Laboratorio',
   patient:      'Paciente',
-  superadmin:   'SuperAdmin',
 }
 const roleLabel = (role: string) => ROLE_LABEL[role] ?? role
 
 const ROLE_FILTERS = [
-  { value: 'all', label: 'Todos' },
-  { value: 'admin', label: 'Admin' },
-  { value: 'doctor', label: 'Doctor' },
+  { value: 'all',          label: 'Todos' },
+  { value: 'superadmin',   label: 'Super Admin' },
+  { value: 'admin',        label: 'Admin' },
+  { value: 'clinica',      label: 'Clínica' },
+  { value: 'doctor',       label: 'Doctor' },
   { value: 'receptionist', label: 'Recepcionista' },
-  { value: 'lab_partner', label: 'Lab' },
-  { value: 'patient', label: 'Paciente' },
+  { value: 'lab_partner',  label: 'Lab' },
+  { value: 'patient',      label: 'Paciente' },
 ]
 
 interface AppUser {
@@ -62,18 +64,20 @@ interface AppUser {
 interface LabPartner { id: string; name: string }
 
 const ROLE_OPTIONS = [
-  { value: 'admin',        label: 'Administrador',   icon: ShieldCheck,   color: 'purple' },
-  { value: 'clinica',      label: 'Clínica',         icon: Shield,        color: 'blue'   },
+  { value: 'superadmin',   label: 'Super Admin',     icon: ShieldCheck,   color: 'purple' },
+  { value: 'admin',        label: 'Administrador',   icon: Shield,        color: 'blue'   },
+  { value: 'clinica',      label: 'Clínica',         icon: UserCheck,     color: 'sky'    },
   { value: 'doctor',       label: 'Doctor',          icon: Stethoscope,   color: 'emerald'},
-  { value: 'receptionist', label: 'Recepcionista',   icon: UserCheck,     color: 'sky'    },
+  { value: 'receptionist', label: 'Recepcionista',   icon: Users,         color: 'slate'  },
   { value: 'lab_partner',  label: 'Laboratorio',     icon: FlaskConical,  color: 'amber'  },
 ]
 
 const ROLE_ACTIVE: Record<string, string> = {
-  admin:        'border-purple-500 bg-purple-50 text-purple-700',
-  clinica:      'border-blue-500 bg-blue-50 text-blue-700',
+  superadmin:   'border-purple-500 bg-purple-50 text-purple-700',
+  admin:        'border-blue-500 bg-blue-50 text-blue-700',
+  clinica:      'border-sky-500 bg-sky-50 text-sky-700',
   doctor:       'border-emerald-500 bg-emerald-50 text-emerald-700',
-  receptionist: 'border-sky-500 bg-sky-50 text-sky-700',
+  receptionist: 'border-slate-500 bg-slate-50 text-slate-700',
   lab_partner:  'border-amber-500 bg-amber-50 text-amber-700',
 }
 
