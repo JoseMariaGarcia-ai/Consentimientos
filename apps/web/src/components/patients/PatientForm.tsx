@@ -11,6 +11,29 @@ interface PatientFormProps {
 const BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 const DOC_TYPES = ['DNI', 'NIE', 'Pasaporte', 'Other']
 
+const PHONE_PREFIXES = [
+  { code: '+34', flag: '🇪🇸', label: 'España' },
+  { code: '+1',  flag: '🇺🇸', label: 'EE.UU.' },
+  { code: '+44', flag: '🇬🇧', label: 'Reino Unido' },
+  { code: '+33', flag: '🇫🇷', label: 'Francia' },
+  { code: '+49', flag: '🇩🇪', label: 'Alemania' },
+  { code: '+39', flag: '🇮🇹', label: 'Italia' },
+  { code: '+351', flag: '🇵🇹', label: 'Portugal' },
+  { code: '+52', flag: '🇲🇽', label: 'México' },
+  { code: '+54', flag: '🇦🇷', label: 'Argentina' },
+  { code: '+57', flag: '🇨🇴', label: 'Colombia' },
+  { code: '+56', flag: '🇨🇱', label: 'Chile' },
+  { code: '+58', flag: '🇻🇪', label: 'Venezuela' },
+  { code: '+51', flag: '🇵🇪', label: 'Perú' },
+  { code: '+593', flag: '🇪🇨', label: 'Ecuador' },
+  { code: '+32', flag: '🇧🇪', label: 'Bélgica' },
+  { code: '+31', flag: '🇳🇱', label: 'Países Bajos' },
+  { code: '+41', flag: '🇨🇭', label: 'Suiza' },
+  { code: '+212', flag: '🇲🇦', label: 'Marruecos' },
+  { code: '+971', flag: '🇦🇪', label: 'EAU' },
+  { code: '+86', flag: '🇨🇳', label: 'China' },
+]
+
 export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps) {
   const { t } = useTranslation()
   const splitName = (full = '') => {
@@ -19,13 +42,22 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
   }
   const { firstName: initFirst, lastName: initLast } = splitName(initial.fullName)
 
+  const splitPhone = (full = '') => {
+    const prefix = PHONE_PREFIXES.find(p => full.startsWith(p.code))
+    return prefix
+      ? { phonePrefix: prefix.code, phoneNumber: full.slice(prefix.code.length).trim() }
+      : { phonePrefix: '+34', phoneNumber: full }
+  }
+  const { phonePrefix: initPrefix, phoneNumber: initNumber } = splitPhone(initial.phone)
+
   const [form, setForm] = useState({
     firstName: initFirst,
     lastName: initLast,
     dateOfBirth: initial.dateOfBirth ?? '',
     idDocument: initial.idDocument ?? '',
     idDocType: initial.idDocType ?? 'DNI',
-    phone: initial.phone ?? '',
+    phonePrefix: initPrefix,
+    phoneNumber: initNumber,
     email: initial.email ?? '',
     address: initial.address ?? '',
     allergies: initial.allergies ?? '',
@@ -40,7 +72,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
   const validate = () => {
     const e: Record<string, string> = {}
     if (!form.firstName.trim()) e.firstName = t('common.required')
-    if (!form.phone.trim()) e.phone = t('common.required')
+    if (!form.phoneNumber.trim()) e.phoneNumber = t('common.required')
     return e
   }
 
@@ -50,8 +82,8 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSaving(true)
     try {
-      const { firstName, lastName, ...rest } = form
-      await onSave({ ...rest, fullName: [firstName, lastName].filter(Boolean).join(' ') })
+      const { firstName, lastName, phonePrefix, phoneNumber, ...rest } = form
+      await onSave({ ...rest, fullName: [firstName, lastName].filter(Boolean).join(' '), phone: `${phonePrefix} ${phoneNumber}`.trim() })
       onClose()
     } finally {
       setSaving(false)
@@ -104,7 +136,30 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             <div className="flex-1">{field('idDocument', t('patients.id_doc'))}</div>
           </div>
 
-          {field('phone', t('patients.phone'), { type: 'tel', required: true })}
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">
+              {t('patients.phone', 'Teléfono')}<span className="text-red-500 ml-1">*</span>
+            </label>
+            <div className={`flex border rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 ${errors.phoneNumber ? 'border-red-400' : 'border-slate-300'}`}>
+              <select
+                value={form.phonePrefix}
+                onChange={e => setForm(f => ({ ...f, phonePrefix: e.target.value }))}
+                className="px-2 py-2 bg-slate-50 border-r border-slate-300 text-sm focus:outline-none"
+              >
+                {PHONE_PREFIXES.map(p => (
+                  <option key={p.code} value={p.code}>{p.flag} {p.code}</option>
+                ))}
+              </select>
+              <input
+                type="tel"
+                value={form.phoneNumber}
+                onChange={e => setForm(f => ({ ...f, phoneNumber: e.target.value.toUpperCase() }))}
+                placeholder="600 000 000"
+                className="flex-1 px-3 py-2 text-sm focus:outline-none"
+              />
+            </div>
+            {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
+          </div>
           {field('email', t('patients.email'), { type: 'email' })}
           <div className="col-span-2">{field('address', t('patients.address'))}</div>
 
