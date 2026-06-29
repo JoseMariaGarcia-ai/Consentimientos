@@ -18,7 +18,9 @@ router.post('/', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const { name, specialty, license_number, email, role } = req.body
+    const b = req.body
+    const license_number = b.license_number ?? b.licenseNumber ?? null
+    const { name, specialty, email, role } = b
     const data = await queryOne(
       `INSERT INTO doctors (clinic_id, name, specialty, license_number, email, role) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
       [clinicRow?.clinic_id, name, specialty, license_number, email, role ?? 'doctor']
@@ -28,7 +30,9 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const { name, specialty, license_number, email, role } = req.body
+  const b = req.body
+  const license_number = b.license_number ?? b.licenseNumber ?? null
+  const { name, specialty, email, role } = b
   try {
     const data = await queryOne(
       `UPDATE doctors SET name=$1, specialty=$2, license_number=$3, email=$4, role=$5 WHERE id=$6 RETURNING *`,
