@@ -209,6 +209,27 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {/* STEP 2: Preview legal */}
           {step === 'preview' && selectedTemplate && (
             <div className="flex flex-col gap-4">
+              {/* Doctor info */}
+              {(() => {
+                const doc = doctors.find(d => d.id === doctorId)
+                const license = (doc as any)?.licenseNumber ?? (doc as any)?.license_number
+                return doc ? (
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide">Doctor responsable</p>
+                      <p className="text-sm font-medium text-slate-800 mt-0.5">{doc.name}</p>
+                      {doc.specialty && <p className="text-xs text-slate-500">{doc.specialty}</p>}
+                    </div>
+                    {license && (
+                      <div className="text-right">
+                        <p className="text-xs text-slate-400">Nº Colegiado</p>
+                        <p className="text-sm font-semibold text-slate-700">{license}</p>
+                      </div>
+                    )}
+                  </div>
+                ) : null
+              })()}
+
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
                 <p className="text-xs font-semibold text-blue-700 uppercase mb-1">Marco Legal — {legalData.jurisdiction}</p>
                 <p className="text-xs text-blue-600">{legalData.applicableLaw}</p>

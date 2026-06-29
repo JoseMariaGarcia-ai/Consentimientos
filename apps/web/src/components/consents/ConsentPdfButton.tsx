@@ -14,9 +14,14 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
   const [qrDataUrl, setQrDataUrl] = useState<string | undefined>()
 
   const lang = consent.language ?? 'es-ES'
-  const template = consent.template ?? { contentJson: {}, legalClausesJson: {} }
-  const content = template.contentJson?.[lang] ?? template.contentJson?.['es-ES'] ?? {}
-  const legalClauses = template.legalClausesJson?.[lang] ?? template.legalClausesJson?.['es-ES'] ?? {}
+
+  // row_to_json returns snake_case; support both forms
+  const template = consent.template ?? {}
+  const contentJson = template.contentJson ?? template.content_json ?? {}
+  const legalClausesJson = template.legalClausesJson ?? template.legal_clauses_json ?? {}
+
+  const content = contentJson[lang] ?? contentJson['es-ES'] ?? {}
+  const legalClauses = legalClausesJson[lang] ?? legalClausesJson['es-ES'] ?? {}
   const framework = LEGAL_FRAMEWORKS[lang] ?? LEGAL_FRAMEWORKS['es-ES']
 
   const consentUuid = consent.consent_uuid ?? consent.consentUuid ?? consent.id
@@ -33,13 +38,13 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
     : null
 
   const legalData = {
-    title: content.title ?? '',
-    body: content.body ?? '',
-    jurisdiction: legalClauses.jurisdiction ?? framework.jurisdiction,
+    title:         content.title ?? '',
+    body:          content.body  ?? '',
+    jurisdiction:  legalClauses.jurisdiction  ?? framework.jurisdiction,
     applicableLaw: legalClauses.applicableLaw ?? framework.law,
-    introText: legalClauses.introText ?? framework.consentIntroText,
-    rightsText: legalClauses.rightsText ?? framework.withdrawalRights,
-    footerLegal: legalClauses.footerLegal ?? framework.signatureValidity,
+    introText:     legalClauses.introText     ?? framework.consentIntroText,
+    rightsText:    legalClauses.rightsText    ?? framework.withdrawalRights,
+    footerLegal:   legalClauses.footerLegal   ?? framework.signatureValidity,
     witnessRequired: legalClauses.witnessRequired ?? framework.witnessRequired,
   }
 
