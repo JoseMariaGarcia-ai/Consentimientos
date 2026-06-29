@@ -123,7 +123,6 @@ export default function ClinicPage() {
           <Field label="Nombre comercial" value={(form as any).trade_name ?? (form as any).tradeName ?? ''} onChange={v => set('trade_name', v)} />
           <Field label="Nombre fiscal / razón social" value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />
         </div>
-        <Field label={t('clinic.name')} value={(form.name as string) ?? ''} onChange={v => set('name', v)} />
         <Field label={t('clinic.address')} value={(form.address as string) ?? ''} onChange={v => set('address', v)} />
         <div className="grid grid-cols-2 gap-4">
           <Field label={t('clinic.phone')} value={(form.phone as string) ?? ''} onChange={v => set('phone', v)} type="tel" />
