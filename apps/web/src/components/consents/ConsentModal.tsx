@@ -195,10 +195,14 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
                 <p className="text-xs text-blue-600">{legalData.applicableLaw}</p>
               </div>
 
-              <div className="border border-slate-200 rounded-xl p-4 max-h-56 overflow-y-auto">
-                <h3 className="font-semibold text-slate-800 mb-2">{legalData.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{legalData.introText}</p>
-                <p className="text-sm text-slate-600 leading-relaxed mt-3">{legalData.body}</p>
+              <div className="border border-slate-200 rounded-xl p-4 max-h-64 overflow-y-auto text-slate-700 [&_h1]:text-lg [&_h1]:font-bold [&_h1]:mb-2 [&_h2]:text-base [&_h2]:font-semibold [&_h2]:mt-4 [&_h2]:mb-1 [&_h3]:font-semibold [&_h3]:mt-3 [&_h3]:mb-1 [&_p]:text-sm [&_p]:leading-relaxed [&_p]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:text-sm [&_li]:mb-1 [&_em]:italic [&_strong]:font-semibold">
+                {legalData.title && <h3 className="font-semibold text-slate-800 mb-3">{legalData.title}</h3>}
+                {legalData.introText && (
+                  <div dangerouslySetInnerHTML={{ __html: legalData.introText }} />
+                )}
+                {legalData.body && (
+                  <div dangerouslySetInnerHTML={{ __html: legalData.body }} />
+                )}
               </div>
 
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-4">
