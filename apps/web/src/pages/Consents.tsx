@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Search, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, PenLine, Trash2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ConsentModal } from '@/components/consents/ConsentModal'
+import { ConsentPdfButton } from '@/components/consents/ConsentPdfButton'
 
 const STATUS_CONFIG = {
   signed:  { icon: CheckCircle,   color: 'text-emerald-600', bg: 'bg-emerald-50',  label: 'consents.status.signed'  },
@@ -16,6 +17,7 @@ export default function Consents() {
   const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const [records, setRecords] = useState<any[]>([])
+  const [clinic, setClinic] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
@@ -40,7 +42,10 @@ export default function Consents() {
     }
   }
 
-  useEffect(() => { load() }, [])
+  useEffect(() => {
+    load()
+    api.get('/clinic').then(setClinic).catch(() => {})
+  }, [])
   useEffect(() => { if (initialPatient) setModalOpen(true) }, [initialPatient])
 
   const filtered = useMemo(() => {
@@ -154,6 +159,7 @@ export default function Consents() {
                               <PenLine className="w-3.5 h-3.5" /> Firmar
                             </button>
                           )}
+                          <ConsentPdfButton consent={c} clinic={clinic} />
                           <button
                             onClick={() => handleDelete(c.id)}
                             className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
