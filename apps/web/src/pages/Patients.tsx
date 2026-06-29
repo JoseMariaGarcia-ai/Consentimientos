@@ -24,11 +24,20 @@ export default function Patients() {
   const [deleting, setDeleting] = useState<string | null>(null)
   const [galleryPatient, setGalleryPatient] = useState<Patient | null>(null)
 
+  const normalize = (p: any): Patient => ({
+    ...p,
+    fullName:    p.fullName    ?? p.full_name,
+    dateOfBirth: p.dateOfBirth ?? p.date_of_birth,
+    idDocument:  p.idDocument  ?? p.id_document,
+    idDocType:   p.idDocType   ?? p.id_doc_type,
+    bloodType:   p.bloodType   ?? p.blood_type,
+  })
+
   const load = async () => {
     setLoading(true)
     try {
       const data = await api.get('/patients')
-      setPatients(Array.isArray(data) ? data : [])
+      setPatients(Array.isArray(data) ? data.map(normalize) : [])
     } finally {
       setLoading(false)
     }
@@ -110,22 +119,25 @@ export default function Patients() {
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {[t('patients.name'), t('patients.dob'), t('patients.id_doc'), t('patients.phone'), t('patients.email'), ''].map((h, i) => (
+                  {['Nombre', 'Apellidos', 'DNI / NIE / Pasaporte', 'Teléfono', ''].map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {filtered.map(p => (
+                {filtered.map(p => {
+                  const parts = (p.fullName ?? '').trim().split(/\s+/)
+                  const firstName = parts[0] ?? ''
+                  const lastName = parts.slice(1).join(' ')
+                  return (
                   <tr key={p.id} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-4 py-3 font-medium text-slate-800">{p.fullName}</td>
-                    <td className="px-4 py-3 text-slate-500">{age(p.dateOfBirth)}</td>
+                    <td className="px-4 py-3 font-medium text-slate-800">{firstName}</td>
+                    <td className="px-4 py-3 font-medium text-slate-800">{lastName}</td>
                     <td className="px-4 py-3 text-slate-500">
                       <span className="text-xs bg-slate-100 px-1.5 py-0.5 rounded mr-1">{p.idDocType}</span>
                       {p.idDocument}
                     </td>
                     <td className="px-4 py-3 text-slate-500">{p.phone}</td>
-                    <td className="px-4 py-3 text-slate-400 text-xs">{p.email}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 justify-end">
                         <button
@@ -160,7 +172,8 @@ export default function Patients() {
                       </div>
                     </td>
                   </tr>
-                ))}
+                  )
+                })}
               </tbody>
             </table>
           </div>
