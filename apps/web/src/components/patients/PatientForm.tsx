@@ -35,7 +35,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
+  const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
 
   const validate = () => {
     const e: Record<string, string> = {}
