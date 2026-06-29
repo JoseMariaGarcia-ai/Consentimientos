@@ -8,15 +8,19 @@ import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 
 const ALL_MODULES = [
-  { key: 'dashboard',   labelKey: 'nav.dashboard' },
-  { key: 'patients',    labelKey: 'nav.patients' },
-  { key: 'doctors',     labelKey: 'nav.doctors' },
-  { key: 'consents',    labelKey: 'nav.consents' },
-  { key: 'templates',   labelKey: 'nav.templates' },
-  { key: 'clinic',      labelKey: 'nav.clinic' },
+  { key: 'dashboard',        labelKey: 'nav.dashboard',       defaultOn: true  },
+  { key: 'patients',         labelKey: 'nav.patients',        defaultOn: true  },
+  { key: 'doctors',          labelKey: 'nav.doctors',         defaultOn: true  },
+  { key: 'consents',         labelKey: 'nav.consents',        defaultOn: true  },
+  { key: 'clinical-records', labelKey: 'nav.clinicalRecords', defaultOn: true  },
+  { key: 'photos',           labelKey: 'nav.photos',          defaultOn: true  },
+  { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
+  { key: 'settings',         labelKey: 'nav.settings',        defaultOn: true  },
+  { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },
+  { key: 'lab-partners',     labelKey: 'nav.labPartners',     defaultOn: false },
 ]
 
-const DEFAULT_PERMS = Object.fromEntries(ALL_MODULES.map(m => [m.key, true]))
+const DEFAULT_PERMS = Object.fromEntries(ALL_MODULES.map(m => [m.key, m.defaultOn]))
 
 const ROLE_BADGE: Record<string, string> = {
   admin: 'bg-blue-100 text-blue-800',
