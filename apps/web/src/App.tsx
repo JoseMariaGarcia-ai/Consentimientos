@@ -19,12 +19,13 @@ import PatientDetail from './pages/PatientDetail'
 import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
 import LabPartners from './pages/LabPartners'
+import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
 import { useAuth } from './lib/auth'
 
 export default function App() {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, role } = useAuth()
   const { currentLanguage } = useLanguageStore()
 
   useEffect(() => {
@@ -38,6 +39,11 @@ export default function App() {
   if (window.location.pathname.startsWith('/auth/verify')) return <AuthVerify />
 
   if (!isAuthenticated) return <Login />
+
+  // Patient role — show patient portal only
+  if (role === 'patient' || window.location.pathname.startsWith('/patient/')) {
+    return <PatientPortalApp />
+  }
 
   return (
     <WelcomeMediaProvider>

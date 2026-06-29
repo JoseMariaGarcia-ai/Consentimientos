@@ -16,8 +16,10 @@ export default function AuthVerify() {
       .then(r => r.json())
       .then(data => {
         if (data.token) {
-          saveSession(data.token, data.email)
-          window.location.href = '/'
+          saveSession(data.token, data.email, data.role)
+          const role = data.role as string | undefined
+          if (role === 'patient') window.location.href = '/patient/portal'
+          else window.location.href = '/'
         } else {
           setStatus('error')
           setMsg(data.error ?? 'Token inválido o expirado')

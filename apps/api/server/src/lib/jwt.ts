@@ -6,6 +6,7 @@ export interface JwtPayload {
   userId: string
   email: string
   clinicId?: string
+  role?: string
 }
 
 export function signToken(payload: JwtPayload): string {

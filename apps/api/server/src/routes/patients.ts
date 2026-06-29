@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { sendPatientWelcomeEmail } from '../lib/patientWelcomeEmail'
 
 const router = Router()
 
@@ -39,11 +40,38 @@ router.post('/', async (req, res) => {
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const f = parseBody(req.body)
-    const data = await queryOne(
+    const data = await queryOne<any>(
       `INSERT INTO patients (clinic_id, first_name, last_name, full_name, date_of_birth, id_document, id_doc_type, phone, email, address, allergies, medications, blood_type)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING *`,
       [clinicRow?.clinic_id, f.first_name, f.last_name, f.full_name, f.date_of_birth, f.id_document, f.id_doc_type, f.phone, f.email, f.address, f.allergies, f.medications, f.blood_type]
     )
+
+    // Auto-create patient user and send welcome email if email provided
+    if (data && f.email) {
+      try {
+        const existing = await queryOne<{ id: string }>('SELECT id FROM app_users WHERE email = $1', [f.email])
+        let patientUserId: string
+        if (existing) {
+          patientUserId = existing.id
+        } else {
+          const newUser = await queryOne<{ id: string }>(
+            `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1, $2, 'patient', $3) RETURNING id`,
+            [f.email, f.full_name, clinicRow?.clinic_id]
+          )
+          patientUserId = newUser!.id
+        }
+        await query('UPDATE patients SET user_id = $1 WHERE id = $2', [patientUserId, data.id])
+        data.user_id = patientUserId
+
+        // Get clinic name for email
+        const clinic = await queryOne<{ name: string }>('SELECT name FROM clinics WHERE id = $1', [clinicRow?.clinic_id])
+        await sendPatientWelcomeEmail({ ...data, user_id: patientUserId }, clinic?.name ?? 'Tu clínica')
+      } catch (emailErr: any) {
+        console.error('Error creating patient user or sending email:', emailErr.message)
+        // Don't fail the request if email fails
+      }
+    }
+
     return res.status(201).json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

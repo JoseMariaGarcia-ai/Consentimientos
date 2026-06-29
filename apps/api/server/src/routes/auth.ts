@@ -47,12 +47,12 @@ router.get('/verify', async (req, res) => {
     if (row.used_at) return res.status(400).json({ error: 'Token ya usado' })
     if (new Date() > new Date(row.expires_at)) return res.status(400).json({ error: 'Token expirado' })
     await query('UPDATE magic_tokens SET used_at = NOW() WHERE id = $1', [row.id])
-    const user = await queryOne<{ id: string; email: string; clinic_id: string }>(
-      'SELECT id, email, clinic_id FROM app_users WHERE id = $1', [row.user_id]
+    const user = await queryOne<{ id: string; email: string; clinic_id: string; role: string }>(
+      'SELECT id, email, clinic_id, role FROM app_users WHERE id = $1', [row.user_id]
     )
     if (!user) return res.status(400).json({ error: 'Usuario no encontrado' })
-    const jwtToken = signToken({ userId: user.id, email: user.email, clinicId: user.clinic_id })
-    return res.json({ token: jwtToken, email: user.email })
+    const jwtToken = signToken({ userId: user.id, email: user.email, clinicId: user.clinic_id, role: user.role })
+    return res.json({ token: jwtToken, email: user.email, role: user.role })
   } catch (err: any) {
     return res.status(500).json({ error: err.message })
   }
