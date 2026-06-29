@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import { FileDown } from 'lucide-react'
+import { FileDown, Loader2 } from 'lucide-react'
+import QRCode from 'qrcode'
 import { ConsentPdf } from '@/lib/pdf/consentPdf'
 import { LEGAL_FRAMEWORKS } from '@/i18n/legalTexts'
 
@@ -9,11 +11,22 @@ interface Props {
 }
 
 export function ConsentPdfButton({ consent, clinic }: Props) {
+  const [qrDataUrl, setQrDataUrl] = useState<string | undefined>()
+
   const lang = consent.language ?? 'es-ES'
   const template = consent.template ?? { contentJson: {}, legalClausesJson: {} }
   const content = template.contentJson?.[lang] ?? template.contentJson?.['es-ES'] ?? {}
   const legalClauses = template.legalClausesJson?.[lang] ?? template.legalClausesJson?.['es-ES'] ?? {}
   const framework = LEGAL_FRAMEWORKS[lang] ?? LEGAL_FRAMEWORKS['es-ES']
+
+  const consentUuid = consent.consent_uuid ?? consent.consentUuid ?? consent.id
+  const verifyUrl = `https://consentimientos-production.up.railway.app/verify/${consentUuid}`
+
+  useEffect(() => {
+    QRCode.toDataURL(verifyUrl, { width: 200, margin: 1, color: { dark: '#1A2B4A', light: '#ffffff' } })
+      .then(setQrDataUrl)
+      .catch(() => {})
+  }, [verifyUrl])
 
   const patient = consent.patient
     ? { ...consent.patient, fullName: consent.patient.full_name ?? consent.patient.fullName }
@@ -30,24 +43,29 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
     witnessRequired: legalClauses.witnessRequired ?? framework.witnessRequired,
   }
 
-  const filename = `consentimiento_${patient?.fullName?.replace(/\s+/g, '_') ?? 'paciente'}_${consent.consent_uuid ?? consent.consentUuid ?? consent.id}.pdf`
+  const filename = `consentimiento_${(patient?.fullName ?? 'paciente').replace(/\s+/g, '_')}_${consentUuid}.pdf`
+
+  if (!qrDataUrl) {
+    return (
+      <button disabled className="p-1.5 text-slate-300 rounded-lg" title="Generando PDF…">
+        <Loader2 className="w-4 h-4 animate-spin" />
+      </button>
+    )
+  }
 
   return (
     <PDFDownloadLink
       document={
         <ConsentPdf
-          consent={{
-            ...consent,
-            signatureDataUrl: consent.signature_data_url ?? consent.signatureDataUrl,
-            signedAt: consent.signed_at ?? consent.signedAt,
-          }}
+          consent={consent}
           patient={patient}
           doctor={consent.doctor}
           clinic={clinic}
           language={lang}
           documentHash={consent.document_hash ?? consent.documentHash ?? ''}
-          consentUuid={consent.consent_uuid ?? consent.consentUuid ?? consent.id}
+          consentUuid={consentUuid}
           legalData={legalData}
+          qrDataUrl={qrDataUrl}
         />
       }
       fileName={filename}
@@ -58,7 +76,7 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
           title="Exportar PDF"
           disabled={loading}
         >
-          <FileDown className="w-4 h-4" />
+          {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileDown className="w-4 h-4" />}
         </button>
       )}
     </PDFDownloadLink>
