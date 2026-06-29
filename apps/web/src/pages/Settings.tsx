@@ -4,7 +4,7 @@ import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, Tog
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { useCredits } from '@/hooks/useCredits'
-import { MediaUploadSlot } from '@/components/media/MediaUploadSlot'
+import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 
 const ALL_MODULES = [
@@ -333,21 +333,22 @@ export default function Settings() {
               <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
             </div>
 
-            {/* Slot 1: welcome screen */}
-            <MediaUploadSlot
+            {/* Slot 1: welcome screen — up to 5 creatives */}
+            <CreativesGallery
               type="welcome"
               title="Pantalla de bienvenida"
-              description="Imagen o vídeo que aparecerá en ventana emergente según la frecuencia configurada (máx. 100 MB)."
-              item={mediaData?.welcome ?? null}
+              description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+              files={mediaData?.welcome?.files ?? []}
+              settings={mediaData?.welcome?.settings ?? null}
               onChanged={loadMedia}
             />
 
-            {/* Trigger config — only shown when there is a welcome file */}
-            {mediaData?.welcome && (
+            {/* Trigger config — only when there is at least one creative */}
+            {(mediaData?.welcome?.files?.length ?? 0) > 0 && (
               <>
                 <div className="border-t border-slate-100" />
                 <WelcomeTriggerConfig
-                  current={mediaData.welcome}
+                  current={mediaData.welcome.settings}
                   onSaved={loadMedia}
                 />
               </>
@@ -355,12 +356,13 @@ export default function Settings() {
 
             <div className="border-t border-slate-100" />
 
-            {/* Slot 2: patient content */}
-            <MediaUploadSlot
+            {/* Slot 2: patient content — up to 5 creatives */}
+            <CreativesGallery
               type="patient"
               title="Contenido para paciente"
-              description="Imagen o vídeo destinado al paciente. Su funcionamiento exacto se configurará próximamente."
-              item={mediaData?.patient ?? null}
+              description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+              files={mediaData?.patient?.files ?? []}
+              settings={mediaData?.patient?.settings ?? null}
               onChanged={loadMedia}
             />
           </div>
