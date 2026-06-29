@@ -8,13 +8,14 @@ import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
 
 interface ConsentModalProps {
   initialPatientId?: string
+  continueRecord?: any
   onClose: () => void
   onSaved: () => void
 }
 
 type Step = 'form' | 'preview' | 'sign' | 'done'
 
-export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModalProps) {
+export function ConsentModal({ initialPatientId, continueRecord, onClose, onSaved }: ConsentModalProps) {
   const { t } = useTranslation()
   const { currentLanguage } = useLanguageStore()
 
@@ -22,12 +23,12 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
   const [doctors, setDoctors] = useState<Doctor[]>([])
   const [templates, setTemplates] = useState<ConsentTemplate[]>([])
 
-  const [patientId, setPatientId] = useState(initialPatientId ?? '')
-  const [doctorId, setDoctorId] = useState('')
-  const [templateId, setTemplateId] = useState('')
-  const [step, setStep] = useState<Step>('form')
+  const [patientId, setPatientId] = useState(continueRecord?.patient_id ?? continueRecord?.patientId ?? initialPatientId ?? '')
+  const [doctorId, setDoctorId] = useState(continueRecord?.doctor_id ?? continueRecord?.doctorId ?? '')
+  const [templateId, setTemplateId] = useState(continueRecord?.template_id ?? continueRecord?.templateId ?? '')
+  const [step, setStep] = useState<Step>(continueRecord ? 'preview' : 'form')
   const [acceptedLegal, setAcceptedLegal] = useState(false)
-  const [consentId, setConsentId] = useState('')
+  const [consentId, setConsentId] = useState(continueRecord?.id ?? '')
   const [saving, setSaving] = useState(false)
   const [translating, setTranslating] = useState(false)
 

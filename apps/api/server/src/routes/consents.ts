@@ -45,4 +45,11 @@ router.post('/', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+router.delete('/:id', async (req, res) => {
+  try {
+    await query('DELETE FROM consent_records WHERE id = $1', [req.params.id])
+    return res.json({ deleted: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 export default router

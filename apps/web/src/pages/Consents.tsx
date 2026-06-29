@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { Search, FilePlus, CheckCircle, Clock, XCircle, AlertCircle } from 'lucide-react'
+import { Search, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, PenLine, Trash2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ConsentModal } from '@/components/consents/ConsentModal'
 
@@ -20,8 +20,15 @@ export default function Consents() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [modalOpen, setModalOpen] = useState(false)
+  const [continueConsent, setContinueConsent] = useState<any>(null)
 
   const initialPatient = searchParams.get('patient') ?? undefined
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('¿Eliminar este consentimiento?')) return
+    await api.delete(`/consents/${id}`)
+    await load()
+  }
 
   const load = async () => {
     setLoading(true)
@@ -110,7 +117,7 @@ export default function Consents() {
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), t('consents.language'), t('consents.signed_at'), 'Estado'].map((h, i) => (
+                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), t('consents.signed_at'), 'Estado', ''].map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
@@ -121,18 +128,37 @@ export default function Consents() {
                   const Icon = cfg.icon
                   return (
                     <tr key={c.id} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-4 py-3 font-medium text-slate-800">{c.patient?.fullName ?? '—'}</td>
-                      <td className="px-4 py-3 text-slate-600">{c.template?.treatmentType ?? '—'}</td>
+                      <td className="px-4 py-3 font-medium text-slate-800">{c.patient?.full_name ?? c.patient?.fullName ?? '—'}</td>
+                      <td className="px-4 py-3 text-slate-600">{c.template?.treatmentType ?? c.template?.treatment_type ?? '—'}</td>
                       <td className="px-4 py-3 text-slate-500">{c.doctor?.name ?? '—'}</td>
-                      <td className="px-4 py-3 text-slate-400 text-xs uppercase">{c.language}</td>
                       <td className="px-4 py-3 text-slate-400 text-xs">
-                        {c.signedAt ? new Date(c.signedAt).toLocaleDateString() : '—'}
+                        {c.signedAt ?? c.signed_at ? new Date(c.signedAt ?? c.signed_at).toLocaleDateString() : '—'}
                       </td>
                       <td className="px-4 py-3">
                         <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${cfg.bg} ${cfg.color}`}>
                           <Icon className="w-3 h-3" />
                           {t(cfg.label)}
                         </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-1 justify-end">
+                          {c.status === 'pending' && (
+                            <button
+                              onClick={() => { setContinueConsent(c); setModalOpen(true) }}
+                              className="flex items-center gap-1 px-2 py-1 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100"
+                              title="Continuar firma"
+                            >
+                              <PenLine className="w-3.5 h-3.5" /> Firmar
+                            </button>
+                          )}
+                          <button
+                            onClick={() => handleDelete(c.id)}
+                            className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
+                            title="Eliminar"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   )
@@ -146,8 +172,9 @@ export default function Consents() {
       {modalOpen && (
         <ConsentModal
           initialPatientId={initialPatient}
-          onClose={() => setModalOpen(false)}
-          onSaved={() => { setModalOpen(false); load() }}
+          continueRecord={continueConsent}
+          onClose={() => { setModalOpen(false); setContinueConsent(null) }}
+          onSaved={() => { setModalOpen(false); setContinueConsent(null); load() }}
         />
       )}
     </div>
