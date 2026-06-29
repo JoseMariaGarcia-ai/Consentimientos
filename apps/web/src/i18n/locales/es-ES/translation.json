@@ -6,7 +6,7 @@
   "nav": {
     "dashboard": "Inicio",
     "patients": "Pacientes",
-    "doctors": "Médicos",
+    "doctors": "Doctores",
     "consents": "Consentimientos",
     "clinic": "Clínica",
     "logout": "Cerrar sesión",
@@ -57,7 +57,7 @@
     "uploading": "Subiendo…"
   },
   "doctors": {
-    "title": "Médicos",
+    "title": "Doctores",
     "add": "Añadir médico",
     "name": "Nombre",
     "specialty": "Especialidad",
