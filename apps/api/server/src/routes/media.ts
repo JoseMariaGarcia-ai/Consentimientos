@@ -61,6 +61,30 @@ router.post('/:type', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// PUT /api/media/:type/config — save display trigger config (no file change)
+router.put('/:type/config', async (req, res) => {
+  const { userId } = (req as any).user
+  const type = req.params.type
+  const { show_trigger, show_interval_minutes } = req.body
+  const validTriggers = ['session', 'consent', 'clinical', 'interval']
+  if (show_trigger && !validTriggers.includes(show_trigger)) {
+    return res.status(400).json({ error: 'show_trigger inválido' })
+  }
+  try {
+    const clinicId = await getClinicId(userId)
+    const row = await queryOne(
+      `UPDATE clinic_media
+         SET show_trigger = COALESCE($1, show_trigger),
+             show_interval_minutes = COALESCE($2, show_interval_minutes)
+       WHERE clinic_id = $3 AND type = $4
+       RETURNING *`,
+      [show_trigger ?? null, show_interval_minutes ?? null, clinicId, type]
+    )
+    if (!row) return res.status(404).json({ error: 'No hay archivo subido para este slot' })
+    return res.json(row)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // DELETE /api/media/:type
 router.delete('/:type', async (req, res) => {
   const { userId } = (req as any).user

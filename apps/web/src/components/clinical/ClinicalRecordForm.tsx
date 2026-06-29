@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Doctor } from '@consentspro/shared-types'
+import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 
 interface ClinicalRecordFormProps {
   initial?: any
@@ -10,6 +11,7 @@ interface ClinicalRecordFormProps {
 }
 
 export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, onClose }: ClinicalRecordFormProps) {
+  const { trigger: triggerWelcome } = useWelcomeMedia()
   const [form, setForm] = useState({
     patient_id:          initial.patient_id  ?? initial.patientId  ?? '',
     doctor_id:           initial.doctor_id   ?? initial.doctorId   ?? '',
@@ -36,6 +38,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
     setSaveError('')
     try {
       await onSave(form)
+      triggerWelcome('clinical')
       onClose()
     } catch (err: any) {
       setSaveError(err.message ?? 'Error desconocido')

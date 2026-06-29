@@ -19,6 +19,7 @@ import PatientDetail from './pages/PatientDetail'
 import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
+import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
 import { useAuth } from './lib/auth'
 
 export default function App() {
@@ -38,28 +39,30 @@ export default function App() {
   if (!isAuthenticated) return <Login />
 
   return (
-    <div className="flex flex-col h-screen bg-slate-50">
-      <Topbar />
-      <div className="flex flex-1 overflow-hidden">
-        <Sidebar />
-        <WelcomeMediaModal />
-        <main className="flex-1 overflow-auto p-6">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/patients" element={<Patients />} />
-            <Route path="/doctors" element={<Doctors />} />
-            <Route path="/consents" element={<Consents />} />
-            <Route path="/clinic" element={<ClinicPage />} />
-            <Route path="/templates" element={<Templates />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/clinical-records" element={<ClinicalRecords />} />
-            <Route path="/photos" element={<PhotoSessions />} />
-            <Route path="/recharge" element={<Recharge />} />
-            <Route path="/patients/:id" element={<PatientDetail />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </main>
+    <WelcomeMediaProvider>
+      <div className="flex flex-col h-screen bg-slate-50">
+        <Topbar />
+        <div className="flex flex-1 overflow-hidden">
+          <Sidebar />
+          <WelcomeMediaModal />
+          <main className="flex-1 overflow-auto p-6">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/patients" element={<Patients />} />
+              <Route path="/doctors" element={<Doctors />} />
+              <Route path="/consents" element={<Consents />} />
+              <Route path="/clinic" element={<ClinicPage />} />
+              <Route path="/templates" element={<Templates />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/clinical-records" element={<ClinicalRecords />} />
+              <Route path="/photos" element={<PhotoSessions />} />
+              <Route path="/recharge" element={<Recharge />} />
+              <Route path="/patients/:id" element={<PatientDetail />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-    </div>
+    </WelcomeMediaProvider>
   )
 }

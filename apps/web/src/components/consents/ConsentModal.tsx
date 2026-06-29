@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '@/lib/api'
+import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import type { Patient, Doctor, ConsentTemplate } from '@consentspro/shared-types'
 import { useLanguageStore } from '@/store/languageStore'
@@ -16,6 +17,7 @@ interface ConsentModalProps {
 type Step = 'form' | 'preview' | 'sign_doctor' | 'sign_patient' | 'done'
 
 export function ConsentModal({ initialPatientId, continueRecord, onClose, onSaved }: ConsentModalProps) {
+  const { trigger: triggerWelcome } = useWelcomeMedia()
   const { t } = useTranslation()
   const { currentLanguage } = useLanguageStore()
 
@@ -114,6 +116,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
         client_timestamp: new Date().toISOString(),
       })
       setStep('done')
+      triggerWelcome('consent')
       onSaved()
     } finally {
       setSaving(false)

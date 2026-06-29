@@ -5,6 +5,7 @@ import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { useCredits } from '@/hooks/useCredits'
 import { MediaUploadSlot } from '@/components/media/MediaUploadSlot'
+import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 
 const ALL_MODULES = [
   { key: 'dashboard',   labelKey: 'nav.dashboard' },
@@ -336,10 +337,21 @@ export default function Settings() {
             <MediaUploadSlot
               type="welcome"
               title="Pantalla de bienvenida"
-              description="Se mostrará automáticamente en una ventana emergente cada vez que alguien acceda a la aplicación. Puede ser una imagen o un vídeo (máx. 100 MB)."
+              description="Imagen o vídeo que aparecerá en ventana emergente según la frecuencia configurada (máx. 100 MB)."
               item={mediaData?.welcome ?? null}
               onChanged={loadMedia}
             />
+
+            {/* Trigger config — only shown when there is a welcome file */}
+            {mediaData?.welcome && (
+              <>
+                <div className="border-t border-slate-100" />
+                <WelcomeTriggerConfig
+                  current={mediaData.welcome}
+                  onSaved={loadMedia}
+                />
+              </>
+            )}
 
             <div className="border-t border-slate-100" />
 

@@ -1,22 +1,61 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { X } from 'lucide-react'
 import { api } from '@/lib/api'
+import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 
-const SESSION_KEY = 'welcome_media_shown'
+const LS_LAST_SHOWN = 'welcome_media_last_shown'
+const SS_SESSION    = 'welcome_media_shown_session'
 
 export function WelcomeMediaModal() {
   const [media, setMedia]     = useState<any>(null)
   const [visible, setVisible] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const { registerTrigger } = useWelcomeMedia()
+
+  const show = useCallback((m: any) => {
+    setMedia(m)
+    setVisible(true)
+    localStorage.setItem(LS_LAST_SHOWN, Date.now().toString())
+  }, [])
+
+  const shouldShow = useCallback((m: any): boolean => {
+    const trigger: string = m.show_trigger ?? 'session'
+    if (trigger === 'session') {
+      return !sessionStorage.getItem(SS_SESSION)
+    }
+    if (trigger === 'interval') {
+      const mins   = Math.max(1, m.show_interval_minutes ?? 30)
+      const last   = parseInt(localStorage.getItem(LS_LAST_SHOWN) ?? '0')
+      const elapsed = (Date.now() - last) / 60000
+      return elapsed >= mins
+    }
+    // 'consent' and 'clinical' are handled by external triggers only
+    return false
+  }, [])
 
   useEffect(() => {
-    // Only show once per browser session
-    if (sessionStorage.getItem(SESSION_KEY)) return
     api.get('/media').then((data: any) => {
-      if (data?.welcome) {
-        setMedia(data.welcome)
-        setVisible(true)
-        sessionStorage.setItem(SESSION_KEY, '1')
+      const m = data?.welcome
+      if (!m) return
+      if (shouldShow(m)) {
+        show(m)
+        if (m.show_trigger === 'session') sessionStorage.setItem(SS_SESSION, '1')
+      }
+
+      // Register external trigger (consent / clinical)
+      registerTrigger((event: 'consent' | 'clinical') => {
+        const trigger = m.show_trigger
+        if (trigger === 'consent' && event === 'consent') show(m)
+        if (trigger === 'clinical' && event === 'clinical') show(m)
+      })
+
+      // Interval: set up a timer to re-check
+      if (m.show_trigger === 'interval') {
+        const mins = Math.max(1, m.show_interval_minutes ?? 30)
+        const id = setInterval(() => {
+          if (shouldShow(m)) show(m)
+        }, mins * 60 * 1000)
+        return () => clearInterval(id)
       }
     }).catch(() => {})
   }, [])
