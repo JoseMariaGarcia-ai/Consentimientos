@@ -68,15 +68,13 @@ interface AppUser {
 interface LabPartner { id: string; name: string }
 
 const ROLE_OPTIONS = [
-  { value: 'superadmin',  label: 'Super Admin',   icon: ShieldCheck,  color: 'purple' },
-  { value: 'admin',       label: 'Administrador', icon: Shield,       color: 'blue'   },
-  { value: 'clinica',     label: 'Clínica',       icon: UserCheck,    color: 'sky'    },
-  { value: 'lab_partner', label: 'Laboratorio',   icon: FlaskConical, color: 'amber'  },
+  { value: 'superadmin',  label: 'Super Admin', icon: ShieldCheck,  color: 'purple' },
+  { value: 'clinica',     label: 'Clínica',     icon: UserCheck,    color: 'sky'    },
+  { value: 'lab_partner', label: 'Laboratorio', icon: FlaskConical, color: 'amber'  },
 ]
 
 const ROLE_ACTIVE: Record<string, string> = {
   superadmin:  'border-purple-500 bg-purple-50 text-purple-700',
-  admin:       'border-blue-500 bg-blue-50 text-blue-700',
   clinica:     'border-sky-500 bg-sky-50 text-sky-700',
   lab_partner: 'border-amber-500 bg-amber-50 text-amber-700',
 }
