@@ -42,7 +42,7 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
       api.get('/doctors'),
       api.get('/consents/templates'),
     ]).then(([p, d, t]) => {
-      setPatients(Array.isArray(p) ? p : [])
+      setPatients(Array.isArray(p) ? p.map((x: any) => ({ ...x, fullName: x.fullName ?? x.full_name })) : [])
       setDoctors(Array.isArray(d) ? d : [])
       setTemplates(Array.isArray(t) ? t : [])
     })
@@ -145,7 +145,7 @@ export function ConsentModal({ initialPatientId, onClose, onSaved }: ConsentModa
                   onChange={e => setDoctorId(e.target.value)}
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">Seleccionar médico…</option>
+                  <option value="">Seleccionar doctor…</option>
                   {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                 </select>
               </div>
