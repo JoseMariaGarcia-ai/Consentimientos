@@ -34,21 +34,31 @@ const OPTIONS = [
   },
 ]
 
+function parseTriggers(raw: string | null | undefined): string[] {
+  if (!raw) return ['session']
+  return raw.split(',').map(s => s.trim()).filter(Boolean)
+}
+
 export function WelcomeTriggerConfig({ current, onSaved }: Props) {
-  const [trigger, setTrigger]   = useState(current?.show_trigger ?? 'session')
+  const [triggers, setTriggers] = useState<string[]>(() => parseTriggers(current?.show_trigger))
   const [minutes, setMinutes]   = useState(current?.show_interval_minutes ?? 30)
   const [saving, setSaving]     = useState(false)
   const [saved, setSaved]       = useState(false)
   const [error, setError]       = useState('')
 
+  const toggle = (value: string) => {
+    setTriggers(prev =>
+      prev.includes(value) ? prev.filter(t => t !== value) : [...prev, value]
+    )
+  }
+
   const handleSave = async () => {
-    setSaving(true)
-    setError('')
-    setSaved(false)
+    if (triggers.length === 0) { setError('Selecciona al menos una opción'); return }
+    setSaving(true); setError(''); setSaved(false)
     try {
       await api.put('/media/welcome/config', {
-        show_trigger: trigger,
-        show_interval_minutes: trigger === 'interval' ? Math.max(1, minutes) : undefined,
+        show_trigger: triggers.join(','),
+        show_interval_minutes: triggers.includes('interval') ? Math.max(1, minutes) : undefined,
       })
       setSaved(true)
       onSaved()
@@ -63,11 +73,12 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
   return (
     <div className="flex flex-col gap-3">
       <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">¿Cuándo mostrar la publicidad?</p>
+      <p className="text-xs text-slate-400 -mt-1">Puedes seleccionar varias opciones a la vez.</p>
 
       <div className="flex flex-col gap-2">
         {OPTIONS.map(opt => {
           const Icon = opt.icon
-          const active = trigger === opt.value
+          const active = triggers.includes(opt.value)
           return (
             <label
               key={opt.value}
@@ -76,12 +87,10 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
               }`}
             >
               <input
-                type="radio"
-                name="trigger"
-                value={opt.value}
+                type="checkbox"
                 checked={active}
-                onChange={() => setTrigger(opt.value)}
-                className="mt-0.5 accent-pink-600 flex-shrink-0"
+                onChange={() => toggle(opt.value)}
+                className="mt-0.5 accent-pink-600 flex-shrink-0 w-4 h-4"
               />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
@@ -100,6 +109,7 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
                       value={minutes}
                       onChange={e => setMinutes(parseInt(e.target.value) || 1)}
                       className="w-20 px-2 py-1 border border-slate-300 rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-pink-400"
+                      onClick={e => e.stopPropagation()}
                     />
                     <span className="text-xs text-slate-500">minutos</span>
                   </div>

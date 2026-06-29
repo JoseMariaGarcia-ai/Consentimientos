@@ -54,13 +54,18 @@ function pickCreative(slot: SlotData): Creative | null {
   return files[next]
 }
 
+function parseTriggers(raw: string | null | undefined): string[] {
+  if (!raw) return ['session']
+  return raw.split(',').map(s => s.trim()).filter(Boolean)
+}
+
 function shouldShow(settings: SlotData['settings']): boolean {
-  const trigger = settings.show_trigger ?? 'session'
-  if (trigger === 'session')  return !sessionStorage.getItem(SS_SESSION)
-  if (trigger === 'interval') {
+  const triggers = parseTriggers(settings.show_trigger)
+  if (triggers.includes('session') && !sessionStorage.getItem(SS_SESSION)) return true
+  if (triggers.includes('interval')) {
     const mins = Math.max(1, settings.show_interval_minutes ?? 30)
     const last = parseInt(localStorage.getItem(LS_LAST_SHOWN) ?? '0')
-    return (Date.now() - last) / 60000 >= mins
+    if ((Date.now() - last) / 60000 >= mins) return true
   }
   return false
 }
@@ -100,7 +105,7 @@ export function WelcomeMediaModal() {
       }
 
       // Interval timer
-      if (slot.settings.show_trigger === 'interval') {
+      if (parseTriggers(slot.settings.show_trigger).includes('interval')) {
         const mins = Math.max(1, slot.settings.show_interval_minutes ?? 30)
         const id = setInterval(async () => {
           const s = await fetchSlot()
@@ -117,8 +122,8 @@ export function WelcomeMediaModal() {
     registerTrigger(async (event: 'consent' | 'clinical') => {
       const slot = await fetchSlot()
       if (!slot) return
-      const t = slot.settings.show_trigger
-      if ((t === 'consent' && event === 'consent') || (t === 'clinical' && event === 'clinical')) {
+      const triggers = parseTriggers(slot.settings.show_trigger)
+      if (triggers.includes(event)) {
         const c = pickCreative(slot)
         if (c) show(c)
       }
