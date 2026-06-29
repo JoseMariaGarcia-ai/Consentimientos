@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { X, Upload, Trash2, ImageOff, Loader2 } from 'lucide-react'
+import { api } from '@/lib/api'
+import { getToken } from '@/lib/auth'
+
+const API = import.meta.env.VITE_API_URL ?? ''
 
 interface Props {
   patientId: string
@@ -7,11 +11,7 @@ interface Props {
   onClose: () => void
 }
 
-const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
-const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
-const FOLDER = (patientId: string) => `consentspro/patients/${patientId}`
-
-interface Photo { publicId: string; url: string }
+interface Photo { key: string; url: string }
 
 export function PatientGallery({ patientId, patientName, onClose }: Props) {
   const [photos, setPhotos] = useState<Photo[]>([])
@@ -24,17 +24,8 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
   const load = async () => {
     setLoading(true)
     try {
-      // Cloudinary Search API (unsigned — list by folder tag)
-      const res = await fetch(
-        `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${FOLDER(patientId)}.json`
-      )
-      if (!res.ok) { setPhotos([]); return }
-      const data = await res.json()
-      const items: Photo[] = (data.resources ?? []).map((r: any) => ({
-        publicId: r.public_id,
-        url: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_400,q_auto/${r.public_id}`,
-      }))
-      setPhotos(items)
+      const data = await api.get(`/photos/${patientId}`)
+      setPhotos(Array.isArray(data) ? data : [])
     } catch { setPhotos([]) } finally { setLoading(false) }
   }
 
@@ -45,12 +36,12 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
     if (!files.length) return
     setUploading(true)
     for (const file of files) {
-      const fd = new FormData()
-      fd.append('file', file)
-      fd.append('upload_preset', UPLOAD_PRESET)
-      fd.append('folder', FOLDER(patientId))
-      await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
-        method: 'POST', body: fd,
+      const buffer = await file.arrayBuffer()
+      const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)))
+      await api.post(`/photos/${patientId}`, {
+        fileBase64: base64,
+        fileName: file.name,
+        contentType: file.type || 'image/jpeg',
       })
     }
     await load()
@@ -58,16 +49,16 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
     if (inputRef.current) inputRef.current.value = ''
   }
 
-  const handleDelete = async (publicId: string) => {
+  const handleDelete = async (key: string) => {
     if (!confirm('¿Eliminar esta foto?')) return
-    setDeleting(publicId)
-    // Deletion requires signed request — call backend endpoint
-    await fetch(`${import.meta.env.VITE_API_URL}/photos/${encodeURIComponent(publicId)}`, {
-      method: 'DELETE',
-      headers: { Authorization: `Bearer ${localStorage.getItem('cp_token')}` },
-    })
-    setPhotos(ps => ps.filter(p => p.publicId !== publicId))
-    setDeleting(null)
+    setDeleting(key)
+    try {
+      await fetch(`${API}/photos/file/${encodeURIComponent(key)}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${getToken()}` },
+      })
+      setPhotos(ps => ps.filter(p => p.key !== key))
+    } finally { setDeleting(null) }
   }
 
   return (
@@ -105,12 +96,12 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
             ) : (
               <div className="grid grid-cols-3 gap-3">
                 {photos.map(p => (
-                  <div key={p.publicId} className="relative group rounded-xl overflow-hidden aspect-square bg-slate-100">
+                  <div key={p.key} className="relative group rounded-xl overflow-hidden aspect-square bg-slate-100">
                     <img src={p.url} alt="" className="w-full h-full object-cover cursor-pointer" onClick={() => setPreview(p.url)} />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
-                    <button onClick={() => handleDelete(p.publicId)} disabled={deleting === p.publicId}
+                    <button onClick={() => handleDelete(p.key)} disabled={deleting === p.key}
                       className="absolute top-2 right-2 p-1.5 bg-white/90 text-red-500 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-40">
-                      {deleting === p.publicId ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Trash2 className="w-3.5 h-3.5" />}
+                      {deleting === p.key ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Trash2 className="w-3.5 h-3.5" />}
                     </button>
                   </div>
                 ))}
@@ -118,7 +109,7 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
             )}
           </div>
           <div className="px-6 py-3 border-t border-slate-100 text-xs text-slate-400">
-            {photos.length} {photos.length === 1 ? 'foto' : 'fotos'} · Almacenadas en Cloudinary
+            {photos.length} {photos.length === 1 ? 'foto' : 'fotos'} · Almacenadas en Cloudflare R2
           </div>
         </div>
       </div>

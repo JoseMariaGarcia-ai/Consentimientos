@@ -1,42 +1,40 @@
 import { Router } from 'express'
-import crypto from 'crypto'
+import { uploadFile, deleteFile, listFiles, getPresignedUrl } from '../lib/r2'
 
 const router = Router()
 
-router.delete('/:publicId(*)', async (req, res) => {
-  const publicId = req.params.publicId
-  const cloudName = process.env.CLOUDINARY_CLOUD_NAME
-  const apiKey = process.env.CLOUDINARY_API_KEY
-  const apiSecret = process.env.CLOUDINARY_API_SECRET
-
-  if (!cloudName || !apiKey || !apiSecret) {
-    return res.status(500).json({ error: 'Cloudinary not configured' })
-  }
-
+// GET /api/photos/:patientId — list photos with presigned URLs
+router.get('/:patientId', async (req, res) => {
   try {
-    const timestamp = Math.round(Date.now() / 1000)
-    const signature = crypto
-      .createHash('sha1')
-      .update(`public_id=${publicId}&timestamp=${timestamp}${apiSecret}`)
-      .digest('hex')
+    const prefix = `patients/${req.params.patientId}/photos/`
+    const keys = await listFiles(prefix)
+    const photos = await Promise.all(keys.map(async key => ({
+      key,
+      url: await getPresignedUrl(key),
+    })))
+    return res.json(photos)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
 
-    const form = new URLSearchParams({
-      public_id: publicId,
-      timestamp: String(timestamp),
-      api_key: apiKey,
-      signature,
-    })
+// POST /api/photos/:patientId — upload photo (base64 or multipart)
+router.post('/:patientId', async (req, res) => {
+  try {
+    const { fileBase64, fileName, contentType } = req.body
+    if (!fileBase64 || !fileName) return res.status(400).json({ error: 'fileBase64 y fileName requeridos' })
+    const buffer = Buffer.from(fileBase64, 'base64')
+    const key = `patients/${req.params.patientId}/photos/${Date.now()}_${fileName}`
+    await uploadFile(key, buffer, contentType ?? 'image/jpeg')
+    const url = await getPresignedUrl(key)
+    return res.status(201).json({ key, url })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
 
-    const r = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/destroy`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: form.toString(),
-    })
-    const data = await r.json()
-    return res.json(data)
-  } catch (err: any) {
-    return res.status(500).json({ error: err.message })
-  }
+// DELETE /api/photos/file/:key(*) — delete by key
+router.delete('/file/:key(*)', async (req, res) => {
+  try {
+    await deleteFile(req.params.key)
+    return res.json({ ok: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 export default router
