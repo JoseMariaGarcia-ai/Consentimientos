@@ -13,7 +13,7 @@ interface ConsentModalProps {
   onSaved: () => void
 }
 
-type Step = 'form' | 'preview' | 'sign' | 'done'
+type Step = 'form' | 'preview' | 'sign_doctor' | 'sign_patient' | 'done'
 
 export function ConsentModal({ initialPatientId, continueRecord, onClose, onSaved }: ConsentModalProps) {
   const { t } = useTranslation()
@@ -26,7 +26,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [patientId, setPatientId] = useState(continueRecord?.patient_id ?? continueRecord?.patientId ?? initialPatientId ?? '')
   const [doctorId, setDoctorId] = useState(continueRecord?.doctor_id ?? continueRecord?.doctorId ?? '')
   const [templateId, setTemplateId] = useState(continueRecord?.template_id ?? continueRecord?.templateId ?? '')
-  const [step, setStep] = useState<Step>(continueRecord ? 'preview' : 'form')
+  const [step, setStep] = useState<Step>(continueRecord ? 'sign_doctor' : 'form')
   const [acceptedLegal, setAcceptedLegal] = useState(false)
   const [consentId, setConsentId] = useState(continueRecord?.id ?? '')
   const [saving, setSaving] = useState(false)
@@ -87,7 +87,17 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
     }
   }
 
-  const handleSign = async (dataUrl: string, points: any[]) => {
+  const handleDoctorSign = async (dataUrl: string) => {
+    setSaving(true)
+    try {
+      await api.post(`/signature/${consentId}/doctor`, { signature_data_url: dataUrl })
+      setStep('sign_patient')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handlePatientSign = async (dataUrl: string, points: any[]) => {
     setSaving(true)
     try {
       await api.post(`/signature/${consentId}`, {
@@ -113,18 +123,26 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
         <div className="px-6 py-5">
           {/* Step indicator */}
-          <div className="flex items-center gap-2 mb-6">
-            {['form', 'preview', 'sign', 'done'].map((s, i) => (
-              <div key={s} className={`flex items-center gap-1.5 ${i > 0 ? 'flex-1' : ''}`}>
-                {i > 0 && <div className={`flex-1 h-px ${step === 'done' || ['preview','sign','done'].indexOf(step) >= i ? 'bg-blue-400' : 'bg-slate-200'}`} />}
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                  step === s ? 'bg-blue-600 text-white' :
-                  ['preview','sign','done'].indexOf(step) > ['form','preview','sign','done'].indexOf(s) ? 'bg-blue-100 text-blue-600' :
-                  'bg-slate-100 text-slate-400'
-                }`}>{i + 1}</div>
+          {(() => {
+            const steps: Step[] = ['form', 'preview', 'sign_doctor', 'sign_patient', 'done']
+            const labels = ['Datos', 'Revisión', 'Firma doctor', 'Firma paciente', 'Hecho']
+            const cur = steps.indexOf(step)
+            return (
+              <div className="flex items-center gap-1 mb-6">
+                {steps.map((s, i) => (
+                  <div key={s} className={`flex items-center gap-1 ${i > 0 ? 'flex-1' : ''}`}>
+                    {i > 0 && <div className={`flex-1 h-px ${cur >= i ? 'bg-blue-400' : 'bg-slate-200'}`} />}
+                    <div className="flex flex-col items-center gap-0.5">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
+                        cur === i ? 'bg-blue-600 text-white' : cur > i ? 'bg-blue-100 text-blue-600' : 'bg-slate-100 text-slate-400'
+                      }`}>{i + 1}</div>
+                      <span className="text-[9px] text-slate-400 hidden sm:block">{labels[i]}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )
+          })()}
 
           {/* STEP 1: Form */}
           {step === 'form' && (
@@ -229,7 +247,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
               <div className="flex justify-between pt-2 border-t border-slate-100">
                 <button onClick={() => setStep('form')} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">← Atrás</button>
                 <button
-                  onClick={() => setStep('sign')}
+                  onClick={() => setStep('sign_doctor')}
                   disabled={!acceptedLegal}
                   className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 font-medium"
                 >
@@ -239,12 +257,28 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
             </div>
           )}
 
-          {/* STEP 3: Signature */}
-          {step === 'sign' && (
+          {/* STEP 3: Doctor signature */}
+          {step === 'sign_doctor' && (
             <div className="flex flex-col gap-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+                <p className="text-sm font-semibold text-blue-800">Firma del doctor</p>
+                <p className="text-xs text-blue-600 mt-0.5">El doctor debe firmar primero para validar el consentimiento</p>
+              </div>
               <p className="text-sm text-slate-600">{t('signature.instructions')}</p>
-              <SignatureCanvas onSave={handleSign} />
+              <SignatureCanvas onSave={(dataUrl) => handleDoctorSign(dataUrl)} />
               <button onClick={() => setStep('preview')} className="self-start text-xs text-slate-500 hover:text-slate-700">← Volver</button>
+            </div>
+          )}
+
+          {/* STEP 4: Patient signature */}
+          {step === 'sign_patient' && (
+            <div className="flex flex-col gap-4">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
+                <p className="text-sm font-semibold text-emerald-800">Firma del paciente</p>
+                <p className="text-xs text-emerald-600 mt-0.5">El paciente debe firmar para confirmar que ha leído y acepta el consentimiento</p>
+              </div>
+              <p className="text-sm text-slate-600">{t('signature.instructions')}</p>
+              <SignatureCanvas onSave={handlePatientSign} />
             </div>
           )}
 
