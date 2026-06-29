@@ -13,7 +13,8 @@
     "templates": "Mẫu",
     "settings": "Cài đặt",
     "clinicalRecords": "Hồ Sơ Bệnh Án",
-    "photos": "Ảnh"
+    "photos": "Ảnh",
+    "recharge": "Nạp tiền"
   },
   "auth": {
     "login_title": "Truy cập an toàn",

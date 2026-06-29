@@ -13,7 +13,8 @@
     "templates": "Sjablonen",
     "settings": "Instellingen",
     "clinicalRecords": "Klinisch Dossier",
-    "photos": "Foto's"
+    "photos": "Foto's",
+    "recharge": "Bijvullen"
   },
   "auth": {
     "login_title": "Beveiligde toegang",

@@ -13,7 +13,8 @@
     "templates": "Templates",
     "settings": "Settings",
     "clinicalRecords": "Clinical Records",
-    "photos": "Photos"
+    "photos": "Photos",
+    "recharge": "Top Up"
   },
   "auth": {
     "login_title": "Secure access",

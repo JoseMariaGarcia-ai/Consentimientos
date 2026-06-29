@@ -13,7 +13,8 @@
     "templates": "Sablonok",
     "settings": "Beállítások",
     "clinicalRecords": "Klinikai Napló",
-    "photos": "Fotók"
+    "photos": "Fotók",
+    "recharge": "Feltöltés"
   },
   "auth": {
     "login_title": "Biztonságos hozzáférés",

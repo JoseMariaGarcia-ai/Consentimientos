@@ -13,7 +13,8 @@
     "templates": "टेम्पलेट",
     "settings": "सेटिंग्स",
     "clinicalRecords": "क्लिनिकल रिकॉर्ड",
-    "photos": "फ़ोटो"
+    "photos": "फ़ोटो",
+    "recharge": "रिचार्ज"
   },
   "auth": {
     "login_title": "सुरक्षित पहुँच",

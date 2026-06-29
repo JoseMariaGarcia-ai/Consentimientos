@@ -13,7 +13,8 @@
     "templates": "Szablony",
     "settings": "Ustawienia",
     "clinicalRecords": "Historia Kliniczna",
-    "photos": "Zdjęcia"
+    "photos": "Zdjęcia",
+    "recharge": "Doładuj"
   },
   "auth": {
     "login_title": "Bezpieczny dostęp",

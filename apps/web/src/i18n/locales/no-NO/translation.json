@@ -13,7 +13,8 @@
     "templates": "Maler",
     "settings": "Innstillinger",
     "clinicalRecords": "Klinisk Journal",
-    "photos": "Bilder"
+    "photos": "Bilder",
+    "recharge": "Fyll opp"
   },
   "auth": {
     "login_title": "Sikker tilgang",

@@ -13,7 +13,8 @@
     "templates": "Plantilles",
     "settings": "Configuració",
     "clinicalRecords": "Història Clínica",
-    "photos": "Fotos"
+    "photos": "Fotos",
+    "recharge": "Recarregar"
   },
   "auth": {
     "login_title": "Accés segur",

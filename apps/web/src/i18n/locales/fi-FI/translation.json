@@ -13,7 +13,8 @@
     "templates": "Mallit",
     "settings": "Asetukset",
     "clinicalRecords": "Potilaskertomus",
-    "photos": "Kuvat"
+    "photos": "Kuvat",
+    "recharge": "Lataa"
   },
   "auth": {
     "login_title": "Suojattu sisäänpääsy",

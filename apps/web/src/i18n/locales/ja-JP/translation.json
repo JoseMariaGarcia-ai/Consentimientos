@@ -13,7 +13,8 @@
     "templates": "テンプレート",
     "settings": "設定",
     "clinicalRecords": "カルテ",
-    "photos": "写真"
+    "photos": "写真",
+    "recharge": "チャージ"
   },
   "auth": {
     "login_title": "セキュアアクセス",

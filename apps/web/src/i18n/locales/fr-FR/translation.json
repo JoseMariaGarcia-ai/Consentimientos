@@ -13,7 +13,8 @@
     "templates": "Modèles",
     "settings": "Paramètres",
     "clinicalRecords": "Dossiers Cliniques",
-    "photos": "Photos"
+    "photos": "Photos",
+    "recharge": "Recharger"
   },
   "auth": {
     "login_title": "Accès sécurisé",

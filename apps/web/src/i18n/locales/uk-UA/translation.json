@@ -13,7 +13,8 @@
     "templates": "Шаблони",
     "settings": "Налаштування",
     "clinicalRecords": "Клінічна Карта",
-    "photos": "Фото"
+    "photos": "Фото",
+    "recharge": "Поповнити"
   },
   "auth": {
     "login_title": "Безпечний доступ",

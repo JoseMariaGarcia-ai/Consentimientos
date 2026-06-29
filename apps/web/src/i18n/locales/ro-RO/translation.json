@@ -13,7 +13,8 @@
     "templates": "Șabloane",
     "settings": "Setări",
     "clinicalRecords": "Dosar Clinic",
-    "photos": "Fotografii"
+    "photos": "Fotografii",
+    "recharge": "Reîncarcă"
   },
   "auth": {
     "login_title": "Acces securizat",

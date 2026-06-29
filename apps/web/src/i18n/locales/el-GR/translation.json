@@ -13,7 +13,8 @@
     "templates": "Πρότυπα",
     "settings": "Ρυθμίσεις",
     "clinicalRecords": "Κλινικό Αρχείο",
-    "photos": "Φωτογραφίες"
+    "photos": "Φωτογραφίες",
+    "recharge": "Ανανέωση"
   },
   "auth": {
     "login_title": "Ασφαλής πρόσβαση",

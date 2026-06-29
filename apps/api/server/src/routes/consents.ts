@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { deductCredit } from '../lib/credits'
 
 const router = Router()
 
@@ -30,6 +31,9 @@ router.get('/', async (_req, res) => {
 router.post('/', async (req, res) => {
   try {
     const b = req.body
+    const { userId } = (req as any).user
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    await deductCredit(clinicRow!.clinic_id, 'consents_available')
     const data = await queryOne(
       `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status, sede)
        VALUES ($1,$2,$3,$4,$5,'pending',$6) RETURNING *`,
@@ -43,7 +47,7 @@ router.post('/', async (req, res) => {
       ]
     )
     return res.status(201).json(data)
-  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+  } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })
 
 router.delete('/:id', async (req, res) => {

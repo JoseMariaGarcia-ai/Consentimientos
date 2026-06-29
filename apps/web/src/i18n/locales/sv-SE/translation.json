@@ -13,7 +13,8 @@
     "templates": "Mallar",
     "settings": "Inställningar",
     "clinicalRecords": "Journalanteckningar",
-    "photos": "Foton"
+    "photos": "Foton",
+    "recharge": "Fyll på"
   },
   "auth": {
     "login_title": "Säker åtkomst",

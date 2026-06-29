@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { uploadFile, deleteFile, getPresignedUrl } from '../lib/r2'
+import { deductCredit } from '../lib/credits'
 
 const router = Router()
 const MAX_PHOTOS_PER_SESSION = 10
@@ -43,13 +44,14 @@ router.post('/', async (req, res) => {
   const { patient_id, name, notes, session_date } = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    await deductCredit(clinicRow!.clinic_id, 'photo_sessions_available')
     const session = await queryOne(
       `INSERT INTO photo_sessions (clinic_id, patient_id, name, notes, session_date)
        VALUES ($1, $2, $3, $4, $5) RETURNING *`,
       [clinicRow?.clinic_id, patient_id, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
     )
     return res.status(201).json({ ...session, photos: [] })
-  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+  } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })
 
 // PUT /api/photo-sessions/:id — update session metadata

@@ -13,7 +13,8 @@
     "templates": "Шаблоны",
     "settings": "Настройки",
     "clinicalRecords": "История болезни",
-    "photos": "Фото"
+    "photos": "Фото",
+    "recharge": "Пополнить"
   },
   "auth": {
     "login_title": "Безопасный вход",

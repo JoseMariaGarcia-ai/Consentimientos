@@ -13,7 +13,8 @@
     "templates": "Vorlagen",
     "settings": "Einstellungen",
     "clinicalRecords": "Krankenakte",
-    "photos": "Fotos"
+    "photos": "Fotos",
+    "recharge": "Aufladen"
   },
   "auth": {
     "login_title": "Sicherer Zugang",

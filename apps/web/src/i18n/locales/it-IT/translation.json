@@ -13,7 +13,8 @@
     "templates": "Modelli",
     "settings": "Impostazioni",
     "clinicalRecords": "Cartella Clinica",
-    "photos": "Foto"
+    "photos": "Foto",
+    "recharge": "Ricarica"
   },
   "auth": {
     "login_title": "Accesso sicuro",

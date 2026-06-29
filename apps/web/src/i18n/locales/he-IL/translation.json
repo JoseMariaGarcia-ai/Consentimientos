@@ -13,7 +13,8 @@
     "templates": "תבניות",
     "settings": "הגדרות",
     "clinicalRecords": "רשומה רפואית",
-    "photos": "תמונות"
+    "photos": "תמונות",
+    "recharge": "טעינה"
   },
   "auth": {
     "login_title": "גישה מאובטחת",

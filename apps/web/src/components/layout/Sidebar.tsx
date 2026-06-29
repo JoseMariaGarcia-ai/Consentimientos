@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
+import { useCredits } from '@/hooks/useCredits'
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard' },
@@ -20,6 +21,8 @@ const bottomNavItems = [
 
 export function Sidebar() {
   const { t } = useTranslation()
+  const { low } = useCredits()
+
   return (
     <aside className="w-56 bg-white border-r border-slate-200 flex flex-col py-4">
       <nav className="flex-1">
@@ -38,6 +41,24 @@ export function Sidebar() {
             {t(label)}
           </NavLink>
         ))}
+
+        {/* Recargar — highlighted when credits are low */}
+        <NavLink
+          to="/recharge"
+          className={({ isActive }) =>
+            `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+              isActive
+                ? 'bg-amber-100 text-amber-800'
+                : low
+                ? 'text-amber-600 bg-amber-50 hover:bg-amber-100'
+                : 'text-slate-600 hover:bg-slate-50'
+            }`
+          }
+        >
+          <Zap className={`w-4 h-4 ${low ? 'text-amber-500' : ''}`} />
+          {t('nav.recharge')}
+          {low && <span className="ml-auto w-2 h-2 rounded-full bg-amber-500 animate-pulse" />}
+        </NavLink>
       </nav>
 
       {/* Settings — above language selector */}
@@ -58,7 +79,7 @@ export function Sidebar() {
         ))}
       </div>
 
-      {/* Language selector — bottom of sidebar, always visible */}
+      {/* Language selector */}
       <div className="mx-2 mt-4 pt-4 border-t border-slate-100">
         <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide px-3 mb-2">
           {t('language.select', 'Idioma')}

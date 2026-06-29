@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { deductCredit } from '../lib/credits'
 
 const router = Router()
 
@@ -26,6 +27,7 @@ router.post('/', async (req, res) => {
   const b = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    await deductCredit(clinicRow!.clinic_id, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
         (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes)
@@ -46,7 +48,7 @@ router.post('/', async (req, res) => {
       ]
     )
     return res.status(201).json(data)
-  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+  } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })
 
 router.put('/:id', async (req, res) => {
