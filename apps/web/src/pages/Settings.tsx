@@ -15,7 +15,7 @@ const ALL_MODULES = [
   { key: 'clinical-records', labelKey: 'nav.clinicalRecords', defaultOn: true  },
   { key: 'photos',           labelKey: 'nav.photos',          defaultOn: true  },
   { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
-  { key: 'settings',         labelKey: 'nav.settings',        defaultOn: true  },
+  { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },
   { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },
   { key: 'lab-partners',     labelKey: 'nav.labPartners',     defaultOn: false },
 ]
@@ -68,21 +68,17 @@ interface AppUser {
 interface LabPartner { id: string; name: string }
 
 const ROLE_OPTIONS = [
-  { value: 'superadmin',   label: 'Super Admin',     icon: ShieldCheck,   color: 'purple' },
-  { value: 'admin',        label: 'Administrador',   icon: Shield,        color: 'blue'   },
-  { value: 'clinica',      label: 'Clínica',         icon: UserCheck,     color: 'sky'    },
-  { value: 'doctor',       label: 'Doctor',          icon: Stethoscope,   color: 'emerald'},
-  { value: 'receptionist', label: 'Recepcionista',   icon: Users,         color: 'slate'  },
-  { value: 'lab_partner',  label: 'Laboratorio',     icon: FlaskConical,  color: 'amber'  },
+  { value: 'superadmin',  label: 'Super Admin',   icon: ShieldCheck,  color: 'purple' },
+  { value: 'admin',       label: 'Administrador', icon: Shield,       color: 'blue'   },
+  { value: 'clinica',     label: 'Clínica',       icon: UserCheck,    color: 'sky'    },
+  { value: 'lab_partner', label: 'Laboratorio',   icon: FlaskConical, color: 'amber'  },
 ]
 
 const ROLE_ACTIVE: Record<string, string> = {
-  superadmin:   'border-purple-500 bg-purple-50 text-purple-700',
-  admin:        'border-blue-500 bg-blue-50 text-blue-700',
-  clinica:      'border-sky-500 bg-sky-50 text-sky-700',
-  doctor:       'border-emerald-500 bg-emerald-50 text-emerald-700',
-  receptionist: 'border-slate-500 bg-slate-50 text-slate-700',
-  lab_partner:  'border-amber-500 bg-amber-50 text-amber-700',
+  superadmin:  'border-purple-500 bg-purple-50 text-purple-700',
+  admin:       'border-blue-500 bg-blue-50 text-blue-700',
+  clinica:     'border-sky-500 bg-sky-50 text-sky-700',
+  lab_partner: 'border-amber-500 bg-amber-50 text-amber-700',
 }
 
 interface UserModalProps {
