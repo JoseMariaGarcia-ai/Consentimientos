@@ -18,11 +18,30 @@ const ALL_MODULES = [
 
 const DEFAULT_PERMS = Object.fromEntries(ALL_MODULES.map(m => [m.key, true]))
 
+const ROLE_BADGE: Record<string, string> = {
+  admin: 'bg-blue-100 text-blue-800',
+  doctor: 'bg-emerald-100 text-emerald-700',
+  receptionist: 'bg-sky-100 text-sky-700',
+  superadmin: 'bg-purple-100 text-purple-700',
+  lab_partner: 'bg-amber-100 text-amber-700',
+  patient: 'bg-pink-100 text-pink-700',
+}
+const roleBadgeClass = (role: string) => ROLE_BADGE[role] ?? 'bg-slate-100 text-slate-600'
+
+const ROLE_FILTERS = [
+  { value: 'all', label: 'Todos' },
+  { value: 'admin', label: 'Admin' },
+  { value: 'doctor', label: 'Doctor' },
+  { value: 'receptionist', label: 'Recepcionista' },
+  { value: 'lab_partner', label: 'Lab' },
+  { value: 'patient', label: 'Paciente' },
+]
+
 interface AppUser {
   id: string
   email: string
   full_name: string
-  role: 'admin' | 'clinica'
+  role: string
   is_active: boolean
   invited_at: string
   last_login: string | null
@@ -186,6 +205,7 @@ export default function Settings() {
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState<{ open: boolean; user: AppUser | null }>({ open: false, user: null })
   const [deleting, setDeleting] = useState<string | null>(null)
+  const [roleFilter, setRoleFilter] = useState('all')
 
   const load = async () => {
     setLoading(true)
@@ -212,11 +232,6 @@ export default function Settings() {
     await api.delete(`/users/${id}`)
     setDeleting(null)
     load()
-  }
-
-  const roleConfig = {
-    admin:   { color: 'bg-purple-100 text-purple-700', icon: ShieldCheck, label: 'settings.users.role_admin' },
-    clinica: { color: 'bg-blue-100 text-blue-700',     icon: Shield,      label: 'settings.users.role_clinica' },
   }
 
   const navigate = useNavigate()
@@ -377,13 +392,22 @@ export default function Settings() {
             <h2 className="text-base font-bold text-slate-800">{t('settings.users.title')}</h2>
             <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{users.length}</span>
           </div>
-          <button
-            onClick={() => setModal({ open: true, user: null })}
-            className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700"
-          >
-            <Plus className="w-4 h-4" />
-            {t('settings.users.invite_user')}
-          </button>
+          <div className="flex items-center gap-3">
+            <select
+              value={roleFilter}
+              onChange={e => setRoleFilter(e.target.value)}
+              className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {ROLE_FILTERS.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}
+            </select>
+            <button
+              onClick={() => setModal({ open: true, user: null })}
+              className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700"
+            >
+              <Plus className="w-4 h-4" />
+              {t('settings.users.invite_user')}
+            </button>
+          </div>
         </div>
 
         {loading ? (
@@ -395,9 +419,7 @@ export default function Settings() {
           </div>
         ) : (
           <div className="divide-y divide-slate-100">
-            {users.map(user => {
-              const rc = roleConfig[user.role]
-              const RoleIcon = rc.icon
+            {users.filter(u => roleFilter === 'all' || u.role === roleFilter).map(user => {
               const modulePerms = Object.fromEntries(
                 (user.user_permissions ?? []).map(p => [p.module, p.can_access])
               )
@@ -412,9 +434,8 @@ export default function Settings() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-semibold text-slate-800">{user.full_name}</p>
-                      <span className={`flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${rc.color}`}>
-                        <RoleIcon className="w-3 h-3" />
-                        {t(rc.label)}
+                      <span className={`flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${roleBadgeClass(user.role)}`}>
+                        {user.role}
                       </span>
                       {!user.is_active && (
                         <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{t('settings.users.inactive')}</span>

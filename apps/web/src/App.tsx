@@ -18,6 +18,7 @@ import ClinicalRecords from './pages/ClinicalRecords'
 import PatientDetail from './pages/PatientDetail'
 import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
+import LabPartners from './pages/LabPartners'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
 import { useAuth } from './lib/auth'
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="/doctors" element={<Doctors />} />
               <Route path="/consents" element={<Consents />} />
               <Route path="/clinic" element={<ClinicPage />} />
+              <Route path="/lab-partners" element={<LabPartners />} />
               <Route path="/templates" element={<Templates />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/clinical-records" element={<ClinicalRecords />} />

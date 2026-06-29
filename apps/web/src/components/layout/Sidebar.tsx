@@ -4,7 +4,7 @@ import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Setting
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 
-const navItems = [
+const navItems: { to: string; icon: typeof LayoutDashboard; label: string; fallback?: string }[] = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard' },
   { to: '/patients', icon: Users, label: 'nav.patients' },
   { to: '/doctors', icon: UserCog, label: 'nav.doctors' },
@@ -13,6 +13,7 @@ const navItems = [
   { to: '/photos', icon: Camera, label: 'nav.photos' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic' },
+  { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', fallback: 'Laboratorios' },
 ]
 
 const bottomNavItems = [
@@ -26,7 +27,7 @@ export function Sidebar() {
   return (
     <aside className="w-56 bg-white border-r border-slate-200 flex flex-col py-4">
       <nav className="flex-1">
-        {navItems.map(({ to, icon: Icon, label }) => (
+        {navItems.map(({ to, icon: Icon, label, fallback }) => (
           <NavLink
             key={to}
             to={to}
@@ -38,7 +39,7 @@ export function Sidebar() {
             }
           >
             <Icon className="w-4 h-4" />
-            {t(label)}
+            {fallback ? t(label, fallback) : t(label)}
           </NavLink>
         ))}
 
