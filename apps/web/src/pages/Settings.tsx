@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, Zap, FileText, ClipboardList, Camera, AlertTriangle, Megaphone } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, Zap, FileText, ClipboardList, Camera, AlertTriangle, Megaphone, Stethoscope, UserCheck, FlaskConical } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { useCredits } from '@/hooks/useCredits'
@@ -48,6 +48,24 @@ interface AppUser {
   user_permissions: { module: string; can_access: boolean }[]
 }
 
+interface LabPartner { id: string; name: string }
+
+const ROLE_OPTIONS = [
+  { value: 'admin',        label: 'Administrador',   icon: ShieldCheck,   color: 'purple' },
+  { value: 'clinica',      label: 'Clínica',         icon: Shield,        color: 'blue'   },
+  { value: 'doctor',       label: 'Doctor',          icon: Stethoscope,   color: 'emerald'},
+  { value: 'receptionist', label: 'Recepcionista',   icon: UserCheck,     color: 'sky'    },
+  { value: 'lab_partner',  label: 'Laboratorio',     icon: FlaskConical,  color: 'amber'  },
+]
+
+const ROLE_ACTIVE: Record<string, string> = {
+  admin:        'border-purple-500 bg-purple-50 text-purple-700',
+  clinica:      'border-blue-500 bg-blue-50 text-blue-700',
+  doctor:       'border-emerald-500 bg-emerald-50 text-emerald-700',
+  receptionist: 'border-sky-500 bg-sky-50 text-sky-700',
+  lab_partner:  'border-amber-500 bg-amber-50 text-amber-700',
+}
+
 interface UserModalProps {
   user: AppUser | null
   onClose: () => void
@@ -58,9 +76,10 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
   const { t } = useTranslation()
   const isEdit = !!user
   const [form, setForm] = useState({
-    email: user?.email ?? '',
-    full_name: user?.full_name ?? '',
-    role: user?.role ?? 'clinica' as 'admin' | 'clinica',
+    email:          user?.email ?? '',
+    full_name:      user?.full_name ?? '',
+    role:           user?.role ?? 'clinica',
+    lab_partner_id: (user as any)?.lab_partner_id ?? '',
   })
   const [perms, setPerms] = useState<Record<string, boolean>>(() => {
     if (user?.user_permissions?.length) {
@@ -68,21 +87,31 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
     }
     return { ...DEFAULT_PERMS }
   })
+  const [labs, setLabs] = useState<LabPartner[]>([])
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    api.get('/lab-partners').then((data: any) => setLabs(Array.isArray(data) ? data : [])).catch(() => {})
+  }, [])
 
   const handleSave = async () => {
     if (!form.email || !form.full_name) { setError(t('common.required')); return }
     setSaving(true)
     setError('')
     try {
+      const payload = {
+        full_name:      form.full_name,
+        role:           form.role,
+        lab_partner_id: form.role === 'lab_partner' ? (form.lab_partner_id || null) : null,
+      }
       if (isEdit) {
-        await api.put(`/users/${user.id}`, { full_name: form.full_name, role: form.role, is_active: user.is_active })
+        await api.put(`/users/${user.id}`, { ...payload, is_active: user.is_active })
         if (form.role === 'clinica') {
           await api.put(`/users/${user.id}/permissions`, perms)
         }
       } else {
-        await api.post('/users', { ...form, permissions: perms })
+        await api.post('/users', { email: form.email, ...payload, permissions: perms })
       }
       onSaved()
       onClose()
@@ -128,20 +157,22 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
           <div className="flex flex-col gap-2">
             <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.role')}</label>
             <div className="grid grid-cols-2 gap-2">
-              {(['admin', 'clinica'] as const).map(r => (
-                <button
-                  key={r}
-                  onClick={() => setForm(f => ({ ...f, role: r }))}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-xl border-2 text-sm font-medium transition-colors ${
-                    form.role === r
-                      ? r === 'admin' ? 'border-purple-500 bg-purple-50 text-purple-700' : 'border-blue-500 bg-blue-50 text-blue-700'
-                      : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                  }`}
-                >
-                  {r === 'admin' ? <ShieldCheck className="w-4 h-4" /> : <Shield className="w-4 h-4" />}
-                  {t(`settings.users.role_${r}`)}
-                </button>
-              ))}
+              {ROLE_OPTIONS.map(r => {
+                const Icon = r.icon
+                const active = form.role === r.value
+                return (
+                  <button
+                    key={r.value}
+                    onClick={() => setForm(f => ({ ...f, role: r.value }))}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-xl border-2 text-sm font-medium transition-colors ${
+                      active ? ROLE_ACTIVE[r.value] : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {r.label}
+                  </button>
+                )
+              })}
             </div>
             {form.role === 'admin' && (
               <p className="text-xs text-purple-600 bg-purple-50 rounded-lg px-3 py-2">
@@ -149,6 +180,22 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
               </p>
             )}
           </div>
+
+          {/* Lab partner selector */}
+          {form.role === 'lab_partner' && (
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Laboratorio vinculado</label>
+              <select
+                value={form.lab_partner_id}
+                onChange={e => setForm(f => ({ ...f, lab_partner_id: e.target.value }))}
+                className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              >
+                <option value="">Sin laboratorio</option>
+                {labs.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
+              </select>
+              <p className="text-xs text-slate-400">El usuario solo verá las clínicas vinculadas a este laboratorio.</p>
+            </div>
+          )}
 
           {/* Permissions checklist (only for clinica role) */}
           {form.role === 'clinica' && (

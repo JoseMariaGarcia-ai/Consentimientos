@@ -16,11 +16,11 @@ router.get('/', async (_req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { email, full_name, role, clinic_id, permissions } = req.body
+  const { email, full_name, role, clinic_id, lab_partner_id, permissions } = req.body
   try {
     const user = await queryOne<{ id: string }>(
-      `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1,$2,$3,$4) RETURNING *`,
-      [email, full_name, role ?? 'clinica', clinic_id]
+      `INSERT INTO app_users (email, full_name, role, clinic_id, lab_partner_id) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
+      [email, full_name, role ?? 'clinica', clinic_id, lab_partner_id ?? null]
     )
     const perms = ALL_MODULES.map(m => [user!.id, m, permissions ? (permissions[m] ?? true) : true])
     for (const p of perms) {
@@ -31,11 +31,11 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const { full_name, role, is_active } = req.body
+  const { full_name, role, is_active, lab_partner_id } = req.body
   try {
     const data = await queryOne(
-      `UPDATE app_users SET full_name=$1, role=$2, is_active=$3, updated_at=NOW() WHERE id=$4 RETURNING *`,
-      [full_name, role, is_active, req.params.id]
+      `UPDATE app_users SET full_name=$1, role=$2, is_active=$3, lab_partner_id=$4, updated_at=NOW() WHERE id=$5 RETURNING *`,
+      [full_name, role, is_active, lab_partner_id ?? null, req.params.id]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

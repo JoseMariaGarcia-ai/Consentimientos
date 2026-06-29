@@ -49,16 +49,56 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
 
   if (adCreative) {
     if (adCreative.content_type === 'video/url' && adCreative.source_url) {
-      adHtml = `
-        <tr><td style="padding:0 40px 24px">
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:20px 24px;text-align:center">
-            <p style="margin:0 0 12px;font-size:13px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.5px">Contenido de tu clínica</p>
-            <a href="${adCreative.source_url}"
-               style="display:inline-block;padding:10px 28px;background:#0D1B2E;color:#C9A84C;font-size:13px;font-weight:700;text-decoration:none;border-radius:8px">
-              Ver contenido →
+      const srcUrl: string = adCreative.source_url
+      const ytMatch = srcUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)
+      const vimeoMatch = srcUrl.match(/vimeo\.com\/(\d+)/)
+
+      if (ytMatch) {
+        const videoId = ytMatch[1]
+        const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+        adHtml = `
+          <tr><td style="padding:0 40px 24px">
+            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
+            <a href="${srcUrl}" style="display:block;position:relative;text-decoration:none">
+              <img src="${thumb}" alt="Ver vídeo"
+                   style="width:100%;border-radius:10px;display:block" />
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                          width:60px;height:60px;background:rgba(0,0,0,0.65);border-radius:50%;
+                          display:flex;align-items:center;justify-content:center">
+                <div style="width:0;height:0;border-style:solid;border-width:10px 0 10px 20px;
+                            border-color:transparent transparent transparent #ffffff;margin-left:4px"></div>
+              </div>
             </a>
-          </div>
-        </td></tr>`
+          </td></tr>`
+      } else if (vimeoMatch) {
+        const videoId = vimeoMatch[1]
+        adHtml = `
+          <tr><td style="padding:0 40px 24px">
+            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
+            <a href="${srcUrl}"
+               style="display:inline-block;padding:12px 32px;background:#0D1B2E;color:#C9A84C;font-size:14px;font-weight:700;text-decoration:none;border-radius:8px;width:100%;box-sizing:border-box;text-align:center">
+              ▶ Ver vídeo
+            </a>
+          </td></tr>`
+      } else {
+        // Direct video URL — use <video> with autoplay for Apple Mail; fallback CTA for others
+        adHtml = `
+          <tr><td style="padding:0 40px 24px">
+            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
+            <!--[if !mso]><!-->
+            <video autoplay muted loop playsinline
+                   style="width:100%;border-radius:10px;display:block"
+                   src="${srcUrl}">
+            </video>
+            <!--<![endif]-->
+            <!--[if mso]>
+            <a href="${srcUrl}"
+               style="display:inline-block;padding:12px 32px;background:#0D1B2E;color:#C9A84C;font-size:14px;font-weight:700;text-decoration:none;border-radius:8px">
+              ▶ Ver vídeo
+            </a>
+            <![endif]-->
+          </td></tr>`
+      }
     } else if (adCreative.r2_key && adCreative.content_type?.startsWith('image/')) {
       try {
         const { buffer, contentType } = await downloadFile(adCreative.r2_key)
