@@ -22,6 +22,8 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [patients, setPatients] = useState<Patient[]>([])
   const [doctors, setDoctors] = useState<Doctor[]>([])
   const [templates, setTemplates] = useState<ConsentTemplate[]>([])
+  const [branches, setBranches] = useState<any[]>([])
+  const [sede, setSede] = useState(continueRecord?.sede ?? '')
 
   const [patientId, setPatientId] = useState(continueRecord?.patient_id ?? continueRecord?.patientId ?? initialPatientId ?? '')
   const [doctorId, setDoctorId] = useState(continueRecord?.doctor_id ?? continueRecord?.doctorId ?? '')
@@ -38,6 +40,11 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   )
 
   useEffect(() => {
+    api.get('/clinic').then((c: any) => {
+      const b = c?.branches ?? []
+      setBranches(Array.isArray(b) ? b : [])
+    }).catch(() => {})
+
     Promise.all([
       api.get('/patients'),
       api.get('/doctors'),
@@ -65,6 +72,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
         language: currentLanguage,
         jurisdiction: legalData.jurisdiction,
         status: 'pending',
+        sede: sede || null,
       })
       setConsentId(record.id)
       setStep('preview')
@@ -147,6 +155,22 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {/* STEP 1: Form */}
           {step === 'form' && (
             <div className="flex flex-col gap-4">
+              {branches.length > 0 && (
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Sede</label>
+                  <select
+                    value={sede}
+                    onChange={e => setSede(e.target.value)}
+                    className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Sede principal</option>
+                    {branches.map((b: any) => (
+                      <option key={b.id} value={b.name}>{b.name}{b.address ? ` — ${b.address}` : ''}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('consents.patient')}</label>
                 <select

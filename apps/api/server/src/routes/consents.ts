@@ -31,14 +31,15 @@ router.post('/', async (req, res) => {
   try {
     const b = req.body
     const data = await queryOne(
-      `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status)
-       VALUES ($1,$2,$3,$4,$5,'pending') RETURNING *`,
+      `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status, sede)
+       VALUES ($1,$2,$3,$4,$5,'pending',$6) RETURNING *`,
       [
         b.patient_id ?? b.patientId,
         b.doctor_id  ?? b.doctorId,
         b.template_id ?? b.templateId,
         b.language ?? 'es-ES',
         b.jurisdiction ?? null,
+        b.sede ?? null,
       ]
     )
     return res.status(201).json(data)
