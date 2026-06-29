@@ -13,8 +13,15 @@ const DOC_TYPES = ['DNI', 'NIE', 'Pasaporte', 'Other']
 
 export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps) {
   const { t } = useTranslation()
+  const splitName = (full = '') => {
+    const parts = full.trim().split(/\s+/)
+    return { firstName: parts[0] ?? '', lastName: parts.slice(1).join(' ') }
+  }
+  const { firstName: initFirst, lastName: initLast } = splitName(initial.fullName)
+
   const [form, setForm] = useState({
-    fullName: initial.fullName ?? '',
+    firstName: initFirst,
+    lastName: initLast,
     dateOfBirth: initial.dateOfBirth ?? '',
     idDocument: initial.idDocument ?? '',
     idDocType: initial.idDocType ?? 'DNI',
@@ -32,7 +39,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
 
   const validate = () => {
     const e: Record<string, string> = {}
-    if (!form.fullName.trim()) e.fullName = t('common.required')
+    if (!form.firstName.trim()) e.firstName = t('common.required')
     if (!form.phone.trim()) e.phone = t('common.required')
     return e
   }
@@ -43,7 +50,8 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     if (Object.keys(errs).length) { setErrors(errs); return }
     setSaving(true)
     try {
-      await onSave(form)
+      const { firstName, lastName, ...rest } = form
+      await onSave({ ...rest, fullName: [firstName, lastName].filter(Boolean).join(' ') })
       onClose()
     } finally {
       setSaving(false)
@@ -78,9 +86,8 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
         </div>
 
         <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-2 gap-4">
-          <div className="col-span-2">
-            {field('fullName', t('patients.name'), { required: true })}
-          </div>
+          {field('firstName', t('patients.first_name', 'Nombre'), { required: true })}
+          {field('lastName', t('patients.last_name', 'Apellidos'))}
           {field('dateOfBirth', t('patients.dob'), { type: 'date' })}
 
           <div className="flex gap-2">
