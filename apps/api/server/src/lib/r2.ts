@@ -35,3 +35,14 @@ export async function listFiles(prefix: string) {
 export async function getPresignedUrl(key: string, expiresIn = 3600) {
   return getSignedUrl(client(), new GetObjectCommand({ Bucket: BUCKET(), Key: key }), { expiresIn })
 }
+
+export async function downloadFile(key: string): Promise<{ buffer: Buffer; contentType: string }> {
+  const res = await client().send(new GetObjectCommand({ Bucket: BUCKET(), Key: key }))
+  const stream = res.Body as any
+  const chunks: Uint8Array[] = []
+  for await (const chunk of stream) chunks.push(chunk)
+  return {
+    buffer: Buffer.concat(chunks),
+    contentType: res.ContentType ?? 'application/octet-stream',
+  }
+}
