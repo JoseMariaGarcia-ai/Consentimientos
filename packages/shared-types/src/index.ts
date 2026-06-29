@@ -15,6 +15,7 @@ export interface Doctor {
   name: string;
   specialty?: string;
   licenseNumber?: string;
+  phone?: string;
   email?: string;
   role: "admin" | "doctor" | "receptionist";
   createdAt: string;

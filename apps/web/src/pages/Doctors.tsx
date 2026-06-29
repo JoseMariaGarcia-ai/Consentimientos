@@ -18,11 +18,18 @@ export default function Doctors() {
   const [formOpen, setFormOpen] = useState(false)
   const [editing, setEditing] = useState<Doctor | null>(null)
 
+  const normalize = (d: any): Doctor => ({
+    ...d,
+    clinicId:      d.clinicId      ?? d.clinic_id,
+    licenseNumber: d.licenseNumber ?? d.license_number,
+    createdAt:     d.createdAt     ?? d.created_at,
+  })
+
   const load = async () => {
     setLoading(true)
     try {
       const data = await api.get('/doctors')
-      setDoctors(Array.isArray(data) ? data : [])
+      setDoctors(Array.isArray(data) ? data.map(normalize) : [])
     } finally {
       setLoading(false)
     }
@@ -67,19 +74,25 @@ export default function Doctors() {
         <div className="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">{t('doctors.no_results')}</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {doctors.map(d => (
+          {doctors.map(d => {
+            const parts = (d.name ?? '').trim().split(/\s+/)
+            const firstName = parts[0] ?? ''
+            const lastName = parts.slice(1).join(' ')
+            return (
             <div key={d.id} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between mb-3">
                 <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg">
-                  {d.name.charAt(0).toUpperCase()}
+                  {firstName.charAt(0)}
                 </div>
                 <span className={`text-xs font-medium px-2 py-1 rounded-full ${ROLE_COLORS[d.role] ?? 'bg-slate-100 text-slate-600'}`}>
                   {t(`doctors.roles.${d.role}`)}
                 </span>
               </div>
-              <h3 className="font-semibold text-slate-800">{d.name}</h3>
+              <h3 className="font-semibold text-slate-800">{firstName}</h3>
+              {lastName && <p className="text-sm font-medium text-slate-700">{lastName}</p>}
               {d.specialty && <p className="text-sm text-slate-500 mt-0.5">{d.specialty}</p>}
               {d.licenseNumber && <p className="text-xs text-slate-400 mt-1">Nº {d.licenseNumber}</p>}
+              {(d as any).phone && <p className="text-xs text-slate-400 mt-0.5">{(d as any).phone}</p>}
               <p className="text-xs text-slate-400 mt-1 truncate">{d.email}</p>
               <div className="flex gap-2 mt-4 pt-4 border-t border-slate-100">
                 <button onClick={() => openEdit(d)} className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs border border-slate-300 rounded-lg hover:bg-slate-50 text-slate-600">
@@ -90,7 +103,8 @@ export default function Doctors() {
                 </button>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       )}
 

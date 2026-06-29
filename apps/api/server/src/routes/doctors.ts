@@ -20,10 +20,10 @@ router.post('/', async (req, res) => {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const b = req.body
     const license_number = b.license_number ?? b.licenseNumber ?? null
-    const { name, specialty, email, role } = b
+    const { name, specialty, email, phone, role } = b
     const data = await queryOne(
-      `INSERT INTO doctors (clinic_id, name, specialty, license_number, email, role) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
-      [clinicRow?.clinic_id, name, specialty, license_number, email, role ?? 'doctor']
+      `INSERT INTO doctors (clinic_id, name, specialty, license_number, phone, email, role) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
+      [clinicRow?.clinic_id, name, specialty, license_number, phone ?? null, email, role ?? 'doctor']
     )
     return res.status(201).json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -32,11 +32,11 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const b = req.body
   const license_number = b.license_number ?? b.licenseNumber ?? null
-  const { name, specialty, email, role } = b
+  const { name, specialty, email, phone, role } = b
   try {
     const data = await queryOne(
-      `UPDATE doctors SET name=$1, specialty=$2, license_number=$3, email=$4, role=$5 WHERE id=$6 RETURNING *`,
-      [name, specialty, license_number, email, role, req.params.id]
+      `UPDATE doctors SET name=$1, specialty=$2, license_number=$3, phone=$4, email=$5, role=$6 WHERE id=$7 RETURNING *`,
+      [name, specialty, license_number, phone ?? null, email, role, req.params.id]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
