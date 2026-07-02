@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, Zap, FileText, ClipboardList, Camera, AlertTriangle, Megaphone, Stethoscope, UserCheck, FlaskConical } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
-import { useCredits } from '@/hooks/useCredits'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 
@@ -295,8 +294,7 @@ export default function Settings() {
   }
 
   const navigate = useNavigate()
-  const { credits: creds, loading: credsLoading, refresh: refreshCredits } = useCredits()
-  const [activeTab, setActiveTab] = useState<'users' | 'credits' | 'media'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'media'>('users')
   const [mediaData, setMediaData] = useState<any>({})
 
   const loadMedia = async () => {
@@ -304,23 +302,6 @@ export default function Settings() {
   }
 
   useEffect(() => { loadMedia() }, [])
-  const [topping, setTopping] = useState(false)
-  const [topupMsg, setTopupMsg] = useState('')
-
-  const handleTopup = async (consents: number, records: number, sessions: number) => {
-    setTopping(true)
-    setTopupMsg('')
-    try {
-      await api.post('/credits/topup', { consents, clinical_records: records, photo_sessions: sessions })
-      await refreshCredits()
-      setTopupMsg('✅ Créditos añadidos correctamente')
-    } catch (e: any) {
-      setTopupMsg(`⚠️ ${e.message}`)
-    } finally {
-      setTopping(false)
-    }
-  }
-
   return (
     <div className="flex flex-col gap-6 max-w-4xl">
       {/* Header */}
@@ -334,70 +315,10 @@ export default function Settings() {
         <button onClick={() => setActiveTab('users')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'users' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
           <Users className="w-4 h-4" />Usuarios
         </button>
-        <button onClick={() => setActiveTab('credits')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'credits' ? 'bg-white text-amber-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-          <Zap className="w-4 h-4" />Créditos
-        </button>
         <button onClick={() => setActiveTab('media')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
           <Megaphone className="w-4 h-4" />Publicidad
         </button>
       </div>
-
-      {/* Credits tab */}
-      {activeTab === 'credits' && (
-        <div className="flex flex-col gap-5">
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">Créditos disponibles</p>
-            {credsLoading ? <p className="text-sm text-slate-400">Cargando…</p> : !creds ? <p className="text-sm text-slate-400">No disponible</p> : (
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { label: 'Consentimientos', value: creds.consents_available, icon: FileText, color: 'blue' },
-                  { label: 'Historias clínicas', value: creds.clinical_records_available, icon: ClipboardList, color: 'teal' },
-                  { label: 'Sesiones de fotos', value: creds.photo_sessions_available, icon: Camera, color: 'violet' },
-                ].map(({ label, value, icon: Icon, color }) => {
-                  const low = value <= 5
-                  const cls: Record<string, string> = { blue: 'text-blue-600 bg-blue-50', teal: 'text-teal-600 bg-teal-50', violet: 'text-violet-600 bg-violet-50' }
-                  return (
-                    <div key={label} className={`flex flex-col items-center gap-1 p-4 rounded-xl ${low ? 'bg-red-50' : cls[color]}`}>
-                      <Icon className={`w-4 h-4 ${low ? 'text-red-500' : ''}`} />
-                      <p className={`text-2xl font-black ${low ? 'text-red-600' : ''}`}>{value}</p>
-                      <p className="text-xs text-center text-slate-500">{label}</p>
-                      {low && <p className="text-[10px] font-semibold text-red-500 flex items-center gap-0.5"><AlertTriangle className="w-3 h-3" />Bajo</p>}
-                    </div>
-                  )
-                })}
-              </div>
-            )}
-          </div>
-
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Recargar créditos</p>
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { label: 'Pack 25', consents: 25, records: 25, sessions: 25 },
-                { label: 'Pack 100', consents: 100, records: 100, sessions: 100 },
-                { label: 'Pack 500', consents: 500, records: 500, sessions: 500 },
-              ].map(pack => (
-                <button
-                  key={pack.label}
-                  onClick={() => handleTopup(pack.consents, pack.records, pack.sessions)}
-                  disabled={topping}
-                  className="flex flex-col items-center gap-1 border border-slate-200 rounded-xl p-4 hover:border-amber-400 hover:bg-amber-50 transition-colors disabled:opacity-50"
-                >
-                  <Zap className="w-4 h-4 text-amber-500" />
-                  <p className="font-bold text-slate-800">{pack.label}</p>
-                  <p className="text-xs text-slate-500">+{pack.consents} de cada tipo</p>
-                </button>
-              ))}
-            </div>
-            <button onClick={() => navigate('/recharge')} className="text-sm text-blue-600 hover:underline self-start">
-              Ver todos los packs →
-            </button>
-            {topupMsg && (
-              <div className={`px-4 py-2 rounded-lg text-sm ${topupMsg.startsWith('✅') ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>{topupMsg}</div>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Media / Publicidad tab */}
       {activeTab === 'media' && (

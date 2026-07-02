@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, FileText, Stethoscope, Clock, TrendingUp, Zap, AlertTriangle, ClipboardList, Camera } from 'lucide-react'
+import { Users, FileText, Stethoscope, Clock, TrendingUp, ClipboardList, Camera } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
-import { useCredits } from '@/hooks/useCredits'
 
 interface Stats {
   patients: number
@@ -27,8 +26,6 @@ export default function Dashboard() {
   const [recentClinical, setRecentClinical]   = useState<any[]>([])
   const [recentPhotos,   setRecentPhotos]     = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const { credits, low } = useCredits()
-
   useEffect(() => {
     Promise.all([
       api.get('/patients'),
@@ -69,25 +66,6 @@ export default function Dashboard() {
         <p className="text-sm text-slate-500 mt-0.5">Resumen de actividad</p>
       </div>
 
-      {/* Low credits alert */}
-      {low && credits && (
-        <div
-          className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 cursor-pointer hover:bg-amber-100 transition-colors"
-          onClick={() => navigate('/recharge')}
-        >
-          <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-          <div className="flex-1">
-            <p className="text-sm font-semibold text-amber-800">Créditos bajos — recarga tu plan</p>
-            <div className="flex flex-wrap gap-3 mt-1.5 text-xs text-amber-700">
-              {credits.consents_available <= 5 && <span>Consentimientos: <strong>{credits.consents_available}</strong> restantes</span>}
-              {credits.clinical_records_available <= 5 && <span>Historias clínicas: <strong>{credits.clinical_records_available}</strong> restantes</span>}
-              {credits.photo_sessions_available <= 5 && <span>Sesiones de fotos: <strong>{credits.photo_sessions_available}</strong> restantes</span>}
-            </div>
-          </div>
-          <span className="text-xs font-semibold text-amber-600 bg-amber-200 px-3 py-1 rounded-full whitespace-nowrap">Recargar →</span>
-        </div>
-      )}
-
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map(({ label, value, icon: Icon, color, bg, path }) => (
@@ -104,39 +82,6 @@ export default function Dashboard() {
           </button>
         ))}
       </div>
-
-      {/* Credits summary */}
-      {credits && (
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-              <Zap className="w-4 h-4 text-amber-500" />
-              Créditos disponibles
-            </div>
-            <button onClick={() => navigate('/recharge')} className="text-xs text-blue-600 hover:underline">Recargar →</button>
-          </div>
-          <div className="grid grid-cols-3 gap-3">
-            {[
-              { label: 'Consentimientos',    value: credits.consents_available,          icon: FileText,      color: 'blue'   },
-              { label: 'Historias clínicas', value: credits.clinical_records_available,  icon: ClipboardList, color: 'teal'   },
-              { label: 'Sesiones de fotos',  value: credits.photo_sessions_available,    icon: Camera,        color: 'violet' },
-            ].map(({ label, value, icon: Icon, color }) => {
-              const isLow = value <= 5
-              const cls: Record<string, string> = { blue: 'bg-blue-50 text-blue-700', teal: 'bg-teal-50 text-teal-700', violet: 'bg-violet-50 text-violet-700' }
-              return (
-                <div key={label} className={`rounded-xl p-3 flex items-center gap-3 ${isLow ? 'bg-red-50' : cls[color]}`}>
-                  <Icon className={`w-4 h-4 flex-shrink-0 ${isLow ? 'text-red-500' : ''}`} />
-                  <div>
-                    <p className={`text-xl font-black leading-none ${isLow ? 'text-red-600' : ''}`}>{value}</p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">{label}</p>
-                  </div>
-                  {isLow && <AlertTriangle className="w-3.5 h-3.5 text-red-400 ml-auto flex-shrink-0" />}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      )}
 
       {/* Progress bar signed vs pending */}
       {stats.consents > 0 && (
