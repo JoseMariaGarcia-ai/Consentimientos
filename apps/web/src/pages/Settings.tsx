@@ -47,11 +47,8 @@ const roleLabel = (role: string) => ROLE_LABEL[role] ?? role
 const ROLE_FILTERS = [
   { value: 'all',          label: 'Todos' },
   { value: 'superadmin',   label: 'Super Admin' },
-  { value: 'admin',        label: 'Admin' },
   { value: 'clinica',      label: 'Clínica' },
-  { value: 'doctor',       label: 'Doctor' },
-  { value: 'receptionist', label: 'Recepcionista' },
-  { value: 'lab_partner',  label: 'Lab' },
+  { value: 'lab_partner',  label: 'Laboratorio' },
   { value: 'patient',      label: 'Paciente' },
 ]
 
