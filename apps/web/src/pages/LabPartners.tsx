@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X } from 'lucide-react'
 import { api } from '@/lib/api'
 
@@ -306,17 +307,26 @@ function CampaignsPanel({ lab }: { lab: LabPartner }) {
 
 // ── Main page ───────────────────────────────────────────────────
 export default function LabPartners() {
+  const [searchParams] = useSearchParams()
+  const highlightId = searchParams.get('highlight')
   const [labs, setLabs] = useState<LabPartner[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [form, setForm] = useState<{ open: boolean; lab: LabPartner | null }>({ open: false, lab: null })
-  const [expanded, setExpanded] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState<string | null>(highlightId)
 
   const load = async () => {
     setLoading(true)
     try { setLabs(await api.get('/lab-partners')) } catch { setLabs([]) } finally { setLoading(false) }
   }
   useEffect(() => { load() }, [])
+
+  useEffect(() => {
+    if (!highlightId || loading) return
+    setExpanded(highlightId)
+    const row = document.getElementById(`lab-row-${highlightId}`)
+    row?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }, [highlightId, loading])
 
   const handleSave = async (data: any) => {
     if (data.id) await api.put(`/lab-partners/${data.id}`, data)
@@ -373,7 +383,7 @@ export default function LabPartners() {
             <tbody className="divide-y divide-slate-100">
               {filtered.map(lab => (
                 <>
-                  <tr key={lab.id} className={!lab.is_active ? 'opacity-50' : ''}>
+                  <tr key={lab.id} id={`lab-row-${lab.id}`} className={`${!lab.is_active ? 'opacity-50' : ''} ${lab.id === highlightId ? 'bg-amber-50' : ''}`}>
                     <td className="px-6 py-3">
                       <button onClick={() => setExpanded(expanded === lab.id ? null : lab.id)} className="flex items-center gap-2 font-medium text-slate-800 hover:text-blue-600">
                         <Building2 className="w-4 h-4 text-slate-400" />{lab.name}

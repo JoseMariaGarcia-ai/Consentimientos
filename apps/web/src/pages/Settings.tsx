@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
+import { DemoPreviewPanel } from '@/components/settings/DemoPreviewPanel'
+import { useAuth } from '@/lib/auth'
 
 const ALL_MODULES = [
   { key: 'dashboard',        labelKey: 'nav.dashboard',       defaultOn: true  },
@@ -260,6 +262,8 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
 
 export default function Settings() {
   const { t } = useTranslation()
+  const { role } = useAuth()
+  const isAdmin = role === 'admin' || role === 'superadmin'
   const [users, setUsers] = useState<AppUser[]>([])
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState<{ open: boolean; user: AppUser | null }>({ open: false, user: null })
@@ -294,7 +298,7 @@ export default function Settings() {
   }
 
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState<'users' | 'media'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview'>('users')
   const [mediaData, setMediaData] = useState<any>({})
 
   const loadMedia = async () => {
@@ -318,7 +322,15 @@ export default function Settings() {
         <button onClick={() => setActiveTab('media')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
           <Megaphone className="w-4 h-4" />Publicidad
         </button>
+        {isAdmin && (
+          <button onClick={() => setActiveTab('preview')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+            <Eye className="w-4 h-4" />Vista previa
+          </button>
+        )}
       </div>
+
+      {/* Vista previa por roles — solo admin/superadmin */}
+      {activeTab === 'preview' && isAdmin && <DemoPreviewPanel />}
 
       {/* Media / Publicidad tab */}
       {activeTab === 'media' && (
