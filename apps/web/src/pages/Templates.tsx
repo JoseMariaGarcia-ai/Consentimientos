@@ -92,9 +92,9 @@ export default function Templates() {
   const currentLang = SUPPORTED_LANGUAGES.find(l => l.code === editLang)
 
   return (
-    <div className="flex gap-6 h-full">
+    <div className="flex flex-col md:flex-row gap-6 md:h-full">
       {/* Left panel — template list */}
-      <div className="w-72 flex flex-col gap-3 flex-shrink-0">
+      <div className="w-full md:w-72 flex flex-col gap-3 flex-shrink-0">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold text-slate-800">{t('templates.title')}</h1>
           <span className="text-xs text-slate-400">{templates.length}</span>
@@ -148,7 +148,7 @@ export default function Templates() {
               <h2 className="text-lg font-bold text-slate-800">{selected.treatmentType}</h2>
               <p className="text-xs text-slate-400">{t('templates.editor_title')}</p>
             </div>
-            <div className="ml-auto flex items-center gap-2">
+            <div className="md:ml-auto flex items-center gap-2 flex-wrap">
               {/* Language picker */}
               <div className="relative">
                 <select

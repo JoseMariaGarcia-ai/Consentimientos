@@ -88,19 +88,19 @@ function LabForm({ initial, onSave, onClose }: { initial: Partial<LabPartner>; o
           <h2 className="text-lg font-bold text-slate-800">{initial.id ? 'Editar Laboratorio' : 'Nuevo Laboratorio'}</h2>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
-        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {fld('name', 'Nombre', true)}
           {fld('email', 'Email', true, 'email')}
           {fld('phone', 'Teléfono')}
           {fld('contact_person', 'Persona de contacto')}
-          <div className="col-span-2">{fld('website', 'Web')}</div>
-          <div className="col-span-2 flex flex-col gap-1">
+          <div className="sm:col-span-2">{fld('website', 'Web')}</div>
+          <div className="sm:col-span-2 flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
             <textarea value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} rows={3}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
           </div>
-          {error && <div className="col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
-          <div className="col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
+          {error && <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+          <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">Cancelar</button>
             <button type="submit" disabled={saving} className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium">
               {saving ? 'Guardando…' : 'Guardar'}
@@ -157,8 +157,8 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
           <h2 className="text-lg font-bold text-slate-800">{initial.id ? 'Editar Campaña' : 'Nueva Campaña'}</h2>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
-        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-2 gap-4">
-          <div className="col-span-2 flex flex-col gap-1">
+        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="sm:col-span-2 flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Nombre<span className="text-red-500 ml-1">*</span></label>
             <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -178,7 +178,7 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
               <option value="manual">Manual</option>
             </select>
           </div>
-          <div className="col-span-2 flex flex-col gap-1">
+          <div className="sm:col-span-2 flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">URL creatividad</label>
             <input value={form.creative_url} onChange={e => setForm(f => ({ ...f, creative_url: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -207,12 +207,12 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
             <input type="date" value={form.ends_at} onChange={e => setForm(f => ({ ...f, ends_at: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
-          <label className="col-span-2 flex items-center gap-2 text-sm text-slate-700">
+          <label className="sm:col-span-2 flex items-center gap-2 text-sm text-slate-700">
             <input type="checkbox" checked={form.is_active} onChange={e => setForm(f => ({ ...f, is_active: e.target.checked }))} />
             Activo
           </label>
-          {error && <div className="col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
-          <div className="col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
+          {error && <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+          <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">Cancelar</button>
             <button type="submit" disabled={saving} className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium">
               {saving ? 'Guardando…' : 'Guardar'}

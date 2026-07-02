@@ -102,7 +102,7 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xl leading-none">×</button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {field('firstName', 'Nombre', { required: true })}
           {field('lastName', 'Apellidos')}
           {field('specialty', t('doctors.specialty'))}
@@ -140,7 +140,7 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
             />
           </div>
 
-          <div className="col-span-2 flex flex-col gap-1">
+          <div className="sm:col-span-2 flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('doctors.role')}</label>
             <select
               value={form.role}
@@ -154,12 +154,12 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
           </div>
 
           {saveError && (
-            <div className="col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+            <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
               ⚠️ Error: <strong>{saveError}</strong>
             </div>
           )}
 
-          <div className="col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
+          <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
               {t('common.cancel')}
             </button>

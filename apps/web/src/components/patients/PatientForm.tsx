@@ -157,7 +157,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xl leading-none">×</button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {field('firstName', t('patients.first_name', 'Nombre'), { required: true })}
           {field('lastName', t('patients.last_name', 'Apellidos'))}
           {field('dateOfBirth', t('patients.dob'), { type: 'date' })}
@@ -201,7 +201,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
           </div>
           {field('email', t('patients.email'), { type: 'email' })}
-          <div className="col-span-2">{field('addrStreet', 'Dirección')}</div>
+          <div className="sm:col-span-2">{field('addrStreet', 'Dirección')}</div>
           {field('addrCity', 'Ciudad')}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Provincia</label>
@@ -241,7 +241,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             {field('allergies', t('patients.allergies'))}
           </div>
 
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.medications')}</label>
               <textarea
@@ -254,12 +254,12 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
           </div>
 
           {saveError && (
-            <div className="col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+            <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
               ⚠️ Error al guardar: <strong>{saveError}</strong>
             </div>
           )}
 
-          <div className="col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
+          <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
               {t('common.cancel')}
             </button>

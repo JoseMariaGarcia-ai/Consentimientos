@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { useLanguageStore } from './store/languageStore'
 import { Topbar } from './components/layout/Topbar'
 import { Sidebar } from './components/layout/Sidebar'
@@ -27,11 +27,17 @@ import { useAuth } from './lib/auth'
 export default function App() {
   const { isAuthenticated, role } = useAuth()
   const { currentLanguage } = useLanguageStore()
+  const location = useLocation()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
     document.documentElement.lang = currentLanguage
   }, [currentLanguage])
+
+  useEffect(() => {
+    setSidebarOpen(false)
+  }, [location.pathname])
 
   // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
@@ -48,11 +54,11 @@ export default function App() {
   return (
     <WelcomeMediaProvider>
       <div className="flex flex-col h-screen bg-slate-50">
-        <Topbar />
+        <Topbar onMenuClick={() => setSidebarOpen(o => !o)} />
         <div className="flex flex-1 overflow-hidden">
-          <Sidebar />
+          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
           <WelcomeMediaModal />
-          <main className="flex-1 overflow-auto p-6">
+          <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/patients" element={<Patients />} />

@@ -20,75 +20,98 @@ const bottomNavItems = [
   { to: '/settings', icon: Settings, label: 'nav.settings' },
 ]
 
-export function Sidebar() {
+interface SidebarProps {
+  open: boolean
+  onClose: () => void
+}
+
+export function Sidebar({ open, onClose }: SidebarProps) {
   const { t } = useTranslation()
   const { low } = useCredits()
 
   return (
-    <aside className="w-56 bg-white border-r border-slate-200 flex flex-col py-4">
-      <nav className="flex-1">
-        {navItems.map(({ to, icon: Icon, label, fallback }) => (
+    <>
+      {/* Mobile backdrop */}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={onClose}
+          aria-hidden="true"
+        />
+      )}
+
+      <aside
+        className={`fixed md:static inset-y-0 left-0 z-50 w-64 md:w-56 bg-white border-r border-slate-200 flex flex-col py-4 overflow-y-auto transform transition-transform duration-200 ease-in-out md:translate-x-0 ${
+          open ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <nav className="flex-1">
+          {navItems.map(({ to, icon: Icon, label, fallback }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              onClick={onClose}
+              className={({ isActive }) =>
+                `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                }`
+              }
+            >
+              <Icon className="w-4 h-4" />
+              {fallback ? t(label, fallback) : t(label)}
+            </NavLink>
+          ))}
+
+          {/* Recargar — highlighted when credits are low */}
           <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
+            to="/recharge"
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                isActive
+                  ? 'bg-amber-100 text-amber-800'
+                  : low
+                  ? 'text-amber-600 bg-amber-50 hover:bg-amber-100'
+                  : 'text-slate-600 hover:bg-slate-50'
               }`
             }
           >
-            <Icon className="w-4 h-4" />
-            {fallback ? t(label, fallback) : t(label)}
+            <Zap className={`w-4 h-4 ${low ? 'text-amber-500' : ''}`} />
+            {t('nav.recharge')}
+            {low && <span className="ml-auto w-2 h-2 rounded-full bg-amber-500 animate-pulse" />}
           </NavLink>
-        ))}
+        </nav>
 
-        {/* Recargar — highlighted when credits are low */}
-        <NavLink
-          to="/recharge"
-          className={({ isActive }) =>
-            `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              isActive
-                ? 'bg-amber-100 text-amber-800'
-                : low
-                ? 'text-amber-600 bg-amber-50 hover:bg-amber-100'
-                : 'text-slate-600 hover:bg-slate-50'
-            }`
-          }
-        >
-          <Zap className={`w-4 h-4 ${low ? 'text-amber-500' : ''}`} />
-          {t('nav.recharge')}
-          {low && <span className="ml-auto w-2 h-2 rounded-full bg-amber-500 animate-pulse" />}
-        </NavLink>
-      </nav>
-
-      {/* Settings — above language selector */}
-      <div className="mx-2 pt-2 border-t border-slate-100">
-        {bottomNavItems.map(({ to, icon: Icon, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
-              }`
-            }
-          >
-            <Icon className="w-4 h-4" />
-            {t(label)}
-          </NavLink>
-        ))}
-      </div>
-
-      {/* Language selector */}
-      <div className="mx-2 mt-4 pt-4 border-t border-slate-100">
-        <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide px-3 mb-2">
-          {t('language.select', 'Idioma')}
-        </p>
-        <div className="px-1">
-          <LanguageSelector variant="sidebar" />
+        {/* Settings — above language selector */}
+        <div className="mx-2 pt-2 border-t border-slate-100">
+          {bottomNavItems.map(({ to, icon: Icon, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={onClose}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                }`
+              }
+            >
+              <Icon className="w-4 h-4" />
+              {t(label)}
+            </NavLink>
+          ))}
         </div>
-      </div>
-    </aside>
+
+        {/* Language selector */}
+        <div className="mx-2 mt-4 pt-4 border-t border-slate-100">
+          <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide px-3 mb-2">
+            {t('language.select', 'Idioma')}
+          </p>
+          <div className="px-1">
+            <LanguageSelector variant="sidebar" />
+          </div>
+        </div>
+      </aside>
+    </>
   )
 }

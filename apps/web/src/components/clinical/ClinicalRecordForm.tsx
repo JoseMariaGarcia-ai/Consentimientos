@@ -74,7 +74,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
 
           {/* Paciente + Doctor */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
               <select
@@ -117,7 +117,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha de visita</label>
               <input
