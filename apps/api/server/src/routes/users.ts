@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 
-const ALL_MODULES = ['dashboard', 'patients', 'doctors', 'consents', 'templates', 'clinic']
+const ALL_MODULES = ['dashboard', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners']
 const router = Router()
 
 router.get('/', async (req, res) => {
