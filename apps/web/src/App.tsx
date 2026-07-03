@@ -26,8 +26,9 @@ import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
 import { PreviewProvider, usePreview } from './context/PreviewContext'
 import { PreviewBanner } from './components/preview/PreviewBanner'
-import { DEFAULT_CLINICA_MODULES } from './lib/modules'
+import { ALL_MODULES, DEFAULT_CLINICA_MODULES } from './lib/modules'
 import { useAuth } from './lib/auth'
+import { api } from './lib/api'
 
 export default function App() {
   return (
@@ -44,6 +45,8 @@ function AppShell() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { preview, exitPreview } = usePreview()
   const isSuperAdmin = role === 'superadmin'
+  const isClinicaRole = role === 'clinica'
+  const [myModules, setMyModules] = useState<string[] | null>(null)
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
@@ -53,6 +56,19 @@ function AppShell() {
   useEffect(() => {
     setSidebarOpen(false)
   }, [location.pathname])
+
+  // Real permission enforcement for logged-in "clinica" staff — Configuración
+  // is always excluded regardless of any stored permission row.
+  useEffect(() => {
+    if (!isClinicaRole) { setMyModules(null); return }
+    api.get('/me').then((me: any) => {
+      const perms = Object.fromEntries((me.user_permissions ?? []).map((p: any) => [p.module, p.can_access]))
+      const modules = ALL_MODULES
+        .filter(m => m.key !== 'settings' && (m.key in perms ? perms[m.key] !== false : m.defaultOn))
+        .map(m => m.key)
+      setMyModules(modules)
+    }).catch(() => setMyModules([...DEFAULT_CLINICA_MODULES]))
+  }, [isClinicaRole])
 
   // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
@@ -77,7 +93,11 @@ function AppShell() {
   }
 
   const isClinicaPreview = activePreview?.role === 'clinica'
-  const allowedModules = isClinicaPreview ? (activePreview.clinicaModules ?? DEFAULT_CLINICA_MODULES) : undefined
+  const allowedModules = isClinicaPreview
+    ? ((activePreview!.clinicaModules ?? DEFAULT_CLINICA_MODULES) as string[]).filter(m => m !== 'settings')
+    : isClinicaRole
+    ? myModules ?? undefined
+    : undefined
 
   return (
     <WelcomeMediaProvider>
@@ -97,7 +117,7 @@ function AppShell() {
               <Route path="/clinic" element={<ClinicPage />} />
               <Route path="/lab-partners" element={<LabPartners />} />
               <Route path="/templates" element={<Templates />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route path="/settings" element={isClinicaRole ? <Navigate to="/" /> : <Settings />} />
               <Route path="/clinical-records" element={<ClinicalRecords />} />
               <Route path="/photos" element={<PhotoSessions />} />
               <Route path="/recharge" element={<Recharge />} />

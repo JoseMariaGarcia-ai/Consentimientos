@@ -199,11 +199,11 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
             <div className="flex flex-col gap-2">
               <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.permissions')}</label>
               <div className="border border-slate-200 rounded-xl overflow-hidden">
-                {ALL_MODULES.map((mod, i) => (
+                {ALL_MODULES.filter(mod => mod.key !== 'settings').map((mod, i, arr) => (
                   <label
                     key={mod.key}
                     className={`flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-slate-50 transition-colors ${
-                      i < ALL_MODULES.length - 1 ? 'border-b border-slate-100' : ''
+                      i < arr.length - 1 ? 'border-b border-slate-100' : ''
                     }`}
                   >
                     <span className="text-sm text-slate-700 font-medium">{t(mod.labelKey)}</span>
@@ -221,6 +221,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
                 ))}
               </div>
               <p className="text-xs text-slate-400">{t('settings.users.permissions_hint')}</p>
+              <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2">Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.</p>
             </div>
           )}
 
@@ -425,7 +426,7 @@ export default function Settings() {
                     {/* Permission badges (only for clinica role) */}
                     {user.role === 'clinica' && (
                       <div className="flex flex-wrap gap-1 mt-2">
-                        {ALL_MODULES.map(mod => (
+                        {ALL_MODULES.filter(mod => mod.key !== 'settings').map(mod => (
                           <span
                             key={mod.key}
                             className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${

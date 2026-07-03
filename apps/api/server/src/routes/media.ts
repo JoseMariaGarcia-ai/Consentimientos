@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { uploadFile, deleteFile, getPresignedUrl } from '../lib/r2'
+import { requireAdmin } from '../middleware/auth'
 
 const router = Router()
 const MAX_CREATIVES = 5
@@ -56,7 +57,7 @@ router.get('/', async (req, res) => {
 })
 
 // POST /api/media/:type — upload new creative (max 5)
-router.post('/:type', async (req, res) => {
+router.post('/:type', requireAdmin, async (req, res) => {
   const { userId } = (req as any).user
   const type = req.params.type as 'welcome' | 'patient'
   if (!['welcome', 'patient'].includes(type)) return res.status(400).json({ error: 'Invalid type' })
@@ -106,7 +107,7 @@ router.post('/:type', async (req, res) => {
 })
 
 // POST /api/media/:type/url — add a URL creative (no upload to R2)
-router.post('/:type/url', async (req, res) => {
+router.post('/:type/url', requireAdmin, async (req, res) => {
   const { userId } = (req as any).user
   const type = req.params.type as 'welcome' | 'patient'
   if (!['welcome', 'patient'].includes(type)) return res.status(400).json({ error: 'Invalid type' })
@@ -144,7 +145,7 @@ router.post('/:type/url', async (req, res) => {
 })
 
 // DELETE /api/media/:type/file/:fileId — delete single creative
-router.delete('/:type/file/:fileId', async (req, res) => {
+router.delete('/:type/file/:fileId', requireAdmin, async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicId = await getClinicId(userId)
@@ -174,7 +175,7 @@ router.delete('/:type/file/:fileId', async (req, res) => {
 })
 
 // PUT /api/media/:type/config — save display + trigger settings
-router.put('/:type/config', async (req, res) => {
+router.put('/:type/config', requireAdmin, async (req, res) => {
   const { userId } = (req as any).user
   const type = req.params.type
   const { show_trigger, show_interval_minutes, display_mode, active_creative_id } = req.body

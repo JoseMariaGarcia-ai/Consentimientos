@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { authMiddleware } from './middleware/auth'
+import { authMiddleware, requireAdmin } from './middleware/auth'
 import authRouter from './routes/auth'
 import patientsRouter from './routes/patients'
 import doctorsRouter from './routes/doctors'
@@ -20,6 +20,7 @@ import labPartnersRouter from './routes/labPartners'
 import patientPortalRouter from './routes/patientPortal'
 import treatmentsRouter from './routes/treatments'
 import appointmentsRouter from './routes/appointments'
+import meRouter from './routes/me'
 
 const app = express()
 
@@ -42,7 +43,7 @@ app.use('/api/consents',  authMiddleware, consentsRouter)
 app.use('/api/clinic',    authMiddleware, clinicRouter)
 app.use('/api/signature', authMiddleware, signatureRouter)
 app.use('/api/translate', authMiddleware, translateRouter)
-app.use('/api/users',     authMiddleware, usersRouter)
+app.use('/api/users',     authMiddleware, requireAdmin, usersRouter)
 app.use('/api/photos',           authMiddleware, photosRouter)
 app.use('/api/pdf',              authMiddleware, pdfRouter)
 app.use('/api/clinical-records', authMiddleware, clinicalRecordsRouter)
@@ -53,6 +54,7 @@ app.use('/api/lab-partners',    authMiddleware, labPartnersRouter)
 app.use('/api/patient',         authMiddleware, patientPortalRouter)
 app.use('/api/treatments',      authMiddleware, treatmentsRouter)
 app.use('/api/appointments',    authMiddleware, appointmentsRouter)
+app.use('/api/me',              authMiddleware, meRouter)
 
 const PORT = process.env.PORT ?? 3001
 app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
