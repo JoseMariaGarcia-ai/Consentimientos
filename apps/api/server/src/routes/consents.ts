@@ -14,15 +14,18 @@ router.get('/templates', async (_req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
+  const { userId } = (req as any).user
   try {
     const data = await query(
       `SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
        FROM consent_records cr
-       LEFT JOIN patients p ON p.id = cr.patient_id
+       JOIN patients p ON p.id = cr.patient_id
        LEFT JOIN doctors d ON d.id = cr.doctor_id
        LEFT JOIN consent_templates t ON t.id = cr.template_id
-       ORDER BY cr.created_at DESC`
+       WHERE p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
+       ORDER BY cr.created_at DESC`,
+      [userId]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -33,12 +36,16 @@ router.post('/', async (req, res) => {
     const b = req.body
     const { userId } = (req as any).user
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    await deductCredit(clinicRow!.clinic_id, 'consents_available')
+    const clinicId = clinicRow?.clinic_id
+    const patientId = b.patient_id ?? b.patientId
+    const ownsPatient = await queryOne('SELECT id FROM patients WHERE id = $1 AND clinic_id = $2', [patientId, clinicId])
+    if (!ownsPatient) return res.status(404).json({ error: 'Paciente no encontrado' })
+    await deductCredit(clinicId!, 'consents_available')
     const data = await queryOne(
       `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status, sede)
        VALUES ($1,$2,$3,$4,$5,'pending',$6) RETURNING *`,
       [
-        b.patient_id ?? b.patientId,
+        patientId,
         b.doctor_id  ?? b.doctorId,
         b.template_id ?? b.templateId,
         b.language ?? 'es-ES',
@@ -51,8 +58,16 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   try {
-    await query('DELETE FROM consent_records WHERE id = $1', [req.params.id])
+    const data = await queryOne(
+      `DELETE FROM consent_records cr
+       USING patients p
+       WHERE cr.id = $1 AND cr.patient_id = p.id AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)
+       RETURNING cr.id`,
+      [req.params.id, userId]
+    )
+    if (!data) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

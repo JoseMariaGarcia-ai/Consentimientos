@@ -29,19 +29,27 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   const { name, duration_minutes, price } = req.body
   try {
     const data = await queryOne(
-      `UPDATE treatments SET name=$1, duration_minutes=$2, price=$3, updated_at=NOW() WHERE id=$4 RETURNING *`,
-      [name, duration_minutes ?? 30, price ?? 0, req.params.id]
+      `UPDATE treatments SET name=$1, duration_minutes=$2, price=$3, updated_at=NOW()
+       WHERE id=$4 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $5) RETURNING *`,
+      [name, duration_minutes ?? 30, price ?? 0, req.params.id, userId]
     )
+    if (!data) return res.status(404).json({ error: 'Tratamiento no encontrado' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 router.delete('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   try {
-    await query('DELETE FROM treatments WHERE id = $1', [req.params.id])
+    const data = await queryOne(
+      'DELETE FROM treatments WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2) RETURNING id',
+      [req.params.id, userId]
+    )
+    if (!data) return res.status(404).json({ error: 'Tratamiento no encontrado' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

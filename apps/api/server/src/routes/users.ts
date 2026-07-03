@@ -4,6 +4,14 @@ import { query, queryOne } from '../lib/db'
 const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners']
 const router = Router()
 
+async function canManageUser(requesterId: string, targetId: string): Promise<{ ok: boolean; requesterIsSuperAdmin: boolean }> {
+  const me = await queryOne<{ clinic_id: string; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [requesterId])
+  if (!me) return { ok: false, requesterIsSuperAdmin: false }
+  if (me.role === 'superadmin') return { ok: true, requesterIsSuperAdmin: true }
+  const target = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [targetId])
+  return { ok: !!target && target.clinic_id === me.clinic_id, requesterIsSuperAdmin: false }
+}
+
 router.get('/', async (req, res) => {
   try {
     const { userId } = (req as any).user
@@ -31,8 +39,11 @@ router.post('/', async (req, res) => {
   const { email, full_name, role, lab_partner_id, permissions } = req.body
   try {
     const { userId } = (req as any).user
-    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const clinic_id = clinicRow?.clinic_id ?? null
+    const me = await queryOne<{ clinic_id: string; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [userId])
+    if (role === 'superadmin' && me?.role !== 'superadmin') {
+      return res.status(403).json({ error: 'Solo un superadmin puede crear otro superadmin' })
+    }
+    const clinic_id = me?.clinic_id ?? null
     const user = await queryOne<{ id: string }>(
       `INSERT INTO app_users (email, full_name, role, clinic_id, lab_partner_id) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
       [email, full_name, role ?? 'clinica', clinic_id, lab_partner_id ?? null]
@@ -46,8 +57,14 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   const { full_name, role, is_active, lab_partner_id } = req.body
   try {
+    const { ok, requesterIsSuperAdmin } = await canManageUser(userId, req.params.id)
+    if (!ok) return res.status(404).json({ error: 'Usuario no encontrado' })
+    if (role === 'superadmin' && !requesterIsSuperAdmin) {
+      return res.status(403).json({ error: 'Solo un superadmin puede asignar el rol superadmin' })
+    }
     const data = await queryOne(
       `UPDATE app_users SET full_name=$1, role=$2, is_active=$3, lab_partner_id=$4, updated_at=NOW() WHERE id=$5 RETURNING *`,
       [full_name, role, is_active, lab_partner_id ?? null, req.params.id]
@@ -57,8 +74,11 @@ router.put('/:id', async (req, res) => {
 })
 
 router.put('/:id/permissions', async (req, res) => {
+  const { userId } = (req as any).user
   const permissions: Record<string, boolean> = req.body
   try {
+    const { ok } = await canManageUser(userId, req.params.id)
+    if (!ok) return res.status(404).json({ error: 'Usuario no encontrado' })
     for (const [module, can_access] of Object.entries(permissions)) {
       await query(
         `INSERT INTO user_permissions (user_id, module, can_access) VALUES ($1,$2,$3)
@@ -71,7 +91,10 @@ router.put('/:id/permissions', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   try {
+    const { ok } = await canManageUser(userId, req.params.id)
+    if (!ok) return res.status(404).json({ error: 'Usuario no encontrado' })
     await query('DELETE FROM user_permissions WHERE user_id = $1', [req.params.id])
     await query('DELETE FROM app_users WHERE id = $1', [req.params.id])
     return res.json({ deleted: true })

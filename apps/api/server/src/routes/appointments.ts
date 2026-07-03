@@ -3,6 +3,11 @@ import { query, queryOne } from '../lib/db'
 
 const router = Router()
 
+async function belongsToClinic(table: string, id: string, clinicId: string): Promise<boolean> {
+  const row = await queryOne(`SELECT id FROM ${table} WHERE id = $1 AND clinic_id = $2`, [id, clinicId])
+  return !!row
+}
+
 // GET /api/appointments?from=YYYY-MM-DD&to=YYYY-MM-DD
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
@@ -34,8 +39,15 @@ router.post('/', async (req, res) => {
   }
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const treatment = await queryOne<{ duration_minutes: number }>('SELECT duration_minutes FROM treatments WHERE id = $1', [treatment_id])
+    const clinicId = clinicRow?.clinic_id
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+
+    const treatment = await queryOne<{ duration_minutes: number }>(
+      'SELECT duration_minutes FROM treatments WHERE id = $1 AND clinic_id = $2', [treatment_id, clinicId]
+    )
     if (!treatment) return res.status(404).json({ error: 'Tratamiento no encontrado' })
+    if (!(await belongsToClinic('patients', patient_id, clinicId))) return res.status(404).json({ error: 'Paciente no encontrado' })
+    if (doctor_id && !(await belongsToClinic('doctors', doctor_id, clinicId))) return res.status(404).json({ error: 'Doctor no encontrado' })
 
     const start = new Date(start_time)
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
@@ -52,17 +64,27 @@ router.post('/', async (req, res) => {
     const data = await queryOne(
       `INSERT INTO appointments (clinic_id, patient_id, doctor_id, treatment_id, branch, start_time, end_time, notes)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *`,
-      [clinicRow?.clinic_id, patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null]
+      [clinicId, patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null]
     )
     return res.status(201).json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 router.put('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   const { patient_id, doctor_id, treatment_id, branch, start_time, notes, status } = req.body
   try {
-    const treatment = await queryOne<{ duration_minutes: number }>('SELECT duration_minutes FROM treatments WHERE id = $1', [treatment_id])
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const clinicId = clinicRow?.clinic_id
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    if (!(await belongsToClinic('appointments', req.params.id, clinicId))) return res.status(404).json({ error: 'Cita no encontrada' })
+
+    const treatment = await queryOne<{ duration_minutes: number }>(
+      'SELECT duration_minutes FROM treatments WHERE id = $1 AND clinic_id = $2', [treatment_id, clinicId]
+    )
     if (!treatment) return res.status(404).json({ error: 'Tratamiento no encontrado' })
+    if (!(await belongsToClinic('patients', patient_id, clinicId))) return res.status(404).json({ error: 'Paciente no encontrado' })
+    if (doctor_id && !(await belongsToClinic('doctors', doctor_id, clinicId))) return res.status(404).json({ error: 'Doctor no encontrado' })
 
     const start = new Date(start_time)
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
@@ -78,16 +100,22 @@ router.put('/:id', async (req, res) => {
 
     const data = await queryOne(
       `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, branch=$4, start_time=$5, end_time=$6, notes=$7, status=$8, updated_at=NOW()
-       WHERE id=$9 RETURNING *`,
-      [patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null, status ?? 'scheduled', req.params.id]
+       WHERE id=$9 AND clinic_id=$10 RETURNING *`,
+      [patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null, status ?? 'scheduled', req.params.id, clinicId]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 router.delete('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   try {
-    await query('DELETE FROM appointments WHERE id = $1', [req.params.id])
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const data = await queryOne(
+      'DELETE FROM appointments WHERE id = $1 AND clinic_id = $2 RETURNING id',
+      [req.params.id, clinicRow?.clinic_id]
+    )
+    if (!data) return res.status(404).json({ error: 'Cita no encontrada' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

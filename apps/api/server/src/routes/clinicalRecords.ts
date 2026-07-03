@@ -53,6 +53,7 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   const b = req.body
   try {
     const data = await queryOne(
@@ -60,7 +61,7 @@ router.put('/:id', async (req, res) => {
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
         current_medications=$6, allergies=$7, physical_exam=$8, diagnosis=$9,
         treatment_plan=$10, notes=$11, branch=$12, updated_at=NOW()
-       WHERE id=$13 RETURNING *`,
+       WHERE id=$13 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $14) RETURNING *`,
       [
         b.patient_id ?? b.patientId,
         b.doctor_id  ?? b.doctorId  ?? null,
@@ -75,15 +76,22 @@ router.put('/:id', async (req, res) => {
         b.notes ?? null,
         b.branch ?? null,
         req.params.id,
+        userId,
       ]
     )
+    if (!data) return res.status(404).json({ error: 'Historia clínica no encontrada' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 router.delete('/:id', async (req, res) => {
+  const { userId } = (req as any).user
   try {
-    await query('DELETE FROM clinical_records WHERE id = $1', [req.params.id])
+    const data = await queryOne(
+      'DELETE FROM clinical_records WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2) RETURNING id',
+      [req.params.id, userId]
+    )
+    if (!data) return res.status(404).json({ error: 'Historia clínica no encontrada' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
