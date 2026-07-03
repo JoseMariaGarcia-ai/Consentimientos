@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 
 const navItems: { to: string; icon: typeof LayoutDashboard; label: string; fallback?: string; moduleKey: string }[] = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard', moduleKey: 'dashboard' },
+  { to: '/agenda', icon: CalendarClock, label: 'nav.agenda', fallback: 'Agenda', moduleKey: 'agenda' },
   { to: '/patients', icon: Users, label: 'nav.patients', moduleKey: 'patients' },
   { to: '/doctors', icon: UserCog, label: 'nav.doctors', moduleKey: 'doctors' },
   { to: '/consents', icon: FileText, label: 'nav.consents', moduleKey: 'consents' },

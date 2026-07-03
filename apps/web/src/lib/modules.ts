@@ -1,5 +1,6 @@
 export const ALL_MODULES = [
   { key: 'dashboard',        labelKey: 'nav.dashboard',       defaultOn: true  },
+  { key: 'agenda',           labelKey: 'nav.agenda',          defaultOn: true  },
   { key: 'patients',         labelKey: 'nav.patients',        defaultOn: true  },
   { key: 'doctors',          labelKey: 'nav.doctors',         defaultOn: true  },
   { key: 'consents',         labelKey: 'nav.consents',        defaultOn: true  },

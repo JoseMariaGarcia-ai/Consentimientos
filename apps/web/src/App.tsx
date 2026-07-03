@@ -20,6 +20,7 @@ import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
 import LabPartners from './pages/LabPartners'
 import LabPartnerPortal from './pages/LabPartnerPortal'
+import Agenda from './pages/Agenda'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -89,6 +90,7 @@ function AppShell() {
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/agenda" element={<Agenda />} />
               <Route path="/patients" element={<Patients />} />
               <Route path="/doctors" element={<Doctors />} />
               <Route path="/consents" element={<Consents />} />
