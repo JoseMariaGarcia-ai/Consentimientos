@@ -2,10 +2,28 @@ import { useState, useEffect } from 'react'
 import { FileText, ClipboardList, Camera, Download, ChevronDown, ChevronUp, LogOut, ArrowLeft, ArrowRight } from 'lucide-react'
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
+import { PreviewBanner } from '@/components/preview/PreviewBanner'
 
 type Tab = 'consents' | 'clinical' | 'photos'
 
-export default function PatientPortalApp() {
+interface PatientPortalAppProps {
+  previewPatientId?: string
+  onExitPreview?: () => void
+}
+
+// Adapts the admin-scoped endpoints (/consents, /clinical-records, /photo-sessions)
+// to the shape the tabs below expect, since a preview patient has no login of its own.
+function normalizeConsent(c: any) {
+  return { ...c, treatment_type: c.template?.treatment_type ?? c.template?.treatmentType, doctor_name: c.doctor?.name }
+}
+function normalizeClinical(r: any) {
+  return { ...r, doctor_name: r.doctor?.name }
+}
+function normalizeSession(s: any) {
+  return { ...s, doctor_name: s.doctor?.name }
+}
+
+export default function PatientPortalApp({ previewPatientId, onExitPreview }: PatientPortalAppProps) {
   const [tab, setTab]         = useState<Tab>('consents')
   const [me, setMe]           = useState<any>(null)
   const [consents, setConsents]   = useState<any[]>([])
@@ -13,7 +31,24 @@ export default function PatientPortalApp() {
   const [photos, setPhotos]       = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
+  const isPreview = !!previewPatientId
+
   useEffect(() => {
+    if (isPreview) {
+      Promise.all([
+        api.get('/patients'),
+        api.get('/consents'),
+        api.get(`/clinical-records?patientId=${previewPatientId}`),
+        api.get(`/photo-sessions?patientId=${previewPatientId}`),
+      ]).then(([patients, c, cr, ps]) => {
+        const patient = Array.isArray(patients) ? patients.find((p: any) => p.id === previewPatientId) : null
+        setMe(patient)
+        setConsents(Array.isArray(c) ? c.filter((x: any) => x.patient_id === previewPatientId).map(normalizeConsent) : [])
+        setClinical(Array.isArray(cr) ? cr.map(normalizeClinical) : [])
+        setPhotos(Array.isArray(ps) ? ps.map(normalizeSession) : [])
+      }).catch(() => {}).finally(() => setLoading(false))
+      return
+    }
     Promise.all([
       api.get('/patient/me'),
       api.get('/patient/consents'),
@@ -25,7 +60,7 @@ export default function PatientPortalApp() {
       setClinical(Array.isArray(cr) ? cr : [])
       setPhotos(Array.isArray(ps) ? ps : [])
     }).catch(() => {}).finally(() => setLoading(false))
-  }, [])
+  }, [isPreview, previewPatientId])
 
   const logout = () => { clearSession(); window.location.href = '/' }
 
@@ -37,6 +72,7 @@ export default function PatientPortalApp() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      {isPreview && onExitPreview && <PreviewBanner role="patient" onExit={onExitPreview} />}
       {/* Header */}
       <header className="bg-[#0D1B2E] text-white">
         <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -51,9 +87,11 @@ export default function PatientPortalApp() {
           {me?.clinic_name && (
             <p className="text-xs text-slate-400 text-right max-w-[140px] leading-tight">{me.clinic_name}</p>
           )}
-          <button onClick={logout} className="p-2 rounded-lg hover:bg-white/10 transition-colors ml-3">
-            <LogOut className="w-4 h-4 text-slate-400" />
-          </button>
+          {!isPreview && (
+            <button onClick={logout} className="p-2 rounded-lg hover:bg-white/10 transition-colors ml-3">
+              <LogOut className="w-4 h-4 text-slate-400" />
+            </button>
+          )}
         </div>
         {/* Tabs */}
         <div className="max-w-2xl mx-auto px-4 flex gap-1 pb-0">

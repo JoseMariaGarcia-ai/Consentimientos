@@ -7,12 +7,12 @@ function getEmbedUrl(url: string): string | null {
   try {
     const u = new URL(url)
     const ytId = u.searchParams.get('v') ?? (u.hostname === 'youtu.be' ? u.pathname.slice(1) : null)
-    if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1`
+    if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1`
     if (u.hostname.includes('youtube.com') && u.pathname.startsWith('/shorts/')) {
-      return `https://www.youtube.com/embed/${u.pathname.split('/')[2]}?autoplay=1`
+      return `https://www.youtube.com/embed/${u.pathname.split('/')[2]}?autoplay=1&mute=1`
     }
     const vimeoId = u.hostname.includes('vimeo.com') ? u.pathname.split('/').filter(Boolean)[0] : null
-    if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}?autoplay=1`
+    if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1`
   } catch {}
   return null
 }
@@ -161,6 +161,7 @@ export function WelcomeMediaModal() {
               ref={videoRef}
               src={creative.url}
               autoPlay
+              muted
               controls
               playsInline
               className="w-full max-h-[80vh] object-contain"
@@ -168,7 +169,7 @@ export function WelcomeMediaModal() {
             />
           )
         ) : isVideo ? (
-          <video ref={videoRef} src={creative.url} autoPlay controls playsInline className="w-full max-h-[80vh] object-contain" onEnded={close} />
+          <video ref={videoRef} src={creative.url} autoPlay muted controls playsInline className="w-full max-h-[80vh] object-contain" onEnded={close} />
         ) : (
           <img src={creative.url} alt="Bienvenida" className="w-full max-h-[80vh] object-contain" />
         )}

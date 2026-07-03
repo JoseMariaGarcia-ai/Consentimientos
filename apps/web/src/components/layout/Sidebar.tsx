@@ -4,30 +4,34 @@ import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Setting
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 
-const navItems: { to: string; icon: typeof LayoutDashboard; label: string; fallback?: string }[] = [
-  { to: '/', icon: LayoutDashboard, label: 'nav.dashboard' },
-  { to: '/patients', icon: Users, label: 'nav.patients' },
-  { to: '/doctors', icon: UserCog, label: 'nav.doctors' },
-  { to: '/consents', icon: FileText, label: 'nav.consents' },
-  { to: '/clinical-records', icon: ClipboardList, label: 'nav.clinicalRecords' },
-  { to: '/photos', icon: Camera, label: 'nav.photos' },
-  { to: '/templates', icon: BookOpen, label: 'nav.templates' },
-  { to: '/clinic', icon: Building2, label: 'nav.clinic' },
-  { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', fallback: 'Laboratorios' },
+const navItems: { to: string; icon: typeof LayoutDashboard; label: string; fallback?: string; moduleKey: string }[] = [
+  { to: '/', icon: LayoutDashboard, label: 'nav.dashboard', moduleKey: 'dashboard' },
+  { to: '/patients', icon: Users, label: 'nav.patients', moduleKey: 'patients' },
+  { to: '/doctors', icon: UserCog, label: 'nav.doctors', moduleKey: 'doctors' },
+  { to: '/consents', icon: FileText, label: 'nav.consents', moduleKey: 'consents' },
+  { to: '/clinical-records', icon: ClipboardList, label: 'nav.clinicalRecords', moduleKey: 'clinical-records' },
+  { to: '/photos', icon: Camera, label: 'nav.photos', moduleKey: 'photos' },
+  { to: '/templates', icon: BookOpen, label: 'nav.templates', moduleKey: 'templates' },
+  { to: '/clinic', icon: Building2, label: 'nav.clinic', moduleKey: 'clinic' },
+  { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', fallback: 'Laboratorios', moduleKey: 'lab-partners' },
 ]
 
 const bottomNavItems = [
-  { to: '/settings', icon: Settings, label: 'nav.settings' },
+  { to: '/settings', icon: Settings, label: 'nav.settings', moduleKey: 'settings' },
 ]
 
 interface SidebarProps {
   open: boolean
   onClose: () => void
+  /** When set, only nav items whose moduleKey is in this list are shown (used for role preview / permission-restricted views). */
+  allowedModules?: string[]
 }
 
-export function Sidebar({ open, onClose }: SidebarProps) {
+export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
   const { t } = useTranslation()
   const { low } = useCredits()
+  const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
+  const visibleBottomItems = allowedModules ? bottomNavItems.filter(i => allowedModules.includes(i.moduleKey)) : bottomNavItems
 
   return (
     <>
@@ -46,7 +50,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
         }`}
       >
         <nav className="flex-1">
-          {navItems.map(({ to, icon: Icon, label, fallback }) => (
+          {visibleNavItems.map(({ to, icon: Icon, label, fallback }) => (
             <NavLink
               key={to}
               to={to}
@@ -85,7 +89,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
 
         {/* Settings — above language selector */}
         <div className="mx-2 pt-2 border-t border-slate-100">
-          {bottomNavItems.map(({ to, icon: Icon, label }) => (
+          {visibleBottomItems.map(({ to, icon: Icon, label }) => (
             <NavLink
               key={to}
               to={to}

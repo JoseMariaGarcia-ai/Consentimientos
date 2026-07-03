@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Eye, Users, Building2, FlaskConical, Check, Sparkles, ExternalLink } from 'lucide-react'
 import { api } from '@/lib/api'
+import { usePreview } from '@/context/PreviewContext'
+import { ALL_MODULES, DEFAULT_CLINICA_MODULES } from '@/lib/modules'
 
 const DEMO_PATIENT_NAME = 'Paciente Demo (Prueba)'
 const DEMO_BRANCH_NAME  = 'Sede Demo (Prueba)'
@@ -15,6 +17,7 @@ interface DemoState {
 
 export function DemoPreviewPanel() {
   const navigate = useNavigate()
+  const { enterPreview } = usePreview()
   const [demo, setDemo] = useState<DemoState>({ patientId: null, branchId: null, labId: null })
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState<string | null>(null)
@@ -114,36 +117,63 @@ export function DemoPreviewPanel() {
     if (!demo.labId) await createLab()
   }
 
+  const viewAsPatient = () => {
+    if (!demo.patientId) return
+    enterPreview({ role: 'patient', patientId: demo.patientId })
+    navigate('/')
+  }
+
+  const viewAsClinica = async () => {
+    try {
+      const users = await api.get('/users')
+      const clinicaUser = Array.isArray(users) ? users.find((u: any) => u.role === 'clinica') : null
+      const perms = Object.fromEntries((clinicaUser?.user_permissions ?? []).map((p: any) => [p.module, p.can_access]))
+      const modules = ALL_MODULES
+        .filter(m => (m.key in perms ? perms[m.key] !== false : m.defaultOn))
+        .map(m => m.key)
+      enterPreview({ role: 'clinica', clinicaModules: modules.length ? modules : DEFAULT_CLINICA_MODULES })
+    } catch {
+      enterPreview({ role: 'clinica', clinicaModules: DEFAULT_CLINICA_MODULES })
+    }
+    navigate('/')
+  }
+
+  const viewAsLab = () => {
+    if (!demo.labId) return
+    enterPreview({ role: 'lab_partner', labId: demo.labId })
+    navigate('/')
+  }
+
   const cards = [
     {
       key: 'patient',
       icon: Users,
       color: 'blue',
       title: 'Vista de Paciente',
-      description: 'Ficha completa de un paciente: historia clínica, fotos y consentimientos.',
+      description: 'Simula el portal que ve un paciente: sus consentimientos, historia clínica y fotos.',
       exists: !!demo.patientId,
       onCreate: createPatient,
-      onView: () => navigate(`/patients/${demo.patientId}`),
+      onView: viewAsPatient,
     },
     {
       key: 'branch',
       icon: Building2,
       color: 'emerald',
       title: 'Vista de Clínica',
-      description: 'Configuración de la clínica y gestión de sedes adicionales.',
+      description: 'Simula el panel que ve el personal de la clínica, con el menú restringido a sus permisos reales.',
       exists: !!demo.branchId,
       onCreate: createBranch,
-      onView: () => navigate('/clinic'),
+      onView: viewAsClinica,
     },
     {
       key: 'lab',
       icon: FlaskConical,
       color: 'amber',
       title: 'Vista de Laboratorio',
-      description: 'Ficha de laboratorio colaborador con sus campañas publicitarias.',
+      description: 'Simula el panel de un laboratorio colaborador: su perfil, clínicas vinculadas y campañas.',
       exists: !!demo.labId,
       onCreate: createLab,
-      onView: () => navigate(`/lab-partners?highlight=${demo.labId}`),
+      onView: viewAsLab,
     },
   ] as const
 
@@ -161,7 +191,7 @@ export function DemoPreviewPanel() {
           <div>
             <h3 className="text-sm font-bold text-slate-700">Vista previa por roles</h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              Crea datos de prueba y abre las fichas reales de paciente, clínica y laboratorio para comprobar cómo se ven y operan.
+              Crea datos de prueba y entra en el programa exactamente como lo vería un paciente, una clínica o un laboratorio.
             </p>
           </div>
         </div>
@@ -203,7 +233,7 @@ export function DemoPreviewPanel() {
                     className="flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-700"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    Ver y operar
+                    Ver como {card.key === 'patient' ? 'paciente' : card.key === 'branch' ? 'clínica' : 'laboratorio'}
                   </button>
                 </div>
               ) : (

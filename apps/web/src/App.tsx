@@ -19,16 +19,30 @@ import PatientDetail from './pages/PatientDetail'
 import PhotoSessions from './pages/PhotoSessions'
 import Recharge from './pages/Recharge'
 import LabPartners from './pages/LabPartners'
+import LabPartnerPortal from './pages/LabPartnerPortal'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
+import { PreviewProvider, usePreview } from './context/PreviewContext'
+import { PreviewBanner } from './components/preview/PreviewBanner'
+import { DEFAULT_CLINICA_MODULES } from './lib/modules'
 import { useAuth } from './lib/auth'
 
 export default function App() {
+  return (
+    <PreviewProvider>
+      <AppShell />
+    </PreviewProvider>
+  )
+}
+
+function AppShell() {
   const { isAuthenticated, role } = useAuth()
   const { currentLanguage } = useLanguageStore()
   const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const { preview, exitPreview } = usePreview()
+  const isAdmin = role === 'admin' || role === 'superadmin'
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
@@ -46,17 +60,31 @@ export default function App() {
 
   if (!isAuthenticated) return <Login />
 
+  // Role preview (admin/superadmin only) — render the real interface another role would see
+  const activePreview = isAdmin ? preview : null
+
+  if (activePreview?.role === 'patient' && activePreview.patientId) {
+    return <PatientPortalApp previewPatientId={activePreview.patientId} onExitPreview={exitPreview} />
+  }
+  if (activePreview?.role === 'lab_partner' && activePreview.labId) {
+    return <LabPartnerPortal previewLabId={activePreview.labId} onExitPreview={exitPreview} />
+  }
+
   // Patient role — show patient portal only
   if (role === 'patient' || window.location.pathname.startsWith('/patient/')) {
     return <PatientPortalApp />
   }
 
+  const isClinicaPreview = activePreview?.role === 'clinica'
+  const allowedModules = isClinicaPreview ? (activePreview.clinicaModules ?? DEFAULT_CLINICA_MODULES) : undefined
+
   return (
     <WelcomeMediaProvider>
       <div className="flex flex-col h-screen bg-slate-50">
+        {isClinicaPreview && <PreviewBanner role="clinica" onExit={exitPreview} />}
         <Topbar onMenuClick={() => setSidebarOpen(o => !o)} />
         <div className="flex flex-1 overflow-hidden">
-          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} allowedModules={allowedModules} />
           <WelcomeMediaModal />
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>

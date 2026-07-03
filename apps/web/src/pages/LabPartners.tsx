@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X } from 'lucide-react'
 import { api } from '@/lib/api'
 
-interface LabPartner {
+export interface LabPartner {
   id: string
   name: string
   email: string
@@ -16,7 +16,7 @@ interface LabPartner {
   campaign_count?: number
 }
 
-interface Campaign {
+export interface Campaign {
   id: string
   lab_partner_id: string
   name: string
@@ -226,7 +226,7 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
 }
 
 // ── Campaigns panel ─────────────────────────────────────────────
-function CampaignsPanel({ lab }: { lab: LabPartner }) {
+export function CampaignsPanel({ lab }: { lab: LabPartner }) {
   const [campaigns, setCampaigns] = useState<Campaign[]>([])
   const [form, setForm] = useState<{ open: boolean; campaign: Campaign | null }>({ open: false, campaign: null })
 

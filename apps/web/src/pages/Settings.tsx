@@ -7,21 +7,7 @@ import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 import { DemoPreviewPanel } from '@/components/settings/DemoPreviewPanel'
 import { useAuth } from '@/lib/auth'
-
-const ALL_MODULES = [
-  { key: 'dashboard',        labelKey: 'nav.dashboard',       defaultOn: true  },
-  { key: 'patients',         labelKey: 'nav.patients',        defaultOn: true  },
-  { key: 'doctors',          labelKey: 'nav.doctors',         defaultOn: true  },
-  { key: 'consents',         labelKey: 'nav.consents',        defaultOn: true  },
-  { key: 'clinical-records', labelKey: 'nav.clinicalRecords', defaultOn: true  },
-  { key: 'photos',           labelKey: 'nav.photos',          defaultOn: true  },
-  { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
-  { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },
-  { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },
-  { key: 'lab-partners',     labelKey: 'nav.labPartners',     defaultOn: false },
-]
-
-const DEFAULT_PERMS = Object.fromEntries(ALL_MODULES.map(m => [m.key, m.defaultOn]))
+import { ALL_MODULES, DEFAULT_PERMS } from '@/lib/modules'
 
 const ROLE_BADGE: Record<string, string> = {
   admin: 'bg-blue-100 text-blue-800',
