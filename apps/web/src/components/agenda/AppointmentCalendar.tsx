@@ -37,15 +37,23 @@ function slotIsOpen(slot: Slot, ranges: TimeRange[]) {
   })
 }
 
+// Local-component date-string helpers. Deliberately avoid toISOString() here:
+// it converts to UTC, which silently shifts the calendar date backward for
+// any timezone ahead of UTC (e.g. Europe/Madrid) — that bug made "add a day"
+// sometimes return the same day, breaking day navigation and the from/to
+// range sent to /appointments and /schedule/availability.
+function toDateKey(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 function addDays(dateStr: string, days: number) {
   const d = new Date(`${dateStr}T00:00:00`)
   d.setDate(d.getDate() + days)
-  return d.toISOString().slice(0, 10)
+  return toDateKey(d)
 }
 
 function todayStr() {
-  const d = new Date()
-  return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10)
+  return toDateKey(new Date())
 }
 
 function assignLanes(appts: any[]) {
@@ -151,7 +159,7 @@ export function AppointmentCalendar() {
 
   const appointmentCounts: Record<string, number> = {}
   for (const a of monthAppointments) {
-    const key = String(a.start_time).slice(0, 10)
+    const key = toDateKey(new Date(a.start_time))
     appointmentCounts[key] = (appointmentCounts[key] ?? 0) + 1
   }
 
