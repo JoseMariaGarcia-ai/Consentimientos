@@ -182,13 +182,13 @@ export function AppointmentCalendar() {
   const handleSave = async (data: any) => {
     if (modal.initial?.id) await api.put(`/appointments/${modal.initial.id}`, data)
     else await api.post('/appointments', data)
-    await loadAppointments()
+    await Promise.all([loadAppointments(), loadMonthData()])
   }
 
   const handleDelete = async () => {
     if (!modal.initial?.id) return
     await api.delete(`/appointments/${modal.initial.id}`)
-    await loadAppointments()
+    await Promise.all([loadAppointments(), loadMonthData()])
   }
 
   const patientName = (p: any) => p ? (p.full_name ?? p.fullName ?? `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim()) : '—'
@@ -306,7 +306,10 @@ export function AppointmentCalendar() {
                       className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm hover:shadow-md transition-shadow ${colorClass}`}
                       style={{ top: top + 1, height, left: `calc(${leftPct}% + 2px)`, width: `calc(${widthPct}% - 4px)` }}
                     >
-                      <p className="text-xs font-semibold truncate">{a.treatment?.name ?? 'Tratamiento'}</p>
+                      <p className="text-xs font-semibold truncate">
+                        {a.treatment?.name ?? 'Tratamiento'}
+                        {a.treatment?.price != null && <span className="font-normal"> · {Number(a.treatment.price).toFixed(2)} €</span>}
+                      </p>
                       <p className="text-[11px] truncate">{patientName(a.patient)}</p>
                       {a.doctor?.name && <p className="text-[10px] truncate opacity-75">Dr. {a.doctor.name}</p>}
                     </button>
