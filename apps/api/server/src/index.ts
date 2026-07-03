@@ -21,6 +21,7 @@ import patientPortalRouter from './routes/patientPortal'
 import treatmentsRouter from './routes/treatments'
 import appointmentsRouter from './routes/appointments'
 import meRouter from './routes/me'
+import adminMigrateRouter from './routes/adminMigrate'
 
 const app = express()
 
@@ -55,6 +56,7 @@ app.use('/api/patient',         authMiddleware, patientPortalRouter)
 app.use('/api/treatments',      authMiddleware, treatmentsRouter)
 app.use('/api/appointments',    authMiddleware, appointmentsRouter)
 app.use('/api/me',              authMiddleware, meRouter)
+app.use('/api/admin/migrate',   adminMigrateRouter)
 
 const PORT = process.env.PORT ?? 3001
 app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
