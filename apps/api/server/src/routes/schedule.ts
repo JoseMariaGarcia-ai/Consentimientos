@@ -69,7 +69,12 @@ router.get('/exceptions', async (req, res) => {
   const { from, to } = req.query
   try {
     const clinicId = await getClinicId(userId)
-    let sql = 'SELECT * FROM schedule_exceptions WHERE clinic_id = $1'
+    // date is cast to text (YYYY-MM-DD) here — the pg driver otherwise parses
+    // a plain DATE column into a JS Date object, which JSON.stringify then
+    // renders as a full ISO instant, breaking any code that expects the
+    // bare "YYYY-MM-DD" string this table actually stores.
+    let sql = `SELECT id, clinic_id, to_char(date, 'YYYY-MM-DD') AS date, is_open, time_ranges, notes, created_at
+               FROM schedule_exceptions WHERE clinic_id = $1`
     const params: any[] = [clinicId]
     if (from) { params.push(from); sql += ` AND date >= $${params.length}` }
     if (to)   { params.push(to);   sql += ` AND date < $${params.length}` }
@@ -90,7 +95,7 @@ router.post('/exceptions', async (req, res) => {
       `INSERT INTO schedule_exceptions (clinic_id, date, is_open, time_ranges, notes)
        VALUES ($1,$2,$3,$4,$5)
        ON CONFLICT (clinic_id, date) DO UPDATE SET is_open=$3, time_ranges=$4, notes=$5
-       RETURNING *`,
+       RETURNING id, clinic_id, to_char(date, 'YYYY-MM-DD') AS date, is_open, time_ranges, notes, created_at`,
       [clinicId, date, !!is_open, JSON.stringify(time_ranges ?? []), notes ?? null]
     )
     return res.status(201).json(data)

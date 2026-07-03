@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Plus, Trash2, CalendarDays, CalendarCheck, CalendarX, Save } from 'lucide-react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
+import { Plus, Trash2, CalendarDays, CalendarCheck, CalendarX, Save, X } from 'lucide-react'
 import { api } from '@/lib/api'
+import { ExceptionCalendar } from './ExceptionCalendar'
 
 interface TimeRange { start: string; end: string }
 interface Pattern { weekday: number; is_open: boolean; time_ranges: TimeRange[] }
@@ -15,6 +16,10 @@ const WEEKDAYS = [
   { value: 6, label: 'Sábado' },
   { value: 0, label: 'Domingo' },
 ]
+
+function toDateKey(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
 
 function TimeRangeEditor({ ranges, onChange }: { ranges: TimeRange[]; onChange: (r: TimeRange[]) => void }) {
   const update = (i: number, field: 'start' | 'end', value: string) => {
@@ -55,8 +60,10 @@ export function SchedulePlanner() {
   const [bulkRange, setBulkRange] = useState<TimeRange>({ start: '09:00', end: '20:00' })
   const [applying, setApplying] = useState(false)
 
-  // New exception form state
-  const [excDate, setExcDate] = useState('')
+  // New exception form state — multi-select calendar of loose days
+  const todayDate = new Date()
+  const [excMonthCursor, setExcMonthCursor] = useState({ year: todayDate.getFullYear(), month: todayDate.getMonth() })
+  const [excSelectedDates, setExcSelectedDates] = useState<Set<string>>(new Set())
   const [excOpen, setExcOpen] = useState(true)
   const [excRanges, setExcRanges] = useState<TimeRange[]>([{ start: '09:00', end: '14:00' }])
   const [excNotes, setExcNotes] = useState('')
@@ -119,18 +126,46 @@ export function SchedulePlanner() {
 
   const toggleBulkDay = (d: number) => setBulkDays(ds => (ds.includes(d) ? ds.filter(x => x !== d) : [...ds, d]))
 
+  const toggleExcDate = (key: string) => {
+    setExcSelectedDates(prev => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
+
+  const navigateExcMonth = (dir: -1 | 1) => {
+    setExcMonthCursor(c => {
+      const m = c.month + dir
+      if (m < 0) return { year: c.year - 1, month: 11 }
+      if (m > 11) return { year: c.year + 1, month: 0 }
+      return { year: c.year, month: m }
+    })
+  }
+
+  const patternOpenByWeekday = useMemo(
+    () => Object.fromEntries(patterns.map(p => [p.weekday, p.is_open])) as Record<number, boolean>,
+    [patterns]
+  )
+  const existingExceptionDates = useMemo(() => new Set(exceptions.map(e => e.date)), [exceptions])
+
   const saveException = async () => {
-    if (!excDate) { setError('Selecciona una fecha'); return }
+    if (excSelectedDates.size === 0) { setError('Selecciona al menos un día en el calendario'); return }
     setSavingExc(true)
     setError('')
     try {
-      await api.post('/schedule/exceptions', {
-        date: excDate,
-        is_open: excOpen,
-        time_ranges: excOpen ? excRanges : [],
-        notes: excNotes || null,
-      })
-      setExcDate('')
+      await Promise.all(
+        Array.from(excSelectedDates).map(date =>
+          api.post('/schedule/exceptions', {
+            date,
+            is_open: excOpen,
+            time_ranges: excOpen ? excRanges : [],
+            notes: excNotes || null,
+          })
+        )
+      )
+      setExcSelectedDates(new Set())
       setExcNotes('')
       setExcRanges([{ start: '09:00', end: '14:00' }])
       await load()
@@ -241,13 +276,32 @@ export function SchedulePlanner() {
           <p className="text-xs text-slate-500 mt-0.5">Abre un día especial (ej. un sábado) o cierra un día que normalmente está abierto (ej. festivo).</p>
         </div>
 
-        <div className="px-5 py-4 border-b border-slate-100 flex flex-col gap-3">
-          <div className="flex flex-wrap items-end gap-3">
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha</label>
-              <input type="date" value={excDate} onChange={e => setExcDate(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm" />
-            </div>
+        <div className="px-5 py-4 border-b border-slate-100 flex flex-col lg:flex-row gap-5">
+          <div className="lg:w-80 flex-shrink-0 flex flex-col gap-2">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">
+              Selecciona uno o varios días
+            </label>
+            <ExceptionCalendar
+              year={excMonthCursor.year}
+              month={excMonthCursor.month}
+              patternOpenByWeekday={patternOpenByWeekday}
+              existingExceptionDates={existingExceptionDates}
+              selected={excSelectedDates}
+              todayKey={toDateKey(todayDate)}
+              onNavigate={navigateExcMonth}
+              onToggleDay={toggleExcDate}
+            />
+            {excSelectedDates.size > 0 && (
+              <div className="flex items-center justify-between gap-2 text-xs text-slate-600">
+                <span>{excSelectedDates.size} día{excSelectedDates.size > 1 ? 's' : ''} seleccionado{excSelectedDates.size > 1 ? 's' : ''}</span>
+                <button type="button" onClick={() => setExcSelectedDates(new Set())} className="flex items-center gap-1 text-slate-400 hover:text-red-500">
+                  <X className="w-3 h-3" />Limpiar selección
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="flex-1 flex flex-col gap-3">
             <div className="flex gap-2">
               <button
                 type="button"
@@ -264,26 +318,28 @@ export function SchedulePlanner() {
                 <CalendarX className="w-4 h-4" />Cerrar
               </button>
             </div>
+            {excOpen && (
+              <div>
+                <label className="text-xs font-medium text-slate-600 uppercase tracking-wide block mb-1">Horario esos días</label>
+                <TimeRangeEditor ranges={excRanges} onChange={setExcRanges} />
+              </div>
+            )}
+            <input
+              value={excNotes}
+              onChange={e => setExcNotes(e.target.value)}
+              placeholder="Motivo (opcional) — ej: Puente de agosto"
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm max-w-sm"
+            />
+            <button
+              onClick={saveException}
+              disabled={savingExc || excSelectedDates.size === 0}
+              className="flex items-center gap-1.5 px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-medium hover:bg-slate-700 disabled:opacity-50 w-fit"
+            >
+              {savingExc
+                ? 'Guardando…'
+                : `Guardar ${excSelectedDates.size > 1 ? `${excSelectedDates.size} días` : 'día'} especial${excSelectedDates.size > 1 ? 'es' : ''}`}
+            </button>
           </div>
-          {excOpen && (
-            <div>
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide block mb-1">Horario ese día</label>
-              <TimeRangeEditor ranges={excRanges} onChange={setExcRanges} />
-            </div>
-          )}
-          <input
-            value={excNotes}
-            onChange={e => setExcNotes(e.target.value)}
-            placeholder="Motivo (opcional) — ej: Puente de agosto"
-            className="px-3 py-2 border border-slate-300 rounded-lg text-sm max-w-sm"
-          />
-          <button
-            onClick={saveException}
-            disabled={savingExc}
-            className="flex items-center gap-1.5 px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-medium hover:bg-slate-700 disabled:opacity-50 w-fit"
-          >
-            {savingExc ? 'Guardando…' : 'Guardar día especial'}
-          </button>
         </div>
 
         {exceptions.length === 0 ? (
