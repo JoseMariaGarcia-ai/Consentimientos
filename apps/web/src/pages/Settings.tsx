@@ -246,7 +246,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
 export default function Settings() {
   const { t } = useTranslation()
   const { role } = useAuth()
-  const isAdmin = role === 'admin' || role === 'superadmin'
+  const isSuperAdmin = role === 'superadmin'
   const [users, setUsers] = useState<AppUser[]>([])
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState<{ open: boolean; user: AppUser | null }>({ open: false, user: null })
@@ -305,15 +305,15 @@ export default function Settings() {
         <button onClick={() => setActiveTab('media')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
           <Megaphone className="w-4 h-4" />Publicidad
         </button>
-        {isAdmin && (
+        {isSuperAdmin && (
           <button onClick={() => setActiveTab('preview')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
             <Eye className="w-4 h-4" />Vista previa
           </button>
         )}
       </div>
 
-      {/* Vista previa por roles — solo admin/superadmin */}
-      {activeTab === 'preview' && isAdmin && <DemoPreviewPanel />}
+      {/* Vista previa por roles — solo superadmin */}
+      {activeTab === 'preview' && isSuperAdmin && <DemoPreviewPanel />}
 
       {/* Media / Publicidad tab */}
       {activeTab === 'media' && (

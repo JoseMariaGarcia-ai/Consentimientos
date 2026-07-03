@@ -42,7 +42,7 @@ function AppShell() {
   const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { preview, exitPreview } = usePreview()
-  const isAdmin = role === 'admin' || role === 'superadmin'
+  const isSuperAdmin = role === 'superadmin'
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
@@ -60,8 +60,8 @@ function AppShell() {
 
   if (!isAuthenticated) return <Login />
 
-  // Role preview (admin/superadmin only) — render the real interface another role would see
-  const activePreview = isAdmin ? preview : null
+  // Role preview (superadmin only) — render the real interface another role would see
+  const activePreview = isSuperAdmin ? preview : null
 
   if (activePreview?.role === 'patient' && activePreview.patientId) {
     return <PatientPortalApp previewPatientId={activePreview.patientId} onExitPreview={exitPreview} />
