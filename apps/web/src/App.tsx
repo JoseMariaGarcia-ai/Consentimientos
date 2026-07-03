@@ -99,6 +99,10 @@ function AppShell() {
     ? myModules ?? undefined
     : undefined
 
+  // A restricted section must be unreachable by URL, not just hidden from the sidebar.
+  const guard = (moduleKey: string, element: JSX.Element) =>
+    allowedModules && !allowedModules.includes(moduleKey) ? <Navigate to="/" /> : element
+
   return (
     <WelcomeMediaProvider>
       <div className="flex flex-col h-screen bg-slate-50">
@@ -110,18 +114,18 @@ function AppShell() {
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/agenda" element={<Agenda />} />
-              <Route path="/patients" element={<Patients />} />
-              <Route path="/doctors" element={<Doctors />} />
-              <Route path="/consents" element={<Consents />} />
-              <Route path="/clinic" element={<ClinicPage />} />
-              <Route path="/lab-partners" element={<LabPartners />} />
-              <Route path="/templates" element={<Templates />} />
+              <Route path="/agenda" element={guard('agenda', <Agenda />)} />
+              <Route path="/patients" element={guard('patients', <Patients />)} />
+              <Route path="/doctors" element={guard('doctors', <Doctors />)} />
+              <Route path="/consents" element={guard('consents', <Consents />)} />
+              <Route path="/clinic" element={guard('clinic', <ClinicPage />)} />
+              <Route path="/lab-partners" element={guard('lab-partners', <LabPartners />)} />
+              <Route path="/templates" element={guard('templates', <Templates />)} />
               <Route path="/settings" element={isClinicaRole ? <Navigate to="/" /> : <Settings />} />
-              <Route path="/clinical-records" element={<ClinicalRecords />} />
-              <Route path="/photos" element={<PhotoSessions />} />
+              <Route path="/clinical-records" element={guard('clinical-records', <ClinicalRecords />)} />
+              <Route path="/photos" element={guard('photos', <PhotoSessions />)} />
               <Route path="/recharge" element={<Recharge />} />
-              <Route path="/patients/:id" element={<PatientDetail />} />
+              <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>
