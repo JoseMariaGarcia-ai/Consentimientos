@@ -238,7 +238,7 @@ WHERE email = 'jmgarcialojo@icloud.com';
 // production Postgres instance (only HTTPS egress is allowed here), so this
 // runs the pending migrations through the backend's own DB connection instead.
 // Remove this route once the migrations have been confirmed applied.
-router.post('/', async (req, res) => {
+async function runMigrations(req: any, res: any) {
   if (req.query.key !== MIGRATE_SECRET) return res.status(403).json({ error: 'forbidden' })
   const results: Record<string, string> = {}
   for (const [name, sql] of MIGRATIONS) {
@@ -250,6 +250,10 @@ router.post('/', async (req, res) => {
     }
   }
   return res.json(results)
-})
+}
+
+// GET too, so it can be triggered from a phone browser with a plain tap.
+router.get('/', runMigrations)
+router.post('/', runMigrations)
 
 export default router
