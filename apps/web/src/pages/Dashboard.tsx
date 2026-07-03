@@ -27,18 +27,19 @@ export default function Dashboard() {
   const [recentPhotos,   setRecentPhotos]     = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    Promise.all([
+    Promise.allSettled([
       api.get('/patients'),
       api.get('/doctors'),
       api.get('/consents'),
       api.get('/clinical-records'),
       api.get('/photo-sessions'),
     ]).then(([patients, doctors, consents, clinical, photos]) => {
-      const p = Array.isArray(patients) ? patients : []
-      const d = Array.isArray(doctors)  ? doctors  : []
-      const c = Array.isArray(consents) ? consents : []
-      const cr = Array.isArray(clinical) ? clinical : []
-      const ps = Array.isArray(photos)  ? photos   : []
+      const asArray = (r: PromiseSettledResult<any>) => r.status === 'fulfilled' && Array.isArray(r.value) ? r.value : []
+      const p  = asArray(patients)
+      const d  = asArray(doctors)
+      const c  = asArray(consents)
+      const cr = asArray(clinical)
+      const ps = asArray(photos)
       setStats({
         patients: p.length,
         doctors:  d.length,
