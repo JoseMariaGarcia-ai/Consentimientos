@@ -20,6 +20,7 @@ import labPartnersRouter from './routes/labPartners'
 import patientPortalRouter from './routes/patientPortal'
 import treatmentsRouter from './routes/treatments'
 import appointmentsRouter from './routes/appointments'
+import scheduleRouter from './routes/schedule'
 import meRouter from './routes/me'
 
 const app = express()
@@ -54,6 +55,7 @@ app.use('/api/lab-partners',    authMiddleware, labPartnersRouter)
 app.use('/api/patient',         authMiddleware, patientPortalRouter)
 app.use('/api/treatments',      authMiddleware, treatmentsRouter)
 app.use('/api/appointments',    authMiddleware, appointmentsRouter)
+app.use('/api/schedule',        authMiddleware, scheduleRouter)
 app.use('/api/me',              authMiddleware, meRouter)
 
 const PORT = process.env.PORT ?? 3001

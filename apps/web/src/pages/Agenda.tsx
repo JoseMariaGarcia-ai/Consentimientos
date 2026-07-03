@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { CalendarClock, Stethoscope } from 'lucide-react'
+import { CalendarClock, Stethoscope, Settings2 } from 'lucide-react'
 import { AppointmentCalendar } from '@/components/agenda/AppointmentCalendar'
 import { TreatmentsPanel } from '@/components/agenda/TreatmentsPanel'
+import { SchedulePlanner } from '@/components/agenda/SchedulePlanner'
 
 export default function Agenda() {
-  const [tab, setTab] = useState<'citas' | 'tratamientos'>('citas')
+  const [tab, setTab] = useState<'citas' | 'tratamientos' | 'planificacion'>('citas')
 
   return (
     <div className="flex flex-col gap-6">
@@ -14,11 +15,11 @@ export default function Agenda() {
         </div>
         <div>
           <h1 className="text-2xl font-bold text-slate-800">Agenda</h1>
-          <p className="text-sm text-slate-500">Citas y tratamientos de la clínica</p>
+          <p className="text-sm text-slate-500">Citas, tratamientos y planificación de horarios</p>
         </div>
       </div>
 
-      <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit flex-wrap">
         <button
           onClick={() => setTab('citas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'citas' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
@@ -31,9 +32,15 @@ export default function Agenda() {
         >
           <Stethoscope className="w-4 h-4" />Tratamientos
         </button>
+        <button
+          onClick={() => setTab('planificacion')}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'planificacion' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+        >
+          <Settings2 className="w-4 h-4" />Planificación de Agenda
+        </button>
       </div>
 
-      {tab === 'citas' ? <AppointmentCalendar /> : <TreatmentsPanel />}
+      {tab === 'citas' ? <AppointmentCalendar /> : tab === 'tratamientos' ? <TreatmentsPanel /> : <SchedulePlanner />}
     </div>
   )
 }

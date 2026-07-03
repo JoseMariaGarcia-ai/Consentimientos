@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { isSlotAvailable } from '../lib/availability'
 
 const router = Router()
 
@@ -52,6 +53,10 @@ router.post('/', async (req, res) => {
     const start = new Date(start_time)
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
 
+    if (!(await isSlotAvailable(clinicId, start.toISOString(), end.toISOString()))) {
+      return res.status(400).json({ error: 'Ese horario está fuera de la agenda disponible de la clínica' })
+    }
+
     if (doctor_id) {
       const clash = await queryOne(
         `SELECT id FROM appointments WHERE doctor_id = $1 AND status != 'cancelled'
@@ -88,6 +93,10 @@ router.put('/:id', async (req, res) => {
 
     const start = new Date(start_time)
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
+
+    if (!(await isSlotAvailable(clinicId, start.toISOString(), end.toISOString()))) {
+      return res.status(400).json({ error: 'Ese horario está fuera de la agenda disponible de la clínica' })
+    }
 
     if (doctor_id) {
       const clash = await queryOne(
