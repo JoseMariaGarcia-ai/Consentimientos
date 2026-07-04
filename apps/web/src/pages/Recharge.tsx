@@ -97,17 +97,8 @@ function PlanCard({ plan }: { plan: Plan }) {
       <div className={`${plan.color} px-6 pt-6 pb-6`}>
         <p className="text-white font-bold text-lg">{plan.name}</p>
 
-        {/* Anual / Mensual toggle */}
+        {/* Mensual / Anual toggle */}
         <div className="flex items-center gap-1 mt-3 bg-white/10 rounded-lg p-1 w-fit">
-          <button
-            type="button"
-            onClick={() => setCycle('annual')}
-            className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
-              isAnnual ? 'bg-white text-slate-800' : 'text-white/60 hover:text-white'
-            }`}
-          >
-            Anual
-          </button>
           <button
             type="button"
             onClick={() => setCycle('monthly')}
@@ -116,6 +107,15 @@ function PlanCard({ plan }: { plan: Plan }) {
             }`}
           >
             Mensual
+          </button>
+          <button
+            type="button"
+            onClick={() => setCycle('annual')}
+            className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
+              isAnnual ? 'bg-white text-slate-800' : 'text-white/60 hover:text-white'
+            }`}
+          >
+            Anual
           </button>
         </div>
 
