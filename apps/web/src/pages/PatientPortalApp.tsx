@@ -3,6 +3,8 @@ import { FileText, ClipboardList, Camera, Download, ChevronDown, ChevronUp, LogO
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
+import { WelcomeMediaProvider } from '@/context/WelcomeMediaContext'
+import { WelcomeMediaModal } from '@/components/media/WelcomeMediaModal'
 
 type Tab = 'consents' | 'clinical' | 'photos'
 
@@ -71,7 +73,9 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
   ]
 
   return (
+    <WelcomeMediaProvider>
     <div className="min-h-screen bg-slate-50 font-sans">
+      <WelcomeMediaModal />
       {isPreview && onExitPreview && <PreviewBanner role="patient" onExit={onExitPreview} />}
       {/* Header */}
       <header className="bg-[#0D1B2E] text-white">
@@ -133,6 +137,7 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
         )}
       </main>
     </div>
+    </WelcomeMediaProvider>
   )
 }
 

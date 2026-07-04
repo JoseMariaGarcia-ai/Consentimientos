@@ -46,7 +46,9 @@ function AppShell() {
   const { preview, exitPreview } = usePreview()
   const isSuperAdmin = role === 'superadmin'
   const isClinicaRole = role === 'clinica'
+  const isLabPartnerRole = role === 'lab_partner'
   const [myModules, setMyModules] = useState<string[] | null>(null)
+  const [myLabPartnerId, setMyLabPartnerId] = useState<string | null | undefined>(undefined)
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
@@ -70,6 +72,14 @@ function AppShell() {
     }).catch(() => setMyModules([...DEFAULT_CLINICA_MODULES]))
   }, [isClinicaRole])
 
+  // A real lab_partner login has no dedicated route of its own — it must
+  // render LabPartnerPortal directly instead of falling through to the
+  // clinic-staff Sidebar/Routes shell below.
+  useEffect(() => {
+    if (!isLabPartnerRole) { setMyLabPartnerId(null); return }
+    api.get('/me').then((me: any) => setMyLabPartnerId(me.lab_partner_id ?? null)).catch(() => setMyLabPartnerId(null))
+  }, [isLabPartnerRole])
+
   // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
   if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
@@ -90,6 +100,18 @@ function AppShell() {
   // Patient role — show patient portal only
   if (role === 'patient' || window.location.pathname.startsWith('/patient/')) {
     return <PatientPortalApp />
+  }
+
+  // Lab partner role — show lab portal only, never the clinic-staff shell
+  if (isLabPartnerRole) {
+    if (myLabPartnerId === undefined) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-slate-50">
+          <div className="w-8 h-8 border-4 border-[#C9A84C] border-t-transparent rounded-full animate-spin" />
+        </div>
+      )
+    }
+    return <LabPartnerPortal labId={myLabPartnerId ?? undefined} />
   }
 
   const isClinicaPreview = activePreview?.role === 'clinica'
