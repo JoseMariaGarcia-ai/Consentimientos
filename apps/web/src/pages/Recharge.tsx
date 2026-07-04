@@ -79,7 +79,7 @@ const PLANS: Plan[] = [
 const ANNUAL_DISCOUNT = 0.2
 
 function PlanCard({ plan }: { plan: Plan }) {
-  const [cycle, setCycle] = useState<'monthly' | 'annual'>('annual')
+  const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly')
   const isAnnual = cycle === 'annual'
   const displayPrice = isAnnual
     ? Math.round(plan.monthlyPrice * (1 - ANNUAL_DISCOUNT))
