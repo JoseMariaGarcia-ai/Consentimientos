@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import { Syringe, X, Plus, Trash2 } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Syringe, X, Plus, Trash2, PenLine } from 'lucide-react'
 import { BOTOX_ZONES } from '@/constants/botoxZones'
+import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
+import { api } from '@/lib/api'
 
 interface ZoneEntry { zone: string; units: number }
 
@@ -15,6 +17,10 @@ interface Props {
     expiry_date?: string
     manufacturer?: string
     treated_zones?: ZoneEntry[]
+    vials_opened?: number
+    consent_id?: string
+    doctor_signature?: string
+    doctor_signed_at?: string
     notes?: string
   }
   patients: any[]
@@ -34,6 +40,8 @@ function toDateInputValue(iso?: string) {
   return String(iso).slice(0, 10)
 }
 
+const patientLabel = (p: any) => p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
+
 export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClose }: Props) {
   const isEdit = !!initial?.id
   const [form, setForm] = useState({
@@ -44,6 +52,8 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
     lot_number: initial?.lot_number ?? '',
     expiry_date: toDateInputValue(initial?.expiry_date),
     manufacturer: initial?.manufacturer ?? '',
+    vials_opened: initial?.vials_opened ?? 1,
+    consent_id: initial?.consent_id ?? '',
     notes: initial?.notes ?? '',
   })
   const [zones, setZones] = useState<ZoneEntry[]>(initial?.treated_zones ?? [])
@@ -52,7 +62,25 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
   const [deleting, setDeleting] = useState(false)
   const [error, setError] = useState('')
 
-  const set = (k: keyof typeof form, v: string) => setForm(f => ({ ...f, [k]: v }))
+  const [patientConsents, setPatientConsents] = useState<any[]>([])
+  const [loadingConsents, setLoadingConsents] = useState(false)
+
+  const [existingSignature] = useState(initial?.doctor_signature ?? '')
+  const [existingSignedAt] = useState(initial?.doctor_signed_at ?? '')
+  const [newSignature, setNewSignature] = useState('')
+  const [resigning, setResigning] = useState(!isEdit) // new records always need a fresh signature
+
+  const set = (k: keyof typeof form, v: string | number) => setForm(f => ({ ...f, [k]: v }))
+
+  // Consents can only be linked to the toxin/botulinum templates, for the selected patient.
+  useEffect(() => {
+    if (!form.patient_id) { setPatientConsents([]); return }
+    setLoadingConsents(true)
+    api.get(`/consents?patient_id=${form.patient_id}&type=toxina&status=signed`)
+      .then((data: any) => setPatientConsents(Array.isArray(data) ? data : []))
+      .catch(() => setPatientConsents([]))
+      .finally(() => setLoadingConsents(false))
+  }, [form.patient_id])
 
   const isZoneActive = (zone: string) => zones.some(z => z.zone === zone)
   const toggleZone = (zone: string) => {
@@ -69,11 +97,16 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
   }
 
   const totalUnits = zones.reduce((sum, z) => sum + (Number(z.units) || 0), 0)
+  const effectiveSignature = resigning ? newSignature : existingSignature
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.patient_id || !form.brand_name || !form.lot_number || !form.expiry_date || !form.manufacturer) {
       setError('Paciente, nombre comercial, lote, caducidad y fabricante son obligatorios')
+      return
+    }
+    if (!effectiveSignature) {
+      setError('La firma del médico es obligatoria para guardar el registro')
       return
     }
     setSaving(true)
@@ -82,8 +115,11 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
       await onSave({
         ...form,
         doctor_id: form.doctor_id || undefined,
+        consent_id: form.consent_id || undefined,
         application_date: new Date(form.application_date).toISOString(),
         treated_zones: zones,
+        vials_opened: Number(form.vials_opened) || 1,
+        doctor_signature: effectiveSignature,
       })
       onClose()
     } catch (err: any) {
@@ -124,12 +160,30 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
               <select value={form.patient_id} onChange={e => set('patient_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="">Seleccionar paciente…</option>
-                {patients.map(p => {
-                  const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
-                  return <option key={p.id} value={p.id}>{name}</option>
-                })}
+                {patients.map(p => <option key={p.id} value={p.id}>{patientLabel(p)}</option>)}
               </select>
             </div>
+
+            {/* Consentimiento vinculado — solo aparece tras elegir paciente */}
+            {form.patient_id && (
+              <div className="flex flex-col gap-1 col-span-2">
+                <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Consentimiento informado vinculado</label>
+                <select value={form.consent_id} onChange={e => set('consent_id', e.target.value)}
+                  className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <option value="">Sin vincular</option>
+                  {patientConsents.map(c => {
+                    const treatment = c.template?.treatment_type ?? c.template?.treatmentType ?? 'Consentimiento'
+                    const signedAt = c.signed_at ?? c.signedAt
+                    const dateLabel = signedAt ? new Date(signedAt).toLocaleDateString('es-ES') : 'sin firmar'
+                    return <option key={c.id} value={c.id}>{treatment} — {dateLabel}</option>
+                  })}
+                </select>
+                {loadingConsents && <p className="text-xs text-slate-400">Cargando consentimientos…</p>}
+                {!loadingConsents && patientConsents.length === 0 && (
+                  <p className="text-xs text-slate-400">Este paciente no tiene consentimientos de toxina firmados todavía. Es opcional, puedes guardar el registro sin vincularlo.</p>
+                )}
+              </div>
+            )}
 
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
@@ -167,6 +221,12 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha de caducidad <span className="text-red-500">*</span></label>
               <input type="date" value={form.expiry_date} onChange={e => set('expiry_date', e.target.value)}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Viales abiertos <span className="text-red-500">*</span></label>
+              <input type="number" min={1} value={form.vials_opened} onChange={e => set('vials_opened', Number(e.target.value))}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
           </div>
@@ -220,6 +280,31 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
             <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={2} placeholder="Observaciones…"
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
+          </div>
+
+          {/* Firma del médico — obligatoria para guardar */}
+          <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Firma del médico <span className="text-red-500">*</span></label>
+            {!resigning && existingSignature ? (
+              <div className="flex flex-col gap-2">
+                <div className="border border-slate-200 rounded-lg p-2 bg-white">
+                  <img src={existingSignature} alt="Firma del médico" className="h-20 object-contain" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-slate-400">
+                    Firmado {existingSignedAt ? new Date(existingSignedAt).toLocaleString('es-ES') : ''}
+                  </p>
+                  <button type="button" onClick={() => setResigning(true)} className="flex items-center gap-1 text-xs font-medium text-blue-600 hover:underline">
+                    <PenLine className="w-3.5 h-3.5" />Firmar de nuevo
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <SignatureCanvas onSave={dataUrl => setNewSignature(dataUrl)} onClear={() => setNewSignature('')} />
+            )}
+            {resigning && !newSignature && (
+              <p className="text-xs text-amber-600">Dibuje la firma y pulse "Confirmar firma" antes de guardar.</p>
+            )}
           </div>
 
           {error && <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">⚠️ {error}</div>}

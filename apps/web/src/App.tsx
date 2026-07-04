@@ -22,6 +22,7 @@ import LabPartners from './pages/LabPartners'
 import LabPartnerPortal from './pages/LabPartnerPortal'
 import Agenda from './pages/Agenda'
 import Toxina from './pages/Toxina'
+import ToxinDetail from './pages/ToxinDetail'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -148,6 +149,7 @@ function AppShell() {
               <Route path="/clinical-records" element={guard('clinical-records', <ClinicalRecords />)} />
               <Route path="/photos" element={guard('photos', <PhotoSessions />)} />
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />
+              <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
               <Route path="/recharge" element={<Recharge />} />
               <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />
               <Route path="*" element={<Navigate to="/" />} />

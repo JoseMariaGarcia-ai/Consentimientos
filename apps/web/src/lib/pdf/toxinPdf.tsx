@@ -32,14 +32,17 @@ const styles = StyleSheet.create({
   th: { fontSize: 6.5, fontFamily: 'Helvetica-Bold', color: '#FFFFFF', padding: 5, textTransform: 'uppercase' },
   td: { fontSize: 7, color: C.body, padding: 5 },
 
-  colDate: { width: '11%' },
-  colPatient: { width: '18%' },
-  colDoctor: { width: '14%' },
-  colBrand: { width: '13%' },
-  colLot: { width: '12%' },
-  colExpiry: { width: '10%' },
-  colZones: { width: '14%' },
-  colUnits: { width: '8%', textAlign: 'right' },
+  colDate: { width: '9%' },
+  colPatient: { width: '15%' },
+  colDoctor: { width: '12%' },
+  colBrand: { width: '11%' },
+  colLot: { width: '9%' },
+  colExpiry: { width: '8%' },
+  colZones: { width: '9%' },
+  colUnits: { width: '6%', textAlign: 'right' },
+  colVials: { width: '6%', textAlign: 'right' },
+  colSig: { width: '7%', textAlign: 'center' },
+  colCi: { width: '8%', textAlign: 'center' },
 
   summaryBox: {
     flexDirection: 'row', justifyContent: 'space-between',
@@ -72,6 +75,7 @@ function fmtDateTime(d?: string) {
 export function ToxinPdf({ clinic, records, filters }: ToxinPdfProps) {
   const generatedAt = new Date().toLocaleString('es-ES')
   const totalUnits = records.reduce((sum, r) => sum + (Number(r.total_units) || 0), 0)
+  const totalVials = records.reduce((sum, r) => sum + (Number(r.vials_opened) || 0), 0)
 
   const filterParts = [
     filters.date_from ? `Desde: ${fmtDate(filters.date_from)}` : null,
@@ -112,6 +116,9 @@ export function ToxinPdf({ clinic, records, filters }: ToxinPdfProps) {
             <Text style={[styles.th, styles.colExpiry]}>Caducidad</Text>
             <Text style={[styles.th, styles.colZones]}>Zonas</Text>
             <Text style={[styles.th, styles.colUnits]}>Unidades</Text>
+            <Text style={[styles.th, styles.colVials]}>Viales</Text>
+            <Text style={[styles.th, styles.colSig]}>Firma médico</Text>
+            <Text style={[styles.th, styles.colCi]}>CI vinculado</Text>
           </View>
           {records.map((r, i) => {
             const patientName = r.patient?.full_name ?? r.patient?.fullName ?? '—'
@@ -127,6 +134,9 @@ export function ToxinPdf({ clinic, records, filters }: ToxinPdfProps) {
                 <Text style={[styles.td, styles.colExpiry]}>{fmtDate(r.expiry_date)}</Text>
                 <Text style={[styles.td, styles.colZones]}>{zonesText}</Text>
                 <Text style={[styles.td, styles.colUnits]}>{r.total_units}</Text>
+                <Text style={[styles.td, styles.colVials]}>{r.vials_opened ?? 1}</Text>
+                <Text style={[styles.td, styles.colSig]}>{r.doctor_signature ? 'Sí' : 'No'}</Text>
+                <Text style={[styles.td, styles.colCi]}>{r.consent_id ? 'Sí' : 'No'}</Text>
               </View>
             )
           })}
@@ -135,6 +145,7 @@ export function ToxinPdf({ clinic, records, filters }: ToxinPdfProps) {
         <View style={styles.summaryBox}>
           <Text style={styles.summaryLabel}>Total de registros: <Text style={styles.summaryValue}>{records.length}</Text></Text>
           <Text style={styles.summaryLabel}>Total de unidades aplicadas: <Text style={styles.summaryValue}>{totalUnits} U</Text></Text>
+          <Text style={styles.summaryLabel}>Total de viales utilizados: <Text style={styles.summaryValue}>{totalVials}</Text></Text>
         </View>
 
         <View style={styles.footer}>

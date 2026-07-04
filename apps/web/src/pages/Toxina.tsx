@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Syringe, Plus, Pencil, Trash2, FilterX } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Syringe, Plus, Pencil, Trash2, FilterX, PenLine, FileCheck, Eye } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ToxinModal } from '@/components/toxin/ToxinModal'
 import { ToxinPdfButton } from '@/components/toxin/ToxinPdfButton'
@@ -7,6 +8,7 @@ import { ToxinPdfButton } from '@/components/toxin/ToxinPdfButton'
 const EMPTY_FILTERS = { date_from: '', date_to: '', doctor_id: '', patient_id: '', lot_number: '' }
 
 export default function Toxina() {
+  const navigate = useNavigate()
   const [records, setRecords] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
   const [doctors, setDoctors] = useState<any[]>([])
@@ -76,6 +78,10 @@ export default function Toxina() {
       expiry_date: r.expiry_date,
       manufacturer: r.manufacturer,
       treated_zones: r.treated_zones,
+      vials_opened: r.vials_opened,
+      consent_id: r.consent_id,
+      doctor_signature: r.doctor_signature,
+      doctor_signed_at: r.doctor_signed_at,
       notes: r.notes,
     },
   })
@@ -183,6 +189,8 @@ export default function Toxina() {
                   <th className="px-4 py-3 font-semibold">Caducidad</th>
                   <th className="px-4 py-3 font-semibold">Zonas</th>
                   <th className="px-4 py-3 font-semibold text-right">Unidades</th>
+                  <th className="px-4 py-3 font-semibold text-center">Firma</th>
+                  <th className="px-4 py-3 font-semibold text-center">CI</th>
                   <th className="px-4 py-3 font-semibold text-right">Acciones</th>
                 </tr>
               </thead>
@@ -199,8 +207,21 @@ export default function Toxina() {
                       {(r.treated_zones ?? []).map((z: any) => z.zone).join(', ')}
                     </td>
                     <td className="px-4 py-3 text-right font-semibold text-blue-700">{r.total_units} U</td>
+                    <td className="px-4 py-3 text-center" title={r.doctor_signature ? 'Firmado' : 'Sin firma'}>
+                      {r.doctor_signature
+                        ? <PenLine className="w-4 h-4 text-emerald-600 inline" />
+                        : <span className="text-slate-300 text-xs">—</span>}
+                    </td>
+                    <td className="px-4 py-3 text-center" title={r.consent_id ? 'Con consentimiento vinculado' : 'Sin consentimiento vinculado'}>
+                      {r.consent_id
+                        ? <FileCheck className="w-4 h-4 text-emerald-600 inline" />
+                        : <span className="text-slate-300 text-xs">—</span>}
+                    </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
+                        <button onClick={() => navigate(`/toxina/${r.id}`)} className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50">
+                          <Eye className="w-4 h-4" />
+                        </button>
                         <button onClick={() => openEdit(r)} className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50">
                           <Pencil className="w-4 h-4" />
                         </button>

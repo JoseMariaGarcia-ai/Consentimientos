@@ -14,19 +14,45 @@ router.get('/templates', async (_req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/consents?patient_id=&type=&status=
+// type=toxina restricts to templates whose treatment_type mentions toxin/botulinum
+// treatments (used to link a toxin control record to its signed consent).
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
+  const { patient_id, type, status } = req.query
   try {
-    const data = await query(
+    let sql = `
+      SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
+      FROM consent_records cr
+      JOIN patients p ON p.id = cr.patient_id
+      LEFT JOIN doctors d ON d.id = cr.doctor_id
+      LEFT JOIN consent_templates t ON t.id = cr.template_id
+      WHERE p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
+    `
+    const params: any[] = [userId]
+    if (patient_id) { params.push(patient_id); sql += ` AND cr.patient_id = $${params.length}` }
+    if (status)     { params.push(status);     sql += ` AND cr.status = $${params.length}` }
+    if (type === 'toxina') { sql += ` AND (t.treatment_type ILIKE '%toxina%' OR t.treatment_type ILIKE '%botul%')` }
+    sql += ' ORDER BY cr.created_at DESC'
+
+    const data = await query(sql, params)
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.get('/:id', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const data = await queryOne(
       `SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
        FROM consent_records cr
        JOIN patients p ON p.id = cr.patient_id
        LEFT JOIN doctors d ON d.id = cr.doctor_id
        LEFT JOIN consent_templates t ON t.id = cr.template_id
-       WHERE p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
-       ORDER BY cr.created_at DESC`,
-      [userId]
+       WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
+      [req.params.id, userId]
     )
+    if (!data) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

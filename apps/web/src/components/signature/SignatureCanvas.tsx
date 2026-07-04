@@ -97,10 +97,11 @@ export function SignatureCanvas({ onSave, onClear }: SignatureCanvasProps) {
         onTouchEnd={endDraw}
       />
       <div className="flex gap-2 justify-end">
-        <button onClick={clear} className="px-3 py-1.5 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
+        <button type="button" onClick={clear} className="px-3 py-1.5 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
           Borrar
         </button>
         <button
+          type="button"
           onClick={save}
           disabled={isEmpty}
           className="px-4 py-1.5 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40"
