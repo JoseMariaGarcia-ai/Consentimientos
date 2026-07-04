@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Building2, FlaskConical, Mail, Phone, User, Globe, LogOut, Megaphone } from 'lucide-react'
+import { Building2, FlaskConical, Mail, Phone, User, Globe, LogOut, Megaphone, BarChart3 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
@@ -24,6 +24,7 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
   const [lab, setLab] = useState<(LabPartner & { clinics?: any[] }) | null>(null)
   const [loading, setLoading] = useState(true)
   const [mediaData, setMediaData] = useState<any>({})
+  const [tab, setTab] = useState<'clinics' | 'campaigns' | 'stats'>('clinics')
 
   useEffect(() => {
     if (!effectiveId) { setLoading(false); return }
@@ -82,69 +83,105 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
               </div>
             </div>
 
-            {/* Assigned clinics */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-slate-500" />
-                <h2 className="text-sm font-bold text-slate-700">Clínicas vinculadas</h2>
-                <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{lab.clinics?.length ?? 0}</span>
-              </div>
-              {!lab.clinics || lab.clinics.length === 0 ? (
-                <p className="text-sm text-slate-400 text-center py-8">Todavía no hay clínicas vinculadas a este laboratorio.</p>
-              ) : (
-                <div className="divide-y divide-slate-100">
-                  {lab.clinics.map((c: any) => (
-                    <div key={c.id} className="px-6 py-3">
-                      <p className="text-sm font-medium text-slate-800">{c.name}</p>
-                      {c.address && <p className="text-xs text-slate-400 mt-0.5">{c.address}</p>}
-                    </div>
-                  ))}
+            {/* Nav */}
+            <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit">
+              <button
+                onClick={() => setTab('clinics')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'clinics' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                <Building2 className="w-4 h-4" />Clínicas vinculadas
+              </button>
+              <button
+                onClick={() => setTab('campaigns')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'campaigns' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                <Megaphone className="w-4 h-4" />Campañas publicitarias
+              </button>
+              <button
+                onClick={() => setTab('stats')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'stats' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                <BarChart3 className="w-4 h-4" />Estadísticas
+              </button>
+            </div>
+
+            {/* Clínicas vinculadas */}
+            {tab === 'clinics' && (
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-slate-500" />
+                  <h2 className="text-sm font-bold text-slate-700">Clínicas vinculadas</h2>
+                  <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{lab.clinics?.length ?? 0}</span>
                 </div>
-              )}
-            </div>
-
-            {/* Publicidad — idéntico a Configuración > Publicidad para superadmin */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
-              <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-                <Megaphone className="w-4 h-4 text-pink-500" />
-                <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+                {!lab.clinics || lab.clinics.length === 0 ? (
+                  <p className="text-sm text-slate-400 text-center py-8">Todavía no hay clínicas vinculadas a este laboratorio.</p>
+                ) : (
+                  <div className="divide-y divide-slate-100">
+                    {lab.clinics.map((c: any) => (
+                      <div key={c.id} className="px-6 py-3">
+                        <p className="text-sm font-medium text-slate-800">{c.name}</p>
+                        {c.address && <p className="text-xs text-slate-400 mt-0.5">{c.address}</p>}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
+            )}
 
-              <CreativesGallery
-                type="welcome"
-                title="Pantalla de bienvenida"
-                description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
-                files={mediaData?.welcome?.files ?? []}
-                settings={mediaData?.welcome?.settings ?? null}
-                onChanged={loadMedia}
-              />
+            {/* Campañas publicitarias — medios (bienvenida/paciente) + campañas con fechas */}
+            {tab === 'campaigns' && (
+              <div className="flex flex-col gap-6">
+                <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
+                  <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                    <Megaphone className="w-4 h-4 text-pink-500" />
+                    <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+                  </div>
 
-              {(mediaData?.welcome?.files?.length ?? 0) > 0 && (
-                <>
-                  <div className="border-t border-slate-100" />
-                  <WelcomeTriggerConfig
-                    current={mediaData.welcome.settings}
-                    onSaved={loadMedia}
+                  <CreativesGallery
+                    type="welcome"
+                    title="Pantalla de bienvenida"
+                    description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+                    files={mediaData?.welcome?.files ?? []}
+                    settings={mediaData?.welcome?.settings ?? null}
+                    onChanged={loadMedia}
                   />
-                </>
-              )}
 
-              <div className="border-t border-slate-100" />
+                  {(mediaData?.welcome?.files?.length ?? 0) > 0 && (
+                    <>
+                      <div className="border-t border-slate-100" />
+                      <WelcomeTriggerConfig
+                        current={mediaData.welcome.settings}
+                        onSaved={loadMedia}
+                      />
+                    </>
+                  )}
 
-              <CreativesGallery
-                type="patient"
-                title="Contenido para paciente"
-                description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
-                files={mediaData?.patient?.files ?? []}
-                settings={mediaData?.patient?.settings ?? null}
-                onChanged={loadMedia}
-              />
-            </div>
+                  <div className="border-t border-slate-100" />
 
-            {/* Campaigns — full management, same as an actual lab_partner would have */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <CampaignsPanel lab={lab} />
-            </div>
+                  <CreativesGallery
+                    type="patient"
+                    title="Contenido para paciente"
+                    description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+                    files={mediaData?.patient?.files ?? []}
+                    settings={mediaData?.patient?.settings ?? null}
+                    onChanged={loadMedia}
+                  />
+                </div>
+
+                <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                  <CampaignsPanel lab={lab} />
+                </div>
+              </div>
+            )}
+
+            {/* Estadísticas — pendiente de definir */}
+            {tab === 'stats' && (
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 flex flex-col items-center gap-3 text-center">
+                <BarChart3 className="w-10 h-10 text-slate-300" />
+                <p className="text-sm font-semibold text-slate-600">Estadísticas</p>
+                <p className="text-sm text-slate-400 max-w-sm">Esta sección está pendiente de definir — próximamente verás aquí métricas de rendimiento de tus campañas y clínicas.</p>
+              </div>
+            )}
           </>
         )}
       </main>

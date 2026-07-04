@@ -26,6 +26,7 @@ interface Props {
   files: Creative[]
   settings: Settings | null
   onChanged: () => void
+  readOnly?: boolean
 }
 
 const MAX = 5
@@ -55,7 +56,7 @@ function getEmbedUrl(url: string): string | null {
 
 function isUrlCreative(c: Creative) { return c.content_type === 'video/url' }
 
-export function CreativesGallery({ type, title, description, files, settings, onChanged }: Props) {
+export function CreativesGallery({ type, title, description, files, settings, onChanged, readOnly = false }: Props) {
   const [uploading, setUploading]   = useState(false)
   const [progress, setProgress]     = useState(0)
   const [deletingId, setDeletingId] = useState<string | null>(null)
@@ -140,7 +141,7 @@ export function CreativesGallery({ type, title, description, files, settings, on
                     : 'border-transparent hover:border-slate-300'
                 }`}
                 style={{ aspectRatio: '9/16' }}
-                onClick={() => displayMode === 'manual' && handleSetActive(f.id)}
+                onClick={() => !readOnly && displayMode === 'manual' && handleSetActive(f.id)}
               >
                 {isUrl ? (
                   embed ? (
@@ -181,31 +182,37 @@ export function CreativesGallery({ type, title, description, files, settings, on
                 </div>
 
                 {/* Delete */}
-                <button
-                  onClick={e => { e.stopPropagation(); handleDelete(f.id) }}
-                  disabled={deleting}
-                  className="absolute top-1.5 right-1.5 p-1 bg-black/60 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
-                >
-                  {deleting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
-                </button>
+                {!readOnly && (
+                  <button
+                    onClick={e => { e.stopPropagation(); handleDelete(f.id) }}
+                    disabled={deleting}
+                    className="absolute top-1.5 right-1.5 p-1 bg-black/60 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
+                  >
+                    {deleting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Trash2 className="w-3 h-3" />}
+                  </button>
+                )}
               </div>
 
               {displayMode === 'manual' && (
-                <button
-                  onClick={() => handleSetActive(f.id)}
-                  className={`text-[10px] font-semibold py-1 rounded-lg transition-colors ${
-                    isActive ? 'bg-pink-100 text-pink-700' : 'bg-slate-100 text-slate-500 hover:bg-pink-50 hover:text-pink-600'
-                  }`}
-                >
-                  {isActive ? '✓ Activa' : 'Seleccionar'}
-                </button>
+                readOnly ? (
+                  isActive && <p className="text-[10px] font-semibold py-1 rounded-lg bg-pink-100 text-pink-700 text-center">✓ Activa</p>
+                ) : (
+                  <button
+                    onClick={() => handleSetActive(f.id)}
+                    className={`text-[10px] font-semibold py-1 rounded-lg transition-colors ${
+                      isActive ? 'bg-pink-100 text-pink-700' : 'bg-slate-100 text-slate-500 hover:bg-pink-50 hover:text-pink-600'
+                    }`}
+                  >
+                    {isActive ? '✓ Activa' : 'Seleccionar'}
+                  </button>
+                )
               )}
             </div>
           )
         })}
 
         {/* Upload slot */}
-        {files.length < MAX && (
+        {!readOnly && files.length < MAX && (
           <div
             onClick={() => !uploading && inputRef.current?.click()}
             className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer transition-colors ${
@@ -233,7 +240,7 @@ export function CreativesGallery({ type, title, description, files, settings, on
       </div>
 
       {/* URL button */}
-      {files.length < MAX && (
+      {!readOnly && files.length < MAX && (
         <div>
           {!showUrlForm ? (
             <button
@@ -289,17 +296,20 @@ export function CreativesGallery({ type, title, description, files, settings, on
             {DISPLAY_MODES.map(m => {
               const Icon = m.icon
               const active = displayMode === m.value
+              if (readOnly && !active) return null
               return (
-                <label key={m.value} className={`flex items-start gap-3 p-2.5 rounded-xl border cursor-pointer transition-colors ${active ? 'border-pink-300 bg-pink-50' : 'border-slate-200 hover:border-slate-300'}`}>
-                  <input
-                    type="radio"
-                    name={`display_mode_${type}`}
-                    value={m.value}
-                    checked={active}
-                    onChange={() => handleModeChange(m.value)}
-                    className="mt-0.5 accent-pink-600 flex-shrink-0"
-                    disabled={savingMode}
-                  />
+                <label key={m.value} className={`flex items-start gap-3 p-2.5 rounded-xl border transition-colors ${active ? 'border-pink-300 bg-pink-50' : 'border-slate-200 hover:border-slate-300'} ${readOnly ? '' : 'cursor-pointer'}`}>
+                  {!readOnly && (
+                    <input
+                      type="radio"
+                      name={`display_mode_${type}`}
+                      value={m.value}
+                      checked={active}
+                      onChange={() => handleModeChange(m.value)}
+                      className="mt-0.5 accent-pink-600 flex-shrink-0"
+                      disabled={savingMode}
+                    />
+                  )}
                   <div>
                     <div className="flex items-center gap-1.5">
                       <Icon className={`w-3.5 h-3.5 ${active ? 'text-pink-600' : 'text-slate-400'}`} />
@@ -316,13 +326,15 @@ export function CreativesGallery({ type, title, description, files, settings, on
 
       {error && <p className="text-xs text-red-500">⚠️ {error}</p>}
 
-      <input
-        ref={inputRef}
-        type="file"
-        accept="image/*,video/*"
-        className="hidden"
-        onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); (e.target as HTMLInputElement).value = '' }}
-      />
+      {!readOnly && (
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*,video/*"
+          className="hidden"
+          onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f); (e.target as HTMLInputElement).value = '' }}
+        />
+      )}
     </div>
   )
 }

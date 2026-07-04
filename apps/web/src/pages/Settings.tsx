@@ -340,6 +340,12 @@ export default function Settings() {
               <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
             </div>
 
+            {mediaData?.managedByLab && (
+              <div className="px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-700">
+                Esta publicidad la gestiona tu laboratorio colaborador{mediaData.managedByLabName ? ` (${mediaData.managedByLabName})` : ''}. Puedes verla aquí, pero solo el laboratorio puede modificarla.
+              </div>
+            )}
+
             {/* Slot 1: welcome screen — up to 5 creatives */}
             <CreativesGallery
               type="welcome"
@@ -348,10 +354,11 @@ export default function Settings() {
               files={mediaData?.welcome?.files ?? []}
               settings={mediaData?.welcome?.settings ?? null}
               onChanged={loadMedia}
+              readOnly={!!mediaData?.managedByLab}
             />
 
             {/* Trigger config — only when there is at least one creative */}
-            {(mediaData?.welcome?.files?.length ?? 0) > 0 && (
+            {(mediaData?.welcome?.files?.length ?? 0) > 0 && !mediaData?.managedByLab && (
               <>
                 <div className="border-t border-slate-100" />
                 <WelcomeTriggerConfig
@@ -370,6 +377,7 @@ export default function Settings() {
               description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
               files={mediaData?.patient?.files ?? []}
               settings={mediaData?.patient?.settings ?? null}
+              readOnly={!!mediaData?.managedByLab}
               onChanged={loadMedia}
             />
           </div>
