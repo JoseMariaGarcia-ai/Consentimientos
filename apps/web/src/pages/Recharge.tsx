@@ -62,7 +62,7 @@ const PLANS: Plan[] = [
   },
   {
     id: 'ia-plus',
-    name: 'Plan IA+',
+    name: 'Plan IA Premium',
     monthlyPrice: 159,
     color: 'bg-[#1C1408]',
     priceColor: 'text-[#C9A84C]',
@@ -97,17 +97,8 @@ function PlanCard({ plan }: { plan: Plan }) {
       <div className={`${plan.color} px-6 pt-6 pb-6`}>
         <p className="text-white font-bold text-lg">{plan.name}</p>
 
-        {/* Mensual / Anual toggle */}
+        {/* Anual / Mensual toggle */}
         <div className="flex items-center gap-1 mt-3 bg-white/10 rounded-lg p-1 w-fit">
-          <button
-            type="button"
-            onClick={() => setCycle('monthly')}
-            className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
-              !isAnnual ? 'bg-white text-slate-800' : 'text-white/60 hover:text-white'
-            }`}
-          >
-            Mensual
-          </button>
           <button
             type="button"
             onClick={() => setCycle('annual')}
@@ -116,6 +107,15 @@ function PlanCard({ plan }: { plan: Plan }) {
             }`}
           >
             Anual
+          </button>
+          <button
+            type="button"
+            onClick={() => setCycle('monthly')}
+            className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-colors ${
+              !isAnnual ? 'bg-white text-slate-800' : 'text-white/60 hover:text-white'
+            }`}
+          >
+            Mensual
           </button>
         </div>
 
@@ -168,10 +168,10 @@ export default function Recharge() {
         {PLANS.map(plan => <PlanCard key={plan.id} plan={plan} />)}
       </div>
 
-      {/* Plan IA / IA+ note */}
+      {/* Plan IA / IA Premium note */}
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
         <p className="text-sm text-amber-800 leading-relaxed">
-          <strong>Nota Plan IA y Plan IA+:</strong> La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz y WhatsApp API no están incluidos en la cuota mensual.
+          <strong>Nota Plan IA y Plan IA Premium:</strong> La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz y WhatsApp API no están incluidos en la cuota mensual.
         </p>
       </div>
     </div>
