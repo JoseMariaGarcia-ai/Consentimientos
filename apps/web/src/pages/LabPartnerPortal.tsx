@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Building2, FlaskConical, Mail, Phone, User, Globe, LogOut } from 'lucide-react'
+import { Building2, FlaskConical, Mail, Phone, User, Globe, LogOut, Megaphone } from 'lucide-react'
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
 import { CampaignsPanel, type LabPartner } from './LabPartners'
 import { WelcomeMediaProvider } from '@/context/WelcomeMediaContext'
 import { WelcomeMediaModal } from '@/components/media/WelcomeMediaModal'
+import { CreativesGallery } from '@/components/media/CreativesGallery'
+import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 
 interface LabPartnerPortalProps {
   labId?: string
@@ -21,11 +23,15 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
 
   const [lab, setLab] = useState<(LabPartner & { clinics?: any[] }) | null>(null)
   const [loading, setLoading] = useState(true)
+  const [mediaData, setMediaData] = useState<any>({})
 
   useEffect(() => {
     if (!effectiveId) { setLoading(false); return }
     api.get(`/lab-partners/${effectiveId}`).then(setLab).catch(() => setLab(null)).finally(() => setLoading(false))
   }, [effectiveId])
+
+  const loadMedia = () => { api.get('/media').then(setMediaData).catch(() => setMediaData({})) }
+  useEffect(() => { loadMedia() }, [])
 
   const logout = () => { clearSession(); window.location.href = '/' }
 
@@ -95,6 +101,44 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
                   ))}
                 </div>
               )}
+            </div>
+
+            {/* Publicidad — idéntico a Configuración > Publicidad para superadmin */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
+              <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+                <Megaphone className="w-4 h-4 text-pink-500" />
+                <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+              </div>
+
+              <CreativesGallery
+                type="welcome"
+                title="Pantalla de bienvenida"
+                description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+                files={mediaData?.welcome?.files ?? []}
+                settings={mediaData?.welcome?.settings ?? null}
+                onChanged={loadMedia}
+              />
+
+              {(mediaData?.welcome?.files?.length ?? 0) > 0 && (
+                <>
+                  <div className="border-t border-slate-100" />
+                  <WelcomeTriggerConfig
+                    current={mediaData.welcome.settings}
+                    onSaved={loadMedia}
+                  />
+                </>
+              )}
+
+              <div className="border-t border-slate-100" />
+
+              <CreativesGallery
+                type="patient"
+                title="Contenido para paciente"
+                description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+                files={mediaData?.patient?.files ?? []}
+                settings={mediaData?.patient?.settings ?? null}
+                onChanged={loadMedia}
+              />
             </div>
 
             {/* Campaigns — full management, same as an actual lab_partner would have */}
