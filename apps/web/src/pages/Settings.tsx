@@ -262,17 +262,20 @@ export default function Settings() {
   const isSuperAdmin = role === 'superadmin'
   const [users, setUsers] = useState<AppUser[]>([])
   const [loading, setLoading] = useState(true)
+  const [usersError, setUsersError] = useState('')
   const [modal, setModal] = useState<{ open: boolean; user: AppUser | null }>({ open: false, user: null })
   const [deleting, setDeleting] = useState<string | null>(null)
   const [roleFilter, setRoleFilter] = useState('all')
 
   const load = async () => {
     setLoading(true)
+    setUsersError('')
     try {
       const data = await api.get('/users')
       setUsers(Array.isArray(data) ? data : [])
-    } catch (_) {
+    } catch (e: any) {
       setUsers([])
+      setUsersError(e?.message || 'No se pudo cargar la lista de usuarios')
     } finally {
       setLoading(false)
     }
@@ -401,6 +404,15 @@ export default function Settings() {
 
         {loading ? (
           <div className="text-center text-slate-400 text-sm py-12">{t('common.loading')}</div>
+        ) : usersError ? (
+          <div className="text-center text-sm py-12 flex flex-col items-center gap-3 px-6">
+            <Users className="w-10 h-10 opacity-20 text-red-400" />
+            <p className="text-red-600 font-medium">No se pudo cargar la lista de usuarios</p>
+            <p className="text-slate-400 max-w-md">{usersError}</p>
+            <button onClick={load} className="px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50">
+              Reintentar
+            </button>
+          </div>
         ) : users.length === 0 ? (
           <div className="text-center text-slate-400 text-sm py-12 flex flex-col items-center gap-3">
             <Users className="w-10 h-10 opacity-20" />
