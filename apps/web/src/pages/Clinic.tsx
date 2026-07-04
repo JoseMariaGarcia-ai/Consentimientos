@@ -128,7 +128,10 @@ export default function ClinicPage() {
           <Field label={t('clinic.phone')} value={(form.phone as string) ?? ''} onChange={v => set('phone', v)} type="tel" />
           <Field label={t('clinic.email')} value={(form.email as string) ?? ''} onChange={v => set('email', v)} type="email" />
         </div>
-        <Field label={t('clinic.tax_id')} value={(form.taxId as string) ?? (form as any).tax_id ?? ''} onChange={v => set('taxId', v)} />
+        <div className="grid grid-cols-2 gap-4">
+          <Field label={t('clinic.tax_id')} value={(form.taxId as string) ?? (form as any).tax_id ?? ''} onChange={v => set('taxId', v)} />
+          <Field label="Número NIKA" value={(form as any).nika_number ?? ''} onChange={v => set('nika_number', v)} />
+        </div>
 
         <div className="flex items-center justify-between pt-2 border-t border-slate-100">
           {saved && <span className="text-sm text-emerald-600 font-medium">✓ Guardado correctamente</span>}
