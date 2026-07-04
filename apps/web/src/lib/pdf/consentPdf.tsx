@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   titleMain:    { fontSize: 14, fontFamily: 'Helvetica-Bold', color: '#FFFFFF' },
   titleClinic:  { fontSize: 9, color: '#94C3F8', marginTop: 3 },
+  titleClinicMeta: { fontSize: 7.5, color: '#7FA8DE', marginTop: 2 },
   titleUuid:    { fontSize: 6, color: '#93C5FD', fontFamily: 'Courier', textAlign: 'right' },
   titleDate:    { fontSize: 7, color: '#BFDBFE', textAlign: 'right', marginTop: 2 },
 
@@ -126,6 +127,15 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
               {clinic?.legal_name ? `  ·  Razón social: ${clinic.legal_name}` : ''}
               {sede ? `  ·  Sede: ${sede}` : ''}
             </Text>
+            {(clinic?.tax_id || clinic?.address || clinic?.nika_number) && (
+              <Text style={styles.titleClinicMeta}>
+                {[
+                  clinic?.tax_id ? `CIF/NIF: ${clinic.tax_id}` : null,
+                  clinic?.address ? `Domicilio: ${clinic.address}` : null,
+                  clinic?.nika_number ? `Nº NIKA: ${clinic.nika_number}` : null,
+                ].filter(Boolean).join('  ·  ')}
+              </Text>
+            )}
           </View>
           <View>
             <Text style={styles.titleUuid}>UUID: {consentUuid}</Text>
