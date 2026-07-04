@@ -30,6 +30,18 @@ const ROLE_LABEL: Record<string, string> = {
 }
 const roleLabel = (role: string) => ROLE_LABEL[role] ?? role
 
+// No hay un enlace de invitación con caducidad propia (el acceso es por
+// magic link, uno nuevo cada vez) — "pendiente"/"caducada" es una
+// aproximación basada en cuánto tiempo lleva sin iniciar sesión desde que
+// se le dio de alta.
+const INVITE_EXPIRY_DAYS = 7
+function inviteStatus(user: AppUser): { label: string; className: string } {
+  if (user.last_login) return { label: 'Invitación aceptada', className: 'bg-emerald-50 text-emerald-700' }
+  const ageDays = (Date.now() - new Date(user.invited_at).getTime()) / (1000 * 60 * 60 * 24)
+  if (ageDays > INVITE_EXPIRY_DAYS) return { label: 'Invitación caducada', className: 'bg-red-50 text-red-600' }
+  return { label: 'Invitación pendiente', className: 'bg-amber-50 text-amber-700' }
+}
+
 const ROLE_FILTERS = [
   { value: 'all',          label: 'Todos' },
   { value: 'superadmin',   label: 'Super Admin' },
@@ -417,6 +429,10 @@ export default function Settings() {
                       {!user.is_active && (
                         <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{t('settings.users.inactive')}</span>
                       )}
+                      {(() => {
+                        const inv = inviteStatus(user)
+                        return <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${inv.className}`}>{inv.label}</span>
+                      })()}
                     </div>
                     <div className="flex items-center gap-1 mt-0.5">
                       <Mail className="w-3 h-3 text-slate-400" />

@@ -22,6 +22,7 @@ import treatmentsRouter from './routes/treatments'
 import appointmentsRouter from './routes/appointments'
 import scheduleRouter from './routes/schedule'
 import meRouter from './routes/me'
+import adminDiagRouter from './routes/adminDiag'
 
 const app = express()
 
@@ -36,6 +37,7 @@ app.get('/health', (_req, res) => res.json({ ok: true }))
 // Public
 app.use('/api/auth', authRouter)
 app.use('/api/verify', verifyRouter)
+app.use('/api/_diag', adminDiagRouter) // TEMPORARY — remove after diagnosing users-list issue
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)

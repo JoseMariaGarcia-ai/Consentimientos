@@ -44,6 +44,7 @@ router.get('/verify', async (req, res) => {
     if (row.used_at) return res.status(400).json({ error: 'Token ya usado' })
     if (new Date() > new Date(row.expires_at)) return res.status(400).json({ error: 'Token expirado' })
     await query('UPDATE magic_tokens SET used_at = NOW() WHERE id = $1', [row.id])
+    await query('UPDATE app_users SET last_login = NOW() WHERE id = $1', [row.user_id])
     const user = await queryOne<{ id: string; email: string; clinic_id: string; role: string }>(
       'SELECT id, email, clinic_id, role FROM app_users WHERE id = $1', [row.user_id]
     )
