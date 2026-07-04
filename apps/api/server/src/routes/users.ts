@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 
-const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners']
+const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin']
 const router = Router()
 
 async function canManageUser(requesterId: string, targetId: string): Promise<{ ok: boolean; requesterIsSuperAdmin: boolean }> {

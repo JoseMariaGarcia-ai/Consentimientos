@@ -6,6 +6,7 @@ export const ALL_MODULES = [
   { key: 'consents',         labelKey: 'nav.consents',        defaultOn: true  },
   { key: 'clinical-records', labelKey: 'nav.clinicalRecords', defaultOn: true  },
   { key: 'photos',           labelKey: 'nav.photos',          defaultOn: true  },
+  { key: 'toxin',            labelKey: 'nav.toxin',           defaultOn: true  },
   { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
   { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },
   { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },
