@@ -33,6 +33,9 @@ ALTER TABLE app_users        ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_permissions ENABLE ROW LEVEL SECURITY;
 
 -- Admin service key bypasses RLS
+DROP POLICY IF EXISTS "Service key full access on app_users" ON app_users;
+DROP POLICY IF EXISTS "Service key full access on user_permissions" ON user_permissions;
+
 CREATE POLICY "Service key full access on app_users"
   ON app_users FOR ALL USING (true);
 CREATE POLICY "Service key full access on user_permissions"

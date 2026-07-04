@@ -4,7 +4,7 @@
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE clinics (
+CREATE TABLE IF NOT EXISTS clinics (
   id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name       TEXT NOT NULL,
   logo_url   TEXT,
@@ -15,7 +15,7 @@ CREATE TABLE clinics (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE doctors (
+CREATE TABLE IF NOT EXISTS doctors (
   id             UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   clinic_id      UUID REFERENCES clinics(id) ON DELETE CASCADE,
   name           TEXT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE doctors (
   created_at     TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE patients (
+CREATE TABLE IF NOT EXISTS patients (
   id            UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   clinic_id     UUID REFERENCES clinics(id) ON DELETE CASCADE,
   full_name     TEXT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE patients (
   updated_at    TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE consent_templates (
+CREATE TABLE IF NOT EXISTS consent_templates (
   id                UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   clinic_id         UUID REFERENCES clinics(id) ON DELETE CASCADE,
   treatment_type    TEXT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE consent_templates (
   created_at        TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE consent_records (
+CREATE TABLE IF NOT EXISTS consent_records (
   id                UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   patient_id        UUID REFERENCES patients(id),
   doctor_id         UUID REFERENCES doctors(id),
@@ -75,18 +75,18 @@ CREATE TABLE consent_records (
   created_at        TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE TABLE audit_logs (
+CREATE TABLE IF NOT EXISTS audit_logs (
   id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   consent_id UUID UNIQUE REFERENCES consent_records(id),
   log_json   JSONB NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_patients_clinic   ON patients(clinic_id);
-CREATE INDEX idx_patients_name     ON patients USING gin(to_tsvector('spanish', full_name));
-CREATE INDEX idx_consents_patient  ON consent_records(patient_id);
-CREATE INDEX idx_consents_status   ON consent_records(status);
-CREATE INDEX idx_templates_clinic  ON consent_templates(clinic_id);
+CREATE INDEX IF NOT EXISTS idx_patients_clinic   ON patients(clinic_id);
+CREATE INDEX IF NOT EXISTS idx_patients_name     ON patients USING gin(to_tsvector('spanish', full_name));
+CREATE INDEX IF NOT EXISTS idx_consents_patient  ON consent_records(patient_id);
+CREATE INDEX IF NOT EXISTS idx_consents_status   ON consent_records(status);
+CREATE INDEX IF NOT EXISTS idx_templates_clinic  ON consent_templates(clinic_id);
 
 ALTER TABLE patients         ENABLE ROW LEVEL SECURITY;
 ALTER TABLE consent_records  ENABLE ROW LEVEL SECURITY;

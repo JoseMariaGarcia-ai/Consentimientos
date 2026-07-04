@@ -1,0 +1,42 @@
+import fs from 'fs'
+import path from 'path'
+import { pool } from './db'
+
+// Applies every not-yet-applied file in supabase/migrations/, in filename
+// order, tracked in schema_migrations. All migrations in this repo are
+// written idempotently (CREATE TABLE IF NOT EXISTS, ADD COLUMN IF NOT
+// EXISTS, etc.), so replaying already-applied ones on the very first run
+// (before schema_migrations has any rows) is safe — it just reconciles the
+// tracking table with whatever was previously applied by hand.
+function migrationsDir(): string {
+  // __dirname is apps/api/server/{src,dist}/lib — 5 levels up reaches the repo root.
+  return path.resolve(__dirname, '../../../../../supabase/migrations')
+}
+
+export async function runMigrations() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS schema_migrations (
+      filename    TEXT PRIMARY KEY,
+      applied_at  TIMESTAMPTZ DEFAULT NOW()
+    )
+  `)
+
+  const dir = migrationsDir()
+  if (!fs.existsSync(dir)) {
+    console.warn(`[migrate] migrations directory not found (${dir}) — skipping`)
+    return
+  }
+
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.sql')).sort()
+  const { rows: applied } = await pool.query('SELECT filename FROM schema_migrations')
+  const appliedSet = new Set(applied.map((r: any) => r.filename))
+
+  for (const file of files) {
+    if (appliedSet.has(file)) continue
+    const sql = fs.readFileSync(path.join(dir, file), 'utf8')
+    console.log(`[migrate] applying ${file}...`)
+    await pool.query(sql)
+    await pool.query('INSERT INTO schema_migrations (filename) VALUES ($1) ON CONFLICT DO NOTHING', [file])
+    console.log(`[migrate] applied ${file}`)
+  }
+}

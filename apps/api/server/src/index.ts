@@ -22,7 +22,7 @@ import treatmentsRouter from './routes/treatments'
 import appointmentsRouter from './routes/appointments'
 import scheduleRouter from './routes/schedule'
 import meRouter from './routes/me'
-import adminMigrateRouter from './routes/adminMigrate'
+import { runMigrations } from './lib/migrate'
 
 const app = express()
 
@@ -37,7 +37,6 @@ app.get('/health', (_req, res) => res.json({ ok: true }))
 // Public
 app.use('/api/auth', authRouter)
 app.use('/api/verify', verifyRouter)
-app.use('/api/_migrate', adminMigrateRouter) // TEMPORARY — remove after applying migration 013
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -61,6 +60,11 @@ app.use('/api/schedule',        authMiddleware, scheduleRouter)
 app.use('/api/me',              authMiddleware, meRouter)
 
 const PORT = process.env.PORT ?? 3001
-app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
+
+runMigrations()
+  .catch(err => console.error('[migrate] migration run failed, starting server anyway:', err))
+  .finally(() => {
+    app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
+  })
 
 export default app
