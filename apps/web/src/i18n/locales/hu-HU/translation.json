@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Toxinbejegyzés szerkesztése",
+    "title_new": "Új toxinbejegyzés",
+    "patient": "Beteg",
+    "select_patient": "Beteg kiválasztása…",
+    "linked_consent": "Kapcsolt tájékozott beleegyezés",
+    "not_linked": "Nincs kapcsolva",
+    "consent_default_name": "Beleegyezés",
+    "unsigned": "nincs aláírva",
+    "loading_consents": "Beleegyezések betöltése…",
+    "no_consents_hint": "Ennek a betegnek még nincs aláírt toxin-beleegyezése. Ez opcionális, elmentheti a bejegyzést kapcsolás nélkül is.",
+    "doctor": "Orvos",
+    "unassigned": "Nincs hozzárendelve",
+    "application_date": "Alkalmazás dátuma",
+    "brand_name": "Kereskedelmi név",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Gyártó",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Tételszám",
+    "expiry_date": "Lejárati dátum",
+    "vials_opened": "Felbontott ampullák",
+    "treated_zones": "Kezelt területek",
+    "other_zone_placeholder": "Egyéb terület…",
+    "add": "Hozzáadás",
+    "total_units": "Összes egység",
+    "notes": "Megjegyzések",
+    "notes_placeholder": "Megjegyzések…",
+    "doctor_signature": "Orvos aláírása",
+    "signature_alt": "Orvos aláírása",
+    "signed_on": "Aláírva: {{date}}",
+    "sign_again": "Újra aláírás",
+    "signature_hint": "Rajzolja meg az aláírást, és nyomja meg az \"Aláírás megerősítése\" gombot mentés előtt.",
+    "confirm_delete": "Törli ezt a toxinbejegyzést?",
+    "deleting": "Törlés…",
+    "delete_record": "Bejegyzés törlése",
+    "cancel": "Mégse",
+    "save_changes": "Változtatások mentése",
+    "create_record": "Bejegyzés létrehozása",
+    "saving": "Mentés…",
+    "unknown_error": "Ismeretlen hiba",
+    "validation": {
+      "required_fields": "A beteg, a kereskedelmi név, a tétel, a lejárat és a gyártó megadása kötelező",
+      "signature_required": "Az orvos aláírása kötelező a bejegyzés mentéséhez"
+    },
+    "zones": {
+      "forehead": "Homlok (vízszintes ráncok)",
+      "glabella": "Szemöldökök között (glabella)",
+      "crows_feet": "Szarkalábak (periokuláris)",
+      "lower_eyelid": "Alsó szemhéj",
+      "eyebrow_lift": "Szemöldök (lifting)",
+      "bunny_lines": "Orr (bunny lines)",
+      "upper_lip": "Felső ajak (vonalkód)",
+      "oral_commissures": "Szájzugok",
+      "chin_dimpling": "Áll (narancsbőr)",
+      "platysmal_bands": "Nyak (platysma sávok)",
+      "decolletage": "Dekoltázs",
+      "axillary_sweating": "Hónalj izzadás (hyperhidrosis)",
+      "palmar_sweating": "Tenyérizzadás",
+      "plantar_sweating": "Talpizzadás",
+      "jaw_bruxism": "Állkapocs (bruxizmus / rágóizmok)",
+      "migraine_occipital": "Migrén (nyakszirti pontok)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (nyak és állkapocs)",
+      "other_zone": "Egyéb terület"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Generálás…",
+    "export_pdf": "PDF exportálása"
+  },
+  "patientGallery": {
+    "title": "Fotógaléria",
+    "upload_photos": "Fotók feltöltése",
+    "loading": "Betöltés…",
+    "empty": "Nincs fotó. Töltse fel az első képet.",
+    "confirm_delete": "Törli ezt a fotót?",
+    "count_stored": "{{count}} {{unit}} · Cloudflare R2-ben tárolva",
+    "photo_singular": "fotó",
+    "photo_plural": "fotó"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Klinikai napló szerkesztése",
+    "title_new": "Új klinikai napló",
+    "patient": "Beteg",
+    "select_patient": "Beteg kiválasztása…",
+    "doctor": "Orvos",
+    "unassigned": "Nincs hozzárendelve",
+    "branch": "Klinika / Telephely",
+    "unspecified": "Nincs megadva",
+    "visit_date": "Látogatás dátuma",
+    "reason_for_visit": "Konzultáció oka",
+    "anamnesis": "Anamnézis / Kórelőzmény",
+    "current_medications": "Jelenlegi gyógyszerek",
+    "allergies": "Ismert allergiák",
+    "physical_exam": "Fizikális vizsgálat",
+    "diagnosis": "Diagnózis",
+    "treatment_plan": "Kezelési terv",
+    "notes": "Megjegyzések",
+    "select_patient_error": "Válasszon beteget",
+    "unknown_error": "Ismeretlen hiba",
+    "cancel": "Mégse",
+    "saving": "Mentés…",
+    "save_record": "Napló mentése"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "A fájl meghaladja a(z) {{maxSize}} MB-os korlátot",
+    "upload_error": "Hiba a fájl feltöltésekor",
+    "confirm_delete": "Törli ezt a fájlt?",
+    "video": "Videó",
+    "image": "Kép",
+    "uploaded_on": "Feltöltve: {{date}}",
+    "change": "Módosítás",
+    "delete": "Törlés",
+    "uploading": "Feltöltés… {{progress}}%",
+    "drop_hint": "Húzza ide, vagy kattintson a feltöltéshez",
+    "file_types_hint": "Kép (JPG, PNG, GIF) vagy videó (MP4, MOV, WebM) · Max. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Írja be a beleegyezés tartalmát…",
+    "bold": "Félkövér",
+    "italic": "Dőlt",
+    "heading": "Cím",
+    "bullet_list": "Felsorolás",
+    "ordered_list": "Számozott lista",
+    "undo": "Visszavonás",
+    "redo": "Újra"
+  },
+  "consentPdfButton": {
+    "generating": "PDF generálása…",
+    "export": "PDF exportálása"
+  },
+  "newSessionModal": {
+    "title": "Új fotósorozat",
+    "patient_label": "Beteg",
+    "select_patient_placeholder": "Beteg kiválasztása…",
+    "doctor_label": "Orvos",
+    "no_doctor_assigned": "Nincs hozzárendelve",
+    "branch_label": "Klinika / Telephely",
+    "no_branch_specified": "Nincs megadva",
+    "session_name_label": "A fotósorozat neve",
+    "session_name_placeholder": "Pl.: Arckezelés 1. ülés",
+    "date_label": "Dátum és időpont",
+    "notes_label": "Megjegyzések",
+    "notes_placeholder": "Megjegyzések a fotósorozatról…",
+    "select_patient_error": "Válasszon beteget",
+    "unknown_error": "Ismeretlen hiba",
+    "cancel": "Mégse",
+    "creating": "Létrehozás…",
+    "create_session": "Fotósorozat létrehozása"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotósorozat",
+    "photo_count": "{{count}}/{{max}} fotó",
+    "compare_button": "Előtte / utána összehasonlítás",
+    "delete_session": "Fotósorozat törlése",
+    "upload": "Feltöltés",
+    "remaining": "{{remaining}} hátra van"
+  },
+  "beforeAfterModal": {
+    "select_title": "Fotók kiválasztása összehasonlításhoz",
+    "compare_title": "Előtte / utána összehasonlítás",
+    "change_selection": "← Kiválasztás módosítása",
+    "select_intro": "Válasszon egy fotót ehhez:",
+    "select_middle": "és egy másikat ehhez:",
+    "before": "Előtte",
+    "after": "Utána",
+    "before_badge": "ELŐTTE",
+    "after_badge": "UTÁNA",
+    "compare_button": "Összehasonlítás"
+  },
+  "biometricPrompt": {
+    "title": "Biometrikus hozzáférés aktiválása",
+    "description": "Használjon Face ID-t, ujjlenyomatot vagy Windows Hello-t, hogy legközelebb 2 másodperc alatt bejelentkezhessen.",
+    "device_label": "Eszköz:",
+    "activate": "Aktiválás",
+    "default_device": "Az eszközöm"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Manuális kiválasztás",
+        "desc": "Ön választja ki, mi jelenik meg. Kattintson egy kreatívra az aktiváláshoz."
+      },
+      "random": {
+        "label": "Véletlenszerű sorrend",
+        "desc": "Minden alkalommal véletlenszerűen kiválasztott kreatív jelenik meg, amikor sor kerül rá."
+      },
+      "sequential": {
+        "label": "Egymást követő sorrend",
+        "desc": "Sorban, egyenként jelennek meg, minden alkalommal, amikor sor kerül rá."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "A fájl meghaladja a 100 MB-os korlátot",
+      "invalidUrl": "Érvénytelen URL"
+    },
+    "confirmDelete": "Törli ezt a kreatívot?",
+    "types": {
+      "url": "URL",
+      "video": "Videó",
+      "image": "Kép"
+    },
+    "active": "✓ Aktív",
+    "select": "Kiválasztás",
+    "upload": {
+      "label": "Fájl feltöltése",
+      "slotsFree": "{{count}} szabad hely{{suffix}}"
+    },
+    "addUrlButton": "Videó URL hozzáadása (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Videó hozzáadása URL alapján",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… vagy közvetlen .mp4 URL",
+      "labelPlaceholder": "Név vagy leírás (opcionális)",
+      "hint": "Támogatja a YouTube-ot, a Vimeót és a közvetlen videó URL-eket (.mp4, .webm…)",
+      "add": "Hozzáadás",
+      "saving": "Mentés…"
+    },
+    "displayModeHeading": "Hogyan jelenjenek meg?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Üdvözlet",
+    "continue": "Folytatás →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Mikor jelenjen meg a hirdetés?",
+    "subheading": "Egyszerre több lehetőséget is kiválaszthat.",
+    "options": {
+      "session": {
+        "label": "Egyszer bejelentkezéskor",
+        "desc": "Csak egyszer jelenik meg minden alkalommal, amikor a felhasználó megnyitja az alkalmazást a böngészőben."
+      },
+      "consent": {
+        "label": "Minden alkalommal, amikor beleegyezés jön létre",
+        "desc": "Közvetlenül minden tájékozott beleegyezés létrehozása után jelenik meg."
+      },
+      "clinical": {
+        "label": "Minden alkalommal, amikor klinikai napló jön létre",
+        "desc": "Közvetlenül minden klinikai napló mentése után jelenik meg."
+      },
+      "interval": {
+        "label": "Minden X percben",
+        "desc": "Rendszeresen megjelenik, amíg az alkalmazás nyitva van."
+      }
+    },
+    "every": "Minden",
+    "minutes": "percben",
+    "errors": {
+      "selectAtLeastOne": "Válasszon legalább egy lehetőséget",
+      "saveFailed": "Hiba mentés közben"
+    },
+    "saving": "Mentés…",
+    "saved": "Mentve",
+    "saveButton": "Beállítások mentése",
+    "appliedMessage": "✅ Beállítások alkalmazva"
+  },
+  "demoPreviewPanel": {
+    "heading": "Előnézet szerepkörök szerint",
+    "subheading": "Hozzon létre tesztadatokat, és lépjen be a programba pontosan úgy, ahogy egy beteg, egy klinika vagy egy laboratórium látná.",
+    "createAllButton": "Az összes tesztadat létrehozása",
+    "errors": {
+      "checkFailed": "Hiba a tesztadatok ellenőrzésekor",
+      "createPatientFailed": "Nem sikerült létrehozni a teszt beteget",
+      "createBranchFailed": "Nem sikerült létrehozni a teszt telephelyet",
+      "createLabFailed": "Nem sikerült létrehozni a teszt laboratóriumot"
+    },
+    "cards": {
+      "patient": {
+        "title": "Beteg nézet",
+        "description": "Szimulálja azt a portált, amelyet a beteg lát: beleegyezéseit, klinikai naplóját és fotóit."
+      },
+      "branch": {
+        "title": "Klinika nézet",
+        "description": "Szimulálja a klinikai személyzet által látott panelt, a menüt a tényleges jogosultságaikra korlátozva."
+      },
+      "lab": {
+        "title": "Laboratórium nézet",
+        "description": "Szimulálja egy együttműködő laboratórium panelét: profilját, kapcsolt klinikáit és kampányait."
+      }
+    },
+    "testDataCreated": "Tesztadat létrehozva",
+    "viewAs": "Megtekintés mint {{role}}",
+    "roleNames": {
+      "patient": "beteg",
+      "branch": "klinika",
+      "lab": "laboratórium"
+    },
+    "creating": "Létrehozás…",
+    "createTestData": "Tesztadat létrehozása"
+  },
+  "previewBanner": {
+    "message": "Előnézet — a felületet úgy látja, ahogy azt látná",
+    "exitButton": "Kilépés az előnézetből",
+    "roles": {
+      "patient": "Beteg",
+      "clinica": "Klinika",
+      "labPartner": "Laboratórium"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Hónap megtekintése",
+    "today": "Ma",
+    "new_appointment": "Új időpont",
+    "no_treatments_warning": "Még nincsenek létrehozott kezelések. Menjen a \"Kezelések\" fülre, hogy létrehozza az elsőt, mielőtt időpontot foglalna.",
+    "day_closed_notice": "Ez a nap zártként van megjelölve a Naptártervezésben. Ellenőrizheti vagy megnyithatja azt a fülről.",
+    "slot_aria_label": "Időpont foglalása: {{time}}",
+    "outside_availability": "A rendelkezésre álló időn kívül",
+    "treatment_fallback": "Kezelés",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Elérhető",
+      "outside_hours": "Nyitvatartási időn kívül",
+      "scheduled": "Foglalt időpont"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Időpont szerkesztése",
+    "title_new": "Új időpont",
+    "validation_required": "A beteg, a kezelés és az időpont megadása kötelező",
+    "error_unknown": "Ismeretlen hiba",
+    "confirm_delete": "Törli ezt az időpontot?",
+    "deleting": "Törlés…",
+    "delete_appointment": "Időpont törlése",
+    "cancel": "Mégse",
+    "saving": "Mentés…",
+    "save_changes": "Változtatások mentése",
+    "create_appointment": "Időpont létrehozása",
+    "form": {
+      "patient": "Beteg",
+      "select_patient": "Beteg kiválasztása…",
+      "doctor": "Orvos",
+      "unassigned": "Nincs hozzárendelve",
+      "branch": "Klinika / Telephely",
+      "main_branch": "Fő telephely",
+      "treatment": "Kezelés",
+      "select_treatment": "Kezelés kiválasztása…",
+      "treatment_option": "{{name}} — {{duration}} perc — {{price}} €",
+      "no_treatments_warning": "Nincsenek létrehozott kezelések. Először adjon hozzá egyet a \"Kezelések\" fülön.",
+      "datetime": "Dátum és időpont",
+      "duration_note": "{{duration}} percet foglal el a naptárban.",
+      "notes": "Megjegyzések",
+      "notes_placeholder": "Megjegyzések az időponttal kapcsolatban…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Kezelések",
+    "subtitle": "Az egyes kezelések időtartama és ára az időpontfoglaláshoz",
+    "new_treatment": "Új kezelés",
+    "loading": "Betöltés…",
+    "empty_state": "Még nincsenek létrehozott kezelések",
+    "duration_display": "{{duration}} perc",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Törli ezt a kezelést?",
+    "form": {
+      "title_edit": "Kezelés szerkesztése",
+      "title_new": "Új kezelés",
+      "name": "Név",
+      "name_placeholder": "Pl.: Botulinum toxin",
+      "duration": "Időtartam (perc)",
+      "price": "Ár (€)",
+      "validation_name_required": "A név megadása kötelező",
+      "error_unknown": "Ismeretlen hiba",
+      "cancel": "Mégse",
+      "saving": "Mentés…",
+      "save": "Mentés"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
+    "months": ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+    "has_exception_tooltip": "Már van beállítva kivétel",
+    "legend": {
+      "usually_open": "Általában nyitva",
+      "usually_closed": "Általában zárva",
+      "has_exception": "Kivétellel",
+      "selected": "Kiválasztva"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
+    "months": ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+    "legend": {
+      "open_day": "Nyitvatartási nap",
+      "closed": "Zárva",
+      "today": "Ma"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Naptártervezés",
+    "subtitle": "Állítsa be, mely napokon és mely időpontokban lehet időpontot foglalni.",
+    "time_separator": "–",
+    "add_time_range": "Időszak hozzáadása",
+    "weekdays": ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"],
+    "confirm_delete_exception": "Törli ezt a kivételt, és visszaáll az adott nap szokásos időbeosztására?",
+    "errors": {
+      "save_schedule_failed": "Nem sikerült menteni az időbeosztást",
+      "apply_pattern_failed": "Nem sikerült alkalmazni a mintát",
+      "select_day_required": "Válasszon legalább egy napot a naptárban",
+      "save_exception_failed": "Nem sikerült menteni a különleges napot"
+    },
+    "bulk": {
+      "title": "Minta alkalmazása több napra egyszerre",
+      "description": "Pl.: hétfőtől péntekig 09:00–20:00 óráig. Válassza ki a napokat és az időbeosztást, majd alkalmazza — utólag minden napot egyénileg is módosíthat.",
+      "applying": "Alkalmazás…",
+      "apply_button": "Alkalmazás a kiválasztott napokra"
+    },
+    "weekly": {
+      "title": "Szokásos heti időbeosztás",
+      "closed": "Zárva",
+      "saving": "Mentés…",
+      "save": "Mentés"
+    },
+    "exceptions": {
+      "title": "Egyedi napok (kivételek)",
+      "description": "Nyisson ki egy különleges napot (pl. egy szombatot), vagy zárjon be egy egyébként nyitva tartó napot (pl. ünnepnap).",
+      "select_days_label": "Válasszon egy vagy több napot",
+      "days_selected_singular": "{{count}} nap kiválasztva",
+      "days_selected_plural": "{{count}} nap kiválasztva",
+      "clear_selection": "Kiválasztás törlése",
+      "open_special": "Különleges nyitás",
+      "close": "Zárás",
+      "schedule_label": "Időbeosztás ezeken a napokon",
+      "notes_placeholder": "Ok (opcionális) — pl.: augusztusi munkaszüneti híd",
+      "saving": "Mentés…",
+      "save_button_singular": "Különleges nap mentése",
+      "save_button_plural": "{{count}} különleges nap mentése",
+      "no_exceptions": "Nincsenek beállított egyedi napok.",
+      "open_special_status": "Különlegesen nyitva · {{ranges}}",
+      "closed_status": "Zárva"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Digitális Beleegyezések · Digitális Aláírás"
@@ -14,7 +445,15 @@
     "settings": "Beállítások",
     "clinicalRecords": "Klinikai Napló",
     "photos": "Fotók",
-    "recharge": "Feltöltés"
+    "recharge": "Előfizetési csomagok",
+    "agenda": "Naptár",
+    "toxin": "Toxinkontroll",
+    "labPartners": "Laboratóriumok",
+    "menu": "Menü"
+  },
+  "topbar": {
+    "tagline": "Digitális Beleegyezések · Digitális Aláírás",
+    "legal": "eIDAS (EU 910/2014) · 1997. évi CLIV. törvény · GDPR"
   },
   "auth": {
     "login_title": "Biztonságos hozzáférés",
@@ -22,7 +461,7 @@
     "email_placeholder": "email@klinika.hu",
     "send_link": "Hozzáférési link küldése",
     "check_email": "Ellenőrizze e-mailjét — elküldtük a hozzáférési linket",
-    "magic_link_sent": "Link elküldve",
+    "magic_link_sent": "Link sikeresen elküldve",
     "remember_device": "Emlékezzen erre az eszközre",
     "remember_7": "7 nap",
     "remember_30": "30 nap",
@@ -33,7 +472,20 @@
     "biometric_success": "Biometria aktiválva!",
     "biometric_success_msg": "Legközelebb egy érintéssel jelentkezhet be.",
     "biometric_error": "Aktiválás sikertelen. Győződjön meg arról, hogy eszközén be van állítva a biometria.",
-    "biometric_now": "Most nem"
+    "biometric_now": "Most nem",
+    "portal_subtitle": "Digitális Beleegyezések · Digitális Aláírás",
+    "portal_title": "Hozzáférés a dokumentumhoz",
+    "portal_email_prompt": "Adja meg e-mail-címét egy biztonságos hozzáférési link fogadásához.",
+    "portal_link_sent_title": "Link elküldve",
+    "portal_link_sent_message": "Ellenőrizze e-mailjét, és kattintson a linkre a folytatáshoz.",
+    "portal_email_placeholder": "sajat@email.com",
+    "portal_consent_default_title": "Tájékozott beleegyezés",
+    "portal_accept_label": "Elolvastam és elfogadom ezt a tájékozott beleegyezést",
+    "portal_proceed_to_sign": "Tovább az aláíráshoz →",
+    "portal_saving_signature": "Aláírás mentése…",
+    "portal_signed_title": "Aláírás befejezve",
+    "portal_signed_message": "Az Ön beleegyezése aláírásra és biztonságosan rögzítésre került.",
+    "portal_error_message": "A link lejárhatott, vagy helytelen lehet."
   },
   "patients": {
     "title": "Betegek",
@@ -57,7 +509,34 @@
     "gallery": "Fotógaléria",
     "no_photos": "Nincs fotó. Töltse fel az első képet.",
     "upload_photos": "Fotók feltöltése",
-    "uploading": "Feltöltés…"
+    "uploading": "Feltöltés…",
+    "count_registered": "{{count}} regisztrálva",
+    "form": {
+      "doc_type": "Típus",
+      "doc_type_passport": "Útlevél",
+      "city": "Város",
+      "province": "Megye",
+      "country": "Ország",
+      "select_placeholder": "— Válasszon —",
+      "countries": [
+        "Spanyolország", "Németország", "Argentína", "Belgium", "Bolívia", "Brazília", "Chile", "Kína",
+        "Kolumbia", "Costa Rica", "Kuba", "Ecuador", "Salvador", "USA", "Franciaország",
+        "Guatemala", "Honduras", "Olaszország", "Marokkó", "Mexikó", "Nicaragua", "Hollandia",
+        "Panama", "Paraguay", "Peru", "Portugália", "Egyesült Királyság", "Dominikai Köztársaság",
+        "Svájc", "Uruguay", "Venezuela", "Egyéb"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Hiba mentés közben:",
+      "unknown_error": "Ismeretlen hiba"
+    }
   },
   "doctors": {
     "title": "Orvosok",
@@ -73,17 +552,45 @@
       "receptionist": "Recepciós"
     },
     "save": "Orvos mentése",
-    "no_results": "Nincsenek regisztrált orvosok"
+    "no_results": "Nincsenek regisztrált orvosok",
+    "last_name": "Vezetéknév",
+    "phone": "Telefon",
+    "phone_placeholder": "+36 20 123 4567",
+    "unknown_error": "Ismeretlen hiba",
+    "count_registered": "{{count}} regisztrálva",
+    "license_display": "Sz. {{number}}"
   },
   "consents": {
     "title": "Beleegyezések",
     "add": "Új beleegyezés",
     "search": "Beleegyezések keresése…",
+    "step_labels": ["Adatok", "Áttekintés", "Orvosi aláírás", "Betegaláírás", "Kész"],
+    "branch_label": "Telephely",
+    "main_branch": "Fő telephely",
+    "select_patient": "Beteg kiválasztása…",
+    "select_doctor": "Orvos kiválasztása…",
+    "select_treatment": "Kezelés kiválasztása…",
+    "translating": "Fordítás…",
+    "continue": "Folytatás",
+    "responsible_doctor": "Felelős orvos",
+    "legal_framework_title": "Jogi keret — {{jurisdiction}}",
+    "witness_required_notice": "Ez az ország tanút igényel az aláíráshoz",
+    "back": "← Vissza",
+    "sign_arrow": "Aláírás →",
+    "doctor_signature_title": "Orvos aláírása",
+    "doctor_signature_notice": "Az orvosnak először alá kell írnia a beleegyezés érvényesítéséhez",
+    "back_to_preview": "← Vissza",
+    "patient_signature_title": "Beteg aláírása",
+    "patient_signature_notice": "A betegnek alá kell írnia, hogy megerősítse, elolvasta és elfogadja a beleegyezést",
+    "signed_title": "Beleegyezés aláírva",
+    "signed_description": "A dokumentum sikeresen aláírásra és rögzítésre került.",
+    "close": "Bezárás",
     "status": {
       "pending": "Függőben",
       "signed": "Aláírva",
       "revoked": "Visszavonva",
-      "expired": "Lejárt"
+      "expired": "Lejárt",
+      "all": "Összes"
     },
     "sign": "Aláírás",
     "generate_pdf": "PDF létrehozása",
@@ -93,7 +600,13 @@
     "treatment": "Kezelés",
     "language": "Nyelv",
     "signed_at": "Aláírás dátuma",
-    "no_results": "Nincsenek beleegyezések"
+    "no_results": "Nincsenek beleegyezések",
+    "confirm_delete": "Törli ezt a beleegyezést?",
+    "stats": "{{total}} összesen · {{signed}} aláírva · {{pending}} függőben",
+    "branch": "Telephely",
+    "created_at": "Létrehozás dátuma",
+    "status_header": "Állapot",
+    "continue_signature": "Aláírás folytatása"
   },
   "signature": {
     "title": "Beteg aláírása",
@@ -119,7 +632,14 @@
     "branch_name": "Telephely neve",
     "save_branches": "Telephelyek mentése",
     "edit_branch": "Telephely szerkesztése",
-    "new_branch": "Új telephely"
+    "new_branch": "Új telephely",
+    "save_branch": "Telephely mentése",
+    "subtitle": "A klinika általános beállításai",
+    "trade_name": "Kereskedelmi név",
+    "legal_name": "Cégnév / jogi név",
+    "nika_number": "NIKA-szám",
+    "save_success": "Sikeresen mentve",
+    "confirm_delete_branch": "Törli ezt a telephelyet?"
   },
   "language": {
     "select": "Nyelv",
@@ -144,7 +664,27 @@
     "magic_link_sent": "Magic Linket küldtünk a következő címre:",
     "email": "E-mail",
     "magic_link": "Bejelentkezés Magic Linkkel",
-    "footer": "Érvényes digitális beleegyezések · 1997. évi CLIV. törvény · GDPR"
+    "footer": "Érvényes digitális beleegyezések · 1997. évi CLIV. törvény · GDPR",
+    "invalid_email": "Adjon meg egy érvényes e-mail-címet",
+    "send_error": "Hiba a link küldésekor",
+    "subtitle": "Digitális Beleegyezések · eIDAS",
+    "email_placeholder": "sajat@klinika.hu"
+  },
+  "dashboard": {
+    "title": "Irányítópult",
+    "subtitle": "Tevékenység összefoglalója",
+    "pending_signature": "Aláírásra vár",
+    "signature_rate": "Aláírási arány",
+    "signed_count": "{{count}} aláírva",
+    "pending_count": "{{count}} függőben",
+    "recent_consents": "Legutóbbi beleegyezések",
+    "view_all_consents": "Összes megtekintése →",
+    "view_all": "Összes megtekintése →",
+    "no_consents": "Nincsenek beleegyezések",
+    "recent_clinical": "Legutóbbi klinikai naplók",
+    "no_clinical": "Nincsenek klinikai naplók",
+    "recent_photos": "Legutóbbi fotósorozatok",
+    "no_photos": "Nincsenek fotósorozatok"
   },
   "templates": {
     "title": "Sablonok",
@@ -152,7 +692,7 @@
     "editor_title": "Sablonszerkesztő",
     "consent_title_label": "Beleegyezés címe",
     "no_translation": "Nincs fordítás erre:",
-    "translate_all": "Fordítás 31 nyelvre",
+    "translate_all": "Fordítás 21 nyelvre",
     "translating": "Fordítás…",
     "legal_framework": "Jogi keret",
     "select_template": "Válasszon sablont a szerkesztéshez",
@@ -163,9 +703,343 @@
     "saving": "Mentés…",
     "saved": "Mentve"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Törli ezt a klinikai naplót?",
+    "confirm_delete_session": "Törli ezt a fotósorozatot és az összes fotóját?",
+    "not_found": "A beteg nem található",
+    "date_of_birth": "Születési dátum",
+    "email": "E-mail",
+    "blood_type": "Vércsoport",
+    "address": "Cím",
+    "allergies": "Allergiák",
+    "medications": "Gyógyszerek",
+    "tabs": {
+      "history": "Klinikai naplók ({{count}})",
+      "photos": "Fotók ({{count}})",
+      "consents": "Beleegyezések ({{count}})"
+    },
+    "new_clinical_record": "Új napló",
+    "no_clinical_records": "Nincs klinikai napló ehhez a beteghez",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnézis",
+      "allergies": "Allergiák",
+      "current_medications": "Jelenlegi gyógyszerek",
+      "physical_exam": "Fizikális vizsgálat",
+      "diagnosis": "Diagnózis",
+      "treatment_plan": "Kezelési terv",
+      "notes": "Megjegyzések"
+    },
+    "new_photo_session": "Új fotósorozat",
+    "no_photo_sessions": "Nincs fotósorozat ehhez a beteghez",
+    "no_consents": "Nincs beleegyezés ehhez a beteghez",
+    "status": {
+      "signed": "Aláírva",
+      "pending": "Függőben",
+      "revoked": "Visszavonva",
+      "expired": "Lejárt"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratórium",
+    "not_found": "A laboratóriumi profil nem található.",
+    "panel_subtitle": "Együttműködő laboratórium panel",
+    "tabs": {
+      "clinics": "Kapcsolt klinikák",
+      "campaigns": "Reklámkampányok",
+      "stats": "Statisztikák"
+    },
+    "no_clinics": "Ehhez a laboratóriumhoz még nincsenek kapcsolt klinikák.",
+    "media_management": "Reklámmédia-kezelés",
+    "welcome_screen": {
+      "title": "Üdvözlő képernyő",
+      "description": "Legfeljebb 5 kép vagy videó. Válassza ki, melyik jelenjen meg, véletlenszerűen vagy sorban (max. 100 MB fájlonként)."
+    },
+    "patient_content": {
+      "title": "Tartalom a beteg számára",
+      "description": "Legfeljebb 5, a betegnek szánt kép vagy videó. A pontos felhasználás konfigurálása hamarosan elérhető lesz."
+    },
+    "stats_pending": "Ez a szakasz még nincs meghatározva — hamarosan itt láthatja kampányai és klinikái teljesítménymutatóit."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Törli ezt a klinikai naplót?",
+    "title": "Klinikai Naplók",
+    "records_count": "{{count}} bejegyzés",
+    "add_record": "Új napló",
+    "search_placeholder": "Keresés beteg, diagnózis, ok szerint…",
+    "no_records": "Nincsenek klinikai naplók",
+    "table_headers": ["Beteg", "Dátum", "Konzultáció oka", "Diagnózis", "Orvos", ""]
+  },
+  "labPartners": {
+    "title": "Együttműködő Laboratóriumok",
+    "count": "{{count}} regisztrálva",
+    "new_lab": "Új Laboratórium",
+    "search_placeholder": "Laboratórium keresése…",
+    "no_labs": "Nincsenek laboratóriumok.",
+    "col_name": "Név",
+    "col_email": "E-mail",
+    "col_contact": "Kapcsolattartó",
+    "col_phone": "Telefon",
+    "col_status": "Állapot",
+    "col_actions": "Műveletek",
+    "status_active": "Aktív",
+    "status_inactive": "Inaktív",
+    "confirm_deactivate": "Deaktiválja a laboratóriumot?",
+    "form": {
+      "edit_title": "Laboratórium szerkesztése",
+      "new_title": "Új Laboratórium",
+      "name": "Név",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "contact_person": "Kapcsolattartó személy",
+      "website": "Weboldal",
+      "notes": "Megjegyzések",
+      "name_email_required": "A név és az e-mail cím megadása kötelező",
+      "unknown_error": "Ismeretlen hiba"
+    },
+    "campaigns": {
+      "title": "{{name}} kampányai",
+      "new_campaign": "Új Kampány",
+      "no_campaigns": "Nincsenek kampányok.",
+      "col_name": "Név",
+      "col_type": "Típus",
+      "col_trigger": "Trigger",
+      "col_status": "Állapot",
+      "col_actions": "Műveletek",
+      "confirm_delete": "Törli a kampányt?",
+      "form": {
+        "edit_title": "Kampány szerkesztése",
+        "new_title": "Új Kampány",
+        "name": "Név",
+        "name_required": "A név megadása kötelező",
+        "unknown_error": "Ismeretlen hiba",
+        "type": "Típus",
+        "rotation_mode": "Forgatási mód",
+        "rotation_random": "Véletlenszerű",
+        "rotation_manual": "Manuális",
+        "creative_url": "Kreatív URL",
+        "trigger": "Trigger",
+        "interval_minutes": "Intervallum (perc)",
+        "start_date": "Kezdő dátum",
+        "end_date": "Befejező dátum",
+        "active": "Aktív"
+      }
+    },
+    "creative_types": {
+      "image": "Kép",
+      "video": "Videó",
+      "url": "URL",
+      "offer": "Ajánlat",
+      "training": "Képzés"
+    },
+    "triggers": {
+      "on_login": "Megnyitáskor",
+      "on_consent": "Beleegyezés létrehozásakor",
+      "every_x_minutes": "Minden X percben",
+      "once_daily": "Naponta egyszer"
+    }
+  },
+  "agenda": {
+    "title": "Naptár",
+    "subtitle": "Időpontok, kezelések és időbeosztás-tervezés",
+    "tab_appointments": "Időpontok",
+    "tab_treatments": "Kezelések",
+    "tab_planning": "Naptártervezés"
+  },
+  "verifyConsent": {
+    "id_not_provided": "Az azonosító nincs megadva",
+    "verifying": "Dokumentum ellenőrzése…",
+    "subtitle": "Dokumentum-ellenőrzés",
+    "not_found_title": "A dokumentum nem található",
+    "signed_title": "Érvényes és aláírt dokumentum",
+    "signed_subtitle": "Az aláírás sikeresen ellenőrizve",
+    "revoked_title": "Beleegyezés visszavonva",
+    "revoked_subtitle": "A beteg visszavonta ezt a beleegyezést",
+    "pending_title": "Aláírásra vár",
+    "pending_subtitle": "Ez a dokumentum még nincs aláírva",
+    "patient": "Beteg",
+    "doctor": "Orvos",
+    "treatment": "Kezelés",
+    "signed_date": "Aláírás dátuma",
+    "hash_label": "SHA-256 hash",
+    "document_id_label": "Dokumentum azonosító:",
+    "verified_on": "Ellenőrizve: {{date}}. Ez a dokumentum érvényes az 1997. évi CLIV. törvény szerint, és elektronikusan alá van írva az eIDAS rendelet (EU) 910/2014 szerint."
+  },
+  "recharge": {
+    "title": "Előfizetési csomagok",
+    "subtitle": "Válassza ki a klinikájához legjobban illő csomagot",
+    "monthly": "Havi",
+    "annual": "Éves",
+    "per_month": "/hó",
+    "save_20_annual": "20%-ot takarít meg, ha évente fizet",
+    "switch_annual_save": "Váltson évesre, és takarítson meg 20%-ot",
+    "hire_plan": "Csomag választása",
+    "note_title": "Megjegyzés az AI csomaghoz és az AI Premium csomaghoz:",
+    "note_text": "Az AI-ügynökök kezdeti beállítása (szolgáltatások, kezelések és testreszabás) és a bevezetés díja külön kerül meghatározásra az egyes klinikák összetettsége alapján. A hangügynök és a WhatsApp API költségei nincsenek benne a havi díjban.",
+    "plans": {
+      "base": {
+        "name": "Alap csomag",
+        "features": [
+          "Korlátlan beleegyezés",
+          "Klinikai napló",
+          "Fotógaléria",
+          "Betegportál",
+          "Magic Link + biometria",
+          "Támogatás benne foglaltatik"
+        ]
+      },
+      "pro": {
+        "name": "Pro csomag",
+        "badge": "Legnépszerűbb",
+        "features": [
+          "Minden, ami az Alap csomagban +",
+          "Időpont-naptár",
+          "Beteg CRM",
+          "Toxinkontroll",
+          "Árajánlatok betegeknek"
+        ]
+      },
+      "ia": {
+        "name": "AI csomag",
+        "features": [
+          "Minden, ami a Pro csomagban +",
+          "WhatsApp AI-ügynök 0-24 — időpontfoglalás",
+          "Automatizált időpont-visszaigazolás",
+          "Automatizált időpont-emlékeztetők",
+          "WhatsApp kezelőpanel",
+          "Kommunikáció a betegekkel WhatsAppon keresztül",
+          "Beleegyezések, klinikai napló, fotók, árajánlatok és számlák küldése WhatsAppon keresztül"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium csomag",
+        "badge": "Új",
+        "features": [
+          "Minden, ami az AI csomagban +",
+          "AI hangügynök 0-24: hívásokat fogad",
+          "Automatikusan időpontot foglal telefonon",
+          "100%-ban klónozza a recepciós hangját"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toxinkontroll",
+    "subtitle": "Botulinum toxin tételek nyomon követése",
+    "new_record": "Új bejegyzés",
+    "from": "Ettől",
+    "to": "Eddig",
+    "doctor": "Orvos",
+    "patient": "Beteg",
+    "all": "Összes",
+    "lot_number": "Tételszám",
+    "search_lot_placeholder": "Tétel keresése…",
+    "clear_filters": "Szűrők törlése",
+    "no_results": "Nincsenek toxinbejegyzések ezekkel a szűrőkkel.",
+    "col_date": "Dátum",
+    "col_patient": "Beteg",
+    "col_doctor": "Orvos",
+    "col_brand": "Kereskedelmi név",
+    "col_lot": "Tétel",
+    "col_expiry": "Lejárat",
+    "col_zones": "Területek",
+    "col_units": "Egységek",
+    "col_signature": "Aláírás",
+    "col_ci": "Beleegyezés",
+    "col_actions": "Műveletek",
+    "signed": "Aláírva",
+    "unsigned": "Nincs aláírva",
+    "consent_linked": "Kapcsolt beleegyezéssel",
+    "consent_not_linked": "Kapcsolt beleegyezés nélkül",
+    "confirm_delete": "Törli ezt a toxinbejegyzést?",
+    "detail": {
+      "not_found": "A bejegyzés nem található.",
+      "patient": "Beteg",
+      "doctor": "Orvos",
+      "brand": "Kereskedelmi név",
+      "manufacturer": "Gyártó",
+      "lot": "Tételszám",
+      "expiry": "Lejárati dátum",
+      "vials": "Felbontott ampullák",
+      "total_units": "Összes egység",
+      "treated_zones": "Kezelt területek",
+      "no_zones": "Nincsenek regisztrált területek.",
+      "notes": "Megjegyzések",
+      "doctor_signature": "Orvos aláírása",
+      "signature_alt": "Orvos aláírása",
+      "signed_on": "Aláírva: {{date}}",
+      "no_signature": "Ennek a bejegyzésnek nincs orvosi aláírása.",
+      "linked_consent": "Kapcsolt tájékozott beleegyezés",
+      "consent_default_name": "Beleegyezés",
+      "consent_unsigned": "Nincs aláírva",
+      "loading_pdf": "PDF betöltése…",
+      "consent_load_error": "Nem sikerült betölteni a kapcsolt beleegyezés adatait."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "A token nem található az URL-ben",
+    "invalid_token": "Érvénytelen vagy lejárt token",
+    "connection_error": "Kapcsolódási hiba",
+    "verifying": "Link ellenőrzése…",
+    "invalid_link": "Érvénytelen link",
+    "back_home": "Vissza a kezdőlapra"
+  },
+  "photoSessions": {
+    "confirm_delete": "Törli ezt a fotósorozatot és az összes fotóját?",
+    "title": "Fotók",
+    "subtitle": "{{count}} fotósorozat",
+    "new_session": "Új fotósorozat",
+    "search_placeholder": "Keresés beteg vagy fotósorozat neve szerint…",
+    "no_sessions": "Nincsenek fotósorozatok"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Beleegyezéseim",
+      "clinical": "Klinikai Naplóm",
+      "photos": "Fotóim"
+    },
+    "consents": {
+      "empty": "Még nincs aláírt beleegyezése.",
+      "default_name": "Beleegyezés",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Aláírva: {{date}}",
+      "status_signed": "Aláírva",
+      "status_pending": "Függőben"
+    },
+    "clinical": {
+      "empty": "A klinikai naplója üres.",
+      "default_name": "Konzultáció",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnózis",
+        "anamnesis": "Anamnézis",
+        "current_medications": "Jelenlegi gyógyszerek",
+        "allergies": "Allergiák",
+        "treatment_plan": "Kezelési terv",
+        "notes": "Megjegyzések"
+      }
+    },
+    "photos": {
+      "empty": "Még nincsenek fotósorozatok.",
+      "back_to_sessions": "Vissza a fotósorozatokhoz",
+      "default_session_name": "Fotósorozat",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Előtte / utána összehasonlítás",
+      "before": "Előtte",
+      "after": "Utána",
+      "close_compare": "Összehasonlítás bezárása",
+      "compare_button": "Összehasonlítás",
+      "photo_count": "{{count}} fotó"
+    }
+  },
   "settings": {
     "title": "Beállítások",
     "subtitle": "Felhasználók és hozzáférések kezelése",
+    "tabs": {
+      "users": "Felhasználók",
+      "media": "Hirdetés",
+      "preview": "Előnézet"
+    },
     "users": {
       "title": "Felhasználók",
       "invite_user": "Felhasználó meghívása",
@@ -180,8 +1054,34 @@
       "send_invite": "Meghívó küldése",
       "no_users": "Nincs felhasználó. Hívja meg az elsőt.",
       "inactive": "Inaktív",
-      "activate": "Aktiválás",
-      "deactivate": "Deaktiválás"
+      "activate": "Felhasználó aktiválása",
+      "deactivate": "Felhasználó deaktiválása",
+      "role_superadmin": "Szuper Admin",
+      "role_doctor": "Orvos",
+      "role_receptionist": "Recepciós",
+      "role_lab_partner": "Laboratórium",
+      "role_patient": "Beteg",
+      "filter_all": "Összes",
+      "invite_accepted": "Meghívó elfogadva",
+      "invite_expired": "Meghívó lejárt",
+      "invite_pending": "Meghívó függőben",
+      "email_placeholder": "felhasznalo@klinika.hu",
+      "full_name_placeholder": "Keresztnév Vezetéknév",
+      "linked_lab": "Kapcsolt laboratórium",
+      "no_lab": "Nincs laboratórium",
+      "lab_hint": "A felhasználó csak az ehhez a laboratóriumhoz kapcsolt klinikákat fogja látni.",
+      "admin_only_hint": "A Beállítások kizárólag adminisztrátorok számára érhető el, és soha nem delegálható egy klinikának.",
+      "load_error": "Nem sikerült betölteni a felhasználók listáját",
+      "retry": "Újrapróbálkozás"
+    },
+    "media": {
+      "title": "Reklámmédia-kezelés",
+      "managed_by_lab": "Ezt a hirdetést az együttműködő laboratóriuma kezeli. Itt megtekintheti, de csak a laboratórium módosíthatja.",
+      "managed_by_lab_named": "Ezt a hirdetést az együttműködő laboratóriuma ({{name}}) kezeli. Itt megtekintheti, de csak a laboratórium módosíthatja.",
+      "welcome_title": "Üdvözlő képernyő",
+      "welcome_description": "Legfeljebb 5 kép vagy videó. Válassza ki, melyik jelenjen meg, véletlenszerűen vagy sorban (max. 100 MB fájlonként).",
+      "patient_title": "Tartalom a beteg számára",
+      "patient_description": "Legfeljebb 5, a betegnek szánt kép vagy videó. A pontos felhasználás konfigurálása hamarosan elérhető lesz."
     }
   }
 }
