@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "تعديل سجل التوكسين",
+    "title_new": "سجل توكسين جديد",
+    "patient": "المريض",
+    "select_patient": "اختر المريض…",
+    "linked_consent": "نموذج الموافقة المرتبط",
+    "not_linked": "غير مرتبط",
+    "consent_default_name": "نموذج الموافقة",
+    "unsigned": "غير موقّع",
+    "loading_consents": "جارٍ تحميل نماذج الموافقة…",
+    "no_consents_hint": "لا يوجد لدى هذا المريض نماذج موافقة موقّعة للتوكسين حتى الآن. هذا اختياري، يمكنك حفظ السجل دون ربطه.",
+    "doctor": "الطبيب",
+    "unassigned": "غير معيّن",
+    "application_date": "تاريخ التطبيق",
+    "brand_name": "الاسم التجاري",
+    "brand_name_placeholder": "بوتوكس، ديسبورت، زيومين…",
+    "manufacturer": "الشركة المصنّعة",
+    "manufacturer_placeholder": "أليرغان، إبسن، ميرز…",
+    "lot_number": "رقم التشغيلة",
+    "expiry_date": "تاريخ انتهاء الصلاحية",
+    "vials_opened": "القوارير المفتوحة",
+    "treated_zones": "المناطق المعالجة",
+    "other_zone_placeholder": "منطقة أخرى…",
+    "add": "إضافة",
+    "total_units": "إجمالي الوحدات",
+    "notes": "ملاحظات",
+    "notes_placeholder": "ملاحظات…",
+    "doctor_signature": "توقيع الطبيب",
+    "signature_alt": "توقيع الطبيب",
+    "signed_on": "وُقّع في {{date}}",
+    "sign_again": "توقيع من جديد",
+    "signature_hint": "ارسم التوقيع واضغط \"تأكيد التوقيع\" قبل الحفظ.",
+    "confirm_delete": "هل تريد حذف سجل التوكسين هذا؟",
+    "deleting": "جارٍ الحذف…",
+    "delete_record": "حذف السجل",
+    "cancel": "إلغاء",
+    "save_changes": "حفظ التغييرات",
+    "create_record": "إنشاء سجل",
+    "saving": "جارٍ الحفظ…",
+    "unknown_error": "خطأ غير معروف",
+    "validation": {
+      "required_fields": "المريض والاسم التجاري ورقم التشغيلة وتاريخ انتهاء الصلاحية والشركة المصنّعة حقول إلزامية",
+      "signature_required": "توقيع الطبيب إلزامي لحفظ السجل"
+    },
+    "zones": {
+      "forehead": "الجبهة (الخطوط الأفقية)",
+      "glabella": "بين الحاجبين (الجبهة السفلية)",
+      "crows_feet": "خطوط الضحك (حول العين)",
+      "lower_eyelid": "الجفن السفلي",
+      "eyebrow_lift": "رفع الحاجبين",
+      "bunny_lines": "الأنف (خطوط الأرنب)",
+      "upper_lip": "الشفة العليا (الخطوط الشعاعية)",
+      "oral_commissures": "زوايا الفم",
+      "chin_dimpling": "الذقن (قشرة البرتقال)",
+      "platysmal_bands": "الرقبة (عضلة البلاتيزما)",
+      "decolletage": "منطقة الصدر العلوية",
+      "axillary_sweating": "التعرق الإبطي (فرط التعرق)",
+      "palmar_sweating": "تعرق راحة اليد",
+      "plantar_sweating": "تعرق باطن القدم",
+      "jaw_bruxism": "الفك (صرير الأسنان / العضلة الماضغة)",
+      "migraine_occipital": "الصداع النصفي (النقاط القذالية)",
+      "trampoline_chin": "ذقن الترامبولين",
+      "gummy_smile": "ابتسامة اللثة",
+      "nefertiti_lift": "رفعة نفرتيتي (الرقبة والفك)",
+      "other_zone": "منطقة أخرى"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "جارٍ الإنشاء…",
+    "export_pdf": "تصدير PDF"
+  },
+  "patientGallery": {
+    "title": "معرض الصور",
+    "upload_photos": "رفع الصور",
+    "loading": "جارٍ التحميل…",
+    "empty": "لا توجد صور. ارفع أول صورة.",
+    "confirm_delete": "هل تريد حذف هذه الصورة؟",
+    "count_stored": "{{count}} {{unit}} · مخزّنة في Cloudflare R2",
+    "photo_singular": "صورة",
+    "photo_plural": "صور"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "تعديل السجل الطبي",
+    "title_new": "سجل طبي جديد",
+    "patient": "المريض",
+    "select_patient": "اختر المريض…",
+    "doctor": "الطبيب",
+    "unassigned": "غير معيّن",
+    "branch": "العيادة / الفرع",
+    "unspecified": "غير محدد",
+    "visit_date": "تاريخ الزيارة",
+    "reason_for_visit": "سبب الزيارة",
+    "anamnesis": "التاريخ المرضي / السوابق",
+    "current_medications": "الأدوية الحالية",
+    "allergies": "الحساسية المعروفة",
+    "physical_exam": "الفحص السريري",
+    "diagnosis": "التشخيص",
+    "treatment_plan": "خطة العلاج",
+    "notes": "ملاحظات",
+    "select_patient_error": "اختر مريضًا",
+    "unknown_error": "خطأ غير معروف",
+    "cancel": "إلغاء",
+    "saving": "جارٍ الحفظ…",
+    "save_record": "حفظ السجل"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "حجم الملف يتجاوز الحد الأقصى وهو {{maxSize}} ميجابايت",
+    "upload_error": "حدث خطأ أثناء رفع الملف",
+    "confirm_delete": "هل تريد حذف هذا الملف؟",
+    "video": "فيديو",
+    "image": "صورة",
+    "uploaded_on": "تم الرفع في {{date}}",
+    "change": "تغيير",
+    "delete": "حذف",
+    "uploading": "جارٍ الرفع… {{progress}}٪",
+    "drop_hint": "اسحب الملف هنا أو انقر للرفع",
+    "file_types_hint": "صورة (JPG أو PNG أو GIF) أو فيديو (MP4 أو MOV أو WebM) · بحد أقصى {{maxSize}} ميجابايت"
+  },
+  "consentEditor": {
+    "placeholder_default": "اكتب محتوى نموذج الموافقة…",
+    "bold": "عريض",
+    "italic": "مائل",
+    "heading": "عنوان",
+    "bullet_list": "قائمة نقطية",
+    "ordered_list": "قائمة مرقّمة",
+    "undo": "تراجع",
+    "redo": "إعادة"
+  },
+  "consentPdfButton": {
+    "generating": "جارٍ إنشاء PDF…",
+    "export": "تصدير PDF"
+  },
+  "newSessionModal": {
+    "title": "جلسة تصوير جديدة",
+    "patient_label": "المريض",
+    "select_patient_placeholder": "اختر المريض…",
+    "doctor_label": "الطبيب",
+    "no_doctor_assigned": "غير معيّن",
+    "branch_label": "العيادة / الفرع",
+    "no_branch_specified": "غير محدد",
+    "session_name_label": "اسم الجلسة",
+    "session_name_placeholder": "مثال: جلسة علاج الوجه 1",
+    "date_label": "التاريخ والوقت",
+    "notes_label": "ملاحظات",
+    "notes_placeholder": "ملاحظات حول الجلسة…",
+    "select_patient_error": "اختر مريضًا",
+    "unknown_error": "خطأ غير معروف",
+    "cancel": "إلغاء",
+    "creating": "جارٍ الإنشاء…",
+    "create_session": "إنشاء الجلسة"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "جلسة تصوير",
+    "photo_count": "{{count}}/{{max}} صورة",
+    "compare_button": "مقارنة قبل / بعد",
+    "delete_session": "حذف الجلسة",
+    "upload": "رفع",
+    "remaining": "{{remaining}} متبقٍّ"
+  },
+  "beforeAfterModal": {
+    "select_title": "اختر الصور للمقارنة",
+    "compare_title": "مقارنة قبل / بعد",
+    "change_selection": "← تغيير الاختيار",
+    "select_intro": "اختر صورة لـ",
+    "select_middle": "وأخرى لـ",
+    "before": "قبل",
+    "after": "بعد",
+    "before_badge": "قبل",
+    "after_badge": "بعد",
+    "compare_button": "مقارنة"
+  },
+  "biometricPrompt": {
+    "title": "تفعيل الدخول البيومتري",
+    "description": "استخدم Face ID أو بصمة الإصبع أو Windows Hello للدخول في أقل من ثانيتين في المرة القادمة.",
+    "device_label": "الجهاز:",
+    "activate": "تفعيل",
+    "default_device": "جهازي"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "اختيار يدوي",
+        "desc": "أنت من يختار ما يظهر. انقر على إعلان لتفعيله."
+      },
+      "random": {
+        "label": "ترتيب عشوائي",
+        "desc": "يتم اختيار إعلان بشكل عشوائي في كل مرة يحين فيها عرضه."
+      },
+      "sequential": {
+        "label": "ترتيب متسلسل",
+        "desc": "يتم عرضها بالترتيب، واحدًا تلو الآخر، في كل مرة يحين فيها الدور."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "حجم الملف يتجاوز الحد الأقصى وهو 100 ميجابايت",
+      "invalidUrl": "رابط غير صالح"
+    },
+    "confirmDelete": "هل تريد حذف هذا الإعلان؟",
+    "types": {
+      "url": "رابط",
+      "video": "فيديو",
+      "image": "صورة"
+    },
+    "active": "✓ نشط",
+    "select": "اختيار",
+    "upload": {
+      "label": "رفع ملف",
+      "slotsFree": "{{count}} متاح{{suffix}}"
+    },
+    "addUrlButton": "إضافة رابط فيديو (YouTube أو Vimeo أو MP4…)",
+    "urlForm": {
+      "title": "إضافة فيديو عبر رابط",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… أو رابط مباشر لملف .mp4",
+      "labelPlaceholder": "اسم أو وصف (اختياري)",
+      "hint": "متوافق مع YouTube وVimeo والروابط المباشرة للفيديو (.mp4 ،.webm…)",
+      "add": "إضافة",
+      "saving": "جارٍ الحفظ…"
+    },
+    "displayModeHeading": "كيف يتم عرضها؟"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "ترحيب",
+    "continue": "متابعة →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "متى تُعرض الإعلانات؟",
+    "subheading": "يمكنك تحديد عدة خيارات في الوقت نفسه.",
+    "options": {
+      "session": {
+        "label": "مرة واحدة عند بدء الجلسة",
+        "desc": "تظهر مرة واحدة فقط في كل مرة يفتح فيها المستخدم التطبيق في المتصفح."
+      },
+      "consent": {
+        "label": "في كل مرة يتم فيها إنشاء نموذج موافقة",
+        "desc": "تظهر مباشرة بعد إنشاء كل نموذج موافقة."
+      },
+      "clinical": {
+        "label": "في كل مرة يتم فيها إنشاء سجل طبي",
+        "desc": "تظهر مباشرة بعد حفظ كل سجل طبي."
+      },
+      "interval": {
+        "label": "كل X دقيقة",
+        "desc": "تظهر بشكل دوري أثناء فتح التطبيق."
+      }
+    },
+    "every": "كل",
+    "minutes": "دقائق",
+    "errors": {
+      "selectAtLeastOne": "اختر خيارًا واحدًا على الأقل",
+      "saveFailed": "خطأ أثناء الحفظ"
+    },
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم الحفظ",
+    "saveButton": "حفظ الإعدادات",
+    "appliedMessage": "✅ تم تطبيق الإعدادات"
+  },
+  "demoPreviewPanel": {
+    "heading": "معاينة حسب الأدوار",
+    "subheading": "أنشئ بيانات تجريبية وادخل إلى النظام تمامًا كما يراه المريض أو العيادة أو المختبر.",
+    "createAllButton": "إنشاء جميع البيانات التجريبية",
+    "errors": {
+      "checkFailed": "خطأ أثناء التحقق من البيانات التجريبية",
+      "createPatientFailed": "تعذّر إنشاء المريض التجريبي",
+      "createBranchFailed": "تعذّر إنشاء الفرع التجريبي",
+      "createLabFailed": "تعذّر إنشاء المختبر التجريبي"
+    },
+    "cards": {
+      "patient": {
+        "title": "عرض المريض",
+        "description": "يحاكي البوابة التي يراها المريض: نماذج الموافقة والسجل الطبي والصور الخاصة به."
+      },
+      "branch": {
+        "title": "عرض العيادة",
+        "description": "يحاكي اللوحة التي يراها موظفو العيادة، مع قائمة مقتصرة على صلاحياتهم الفعلية."
+      },
+      "lab": {
+        "title": "عرض المختبر",
+        "description": "يحاكي لوحة مختبر متعاون: ملفه الشخصي والعيادات المرتبطة به والحملات."
+      }
+    },
+    "testDataCreated": "تم إنشاء بيانات تجريبية",
+    "viewAs": "عرض كـ {{role}}",
+    "roleNames": {
+      "patient": "مريض",
+      "branch": "عيادة",
+      "lab": "مختبر"
+    },
+    "creating": "جارٍ الإنشاء…",
+    "createTestData": "إنشاء بيانات تجريبية"
+  },
+  "previewBanner": {
+    "message": "معاينة — أنت تشاهد الواجهة كما يراها",
+    "exitButton": "الخروج من المعاينة",
+    "roles": {
+      "patient": "المريض",
+      "clinica": "العيادة",
+      "labPartner": "المختبر"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "عرض الشهر",
+    "today": "اليوم",
+    "new_appointment": "موعد جديد",
+    "no_treatments_warning": "لم يتم إنشاء أي علاجات بعد. انتقل إلى تبويب \"العلاجات\" لإنشاء أول علاج قبل حجز المواعيد.",
+    "day_closed_notice": "هذا اليوم مُحدَّد كمغلق في تخطيط الجدول. يمكنك مراجعته أو فتحه من ذلك التبويب.",
+    "slot_aria_label": "حجز موعد الساعة {{time}}",
+    "outside_availability": "خارج ساعات العمل المتاحة",
+    "treatment_fallback": "العلاج",
+    "doctor_prefix": "د. {{name}}",
+    "legend": {
+      "available": "متاح",
+      "outside_hours": "خارج الدوام",
+      "scheduled": "موعد محجوز"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "تعديل الموعد",
+    "title_new": "موعد جديد",
+    "validation_required": "المريض والعلاج والوقت حقول إلزامية",
+    "error_unknown": "خطأ غير معروف",
+    "confirm_delete": "هل تريد حذف هذا الموعد؟",
+    "deleting": "جارٍ الحذف…",
+    "delete_appointment": "حذف الموعد",
+    "cancel": "إلغاء",
+    "saving": "جارٍ الحفظ…",
+    "save_changes": "حفظ التغييرات",
+    "create_appointment": "إنشاء موعد",
+    "form": {
+      "patient": "المريض",
+      "select_patient": "اختر المريض…",
+      "doctor": "الطبيب",
+      "unassigned": "غير معيّن",
+      "branch": "العيادة / الفرع",
+      "main_branch": "الفرع الرئيسي",
+      "treatment": "العلاج",
+      "select_treatment": "اختر العلاج…",
+      "treatment_option": "{{name}} — {{duration}} دقيقة — {{price}} ريال",
+      "no_treatments_warning": "لا توجد علاجات منشأة. أضف واحدًا في تبويب \"العلاجات\" أولاً.",
+      "datetime": "التاريخ والوقت",
+      "duration_note": "سيستغرق {{duration}} دقيقة في الجدول.",
+      "notes": "ملاحظات",
+      "notes_placeholder": "ملاحظات حول الموعد…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "العلاجات",
+    "subtitle": "مدة وسعر كل علاج لتتمكن من حجز المواعيد",
+    "new_treatment": "علاج جديد",
+    "loading": "جارٍ التحميل…",
+    "empty_state": "لم يتم إنشاء أي علاجات بعد",
+    "duration_display": "{{duration}} دقيقة",
+    "price_display": "{{price}} ريال",
+    "confirm_delete": "هل تريد حذف هذا العلاج؟",
+    "form": {
+      "title_edit": "تعديل العلاج",
+      "title_new": "علاج جديد",
+      "name": "الاسم",
+      "name_placeholder": "مثال: توكسين البوتولينوم",
+      "duration": "المدة (دقيقة)",
+      "price": "السعر (ريال)",
+      "validation_name_required": "الاسم إلزامي",
+      "error_unknown": "خطأ غير معروف",
+      "cancel": "إلغاء",
+      "saving": "جارٍ الحفظ…",
+      "save": "حفظ"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["إثن", "ثلا", "أرب", "خمي", "جمع", "سبت", "أحد"],
+    "months": ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+    "has_exception_tooltip": "يحتوي بالفعل على استثناء مُعدّ",
+    "legend": {
+      "usually_open": "مفتوح عادةً",
+      "usually_closed": "مغلق عادةً",
+      "has_exception": "به استثناء",
+      "selected": "محدد"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["إثن", "ثلا", "أرب", "خمي", "جمع", "سبت", "أحد"],
+    "months": ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
+    "legend": {
+      "open_day": "يوم مفتوح",
+      "closed": "مغلق",
+      "today": "اليوم"
+    }
+  },
+  "schedulePlanner": {
+    "title": "تخطيط الجدول",
+    "subtitle": "حدد الأيام والأوقات التي يمكن فيها حجز المواعيد.",
+    "time_separator": "إلى",
+    "add_time_range": "إضافة فترة زمنية",
+    "weekdays": ["الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"],
+    "confirm_delete_exception": "هل تريد حذف هذا الاستثناء والعودة إلى الجدول المعتاد لذلك اليوم؟",
+    "errors": {
+      "save_schedule_failed": "تعذّر حفظ الجدول",
+      "apply_pattern_failed": "تعذّر تطبيق النمط",
+      "select_day_required": "اختر يومًا واحدًا على الأقل في التقويم",
+      "save_exception_failed": "تعذّر حفظ اليوم الخاص"
+    },
+    "bulk": {
+      "title": "تطبيق نمط على عدة أيام في آنٍ واحد",
+      "description": "مثال: من الاثنين إلى الجمعة من 09:00 إلى 20:00. اختر الأيام والجدول الزمني، ثم طبّق — يمكنك تعديل كل يوم على حدة لاحقًا.",
+      "applying": "جارٍ التطبيق…",
+      "apply_button": "تطبيق على الأيام المحددة"
+    },
+    "weekly": {
+      "title": "الجدول الأسبوعي المعتاد",
+      "closed": "مغلق",
+      "saving": "جارٍ الحفظ…",
+      "save": "حفظ"
+    },
+    "exceptions": {
+      "title": "أيام منفردة (استثناءات)",
+      "description": "افتح يومًا خاصًا (مثل يوم سبت) أو أغلق يومًا مفتوحًا عادةً (مثل عطلة).",
+      "select_days_label": "اختر يومًا واحدًا أو أكثر",
+      "days_selected_singular": "تم تحديد {{count}} يوم",
+      "days_selected_plural": "تم تحديد {{count}} أيام",
+      "clear_selection": "مسح التحديد",
+      "open_special": "فتح خاص",
+      "close": "إغلاق",
+      "schedule_label": "الجدول في هذه الأيام",
+      "notes_placeholder": "السبب (اختياري) — مثال: عطلة رسمية",
+      "saving": "جارٍ الحفظ…",
+      "save_button_singular": "حفظ اليوم الخاص",
+      "save_button_plural": "حفظ {{count}} أيام خاصة",
+      "no_exceptions": "لا توجد أيام منفردة مُعدّة.",
+      "open_special_status": "مفتوح خاص · {{ranges}}",
+      "closed_status": "مغلق"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري"
@@ -14,7 +445,15 @@
     "settings": "الإعدادات",
     "clinicalRecords": "السجل الطبي",
     "photos": "الصور",
-    "recharge": "إعادة شحن"
+    "recharge": "خطط الاشتراك",
+    "agenda": "الجدول",
+    "toxin": "متابعة التوكسين",
+    "labPartners": "المختبرات",
+    "menu": "القائمة"
+  },
+  "topbar": {
+    "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
+    "legal": "eIDAS (الاتحاد الأوروبي 910/2014) · نظام الرعاية الصحية السعودي · حماية البيانات"
   },
   "auth": {
     "login_title": "الوصول الآمن",
@@ -23,17 +462,30 @@
     "send_link": "إرسال رابط الوصول",
     "check_email": "تحقق من بريدك الإلكتروني — لقد أرسلنا رابط الوصول",
     "magic_link_sent": "تم إرسال الرابط بنجاح",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "تذكّر هذا الجهاز",
+    "remember_7": "7 أيام",
+    "remember_30": "30 يومًا",
+    "remember_90": "90 يومًا",
+    "biometric_activate": "تفعيل Face ID / البصمة",
+    "biometric_prompt": "بعد أول دخول، يمكنك تفعيل Face ID / البصمة",
+    "biometric_registering": "جارٍ التفعيل…",
+    "biometric_success": "تم تفعيل البيانات البيومترية!",
+    "biometric_success_msg": "في المرة القادمة ستدخل بلمسة واحدة.",
+    "biometric_error": "تعذّر التفعيل. تأكد من أن جهازك يحتوي على بيانات بيومترية مُعدّة.",
+    "biometric_now": "ليس الآن",
+    "portal_subtitle": "نماذج الموافقة الرقمية · التوقيع البيومتري",
+    "portal_title": "الوصول إلى المستند",
+    "portal_email_prompt": "أدخل بريدك الإلكتروني للحصول على رابط وصول آمن.",
+    "portal_link_sent_title": "تم إرسال الرابط",
+    "portal_link_sent_message": "تحقق من بريدك الإلكتروني وانقر على الرابط للمتابعة.",
+    "portal_email_placeholder": "your@email.com",
+    "portal_consent_default_title": "نموذج الموافقة المستنيرة",
+    "portal_accept_label": "لقد قرأت ووافقت على نموذج الموافقة المستنيرة هذا",
+    "portal_proceed_to_sign": "المتابعة إلى التوقيع ←",
+    "portal_saving_signature": "جارٍ حفظ التوقيع…",
+    "portal_signed_title": "اكتمل التوقيع",
+    "portal_signed_message": "تم توقيع نموذج الموافقة وتسجيله بشكل آمن.",
+    "portal_error_message": "قد يكون الرابط منتهي الصلاحية أو غير صحيح."
   },
   "patients": {
     "title": "المرضى",
@@ -42,7 +494,7 @@
     "name": "الاسم الأول",
     "surname": "اسم العائلة",
     "dob": "تاريخ الميلاد",
-    "id_doc": "هوية وطنية / جواز سفر",
+    "id_doc": "هوية وطنية / إقامة / جواز سفر",
     "phone": "الهاتف",
     "email": "البريد الإلكتروني",
     "address": "العنوان",
@@ -54,10 +506,32 @@
     "edit": "تعديل",
     "delete": "حذف",
     "no_results": "لا يوجد مرضى مسجلون",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "معرض الصور",
+    "no_photos": "لا توجد صور. ارفع أول صورة.",
+    "upload_photos": "رفع الصور",
+    "uploading": "جارٍ الرفع…",
+    "count_registered": "{{count}} مسجل",
+    "form": {
+      "doc_type": "النوع",
+      "doc_type_passport": "جواز سفر",
+      "city": "المدينة",
+      "province": "المنطقة",
+      "country": "الدولة",
+      "select_placeholder": "— اختر —",
+      "countries": [
+        "المملكة العربية السعودية", "إسبانيا", "ألمانيا", "الأرجنتين", "بلجيكا", "بوليفيا", "البرازيل", "شيلي", "الصين",
+        "كولومبيا", "كوستاريكا", "كوبا", "الإكوادور", "السلفادور", "الولايات المتحدة", "فرنسا",
+        "غواتيمالا", "هندوراس", "إيطاليا", "المغرب", "المكسيك", "نيكاراغوا", "هولندا",
+        "بنما", "باراغواي", "بيرو", "البرتغال", "المملكة المتحدة", "جمهورية الدومينيكان",
+        "سويسرا", "أوروغواي", "فنزويلا", "أخرى"
+      ],
+      "provinces": [
+        "الرياض", "مكة المكرمة", "المدينة المنورة", "القصيم", "المنطقة الشرقية", "عسير",
+        "تبوك", "حائل", "الحدود الشمالية", "جازان", "نجران", "الباحة", "الجوف"
+      ],
+      "save_error_prefix": "خطأ أثناء الحفظ:",
+      "unknown_error": "خطأ غير معروف"
+    }
   },
   "doctors": {
     "title": "الأطباء",
@@ -73,17 +547,45 @@
       "receptionist": "موظف استقبال"
     },
     "save": "حفظ الطبيب",
-    "no_results": "لا يوجد أطباء مسجلون"
+    "no_results": "لا يوجد أطباء مسجلون",
+    "last_name": "اسم العائلة",
+    "phone": "الهاتف",
+    "phone_placeholder": "05X XXX XXXX",
+    "unknown_error": "خطأ غير معروف",
+    "count_registered": "{{count}} مسجل",
+    "license_display": "رقم {{number}}"
   },
   "consents": {
     "title": "نماذج الموافقة",
     "add": "نموذج موافقة جديد",
     "search": "البحث في نماذج الموافقة…",
+    "step_labels": ["البيانات", "المراجعة", "توقيع الطبيب", "توقيع المريض", "تم"],
+    "branch_label": "الفرع",
+    "main_branch": "الفرع الرئيسي",
+    "select_patient": "اختر المريض…",
+    "select_doctor": "اختر الطبيب…",
+    "select_treatment": "اختر العلاج…",
+    "translating": "جارٍ الترجمة…",
+    "continue": "متابعة",
+    "responsible_doctor": "الطبيب المسؤول",
+    "legal_framework_title": "الإطار القانوني — {{jurisdiction}}",
+    "witness_required_notice": "تتطلب هذه الدولة وجود شاهد على التوقيع",
+    "back": "← رجوع",
+    "sign_arrow": "توقيع ←",
+    "doctor_signature_title": "توقيع الطبيب",
+    "doctor_signature_notice": "يجب على الطبيب التوقيع أولاً لاعتماد نموذج الموافقة",
+    "back_to_preview": "← العودة",
+    "patient_signature_title": "توقيع المريض",
+    "patient_signature_notice": "يجب على المريض التوقيع لتأكيد أنه قرأ ووافق على نموذج الموافقة",
+    "signed_title": "تم توقيع نموذج الموافقة",
+    "signed_description": "تم توقيع المستند وتسجيله بنجاح.",
+    "close": "إغلاق",
     "status": {
       "pending": "قيد الانتظار",
       "signed": "موقّع",
       "revoked": "ملغى",
-      "expired": "منتهي الصلاحية"
+      "expired": "منتهي الصلاحية",
+      "all": "الكل"
     },
     "sign": "توقيع",
     "generate_pdf": "إنشاء PDF",
@@ -93,7 +595,13 @@
     "treatment": "العلاج",
     "language": "اللغة",
     "signed_at": "تاريخ التوقيع",
-    "no_results": "لا توجد نماذج موافقة"
+    "no_results": "لا توجد نماذج موافقة",
+    "confirm_delete": "هل تريد حذف نموذج الموافقة هذا؟",
+    "stats": "{{total}} الإجمالي · {{signed}} موقّع · {{pending}} قيد الانتظار",
+    "branch": "الفرع",
+    "created_at": "تاريخ الإنشاء",
+    "status_header": "الحالة",
+    "continue_signature": "متابعة التوقيع"
   },
   "signature": {
     "title": "توقيع المريض",
@@ -112,14 +620,21 @@
     "tax_id": "السجل التجاري / الرقم الضريبي",
     "logo": "الشعار",
     "save": "حفظ الإعدادات",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "الفروع الإضافية",
+    "branches_desc": "إدارة عدة مواقع لعيادتك",
+    "add_branch": "إضافة فرع",
+    "no_branches": "لا توجد فروع إضافية",
+    "branch_name": "اسم الفرع",
+    "save_branches": "حفظ الفروع",
+    "edit_branch": "تعديل الفرع",
+    "new_branch": "فرع جديد",
+    "save_branch": "حفظ الفرع",
+    "subtitle": "الإعدادات العامة للعيادة",
+    "trade_name": "الاسم التجاري",
+    "legal_name": "الاسم القانوني / التجاري المسجل",
+    "nika_number": "رقم NIKA",
+    "save_success": "تم الحفظ بنجاح",
+    "confirm_delete_branch": "هل تريد حذف هذا الفرع؟"
   },
   "language": {
     "select": "اللغة",
@@ -144,18 +659,38 @@
     "magic_link_sent": "أرسلنا رابطًا سحريًا إلى",
     "email": "البريد الإلكتروني",
     "magic_link": "الدخول برابط سحري",
-    "footer": "موافقات رقمية صالحة · نظام الرعاية الصحية السعودي"
+    "footer": "موافقات رقمية صالحة · نظام الرعاية الصحية السعودي",
+    "invalid_email": "أدخل بريدًا إلكترونيًا صحيحًا",
+    "send_error": "خطأ أثناء إرسال الرابط",
+    "subtitle": "نماذج الموافقة الرقمية · eIDAS",
+    "email_placeholder": "you@clinic.sa"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "subtitle": "ملخص النشاط",
+    "pending_signature": "بانتظار التوقيع",
+    "signature_rate": "معدل التوقيع",
+    "signed_count": "{{count}} موقّع",
+    "pending_count": "{{count}} قيد الانتظار",
+    "recent_consents": "آخر نماذج الموافقة",
+    "view_all_consents": "عرض الكل ←",
+    "view_all": "عرض الكل ←",
+    "no_consents": "لا توجد نماذج موافقة",
+    "recent_clinical": "آخر السجلات الطبية",
+    "no_clinical": "لا توجد سجلات طبية",
+    "recent_photos": "آخر جلسات الصور",
+    "no_photos": "لا توجد جلسات تصوير"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "القوالب",
+    "search": "البحث عن علاج…",
+    "editor_title": "محرر القالب",
+    "consent_title_label": "عنوان نموذج الموافقة",
+    "no_translation": "لا توجد ترجمة بلغة",
+    "translate_all": "الترجمة إلى 21 لغة",
+    "translating": "جارٍ الترجمة…",
+    "legal_framework": "الإطار القانوني",
+    "select_template": "اختر قالبًا لتعديله",
     "empty": "لا توجد قوالب",
     "title_placeholder": "موافقة مستنيرة — علاج…",
     "content_label": "محتوى الموافقة",
@@ -163,9 +698,343 @@
     "saving": "Saving…",
     "saved": "Saved"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "هل تريد حذف هذا السجل الطبي؟",
+    "confirm_delete_session": "هل تريد حذف هذه الجلسة وجميع صورها؟",
+    "not_found": "المريض غير موجود",
+    "date_of_birth": "تاريخ الميلاد",
+    "email": "البريد الإلكتروني",
+    "blood_type": "فصيلة الدم",
+    "address": "العنوان",
+    "allergies": "الحساسية",
+    "medications": "الأدوية",
+    "tabs": {
+      "history": "السجلات الطبية ({{count}})",
+      "photos": "الصور ({{count}})",
+      "consents": "نماذج الموافقة ({{count}})"
+    },
+    "new_clinical_record": "سجل جديد",
+    "no_clinical_records": "لا توجد سجلات طبية لهذا المريض",
+    "doctor_prefix": "د. {{name}}",
+    "fields": {
+      "anamnesis": "التاريخ المرضي",
+      "allergies": "الحساسية",
+      "current_medications": "الأدوية الحالية",
+      "physical_exam": "الفحص السريري",
+      "diagnosis": "التشخيص",
+      "treatment_plan": "خطة العلاج",
+      "notes": "ملاحظات"
+    },
+    "new_photo_session": "جلسة جديدة",
+    "no_photo_sessions": "لا توجد جلسات تصوير لهذا المريض",
+    "no_consents": "لا توجد نماذج موافقة لهذا المريض",
+    "status": {
+      "signed": "موقّع",
+      "pending": "قيد الانتظار",
+      "revoked": "ملغى",
+      "expired": "منتهي الصلاحية"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "المختبر",
+    "not_found": "لم يتم العثور على ملف المختبر.",
+    "panel_subtitle": "لوحة المختبر المتعاون",
+    "tabs": {
+      "clinics": "العيادات المرتبطة",
+      "campaigns": "الحملات الإعلانية",
+      "stats": "الإحصائيات"
+    },
+    "no_clinics": "لا توجد عيادات مرتبطة بهذا المختبر بعد.",
+    "media_management": "إدارة الوسائط الإعلانية",
+    "welcome_screen": {
+      "title": "شاشة الترحيب",
+      "description": "حتى 5 صور أو مقاطع فيديو. اختر ما يُعرض، بشكل عشوائي أو متسلسل (بحد أقصى 100 ميجابايت لكل ملف)."
+    },
+    "patient_content": {
+      "title": "محتوى للمريض",
+      "description": "حتى 5 صور أو مقاطع فيديو موجهة للمريض. سيتم تحديد استخدامها الدقيق قريبًا."
+    },
+    "stats_pending": "هذا القسم لم يُحدَّد بعد — قريبًا ستشاهد هنا مؤشرات أداء حملاتك وعياداتك."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "هل تريد حذف هذا السجل الطبي؟",
+    "title": "السجلات الطبية",
+    "records_count": "{{count}} سجل",
+    "add_record": "سجل جديد",
+    "search_placeholder": "البحث بالمريض أو التشخيص أو السبب…",
+    "no_records": "لا توجد سجلات طبية",
+    "table_headers": ["المريض", "التاريخ", "سبب الزيارة", "التشخيص", "الطبيب", ""]
+  },
+  "labPartners": {
+    "title": "المختبرات المتعاونة",
+    "count": "{{count}} مسجل",
+    "new_lab": "مختبر جديد",
+    "search_placeholder": "البحث عن مختبر…",
+    "no_labs": "لا توجد مختبرات.",
+    "col_name": "الاسم",
+    "col_email": "البريد الإلكتروني",
+    "col_contact": "جهة الاتصال",
+    "col_phone": "الهاتف",
+    "col_status": "الحالة",
+    "col_actions": "الإجراءات",
+    "status_active": "نشط",
+    "status_inactive": "غير نشط",
+    "confirm_deactivate": "هل تريد إلغاء تفعيل المختبر؟",
+    "form": {
+      "edit_title": "تعديل المختبر",
+      "new_title": "مختبر جديد",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "contact_person": "الشخص المسؤول",
+      "website": "الموقع الإلكتروني",
+      "notes": "ملاحظات",
+      "name_email_required": "الاسم والبريد الإلكتروني إلزاميان",
+      "unknown_error": "خطأ غير معروف"
+    },
+    "campaigns": {
+      "title": "حملات {{name}}",
+      "new_campaign": "حملة جديدة",
+      "no_campaigns": "لا توجد حملات.",
+      "col_name": "الاسم",
+      "col_type": "النوع",
+      "col_trigger": "المُحفّز",
+      "col_status": "الحالة",
+      "col_actions": "الإجراءات",
+      "confirm_delete": "هل تريد حذف الحملة؟",
+      "form": {
+        "edit_title": "تعديل الحملة",
+        "new_title": "حملة جديدة",
+        "name": "الاسم",
+        "name_required": "الاسم إلزامي",
+        "unknown_error": "خطأ غير معروف",
+        "type": "النوع",
+        "rotation_mode": "نمط التناوب",
+        "rotation_random": "عشوائي",
+        "rotation_manual": "يدوي",
+        "creative_url": "رابط الإعلان",
+        "trigger": "المُحفّز",
+        "interval_minutes": "الفاصل الزمني (دقيقة)",
+        "start_date": "تاريخ البدء",
+        "end_date": "تاريخ الانتهاء",
+        "active": "نشط"
+      }
+    },
+    "creative_types": {
+      "image": "صورة",
+      "video": "فيديو",
+      "url": "رابط",
+      "offer": "عرض",
+      "training": "تدريب"
+    },
+    "triggers": {
+      "on_login": "عند فتح التطبيق",
+      "on_consent": "عند إنشاء نموذج موافقة",
+      "every_x_minutes": "كل X دقيقة",
+      "once_daily": "مرة واحدة يوميًا"
+    }
+  },
+  "agenda": {
+    "title": "الجدول",
+    "subtitle": "المواعيد والعلاجات وتخطيط الأوقات",
+    "tab_appointments": "المواعيد",
+    "tab_treatments": "العلاجات",
+    "tab_planning": "تخطيط الجدول"
+  },
+  "verifyConsent": {
+    "id_not_provided": "لم يتم توفير المعرّف",
+    "verifying": "جارٍ التحقق من المستند…",
+    "subtitle": "التحقق من المستند",
+    "not_found_title": "المستند غير موجود",
+    "signed_title": "مستند صالح وموقّع",
+    "signed_subtitle": "تم التحقق من التوقيع بنجاح",
+    "revoked_title": "تم إلغاء الموافقة",
+    "revoked_subtitle": "قام المريض بإلغاء هذه الموافقة",
+    "pending_title": "بانتظار التوقيع",
+    "pending_subtitle": "لم يتم توقيع هذا المستند بعد",
+    "patient": "المريض",
+    "doctor": "الطبيب",
+    "treatment": "العلاج",
+    "signed_date": "تاريخ التوقيع",
+    "hash_label": "بصمة SHA-256",
+    "document_id_label": "معرّف المستند:",
+    "verified_on": "تم التحقق في {{date}}. هذا المستند صالح وفقًا للأنظمة المعمول بها وموقّع إلكترونيًا وفقًا للائحة eIDAS الأوروبية (910/2014)."
+  },
+  "recharge": {
+    "title": "خطط الاشتراك",
+    "subtitle": "اختر الخطة الأنسب لعيادتك",
+    "monthly": "شهري",
+    "annual": "سنوي",
+    "per_month": "/شهريًا",
+    "save_20_annual": "وفّر 20٪ بالدفع سنويًا",
+    "switch_annual_save": "انتقل إلى الخطة السنوية ووفّر 20٪",
+    "hire_plan": "الاشتراك في الخطة",
+    "note_title": "ملاحظة حول خطة الذكاء الاصطناعي وخطة الذكاء الاصطناعي المميزة:",
+    "note_text": "يتم تسعير الإعداد الأولي لوكلاء الذكاء الاصطناعي (الخدمات والعلاجات والتخصيص) والتنفيذ بشكل منفصل حسب تعقيد كل عيادة. تكاليف الوكيل الصوتي وواجهة برمجة تطبيقات واتساب غير مشمولة في الرسوم الشهرية.",
+    "plans": {
+      "base": {
+        "name": "الخطة الأساسية",
+        "features": [
+          "نماذج موافقة غير محدودة",
+          "السجل الطبي",
+          "معرض الصور",
+          "بوابة المريض",
+          "رابط سحري + بيانات بيومترية",
+          "الدعم متضمن"
+        ]
+      },
+      "pro": {
+        "name": "الخطة الاحترافية",
+        "badge": "الأكثر شيوعًا",
+        "features": [
+          "كل ما في الخطة الأساسية +",
+          "جدول المواعيد",
+          "إدارة علاقات المرضى",
+          "متابعة التوكسين",
+          "عروض أسعار للمرضى"
+        ]
+      },
+      "ia": {
+        "name": "خطة الذكاء الاصطناعي",
+        "features": [
+          "كل ما في الخطة الاحترافية +",
+          "وكيل واتساب بالذكاء الاصطناعي على مدار الساعة — لاستقطاب المواعيد",
+          "تأكيد المواعيد آليًا",
+          "تذكيرات المواعيد آليًا",
+          "لوحة إدارة واتساب",
+          "التواصل مع المرضى عبر واتساب",
+          "إرسال نماذج الموافقة والسجل الطبي والصور وعروض الأسعار والفواتير عبر واتساب"
+        ]
+      },
+      "ia_plus": {
+        "name": "خطة الذكاء الاصطناعي المميزة",
+        "badge": "جديد",
+        "features": [
+          "كل ما في خطة الذكاء الاصطناعي +",
+          "وكيل صوتي بالذكاء الاصطناعي على مدار الساعة: يرد على المكالمات",
+          "حجز المواعيد هاتفيًا بشكل آلي",
+          "استنساخ صوت موظفة الاستقبال بنسبة 100٪"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "متابعة التوكسين",
+    "subtitle": "تتبع تشغيلات توكسين البوتولينوم",
+    "new_record": "سجل جديد",
+    "from": "من",
+    "to": "إلى",
+    "doctor": "الطبيب",
+    "patient": "المريض",
+    "all": "الكل",
+    "lot_number": "رقم التشغيلة",
+    "search_lot_placeholder": "البحث عن تشغيلة…",
+    "clear_filters": "مسح الفلاتر",
+    "no_results": "لا توجد سجلات توكسين بهذه الفلاتر.",
+    "col_date": "التاريخ",
+    "col_patient": "المريض",
+    "col_doctor": "الطبيب",
+    "col_brand": "الاسم التجاري",
+    "col_lot": "التشغيلة",
+    "col_expiry": "انتهاء الصلاحية",
+    "col_zones": "المناطق",
+    "col_units": "الوحدات",
+    "col_signature": "التوقيع",
+    "col_ci": "الموافقة",
+    "col_actions": "الإجراءات",
+    "signed": "موقّع",
+    "unsigned": "غير موقّع",
+    "consent_linked": "مع موافقة مرتبطة",
+    "consent_not_linked": "بدون موافقة مرتبطة",
+    "confirm_delete": "هل تريد حذف سجل التوكسين هذا؟",
+    "detail": {
+      "not_found": "السجل غير موجود.",
+      "patient": "المريض",
+      "doctor": "الطبيب",
+      "brand": "الاسم التجاري",
+      "manufacturer": "الشركة المصنّعة",
+      "lot": "رقم التشغيلة",
+      "expiry": "تاريخ انتهاء الصلاحية",
+      "vials": "القوارير المفتوحة",
+      "total_units": "إجمالي الوحدات",
+      "treated_zones": "المناطق المعالجة",
+      "no_zones": "لا توجد مناطق مسجلة.",
+      "notes": "ملاحظات",
+      "doctor_signature": "توقيع الطبيب",
+      "signature_alt": "توقيع الطبيب",
+      "signed_on": "وُقّع في {{date}}",
+      "no_signature": "لا يحتوي هذا السجل على توقيع الطبيب.",
+      "linked_consent": "نموذج الموافقة المرتبط",
+      "consent_default_name": "نموذج الموافقة",
+      "consent_unsigned": "غير موقّع",
+      "loading_pdf": "جارٍ تحميل PDF…",
+      "consent_load_error": "تعذّر تحميل معلومات نموذج الموافقة المرتبط."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "لم يتم العثور على الرمز في الرابط",
+    "invalid_token": "رمز غير صالح أو منتهي الصلاحية",
+    "connection_error": "خطأ في الاتصال",
+    "verifying": "جارٍ التحقق من الرابط…",
+    "invalid_link": "رابط غير صالح",
+    "back_home": "العودة إلى الصفحة الرئيسية"
+  },
+  "photoSessions": {
+    "confirm_delete": "هل تريد حذف هذه الجلسة وجميع صورها؟",
+    "title": "الصور",
+    "subtitle": "{{count}} جلسة تصوير",
+    "new_session": "جلسة جديدة",
+    "search_placeholder": "البحث بالمريض أو اسم الجلسة…",
+    "no_sessions": "لا توجد جلسات تصوير"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "موافقاتي",
+      "clinical": "سجلي الطبي",
+      "photos": "صوري"
+    },
+    "consents": {
+      "empty": "ليس لديك نماذج موافقة موقّعة بعد.",
+      "default_name": "نموذج الموافقة",
+      "doctor": "د. {{name}}",
+      "signed_on": "وُقّع في {{date}}",
+      "status_signed": "موقّع",
+      "status_pending": "قيد الانتظار"
+    },
+    "clinical": {
+      "empty": "سجلك الطبي فارغ.",
+      "default_name": "استشارة",
+      "doctor_suffix": " · د. {{name}}",
+      "fields": {
+        "diagnosis": "التشخيص",
+        "anamnesis": "التاريخ المرضي",
+        "current_medications": "الأدوية الحالية",
+        "allergies": "الحساسية",
+        "treatment_plan": "خطة العلاج",
+        "notes": "ملاحظات"
+      }
+    },
+    "photos": {
+      "empty": "لا توجد جلسات تصوير بعد.",
+      "back_to_sessions": "العودة إلى الجلسات",
+      "default_session_name": "جلسة تصوير",
+      "doctor_suffix": " · د. {{name}}",
+      "compare_title": "مقارنة قبل / بعد",
+      "before": "قبل",
+      "after": "بعد",
+      "close_compare": "إغلاق المقارنة",
+      "compare_button": "مقارنة",
+      "photo_count": "{{count}} صورة"
+    }
+  },
   "settings": {
     "title": "الإعدادات",
     "subtitle": "إدارة المستخدمين والوصول إلى النظام",
+    "tabs": {
+      "users": "المستخدمون",
+      "media": "الإعلانات",
+      "preview": "معاينة"
+    },
     "users": {
       "title": "المستخدمون",
       "invite_user": "دعوة مستخدم",
@@ -174,14 +1043,40 @@
       "role": "الدور",
       "role_admin": "مدير",
       "role_clinica": "عيادة",
-      "admin_hint": "يتمتع المدير بوصول كامل إلى جميع الأقسام.",
+      "admin_hint": "يتمتع المدير بوصول كامل إلى جميع أقسام النظام.",
       "permissions": "أذونات الوصول",
-      "permissions_hint": "حدد الأقسام التي يمكن الوصول إليها.",
+      "permissions_hint": "حدد الأقسام التي سيتمكن هذا المستخدم من الوصول إليها.",
       "send_invite": "إرسال الدعوة",
-      "no_users": "لا يوجد مستخدمون. ادعُ الأول.",
+      "no_users": "لا يوجد مستخدمون مسجلون. ادعُ الأول.",
       "inactive": "غير نشط",
-      "activate": "تفعيل",
-      "deactivate": "تعطيل"
+      "activate": "تفعيل المستخدم",
+      "deactivate": "تعطيل المستخدم",
+      "role_superadmin": "مدير عام",
+      "role_doctor": "طبيب",
+      "role_receptionist": "موظف استقبال",
+      "role_lab_partner": "مختبر",
+      "role_patient": "مريض",
+      "filter_all": "الكل",
+      "invite_accepted": "تم قبول الدعوة",
+      "invite_expired": "انتهت صلاحية الدعوة",
+      "invite_pending": "الدعوة قيد الانتظار",
+      "email_placeholder": "user@clinic.sa",
+      "full_name_placeholder": "الاسم الكامل",
+      "linked_lab": "المختبر المرتبط",
+      "no_lab": "بدون مختبر",
+      "lab_hint": "سيرى المستخدم فقط العيادات المرتبطة بهذا المختبر.",
+      "admin_only_hint": "الإعدادات حصرية للمديرين ولا يمكن تفويضها لعيادة أبدًا.",
+      "load_error": "تعذّر تحميل قائمة المستخدمين",
+      "retry": "إعادة المحاولة"
+    },
+    "media": {
+      "title": "إدارة الوسائط الإعلانية",
+      "managed_by_lab": "يدير هذا الإعلان مختبرك المتعاون. يمكنك مشاهدته هنا، لكن المختبر فقط هو من يمكنه تعديله.",
+      "managed_by_lab_named": "يدير هذا الإعلان مختبرك المتعاون ({{name}}). يمكنك مشاهدته هنا، لكن المختبر فقط هو من يمكنه تعديله.",
+      "welcome_title": "شاشة الترحيب",
+      "welcome_description": "حتى 5 صور أو مقاطع فيديو. اختر ما يُعرض، بشكل عشوائي أو متسلسل (بحد أقصى 100 ميجابايت لكل ملف).",
+      "patient_title": "محتوى للمريض",
+      "patient_description": "حتى 5 صور أو مقاطع فيديو موجهة للمريض. سيتم تحديد استخدامها الدقيق قريبًا."
     }
   }
 }
