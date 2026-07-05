@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface BiometricPoint {
   x: number;
@@ -13,6 +14,7 @@ interface SignatureCanvasProps {
 }
 
 export function SignatureCanvas({ onSave, onClear }: SignatureCanvasProps) {
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [points, setPoints] = useState<BiometricPoint[]>([]);
@@ -98,7 +100,7 @@ export function SignatureCanvas({ onSave, onClear }: SignatureCanvasProps) {
       />
       <div className="flex gap-2 justify-end">
         <button type="button" onClick={clear} className="px-3 py-1.5 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-          Borrar
+          {t('signature.clear')}
         </button>
         <button
           type="button"
@@ -106,7 +108,7 @@ export function SignatureCanvas({ onSave, onClear }: SignatureCanvasProps) {
           disabled={isEmpty}
           className="px-4 py-1.5 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40"
         >
-          Confirmar firma
+          {t('signature.confirm')}
         </button>
       </div>
     </div>
