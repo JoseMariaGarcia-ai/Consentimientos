@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "Редагувати запис про токсин",
+    "title_new": "Новий запис про токсин",
+    "patient": "Пацієнт",
+    "select_patient": "Вибрати пацієнта…",
+    "linked_consent": "Пов'язана інформована згода",
+    "not_linked": "Не пов'язано",
+    "consent_default_name": "Згода",
+    "unsigned": "не підписано",
+    "loading_consents": "Завантаження згод…",
+    "no_consents_hint": "У цього пацієнта ще немає підписаних згод на токсин. Це необов'язково, ви можете зберегти запис без прив'язки.",
+    "doctor": "Лікар",
+    "unassigned": "Не призначено",
+    "application_date": "Дата застосування",
+    "brand_name": "Торгова назва",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Виробник",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Номер партії",
+    "expiry_date": "Термін придатності",
+    "vials_opened": "Відкриті флакони",
+    "treated_zones": "Оброблені зони",
+    "other_zone_placeholder": "Інша зона…",
+    "add": "Додати",
+    "total_units": "Всього одиниць",
+    "notes": "Примітки",
+    "notes_placeholder": "Спостереження…",
+    "doctor_signature": "Підпис лікаря",
+    "signature_alt": "Підпис лікаря",
+    "signed_on": "Підписано {{date}}",
+    "sign_again": "Підписати знову",
+    "signature_hint": "Намалюйте підпис і натисніть «Підтвердити підпис» перед збереженням.",
+    "confirm_delete": "Видалити цей запис про токсин?",
+    "deleting": "Видалення…",
+    "delete_record": "Видалити запис",
+    "cancel": "Скасувати",
+    "save_changes": "Зберегти зміни",
+    "create_record": "Створити запис",
+    "saving": "Збереження…",
+    "unknown_error": "Невідома помилка",
+    "validation": {
+      "required_fields": "Пацієнт, торгова назва, партія, термін придатності та виробник є обов'язковими",
+      "signature_required": "Підпис лікаря є обов'язковим для збереження запису"
+    },
+    "zones": {
+      "forehead": "Лоб (горизонтальні лінії)",
+      "glabella": "Межбрів'я (глабела)",
+      "crows_feet": "Гусячі лапки (навколоочна ділянка)",
+      "lower_eyelid": "Нижня повіка",
+      "eyebrow_lift": "Брови (ліфтинг)",
+      "bunny_lines": "Ніс (bunny lines)",
+      "upper_lip": "Верхня губа (штрих-код)",
+      "oral_commissures": "Кути рота",
+      "chin_dimpling": "Підборіддя (апельсинова кірка)",
+      "platysmal_bands": "Шия (платизмальні тяжі)",
+      "decolletage": "Декольте",
+      "axillary_sweating": "Пахвова пітливість (гіпергідроз)",
+      "palmar_sweating": "Долонна пітливість",
+      "plantar_sweating": "Підошовна пітливість",
+      "jaw_bruxism": "Щелепа (бруксизм / жувальні м'язи)",
+      "migraine_occipital": "Мігрень (потиличні точки)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Ясенева посмішка",
+      "nefertiti_lift": "Ліфтинг Нефертіті (шия та щелепа)",
+      "other_zone": "Інша зона"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Створення…",
+    "export_pdf": "Експортувати PDF"
+  },
+  "patientGallery": {
+    "title": "Фотогалерея",
+    "upload_photos": "Завантажити фото",
+    "loading": "Завантаження…",
+    "empty": "Немає фото. Завантажте перше зображення.",
+    "confirm_delete": "Видалити це фото?",
+    "count_stored": "{{count}} {{unit}} · Зберігається в Cloudflare R2",
+    "photo_singular": "фото",
+    "photo_plural": "фото"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Редагувати клінічну карту",
+    "title_new": "Нова клінічна карта",
+    "patient": "Пацієнт",
+    "select_patient": "Вибрати пацієнта…",
+    "doctor": "Лікар",
+    "unassigned": "Не призначено",
+    "branch": "Клініка / Філія",
+    "unspecified": "Не вказано",
+    "visit_date": "Дата візиту",
+    "reason_for_visit": "Причина звернення",
+    "anamnesis": "Анамнез",
+    "current_medications": "Поточні ліки",
+    "allergies": "Відомі алергії",
+    "physical_exam": "Фізичний огляд",
+    "diagnosis": "Діагноз",
+    "treatment_plan": "План лікування",
+    "notes": "Спостереження / Примітки",
+    "select_patient_error": "Виберіть пацієнта",
+    "unknown_error": "Невідома помилка",
+    "cancel": "Скасувати",
+    "saving": "Збереження…",
+    "save_record": "Зберегти карту"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Файл перевищує ліміт {{maxSize}} МБ",
+    "upload_error": "Помилка завантаження файлу",
+    "confirm_delete": "Видалити цей файл?",
+    "video": "Відео",
+    "image": "Зображення",
+    "uploaded_on": "Завантажено {{date}}",
+    "change": "Змінити",
+    "delete": "Видалити",
+    "uploading": "Завантаження… {{progress}}%",
+    "drop_hint": "Перетягніть сюди або натисніть, щоб завантажити",
+    "file_types_hint": "Зображення (JPG, PNG, GIF) або відео (MP4, MOV, WebM) · Макс. {{maxSize}} МБ"
+  },
+  "consentEditor": {
+    "placeholder_default": "Введіть текст згоди…",
+    "bold": "Жирний",
+    "italic": "Курсив",
+    "heading": "Заголовок",
+    "bullet_list": "Список",
+    "ordered_list": "Нумерований список",
+    "undo": "Скасувати",
+    "redo": "Повторити"
+  },
+  "consentPdfButton": {
+    "generating": "Створення PDF…",
+    "export": "Експортувати PDF"
+  },
+  "newSessionModal": {
+    "title": "Нова фотосесія",
+    "patient_label": "Пацієнт",
+    "select_patient_placeholder": "Вибрати пацієнта…",
+    "doctor_label": "Лікар",
+    "no_doctor_assigned": "Не призначено",
+    "branch_label": "Клініка / Філія",
+    "no_branch_specified": "Не вказано",
+    "session_name_label": "Назва сесії",
+    "session_name_placeholder": "Напр.: Сесія лікування обличчя 1",
+    "date_label": "Дата та час",
+    "notes_label": "Примітки",
+    "notes_placeholder": "Спостереження про сесію…",
+    "select_patient_error": "Виберіть пацієнта",
+    "unknown_error": "Невідома помилка",
+    "cancel": "Скасувати",
+    "creating": "Створення…",
+    "create_session": "Створити сесію"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Фотосесія",
+    "photo_count": "{{count}}/{{max}} фото",
+    "compare_button": "Порівняти до / після",
+    "delete_session": "Видалити сесію",
+    "upload": "Завантажити",
+    "remaining": "Залишилось {{remaining}}"
+  },
+  "beforeAfterModal": {
+    "select_title": "Вибрати фото для порівняння",
+    "compare_title": "Порівняння До / Після",
+    "change_selection": "← Змінити вибір",
+    "select_intro": "Виберіть фото для",
+    "select_middle": "і ще одне для",
+    "before": "До",
+    "after": "Після",
+    "before_badge": "ДО",
+    "after_badge": "ПІСЛЯ",
+    "compare_button": "Порівняти"
+  },
+  "biometricPrompt": {
+    "title": "Активувати біометричний доступ",
+    "description": "Використовуйте Face ID, відбиток пальця або Windows Hello, щоб увійти менш ніж за 2 секунди наступного разу.",
+    "device_label": "Пристрій:",
+    "activate": "Активувати",
+    "default_device": "Мій пристрій"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Ручний вибір",
+        "desc": "Ви обираєте, що відображається. Натисніть на креатив, щоб активувати його."
+      },
+      "random": {
+        "label": "Випадковий порядок",
+        "desc": "Кожного разу випадково обирається один креатив для показу."
+      },
+      "sequential": {
+        "label": "Послідовний порядок",
+        "desc": "Показуються по черзі, один за одним, кожного разу."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Файл перевищує ліміт 100 МБ",
+      "invalidUrl": "Недійсна URL-адреса"
+    },
+    "confirmDelete": "Видалити цей креатив?",
+    "types": {
+      "url": "URL",
+      "video": "Відео",
+      "image": "Зображення"
+    },
+    "active": "✓ Активний",
+    "select": "Вибрати",
+    "upload": {
+      "label": "Завантажити файл",
+      "slotsFree": "{{count}} вільно"
+    },
+    "addUrlButton": "Додати URL відео (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Додати відео за URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… або пряме посилання на .mp4",
+      "labelPlaceholder": "Назва або опис (необов'язково)",
+      "hint": "Підтримується YouTube, Vimeo та прямі посилання на відео (.mp4, .webm…)",
+      "add": "Додати",
+      "saving": "Збереження…"
+    },
+    "displayModeHeading": "Як їх показувати?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Ласкаво просимо",
+    "continue": "Продовжити →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Коли показувати рекламу?",
+    "subheading": "Можна вибрати декілька варіантів одночасно.",
+    "options": {
+      "session": {
+        "label": "Один раз при вході",
+        "desc": "Показується один раз щоразу, коли користувач відкриває застосунок у браузері."
+      },
+      "consent": {
+        "label": "Кожного разу при створенні згоди",
+        "desc": "З'являється відразу після створення кожної інформованої згоди."
+      },
+      "clinical": {
+        "label": "Кожного разу при створенні клінічної карти",
+        "desc": "З'являється відразу після збереження кожної клінічної карти."
+      },
+      "interval": {
+        "label": "Кожні X хвилин",
+        "desc": "Показується періодично, поки застосунок відкритий."
+      }
+    },
+    "every": "Кожні",
+    "minutes": "хвилин",
+    "errors": {
+      "selectAtLeastOne": "Виберіть принаймні один варіант",
+      "saveFailed": "Помилка збереження"
+    },
+    "saving": "Збереження…",
+    "saved": "Збережено",
+    "saveButton": "Зберегти налаштування",
+    "appliedMessage": "✅ Налаштування застосовано"
+  },
+  "demoPreviewPanel": {
+    "heading": "Попередній перегляд за ролями",
+    "subheading": "Створіть тестові дані та увійдіть у програму так, як її бачив би пацієнт, клініка або лабораторія.",
+    "createAllButton": "Створити всі тестові дані",
+    "errors": {
+      "checkFailed": "Помилка перевірки тестових даних",
+      "createPatientFailed": "Не вдалося створити тестового пацієнта",
+      "createBranchFailed": "Не вдалося створити тестову філію",
+      "createLabFailed": "Не вдалося створити тестову лабораторію"
+    },
+    "cards": {
+      "patient": {
+        "title": "Перегляд пацієнта",
+        "description": "Симулює портал, який бачить пацієнт: його згоди, клінічну карту та фото."
+      },
+      "branch": {
+        "title": "Перегляд клініки",
+        "description": "Симулює панель, яку бачить персонал клініки, з меню, обмеженим його реальними правами."
+      },
+      "lab": {
+        "title": "Перегляд лабораторії",
+        "description": "Симулює панель лабораторії-партнера: її профіль, пов'язані клініки та кампанії."
+      }
+    },
+    "testDataCreated": "Тестові дані створено",
+    "viewAs": "Переглянути як {{role}}",
+    "roleNames": {
+      "patient": "пацієнт",
+      "branch": "клініка",
+      "lab": "лабораторія"
+    },
+    "creating": "Створення…",
+    "createTestData": "Створити тестові дані"
+  },
+  "previewBanner": {
+    "message": "Попередній перегляд — ви бачите інтерфейс так, як його бачив би",
+    "exitButton": "Вийти з попереднього перегляду",
+    "roles": {
+      "patient": "Пацієнт",
+      "clinica": "Клініка",
+      "labPartner": "Лабораторія"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Переглянути місяць",
+    "today": "Сьогодні",
+    "new_appointment": "Новий запис",
+    "no_treatments_warning": "Ще не створено жодного лікування. Перейдіть на вкладку «Лікування», щоб створити перше, перш ніж записувати на прийом.",
+    "day_closed_notice": "Цей день позначено як закритий у Плануванні розкладу. Ви можете переглянути або відкрити його на цій вкладці.",
+    "slot_aria_label": "Записати на {{time}}",
+    "outside_availability": "Поза доступним часом",
+    "treatment_fallback": "Лікування",
+    "doctor_prefix": "Д-р {{name}}",
+    "legend": {
+      "available": "Доступно",
+      "outside_hours": "Поза графіком",
+      "scheduled": "Заплановано"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Редагувати запис",
+    "title_new": "Новий запис",
+    "validation_required": "Пацієнт, лікування та час є обов'язковими",
+    "error_unknown": "Невідома помилка",
+    "confirm_delete": "Видалити цей запис?",
+    "deleting": "Видалення…",
+    "delete_appointment": "Видалити запис",
+    "cancel": "Скасувати",
+    "saving": "Збереження…",
+    "save_changes": "Зберегти зміни",
+    "create_appointment": "Створити запис",
+    "form": {
+      "patient": "Пацієнт",
+      "select_patient": "Вибрати пацієнта…",
+      "doctor": "Лікар",
+      "unassigned": "Не призначено",
+      "branch": "Клініка / Філія",
+      "main_branch": "Головна філія",
+      "treatment": "Лікування",
+      "select_treatment": "Вибрати лікування…",
+      "treatment_option": "{{name}} — {{duration}} хв — {{price}} €",
+      "no_treatments_warning": "Немає створених видів лікування. Спочатку додайте один на вкладці «Лікування».",
+      "datetime": "Дата та час",
+      "duration_note": "Займе {{duration}} хвилин у розкладі.",
+      "notes": "Примітки",
+      "notes_placeholder": "Спостереження про запис…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Лікування",
+    "subtitle": "Тривалість і ціна кожного лікування для запису на прийом",
+    "new_treatment": "Нове лікування",
+    "loading": "Завантаження…",
+    "empty_state": "Ще немає створених видів лікування",
+    "duration_display": "{{duration}} хв",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Видалити це лікування?",
+    "form": {
+      "title_edit": "Редагувати лікування",
+      "title_new": "Нове лікування",
+      "name": "Назва",
+      "name_placeholder": "Напр.: Ботулотоксин",
+      "duration": "Тривалість (хв)",
+      "price": "Ціна (€)",
+      "validation_name_required": "Назва є обов'язковою",
+      "error_unknown": "Невідома помилка",
+      "cancel": "Скасувати",
+      "saving": "Збереження…",
+      "save": "Зберегти"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
+    "months": ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+    "has_exception_tooltip": "Вже налаштовано виняток",
+    "legend": {
+      "usually_open": "Зазвичай відкрито",
+      "usually_closed": "Зазвичай закрито",
+      "has_exception": "З винятком",
+      "selected": "Вибрано"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"],
+    "months": ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+    "legend": {
+      "open_day": "Робочий день",
+      "closed": "Закрито",
+      "today": "Сьогодні"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Планування розкладу",
+    "subtitle": "Налаштуйте, у які дні та в який час можна записувати на прийом.",
+    "time_separator": "до",
+    "add_time_range": "Додати проміжок часу",
+    "weekdays": ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"],
+    "confirm_delete_exception": "Видалити цей виняток і повернутися до звичайного розкладу цього дня?",
+    "errors": {
+      "save_schedule_failed": "Не вдалося зберегти розклад",
+      "apply_pattern_failed": "Не вдалося застосувати шаблон",
+      "select_day_required": "Виберіть принаймні один день у календарі",
+      "save_exception_failed": "Не вдалося зберегти особливий день"
+    },
+    "bulk": {
+      "title": "Застосувати шаблон до кількох днів одразу",
+      "description": "Напр.: з понеділка по п'ятницю з 09:00 до 20:00. Виберіть дні та час, потім застосуйте — пізніше можна буде налаштувати кожен день окремо.",
+      "applying": "Застосування…",
+      "apply_button": "Застосувати до вибраних днів"
+    },
+    "weekly": {
+      "title": "Звичайний тижневий розклад",
+      "closed": "Закрито",
+      "saving": "Збереження…",
+      "save": "Зберегти"
+    },
+    "exceptions": {
+      "title": "Окремі дні (винятки)",
+      "description": "Відкрийте особливий день (напр. суботу) або закрийте день, який зазвичай відкритий (напр. свято).",
+      "select_days_label": "Виберіть один або декілька днів",
+      "days_selected_singular": "Вибрано {{count}} день",
+      "days_selected_plural": "Вибрано {{count}} днів",
+      "clear_selection": "Очистити вибір",
+      "open_special": "Відкрити особливий",
+      "close": "Закрити",
+      "schedule_label": "Розклад цих днів",
+      "notes_placeholder": "Причина (необов'язково) — напр.: серпневі канікули",
+      "saving": "Збереження…",
+      "save_button_singular": "Зберегти особливий день",
+      "save_button_plural": "Зберегти {{count}} особливих днів",
+      "no_exceptions": "Немає налаштованих окремих днів.",
+      "open_special_status": "Відкрито особливо · {{ranges}}",
+      "closed_status": "Закрито"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Цифрові Згоди · Цифровий Підпис"
   },
   "nav": {
-    "dashboard": "Панель",
+    "dashboard": "Головна",
     "patients": "Пацієнти",
     "doctors": "Лікарі",
     "consents": "Згоди",
@@ -14,15 +445,23 @@
     "settings": "Налаштування",
     "clinicalRecords": "Клінічна Карта",
     "photos": "Фото",
-    "recharge": "Поповнити"
+    "recharge": "Плани підписки",
+    "agenda": "Розклад",
+    "toxin": "Контроль токсину",
+    "labPartners": "Лабораторії",
+    "menu": "Меню"
+  },
+  "topbar": {
+    "tagline": "Цифрові Згоди · Цифровий Підпис",
+    "legal": "eIDAS (ЄС 910/2014) · Закон про персональні дані · GDPR"
   },
   "auth": {
     "login_title": "Безпечний доступ",
     "login_subtitle": "Введіть свій email для отримання посилання доступу",
     "email_placeholder": "email@klinika.ua",
-    "send_link": "Надіслати посилання",
+    "send_link": "Надіслати посилання доступу",
     "check_email": "Перевірте свій email — ми надіслали посилання доступу",
-    "magic_link_sent": "Посилання надіслано",
+    "magic_link_sent": "Посилання успішно надіслано",
     "remember_device": "Запам'ятати цей пристрій",
     "remember_7": "7 днів",
     "remember_30": "30 днів",
@@ -33,16 +472,29 @@
     "biometric_success": "Біометрію активовано!",
     "biometric_success_msg": "Наступного разу ви увійдете одним дотиком.",
     "biometric_error": "Не вдалося активувати. Переконайтеся, що на вашому пристрої налаштована біометрія.",
-    "biometric_now": "Зараз ні"
+    "biometric_now": "Зараз ні",
+    "portal_subtitle": "Цифрові Згоди · Цифровий Підпис",
+    "portal_title": "Доступ до документа",
+    "portal_email_prompt": "Введіть свій email, щоб отримати безпечне посилання доступу.",
+    "portal_link_sent_title": "Посилання надіслано",
+    "portal_link_sent_message": "Перевірте свою пошту та натисніть на посилання, щоб продовжити.",
+    "portal_email_placeholder": "you@email.com",
+    "portal_consent_default_title": "Інформована згода",
+    "portal_accept_label": "Я прочитав(ла) і приймаю цю інформовану згоду",
+    "portal_proceed_to_sign": "Перейти до підпису →",
+    "portal_saving_signature": "Збереження підпису…",
+    "portal_signed_title": "Підпис завершено",
+    "portal_signed_message": "Вашу згоду підписано та безпечно зареєстровано.",
+    "portal_error_message": "Посилання могло застаріти або бути неправильним."
   },
   "patients": {
     "title": "Пацієнти",
     "add": "Додати пацієнта",
-    "search": "Пошук за ім'ям, ідентифікатором, телефоном…",
+    "search": "Пошук за ім'ям, ID, телефоном…",
     "name": "Ім'я",
     "surname": "Прізвище",
     "dob": "Дата народження",
-    "id_doc": "Паспорт / ІПН",
+    "id_doc": "Паспорт / ID-картка",
     "phone": "Телефон",
     "email": "Email",
     "address": "Адреса",
@@ -57,14 +509,41 @@
     "gallery": "Фотогалерея",
     "no_photos": "Немає фото. Завантажте перше зображення.",
     "upload_photos": "Завантажити фото",
-    "uploading": "Завантаження…"
+    "uploading": "Завантаження…",
+    "count_registered": "{{count}} зареєстровано",
+    "form": {
+      "doc_type": "Тип",
+      "doc_type_passport": "Паспорт",
+      "city": "Місто",
+      "province": "Область",
+      "country": "Країна",
+      "select_placeholder": "— Вибрати —",
+      "countries": [
+        "Іспанія", "Німеччина", "Аргентина", "Бельгія", "Болівія", "Бразилія", "Чилі", "Китай",
+        "Колумбія", "Коста-Рика", "Куба", "Еквадор", "Сальвадор", "США", "Франція",
+        "Гватемала", "Гондурас", "Італія", "Марокко", "Мексика", "Нікарагуа", "Нідерланди",
+        "Панама", "Парагвай", "Перу", "Португалія", "Велика Британія", "Домініканська Республіка",
+        "Швейцарія", "Уругвай", "Венесуела", "Інше"
+      ],
+      "provinces": [
+        "Алава", "Альбасете", "Аліканте", "Альмерія", "Астурія", "Авіла", "Бадахос", "Балеари",
+        "Барселона", "Бургос", "Касерес", "Кадіс", "Кантабрія", "Кастельон", "Сьюдад-Реаль",
+        "Кордова", "Куенка", "Жирона", "Гранада", "Гвадалахара", "Гіпускоа", "Уельва", "Уеска",
+        "Хаен", "Ла-Корунья", "Ла-Ріоха", "Лас-Пальмас", "Леон", "Лєїда", "Луго", "Мадрид",
+        "Малага", "Мурсія", "Наварра", "Оренсе", "Паленсія", "Понтеведра", "Саламанка",
+        "Санта-Крус-де-Тенеріфе", "Сеговія", "Севілья", "Сорія", "Таррагона", "Теруель", "Толедо",
+        "Валенсія", "Вальядолід", "Біскайя", "Самора", "Сарагоса", "Сеута", "Мелілья"
+      ],
+      "save_error_prefix": "Помилка збереження:",
+      "unknown_error": "Невідома помилка"
+    }
   },
   "doctors": {
     "title": "Лікарі",
     "add": "Додати лікаря",
     "name": "Ім'я",
     "specialty": "Спеціалізація",
-    "license": "Номер ліцензії",
+    "license": "№ ліцензії",
     "email": "Email",
     "role": "Роль",
     "roles": {
@@ -73,17 +552,45 @@
       "receptionist": "Реєстратор"
     },
     "save": "Зберегти лікаря",
-    "no_results": "Немає зареєстрованих лікарів"
+    "no_results": "Немає зареєстрованих лікарів",
+    "last_name": "Прізвище",
+    "phone": "Телефон",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "Невідома помилка",
+    "count_registered": "{{count}} зареєстровано",
+    "license_display": "№ {{number}}"
   },
   "consents": {
     "title": "Згоди",
     "add": "Нова згода",
     "search": "Пошук згод…",
+    "step_labels": ["Дані", "Перегляд", "Підпис лікаря", "Підпис пацієнта", "Готово"],
+    "branch_label": "Філія",
+    "main_branch": "Головна філія",
+    "select_patient": "Вибрати пацієнта…",
+    "select_doctor": "Вибрати лікаря…",
+    "select_treatment": "Вибрати лікування…",
+    "translating": "Переклад…",
+    "continue": "Продовжити",
+    "responsible_doctor": "Відповідальний лікар",
+    "legal_framework_title": "Правова база — {{jurisdiction}}",
+    "witness_required_notice": "Ця країна вимагає свідка для підпису",
+    "back": "← Назад",
+    "sign_arrow": "Підписати →",
+    "doctor_signature_title": "Підпис лікаря",
+    "doctor_signature_notice": "Лікар повинен підписати першим, щоб підтвердити згоду",
+    "back_to_preview": "← Назад",
+    "patient_signature_title": "Підпис пацієнта",
+    "patient_signature_notice": "Пацієнт повинен підписати, щоб підтвердити, що прочитав і приймає згоду",
+    "signed_title": "Згоду підписано",
+    "signed_description": "Документ успішно підписано та зареєстровано.",
+    "close": "Закрити",
     "status": {
       "pending": "Очікує",
       "signed": "Підписано",
       "revoked": "Відкликано",
-      "expired": "Прострочено"
+      "expired": "Прострочено",
+      "all": "Всі"
     },
     "sign": "Підписати",
     "generate_pdf": "Створити PDF",
@@ -93,14 +600,20 @@
     "treatment": "Лікування",
     "language": "Мова",
     "signed_at": "Дата підпису",
-    "no_results": "Немає згод"
+    "no_results": "Немає згод",
+    "confirm_delete": "Видалити цю згоду?",
+    "stats": "Всього {{total}} · {{signed}} підписано · {{pending}} очікує",
+    "branch": "Філія",
+    "created_at": "Дата створення",
+    "status_header": "Статус",
+    "continue_signature": "Продовжити підпис"
   },
   "signature": {
     "title": "Підпис пацієнта",
     "instructions": "Підпишіться у полі нижче",
     "clear": "Очистити",
     "confirm": "Підтвердити підпис",
-    "legal_notice": "Я прочитав/ла та приймаю інформовану згоду",
+    "legal_notice": "Я прочитав(ла) та приймаю інформовану згоду",
     "biometric_capture": "Запис біометричних даних…"
   },
   "clinic": {
@@ -113,13 +626,20 @@
     "logo": "Логотип",
     "save": "Зберегти конфігурацію",
     "branches": "Додаткові філії",
-    "branches_desc": "Управління кількома філіями",
+    "branches_desc": "Управління кількома філіями вашої клініки",
     "add_branch": "Додати філію",
     "no_branches": "Немає додаткових філій",
     "branch_name": "Назва філії",
     "save_branches": "Зберегти філії",
     "edit_branch": "Редагувати філію",
-    "new_branch": "Нова філія"
+    "new_branch": "Нова філія",
+    "save_branch": "Зберегти філію",
+    "subtitle": "Загальні налаштування клініки",
+    "trade_name": "Комерційна назва",
+    "legal_name": "Юридична назва",
+    "nika_number": "Номер НІКА",
+    "save_success": "Успішно збережено",
+    "confirm_delete_branch": "Видалити цю філію?"
   },
   "language": {
     "select": "Мова",
@@ -144,7 +664,27 @@
     "magic_link_sent": "Ми надіслали Magic Link на",
     "email": "Email",
     "magic_link": "Увійти через Magic Link",
-    "footer": "Дійсні цифрові згоди · Закон про захист персональних даних · GDPR"
+    "footer": "Дійсні цифрові згоди · Закон про охорону здоров'я · GDPR",
+    "invalid_email": "Введіть дійсний email",
+    "send_error": "Помилка надсилання посилання",
+    "subtitle": "Цифрові Згоди · eIDAS",
+    "email_placeholder": "you@klinika.ua"
+  },
+  "dashboard": {
+    "title": "Панель керування",
+    "subtitle": "Огляд активності",
+    "pending_signature": "Очікують підпису",
+    "signature_rate": "Рівень підписання",
+    "signed_count": "{{count}} підписано",
+    "pending_count": "{{count}} очікує",
+    "recent_consents": "Останні згоди",
+    "view_all_consents": "Переглянути всі →",
+    "view_all": "Переглянути всі →",
+    "no_consents": "Немає згод",
+    "recent_clinical": "Останні клінічні карти",
+    "no_clinical": "Немає клінічних карт",
+    "recent_photos": "Останні фотосесії",
+    "no_photos": "Немає фотосесій"
   },
   "templates": {
     "title": "Шаблони",
@@ -152,20 +692,354 @@
     "editor_title": "Редактор шаблону",
     "consent_title_label": "Заголовок згоди",
     "no_translation": "Немає перекладу для",
-    "translate_all": "Перекласти на 31 мову",
+    "translate_all": "Перекласти на 21 мову",
     "translating": "Переклад…",
     "legal_framework": "Правова база",
     "select_template": "Виберіть шаблон для редагування",
     "empty": "Немає шаблонів",
     "title_placeholder": "Інформована згода — Лікування…",
     "content_label": "Зміст згоди",
-    "content_placeholder": "Напишіть текст інформованої згоди…",
+    "content_placeholder": "Введіть текст інформованої згоди…",
     "saving": "Збереження…",
     "saved": "Збережено"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Видалити цю клінічну карту?",
+    "confirm_delete_session": "Видалити цю сесію та всі її фото?",
+    "not_found": "Пацієнта не знайдено",
+    "date_of_birth": "Дата народження",
+    "email": "Email",
+    "blood_type": "Група крові",
+    "address": "Адреса",
+    "allergies": "Алергії",
+    "medications": "Ліки",
+    "tabs": {
+      "history": "Клінічні карти ({{count}})",
+      "photos": "Фото ({{count}})",
+      "consents": "Згоди ({{count}})"
+    },
+    "new_clinical_record": "Нова карта",
+    "no_clinical_records": "У цього пацієнта немає клінічних карт",
+    "doctor_prefix": "Д-р {{name}}",
+    "fields": {
+      "anamnesis": "Анамнез",
+      "allergies": "Алергії",
+      "current_medications": "Поточні ліки",
+      "physical_exam": "Фізичний огляд",
+      "diagnosis": "Діагноз",
+      "treatment_plan": "План лікування",
+      "notes": "Спостереження"
+    },
+    "new_photo_session": "Нова сесія",
+    "no_photo_sessions": "У цього пацієнта немає фотосесій",
+    "no_consents": "У цього пацієнта немає згод",
+    "status": {
+      "signed": "Підписано",
+      "pending": "Очікує",
+      "revoked": "Відкликано",
+      "expired": "Прострочено"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Лабораторія",
+    "not_found": "Профіль лабораторії не знайдено.",
+    "panel_subtitle": "Панель лабораторії-партнера",
+    "tabs": {
+      "clinics": "Пов'язані клініки",
+      "campaigns": "Рекламні кампанії",
+      "stats": "Статистика"
+    },
+    "no_clinics": "До цієї лабораторії ще не пов'язано жодної клініки.",
+    "media_management": "Управління рекламними матеріалами",
+    "welcome_screen": {
+      "title": "Екран привітання",
+      "description": "До 5 зображень або відео. Виберіть, що показувати: випадково чи послідовно (макс. 100 МБ на файл)."
+    },
+    "patient_content": {
+      "title": "Контент для пацієнта",
+      "description": "До 5 зображень або відео для пацієнта. Точне використання буде налаштовано найближчим часом."
+    },
+    "stats_pending": "Цей розділ ще не визначено — незабаром тут з'являться показники ефективності ваших кампаній і клінік."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Видалити цю клінічну карту?",
+    "title": "Клінічні карти",
+    "records_count": "{{count}} записів",
+    "add_record": "Нова карта",
+    "search_placeholder": "Пошук за пацієнтом, діагнозом, причиною…",
+    "no_records": "Немає клінічних карт",
+    "table_headers": ["Пацієнт", "Дата", "Причина звернення", "Діагноз", "Лікар", ""]
+  },
+  "labPartners": {
+    "title": "Лабораторії-партнери",
+    "count": "{{count}} зареєстровано",
+    "new_lab": "Нова лабораторія",
+    "search_placeholder": "Пошук лабораторії…",
+    "no_labs": "Немає лабораторій.",
+    "col_name": "Назва",
+    "col_email": "Email",
+    "col_contact": "Контакт",
+    "col_phone": "Телефон",
+    "col_status": "Статус",
+    "col_actions": "Дії",
+    "status_active": "Активна",
+    "status_inactive": "Неактивна",
+    "confirm_deactivate": "Деактивувати лабораторію?",
+    "form": {
+      "edit_title": "Редагувати лабораторію",
+      "new_title": "Нова лабораторія",
+      "name": "Назва",
+      "email": "Email",
+      "phone": "Телефон",
+      "contact_person": "Контактна особа",
+      "website": "Веб-сайт",
+      "notes": "Примітки",
+      "name_email_required": "Назва та email є обов'язковими",
+      "unknown_error": "Невідома помилка"
+    },
+    "campaigns": {
+      "title": "Кампанії {{name}}",
+      "new_campaign": "Нова кампанія",
+      "no_campaigns": "Немає кампаній.",
+      "col_name": "Назва",
+      "col_type": "Тип",
+      "col_trigger": "Тригер",
+      "col_status": "Статус",
+      "col_actions": "Дії",
+      "confirm_delete": "Видалити кампанію?",
+      "form": {
+        "edit_title": "Редагувати кампанію",
+        "new_title": "Нова кампанія",
+        "name": "Назва",
+        "name_required": "Назва є обов'язковою",
+        "unknown_error": "Невідома помилка",
+        "type": "Тип",
+        "rotation_mode": "Режим ротації",
+        "rotation_random": "Випадковий",
+        "rotation_manual": "Ручний",
+        "creative_url": "URL креативу",
+        "trigger": "Тригер",
+        "interval_minutes": "Інтервал (хв)",
+        "start_date": "Дата початку",
+        "end_date": "Дата завершення",
+        "active": "Активна"
+      }
+    },
+    "creative_types": {
+      "image": "Зображення",
+      "video": "Відео",
+      "url": "URL",
+      "offer": "Пропозиція",
+      "training": "Навчання"
+    },
+    "triggers": {
+      "on_login": "При вході",
+      "on_consent": "При створенні згоди",
+      "every_x_minutes": "Кожні X хвилин",
+      "once_daily": "Раз на день"
+    }
+  },
+  "agenda": {
+    "title": "Розклад",
+    "subtitle": "Записи, лікування та планування графіка",
+    "tab_appointments": "Записи",
+    "tab_treatments": "Лікування",
+    "tab_planning": "Планування розкладу"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID не надано",
+    "verifying": "Перевірка документа…",
+    "subtitle": "Перевірка документа",
+    "not_found_title": "Документ не знайдено",
+    "signed_title": "Документ дійсний і підписаний",
+    "signed_subtitle": "Підпис успішно перевірено",
+    "revoked_title": "Згоду відкликано",
+    "revoked_subtitle": "Пацієнт відкликав цю згоду",
+    "pending_title": "Очікує підпису",
+    "pending_subtitle": "Цей документ ще не підписано",
+    "patient": "Пацієнт",
+    "doctor": "Лікар",
+    "treatment": "Лікування",
+    "signed_date": "Дата підпису",
+    "hash_label": "Хеш SHA-256",
+    "document_id_label": "ID документа:",
+    "verified_on": "Перевірено {{date}}. Цей документ дійсний відповідно до законодавства про охорону здоров'я та підписаний електронно згідно з Регламентом eIDAS (ЄС) 910/2014."
+  },
+  "recharge": {
+    "title": "Плани підписки",
+    "subtitle": "Виберіть план, який найкраще підходить вашій клініці",
+    "monthly": "Щомісячно",
+    "annual": "Щорічно",
+    "per_month": "/міс",
+    "save_20_annual": "Заощаджуйте 20 %, оплачуючи щорічно",
+    "switch_annual_save": "Перейдіть на річний план і заощадьте 20 %",
+    "hire_plan": "Обрати план",
+    "note_title": "Примітка щодо Плану ШІ та Плану ШІ Преміум:",
+    "note_text": "Початкове налаштування агентів ШІ (послуги, лікування та персоналізація) і впровадження оцінюються окремо залежно від складності кожної клініки. Витрати на голосового агента та WhatsApp API не включені до щомісячної плати.",
+    "plans": {
+      "base": {
+        "name": "Базовий план",
+        "features": [
+          "Необмежена кількість згод",
+          "Клінічна карта",
+          "Фотогалерея",
+          "Портал пацієнта",
+          "Magic Link + біометрія",
+          "Підтримка включена"
+        ]
+      },
+      "pro": {
+        "name": "План Pro",
+        "badge": "Найпопулярніший",
+        "features": [
+          "Все з Базового плану +",
+          "Розклад записів",
+          "CRM пацієнтів",
+          "Контроль токсину",
+          "Кошториси для пацієнтів"
+        ]
+      },
+      "ia": {
+        "name": "План ШІ",
+        "features": [
+          "Все з Плану Pro +",
+          "ШІ-агент WhatsApp 24/7 — залучення записів",
+          "Автоматичне підтвердження записів",
+          "Автоматичні нагадування про записи",
+          "Панель управління WhatsApp",
+          "Спілкування з пацієнтами через WhatsApp",
+          "Надсилання через WhatsApp згод, клінічної карти, фото, кошторисів і рахунків"
+        ]
+      },
+      "ia_plus": {
+        "name": "План ШІ Преміум",
+        "badge": "Новинка",
+        "features": [
+          "Все з Плану ШІ +",
+          "Голосовий ШІ-агент 24/7: відповідає на дзвінки",
+          "Автоматично записує на прийом по телефону",
+          "Клонує голос вашого адміністратора на 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Контроль токсину",
+    "subtitle": "Простежуваність партій ботулотоксину",
+    "new_record": "Новий запис",
+    "from": "Від",
+    "to": "До",
+    "doctor": "Лікар",
+    "patient": "Пацієнт",
+    "all": "Всі",
+    "lot_number": "№ партії",
+    "search_lot_placeholder": "Пошук партії…",
+    "clear_filters": "Очистити фільтри",
+    "no_results": "Немає записів про токсин з цими фільтрами.",
+    "col_date": "Дата",
+    "col_patient": "Пацієнт",
+    "col_doctor": "Лікар",
+    "col_brand": "Торгова назва",
+    "col_lot": "Партія",
+    "col_expiry": "Термін придатності",
+    "col_zones": "Зони",
+    "col_units": "Одиниці",
+    "col_signature": "Підпис",
+    "col_ci": "Згода",
+    "col_actions": "Дії",
+    "signed": "Підписано",
+    "unsigned": "Без підпису",
+    "consent_linked": "З пов'язаною згодою",
+    "consent_not_linked": "Без пов'язаної згоди",
+    "confirm_delete": "Видалити цей запис про токсин?",
+    "detail": {
+      "not_found": "Запис не знайдено.",
+      "patient": "Пацієнт",
+      "doctor": "Лікар",
+      "brand": "Торгова назва",
+      "manufacturer": "Виробник",
+      "lot": "Номер партії",
+      "expiry": "Термін придатності",
+      "vials": "Відкриті флакони",
+      "total_units": "Всього одиниць",
+      "treated_zones": "Оброблені зони",
+      "no_zones": "Немає зареєстрованих зон.",
+      "notes": "Примітки",
+      "doctor_signature": "Підпис лікаря",
+      "signature_alt": "Підпис лікаря",
+      "signed_on": "Підписано {{date}}",
+      "no_signature": "Цей запис не має підпису лікаря.",
+      "linked_consent": "Пов'язана інформована згода",
+      "consent_default_name": "Згода",
+      "consent_unsigned": "Не підписано",
+      "loading_pdf": "Завантаження PDF…",
+      "consent_load_error": "Не вдалося завантажити інформацію про пов'язану згоду."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Токен не знайдено в URL",
+    "invalid_token": "Недійсний або прострочений токен",
+    "connection_error": "Помилка з'єднання",
+    "verifying": "Перевірка посилання…",
+    "invalid_link": "Недійсне посилання",
+    "back_home": "Повернутися на головну"
+  },
+  "photoSessions": {
+    "confirm_delete": "Видалити цю сесію та всі її фото?",
+    "title": "Фото",
+    "subtitle": "{{count}} фотосесій",
+    "new_session": "Нова сесія",
+    "search_placeholder": "Пошук за пацієнтом або назвою сесії…",
+    "no_sessions": "Немає фотосесій"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Мої згоди",
+      "clinical": "Моя клінічна карта",
+      "photos": "Мої фото"
+    },
+    "consents": {
+      "empty": "У вас ще немає підписаних згод.",
+      "default_name": "Згода",
+      "doctor": "Д-р {{name}}",
+      "signed_on": "Підписано {{date}}",
+      "status_signed": "Підписано",
+      "status_pending": "Очікує"
+    },
+    "clinical": {
+      "empty": "Ваша клінічна карта порожня.",
+      "default_name": "Консультація",
+      "doctor_suffix": " · Д-р {{name}}",
+      "fields": {
+        "diagnosis": "Діагноз",
+        "anamnesis": "Анамнез",
+        "current_medications": "Поточні ліки",
+        "allergies": "Алергії",
+        "treatment_plan": "План лікування",
+        "notes": "Спостереження"
+      }
+    },
+    "photos": {
+      "empty": "Ще немає фотосесій.",
+      "back_to_sessions": "Повернутися до сесій",
+      "default_session_name": "Фотосесія",
+      "doctor_suffix": " · Д-р {{name}}",
+      "compare_title": "Порівняння до / після",
+      "before": "До",
+      "after": "Після",
+      "close_compare": "Закрити порівняння",
+      "compare_button": "Порівняти",
+      "photo_count": "{{count}} фото"
+    }
+  },
   "settings": {
     "title": "Налаштування",
-    "subtitle": "Управління користувачами та доступом",
+    "subtitle": "Управління користувачами та доступом до системи",
+    "tabs": {
+      "users": "Користувачі",
+      "media": "Реклама",
+      "preview": "Попередній перегляд"
+    },
     "users": {
       "title": "Користувачі",
       "invite_user": "Запросити користувача",
@@ -174,14 +1048,40 @@
       "role": "Роль",
       "role_admin": "Адміністратор",
       "role_clinica": "Клініка",
-      "admin_hint": "Адміністратор має повний доступ до всіх розділів.",
+      "admin_hint": "Адміністратор має повний доступ до всіх розділів системи.",
       "permissions": "Права доступу",
-      "permissions_hint": "Виберіть доступні розділи.",
+      "permissions_hint": "Виберіть, до яких розділів матиме доступ цей користувач.",
       "send_invite": "Надіслати запрошення",
-      "no_users": "Немає користувачів. Запросіть першого.",
+      "no_users": "Немає зареєстрованих користувачів. Запросіть першого.",
       "inactive": "Неактивний",
-      "activate": "Активувати",
-      "deactivate": "Деактивувати"
+      "activate": "Активувати користувача",
+      "deactivate": "Деактивувати користувача",
+      "role_superadmin": "Супер Адміністратор",
+      "role_doctor": "Лікар",
+      "role_receptionist": "Реєстратор",
+      "role_lab_partner": "Лабораторія",
+      "role_patient": "Пацієнт",
+      "filter_all": "Всі",
+      "invite_accepted": "Запрошення прийнято",
+      "invite_expired": "Запрошення прострочено",
+      "invite_pending": "Запрошення очікує",
+      "email_placeholder": "user@klinika.ua",
+      "full_name_placeholder": "Ім'я Прізвище",
+      "linked_lab": "Пов'язана лабораторія",
+      "no_lab": "Без лабораторії",
+      "lab_hint": "Користувач бачитиме лише клініки, пов'язані з цією лабораторією.",
+      "admin_only_hint": "Розділ «Налаштування» доступний виключно адміністраторам і ніколи не може бути делеговано клініці.",
+      "load_error": "Не вдалося завантажити список користувачів",
+      "retry": "Повторити"
+    },
+    "media": {
+      "title": "Управління рекламними матеріалами",
+      "managed_by_lab": "Цю рекламу керує ваша лабораторія-партнер. Ви можете переглядати її тут, але змінювати може лише лабораторія.",
+      "managed_by_lab_named": "Цю рекламу керує ваша лабораторія-партнер ({{name}}). Ви можете переглядати її тут, але змінювати може лише лабораторія.",
+      "welcome_title": "Екран привітання",
+      "welcome_description": "До 5 зображень або відео. Виберіть, що показувати: випадково чи послідовно (макс. 100 МБ на файл).",
+      "patient_title": "Контент для пацієнта",
+      "patient_description": "До 5 зображень або відео для пацієнта. Точне використання буде налаштовано найближчим часом."
     }
   }
 }

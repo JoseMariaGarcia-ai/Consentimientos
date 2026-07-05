@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "Chỉnh sửa bản ghi độc tố",
+    "title_new": "Bản ghi độc tố mới",
+    "patient": "Bệnh nhân",
+    "select_patient": "Chọn bệnh nhân…",
+    "linked_consent": "Đơn chấp thuận được liên kết",
+    "not_linked": "Chưa liên kết",
+    "consent_default_name": "Đơn chấp thuận",
+    "unsigned": "chưa ký",
+    "loading_consents": "Đang tải các đơn chấp thuận…",
+    "no_consents_hint": "Bệnh nhân này chưa có đơn chấp thuận độc tố nào được ký. Đây là tùy chọn, bạn có thể lưu bản ghi mà không liên kết.",
+    "doctor": "Bác sĩ",
+    "unassigned": "Chưa chỉ định",
+    "application_date": "Ngày tiêm",
+    "brand_name": "Tên thương mại",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Nhà sản xuất",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Số lô",
+    "expiry_date": "Ngày hết hạn",
+    "vials_opened": "Số lọ đã mở",
+    "treated_zones": "Vùng điều trị",
+    "other_zone_placeholder": "Vùng khác…",
+    "add": "Thêm",
+    "total_units": "Tổng số đơn vị",
+    "notes": "Ghi chú",
+    "notes_placeholder": "Nhận xét…",
+    "doctor_signature": "Chữ ký bác sĩ",
+    "signature_alt": "Chữ ký bác sĩ",
+    "signed_on": "Đã ký {{date}}",
+    "sign_again": "Ký lại",
+    "signature_hint": "Vẽ chữ ký và nhấn \"Xác nhận chữ ký\" trước khi lưu.",
+    "confirm_delete": "Xóa bản ghi độc tố này?",
+    "deleting": "Đang xóa…",
+    "delete_record": "Xóa bản ghi",
+    "cancel": "Hủy",
+    "save_changes": "Lưu thay đổi",
+    "create_record": "Tạo bản ghi",
+    "saving": "Đang lưu…",
+    "unknown_error": "Lỗi không xác định",
+    "validation": {
+      "required_fields": "Bệnh nhân, tên thương mại, số lô, ngày hết hạn và nhà sản xuất là bắt buộc",
+      "signature_required": "Chữ ký của bác sĩ là bắt buộc để lưu bản ghi"
+    },
+    "zones": {
+      "forehead": "Trán (nếp nhăn ngang)",
+      "glabella": "Giữa hai lông mày (glabella)",
+      "crows_feet": "Vết chân chim (quanh mắt)",
+      "lower_eyelid": "Mí mắt dưới",
+      "eyebrow_lift": "Lông mày (nâng cơ)",
+      "bunny_lines": "Mũi (bunny lines)",
+      "upper_lip": "Môi trên (mã vạch)",
+      "oral_commissures": "Khóe miệng",
+      "chin_dimpling": "Cằm (da cam)",
+      "platysmal_bands": "Cổ (dải cơ platysma)",
+      "decolletage": "Vùng ngực",
+      "axillary_sweating": "Đổ mồ hôi nách (tăng tiết mồ hôi)",
+      "palmar_sweating": "Đổ mồ hôi lòng bàn tay",
+      "plantar_sweating": "Đổ mồ hôi lòng bàn chân",
+      "jaw_bruxism": "Hàm (nghiến răng / cơ nhai)",
+      "migraine_occipital": "Đau nửa đầu (điểm chẩm)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Cười hở lợi",
+      "nefertiti_lift": "Nâng cơ Nefertiti (cổ và hàm)",
+      "other_zone": "Vùng khác"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Đang tạo…",
+    "export_pdf": "Xuất PDF"
+  },
+  "patientGallery": {
+    "title": "Thư viện ảnh",
+    "upload_photos": "Tải lên ảnh",
+    "loading": "Đang tải…",
+    "empty": "Không có ảnh. Tải lên hình ảnh đầu tiên.",
+    "confirm_delete": "Xóa ảnh này?",
+    "count_stored": "{{count}} {{unit}} · Lưu trữ trên Cloudflare R2",
+    "photo_singular": "ảnh",
+    "photo_plural": "ảnh"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Chỉnh sửa hồ sơ bệnh án",
+    "title_new": "Hồ sơ bệnh án mới",
+    "patient": "Bệnh nhân",
+    "select_patient": "Chọn bệnh nhân…",
+    "doctor": "Bác sĩ",
+    "unassigned": "Chưa chỉ định",
+    "branch": "Phòng khám / Chi nhánh",
+    "unspecified": "Chưa xác định",
+    "visit_date": "Ngày khám",
+    "reason_for_visit": "Lý do khám",
+    "anamnesis": "Tiền sử bệnh",
+    "current_medications": "Thuốc đang dùng",
+    "allergies": "Dị ứng đã biết",
+    "physical_exam": "Khám lâm sàng",
+    "diagnosis": "Chẩn đoán",
+    "treatment_plan": "Kế hoạch điều trị",
+    "notes": "Nhận xét / Ghi chú",
+    "select_patient_error": "Chọn một bệnh nhân",
+    "unknown_error": "Lỗi không xác định",
+    "cancel": "Hủy",
+    "saving": "Đang lưu…",
+    "save_record": "Lưu hồ sơ"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Tệp vượt quá giới hạn {{maxSize}} MB",
+    "upload_error": "Lỗi khi tải tệp lên",
+    "confirm_delete": "Xóa tệp này?",
+    "video": "Video",
+    "image": "Hình ảnh",
+    "uploaded_on": "Đã tải lên {{date}}",
+    "change": "Thay đổi",
+    "delete": "Xóa",
+    "uploading": "Đang tải lên… {{progress}}%",
+    "drop_hint": "Kéo thả vào đây hoặc nhấp để tải lên",
+    "file_types_hint": "Hình ảnh (JPG, PNG, GIF) hoặc video (MP4, MOV, WebM) · Tối đa {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Viết nội dung đơn chấp thuận…",
+    "bold": "In đậm",
+    "italic": "In nghiêng",
+    "heading": "Tiêu đề",
+    "bullet_list": "Danh sách",
+    "ordered_list": "Danh sách đánh số",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại"
+  },
+  "consentPdfButton": {
+    "generating": "Đang tạo PDF…",
+    "export": "Xuất PDF"
+  },
+  "newSessionModal": {
+    "title": "Phiên chụp ảnh mới",
+    "patient_label": "Bệnh nhân",
+    "select_patient_placeholder": "Chọn bệnh nhân…",
+    "doctor_label": "Bác sĩ",
+    "no_doctor_assigned": "Chưa chỉ định",
+    "branch_label": "Phòng khám / Chi nhánh",
+    "no_branch_specified": "Chưa xác định",
+    "session_name_label": "Tên phiên",
+    "session_name_placeholder": "Ví dụ: Điều trị mặt buổi 1",
+    "date_label": "Ngày và giờ",
+    "notes_label": "Ghi chú",
+    "notes_placeholder": "Nhận xét về phiên…",
+    "select_patient_error": "Chọn một bệnh nhân",
+    "unknown_error": "Lỗi không xác định",
+    "cancel": "Hủy",
+    "creating": "Đang tạo…",
+    "create_session": "Tạo phiên"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Phiên chụp ảnh",
+    "photo_count": "{{count}}/{{max}} ảnh",
+    "compare_button": "So sánh trước / sau",
+    "delete_session": "Xóa phiên",
+    "upload": "Tải lên",
+    "remaining": "còn {{remaining}}"
+  },
+  "beforeAfterModal": {
+    "select_title": "Chọn ảnh để so sánh",
+    "compare_title": "So sánh Trước / Sau",
+    "change_selection": "← Thay đổi lựa chọn",
+    "select_intro": "Chọn một ảnh cho",
+    "select_middle": "và một ảnh khác cho",
+    "before": "Trước",
+    "after": "Sau",
+    "before_badge": "TRƯỚC",
+    "after_badge": "SAU",
+    "compare_button": "So sánh"
+  },
+  "biometricPrompt": {
+    "title": "Kích hoạt truy cập sinh trắc học",
+    "description": "Sử dụng Face ID, vân tay hoặc Windows Hello để đăng nhập trong chưa đầy 2 giây vào lần sau.",
+    "device_label": "Thiết bị:",
+    "activate": "Kích hoạt",
+    "default_device": "Thiết bị của tôi"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Chọn thủ công",
+        "desc": "Bạn chọn nội dung nào được hiển thị. Nhấp vào một nội dung quảng cáo để kích hoạt."
+      },
+      "random": {
+        "label": "Thứ tự ngẫu nhiên",
+        "desc": "Một nội dung quảng cáo được chọn ngẫu nhiên mỗi lần hiển thị."
+      },
+      "sequential": {
+        "label": "Thứ tự tuần tự",
+        "desc": "Hiển thị lần lượt theo thứ tự, từng cái một, mỗi lần đến lượt."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Tệp vượt quá giới hạn 100 MB",
+      "invalidUrl": "URL không hợp lệ"
+    },
+    "confirmDelete": "Xóa nội dung quảng cáo này?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Hình ảnh"
+    },
+    "active": "✓ Đang hoạt động",
+    "select": "Chọn",
+    "upload": {
+      "label": "Tải tệp lên",
+      "slotsFree": "còn {{count}} chỗ trống"
+    },
+    "addUrlButton": "Thêm URL video (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Thêm video bằng URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… hoặc URL trực tiếp đến .mp4",
+      "labelPlaceholder": "Tên hoặc mô tả (không bắt buộc)",
+      "hint": "Hỗ trợ YouTube, Vimeo và URL video trực tiếp (.mp4, .webm…)",
+      "add": "Thêm",
+      "saving": "Đang lưu…"
+    },
+    "displayModeHeading": "Hiển thị như thế nào?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Chào mừng",
+    "continue": "Tiếp tục →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Khi nào hiển thị quảng cáo?",
+    "subheading": "Bạn có thể chọn nhiều tùy chọn cùng lúc.",
+    "options": {
+      "session": {
+        "label": "Một lần khi đăng nhập",
+        "desc": "Chỉ hiển thị một lần mỗi khi người dùng mở ứng dụng trên trình duyệt."
+      },
+      "consent": {
+        "label": "Mỗi khi tạo một đơn chấp thuận",
+        "desc": "Xuất hiện ngay sau khi tạo mỗi đơn chấp thuận có thông tin."
+      },
+      "clinical": {
+        "label": "Mỗi khi tạo một hồ sơ bệnh án",
+        "desc": "Xuất hiện ngay sau khi lưu mỗi hồ sơ bệnh án."
+      },
+      "interval": {
+        "label": "Mỗi X phút",
+        "desc": "Hiển thị định kỳ trong khi ứng dụng đang mở."
+      }
+    },
+    "every": "Mỗi",
+    "minutes": "phút",
+    "errors": {
+      "selectAtLeastOne": "Chọn ít nhất một tùy chọn",
+      "saveFailed": "Lỗi khi lưu"
+    },
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu",
+    "saveButton": "Lưu cấu hình",
+    "appliedMessage": "✅ Đã áp dụng cấu hình"
+  },
+  "demoPreviewPanel": {
+    "heading": "Xem trước theo vai trò",
+    "subheading": "Tạo dữ liệu thử nghiệm và truy cập chương trình đúng như cách một bệnh nhân, phòng khám hoặc phòng thí nghiệm sẽ thấy.",
+    "createAllButton": "Tạo tất cả dữ liệu thử nghiệm",
+    "errors": {
+      "checkFailed": "Lỗi khi kiểm tra dữ liệu thử nghiệm",
+      "createPatientFailed": "Không thể tạo bệnh nhân thử nghiệm",
+      "createBranchFailed": "Không thể tạo chi nhánh thử nghiệm",
+      "createLabFailed": "Không thể tạo phòng thí nghiệm thử nghiệm"
+    },
+    "cards": {
+      "patient": {
+        "title": "Xem như Bệnh nhân",
+        "description": "Mô phỏng cổng thông tin mà một bệnh nhân nhìn thấy: các đơn chấp thuận, hồ sơ bệnh án và ảnh của họ."
+      },
+      "branch": {
+        "title": "Xem như Phòng khám",
+        "description": "Mô phỏng bảng điều khiển mà nhân viên phòng khám nhìn thấy, với menu giới hạn theo quyền thực tế của họ."
+      },
+      "lab": {
+        "title": "Xem như Phòng thí nghiệm",
+        "description": "Mô phỏng bảng điều khiển của phòng thí nghiệm đối tác: hồ sơ, các phòng khám liên kết và chiến dịch của họ."
+      }
+    },
+    "testDataCreated": "Đã tạo dữ liệu thử nghiệm",
+    "viewAs": "Xem như {{role}}",
+    "roleNames": {
+      "patient": "bệnh nhân",
+      "branch": "phòng khám",
+      "lab": "phòng thí nghiệm"
+    },
+    "creating": "Đang tạo…",
+    "createTestData": "Tạo dữ liệu thử nghiệm"
+  },
+  "previewBanner": {
+    "message": "Xem trước — bạn đang xem giao diện như cách nó sẽ được nhìn thấy bởi",
+    "exitButton": "Thoát chế độ xem trước",
+    "roles": {
+      "patient": "Bệnh nhân",
+      "clinica": "Phòng khám",
+      "labPartner": "Phòng thí nghiệm"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Xem tháng",
+    "today": "Hôm nay",
+    "new_appointment": "Lịch hẹn mới",
+    "no_treatments_warning": "Chưa có điều trị nào được tạo. Vào tab \"Điều trị\" để tạo cái đầu tiên trước khi đặt lịch hẹn.",
+    "day_closed_notice": "Ngày này được đánh dấu là đóng cửa trong Lập kế hoạch lịch trình. Bạn có thể xem lại hoặc mở nó từ tab đó.",
+    "slot_aria_label": "Đặt lịch lúc {{time}}",
+    "outside_availability": "Ngoài giờ làm việc",
+    "treatment_fallback": "Điều trị",
+    "doctor_prefix": "BS. {{name}}",
+    "legend": {
+      "available": "Còn trống",
+      "outside_hours": "Ngoài giờ làm việc",
+      "scheduled": "Đã đặt lịch"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Chỉnh sửa lịch hẹn",
+    "title_new": "Lịch hẹn mới",
+    "validation_required": "Bệnh nhân, điều trị và giờ hẹn là bắt buộc",
+    "error_unknown": "Lỗi không xác định",
+    "confirm_delete": "Xóa lịch hẹn này?",
+    "deleting": "Đang xóa…",
+    "delete_appointment": "Xóa lịch hẹn",
+    "cancel": "Hủy",
+    "saving": "Đang lưu…",
+    "save_changes": "Lưu thay đổi",
+    "create_appointment": "Tạo lịch hẹn",
+    "form": {
+      "patient": "Bệnh nhân",
+      "select_patient": "Chọn bệnh nhân…",
+      "doctor": "Bác sĩ",
+      "unassigned": "Chưa chỉ định",
+      "branch": "Phòng khám / Chi nhánh",
+      "main_branch": "Chi nhánh chính",
+      "treatment": "Điều trị",
+      "select_treatment": "Chọn điều trị…",
+      "treatment_option": "{{name}} — {{duration}} phút — {{price}} €",
+      "no_treatments_warning": "Chưa có điều trị nào được tạo. Hãy thêm một điều trị trong tab \"Điều trị\" trước.",
+      "datetime": "Ngày và giờ",
+      "duration_note": "Sẽ chiếm {{duration}} phút trong lịch trình.",
+      "notes": "Ghi chú",
+      "notes_placeholder": "Nhận xét về lịch hẹn…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Điều trị",
+    "subtitle": "Thời lượng và giá của mỗi điều trị để có thể đặt lịch hẹn",
+    "new_treatment": "Điều trị mới",
+    "loading": "Đang tải…",
+    "empty_state": "Chưa có điều trị nào được tạo",
+    "duration_display": "{{duration}} phút",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Xóa điều trị này?",
+    "form": {
+      "title_edit": "Chỉnh sửa điều trị",
+      "title_new": "Điều trị mới",
+      "name": "Tên",
+      "name_placeholder": "Ví dụ: Botulinum toxin",
+      "duration": "Thời lượng (phút)",
+      "price": "Giá (€)",
+      "validation_name_required": "Tên là bắt buộc",
+      "error_unknown": "Lỗi không xác định",
+      "cancel": "Hủy",
+      "saving": "Đang lưu…",
+      "save": "Lưu"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+    "months": ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+    "has_exception_tooltip": "Đã có ngoại lệ được cấu hình",
+    "legend": {
+      "usually_open": "Thường mở cửa",
+      "usually_closed": "Thường đóng cửa",
+      "has_exception": "Có ngoại lệ",
+      "selected": "Đã chọn"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+    "months": ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+    "legend": {
+      "open_day": "Ngày mở cửa",
+      "closed": "Đóng cửa",
+      "today": "Hôm nay"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Lập kế hoạch lịch trình",
+    "subtitle": "Cấu hình những ngày và khung giờ có thể đặt lịch hẹn.",
+    "time_separator": "đến",
+    "add_time_range": "Thêm khung giờ",
+    "weekdays": ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"],
+    "confirm_delete_exception": "Xóa ngoại lệ này và quay lại lịch trình thông thường của ngày đó?",
+    "errors": {
+      "save_schedule_failed": "Không thể lưu lịch trình",
+      "apply_pattern_failed": "Không thể áp dụng mẫu",
+      "select_day_required": "Chọn ít nhất một ngày trên lịch",
+      "save_exception_failed": "Không thể lưu ngày đặc biệt"
+    },
+    "bulk": {
+      "title": "Áp dụng một mẫu cho nhiều ngày cùng lúc",
+      "description": "Ví dụ: từ thứ Hai đến thứ Sáu, từ 09:00 đến 20:00. Chọn các ngày và khung giờ, sau đó áp dụng — bạn có thể điều chỉnh từng ngày riêng lẻ sau đó.",
+      "applying": "Đang áp dụng…",
+      "apply_button": "Áp dụng cho các ngày đã chọn"
+    },
+    "weekly": {
+      "title": "Lịch trình hàng tuần thông thường",
+      "closed": "Đóng cửa",
+      "saving": "Đang lưu…",
+      "save": "Lưu"
+    },
+    "exceptions": {
+      "title": "Ngày lẻ (ngoại lệ)",
+      "description": "Mở một ngày đặc biệt (ví dụ: thứ Bảy) hoặc đóng một ngày thường mở cửa (ví dụ: ngày lễ).",
+      "select_days_label": "Chọn một hoặc nhiều ngày",
+      "days_selected_singular": "Đã chọn {{count}} ngày",
+      "days_selected_plural": "Đã chọn {{count}} ngày",
+      "clear_selection": "Xóa lựa chọn",
+      "open_special": "Mở đặc biệt",
+      "close": "Đóng",
+      "schedule_label": "Lịch trình những ngày này",
+      "notes_placeholder": "Lý do (không bắt buộc) — ví dụ: kỳ nghỉ tháng 8",
+      "saving": "Đang lưu…",
+      "save_button_singular": "Lưu ngày đặc biệt",
+      "save_button_plural": "Lưu {{count}} ngày đặc biệt",
+      "no_exceptions": "Không có ngày lẻ nào được cấu hình.",
+      "open_special_status": "Mở đặc biệt · {{ranges}}",
+      "closed_status": "Đóng cửa"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số"
   },
   "nav": {
-    "dashboard": "Bảng điều khiển",
+    "dashboard": "Trang chủ",
     "patients": "Bệnh nhân",
     "doctors": "Bác sĩ",
     "consents": "Chấp thuận",
@@ -14,7 +445,15 @@
     "settings": "Cài đặt",
     "clinicalRecords": "Hồ Sơ Bệnh Án",
     "photos": "Ảnh",
-    "recharge": "Nạp tiền"
+    "recharge": "Gói Đăng Ký",
+    "agenda": "Lịch hẹn",
+    "toxin": "Kiểm Soát Độc Tố",
+    "labPartners": "Phòng Thí Nghiệm",
+    "menu": "Menu"
+  },
+  "topbar": {
+    "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
+    "legal": "eIDAS (EU 910/2014) · Luật Khám bệnh, chữa bệnh · GDPR"
   },
   "auth": {
     "login_title": "Truy cập an toàn",
@@ -22,7 +461,7 @@
     "email_placeholder": "email@phongkham.vn",
     "send_link": "Gửi liên kết truy cập",
     "check_email": "Kiểm tra email của bạn — chúng tôi đã gửi liên kết truy cập",
-    "magic_link_sent": "Liên kết đã được gửi",
+    "magic_link_sent": "Liên kết đã được gửi thành công",
     "remember_device": "Ghi nhớ thiết bị này",
     "remember_7": "7 ngày",
     "remember_30": "30 ngày",
@@ -33,7 +472,20 @@
     "biometric_success": "Đã kích hoạt sinh trắc học!",
     "biometric_success_msg": "Lần sau bạn sẽ đăng nhập bằng một cái chạm.",
     "biometric_error": "Không thể kích hoạt. Đảm bảo thiết bị của bạn đã được cấu hình sinh trắc học.",
-    "biometric_now": "Không phải bây giờ"
+    "biometric_now": "Không phải bây giờ",
+    "portal_subtitle": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
+    "portal_title": "Truy cập tài liệu",
+    "portal_email_prompt": "Nhập email của bạn để nhận liên kết truy cập an toàn.",
+    "portal_link_sent_title": "Liên kết đã được gửi",
+    "portal_link_sent_message": "Kiểm tra email của bạn và nhấp vào liên kết để tiếp tục.",
+    "portal_email_placeholder": "ban@email.com",
+    "portal_consent_default_title": "Đơn Chấp Thuận Có Thông Tin",
+    "portal_accept_label": "Tôi đã đọc và chấp nhận đơn chấp thuận có thông tin này",
+    "portal_proceed_to_sign": "Tiến hành ký →",
+    "portal_saving_signature": "Đang lưu chữ ký…",
+    "portal_signed_title": "Đã hoàn tất ký",
+    "portal_signed_message": "Đơn chấp thuận của bạn đã được ký và đăng ký một cách an toàn.",
+    "portal_error_message": "Liên kết có thể đã hết hạn hoặc không chính xác."
   },
   "patients": {
     "title": "Bệnh nhân",
@@ -42,7 +494,7 @@
     "name": "Tên",
     "surname": "Họ",
     "dob": "Ngày sinh",
-    "id_doc": "CMND / Hộ chiếu",
+    "id_doc": "CMND / CCCD / Hộ chiếu",
     "phone": "Điện thoại",
     "email": "Email",
     "address": "Địa chỉ",
@@ -57,14 +509,41 @@
     "gallery": "Thư viện ảnh",
     "no_photos": "Không có ảnh. Tải lên hình ảnh đầu tiên.",
     "upload_photos": "Tải lên ảnh",
-    "uploading": "Đang tải lên…"
+    "uploading": "Đang tải lên…",
+    "count_registered": "{{count}} đã đăng ký",
+    "form": {
+      "doc_type": "Loại",
+      "doc_type_passport": "Hộ chiếu",
+      "city": "Thành phố",
+      "province": "Tỉnh",
+      "country": "Quốc gia",
+      "select_placeholder": "— Chọn —",
+      "countries": [
+        "Tây Ban Nha", "Đức", "Argentina", "Bỉ", "Bolivia", "Brazil", "Chile", "Trung Quốc",
+        "Colombia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "Hoa Kỳ", "Pháp",
+        "Guatemala", "Honduras", "Ý", "Ma-rốc", "Mexico", "Nicaragua", "Hà Lan",
+        "Panama", "Paraguay", "Peru", "Bồ Đào Nha", "Vương quốc Anh", "Cộng hòa Dominica",
+        "Thụy Sĩ", "Uruguay", "Venezuela", "Khác"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Lỗi khi lưu:",
+      "unknown_error": "Lỗi không xác định"
+    }
   },
   "doctors": {
     "title": "Bác sĩ",
     "add": "Thêm bác sĩ",
     "name": "Tên",
     "specialty": "Chuyên khoa",
-    "license": "Số giấy phép",
+    "license": "Số giấy phép hành nghề",
     "email": "Email",
     "role": "Vai trò",
     "roles": {
@@ -73,17 +552,45 @@
       "receptionist": "Lễ tân"
     },
     "save": "Lưu bác sĩ",
-    "no_results": "Không có bác sĩ nào được đăng ký"
+    "no_results": "Không có bác sĩ nào được đăng ký",
+    "last_name": "Họ",
+    "phone": "Điện thoại",
+    "phone_placeholder": "0900 000 000",
+    "unknown_error": "Lỗi không xác định",
+    "count_registered": "{{count}} đã đăng ký",
+    "license_display": "Số {{number}}"
   },
   "consents": {
     "title": "Chấp thuận",
     "add": "Chấp thuận mới",
     "search": "Tìm kiếm chấp thuận…",
+    "step_labels": ["Dữ liệu", "Xem lại", "Chữ ký bác sĩ", "Chữ ký bệnh nhân", "Hoàn tất"],
+    "branch_label": "Chi nhánh",
+    "main_branch": "Chi nhánh chính",
+    "select_patient": "Chọn bệnh nhân…",
+    "select_doctor": "Chọn bác sĩ…",
+    "select_treatment": "Chọn điều trị…",
+    "translating": "Đang dịch…",
+    "continue": "Tiếp tục",
+    "responsible_doctor": "Bác sĩ phụ trách",
+    "legal_framework_title": "Khung pháp lý — {{jurisdiction}}",
+    "witness_required_notice": "Quốc gia này yêu cầu người làm chứng cho chữ ký",
+    "back": "← Quay lại",
+    "sign_arrow": "Ký →",
+    "doctor_signature_title": "Chữ ký bác sĩ",
+    "doctor_signature_notice": "Bác sĩ phải ký trước để xác nhận đơn chấp thuận",
+    "back_to_preview": "← Quay lại",
+    "patient_signature_title": "Chữ ký bệnh nhân",
+    "patient_signature_notice": "Bệnh nhân phải ký để xác nhận đã đọc và chấp nhận đơn chấp thuận",
+    "signed_title": "Đơn chấp thuận đã được ký",
+    "signed_description": "Tài liệu đã được ký và đăng ký thành công.",
+    "close": "Đóng",
     "status": {
       "pending": "Đang chờ",
       "signed": "Đã ký",
       "revoked": "Đã thu hồi",
-      "expired": "Đã hết hạn"
+      "expired": "Đã hết hạn",
+      "all": "Tất cả"
     },
     "sign": "Ký",
     "generate_pdf": "Tạo PDF",
@@ -93,14 +600,20 @@
     "treatment": "Điều trị",
     "language": "Ngôn ngữ",
     "signed_at": "Ngày ký",
-    "no_results": "Không có chấp thuận nào"
+    "no_results": "Không có chấp thuận nào",
+    "confirm_delete": "Xóa đơn chấp thuận này?",
+    "stats": "Tổng {{total}} · {{signed}} đã ký · {{pending}} đang chờ",
+    "branch": "Chi nhánh",
+    "created_at": "Ngày tạo",
+    "status_header": "Trạng thái",
+    "continue_signature": "Tiếp tục ký"
   },
   "signature": {
     "title": "Chữ ký bệnh nhân",
     "instructions": "Ký vào ô bên dưới",
     "clear": "Xóa",
     "confirm": "Xác nhận chữ ký",
-    "legal_notice": "Tôi đã đọc và chấp nhận sự đồng ý có thông tin",
+    "legal_notice": "Tôi đã đọc và chấp nhận đơn chấp thuận có thông tin",
     "biometric_capture": "Đang ghi dữ liệu sinh trắc học…"
   },
   "clinic": {
@@ -113,13 +626,20 @@
     "logo": "Logo",
     "save": "Lưu cấu hình",
     "branches": "Chi nhánh bổ sung",
-    "branches_desc": "Quản lý nhiều địa điểm",
+    "branches_desc": "Quản lý nhiều địa điểm của phòng khám bạn",
     "add_branch": "Thêm chi nhánh",
     "no_branches": "Không có chi nhánh bổ sung",
     "branch_name": "Tên chi nhánh",
     "save_branches": "Lưu chi nhánh",
     "edit_branch": "Chỉnh sửa chi nhánh",
-    "new_branch": "Chi nhánh mới"
+    "new_branch": "Chi nhánh mới",
+    "save_branch": "Lưu chi nhánh",
+    "subtitle": "Cấu hình chung của phòng khám",
+    "trade_name": "Tên thương mại",
+    "legal_name": "Tên pháp lý",
+    "nika_number": "Số NIKA",
+    "save_success": "Đã lưu thành công",
+    "confirm_delete_branch": "Xóa chi nhánh này?"
   },
   "language": {
     "select": "Ngôn ngữ",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Chúng tôi đã gửi Magic Link tới",
     "email": "Email",
     "magic_link": "Đăng nhập bằng Magic Link",
-    "footer": "Chấp thuận kỹ thuật số hợp lệ · Luật Khám bệnh, chữa bệnh · GDPR"
+    "footer": "Chấp thuận kỹ thuật số hợp lệ · Luật Khám bệnh, chữa bệnh · GDPR",
+    "invalid_email": "Nhập một email hợp lệ",
+    "send_error": "Lỗi khi gửi liên kết",
+    "subtitle": "Chấp Thuận Kỹ Thuật Số · eIDAS",
+    "email_placeholder": "ban@phongkham.vn"
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "subtitle": "Tổng quan hoạt động",
+    "pending_signature": "Đang chờ ký",
+    "signature_rate": "Tỷ lệ ký",
+    "signed_count": "{{count}} đã ký",
+    "pending_count": "{{count}} đang chờ",
+    "recent_consents": "Chấp thuận gần đây",
+    "view_all_consents": "Xem tất cả →",
+    "view_all": "Xem tất cả →",
+    "no_consents": "Không có chấp thuận nào",
+    "recent_clinical": "Hồ sơ bệnh án gần đây",
+    "no_clinical": "Không có hồ sơ bệnh án nào",
+    "recent_photos": "Phiên chụp ảnh gần đây",
+    "no_photos": "Không có phiên chụp ảnh nào"
   },
   "templates": {
     "title": "Mẫu",
     "search": "Tìm kiếm điều trị…",
     "editor_title": "Trình chỉnh sửa mẫu",
-    "consent_title_label": "Tiêu đề chấp thuận",
+    "consent_title_label": "Tiêu đề đơn chấp thuận",
     "no_translation": "Không có bản dịch bằng",
-    "translate_all": "Dịch sang 31 ngôn ngữ",
+    "translate_all": "Dịch sang 21 ngôn ngữ",
     "translating": "Đang dịch…",
     "legal_framework": "Khung pháp lý",
     "select_template": "Chọn một mẫu để chỉnh sửa",
     "empty": "Không có mẫu nào",
-    "title_placeholder": "Chấp thuận có thông tin — Điều trị…",
-    "content_label": "Nội dung chấp thuận",
-    "content_placeholder": "Viết văn bản chấp thuận có thông tin…",
+    "title_placeholder": "Đơn Chấp Thuận Có Thông Tin — Điều trị…",
+    "content_label": "Nội dung đơn chấp thuận",
+    "content_placeholder": "Viết văn bản đơn chấp thuận có thông tin…",
     "saving": "Đang lưu…",
     "saved": "Đã lưu"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Xóa hồ sơ bệnh án này?",
+    "confirm_delete_session": "Xóa phiên này và tất cả ảnh của nó?",
+    "not_found": "Không tìm thấy bệnh nhân",
+    "date_of_birth": "Ngày sinh",
+    "email": "Email",
+    "blood_type": "Nhóm máu",
+    "address": "Địa chỉ",
+    "allergies": "Dị ứng",
+    "medications": "Thuốc",
+    "tabs": {
+      "history": "Hồ sơ bệnh án ({{count}})",
+      "photos": "Ảnh ({{count}})",
+      "consents": "Chấp thuận ({{count}})"
+    },
+    "new_clinical_record": "Hồ sơ mới",
+    "no_clinical_records": "Không có hồ sơ bệnh án nào cho bệnh nhân này",
+    "doctor_prefix": "BS. {{name}}",
+    "fields": {
+      "anamnesis": "Tiền sử bệnh",
+      "allergies": "Dị ứng",
+      "current_medications": "Thuốc đang dùng",
+      "physical_exam": "Khám lâm sàng",
+      "diagnosis": "Chẩn đoán",
+      "treatment_plan": "Kế hoạch điều trị",
+      "notes": "Nhận xét"
+    },
+    "new_photo_session": "Phiên mới",
+    "no_photo_sessions": "Không có phiên chụp ảnh nào cho bệnh nhân này",
+    "no_consents": "Không có chấp thuận nào cho bệnh nhân này",
+    "status": {
+      "signed": "Đã ký",
+      "pending": "Đang chờ",
+      "revoked": "Đã thu hồi",
+      "expired": "Đã hết hạn"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Phòng thí nghiệm",
+    "not_found": "Không tìm thấy hồ sơ phòng thí nghiệm.",
+    "panel_subtitle": "Bảng điều khiển phòng thí nghiệm đối tác",
+    "tabs": {
+      "clinics": "Phòng khám liên kết",
+      "campaigns": "Chiến dịch quảng cáo",
+      "stats": "Thống kê"
+    },
+    "no_clinics": "Chưa có phòng khám nào liên kết với phòng thí nghiệm này.",
+    "media_management": "Quản lý nội dung quảng cáo",
+    "welcome_screen": {
+      "title": "Màn hình chào mừng",
+      "description": "Tối đa 5 hình ảnh hoặc video. Chọn cách hiển thị: ngẫu nhiên hoặc tuần tự (tối đa 100 MB mỗi tệp)."
+    },
+    "patient_content": {
+      "title": "Nội dung cho bệnh nhân",
+      "description": "Tối đa 5 hình ảnh hoặc video dành cho bệnh nhân. Cách sử dụng chính xác sẽ được cấu hình trong thời gian tới."
+    },
+    "stats_pending": "Phần này vẫn đang chờ xác định — sắp tới bạn sẽ thấy các số liệu hiệu suất về chiến dịch và phòng khám của mình tại đây."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Xóa hồ sơ bệnh án này?",
+    "title": "Hồ Sơ Bệnh Án",
+    "records_count": "{{count}} bản ghi",
+    "add_record": "Hồ sơ mới",
+    "search_placeholder": "Tìm kiếm theo bệnh nhân, chẩn đoán, lý do…",
+    "no_records": "Không có hồ sơ bệnh án nào",
+    "table_headers": ["Bệnh nhân", "Ngày", "Lý do khám", "Chẩn đoán", "Bác sĩ", ""]
+  },
+  "labPartners": {
+    "title": "Phòng Thí Nghiệm Đối Tác",
+    "count": "{{count}} đã đăng ký",
+    "new_lab": "Phòng Thí Nghiệm Mới",
+    "search_placeholder": "Tìm kiếm phòng thí nghiệm…",
+    "no_labs": "Không có phòng thí nghiệm nào.",
+    "col_name": "Tên",
+    "col_email": "Email",
+    "col_contact": "Liên hệ",
+    "col_phone": "Điện thoại",
+    "col_status": "Trạng thái",
+    "col_actions": "Hành động",
+    "status_active": "Đang hoạt động",
+    "status_inactive": "Không hoạt động",
+    "confirm_deactivate": "Vô hiệu hóa phòng thí nghiệm?",
+    "form": {
+      "edit_title": "Chỉnh Sửa Phòng Thí Nghiệm",
+      "new_title": "Phòng Thí Nghiệm Mới",
+      "name": "Tên",
+      "email": "Email",
+      "phone": "Điện thoại",
+      "contact_person": "Người liên hệ",
+      "website": "Trang web",
+      "notes": "Ghi chú",
+      "name_email_required": "Tên và email là bắt buộc",
+      "unknown_error": "Lỗi không xác định"
+    },
+    "campaigns": {
+      "title": "Chiến dịch của {{name}}",
+      "new_campaign": "Chiến Dịch Mới",
+      "no_campaigns": "Không có chiến dịch nào.",
+      "col_name": "Tên",
+      "col_type": "Loại",
+      "col_trigger": "Kích hoạt",
+      "col_status": "Trạng thái",
+      "col_actions": "Hành động",
+      "confirm_delete": "Xóa chiến dịch?",
+      "form": {
+        "edit_title": "Chỉnh Sửa Chiến Dịch",
+        "new_title": "Chiến Dịch Mới",
+        "name": "Tên",
+        "name_required": "Tên là bắt buộc",
+        "unknown_error": "Lỗi không xác định",
+        "type": "Loại",
+        "rotation_mode": "Chế độ luân phiên",
+        "rotation_random": "Ngẫu nhiên",
+        "rotation_manual": "Thủ công",
+        "creative_url": "URL nội dung quảng cáo",
+        "trigger": "Kích hoạt",
+        "interval_minutes": "Khoảng thời gian (phút)",
+        "start_date": "Ngày bắt đầu",
+        "end_date": "Ngày kết thúc",
+        "active": "Đang hoạt động"
+      }
+    },
+    "creative_types": {
+      "image": "Hình ảnh",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Ưu đãi",
+      "training": "Đào tạo"
+    },
+    "triggers": {
+      "on_login": "Khi mở",
+      "on_consent": "Khi tạo chấp thuận",
+      "every_x_minutes": "Mỗi X phút",
+      "once_daily": "Một lần mỗi ngày"
+    }
+  },
+  "agenda": {
+    "title": "Lịch hẹn",
+    "subtitle": "Lịch hẹn, điều trị và lập kế hoạch lịch trình",
+    "tab_appointments": "Lịch hẹn",
+    "tab_treatments": "Điều trị",
+    "tab_planning": "Lập kế hoạch lịch trình"
+  },
+  "verifyConsent": {
+    "id_not_provided": "Không có ID được cung cấp",
+    "verifying": "Đang xác minh tài liệu…",
+    "subtitle": "Xác minh tài liệu",
+    "not_found_title": "Không tìm thấy tài liệu",
+    "signed_title": "Tài liệu hợp lệ và đã được ký",
+    "signed_subtitle": "Chữ ký đã được xác minh thành công",
+    "revoked_title": "Đơn chấp thuận đã bị thu hồi",
+    "revoked_subtitle": "Bệnh nhân đã thu hồi đơn chấp thuận này",
+    "pending_title": "Đang chờ ký",
+    "pending_subtitle": "Tài liệu này chưa được ký",
+    "patient": "Bệnh nhân",
+    "doctor": "Bác sĩ",
+    "treatment": "Điều trị",
+    "signed_date": "Ngày ký",
+    "hash_label": "Mã băm SHA-256",
+    "document_id_label": "ID tài liệu:",
+    "verified_on": "Đã xác minh vào {{date}}. Tài liệu này hợp lệ theo Luật Khám bệnh, chữa bệnh và được ký điện tử theo Quy định eIDAS (EU) 910/2014."
+  },
+  "recharge": {
+    "title": "Gói đăng ký",
+    "subtitle": "Chọn gói phù hợp nhất với phòng khám của bạn",
+    "monthly": "Hàng tháng",
+    "annual": "Hàng năm",
+    "per_month": "/tháng",
+    "save_20_annual": "Tiết kiệm 20% khi thanh toán theo năm",
+    "switch_annual_save": "Chuyển sang gói năm và tiết kiệm 20%",
+    "hire_plan": "Đăng ký gói",
+    "note_title": "Ghi chú về Gói AI và Gói AI Premium:",
+    "note_text": "Cấu hình ban đầu của các tác nhân AI (dịch vụ, điều trị và tùy chỉnh) và việc triển khai được báo giá riêng tùy theo mức độ phức tạp của từng phòng khám. Chi phí tác nhân giọng nói và WhatsApp API không bao gồm trong phí hàng tháng.",
+    "plans": {
+      "base": {
+        "name": "Gói Cơ Bản",
+        "features": [
+          "Đơn chấp thuận không giới hạn",
+          "Hồ sơ bệnh án",
+          "Thư viện ảnh",
+          "Cổng thông tin bệnh nhân",
+          "Magic Link + sinh trắc học",
+          "Hỗ trợ bao gồm"
+        ]
+      },
+      "pro": {
+        "name": "Gói Pro",
+        "badge": "Phổ biến nhất",
+        "features": [
+          "Tất cả tính năng của Gói Cơ Bản +",
+          "Lịch hẹn",
+          "CRM bệnh nhân",
+          "Kiểm soát độc tố",
+          "Báo giá cho bệnh nhân"
+        ]
+      },
+      "ia": {
+        "name": "Gói AI",
+        "features": [
+          "Tất cả tính năng của Gói Pro +",
+          "Tác nhân WhatsApp AI 24/7 — thu hút lịch hẹn",
+          "Xác nhận lịch hẹn tự động",
+          "Nhắc nhở lịch hẹn tự động",
+          "Bảng quản lý WhatsApp",
+          "Giao tiếp với bệnh nhân qua WhatsApp",
+          "Gửi qua WhatsApp đơn chấp thuận, hồ sơ bệnh án, ảnh, báo giá và hóa đơn"
+        ]
+      },
+      "ia_plus": {
+        "name": "Gói AI Premium",
+        "badge": "Mới",
+        "features": [
+          "Tất cả tính năng của Gói AI +",
+          "Tác nhân giọng nói AI 24/7: trả lời cuộc gọi",
+          "Tự động đặt lịch hẹn qua điện thoại",
+          "Nhân bản giọng nói của lễ tân của bạn 100%"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Kiểm Soát Độc Tố",
+    "subtitle": "Truy xuất nguồn gốc các lô độc tố botulinum",
+    "new_record": "Bản ghi mới",
+    "from": "Từ",
+    "to": "Đến",
+    "doctor": "Bác sĩ",
+    "patient": "Bệnh nhân",
+    "all": "Tất cả",
+    "lot_number": "Số lô",
+    "search_lot_placeholder": "Tìm kiếm lô…",
+    "clear_filters": "Xóa bộ lọc",
+    "no_results": "Không có bản ghi độc tố nào với các bộ lọc này.",
+    "col_date": "Ngày",
+    "col_patient": "Bệnh nhân",
+    "col_doctor": "Bác sĩ",
+    "col_brand": "Tên thương mại",
+    "col_lot": "Lô",
+    "col_expiry": "Hạn sử dụng",
+    "col_zones": "Vùng",
+    "col_units": "Đơn vị",
+    "col_signature": "Chữ ký",
+    "col_ci": "Chấp thuận",
+    "col_actions": "Hành động",
+    "signed": "Đã ký",
+    "unsigned": "Chưa ký",
+    "consent_linked": "Có chấp thuận liên kết",
+    "consent_not_linked": "Không có chấp thuận liên kết",
+    "confirm_delete": "Xóa bản ghi độc tố này?",
+    "detail": {
+      "not_found": "Không tìm thấy bản ghi.",
+      "patient": "Bệnh nhân",
+      "doctor": "Bác sĩ",
+      "brand": "Tên thương mại",
+      "manufacturer": "Nhà sản xuất",
+      "lot": "Số lô",
+      "expiry": "Ngày hết hạn",
+      "vials": "Số lọ đã mở",
+      "total_units": "Tổng số đơn vị",
+      "treated_zones": "Vùng điều trị",
+      "no_zones": "Không có vùng nào được ghi nhận.",
+      "notes": "Ghi chú",
+      "doctor_signature": "Chữ ký bác sĩ",
+      "signature_alt": "Chữ ký bác sĩ",
+      "signed_on": "Đã ký ngày {{date}}",
+      "no_signature": "Bản ghi này không có chữ ký của bác sĩ.",
+      "linked_consent": "Đơn chấp thuận được liên kết",
+      "consent_default_name": "Đơn chấp thuận",
+      "consent_unsigned": "Chưa ký",
+      "loading_pdf": "Đang tải PDF…",
+      "consent_load_error": "Không thể tải thông tin về đơn chấp thuận được liên kết."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Không tìm thấy token trong URL",
+    "invalid_token": "Token không hợp lệ hoặc đã hết hạn",
+    "connection_error": "Lỗi kết nối",
+    "verifying": "Đang xác minh liên kết…",
+    "invalid_link": "Liên kết không hợp lệ",
+    "back_home": "Quay lại trang chủ"
+  },
+  "photoSessions": {
+    "confirm_delete": "Xóa phiên này và tất cả ảnh của nó?",
+    "title": "Ảnh",
+    "subtitle": "{{count}} phiên chụp ảnh",
+    "new_session": "Phiên mới",
+    "search_placeholder": "Tìm kiếm theo bệnh nhân hoặc tên phiên…",
+    "no_sessions": "Không có phiên chụp ảnh nào"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Chấp Thuận Của Tôi",
+      "clinical": "Hồ Sơ Bệnh Án Của Tôi",
+      "photos": "Ảnh Của Tôi"
+    },
+    "consents": {
+      "empty": "Bạn chưa có đơn chấp thuận nào được ký.",
+      "default_name": "Đơn chấp thuận",
+      "doctor": "BS. {{name}}",
+      "signed_on": "Đã ký ngày {{date}}",
+      "status_signed": "Đã ký",
+      "status_pending": "Đang chờ"
+    },
+    "clinical": {
+      "empty": "Hồ sơ bệnh án của bạn đang trống.",
+      "default_name": "Buổi khám",
+      "doctor_suffix": " · BS. {{name}}",
+      "fields": {
+        "diagnosis": "Chẩn đoán",
+        "anamnesis": "Tiền sử bệnh",
+        "current_medications": "Thuốc đang dùng",
+        "allergies": "Dị ứng",
+        "treatment_plan": "Kế hoạch điều trị",
+        "notes": "Nhận xét"
+      }
+    },
+    "photos": {
+      "empty": "Chưa có phiên chụp ảnh nào.",
+      "back_to_sessions": "Quay lại các phiên",
+      "default_session_name": "Phiên chụp ảnh",
+      "doctor_suffix": " · BS. {{name}}",
+      "compare_title": "So sánh trước / sau",
+      "before": "Trước",
+      "after": "Sau",
+      "close_compare": "Đóng so sánh",
+      "compare_button": "So sánh",
+      "photo_count": "{{count}} ảnh"
+    }
+  },
   "settings": {
     "title": "Cài đặt",
-    "subtitle": "Quản lý người dùng và quyền truy cập",
+    "subtitle": "Quản lý người dùng và quyền truy cập hệ thống",
+    "tabs": {
+      "users": "Người dùng",
+      "media": "Quảng cáo",
+      "preview": "Xem trước"
+    },
     "users": {
       "title": "Người dùng",
       "invite_user": "Mời người dùng",
@@ -174,14 +1048,40 @@
       "role": "Vai trò",
       "role_admin": "Quản trị viên",
       "role_clinica": "Phòng khám",
-      "admin_hint": "Quản trị viên có quyền truy cập đầy đủ vào tất cả các phần.",
+      "admin_hint": "Quản trị viên có toàn quyền truy cập vào tất cả các phần của hệ thống.",
       "permissions": "Quyền truy cập",
-      "permissions_hint": "Chọn các phần có thể truy cập.",
+      "permissions_hint": "Chọn những phần mà người dùng này sẽ có quyền truy cập.",
       "send_invite": "Gửi lời mời",
-      "no_users": "Không có người dùng. Mời người đầu tiên.",
+      "no_users": "Không có người dùng nào được đăng ký. Hãy mời người đầu tiên.",
       "inactive": "Không hoạt động",
-      "activate": "Kích hoạt",
-      "deactivate": "Vô hiệu hóa"
+      "activate": "Kích hoạt người dùng",
+      "deactivate": "Vô hiệu hóa người dùng",
+      "role_superadmin": "Quản Trị Viên Cấp Cao",
+      "role_doctor": "Bác sĩ",
+      "role_receptionist": "Lễ tân",
+      "role_lab_partner": "Phòng thí nghiệm",
+      "role_patient": "Bệnh nhân",
+      "filter_all": "Tất cả",
+      "invite_accepted": "Đã chấp nhận lời mời",
+      "invite_expired": "Lời mời đã hết hạn",
+      "invite_pending": "Lời mời đang chờ",
+      "email_placeholder": "user@phongkham.vn",
+      "full_name_placeholder": "Họ và Tên",
+      "linked_lab": "Phòng thí nghiệm liên kết",
+      "no_lab": "Không có phòng thí nghiệm",
+      "lab_hint": "Người dùng sẽ chỉ thấy các phòng khám được liên kết với phòng thí nghiệm này.",
+      "admin_only_hint": "Mục Cài đặt chỉ dành riêng cho quản trị viên và không bao giờ có thể được ủy quyền cho một phòng khám.",
+      "load_error": "Không thể tải danh sách người dùng",
+      "retry": "Thử lại"
+    },
+    "media": {
+      "title": "Quản lý nội dung quảng cáo",
+      "managed_by_lab": "Quảng cáo này được quản lý bởi phòng thí nghiệm đối tác của bạn. Bạn có thể xem tại đây, nhưng chỉ phòng thí nghiệm mới có thể chỉnh sửa.",
+      "managed_by_lab_named": "Quảng cáo này được quản lý bởi phòng thí nghiệm đối tác của bạn ({{name}}). Bạn có thể xem tại đây, nhưng chỉ phòng thí nghiệm mới có thể chỉnh sửa.",
+      "welcome_title": "Màn hình chào mừng",
+      "welcome_description": "Tối đa 5 hình ảnh hoặc video. Chọn cách hiển thị: ngẫu nhiên hoặc tuần tự (tối đa 100 MB mỗi tệp).",
+      "patient_title": "Nội dung cho bệnh nhân",
+      "patient_description": "Tối đa 5 hình ảnh hoặc video dành cho bệnh nhân. Cách sử dụng chính xác sẽ được cấu hình trong thời gian tới."
     }
   }
 }
