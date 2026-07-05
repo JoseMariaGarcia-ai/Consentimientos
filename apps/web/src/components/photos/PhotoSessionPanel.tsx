@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import { Camera, Trash2, Upload, ArrowLeftRight, X, ZoomIn, Check } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { api } from '@/lib/api'
 import { BeforeAfterModal } from './BeforeAfterModal'
 
@@ -28,6 +29,7 @@ interface Props {
 const MAX = 10
 
 export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
+  const { t } = useTranslation()
   const [uploading, setUploading]         = useState(false)
   const [lightbox, setLightbox]           = useState<Photo | null>(null)
   const [compareOpen, setCompareOpen]     = useState(false)
@@ -85,11 +87,11 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
           <Camera className="w-4 h-4 text-violet-500" />
           <div>
             <p className="font-semibold text-slate-800 text-sm">
-              {session.name || 'Sesión fotográfica'}
+              {session.name || t('photoSessionPanel.default_session_name')}
             </p>
             <p className="text-xs text-slate-400">
               {new Date(session.session_date).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
-              {' · '}{session.photos.length}/{MAX} fotos
+              {' · '}{t('photoSessionPanel.photo_count', { count: session.photos.length, max: MAX })}
             </p>
           </div>
         </div>
@@ -100,13 +102,13 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
               className="flex items-center gap-1.5 px-3 py-1.5 bg-violet-600 text-white rounded-lg text-xs font-semibold hover:bg-violet-700"
             >
               <ArrowLeftRight className="w-3.5 h-3.5" />
-              Comparar antes / después
+              {t('photoSessionPanel.compare_button')}
             </button>
           )}
           <button
             onClick={onDelete}
             className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50 ml-1"
-            title="Eliminar sesión"
+            title={t('photoSessionPanel.delete_session')}
           >
             <Trash2 className="w-4 h-4" />
           </button>
@@ -160,8 +162,8 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
               ) : (
                 <>
                   <Upload className="w-5 h-5 mb-1" />
-                  <span className="text-[10px] font-medium">Subir</span>
-                  <span className="text-[9px] text-slate-300">{remaining} restantes</span>
+                  <span className="text-[10px] font-medium">{t('photoSessionPanel.upload')}</span>
+                  <span className="text-[9px] text-slate-300">{t('photoSessionPanel.remaining', { remaining })}</span>
                 </>
               )}
             </button>

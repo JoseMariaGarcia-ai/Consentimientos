@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Eye, Users, Building2, FlaskConical, Check, Sparkles, ExternalLink } from 'lucide-react'
 import { api } from '@/lib/api'
 import { usePreview } from '@/context/PreviewContext'
@@ -16,6 +17,7 @@ interface DemoState {
 }
 
 export function DemoPreviewPanel() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { enterPreview } = usePreview()
   const [demo, setDemo] = useState<DemoState>({ patientId: null, branchId: null, labId: null })
@@ -37,7 +39,7 @@ export function DemoPreviewPanel() {
       const lab = Array.isArray(labs) ? labs.find((l: any) => l.name === DEMO_LAB_NAME) : null
       setDemo({ patientId: patient?.id ?? null, branchId: branch?.id ?? null, labId: lab?.id ?? null })
     } catch (e: any) {
-      setError(e.message ?? 'Error al comprobar los datos de prueba')
+      setError(e.message ?? t('demoPreviewPanel.errors.checkFailed'))
     } finally {
       setLoading(false)
     }
@@ -64,7 +66,7 @@ export function DemoPreviewPanel() {
       })
       setDemo(d => ({ ...d, patientId: created.id }))
     } catch (e: any) {
-      setError(e.message ?? 'No se pudo crear el paciente de prueba')
+      setError(e.message ?? t('demoPreviewPanel.errors.createPatientFailed'))
     } finally {
       setCreating(null)
     }
@@ -85,7 +87,7 @@ export function DemoPreviewPanel() {
       await api.put('/clinic', { ...clinic, branches: [...branches, newBranch] })
       setDemo(d => ({ ...d, branchId: newBranch.id }))
     } catch (e: any) {
-      setError(e.message ?? 'No se pudo crear la sede de prueba')
+      setError(e.message ?? t('demoPreviewPanel.errors.createBranchFailed'))
     } finally {
       setCreating(null)
     }
@@ -105,7 +107,7 @@ export function DemoPreviewPanel() {
       })
       setDemo(d => ({ ...d, labId: created.id }))
     } catch (e: any) {
-      setError(e.message ?? 'No se pudo crear el laboratorio de prueba')
+      setError(e.message ?? t('demoPreviewPanel.errors.createLabFailed'))
     } finally {
       setCreating(null)
     }
@@ -149,8 +151,8 @@ export function DemoPreviewPanel() {
       key: 'patient',
       icon: Users,
       color: 'blue',
-      title: 'Vista de Paciente',
-      description: 'Simula el portal que ve un paciente: sus consentimientos, historia clínica y fotos.',
+      title: t('demoPreviewPanel.cards.patient.title'),
+      description: t('demoPreviewPanel.cards.patient.description'),
       exists: !!demo.patientId,
       onCreate: createPatient,
       onView: viewAsPatient,
@@ -159,8 +161,8 @@ export function DemoPreviewPanel() {
       key: 'branch',
       icon: Building2,
       color: 'emerald',
-      title: 'Vista de Clínica',
-      description: 'Simula el panel que ve el personal de la clínica, con el menú restringido a sus permisos reales.',
+      title: t('demoPreviewPanel.cards.branch.title'),
+      description: t('demoPreviewPanel.cards.branch.description'),
       exists: !!demo.branchId,
       onCreate: createBranch,
       onView: viewAsClinica,
@@ -169,8 +171,8 @@ export function DemoPreviewPanel() {
       key: 'lab',
       icon: FlaskConical,
       color: 'amber',
-      title: 'Vista de Laboratorio',
-      description: 'Simula el panel de un laboratorio colaborador: su perfil, clínicas vinculadas y campañas.',
+      title: t('demoPreviewPanel.cards.lab.title'),
+      description: t('demoPreviewPanel.cards.lab.description'),
       exists: !!demo.labId,
       onCreate: createLab,
       onView: viewAsLab,
@@ -189,9 +191,9 @@ export function DemoPreviewPanel() {
         <div className="flex items-center gap-2">
           <Eye className="w-4 h-4 text-slate-500" />
           <div>
-            <h3 className="text-sm font-bold text-slate-700">Vista previa por roles</h3>
+            <h3 className="text-sm font-bold text-slate-700">{t('demoPreviewPanel.heading')}</h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              Crea datos de prueba y entra en el programa exactamente como lo vería un paciente, una clínica o un laboratorio.
+              {t('demoPreviewPanel.subheading')}
             </p>
           </div>
         </div>
@@ -201,7 +203,7 @@ export function DemoPreviewPanel() {
           className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          Crear todos los datos de prueba
+          {t('demoPreviewPanel.createAllButton')}
         </button>
       </div>
 
@@ -226,14 +228,14 @@ export function DemoPreviewPanel() {
               ) : card.exists ? (
                 <div className="flex flex-col gap-2">
                   <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2 py-1 w-fit">
-                    <Check className="w-3 h-3" />Dato de prueba creado
+                    <Check className="w-3 h-3" />{t('demoPreviewPanel.testDataCreated')}
                   </span>
                   <button
                     onClick={card.onView}
                     className="flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-700"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    Ver como {card.key === 'patient' ? 'paciente' : card.key === 'branch' ? 'clínica' : 'laboratorio'}
+                    {t('demoPreviewPanel.viewAs', { role: t(`demoPreviewPanel.roleNames.${card.key}`) })}
                   </button>
                 </div>
               ) : (
@@ -242,7 +244,7 @@ export function DemoPreviewPanel() {
                   disabled={busy}
                   className="px-3 py-2 border border-slate-300 text-slate-700 text-xs font-medium rounded-lg hover:bg-slate-50 disabled:opacity-50"
                 >
-                  {busy ? 'Creando…' : 'Crear dato de prueba'}
+                  {busy ? t('demoPreviewPanel.creating') : t('demoPreviewPanel.createTestData')}
                 </button>
               )}
             </div>

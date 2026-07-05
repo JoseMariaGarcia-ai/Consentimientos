@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Camera } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   patients: any[]
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export function NewSessionModal({ patients, doctors = [], branches = [], onSave, onClose }: Props) {
+  const { t } = useTranslation()
   const now = new Date()
   const localISO = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16)
 
@@ -21,7 +23,7 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.patient_id) { setError('Selecciona un paciente'); return }
+    if (!form.patient_id) { setError(t('newSessionModal.select_patient_error')); return }
     setSaving(true)
     setError('')
     try {
@@ -33,7 +35,7 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
       })
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('newSessionModal.unknown_error'))
     } finally {
       setSaving(false)
     }
@@ -45,7 +47,7 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <Camera className="w-5 h-5 text-violet-600" />
-            <h2 className="text-lg font-bold text-slate-800">Nueva sesión fotográfica</h2>
+            <h2 className="text-lg font-bold text-slate-800">{t('newSessionModal.title')}</h2>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xl leading-none">×</button>
         </div>
@@ -53,13 +55,13 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
           {/* Paciente */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.patient_label')} <span className="text-red-500">*</span></label>
             <select
               value={form.patient_id}
               onChange={e => set('patient_id', e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
             >
-              <option value="">Seleccionar paciente…</option>
+              <option value="">{t('newSessionModal.select_patient_placeholder')}</option>
               {patients.map(p => {
                 const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? '')
                 return <option key={p.id} value={p.id}>{name}</option>
@@ -70,13 +72,13 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
           {/* Doctor */}
           {doctors.length > 0 && (
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.doctor_label')}</label>
               <select
                 value={form.doctor_id}
                 onChange={e => set('doctor_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
               >
-                <option value="">Sin asignar</option>
+                <option value="">{t('newSessionModal.no_doctor_assigned')}</option>
                 {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
               </select>
             </div>
@@ -85,13 +87,13 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
           {/* Clínica / Sede — solo si hay más de una */}
           {branches.length > 1 && (
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Clínica / Sede</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.branch_label')}</label>
               <select
                 value={form.branch}
                 onChange={e => set('branch', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
               >
-                <option value="">Sin especificar</option>
+                <option value="">{t('newSessionModal.no_branch_specified')}</option>
                 {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
               </select>
             </div>
@@ -99,19 +101,19 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
 
           {/* Nombre sesión */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Nombre de la sesión</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.session_name_label')}</label>
             <input
               type="text"
               value={form.name}
               onChange={e => set('name', e.target.value)}
-              placeholder="Ej: Tratamiento facial sesión 1"
+              placeholder={t('newSessionModal.session_name_placeholder')}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
             />
           </div>
 
           {/* Fecha */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha y hora</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.date_label')}</label>
             <input
               type="datetime-local"
               value={form.session_date}
@@ -122,12 +124,12 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
 
           {/* Notas */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.notes_label')}</label>
             <textarea
               value={form.notes}
               onChange={e => set('notes', e.target.value)}
               rows={2}
-              placeholder="Observaciones sobre la sesión…"
+              placeholder={t('newSessionModal.notes_placeholder')}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
             />
           </div>
@@ -138,14 +140,14 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
 
           <div className="flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-              Cancelar
+              {t('newSessionModal.cancel')}
             </button>
             <button
               type="submit"
               disabled={saving}
               className="px-5 py-2 text-sm bg-violet-600 text-white rounded-lg hover:bg-violet-700 disabled:opacity-50 font-medium"
             >
-              {saving ? 'Creando…' : 'Crear sesión'}
+              {saving ? t('newSessionModal.creating') : t('newSessionModal.create_session')}
             </button>
           </div>
         </form>

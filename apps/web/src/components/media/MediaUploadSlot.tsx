@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Upload, Trash2, Film, Image, Loader2 } from 'lucide-react'
 import { api } from '@/lib/api'
 
@@ -22,6 +23,7 @@ interface Props {
 const MAX_SIZE_MB = 100
 
 export function MediaUploadSlot({ type, title, description, item, onChanged }: Props) {
+  const { t } = useTranslation()
   const [uploading, setUploading] = useState(false)
   const [progress, setProgress]   = useState(0)
   const [error, setError]         = useState('')
@@ -32,7 +34,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
   const handleFile = async (file: File) => {
     const sizeMB = file.size / 1024 / 1024
     if (sizeMB > MAX_SIZE_MB) {
-      setError(`El archivo supera el límite de ${MAX_SIZE_MB} MB`)
+      setError(t('mediaUploadSlot.file_too_large', { maxSize: MAX_SIZE_MB }))
       return
     }
     setUploading(true)
@@ -50,7 +52,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
       setProgress(100)
       onChanged()
     } catch (e: any) {
-      setError(e.message ?? 'Error al subir el archivo')
+      setError(e.message ?? t('mediaUploadSlot.upload_error'))
     } finally {
       setUploading(false)
       setProgress(0)
@@ -58,7 +60,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
   }
 
   const handleDelete = async () => {
-    if (!confirm('¿Eliminar este archivo?')) return
+    if (!confirm(t('mediaUploadSlot.confirm_delete'))) return
     try {
       await api.delete(`/media/${type}`)
       onChanged()
@@ -100,7 +102,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
             )}
             <div className="absolute top-2 left-2 flex items-center gap-1 bg-black/60 text-white text-xs px-2 py-0.5 rounded-full">
               {isVideo ? <Film className="w-3 h-3" /> : <Image className="w-3 h-3" />}
-              {isVideo ? 'Vídeo' : 'Imagen'}
+              {isVideo ? t('mediaUploadSlot.video') : t('mediaUploadSlot.image')}
             </div>
           </div>
 
@@ -109,7 +111,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
             <div>
               <p className="text-xs font-medium text-slate-700 truncate max-w-xs">{item.original_name}</p>
               <p className="text-[10px] text-slate-400 mt-0.5">
-                Subido el {new Date(item.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}
+                {t('mediaUploadSlot.uploaded_on', { date: new Date(item.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' }) })}
               </p>
             </div>
             <div className="flex gap-2">
@@ -118,14 +120,14 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50"
               >
                 <Upload className="w-3.5 h-3.5" />
-                Cambiar
+                {t('mediaUploadSlot.change')}
               </button>
               <button
                 onClick={handleDelete}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-500 border border-red-200 rounded-lg hover:bg-red-50"
               >
                 <Trash2 className="w-3.5 h-3.5" />
-                Eliminar
+                {t('mediaUploadSlot.delete')}
               </button>
             </div>
           </div>
@@ -142,7 +144,7 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
           {uploading ? (
             <>
               <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
-              <p className="text-sm text-blue-600 font-medium">Subiendo… {progress}%</p>
+              <p className="text-sm text-blue-600 font-medium">{t('mediaUploadSlot.uploading', { progress })}</p>
               <div className="w-48 h-1.5 bg-blue-100 rounded-full overflow-hidden">
                 <div className="h-full bg-blue-500 rounded-full transition-all" style={{ width: `${progress}%` }} />
               </div>
@@ -154,8 +156,8 @@ export function MediaUploadSlot({ type, title, description, item, onChanged }: P
                 <Image className="w-8 h-8" />
               </div>
               <div className="text-center">
-                <p className="text-sm font-medium text-slate-600">Arrastra aquí o haz clic para subir</p>
-                <p className="text-xs text-slate-400 mt-1">Imagen (JPG, PNG, GIF) o vídeo (MP4, MOV, WebM) · Máx. {MAX_SIZE_MB} MB</p>
+                <p className="text-sm font-medium text-slate-600">{t('mediaUploadSlot.drop_hint')}</p>
+                <p className="text-xs text-slate-400 mt-1">{t('mediaUploadSlot.file_types_hint', { maxSize: MAX_SIZE_MB })}</p>
               </div>
             </>
           )}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Fingerprint, X, CheckCircle, Loader2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { registerBiometric, markBiometricRegistered } from '@/lib/webauthn'
 
 interface Props {
@@ -7,13 +8,14 @@ interface Props {
 }
 
 export function BiometricPrompt({ onClose }: Props) {
+  const { t } = useTranslation()
   const [state, setState] = useState<'prompt' | 'registering' | 'success' | 'error'>('prompt')
   const [deviceName] = useState(() => {
     const ua = navigator.userAgent
     if (/iPhone|iPad/.test(ua)) return 'iPhone / iPad'
     if (/Android/.test(ua)) return 'Android'
     if (/Mac/.test(ua)) return 'Mac'
-    return 'Mi dispositivo'
+    return t('biometricPrompt.default_device')
   })
 
   const handleActivate = async () => {
@@ -34,8 +36,8 @@ export function BiometricPrompt({ onClose }: Props) {
         {state === 'success' ? (
           <div className="flex flex-col items-center gap-3 py-4">
             <CheckCircle className="w-12 h-12 text-emerald-500" />
-            <p className="font-semibold text-slate-800">¡Biometría activada!</p>
-            <p className="text-sm text-slate-500 text-center">La próxima vez entrarás con un toque.</p>
+            <p className="font-semibold text-slate-800">{t('auth.biometric_success')}</p>
+            <p className="text-sm text-slate-500 text-center">{t('auth.biometric_success_msg')}</p>
           </div>
         ) : (
           <>
@@ -49,19 +51,19 @@ export function BiometricPrompt({ onClose }: Props) {
             </div>
 
             <div>
-              <h2 className="text-lg font-bold text-slate-800">Activar acceso biométrico</h2>
+              <h2 className="text-lg font-bold text-slate-800">{t('biometricPrompt.title')}</h2>
               <p className="text-sm text-slate-500 mt-1">
-                Usa Face ID, huella o Windows Hello para entrar en menos de 2 segundos la próxima vez.
+                {t('biometricPrompt.description')}
               </p>
             </div>
 
             <div className="bg-slate-50 rounded-xl p-3 text-xs text-slate-600">
-              <span className="font-medium">Dispositivo:</span> {deviceName}
+              <span className="font-medium">{t('biometricPrompt.device_label')}</span> {deviceName}
             </div>
 
             {state === 'error' && (
               <p className="text-sm text-red-500">
-                No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.
+                {t('auth.biometric_error')}
               </p>
             )}
 
@@ -70,7 +72,7 @@ export function BiometricPrompt({ onClose }: Props) {
                 onClick={onClose}
                 className="flex-1 py-2.5 border border-slate-200 rounded-xl text-sm text-slate-600 hover:bg-slate-50"
               >
-                Ahora no
+                {t('auth.biometric_now')}
               </button>
               <button
                 onClick={handleActivate}
@@ -78,9 +80,9 @@ export function BiometricPrompt({ onClose }: Props) {
                 className="flex-1 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {state === 'registering' ? (
-                  <><Loader2 className="w-4 h-4 animate-spin" /> Activando…</>
+                  <><Loader2 className="w-4 h-4 animate-spin" /> {t('auth.biometric_registering')}</>
                 ) : (
-                  <><Fingerprint className="w-4 h-4" /> Activar</>
+                  <><Fingerprint className="w-4 h-4" /> {t('biometricPrompt.activate')}</>
                 )}
               </button>
             </div>

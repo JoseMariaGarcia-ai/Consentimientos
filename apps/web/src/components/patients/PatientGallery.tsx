@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { X, Upload, Trash2, ImageOff, Loader2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { getToken } from '@/lib/auth'
@@ -14,6 +15,7 @@ interface Props {
 interface Photo { key: string; url: string }
 
 export function PatientGallery({ patientId, patientName, onClose }: Props) {
+  const { t } = useTranslation()
   const [photos, setPhotos] = useState<Photo[]>([])
   const [loading, setLoading] = useState(true)
   const [uploading, setUploading] = useState(false)
@@ -50,7 +52,7 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
   }
 
   const handleDelete = async (key: string) => {
-    if (!confirm('¿Eliminar esta foto?')) return
+    if (!confirm(t('patientGallery.confirm_delete'))) return
     setDeleting(key)
     try {
       await fetch(`${API}/photos/file/${encodeURIComponent(key)}`, {
@@ -68,14 +70,14 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
           onClick={e => e.stopPropagation()}>
           <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-slate-800">Galería de fotos</h2>
+              <h2 className="text-lg font-semibold text-slate-800">{t('patientGallery.title')}</h2>
               <p className="text-xs text-slate-400 mt-0.5">{patientName}</p>
             </div>
             <div className="flex items-center gap-2">
               <button onClick={() => inputRef.current?.click()} disabled={uploading}
                 className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
                 {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
-                Subir fotos
+                {t('patientGallery.upload_photos')}
               </button>
               <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-600 rounded-xl hover:bg-slate-100">
                 <X className="w-5 h-5" />
@@ -86,12 +88,12 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
           <div className="flex-1 overflow-y-auto p-6">
             {loading ? (
               <div className="flex items-center justify-center h-32 text-slate-400">
-                <Loader2 className="w-5 h-5 animate-spin mr-2" /> Cargando…
+                <Loader2 className="w-5 h-5 animate-spin mr-2" /> {t('patientGallery.loading')}
               </div>
             ) : photos.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-32 text-slate-400 gap-2">
                 <ImageOff className="w-8 h-8" />
-                <p className="text-sm">Sin fotos. Sube la primera imagen.</p>
+                <p className="text-sm">{t('patientGallery.empty')}</p>
               </div>
             ) : (
               <div className="grid grid-cols-3 gap-3">
@@ -109,7 +111,7 @@ export function PatientGallery({ patientId, patientName, onClose }: Props) {
             )}
           </div>
           <div className="px-6 py-3 border-t border-slate-100 text-xs text-slate-400">
-            {photos.length} {photos.length === 1 ? 'foto' : 'fotos'} · Almacenadas en Cloudflare R2
+            {t('patientGallery.count_stored', { count: photos.length, unit: photos.length === 1 ? t('patientGallery.photo_singular') : t('patientGallery.photo_plural') })}
           </div>
         </div>
       </div>

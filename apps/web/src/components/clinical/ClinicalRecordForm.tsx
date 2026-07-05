@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { Doctor } from '@consentspro/shared-types'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 
@@ -12,6 +13,7 @@ interface ClinicalRecordFormProps {
 }
 
 export function ClinicalRecordForm({ initial = {}, patients, doctors, branches = [], onSave, onClose }: ClinicalRecordFormProps) {
+  const { t } = useTranslation()
   const { trigger: triggerWelcome } = useWelcomeMedia()
   const [form, setForm] = useState({
     patient_id:          initial.patient_id  ?? initial.patientId  ?? '',
@@ -35,7 +37,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.patient_id) { setSaveError('Selecciona un paciente'); return }
+    if (!form.patient_id) { setSaveError(t('clinicalRecordForm.select_patient_error')); return }
     setSaving(true)
     setSaveError('')
     try {
@@ -43,7 +45,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
       triggerWelcome('clinical')
       onClose()
     } catch (err: any) {
-      setSaveError(err.message ?? 'Error desconocido')
+      setSaveError(err.message ?? t('clinicalRecordForm.unknown_error'))
     } finally {
       setSaving(false)
     }
@@ -66,7 +68,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-slate-800">
-            {initial.id ? 'Editar historia clínica' : 'Nueva historia clínica'}
+            {initial.id ? t('clinicalRecordForm.title_edit') : t('clinicalRecordForm.title_new')}
           </h2>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xl leading-none">×</button>
         </div>
@@ -76,13 +78,13 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
           {/* Paciente + Doctor */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.patient')} <span className="text-red-500">*</span></label>
               <select
                 value={form.patient_id}
                 onChange={e => setRaw('patient_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Seleccionar paciente…</option>
+                <option value="">{t('clinicalRecordForm.select_patient')}</option>
                 {patients.map((p: any) => {
                   const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
                   return <option key={p.id} value={p.id}>{name}</option>
@@ -90,13 +92,13 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
               </select>
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.doctor')}</label>
               <select
                 value={form.doctor_id}
                 onChange={e => setRaw('doctor_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Sin asignar</option>
+                <option value="">{t('clinicalRecordForm.unassigned')}</option>
                 {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
               </select>
             </div>
@@ -105,13 +107,13 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
           {/* Clínica (sede) — solo si hay más de una */}
           {branches.length > 1 && (
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Clínica / Sede</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.branch')}</label>
               <select
                 value={form.branch}
                 onChange={e => setRaw('branch', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Sin especificar</option>
+                <option value="">{t('clinicalRecordForm.unspecified')}</option>
                 {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
               </select>
             </div>
@@ -119,7 +121,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha de visita</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.visit_date')}</label>
               <input
                 type="date"
                 value={form.date}
@@ -128,7 +130,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Motivo de consulta</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.reason_for_visit')}</label>
               <input
                 type="text"
                 value={form.reason_for_visit}
@@ -139,13 +141,13 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
           </div>
 
           {/* Secciones clínicas */}
-          {textarea('anamnesis', 'Anamnesis / Antecedentes', 3)}
-          {textarea('current_medications', 'Medicación actual', 2)}
-          {textarea('allergies', 'Alergias conocidas', 2)}
-          {textarea('physical_exam', 'Exploración física', 3)}
-          {textarea('diagnosis', 'Diagnóstico', 2)}
-          {textarea('treatment_plan', 'Plan de tratamiento', 3)}
-          {textarea('notes', 'Observaciones / Notas', 2)}
+          {textarea('anamnesis', t('clinicalRecordForm.anamnesis'), 3)}
+          {textarea('current_medications', t('clinicalRecordForm.current_medications'), 2)}
+          {textarea('allergies', t('clinicalRecordForm.allergies'), 2)}
+          {textarea('physical_exam', t('clinicalRecordForm.physical_exam'), 3)}
+          {textarea('diagnosis', t('clinicalRecordForm.diagnosis'), 2)}
+          {textarea('treatment_plan', t('clinicalRecordForm.treatment_plan'), 3)}
+          {textarea('notes', t('clinicalRecordForm.notes'), 2)}
 
           {saveError && (
             <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
@@ -155,14 +157,14 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
 
           <div className="flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-              Cancelar
+              {t('clinicalRecordForm.cancel')}
             </button>
             <button
               type="submit"
               disabled={saving}
               className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium"
             >
-              {saving ? 'Guardando…' : 'Guardar historia'}
+              {saving ? t('clinicalRecordForm.saving') : t('clinicalRecordForm.save_record')}
             </button>
           </div>
         </form>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { FileDown, Loader2 } from 'lucide-react'
 import QRCode from 'qrcode'
+import { useTranslation } from 'react-i18next'
 import { ConsentPdf } from '@/lib/pdf/consentPdf'
 import { LEGAL_FRAMEWORKS } from '@/i18n/legalTexts'
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export function ConsentPdfButton({ consent, clinic }: Props) {
+  const { t } = useTranslation()
   const [qrDataUrl, setQrDataUrl] = useState<string | undefined>()
 
   const lang = consent.language ?? 'es-ES'
@@ -52,7 +54,7 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
 
   if (!qrDataUrl) {
     return (
-      <button disabled className="p-1.5 text-slate-300 rounded-lg" title="Generando PDF…">
+      <button disabled className="p-1.5 text-slate-300 rounded-lg" title={t('consentPdfButton.generating')}>
         <Loader2 className="w-4 h-4 animate-spin" />
       </button>
     )
@@ -78,7 +80,7 @@ export function ConsentPdfButton({ consent, clinic }: Props) {
       {({ loading }) => (
         <button
           className="p-1.5 text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-emerald-50 disabled:opacity-40"
-          title="Exportar PDF"
+          title={t('consentPdfButton.export')}
           disabled={loading}
         >
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileDown className="w-4 h-4" />}

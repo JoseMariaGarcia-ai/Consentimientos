@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
@@ -80,6 +81,7 @@ async function fetchSlot(): Promise<SlotData | null> {
 }
 
 export function WelcomeMediaModal() {
+  const { t } = useTranslation()
   const [creative, setCreative] = useState<Creative | null>(null)
   const [visible, setVisible]   = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -171,12 +173,12 @@ export function WelcomeMediaModal() {
         ) : isVideo ? (
           <video ref={videoRef} src={creative.url} autoPlay muted controls playsInline className="w-full max-h-[80vh] object-contain" onEnded={close} />
         ) : (
-          <img src={creative.url} alt="Bienvenida" className="w-full max-h-[80vh] object-contain" />
+          <img src={creative.url} alt={t('welcomeMediaModal.welcomeAlt')} className="w-full max-h-[80vh] object-contain" />
         )}
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
           <button onClick={close} className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium rounded-full backdrop-blur-sm transition-colors">
-            Continuar →
+            {t('welcomeMediaModal.continue')}
           </button>
         </div>
       </div>

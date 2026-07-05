@@ -1,8 +1,32 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Syringe, X, Plus, Trash2, PenLine } from 'lucide-react'
 import { BOTOX_ZONES } from '@/constants/botoxZones'
 import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import { api } from '@/lib/api'
+
+const ZONE_SLUGS: Record<string, string> = {
+  'Frente (líneas horizontales)': 'forehead',
+  'Entre cejas (glabela)': 'glabella',
+  'Patas de gallo (periocular)': 'crows_feet',
+  'Párpado inferior': 'lower_eyelid',
+  'Cejas (lifting)': 'eyebrow_lift',
+  'Nariz (bunny lines)': 'bunny_lines',
+  'Labio superior (código de barras)': 'upper_lip',
+  'Comisuras bucales': 'oral_commissures',
+  'Mentón (piel de naranja)': 'chin_dimpling',
+  'Cuello (bandas platismales)': 'platysmal_bands',
+  'Escote': 'decolletage',
+  'Sudoración axilar (hiperhidrosis)': 'axillary_sweating',
+  'Sudoración palmar': 'palmar_sweating',
+  'Sudoración plantar': 'plantar_sweating',
+  'Mandíbula (bruxismo / máseteres)': 'jaw_bruxism',
+  'Migraña (puntos occipitales)': 'migraine_occipital',
+  'Trampoline chin': 'trampoline_chin',
+  'Gummy smile': 'gummy_smile',
+  'Nefertiti lift (cuello y mandíbula)': 'nefertiti_lift',
+  'Otra zona': 'other_zone',
+}
 
 interface ZoneEntry { zone: string; units: number }
 
@@ -43,7 +67,12 @@ function toDateInputValue(iso?: string) {
 const patientLabel = (p: any) => p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
 
 export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClose }: Props) {
+  const { t } = useTranslation()
   const isEdit = !!initial?.id
+  const zoneLabel = (zone: string) => {
+    const slug = ZONE_SLUGS[zone]
+    return slug ? t(`toxinModal.zones.${slug}`) : zone
+  }
   const [form, setForm] = useState({
     patient_id: initial?.patient_id ?? '',
     doctor_id: initial?.doctor_id ?? '',
@@ -102,11 +131,11 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.patient_id || !form.brand_name || !form.lot_number || !form.expiry_date || !form.manufacturer) {
-      setError('Paciente, nombre comercial, lote, caducidad y fabricante son obligatorios')
+      setError(t('toxinModal.validation.required_fields'))
       return
     }
     if (!effectiveSignature) {
-      setError('La firma del médico es obligatoria para guardar el registro')
+      setError(t('toxinModal.validation.signature_required'))
       return
     }
     setSaving(true)
@@ -123,7 +152,7 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
       })
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('toxinModal.unknown_error'))
     } finally {
       setSaving(false)
     }
@@ -131,13 +160,13 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
 
   const handleDelete = async () => {
     if (!onDelete) return
-    if (!confirm('¿Eliminar este registro de toxina?')) return
+    if (!confirm(t('toxinModal.confirm_delete'))) return
     setDeleting(true)
     try {
       await onDelete()
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('toxinModal.unknown_error'))
       setDeleting(false)
     }
   }
@@ -148,7 +177,7 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 sticky top-0 bg-white">
           <div className="flex items-center gap-2">
             <Syringe className="w-5 h-5 text-blue-600" />
-            <h2 className="text-lg font-bold text-slate-800">{isEdit ? 'Editar registro de toxina' : 'Nuevo registro de toxina'}</h2>
+            <h2 className="text-lg font-bold text-slate-800">{isEdit ? t('toxinModal.title_edit') : t('toxinModal.title_new')}</h2>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
@@ -156,10 +185,10 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-1 col-span-2">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.patient')} <span className="text-red-500">*</span></label>
               <select value={form.patient_id} onChange={e => set('patient_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Seleccionar paciente…</option>
+                <option value="">{t('toxinModal.select_patient')}</option>
                 {patients.map(p => <option key={p.id} value={p.id}>{patientLabel(p)}</option>)}
               </select>
             </div>
@@ -167,65 +196,65 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
             {/* Consentimiento vinculado — solo aparece tras elegir paciente */}
             {form.patient_id && (
               <div className="flex flex-col gap-1 col-span-2">
-                <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Consentimiento informado vinculado</label>
+                <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.linked_consent')}</label>
                 <select value={form.consent_id} onChange={e => set('consent_id', e.target.value)}
                   className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  <option value="">Sin vincular</option>
+                  <option value="">{t('toxinModal.not_linked')}</option>
                   {patientConsents.map(c => {
-                    const treatment = c.template?.treatment_type ?? c.template?.treatmentType ?? 'Consentimiento'
+                    const treatment = c.template?.treatment_type ?? c.template?.treatmentType ?? t('toxinModal.consent_default_name')
                     const signedAt = c.signed_at ?? c.signedAt
-                    const dateLabel = signedAt ? new Date(signedAt).toLocaleDateString('es-ES') : 'sin firmar'
+                    const dateLabel = signedAt ? new Date(signedAt).toLocaleDateString('es-ES') : t('toxinModal.unsigned')
                     return <option key={c.id} value={c.id}>{treatment} — {dateLabel}</option>
                   })}
                 </select>
-                {loadingConsents && <p className="text-xs text-slate-400">Cargando consentimientos…</p>}
+                {loadingConsents && <p className="text-xs text-slate-400">{t('toxinModal.loading_consents')}</p>}
                 {!loadingConsents && patientConsents.length === 0 && (
-                  <p className="text-xs text-slate-400">Este paciente no tiene consentimientos de toxina firmados todavía. Es opcional, puedes guardar el registro sin vincularlo.</p>
+                  <p className="text-xs text-slate-400">{t('toxinModal.no_consents_hint')}</p>
                 )}
               </div>
             )}
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.doctor')}</label>
               <select value={form.doctor_id} onChange={e => set('doctor_id', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">Sin asignar</option>
+                <option value="">{t('toxinModal.unassigned')}</option>
                 {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
               </select>
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha de aplicación <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.application_date')} <span className="text-red-500">*</span></label>
               <input type="datetime-local" step={900} value={form.application_date} onChange={e => set('application_date', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Nombre comercial <span className="text-red-500">*</span></label>
-              <input value={form.brand_name} onChange={e => set('brand_name', e.target.value)} placeholder="Botox, Dysport, Xeomin…"
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.brand_name')} <span className="text-red-500">*</span></label>
+              <input value={form.brand_name} onChange={e => set('brand_name', e.target.value)} placeholder={t('toxinModal.brand_name_placeholder')}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fabricante <span className="text-red-500">*</span></label>
-              <input value={form.manufacturer} onChange={e => set('manufacturer', e.target.value)} placeholder="Allergan, Ipsen, Merz…"
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.manufacturer')} <span className="text-red-500">*</span></label>
+              <input value={form.manufacturer} onChange={e => set('manufacturer', e.target.value)} placeholder={t('toxinModal.manufacturer_placeholder')}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Número de lote <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.lot_number')} <span className="text-red-500">*</span></label>
               <input value={form.lot_number} onChange={e => set('lot_number', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha de caducidad <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.expiry_date')} <span className="text-red-500">*</span></label>
               <input type="date" value={form.expiry_date} onChange={e => set('expiry_date', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Viales abiertos <span className="text-red-500">*</span></label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.vials_opened')} <span className="text-red-500">*</span></label>
               <input type="number" min={1} value={form.vials_opened} onChange={e => set('vials_opened', Number(e.target.value))}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
@@ -233,21 +262,21 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
 
           {/* Zonas tratadas */}
           <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Zonas tratadas</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.treated_zones')}</label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 max-h-48 overflow-y-auto pr-1">
               {BOTOX_ZONES.filter(z => z !== 'Otra zona').map(zone => (
                 <label key={zone} className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
                   <input type="checkbox" checked={isZoneActive(zone)} onChange={() => toggleZone(zone)} className="accent-blue-600 flex-shrink-0" />
-                  {zone}
+                  {zoneLabel(zone)}
                 </label>
               ))}
             </div>
 
             <div className="flex items-center gap-2">
-              <input value={customZoneName} onChange={e => setCustomZoneName(e.target.value)} placeholder="Otra zona…"
+              <input value={customZoneName} onChange={e => setCustomZoneName(e.target.value)} placeholder={t('toxinModal.other_zone_placeholder')}
                 className="flex-1 px-3 py-1.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
               <button type="button" onClick={addCustomZone} className="flex items-center gap-1 px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50">
-                <Plus className="w-3.5 h-3.5" />Añadir
+                <Plus className="w-3.5 h-3.5" />{t('toxinModal.add')}
               </button>
             </div>
 
@@ -255,7 +284,7 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
               <div className="flex flex-col gap-1.5 mt-1">
                 {zones.map(z => (
                   <div key={z.zone} className="flex items-center gap-2 bg-slate-50 rounded-lg px-3 py-1.5">
-                    <span className="text-sm text-slate-700 flex-1">{z.zone}</span>
+                    <span className="text-sm text-slate-700 flex-1">{zoneLabel(z.zone)}</span>
                     <input
                       type="number" min={0} value={z.units}
                       onChange={e => setZoneUnits(z.zone, Number(e.target.value))}
@@ -271,31 +300,31 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
             )}
 
             <div className="flex items-center justify-between pt-1">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Total de unidades</span>
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('toxinModal.total_units')}</span>
               <span className="text-sm font-bold text-blue-700">{totalUnits} U</span>
             </div>
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
-            <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={2} placeholder="Observaciones…"
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.notes')}</label>
+            <textarea value={form.notes} onChange={e => set('notes', e.target.value)} rows={2} placeholder={t('toxinModal.notes_placeholder')}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
           </div>
 
           {/* Firma del médico — obligatoria para guardar */}
           <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Firma del médico <span className="text-red-500">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.doctor_signature')} <span className="text-red-500">*</span></label>
             {!resigning && existingSignature ? (
               <div className="flex flex-col gap-2">
                 <div className="border border-slate-200 rounded-lg p-2 bg-white">
-                  <img src={existingSignature} alt="Firma del médico" className="h-20 object-contain" />
+                  <img src={existingSignature} alt={t('toxinModal.signature_alt')} className="h-20 object-contain" />
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs text-slate-400">
-                    Firmado {existingSignedAt ? new Date(existingSignedAt).toLocaleString('es-ES') : ''}
+                    {t('toxinModal.signed_on', { date: existingSignedAt ? new Date(existingSignedAt).toLocaleString('es-ES') : '' })}
                   </p>
                   <button type="button" onClick={() => setResigning(true)} className="flex items-center gap-1 text-xs font-medium text-blue-600 hover:underline">
-                    <PenLine className="w-3.5 h-3.5" />Firmar de nuevo
+                    <PenLine className="w-3.5 h-3.5" />{t('toxinModal.sign_again')}
                   </button>
                 </div>
               </div>
@@ -303,7 +332,7 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
               <SignatureCanvas onSave={dataUrl => setNewSignature(dataUrl)} onClear={() => setNewSignature('')} />
             )}
             {resigning && !newSignature && (
-              <p className="text-xs text-amber-600">Dibuje la firma y pulse "Confirmar firma" antes de guardar.</p>
+              <p className="text-xs text-amber-600">{t('toxinModal.signature_hint')}</p>
             )}
           </div>
 
@@ -312,13 +341,13 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
           <div className="flex justify-between items-center gap-3 pt-2 border-t border-slate-100">
             {isEdit && onDelete ? (
               <button type="button" onClick={handleDelete} disabled={deleting} className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg disabled:opacity-50">
-                {deleting ? 'Eliminando…' : 'Eliminar registro'}
+                {deleting ? t('toxinModal.deleting') : t('toxinModal.delete_record')}
               </button>
             ) : <span />}
             <div className="flex gap-3">
-              <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">Cancelar</button>
+              <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('toxinModal.cancel')}</button>
               <button type="submit" disabled={saving} className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium">
-                {saving ? 'Guardando…' : isEdit ? 'Guardar cambios' : 'Crear registro'}
+                {saving ? t('toxinModal.saving') : isEdit ? t('toxinModal.save_changes') : t('toxinModal.create_record')}
               </button>
             </div>
           </div>

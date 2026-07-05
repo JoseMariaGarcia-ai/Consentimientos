@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Check, Clock, FileText, ClipboardList, LogIn, Loader2 } from 'lucide-react'
 import { api } from '@/lib/api'
 
@@ -8,30 +9,10 @@ interface Props {
 }
 
 const OPTIONS = [
-  {
-    value: 'session',
-    icon: LogIn,
-    label: 'Una vez al iniciar sesión',
-    desc: 'Se muestra una sola vez cada vez que el usuario abre la aplicación en el navegador.',
-  },
-  {
-    value: 'consent',
-    icon: FileText,
-    label: 'Cada vez que se crea un consentimiento',
-    desc: 'Aparece inmediatamente después de crear cada consentimiento informado.',
-  },
-  {
-    value: 'clinical',
-    icon: ClipboardList,
-    label: 'Cada vez que se crea una historia clínica',
-    desc: 'Aparece inmediatamente después de guardar cada historia clínica.',
-  },
-  {
-    value: 'interval',
-    icon: Clock,
-    label: 'Cada X minutos',
-    desc: 'Se muestra periódicamente mientras la aplicación esté abierta.',
-  },
+  { value: 'session',  icon: LogIn },
+  { value: 'consent',  icon: FileText },
+  { value: 'clinical', icon: ClipboardList },
+  { value: 'interval', icon: Clock },
 ]
 
 function parseTriggers(raw: string | null | undefined): string[] {
@@ -40,6 +21,7 @@ function parseTriggers(raw: string | null | undefined): string[] {
 }
 
 export function WelcomeTriggerConfig({ current, onSaved }: Props) {
+  const { t } = useTranslation()
   const [triggers, setTriggers] = useState<string[]>(() => parseTriggers(current?.show_trigger))
   const [minutes, setMinutes]   = useState(current?.show_interval_minutes ?? 30)
   const [saving, setSaving]     = useState(false)
@@ -53,7 +35,7 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
   }
 
   const handleSave = async () => {
-    if (triggers.length === 0) { setError('Selecciona al menos una opción'); return }
+    if (triggers.length === 0) { setError(t('welcomeTriggerConfig.errors.selectAtLeastOne')); return }
     setSaving(true); setError(''); setSaved(false)
     try {
       await api.put('/media/welcome/config', {
@@ -64,7 +46,7 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
       onSaved()
       setTimeout(() => setSaved(false), 3000)
     } catch (e: any) {
-      setError(e.message ?? 'Error al guardar')
+      setError(e.message ?? t('welcomeTriggerConfig.errors.saveFailed'))
     } finally {
       setSaving(false)
     }
@@ -72,8 +54,8 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">¿Cuándo mostrar la publicidad?</p>
-      <p className="text-xs text-slate-400 -mt-1">Puedes seleccionar varias opciones a la vez.</p>
+      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('welcomeTriggerConfig.heading')}</p>
+      <p className="text-xs text-slate-400 -mt-1">{t('welcomeTriggerConfig.subheading')}</p>
 
       <div className="flex flex-col gap-2">
         {OPTIONS.map(opt => {
@@ -95,13 +77,13 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <Icon className={`w-4 h-4 flex-shrink-0 ${active ? 'text-pink-600' : 'text-slate-400'}`} />
-                  <p className={`text-sm font-medium ${active ? 'text-pink-800' : 'text-slate-700'}`}>{opt.label}</p>
+                  <p className={`text-sm font-medium ${active ? 'text-pink-800' : 'text-slate-700'}`}>{t(`welcomeTriggerConfig.options.${opt.value}.label`)}</p>
                 </div>
-                <p className="text-xs text-slate-400 mt-0.5 ml-6">{opt.desc}</p>
+                <p className="text-xs text-slate-400 mt-0.5 ml-6">{t(`welcomeTriggerConfig.options.${opt.value}.desc`)}</p>
 
                 {opt.value === 'interval' && active && (
                   <div className="flex items-center gap-2 mt-2 ml-6">
-                    <span className="text-xs text-slate-500">Cada</span>
+                    <span className="text-xs text-slate-500">{t('welcomeTriggerConfig.every')}</span>
                     <input
                       type="number"
                       min={1}
@@ -111,7 +93,7 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
                       className="w-20 px-2 py-1 border border-slate-300 rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-pink-400"
                       onClick={e => e.stopPropagation()}
                     />
-                    <span className="text-xs text-slate-500">minutos</span>
+                    <span className="text-xs text-slate-500">{t('welcomeTriggerConfig.minutes')}</span>
                   </div>
                 )}
               </div>
@@ -129,12 +111,12 @@ export function WelcomeTriggerConfig({ current, onSaved }: Props) {
           className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-xl text-sm font-medium hover:bg-pink-700 disabled:opacity-50"
         >
           {saving
-            ? <><Loader2 className="w-4 h-4 animate-spin" />Guardando…</>
+            ? <><Loader2 className="w-4 h-4 animate-spin" />{t('welcomeTriggerConfig.saving')}</>
             : saved
-            ? <><Check className="w-4 h-4" />Guardado</>
-            : 'Guardar configuración'}
+            ? <><Check className="w-4 h-4" />{t('welcomeTriggerConfig.saved')}</>
+            : t('welcomeTriggerConfig.saveButton')}
         </button>
-        {saved && <p className="text-xs text-emerald-600 font-medium">✅ Configuración aplicada</p>}
+        {saved && <p className="text-xs text-emerald-600 font-medium">{t('welcomeTriggerConfig.appliedMessage')}</p>}
       </div>
     </div>
   )

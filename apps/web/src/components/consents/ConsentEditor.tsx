@@ -2,6 +2,7 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import { Bold, Italic, List, ListOrdered, Heading2, Undo, Redo } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   content: string
@@ -10,11 +11,13 @@ interface Props {
   readOnly?: boolean
 }
 
-export function ConsentEditor({ content, onChange, placeholder = 'Escribe el contenido del consentimiento…', readOnly = false }: Props) {
+export function ConsentEditor({ content, onChange, placeholder, readOnly = false }: Props) {
+  const { t } = useTranslation()
+  const effectivePlaceholder = placeholder ?? t('consentEditor.placeholder_default')
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Placeholder.configure({ placeholder }),
+      Placeholder.configure({ placeholder: effectivePlaceholder }),
     ],
     content,
     editable: !readOnly,
@@ -38,16 +41,16 @@ export function ConsentEditor({ content, onChange, placeholder = 'Escribe el con
     <div className="border border-slate-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
       {!readOnly && (
         <div className="flex items-center gap-0.5 px-2 py-1.5 border-b border-slate-200 bg-slate-50 flex-wrap">
-          {btn(editor.isActive('bold'), () => editor.chain().focus().toggleBold().run(), 'Negrita', <Bold className="w-4 h-4" />)}
-          {btn(editor.isActive('italic'), () => editor.chain().focus().toggleItalic().run(), 'Cursiva', <Italic className="w-4 h-4" />)}
+          {btn(editor.isActive('bold'), () => editor.chain().focus().toggleBold().run(), t('consentEditor.bold'), <Bold className="w-4 h-4" />)}
+          {btn(editor.isActive('italic'), () => editor.chain().focus().toggleItalic().run(), t('consentEditor.italic'), <Italic className="w-4 h-4" />)}
           <div className="w-px h-5 bg-slate-200 mx-1" />
-          {btn(editor.isActive('heading', { level: 2 }), () => editor.chain().focus().toggleHeading({ level: 2 }).run(), 'Título', <Heading2 className="w-4 h-4" />)}
+          {btn(editor.isActive('heading', { level: 2 }), () => editor.chain().focus().toggleHeading({ level: 2 }).run(), t('consentEditor.heading'), <Heading2 className="w-4 h-4" />)}
           <div className="w-px h-5 bg-slate-200 mx-1" />
-          {btn(editor.isActive('bulletList'), () => editor.chain().focus().toggleBulletList().run(), 'Lista', <List className="w-4 h-4" />)}
-          {btn(editor.isActive('orderedList'), () => editor.chain().focus().toggleOrderedList().run(), 'Lista numerada', <ListOrdered className="w-4 h-4" />)}
+          {btn(editor.isActive('bulletList'), () => editor.chain().focus().toggleBulletList().run(), t('consentEditor.bullet_list'), <List className="w-4 h-4" />)}
+          {btn(editor.isActive('orderedList'), () => editor.chain().focus().toggleOrderedList().run(), t('consentEditor.ordered_list'), <ListOrdered className="w-4 h-4" />)}
           <div className="w-px h-5 bg-slate-200 mx-1" />
-          {btn(false, () => editor.chain().focus().undo().run(), 'Deshacer', <Undo className="w-4 h-4" />)}
-          {btn(false, () => editor.chain().focus().redo().run(), 'Rehacer', <Redo className="w-4 h-4" />)}
+          {btn(false, () => editor.chain().focus().undo().run(), t('consentEditor.undo'), <Undo className="w-4 h-4" />)}
+          {btn(false, () => editor.chain().focus().redo().run(), t('consentEditor.redo'), <Redo className="w-4 h-4" />)}
         </div>
       )}
       <EditorContent
