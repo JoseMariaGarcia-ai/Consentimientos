@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ArrowLeft, FileText, Stethoscope, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, Pencil, Trash2, Camera, Plus } from 'lucide-react'
 import { api } from '@/lib/api'
@@ -7,16 +8,17 @@ import { PhotoSessionPanel } from '@/components/photos/PhotoSessionPanel'
 import { NewSessionModal } from '@/components/photos/NewSessionModal'
 import type { Doctor } from '@consentspro/shared-types'
 
-const STATUS_CONFIG: Record<string, { icon: any; color: string; bg: string; label: string }> = {
-  signed:  { icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-50', label: 'Firmado' },
-  pending: { icon: Clock,       color: 'text-amber-600',   bg: 'bg-amber-50',   label: 'Pendiente' },
-  revoked: { icon: XCircle,     color: 'text-red-500',     bg: 'bg-red-50',     label: 'Revocado' },
-  expired: { icon: AlertCircle, color: 'text-slate-400',   bg: 'bg-slate-50',   label: 'Caducado' },
+const STATUS_CONFIG: Record<string, { icon: any; color: string; bg: string }> = {
+  signed:  { icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+  pending: { icon: Clock,       color: 'text-amber-600',   bg: 'bg-amber-50' },
+  revoked: { icon: XCircle,     color: 'text-red-500',     bg: 'bg-red-50' },
+  expired: { icon: AlertCircle, color: 'text-slate-400',   bg: 'bg-slate-50' },
 }
 
 type Tab = 'history' | 'consents' | 'photos'
 
 export default function PatientDetail() {
+  const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
@@ -62,7 +64,7 @@ export default function PatientDetail() {
   }
 
   const handleDeleteClinical = async (rid: string) => {
-    if (!confirm('¿Eliminar esta historia clínica?')) return
+    if (!confirm(t('patientDetail.confirm_delete_clinical'))) return
     await api.delete(`/clinical-records/${rid}`)
     setClinicalRecords(rs => rs.filter(r => r.id !== rid))
   }
@@ -73,13 +75,13 @@ export default function PatientDetail() {
   }
 
   const handleDeleteSession = async (sessionId: string) => {
-    if (!confirm('¿Eliminar esta sesión y todas sus fotos?')) return
+    if (!confirm(t('patientDetail.confirm_delete_session'))) return
     await api.delete(`/photo-sessions/${sessionId}`)
     setPhotoSessions(prev => prev.filter(s => s.id !== sessionId))
   }
 
-  if (loading) return <div className="p-12 text-center text-slate-400">Cargando…</div>
-  if (!patient) return <div className="p-12 text-center text-slate-400">Paciente no encontrado</div>
+  if (loading) return <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
+  if (!patient) return <div className="p-12 text-center text-slate-400">{t('patientDetail.not_found')}</div>
 
   const firstName = patient.firstName ?? patient.fullName?.split(' ')[0] ?? ''
   const lastName  = patient.lastName  ?? patient.fullName?.split(' ').slice(1).join(' ') ?? ''
@@ -105,19 +107,19 @@ export default function PatientDetail() {
 
       {/* Patient info card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-        <div><p className="text-xs text-slate-400 uppercase font-semibold">Fecha nacimiento</p><p className="mt-1 text-slate-700">{patient.dateOfBirth ?? patient.date_of_birth ? new Date(patient.dateOfBirth ?? patient.date_of_birth).toLocaleDateString('es-ES') : '—'}</p></div>
-        <div><p className="text-xs text-slate-400 uppercase font-semibold">Email</p><p className="mt-1 text-slate-700">{patient.email ?? '—'}</p></div>
-        <div><p className="text-xs text-slate-400 uppercase font-semibold">Grupo sanguíneo</p><p className="mt-1 text-slate-700">{patient.bloodType ?? patient.blood_type ?? '—'}</p></div>
-        <div><p className="text-xs text-slate-400 uppercase font-semibold">Dirección</p><p className="mt-1 text-slate-700">{addrParts[0] ? `${addrParts[0]}, ${addrParts[1] ?? ''}` : '—'}</p></div>
-        {patient.allergies && <div className="col-span-2"><p className="text-xs text-slate-400 uppercase font-semibold">Alergias</p><p className="mt-1 text-amber-700 bg-amber-50 rounded px-2 py-1 text-xs">{patient.allergies}</p></div>}
-        {patient.medications && <div className="col-span-2"><p className="text-xs text-slate-400 uppercase font-semibold">Medicación</p><p className="mt-1 text-slate-700">{patient.medications}</p></div>}
+        <div><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.date_of_birth')}</p><p className="mt-1 text-slate-700">{patient.dateOfBirth ?? patient.date_of_birth ? new Date(patient.dateOfBirth ?? patient.date_of_birth).toLocaleDateString('es-ES') : '—'}</p></div>
+        <div><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.email')}</p><p className="mt-1 text-slate-700">{patient.email ?? '—'}</p></div>
+        <div><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.blood_type')}</p><p className="mt-1 text-slate-700">{patient.bloodType ?? patient.blood_type ?? '—'}</p></div>
+        <div><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.address')}</p><p className="mt-1 text-slate-700">{addrParts[0] ? `${addrParts[0]}, ${addrParts[1] ?? ''}` : '—'}</p></div>
+        {patient.allergies && <div className="col-span-2"><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.allergies')}</p><p className="mt-1 text-amber-700 bg-amber-50 rounded px-2 py-1 text-xs">{patient.allergies}</p></div>}
+        {patient.medications && <div className="col-span-2"><p className="text-xs text-slate-400 uppercase font-semibold">{t('patientDetail.medications')}</p><p className="mt-1 text-slate-700">{patient.medications}</p></div>}
       </div>
 
       {/* Tabs */}
       <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit">
-        <TabBtn active={tab === 'history'}  onClick={() => setTab('history')}  icon={<Stethoscope className="w-4 h-4" />} label={`Historias clínicas (${clinicalRecords.length})`} activeColor="text-teal-700" />
-        <TabBtn active={tab === 'photos'}   onClick={() => setTab('photos')}   icon={<Camera className="w-4 h-4" />}      label={`Fotos (${photoSessions.length})`}                activeColor="text-violet-700" />
-        <TabBtn active={tab === 'consents'} onClick={() => setTab('consents')} icon={<FileText className="w-4 h-4" />}    label={`Consentimientos (${consents.length})`}           activeColor="text-blue-700" />
+        <TabBtn active={tab === 'history'}  onClick={() => setTab('history')}  icon={<Stethoscope className="w-4 h-4" />} label={t('patientDetail.tabs.history', { count: clinicalRecords.length })} activeColor="text-teal-700" />
+        <TabBtn active={tab === 'photos'}   onClick={() => setTab('photos')}   icon={<Camera className="w-4 h-4" />}      label={t('patientDetail.tabs.photos', { count: photoSessions.length })}                activeColor="text-violet-700" />
+        <TabBtn active={tab === 'consents'} onClick={() => setTab('consents')} icon={<FileText className="w-4 h-4" />}    label={t('patientDetail.tabs.consents', { count: consents.length })}           activeColor="text-blue-700" />
       </div>
 
       {/* Clinical Records tab */}
@@ -126,11 +128,11 @@ export default function PatientDetail() {
           <div className="flex justify-end">
             <button onClick={() => { setEditing(null); setFormOpen(true) }} className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-xl text-sm font-medium hover:bg-teal-700 shadow-sm">
               <FilePlus className="w-4 h-4" />
-              Nueva historia
+              {t('patientDetail.new_clinical_record')}
             </button>
           </div>
           {clinicalRecords.length === 0 ? (
-            <EmptyState icon={<Stethoscope className="w-10 h-10 mx-auto mb-3 opacity-20" />} text="No hay historias clínicas para este paciente" />
+            <EmptyState icon={<Stethoscope className="w-10 h-10 mx-auto mb-3 opacity-20" />} text={t('patientDetail.no_clinical_records')} />
           ) : (
             <div className="flex flex-col gap-3">
               {clinicalRecords.map(r => (
@@ -141,7 +143,7 @@ export default function PatientDetail() {
                         {r.date ? new Date(r.date).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }) : '—'}
                       </span>
                       {r.reason_for_visit && <p className="mt-1.5 font-semibold text-slate-800">{r.reason_for_visit}</p>}
-                      {r.doctor?.name && <p className="text-xs text-slate-400 mt-0.5">Dr. {r.doctor.name}</p>}
+                      {r.doctor?.name && <p className="text-xs text-slate-400 mt-0.5">{t('patientDetail.doctor_prefix', { name: r.doctor.name })}</p>}
                     </div>
                     <div className="flex gap-1">
                       <button onClick={() => { setEditing(r); setFormOpen(true) }} className="p-1.5 text-slate-400 hover:text-teal-600 rounded-lg hover:bg-teal-50"><Pencil className="w-4 h-4" /></button>
@@ -149,13 +151,13 @@ export default function PatientDetail() {
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                    {r.anamnesis && <Field label="Anamnesis" value={r.anamnesis} />}
-                    {r.allergies && <Field label="Alergias" value={r.allergies} highlight />}
-                    {r.current_medications && <Field label="Medicación actual" value={r.current_medications} />}
-                    {r.physical_exam && <Field label="Exploración física" value={r.physical_exam} />}
-                    {r.diagnosis && <Field label="Diagnóstico" value={r.diagnosis} />}
-                    {r.treatment_plan && <Field label="Plan de tratamiento" value={r.treatment_plan} />}
-                    {r.notes && <Field label="Observaciones" value={r.notes} />}
+                    {r.anamnesis && <Field label={t('patientDetail.fields.anamnesis')} value={r.anamnesis} />}
+                    {r.allergies && <Field label={t('patientDetail.fields.allergies')} value={r.allergies} highlight />}
+                    {r.current_medications && <Field label={t('patientDetail.fields.current_medications')} value={r.current_medications} />}
+                    {r.physical_exam && <Field label={t('patientDetail.fields.physical_exam')} value={r.physical_exam} />}
+                    {r.diagnosis && <Field label={t('patientDetail.fields.diagnosis')} value={r.diagnosis} />}
+                    {r.treatment_plan && <Field label={t('patientDetail.fields.treatment_plan')} value={r.treatment_plan} />}
+                    {r.notes && <Field label={t('patientDetail.fields.notes')} value={r.notes} />}
                   </div>
                 </div>
               ))}
@@ -170,11 +172,11 @@ export default function PatientDetail() {
           <div className="flex justify-end">
             <button onClick={() => setNewSessionOpen(true)} className="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-xl text-sm font-medium hover:bg-violet-700 shadow-sm">
               <Plus className="w-4 h-4" />
-              Nueva sesión
+              {t('patientDetail.new_photo_session')}
             </button>
           </div>
           {photoSessions.length === 0 ? (
-            <EmptyState icon={<Camera className="w-10 h-10 mx-auto mb-3 opacity-20" />} text="No hay sesiones fotográficas para este paciente" />
+            <EmptyState icon={<Camera className="w-10 h-10 mx-auto mb-3 opacity-20" />} text={t('patientDetail.no_photo_sessions')} />
           ) : (
             <div className="flex flex-col gap-3">
               {photoSessions.map(session => (
@@ -194,9 +196,10 @@ export default function PatientDetail() {
       {tab === 'consents' && (
         <div className="flex flex-col gap-3">
           {consents.length === 0 ? (
-            <EmptyState icon={<FileText className="w-10 h-10 mx-auto mb-3 opacity-20" />} text="No hay consentimientos para este paciente" />
+            <EmptyState icon={<FileText className="w-10 h-10 mx-auto mb-3 opacity-20" />} text={t('patientDetail.no_consents')} />
           ) : consents.map(c => {
-            const cfg = STATUS_CONFIG[c.status] ?? STATUS_CONFIG.pending
+            const statusKey = STATUS_CONFIG[c.status] ? c.status : 'pending'
+            const cfg = STATUS_CONFIG[statusKey]
             const Icon = cfg.icon
             return (
               <div key={c.id} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex items-center justify-between">
@@ -205,7 +208,7 @@ export default function PatientDetail() {
                   <p className="text-xs text-slate-400 mt-0.5">{c.doctor?.name ?? '—'} · {c.created_at ? new Date(c.created_at).toLocaleDateString('es-ES') : '—'}</p>
                 </div>
                 <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${cfg.bg} ${cfg.color}`}>
-                  <Icon className="w-3 h-3" />{cfg.label}
+                  <Icon className="w-3 h-3" />{t(`patientDetail.status.${statusKey}`)}
                 </span>
               </div>
             )

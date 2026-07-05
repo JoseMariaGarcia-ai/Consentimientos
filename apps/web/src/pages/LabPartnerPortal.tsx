@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Building2, FlaskConical, Mail, Phone, User, Globe, LogOut, Megaphone, BarChart3 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
@@ -18,6 +19,7 @@ interface LabPartnerPortalProps {
 // Real dashboard for an authenticated lab_partner user, and preview mode for
 // admin/superadmin (via previewLabId) to see exactly what that role sees.
 export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }: LabPartnerPortalProps) {
+  const { t } = useTranslation()
   const isPreview = !!previewLabId
   const effectiveId = previewLabId ?? labId
 
@@ -45,7 +47,7 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
       <header className="bg-[#0D1B2E] text-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <p className="text-xl font-black tracking-tight">
-            Consents<span className="text-[#C9A84C]">Pro</span> <span className="text-sm font-normal text-slate-400">Laboratorio</span>
+            Consents<span className="text-[#C9A84C]">Pro</span> <span className="text-sm font-normal text-slate-400">{t('labPartnerPortal.header_subtitle')}</span>
           </p>
           {!isPreview && (
             <button onClick={logout} className="p-2 rounded-lg hover:bg-white/10 transition-colors">
@@ -61,7 +63,7 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
             <div className="w-8 h-8 border-4 border-[#C9A84C] border-t-transparent rounded-full animate-spin" />
           </div>
         ) : !lab ? (
-          <div className="text-center text-slate-400 py-20">No se encontró el perfil de laboratorio.</div>
+          <div className="text-center text-slate-400 py-20">{t('labPartnerPortal.not_found')}</div>
         ) : (
           <>
             {/* Lab profile */}
@@ -72,7 +74,7 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-slate-800">{lab.name}</h1>
-                  <p className="text-sm text-slate-400">Panel de laboratorio colaborador</p>
+                  <p className="text-sm text-slate-400">{t('labPartnerPortal.panel_subtitle')}</p>
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600">
@@ -89,19 +91,19 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
                 onClick={() => setTab('clinics')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'clinics' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
               >
-                <Building2 className="w-4 h-4" />Clínicas vinculadas
+                <Building2 className="w-4 h-4" />{t('labPartnerPortal.tabs.clinics')}
               </button>
               <button
                 onClick={() => setTab('campaigns')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'campaigns' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
               >
-                <Megaphone className="w-4 h-4" />Campañas publicitarias
+                <Megaphone className="w-4 h-4" />{t('labPartnerPortal.tabs.campaigns')}
               </button>
               <button
                 onClick={() => setTab('stats')}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'stats' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
               >
-                <BarChart3 className="w-4 h-4" />Estadísticas
+                <BarChart3 className="w-4 h-4" />{t('labPartnerPortal.tabs.stats')}
               </button>
             </div>
 
@@ -110,11 +112,11 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                 <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-slate-500" />
-                  <h2 className="text-sm font-bold text-slate-700">Clínicas vinculadas</h2>
+                  <h2 className="text-sm font-bold text-slate-700">{t('labPartnerPortal.tabs.clinics')}</h2>
                   <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{lab.clinics?.length ?? 0}</span>
                 </div>
                 {!lab.clinics || lab.clinics.length === 0 ? (
-                  <p className="text-sm text-slate-400 text-center py-8">Todavía no hay clínicas vinculadas a este laboratorio.</p>
+                  <p className="text-sm text-slate-400 text-center py-8">{t('labPartnerPortal.no_clinics')}</p>
                 ) : (
                   <div className="divide-y divide-slate-100">
                     {lab.clinics.map((c: any) => (
@@ -134,13 +136,13 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
                 <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
                   <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
                     <Megaphone className="w-4 h-4 text-pink-500" />
-                    <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+                    <h3 className="text-sm font-bold text-slate-700">{t('labPartnerPortal.media_management')}</h3>
                   </div>
 
                   <CreativesGallery
                     type="welcome"
-                    title="Pantalla de bienvenida"
-                    description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+                    title={t('labPartnerPortal.welcome_screen.title')}
+                    description={t('labPartnerPortal.welcome_screen.description')}
                     files={mediaData?.welcome?.files ?? []}
                     settings={mediaData?.welcome?.settings ?? null}
                     onChanged={loadMedia}
@@ -160,8 +162,8 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
 
                   <CreativesGallery
                     type="patient"
-                    title="Contenido para paciente"
-                    description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+                    title={t('labPartnerPortal.patient_content.title')}
+                    description={t('labPartnerPortal.patient_content.description')}
                     files={mediaData?.patient?.files ?? []}
                     settings={mediaData?.patient?.settings ?? null}
                     onChanged={loadMedia}
@@ -178,8 +180,8 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
             {tab === 'stats' && (
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 flex flex-col items-center gap-3 text-center">
                 <BarChart3 className="w-10 h-10 text-slate-300" />
-                <p className="text-sm font-semibold text-slate-600">Estadísticas</p>
-                <p className="text-sm text-slate-400 max-w-sm">Esta sección está pendiente de definir — próximamente verás aquí métricas de rendimiento de tus campañas y clínicas.</p>
+                <p className="text-sm font-semibold text-slate-600">{t('labPartnerPortal.tabs.stats')}</p>
+                <p className="text-sm text-slate-400 max-w-sm">{t('labPartnerPortal.stats_pending')}</p>
               </div>
             )}
           </>

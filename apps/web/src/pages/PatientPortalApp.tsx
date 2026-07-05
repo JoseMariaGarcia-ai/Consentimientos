@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FileText, ClipboardList, Camera, Download, ChevronDown, ChevronUp, LogOut, ArrowLeft, ArrowRight } from 'lucide-react'
 import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
@@ -26,6 +27,7 @@ function normalizeSession(s: any) {
 }
 
 export default function PatientPortalApp({ previewPatientId, onExitPreview }: PatientPortalAppProps) {
+  const { t } = useTranslation()
   const [tab, setTab]         = useState<Tab>('consents')
   const [me, setMe]           = useState<any>(null)
   const [consents, setConsents]   = useState<any[]>([])
@@ -67,9 +69,9 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
   const logout = () => { clearSession(); window.location.href = '/' }
 
   const tabs: { key: Tab; label: string; icon: typeof FileText; count: number }[] = [
-    { key: 'consents', label: 'Mis Consentimientos', icon: FileText,      count: consents.length },
-    { key: 'clinical', label: 'Mi Historia Clínica', icon: ClipboardList, count: clinical.length },
-    { key: 'photos',   label: 'Mis Fotos',           icon: Camera,        count: photos.length },
+    { key: 'consents', label: t('patientPortalApp.tabs.consents'), icon: FileText,      count: consents.length },
+    { key: 'clinical', label: t('patientPortalApp.tabs.clinical'), icon: ClipboardList, count: clinical.length },
+    { key: 'photos',   label: t('patientPortalApp.tabs.photos'),   icon: Camera,        count: photos.length },
   ]
 
   return (
@@ -99,22 +101,22 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
         </div>
         {/* Tabs */}
         <div className="max-w-2xl mx-auto px-4 flex gap-1 pb-0">
-          {tabs.map(t => {
-            const Icon = t.icon
-            const active = tab === t.key
+          {tabs.map(tabItem => {
+            const Icon = tabItem.icon
+            const active = tab === tabItem.key
             return (
               <button
-                key={t.key}
-                onClick={() => setTab(t.key)}
+                key={tabItem.key}
+                onClick={() => setTab(tabItem.key)}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-semibold border-b-2 transition-colors whitespace-nowrap ${
                   active ? 'border-[#C9A84C] text-white' : 'border-transparent text-slate-400 hover:text-slate-200'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
-                {t.label}
-                {t.count > 0 && (
+                {tabItem.label}
+                {tabItem.count > 0 && (
                   <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${active ? 'bg-[#C9A84C] text-[#0D1B2E]' : 'bg-slate-700 text-slate-300'}`}>
-                    {t.count}
+                    {tabItem.count}
                   </span>
                 )}
               </button>
@@ -143,18 +145,19 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
 
 /* ─── Consents Tab ─── */
 function ConsentsTab({ consents }: { consents: any[] }) {
-  if (consents.length === 0) return <EmptyState icon={FileText} text="Todavía no tienes consentimientos firmados." />
+  const { t } = useTranslation()
+  if (consents.length === 0) return <EmptyState icon={FileText} text={t('patientPortalApp.consents.empty')} />
   return (
     <div className="flex flex-col gap-3">
       {consents.map(c => (
         <div key={c.id} className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="text-sm font-semibold text-slate-800">{c.treatment_type ?? 'Consentimiento'}</p>
-              {c.doctor_name && <p className="text-xs text-slate-400 mt-0.5">Dr. {c.doctor_name}</p>}
+              <p className="text-sm font-semibold text-slate-800">{c.treatment_type ?? t('patientPortalApp.consents.default_name')}</p>
+              {c.doctor_name && <p className="text-xs text-slate-400 mt-0.5">{t('patientPortalApp.consents.doctor', { name: c.doctor_name })}</p>}
               <p className="text-xs text-slate-400 mt-0.5">
                 {c.signed_at
-                  ? `Firmado el ${new Date(c.signed_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}`
+                  ? t('patientPortalApp.consents.signed_on', { date: new Date(c.signed_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }) })
                   : new Date(c.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}
               </p>
             </div>
@@ -162,7 +165,7 @@ function ConsentsTab({ consents }: { consents: any[] }) {
               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                 c.status === 'signed' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
               }`}>
-                {c.status === 'signed' ? 'Firmado' : 'Pendiente'}
+                {c.status === 'signed' ? t('patientPortalApp.consents.status_signed') : t('patientPortalApp.consents.status_pending')}
               </span>
             </div>
           </div>
@@ -174,8 +177,9 @@ function ConsentsTab({ consents }: { consents: any[] }) {
 
 /* ─── Clinical Tab ─── */
 function ClinicalTab({ records }: { records: any[] }) {
+  const { t } = useTranslation()
   const [open, setOpen] = useState<string | null>(null)
-  if (records.length === 0) return <EmptyState icon={ClipboardList} text="Tu historia clínica está vacía." />
+  if (records.length === 0) return <EmptyState icon={ClipboardList} text={t('patientPortalApp.clinical.empty')} />
   return (
     <div className="flex flex-col gap-3">
       {records.map(r => {
@@ -187,10 +191,10 @@ function ClinicalTab({ records }: { records: any[] }) {
               className="w-full px-4 py-4 flex items-center justify-between text-left"
             >
               <div>
-                <p className="text-sm font-semibold text-slate-800">{r.reason_for_visit ?? r.diagnosis ?? 'Consulta'}</p>
+                <p className="text-sm font-semibold text-slate-800">{r.reason_for_visit ?? r.diagnosis ?? t('patientPortalApp.clinical.default_name')}</p>
                 <p className="text-xs text-slate-400 mt-0.5">
                   {r.date ? new Date(r.date).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }) : '—'}
-                  {r.doctor_name && ` · Dr. ${r.doctor_name}`}
+                  {r.doctor_name && t('patientPortalApp.clinical.doctor_suffix', { name: r.doctor_name })}
                 </p>
               </div>
               {isOpen ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
@@ -198,12 +202,12 @@ function ClinicalTab({ records }: { records: any[] }) {
             {isOpen && (
               <div className="px-4 pb-4 border-t border-slate-100 pt-3 flex flex-col gap-3">
                 {[
-                  { label: 'Diagnóstico',          value: r.diagnosis },
-                  { label: 'Anamnesis',             value: r.anamnesis },
-                  { label: 'Medicación actual',     value: r.current_medications },
-                  { label: 'Alergias',              value: r.allergies },
-                  { label: 'Plan de tratamiento',   value: r.treatment_plan },
-                  { label: 'Observaciones',         value: r.notes },
+                  { label: t('patientPortalApp.clinical.fields.diagnosis'),          value: r.diagnosis },
+                  { label: t('patientPortalApp.clinical.fields.anamnesis'),             value: r.anamnesis },
+                  { label: t('patientPortalApp.clinical.fields.current_medications'),     value: r.current_medications },
+                  { label: t('patientPortalApp.clinical.fields.allergies'),              value: r.allergies },
+                  { label: t('patientPortalApp.clinical.fields.treatment_plan'),   value: r.treatment_plan },
+                  { label: t('patientPortalApp.clinical.fields.notes'),         value: r.notes },
                 ].filter(f => f.value).map(f => (
                   <div key={f.label}>
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">{f.label}</p>
@@ -221,10 +225,11 @@ function ClinicalTab({ records }: { records: any[] }) {
 
 /* ─── Photos Tab ─── */
 function PhotosTab({ sessions }: { sessions: any[] }) {
+  const { t } = useTranslation()
   const [activeSession, setActiveSession] = useState<string | null>(null)
   const [compareMode, setCompareMode] = useState<{ a: number; b: number } | null>(null)
 
-  if (sessions.length === 0) return <EmptyState icon={Camera} text="Todavía no hay sesiones de fotos." />
+  if (sessions.length === 0) return <EmptyState icon={Camera} text={t('patientPortalApp.photos.empty')} />
 
   const session = sessions.find(s => s.id === activeSession)
 
@@ -233,30 +238,30 @@ function PhotosTab({ sessions }: { sessions: any[] }) {
     return (
       <div>
         <button onClick={() => { setActiveSession(null); setCompareMode(null) }} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 mb-4">
-          <ArrowLeft className="w-4 h-4" /> Volver a sesiones
+          <ArrowLeft className="w-4 h-4" /> {t('patientPortalApp.photos.back_to_sessions')}
         </button>
         <div className="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm mb-4">
-          <p className="font-semibold text-slate-800">{session.name ?? 'Sesión fotográfica'}</p>
+          <p className="font-semibold text-slate-800">{session.name ?? t('patientPortalApp.photos.default_session_name')}</p>
           <p className="text-xs text-slate-400 mt-0.5">
             {session.session_date ? new Date(session.session_date).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }) : '—'}
-            {session.doctor_name && ` · Dr. ${session.doctor_name}`}
+            {session.doctor_name && t('patientPortalApp.photos.doctor_suffix', { name: session.doctor_name })}
           </p>
         </div>
 
         {/* Compare mode */}
         {compareMode && (
           <div className="mb-4 bg-white rounded-2xl border border-slate-200 p-3 shadow-sm">
-            <p className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">Comparativa antes / después</p>
+            <p className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">{t('patientPortalApp.photos.compare_title')}</p>
             <div className="grid grid-cols-2 gap-2">
               {[compareMode.a, compareMode.b].map((idx, i) => (
                 <div key={idx} className="flex flex-col gap-1">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase">{i === 0 ? 'Antes' : 'Después'}</p>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase">{i === 0 ? t('patientPortalApp.photos.before') : t('patientPortalApp.photos.after')}</p>
                   <img src={photos[idx]?.url} alt="" className="rounded-xl w-full object-cover aspect-square" />
                 </div>
               ))}
             </div>
             <button onClick={() => setCompareMode(null)} className="mt-2 text-xs text-slate-400 hover:text-slate-600">
-              Cerrar comparativa
+              {t('patientPortalApp.photos.close_compare')}
             </button>
           </div>
         )}
@@ -271,7 +276,7 @@ function PhotosTab({ sessions }: { sessions: any[] }) {
                   onClick={() => setCompareMode({ a: idx, b: idx === 0 ? 1 : 0 })}
                   className="absolute bottom-1 right-1 bg-black/60 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                 >
-                  Comparar
+                  {t('patientPortalApp.photos.compare_button')}
                 </button>
               )}
             </div>
@@ -299,11 +304,11 @@ function PhotosTab({ sessions }: { sessions: any[] }) {
               </div>
             )}
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-slate-800 truncate">{s.name ?? 'Sesión fotográfica'}</p>
+              <p className="text-sm font-semibold text-slate-800 truncate">{s.name ?? t('patientPortalApp.photos.default_session_name')}</p>
               <p className="text-xs text-slate-400 mt-0.5">
                 {s.session_date ? new Date(s.session_date).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }) : '—'}
               </p>
-              <p className="text-xs text-slate-400">{s.photos?.length ?? 0} fotos</p>
+              <p className="text-xs text-slate-400">{t('patientPortalApp.photos.photo_count', { count: s.photos?.length ?? 0 })}</p>
             </div>
             <ArrowRight className="w-4 h-4 text-slate-300 ml-auto flex-shrink-0" />
           </button>

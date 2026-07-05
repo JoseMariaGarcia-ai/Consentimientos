@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Search, FilePlus, Pencil, Trash2, Stethoscope } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ClinicalRecordForm } from '@/components/clinical/ClinicalRecordForm'
 import type { Doctor } from '@consentspro/shared-types'
 
 export default function ClinicalRecords() {
+  const { t } = useTranslation()
   const [records, setRecords] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
   const [doctors, setDoctors] = useState<Doctor[]>([])
@@ -55,13 +57,15 @@ export default function ClinicalRecords() {
   }
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Eliminar esta historia clínica?')) return
+    if (!confirm(t('clinicalRecords.confirm_delete'))) return
     await api.delete(`/clinical-records/${id}`)
     setRecords(rs => rs.filter(r => r.id !== id))
   }
 
   const openNew = () => { setEditing(null); setFormOpen(true) }
   const openEdit = (r: any) => { setEditing(r); setFormOpen(true) }
+
+  const tableHeaders = t('clinicalRecords.table_headers', { returnObjects: true }) as string[]
 
   return (
     <div className="flex flex-col gap-6">
@@ -71,8 +75,8 @@ export default function ClinicalRecords() {
             <Stethoscope className="w-5 h-5 text-teal-600" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-slate-800">Historias Clínicas</h1>
-            <p className="text-sm text-slate-500 mt-0.5">{records.length} registros</p>
+            <h1 className="text-2xl font-bold text-slate-800">{t('clinicalRecords.title')}</h1>
+            <p className="text-sm text-slate-500 mt-0.5">{t('clinicalRecords.records_count', { count: records.length })}</p>
           </div>
         </div>
         <button
@@ -80,7 +84,7 @@ export default function ClinicalRecords() {
           className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-xl text-sm font-medium hover:bg-teal-700 shadow-sm"
         >
           <FilePlus className="w-4 h-4" />
-          Nueva historia
+          {t('clinicalRecords.add_record')}
         </button>
       </div>
 
@@ -89,25 +93,25 @@ export default function ClinicalRecords() {
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder="Buscar por paciente, diagnóstico, motivo…"
+          placeholder={t('clinicalRecords.search_placeholder')}
           className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
         />
       </div>
 
       <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {loading ? (
-          <div className="p-12 text-center text-slate-400">Cargando…</div>
+          <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
         ) : filtered.length === 0 ? (
           <div className="p-12 text-center text-slate-400">
             <Stethoscope className="w-10 h-10 mx-auto mb-3 opacity-20" />
-            No hay historias clínicas
+            {t('clinicalRecords.no_records')}
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {['Paciente', 'Fecha', 'Motivo de consulta', 'Diagnóstico', 'Doctor', ''].map((h, i) => (
+                  {tableHeaders.map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>

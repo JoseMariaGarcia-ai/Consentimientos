@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { CheckCircle, XCircle, Clock, Shield, FileText, User, Stethoscope, Hash } from 'lucide-react'
 
 const BASE_URL = import.meta.env.VITE_API_URL
@@ -16,6 +17,7 @@ interface ConsentVerification {
 }
 
 export default function VerifyConsent() {
+  const { t } = useTranslation()
   const [data, setData] = useState<ConsentVerification | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -23,7 +25,7 @@ export default function VerifyConsent() {
   const id = window.location.pathname.split('/').pop()
 
   useEffect(() => {
-    if (!id) { setError('ID no proporcionado'); setLoading(false); return }
+    if (!id) { setError(t('verifyConsent.id_not_provided')); setLoading(false); return }
     fetch(`${BASE_URL}/verify/${id}`)
       .then(r => r.json())
       .then(d => {
@@ -36,7 +38,7 @@ export default function VerifyConsent() {
 
   if (loading) return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-      <div className="text-slate-400 text-sm">Verificando documento…</div>
+      <div className="text-slate-400 text-sm">{t('verifyConsent.verifying')}</div>
     </div>
   )
 
@@ -48,7 +50,7 @@ export default function VerifyConsent() {
           <Shield className="w-6 h-6 text-white" />
           <div>
             <h1 className="text-white font-bold text-lg">ConsentsPro</h1>
-            <p className="text-slate-300 text-xs">Verificación de documento</p>
+            <p className="text-slate-300 text-xs">{t('verifyConsent.subtitle')}</p>
           </div>
         </div>
 
@@ -57,7 +59,7 @@ export default function VerifyConsent() {
           <div className="bg-red-50 border-b border-red-100 px-6 py-4 flex items-center gap-3">
             <XCircle className="w-6 h-6 text-red-500 shrink-0" />
             <div>
-              <p className="font-semibold text-red-700">Documento no encontrado</p>
+              <p className="font-semibold text-red-700">{t('verifyConsent.not_found_title')}</p>
               <p className="text-xs text-red-500 mt-0.5">{error}</p>
             </div>
           </div>
@@ -65,24 +67,24 @@ export default function VerifyConsent() {
           <div className="bg-emerald-50 border-b border-emerald-100 px-6 py-4 flex items-center gap-3">
             <CheckCircle className="w-6 h-6 text-emerald-600 shrink-0" />
             <div>
-              <p className="font-semibold text-emerald-700">Documento válido y firmado</p>
-              <p className="text-xs text-emerald-600 mt-0.5">La firma ha sido verificada correctamente</p>
+              <p className="font-semibold text-emerald-700">{t('verifyConsent.signed_title')}</p>
+              <p className="text-xs text-emerald-600 mt-0.5">{t('verifyConsent.signed_subtitle')}</p>
             </div>
           </div>
         ) : data?.status === 'revoked' ? (
           <div className="bg-red-50 border-b border-red-100 px-6 py-4 flex items-center gap-3">
             <XCircle className="w-6 h-6 text-red-500 shrink-0" />
             <div>
-              <p className="font-semibold text-red-700">Consentimiento revocado</p>
-              <p className="text-xs text-red-500 mt-0.5">El paciente revocó este consentimiento</p>
+              <p className="font-semibold text-red-700">{t('verifyConsent.revoked_title')}</p>
+              <p className="text-xs text-red-500 mt-0.5">{t('verifyConsent.revoked_subtitle')}</p>
             </div>
           </div>
         ) : (
           <div className="bg-amber-50 border-b border-amber-100 px-6 py-4 flex items-center gap-3">
             <Clock className="w-6 h-6 text-amber-500 shrink-0" />
             <div>
-              <p className="font-semibold text-amber-700">Pendiente de firma</p>
-              <p className="text-xs text-amber-600 mt-0.5">Este documento aún no ha sido firmado</p>
+              <p className="font-semibold text-amber-700">{t('verifyConsent.pending_title')}</p>
+              <p className="text-xs text-amber-600 mt-0.5">{t('verifyConsent.pending_subtitle')}</p>
             </div>
           </div>
         )}
@@ -90,13 +92,13 @@ export default function VerifyConsent() {
         {/* Document details */}
         {data && (
           <div className="px-6 py-5 flex flex-col gap-4">
-            <Row icon={<User className="w-4 h-4 text-slate-400" />} label="Paciente" value={data.patient?.full_name ?? '—'} />
-            <Row icon={<Stethoscope className="w-4 h-4 text-slate-400" />} label="Médico" value={data.doctor?.name ?? '—'} />
-            <Row icon={<FileText className="w-4 h-4 text-slate-400" />} label="Tratamiento" value={data.template?.treatment_type ?? '—'} />
+            <Row icon={<User className="w-4 h-4 text-slate-400" />} label={t('verifyConsent.patient')} value={data.patient?.full_name ?? '—'} />
+            <Row icon={<Stethoscope className="w-4 h-4 text-slate-400" />} label={t('verifyConsent.doctor')} value={data.doctor?.name ?? '—'} />
+            <Row icon={<FileText className="w-4 h-4 text-slate-400" />} label={t('verifyConsent.treatment')} value={data.template?.treatment_type ?? '—'} />
             {data.signed_at && (
               <Row
                 icon={<CheckCircle className="w-4 h-4 text-emerald-500" />}
-                label="Fecha de firma"
+                label={t('verifyConsent.signed_date')}
                 value={new Date(data.signed_at).toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })}
               />
             )}
@@ -104,7 +106,7 @@ export default function VerifyConsent() {
               <div className="mt-2">
                 <div className="flex items-center gap-2 mb-1.5">
                   <Hash className="w-4 h-4 text-slate-400" />
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Hash SHA-256</span>
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('verifyConsent.hash_label')}</span>
                 </div>
                 <p className="font-mono text-[10px] text-slate-400 break-all bg-slate-50 rounded-lg p-3 leading-relaxed">
                   {data.document_hash}
@@ -113,9 +115,8 @@ export default function VerifyConsent() {
             )}
             <div className="mt-2 pt-4 border-t border-slate-100">
               <p className="text-[10px] text-slate-400 leading-relaxed">
-                ID de documento: <span className="font-mono">{data.consent_uuid}</span><br />
-                Verificado en {new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })}.
-                Este documento es válido conforme a la Ley 41/2002 y firmado electrónicamente según el Reglamento eIDAS (UE) 910/2014.
+                {t('verifyConsent.document_id_label')} <span className="font-mono">{data.consent_uuid}</span><br />
+                {t('verifyConsent.verified_on', { date: new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' }) })}
               </p>
             </div>
           </div>

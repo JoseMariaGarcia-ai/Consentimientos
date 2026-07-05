@@ -163,6 +163,168 @@
     "saving": "Saving…",
     "saved": "Saved"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "¿Eliminar esta historia clínica?",
+    "confirm_delete_session": "¿Eliminar esta sesión y todas sus fotos?",
+    "not_found": "Paciente no encontrado",
+    "date_of_birth": "Fecha nacimiento",
+    "email": "Email",
+    "blood_type": "Grupo sanguíneo",
+    "address": "Dirección",
+    "allergies": "Alergias",
+    "medications": "Medicación",
+    "tabs": {
+      "history": "Historias clínicas ({{count}})",
+      "photos": "Fotos ({{count}})",
+      "consents": "Consentimientos ({{count}})"
+    },
+    "new_clinical_record": "Nueva historia",
+    "no_clinical_records": "No hay historias clínicas para este paciente",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnesis",
+      "allergies": "Alergias",
+      "current_medications": "Medicación actual",
+      "physical_exam": "Exploración física",
+      "diagnosis": "Diagnóstico",
+      "treatment_plan": "Plan de tratamiento",
+      "notes": "Observaciones"
+    },
+    "new_photo_session": "Nueva sesión",
+    "no_photo_sessions": "No hay sesiones fotográficas para este paciente",
+    "no_consents": "No hay consentimientos para este paciente",
+    "status": {
+      "signed": "Firmado",
+      "pending": "Pendiente",
+      "revoked": "Revocado",
+      "expired": "Caducado"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratorio",
+    "not_found": "No se encontró el perfil de laboratorio.",
+    "panel_subtitle": "Panel de laboratorio colaborador",
+    "tabs": {
+      "clinics": "Clínicas vinculadas",
+      "campaigns": "Campañas publicitarias",
+      "stats": "Estadísticas"
+    },
+    "no_clinics": "Todavía no hay clínicas vinculadas a este laboratorio.",
+    "media_management": "Gestión de medios publicitarios",
+    "welcome_screen": {
+      "title": "Pantalla de bienvenida",
+      "description": "Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+    },
+    "patient_content": {
+      "title": "Contenido para paciente",
+      "description": "Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+    },
+    "stats_pending": "Esta sección está pendiente de definir — próximamente verás aquí métricas de rendimiento de tus campañas y clínicas."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "¿Eliminar esta historia clínica?",
+    "title": "Historias Clínicas",
+    "records_count": "{{count}} registros",
+    "add_record": "Nueva historia",
+    "search_placeholder": "Buscar por paciente, diagnóstico, motivo…",
+    "no_records": "No hay historias clínicas",
+    "table_headers": ["Paciente", "Fecha", "Motivo de consulta", "Diagnóstico", "Doctor", ""]
+  },
+  "labPartners": {
+    "title": "Laboratorios Colaboradores",
+    "count": "{{count}} registrados",
+    "new_lab": "Nuevo Laboratorio",
+    "search_placeholder": "Buscar laboratorio…",
+    "no_labs": "No hay laboratorios.",
+    "col_name": "Nombre",
+    "col_email": "Email",
+    "col_contact": "Contacto",
+    "col_phone": "Teléfono",
+    "col_status": "Estado",
+    "col_actions": "Acciones",
+    "status_active": "Activo",
+    "status_inactive": "Inactivo",
+    "confirm_deactivate": "¿Desactivar laboratorio?",
+    "form": {
+      "edit_title": "Editar Laboratorio",
+      "new_title": "Nuevo Laboratorio",
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Teléfono",
+      "contact_person": "Persona de contacto",
+      "website": "Web",
+      "notes": "Notas",
+      "name_email_required": "Nombre y email son obligatorios",
+      "unknown_error": "Error desconocido"
+    },
+    "campaigns": {
+      "title": "Campañas de {{name}}",
+      "new_campaign": "Nueva Campaña",
+      "no_campaigns": "No hay campañas.",
+      "col_name": "Nombre",
+      "col_type": "Tipo",
+      "col_trigger": "Trigger",
+      "col_status": "Estado",
+      "col_actions": "Acciones",
+      "confirm_delete": "¿Eliminar campaña?",
+      "form": {
+        "edit_title": "Editar Campaña",
+        "new_title": "Nueva Campaña",
+        "name": "Nombre",
+        "name_required": "El nombre es obligatorio",
+        "unknown_error": "Error desconocido",
+        "type": "Tipo",
+        "rotation_mode": "Modo rotación",
+        "rotation_random": "Aleatorio",
+        "rotation_manual": "Manual",
+        "creative_url": "URL creatividad",
+        "trigger": "Trigger",
+        "interval_minutes": "Intervalo (min)",
+        "start_date": "Fecha inicio",
+        "end_date": "Fecha fin",
+        "active": "Activo"
+      }
+    },
+    "creative_types": {
+      "image": "Imagen",
+      "video": "Vídeo",
+      "url": "URL",
+      "offer": "Oferta",
+      "training": "Formación"
+    },
+    "triggers": {
+      "on_login": "Al abrir",
+      "on_consent": "Al crear consentimiento",
+      "every_x_minutes": "Cada X minutos",
+      "once_daily": "Una vez al día"
+    }
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Citas, tratamientos y planificación de horarios",
+    "tab_appointments": "Citas",
+    "tab_treatments": "Tratamientos",
+    "tab_planning": "Planificación de Agenda"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID no proporcionado",
+    "verifying": "Verificando documento…",
+    "subtitle": "Verificación de documento",
+    "not_found_title": "Documento no encontrado",
+    "signed_title": "Documento válido y firmado",
+    "signed_subtitle": "La firma ha sido verificada correctamente",
+    "revoked_title": "Consentimiento revocado",
+    "revoked_subtitle": "El paciente revocó este consentimiento",
+    "pending_title": "Pendiente de firma",
+    "pending_subtitle": "Este documento aún no ha sido firmado",
+    "patient": "Paciente",
+    "doctor": "Médico",
+    "treatment": "Tratamiento",
+    "signed_date": "Fecha de firma",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "ID de documento:",
+    "verified_on": "Verificado en {{date}}. Este documento es válido conforme a la Ley 41/2002 y firmado electrónicamente según el Reglamento eIDAS (UE) 910/2014."
+  },
   "recharge": {
     "title": "Planes de suscripción",
     "subtitle": "Elige el plan que mejor se adapte a tu clínica",
@@ -272,6 +434,62 @@
       "consent_unsigned": "Sin firmar",
       "loading_pdf": "Cargando PDF…",
       "consent_load_error": "No se pudo cargar la información del consentimiento vinculado."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token no encontrado en la URL",
+    "invalid_token": "Token inválido o expirado",
+    "connection_error": "Error de conexión",
+    "verifying": "Verificando enlace…",
+    "invalid_link": "Enlace inválido",
+    "back_home": "Volver al inicio"
+  },
+  "photoSessions": {
+    "confirm_delete": "¿Eliminar esta sesión y todas sus fotos?",
+    "title": "Fotos",
+    "subtitle": "{{count}} sesiones fotográficas",
+    "new_session": "Nueva sesión",
+    "search_placeholder": "Buscar por paciente o nombre de sesión…",
+    "no_sessions": "No hay sesiones fotográficas"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Mis Consentimientos",
+      "clinical": "Mi Historia Clínica",
+      "photos": "Mis Fotos"
+    },
+    "consents": {
+      "empty": "Todavía no tienes consentimientos firmados.",
+      "default_name": "Consentimiento",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Firmado el {{date}}",
+      "status_signed": "Firmado",
+      "status_pending": "Pendiente"
+    },
+    "clinical": {
+      "empty": "Tu historia clínica está vacía.",
+      "default_name": "Consulta",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnóstico",
+        "anamnesis": "Anamnesis",
+        "current_medications": "Medicación actual",
+        "allergies": "Alergias",
+        "treatment_plan": "Plan de tratamiento",
+        "notes": "Observaciones"
+      }
+    },
+    "photos": {
+      "empty": "Todavía no hay sesiones de fotos.",
+      "back_to_sessions": "Volver a sesiones",
+      "default_session_name": "Sesión fotográfica",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Comparativa antes / después",
+      "before": "Antes",
+      "after": "Después",
+      "close_compare": "Cerrar comparativa",
+      "compare_button": "Comparar",
+      "photo_count": "{{count}} fotos"
     }
   },
   "settings": {

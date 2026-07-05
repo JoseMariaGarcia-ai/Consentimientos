@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X } from 'lucide-react'
 import { api } from '@/lib/api'
@@ -30,23 +31,13 @@ export interface Campaign {
   ends_at: string | null
 }
 
-const CREATIVE_TYPES = [
-  { value: 'image', label: 'Imagen' },
-  { value: 'video', label: 'Vídeo' },
-  { value: 'url', label: 'URL' },
-  { value: 'offer', label: 'Oferta' },
-  { value: 'training', label: 'Formación' },
-]
+const CREATIVE_TYPES = ['image', 'video', 'url', 'offer', 'training']
 
-const TRIGGERS = [
-  { value: 'on_login', label: 'Al abrir' },
-  { value: 'on_consent', label: 'Al crear consentimiento' },
-  { value: 'every_x_minutes', label: 'Cada X minutos' },
-  { value: 'once_daily', label: 'Una vez al día' },
-]
+const TRIGGERS = ['on_login', 'on_consent', 'every_x_minutes', 'once_daily']
 
 // ── Lab form modal ──────────────────────────────────────────────
 function LabForm({ initial, onSave, onClose }: { initial: Partial<LabPartner>; onSave: (d: any) => Promise<void>; onClose: () => void }) {
+  const { t } = useTranslation()
   const [form, setForm] = useState({
     name: initial.name ?? '',
     email: initial.email ?? '',
@@ -60,13 +51,13 @@ function LabForm({ initial, onSave, onClose }: { initial: Partial<LabPartner>; o
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name.trim() || !form.email.trim()) { setError('Nombre y email son obligatorios'); return }
+    if (!form.name.trim() || !form.email.trim()) { setError(t('labPartners.form.name_email_required')); return }
     setSaving(true); setError('')
     try {
       await onSave({ ...initial, ...form })
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('labPartners.form.unknown_error'))
     } finally { setSaving(false) }
   }
 
@@ -86,25 +77,25 @@ function LabForm({ initial, onSave, onClose }: { initial: Partial<LabPartner>; o
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-800">{initial.id ? 'Editar Laboratorio' : 'Nuevo Laboratorio'}</h2>
+          <h2 className="text-lg font-bold text-slate-800">{initial.id ? t('labPartners.form.edit_title') : t('labPartners.form.new_title')}</h2>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
         <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {fld('name', 'Nombre', true)}
-          {fld('email', 'Email', true, 'email')}
-          {fld('phone', 'Teléfono')}
-          {fld('contact_person', 'Persona de contacto')}
-          <div className="sm:col-span-2">{fld('website', 'Web')}</div>
+          {fld('name', t('labPartners.form.name'), true)}
+          {fld('email', t('labPartners.form.email'), true, 'email')}
+          {fld('phone', t('labPartners.form.phone'))}
+          {fld('contact_person', t('labPartners.form.contact_person'))}
+          <div className="sm:col-span-2">{fld('website', t('labPartners.form.website'))}</div>
           <div className="sm:col-span-2 flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.form.notes')}</label>
             <textarea value={form.notes} onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} rows={3}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
           </div>
           {error && <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
           <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
-            <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">Cancelar</button>
+            <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('common.cancel')}</button>
             <button type="submit" disabled={saving} className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium">
-              {saving ? 'Guardando…' : 'Guardar'}
+              {saving ? t('common.saving') : t('common.save')}
             </button>
           </div>
         </form>
@@ -115,6 +106,7 @@ function LabForm({ initial, onSave, onClose }: { initial: Partial<LabPartner>; o
 
 // ── Campaign form modal ─────────────────────────────────────────
 function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>; onSave: (d: any) => Promise<void>; onClose: () => void }) {
+  const { t } = useTranslation()
   const [form, setForm] = useState({
     name: initial.name ?? '',
     creative_type: initial.creative_type ?? 'image',
@@ -131,7 +123,7 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name.trim()) { setError('El nombre es obligatorio'); return }
+    if (!form.name.trim()) { setError(t('labPartners.campaigns.form.name_required')); return }
     setSaving(true); setError('')
     try {
       await onSave({
@@ -147,7 +139,7 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
       })
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('labPartners.campaigns.form.unknown_error'))
     } finally { setSaving(false) }
   }
 
@@ -155,68 +147,68 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-800">{initial.id ? 'Editar Campaña' : 'Nueva Campaña'}</h2>
+          <h2 className="text-lg font-bold text-slate-800">{initial.id ? t('labPartners.campaigns.form.edit_title') : t('labPartners.campaigns.form.new_title')}</h2>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
         <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="sm:col-span-2 flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Nombre<span className="text-red-500 ml-1">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.name')}<span className="text-red-500 ml-1">*</span></label>
             <input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Tipo</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.type')}</label>
             <select value={form.creative_type} onChange={e => setForm(f => ({ ...f, creative_type: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              {CREATIVE_TYPES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
+              {CREATIVE_TYPES.map(v => <option key={v} value={v}>{t(`labPartners.creative_types.${v}`)}</option>)}
             </select>
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Modo rotación</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.rotation_mode')}</label>
             <select value={form.rotation_mode} onChange={e => setForm(f => ({ ...f, rotation_mode: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="random">Aleatorio</option>
-              <option value="manual">Manual</option>
+              <option value="random">{t('labPartners.campaigns.form.rotation_random')}</option>
+              <option value="manual">{t('labPartners.campaigns.form.rotation_manual')}</option>
             </select>
           </div>
           <div className="sm:col-span-2 flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">URL creatividad</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.creative_url')}</label>
             <input value={form.creative_url} onChange={e => setForm(f => ({ ...f, creative_url: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Trigger</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.trigger')}</label>
             <select value={form.trigger_rule} onChange={e => setForm(f => ({ ...f, trigger_rule: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              {TRIGGERS.map(tr => <option key={tr.value} value={tr.value}>{tr.label}</option>)}
+              {TRIGGERS.map(v => <option key={v} value={v}>{t(`labPartners.triggers.${v}`)}</option>)}
             </select>
           </div>
           {form.trigger_rule === 'every_x_minutes' && (
             <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Intervalo (min)</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.interval_minutes')}</label>
               <input type="number" value={form.trigger_interval_minutes} onChange={e => setForm(f => ({ ...f, trigger_interval_minutes: Number(e.target.value) }))}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
           )}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha inicio</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.start_date')}</label>
             <input type="date" value={form.starts_at} onChange={e => setForm(f => ({ ...f, starts_at: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha fin</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('labPartners.campaigns.form.end_date')}</label>
             <input type="date" value={form.ends_at} onChange={e => setForm(f => ({ ...f, ends_at: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <label className="sm:col-span-2 flex items-center gap-2 text-sm text-slate-700">
             <input type="checkbox" checked={form.is_active} onChange={e => setForm(f => ({ ...f, is_active: e.target.checked }))} />
-            Activo
+            {t('labPartners.campaigns.form.active')}
           </label>
           {error && <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
           <div className="sm:col-span-2 flex justify-end gap-3 pt-2 border-t border-slate-100">
-            <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">Cancelar</button>
+            <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('common.cancel')}</button>
             <button type="submit" disabled={saving} className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium">
-              {saving ? 'Guardando…' : 'Guardar'}
+              {saving ? t('common.saving') : t('common.save')}
             </button>
           </div>
         </form>
@@ -227,6 +219,7 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
 
 // ── Campaigns panel ─────────────────────────────────────────────
 export function CampaignsPanel({ lab }: { lab: LabPartner }) {
+  const { t } = useTranslation()
   const [campaigns, setCampaigns] = useState<Campaign[]>([])
   const [form, setForm] = useState<{ open: boolean; campaign: Campaign | null }>({ open: false, campaign: null })
 
@@ -247,37 +240,37 @@ export function CampaignsPanel({ lab }: { lab: LabPartner }) {
   }
 
   const handleDelete = async (c: Campaign) => {
-    if (!confirm('¿Eliminar campaña?')) return
+    if (!confirm(t('labPartners.campaigns.confirm_delete'))) return
     await api.delete(`/lab-partners/${lab.id}/campaigns/${c.id}`)
     await load()
   }
 
-  const triggerLabel = (v: string) => TRIGGERS.find(t => t.value === v)?.label ?? v
-  const typeLabel = (v: string) => CREATIVE_TYPES.find(t => t.value === v)?.label ?? v
+  const triggerLabel = (v: string) => t(`labPartners.triggers.${v}`)
+  const typeLabel = (v: string) => t(`labPartners.creative_types.${v}`)
 
   return (
     <div className="bg-slate-50 px-6 py-4 border-t border-slate-100">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <Megaphone className="w-4 h-4 text-pink-500" />
-          <h4 className="text-sm font-bold text-slate-700">Campañas de {lab.name}</h4>
+          <h4 className="text-sm font-bold text-slate-700">{t('labPartners.campaigns.title', { name: lab.name })}</h4>
         </div>
         <button onClick={() => setForm({ open: true, campaign: null })}
           className="flex items-center gap-1.5 px-3 py-1.5 bg-pink-600 text-white text-xs font-medium rounded-lg hover:bg-pink-700">
-          <Plus className="w-3.5 h-3.5" />Nueva Campaña
+          <Plus className="w-3.5 h-3.5" />{t('labPartners.campaigns.new_campaign')}
         </button>
       </div>
       {campaigns.length === 0 ? (
-        <p className="text-xs text-slate-400 py-2">No hay campañas.</p>
+        <p className="text-xs text-slate-400 py-2">{t('labPartners.campaigns.no_campaigns')}</p>
       ) : (
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-xs text-slate-400 uppercase tracking-wide">
-              <th className="py-1.5">Nombre</th>
-              <th className="py-1.5">Tipo</th>
-              <th className="py-1.5">Trigger</th>
-              <th className="py-1.5">Estado</th>
-              <th className="py-1.5 text-right">Acciones</th>
+              <th className="py-1.5">{t('labPartners.campaigns.col_name')}</th>
+              <th className="py-1.5">{t('labPartners.campaigns.col_type')}</th>
+              <th className="py-1.5">{t('labPartners.campaigns.col_trigger')}</th>
+              <th className="py-1.5">{t('labPartners.campaigns.col_status')}</th>
+              <th className="py-1.5 text-right">{t('labPartners.campaigns.col_actions')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200">
@@ -307,6 +300,7 @@ export function CampaignsPanel({ lab }: { lab: LabPartner }) {
 
 // ── Main page ───────────────────────────────────────────────────
 export default function LabPartners() {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const highlightId = searchParams.get('highlight')
   const [labs, setLabs] = useState<LabPartner[]>([])
@@ -335,7 +329,7 @@ export default function LabPartners() {
   }
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Desactivar laboratorio?')) return
+    if (!confirm(t('labPartners.confirm_deactivate'))) return
     await api.delete(`/lab-partners/${id}`)
     await load()
   }
@@ -348,36 +342,36 @@ export default function LabPartners() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Laboratorios Colaboradores</h1>
-          <p className="text-sm text-slate-500 mt-0.5">{labs.length} registrados</p>
+          <h1 className="text-2xl font-bold text-slate-800">{t('labPartners.title')}</h1>
+          <p className="text-sm text-slate-500 mt-0.5">{t('labPartners.count', { count: labs.length })}</p>
         </div>
         <button onClick={() => setForm({ open: true, lab: null })}
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 shadow-sm">
-          <Plus className="w-4 h-4" />Nuevo Laboratorio
+          <Plus className="w-4 h-4" />{t('labPartners.new_lab')}
         </button>
       </div>
 
       <div className="relative max-w-sm">
         <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Buscar laboratorio…"
+        <input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('labPartners.search_placeholder')}
           className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
       </div>
 
       {loading ? (
-        <div className="p-12 text-center text-slate-400">Cargando…</div>
+        <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
       ) : filtered.length === 0 ? (
-        <div className="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">No hay laboratorios.</div>
+        <div className="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">{t('labPartners.no_labs')}</div>
       ) : (
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-xs text-slate-400 uppercase tracking-wide border-b border-slate-100">
-                <th className="px-6 py-3">Nombre</th>
-                <th className="px-6 py-3">Email</th>
-                <th className="px-6 py-3">Contacto</th>
-                <th className="px-6 py-3">Teléfono</th>
-                <th className="px-6 py-3">Estado</th>
-                <th className="px-6 py-3 text-right">Acciones</th>
+                <th className="px-6 py-3">{t('labPartners.col_name')}</th>
+                <th className="px-6 py-3">{t('labPartners.col_email')}</th>
+                <th className="px-6 py-3">{t('labPartners.col_contact')}</th>
+                <th className="px-6 py-3">{t('labPartners.col_phone')}</th>
+                <th className="px-6 py-3">{t('labPartners.col_status')}</th>
+                <th className="px-6 py-3 text-right">{t('labPartners.col_actions')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -394,7 +388,7 @@ export default function LabPartners() {
                     <td className="px-6 py-3 text-slate-600">{lab.phone ?? '—'}</td>
                     <td className="px-6 py-3">
                       <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${lab.is_active ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}`}>
-                        {lab.is_active ? 'Activo' : 'Inactivo'}
+                        {lab.is_active ? t('labPartners.status_active') : t('labPartners.status_inactive')}
                       </span>
                     </td>
                     <td className="px-6 py-3 text-right">

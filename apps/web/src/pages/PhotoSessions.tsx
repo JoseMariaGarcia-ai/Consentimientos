@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Search, Camera, Plus } from 'lucide-react'
 import { api } from '@/lib/api'
 import { PhotoSessionPanel } from '@/components/photos/PhotoSessionPanel'
 import { NewSessionModal } from '@/components/photos/NewSessionModal'
 
 export default function PhotoSessions() {
+  const { t } = useTranslation()
   const [sessions, setSessions] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
   const [doctors, setDoctors]   = useState<any[]>([])
@@ -57,7 +59,7 @@ export default function PhotoSessions() {
   }
 
   const handleDelete = async (sessionId: string) => {
-    if (!confirm('¿Eliminar esta sesión y todas sus fotos?')) return
+    if (!confirm(t('photoSessions.confirm_delete'))) return
     await api.delete(`/photo-sessions/${sessionId}`)
     setSessions(prev => prev.filter(s => s.id !== sessionId))
   }
@@ -70,8 +72,8 @@ export default function PhotoSessions() {
             <Camera className="w-5 h-5 text-violet-600" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-slate-800">Fotos</h1>
-            <p className="text-sm text-slate-500 mt-0.5">{sessions.length} sesiones fotográficas</p>
+            <h1 className="text-2xl font-bold text-slate-800">{t('photoSessions.title')}</h1>
+            <p className="text-sm text-slate-500 mt-0.5">{t('photoSessions.subtitle', { count: sessions.length })}</p>
           </div>
         </div>
         <button
@@ -79,7 +81,7 @@ export default function PhotoSessions() {
           className="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-xl text-sm font-medium hover:bg-violet-700 shadow-sm"
         >
           <Plus className="w-4 h-4" />
-          Nueva sesión
+          {t('photoSessions.new_session')}
         </button>
       </div>
 
@@ -88,17 +90,17 @@ export default function PhotoSessions() {
         <input
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder="Buscar por paciente o nombre de sesión…"
+          placeholder={t('photoSessions.search_placeholder')}
           className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
         />
       </div>
 
       {loading ? (
-        <div className="p-12 text-center text-slate-400">Cargando…</div>
+        <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
       ) : filtered.length === 0 ? (
         <div className="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
           <Camera className="w-10 h-10 mx-auto mb-3 opacity-20" />
-          No hay sesiones fotográficas
+          {t('photoSessions.no_sessions')}
         </div>
       ) : (
         <div className="flex flex-col gap-4">
