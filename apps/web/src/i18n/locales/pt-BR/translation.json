@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Editar registro de toxina",
+    "title_new": "Novo registro de toxina",
+    "patient": "Paciente",
+    "select_patient": "Selecionar paciente…",
+    "linked_consent": "Termo de consentimento vinculado",
+    "not_linked": "Não vinculado",
+    "consent_default_name": "Consentimento",
+    "unsigned": "não assinado",
+    "loading_consents": "Carregando consentimentos…",
+    "no_consents_hint": "Este paciente ainda não tem consentimentos de toxina assinados. É opcional, você pode salvar o registro sem vinculá-lo.",
+    "doctor": "Médico",
+    "unassigned": "Não atribuído",
+    "application_date": "Data de aplicação",
+    "brand_name": "Nome comercial",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Fabricante",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Número do lote",
+    "expiry_date": "Data de validade",
+    "vials_opened": "Frascos abertos",
+    "treated_zones": "Zonas tratadas",
+    "other_zone_placeholder": "Outra zona…",
+    "add": "Adicionar",
+    "total_units": "Total de unidades",
+    "notes": "Notas",
+    "notes_placeholder": "Observações…",
+    "doctor_signature": "Assinatura do médico",
+    "signature_alt": "Assinatura do médico",
+    "signed_on": "Assinado em {{date}}",
+    "sign_again": "Assinar novamente",
+    "signature_hint": "Desenhe a assinatura e clique em \"Confirmar assinatura\" antes de salvar.",
+    "confirm_delete": "Excluir este registro de toxina?",
+    "deleting": "Excluindo…",
+    "delete_record": "Excluir registro",
+    "cancel": "Cancelar",
+    "save_changes": "Salvar alterações",
+    "create_record": "Criar registro",
+    "saving": "Salvando…",
+    "unknown_error": "Erro desconhecido",
+    "validation": {
+      "required_fields": "Paciente, nome comercial, lote, validade e fabricante são obrigatórios",
+      "signature_required": "A assinatura do médico é obrigatória para salvar o registro"
+    },
+    "zones": {
+      "forehead": "Testa (linhas horizontais)",
+      "glabella": "Entre as sobrancelhas (glabela)",
+      "crows_feet": "Pés de galinha (periocular)",
+      "lower_eyelid": "Pálpebra inferior",
+      "eyebrow_lift": "Sobrancelhas (lifting)",
+      "bunny_lines": "Nariz (bunny lines)",
+      "upper_lip": "Lábio superior (código de barras)",
+      "oral_commissures": "Comissuras labiais",
+      "chin_dimpling": "Queixo (pele de laranja)",
+      "platysmal_bands": "Pescoço (bandas platismais)",
+      "decolletage": "Decote",
+      "axillary_sweating": "Sudorese axilar (hiperidrose)",
+      "palmar_sweating": "Sudorese palmar",
+      "plantar_sweating": "Sudorese plantar",
+      "jaw_bruxism": "Mandíbula (bruxismo / masseteres)",
+      "migraine_occipital": "Enxaqueca (pontos occipitais)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (pescoço e mandíbula)",
+      "other_zone": "Outra zona"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Gerando…",
+    "export_pdf": "Exportar PDF"
+  },
+  "patientGallery": {
+    "title": "Galeria de fotos",
+    "upload_photos": "Enviar fotos",
+    "loading": "Carregando…",
+    "empty": "Sem fotos. Envie a primeira imagem.",
+    "confirm_delete": "Excluir esta foto?",
+    "count_stored": "{{count}} {{unit}} · Armazenadas no Cloudflare R2",
+    "photo_singular": "foto",
+    "photo_plural": "fotos"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Editar histórico clínico",
+    "title_new": "Novo histórico clínico",
+    "patient": "Paciente",
+    "select_patient": "Selecionar paciente…",
+    "doctor": "Médico",
+    "unassigned": "Não atribuído",
+    "branch": "Clínica / Sede",
+    "unspecified": "Não especificado",
+    "visit_date": "Data da consulta",
+    "reason_for_visit": "Motivo da consulta",
+    "anamnesis": "Anamnese / Antecedentes",
+    "current_medications": "Medicação atual",
+    "allergies": "Alergias conhecidas",
+    "physical_exam": "Exame físico",
+    "diagnosis": "Diagnóstico",
+    "treatment_plan": "Plano de tratamento",
+    "notes": "Observações / Notas",
+    "select_patient_error": "Selecione um paciente",
+    "unknown_error": "Erro desconhecido",
+    "cancel": "Cancelar",
+    "saving": "Salvando…",
+    "save_record": "Salvar histórico"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "O arquivo excede o limite de {{maxSize}} MB",
+    "upload_error": "Erro ao enviar o arquivo",
+    "confirm_delete": "Excluir este arquivo?",
+    "video": "Vídeo",
+    "image": "Imagem",
+    "uploaded_on": "Enviado em {{date}}",
+    "change": "Alterar",
+    "delete": "Excluir",
+    "uploading": "Enviando… {{progress}}%",
+    "drop_hint": "Arraste aqui ou clique para enviar",
+    "file_types_hint": "Imagem (JPG, PNG, GIF) ou vídeo (MP4, MOV, WebM) · Máx. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Digite o conteúdo do consentimento…",
+    "bold": "Negrito",
+    "italic": "Itálico",
+    "heading": "Título",
+    "bullet_list": "Lista",
+    "ordered_list": "Lista numerada",
+    "undo": "Desfazer",
+    "redo": "Refazer"
+  },
+  "consentPdfButton": {
+    "generating": "Gerando PDF…",
+    "export": "Exportar PDF"
+  },
+  "newSessionModal": {
+    "title": "Nova sessão fotográfica",
+    "patient_label": "Paciente",
+    "select_patient_placeholder": "Selecionar paciente…",
+    "doctor_label": "Médico",
+    "no_doctor_assigned": "Não atribuído",
+    "branch_label": "Clínica / Sede",
+    "no_branch_specified": "Não especificado",
+    "session_name_label": "Nome da sessão",
+    "session_name_placeholder": "Ex.: Tratamento facial sessão 1",
+    "date_label": "Data e hora",
+    "notes_label": "Notas",
+    "notes_placeholder": "Observações sobre a sessão…",
+    "select_patient_error": "Selecione um paciente",
+    "unknown_error": "Erro desconhecido",
+    "cancel": "Cancelar",
+    "creating": "Criando…",
+    "create_session": "Criar sessão"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Sessão fotográfica",
+    "photo_count": "{{count}}/{{max}} fotos",
+    "compare_button": "Comparar antes / depois",
+    "delete_session": "Excluir sessão",
+    "upload": "Enviar",
+    "remaining": "{{remaining}} restantes"
+  },
+  "beforeAfterModal": {
+    "select_title": "Selecionar fotos para comparar",
+    "compare_title": "Comparação Antes / Depois",
+    "change_selection": "← Alterar seleção",
+    "select_intro": "Selecione uma foto para",
+    "select_middle": "e outra para",
+    "before": "Antes",
+    "after": "Depois",
+    "before_badge": "ANTES",
+    "after_badge": "DEPOIS",
+    "compare_button": "Comparar"
+  },
+  "biometricPrompt": {
+    "title": "Ativar acesso biométrico",
+    "description": "Use Face ID, impressão digital ou Windows Hello para entrar em menos de 2 segundos na próxima vez.",
+    "device_label": "Dispositivo:",
+    "activate": "Ativar",
+    "default_device": "Meu dispositivo"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Seleção manual",
+        "desc": "Você escolhe qual é exibido. Clique em uma criatividade para ativá-la."
+      },
+      "random": {
+        "label": "Ordem aleatória",
+        "desc": "Uma criatividade é escolhida aleatoriamente sempre que for exibida."
+      },
+      "sequential": {
+        "label": "Ordem sequencial",
+        "desc": "São exibidas em ordem, uma a uma, a cada vez."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "O arquivo excede o limite de 100 MB",
+      "invalidUrl": "URL inválida"
+    },
+    "confirmDelete": "Excluir esta criatividade?",
+    "types": {
+      "url": "URL",
+      "video": "Vídeo",
+      "image": "Imagem"
+    },
+    "active": "✓ Ativa",
+    "select": "Selecionar",
+    "upload": {
+      "label": "Enviar arquivo",
+      "slotsFree": "{{count}} livre{{suffix}}"
+    },
+    "addUrlButton": "Adicionar URL de vídeo (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Adicionar vídeo por URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… ou URL direta para .mp4",
+      "labelPlaceholder": "Nome ou descrição (opcional)",
+      "hint": "Compatível com YouTube, Vimeo e URLs diretas de vídeo (.mp4, .webm…)",
+      "add": "Adicionar",
+      "saving": "Salvando…"
+    },
+    "displayModeHeading": "Como exibi-las?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Bem-vindo",
+    "continue": "Continuar →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Quando exibir a publicidade?",
+    "subheading": "Você pode selecionar várias opções ao mesmo tempo.",
+    "options": {
+      "session": {
+        "label": "Uma vez ao iniciar sessão",
+        "desc": "É exibida uma única vez sempre que o usuário abre o aplicativo no navegador."
+      },
+      "consent": {
+        "label": "Sempre que um consentimento é criado",
+        "desc": "Aparece imediatamente após a criação de cada termo de consentimento."
+      },
+      "clinical": {
+        "label": "Sempre que um histórico clínico é criado",
+        "desc": "Aparece imediatamente após salvar cada histórico clínico."
+      },
+      "interval": {
+        "label": "A cada X minutos",
+        "desc": "É exibida periodicamente enquanto o aplicativo estiver aberto."
+      }
+    },
+    "every": "A cada",
+    "minutes": "minutos",
+    "errors": {
+      "selectAtLeastOne": "Selecione pelo menos uma opção",
+      "saveFailed": "Erro ao salvar"
+    },
+    "saving": "Salvando…",
+    "saved": "Salvo",
+    "saveButton": "Salvar configuração",
+    "appliedMessage": "✅ Configuração aplicada"
+  },
+  "demoPreviewPanel": {
+    "heading": "Pré-visualização por perfis",
+    "subheading": "Crie dados de teste e entre no programa exatamente como um paciente, uma clínica ou um laboratório o veriam.",
+    "createAllButton": "Criar todos os dados de teste",
+    "errors": {
+      "checkFailed": "Erro ao verificar os dados de teste",
+      "createPatientFailed": "Não foi possível criar o paciente de teste",
+      "createBranchFailed": "Não foi possível criar a sede de teste",
+      "createLabFailed": "Não foi possível criar o laboratório de teste"
+    },
+    "cards": {
+      "patient": {
+        "title": "Visão de Paciente",
+        "description": "Simula o portal que um paciente vê: seus consentimentos, histórico clínico e fotos."
+      },
+      "branch": {
+        "title": "Visão de Clínica",
+        "description": "Simula o painel que a equipe da clínica vê, com o menu restrito às suas permissões reais."
+      },
+      "lab": {
+        "title": "Visão de Laboratório",
+        "description": "Simula o painel de um laboratório parceiro: seu perfil, clínicas vinculadas e campanhas."
+      }
+    },
+    "testDataCreated": "Dado de teste criado",
+    "viewAs": "Ver como {{role}}",
+    "roleNames": {
+      "patient": "paciente",
+      "branch": "clínica",
+      "lab": "laboratório"
+    },
+    "creating": "Criando…",
+    "createTestData": "Criar dado de teste"
+  },
+  "previewBanner": {
+    "message": "Pré-visualização — você está vendo a interface como a veria",
+    "exitButton": "Sair da pré-visualização",
+    "roles": {
+      "patient": "Paciente",
+      "clinica": "Clínica",
+      "labPartner": "Laboratório"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Ver mês",
+    "today": "Hoje",
+    "new_appointment": "Novo agendamento",
+    "no_treatments_warning": "Ainda não há tratamentos criados. Vá até a aba \"Tratamentos\" para criar o primeiro antes de agendar consultas.",
+    "day_closed_notice": "Este dia está marcado como fechado no Planejamento de Agenda. Você pode revisá-lo ou abri-lo nessa aba.",
+    "slot_aria_label": "Agendar às {{time}}",
+    "outside_availability": "Fora do horário disponível",
+    "treatment_fallback": "Tratamento",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Disponível",
+      "outside_hours": "Fora do horário",
+      "scheduled": "Consulta agendada"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Editar agendamento",
+    "title_new": "Novo agendamento",
+    "validation_required": "Paciente, tratamento e horário são obrigatórios",
+    "error_unknown": "Erro desconhecido",
+    "confirm_delete": "Excluir este agendamento?",
+    "deleting": "Excluindo…",
+    "delete_appointment": "Excluir agendamento",
+    "cancel": "Cancelar",
+    "saving": "Salvando…",
+    "save_changes": "Salvar alterações",
+    "create_appointment": "Criar agendamento",
+    "form": {
+      "patient": "Paciente",
+      "select_patient": "Selecionar paciente…",
+      "doctor": "Médico",
+      "unassigned": "Não atribuído",
+      "branch": "Clínica / Sede",
+      "main_branch": "Sede principal",
+      "treatment": "Tratamento",
+      "select_treatment": "Selecionar tratamento…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Não há tratamentos criados. Adicione um na aba \"Tratamentos\" primeiro.",
+      "datetime": "Data e hora",
+      "duration_note": "Vai ocupar {{duration}} minutos na agenda.",
+      "notes": "Notas",
+      "notes_placeholder": "Observações sobre o agendamento…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Tratamentos",
+    "subtitle": "Duração e preço de cada tratamento para poder agendar consultas",
+    "new_treatment": "Novo tratamento",
+    "loading": "Carregando…",
+    "empty_state": "Ainda não há tratamentos criados",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Excluir este tratamento?",
+    "form": {
+      "title_edit": "Editar tratamento",
+      "title_new": "Novo tratamento",
+      "name": "Nome",
+      "name_placeholder": "Ex.: Toxina botulínica",
+      "duration": "Duração (min)",
+      "price": "Preço (€)",
+      "validation_name_required": "O nome é obrigatório",
+      "error_unknown": "Erro desconhecido",
+      "cancel": "Cancelar",
+      "saving": "Salvando…",
+      "save": "Salvar"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+    "months": ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    "has_exception_tooltip": "Já possui uma exceção configurada",
+    "legend": {
+      "usually_open": "Normalmente aberto",
+      "usually_closed": "Normalmente fechado",
+      "has_exception": "Com exceção",
+      "selected": "Selecionado"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+    "months": ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    "legend": {
+      "open_day": "Dia aberto",
+      "closed": "Fechado",
+      "today": "Hoje"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Planejamento de Agenda",
+    "subtitle": "Configure em quais dias e horários é possível agendar consultas.",
+    "time_separator": "às",
+    "add_time_range": "Adicionar horário",
+    "weekdays": ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"],
+    "confirm_delete_exception": "Excluir esta exceção e voltar ao horário habitual desse dia?",
+    "errors": {
+      "save_schedule_failed": "Não foi possível salvar o horário",
+      "apply_pattern_failed": "Não foi possível aplicar o padrão",
+      "select_day_required": "Selecione pelo menos um dia no calendário",
+      "save_exception_failed": "Não foi possível salvar o dia especial"
+    },
+    "bulk": {
+      "title": "Aplicar um padrão a vários dias de uma vez",
+      "description": "Ex.: segunda a sexta das 9h às 20h. Selecione os dias e o horário e depois aplique — você pode ajustar cada dia individualmente depois.",
+      "applying": "Aplicando…",
+      "apply_button": "Aplicar aos dias selecionados"
+    },
+    "weekly": {
+      "title": "Horário semanal habitual",
+      "closed": "Fechado",
+      "saving": "Salvando…",
+      "save": "Salvar"
+    },
+    "exceptions": {
+      "title": "Dias avulsos (exceções)",
+      "description": "Abra um dia especial (ex.: um sábado) ou feche um dia que normalmente está aberto (ex.: feriado).",
+      "select_days_label": "Selecione um ou vários dias",
+      "days_selected_singular": "{{count}} dia selecionado",
+      "days_selected_plural": "{{count}} dias selecionados",
+      "clear_selection": "Limpar seleção",
+      "open_special": "Abrir especial",
+      "close": "Fechar",
+      "schedule_label": "Horário nesses dias",
+      "notes_placeholder": "Motivo (opcional) — ex.: Feriado de agosto",
+      "saving": "Salvando…",
+      "save_button_singular": "Salvar dia especial",
+      "save_button_plural": "Salvar {{count}} dias especiais",
+      "no_exceptions": "Não há dias avulsos configurados.",
+      "open_special_status": "Aberto especial · {{ranges}}",
+      "closed_status": "Fechado"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Consentimentos Digitais · Assinatura Biométrica"
@@ -14,7 +445,15 @@
     "settings": "Configurações",
     "clinicalRecords": "Histórico Clínico",
     "photos": "Fotos",
-    "recharge": "Recarregar"
+    "recharge": "Planos de Assinatura",
+    "agenda": "Agenda",
+    "toxin": "Controle de Toxina",
+    "labPartners": "Laboratórios",
+    "menu": "Menu"
+  },
+  "topbar": {
+    "tagline": "Consentimentos Digitais · Assinatura Biométrica",
+    "legal": "ICP-Brasil (MP 2.200-2/2001) · CFM 1.931/2009 · LGPD"
   },
   "auth": {
     "login_title": "Acesso seguro",
@@ -23,17 +462,30 @@
     "send_link": "Enviar link de acesso",
     "check_email": "Verifique seu email — enviamos o link de acesso",
     "magic_link_sent": "Link enviado com sucesso",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Lembrar este dispositivo",
+    "remember_7": "7 dias",
+    "remember_30": "30 dias",
+    "remember_90": "90 dias",
+    "biometric_activate": "Ativar Face ID / digital",
+    "biometric_prompt": "Depois do seu primeiro acesso você poderá ativar o Face ID / digital",
+    "biometric_registering": "Ativando…",
+    "biometric_success": "Biometria ativada!",
+    "biometric_success_msg": "Na próxima vez você entrará com um toque.",
+    "biometric_error": "Não foi possível ativar. Verifique se seu dispositivo tem a biometria configurada.",
+    "biometric_now": "Agora não",
+    "portal_subtitle": "Consentimentos Digitais · Assinatura Biométrica",
+    "portal_title": "Acesso ao documento",
+    "portal_email_prompt": "Digite seu email para receber um link de acesso seguro.",
+    "portal_link_sent_title": "Link enviado",
+    "portal_link_sent_message": "Verifique seu email e clique no link para continuar.",
+    "portal_email_placeholder": "seu@email.com",
+    "portal_consent_default_title": "Consentimento Informado",
+    "portal_accept_label": "Li e aceito este termo de consentimento informado",
+    "portal_proceed_to_sign": "Avançar para a assinatura →",
+    "portal_saving_signature": "Salvando assinatura…",
+    "portal_signed_title": "Assinatura concluída",
+    "portal_signed_message": "Seu consentimento foi assinado e registrado com segurança.",
+    "portal_error_message": "O link pode ter expirado ou estar incorreto."
   },
   "patients": {
     "title": "Pacientes",
@@ -54,10 +506,37 @@
     "edit": "Editar",
     "delete": "Excluir",
     "no_results": "Nenhum paciente cadastrado",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Galeria de fotos",
+    "no_photos": "Sem fotos. Envie a primeira imagem.",
+    "upload_photos": "Enviar fotos",
+    "uploading": "Enviando…",
+    "count_registered": "{{count}} cadastrados",
+    "form": {
+      "doc_type": "Tipo",
+      "doc_type_passport": "Passaporte",
+      "city": "Cidade",
+      "province": "Província",
+      "country": "País",
+      "select_placeholder": "— Selecionar —",
+      "countries": [
+        "Espanha", "Alemanha", "Argentina", "Bélgica", "Bolívia", "Brasil", "Chile", "China",
+        "Colômbia", "Costa Rica", "Cuba", "Equador", "El Salvador", "EUA", "França",
+        "Guatemala", "Honduras", "Itália", "Marrocos", "México", "Nicarágua", "Países Baixos",
+        "Panamá", "Paraguai", "Peru", "Portugal", "Reino Unido", "República Dominicana",
+        "Suíça", "Uruguai", "Venezuela", "Outro"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Astúrias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantábria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilha", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valência", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Erro ao salvar:",
+      "unknown_error": "Erro desconhecido"
+    }
   },
   "doctors": {
     "title": "Médicos",
@@ -73,17 +552,45 @@
       "receptionist": "Recepcionista"
     },
     "save": "Salvar médico",
-    "no_results": "Nenhum médico cadastrado"
+    "no_results": "Nenhum médico cadastrado",
+    "last_name": "Sobrenome",
+    "phone": "Telefone",
+    "phone_placeholder": "(11) 91234-5678",
+    "unknown_error": "Erro desconhecido",
+    "count_registered": "{{count}} cadastrados",
+    "license_display": "Nº {{number}}"
   },
   "consents": {
     "title": "Consentimentos",
     "add": "Novo consentimento",
     "search": "Buscar consentimentos…",
+    "step_labels": ["Dados", "Revisão", "Assinatura do médico", "Assinatura do paciente", "Concluído"],
+    "branch_label": "Sede",
+    "main_branch": "Sede principal",
+    "select_patient": "Selecionar paciente…",
+    "select_doctor": "Selecionar médico…",
+    "select_treatment": "Selecionar tratamento…",
+    "translating": "Traduzindo…",
+    "continue": "Continuar",
+    "responsible_doctor": "Médico responsável",
+    "legal_framework_title": "Marco Legal — {{jurisdiction}}",
+    "witness_required_notice": "Este país exige testemunha para a assinatura",
+    "back": "← Voltar",
+    "sign_arrow": "Assinar →",
+    "doctor_signature_title": "Assinatura do médico",
+    "doctor_signature_notice": "O médico deve assinar primeiro para validar o consentimento",
+    "back_to_preview": "← Voltar",
+    "patient_signature_title": "Assinatura do paciente",
+    "patient_signature_notice": "O paciente deve assinar para confirmar que leu e aceita o consentimento",
+    "signed_title": "Consentimento assinado",
+    "signed_description": "O documento foi assinado e registrado corretamente.",
+    "close": "Fechar",
     "status": {
       "pending": "Pendente",
       "signed": "Assinado",
       "revoked": "Revogado",
-      "expired": "Expirado"
+      "expired": "Expirado",
+      "all": "Todos"
     },
     "sign": "Assinar",
     "generate_pdf": "Gerar PDF",
@@ -93,7 +600,13 @@
     "treatment": "Tratamento",
     "language": "Idioma",
     "signed_at": "Assinado em",
-    "no_results": "Nenhum consentimento"
+    "no_results": "Nenhum consentimento",
+    "confirm_delete": "Excluir este consentimento?",
+    "stats": "{{total}} total · {{signed}} assinados · {{pending}} pendentes",
+    "branch": "Sede",
+    "created_at": "Data de criação",
+    "status_header": "Status",
+    "continue_signature": "Continuar assinatura"
   },
   "signature": {
     "title": "Assinatura do paciente",
@@ -112,14 +625,21 @@
     "tax_id": "CNPJ",
     "logo": "Logotipo",
     "save": "Salvar configurações",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
+    "branches": "Sedes adicionais",
+    "branches_desc": "Gerencie várias localizações da sua clínica",
+    "add_branch": "Adicionar sede",
+    "no_branches": "Sem sedes adicionais",
+    "branch_name": "Nome da sede",
+    "save_branches": "Salvar sedes",
     "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "new_branch": "Nova sede",
+    "save_branch": "Salvar sede",
+    "subtitle": "Configuração geral da clínica",
+    "trade_name": "Nome fantasia",
+    "legal_name": "Razão social",
+    "nika_number": "Número NIKA",
+    "save_success": "Salvo com sucesso",
+    "confirm_delete_branch": "Excluir esta sede?"
   },
   "language": {
     "select": "Idioma",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Enviamos um Magic Link para",
     "email": "Email",
     "magic_link": "Entrar com Magic Link",
-    "footer": "Consentimentos digitais válidos · CFM 1.931/2009 · LGPD"
+    "footer": "Consentimentos digitais válidos · CFM 1.931/2009 · LGPD",
+    "invalid_email": "Digite um email válido",
+    "send_error": "Erro ao enviar o link",
+    "subtitle": "Consentimentos Digitais · Assinatura Eletrônica",
+    "email_placeholder": "seu@clinica.com.br"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Resumo de atividade",
+    "pending_signature": "Pendentes de assinatura",
+    "signature_rate": "Taxa de assinatura",
+    "signed_count": "{{count}} assinados",
+    "pending_count": "{{count}} pendentes",
+    "recent_consents": "Últimos consentimentos",
+    "view_all_consents": "Ver todos →",
+    "view_all": "Ver todos →",
+    "no_consents": "Sem consentimentos",
+    "recent_clinical": "Últimos históricos clínicos",
+    "no_clinical": "Sem históricos clínicos",
+    "recent_photos": "Últimas sessões de fotos",
+    "no_photos": "Sem sessões fotográficas"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
+    "title": "Modelos",
+    "search": "Buscar tratamento…",
+    "editor_title": "Editor de modelo",
+    "consent_title_label": "Título do consentimento",
+    "no_translation": "Sem tradução em",
+    "translate_all": "Traduzir para 21 idiomas",
+    "translating": "Traduzindo…",
     "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "select_template": "Selecione um modelo para editá-lo",
     "empty": "Sem modelos",
     "title_placeholder": "Consentimento Informado — Tratamento…",
     "content_label": "Conteúdo do consentimento",
     "content_placeholder": "Escreva o texto do consentimento informado…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Salvando…",
+    "saved": "Salvo"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Excluir este histórico clínico?",
+    "confirm_delete_session": "Excluir esta sessão e todas as suas fotos?",
+    "not_found": "Paciente não encontrado",
+    "date_of_birth": "Data de nascimento",
+    "email": "Email",
+    "blood_type": "Tipo sanguíneo",
+    "address": "Endereço",
+    "allergies": "Alergias",
+    "medications": "Medicação",
+    "tabs": {
+      "history": "Históricos clínicos ({{count}})",
+      "photos": "Fotos ({{count}})",
+      "consents": "Consentimentos ({{count}})"
+    },
+    "new_clinical_record": "Novo histórico",
+    "no_clinical_records": "Não há históricos clínicos para este paciente",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnese",
+      "allergies": "Alergias",
+      "current_medications": "Medicação atual",
+      "physical_exam": "Exame físico",
+      "diagnosis": "Diagnóstico",
+      "treatment_plan": "Plano de tratamento",
+      "notes": "Observações"
+    },
+    "new_photo_session": "Nova sessão",
+    "no_photo_sessions": "Não há sessões fotográficas para este paciente",
+    "no_consents": "Não há consentimentos para este paciente",
+    "status": {
+      "signed": "Assinado",
+      "pending": "Pendente",
+      "revoked": "Revogado",
+      "expired": "Expirado"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratório",
+    "not_found": "Perfil de laboratório não encontrado.",
+    "panel_subtitle": "Painel de laboratório parceiro",
+    "tabs": {
+      "clinics": "Clínicas vinculadas",
+      "campaigns": "Campanhas publicitárias",
+      "stats": "Estatísticas"
+    },
+    "no_clinics": "Ainda não há clínicas vinculadas a este laboratório.",
+    "media_management": "Gestão de mídias publicitárias",
+    "welcome_screen": {
+      "title": "Tela de boas-vindas",
+      "description": "Até 5 imagens ou vídeos. Escolha qual exibir, em modo aleatório ou em sequência (máx. 100 MB por arquivo)."
+    },
+    "patient_content": {
+      "title": "Conteúdo para o paciente",
+      "description": "Até 5 imagens ou vídeos destinados ao paciente. Seu uso exato será configurado em breve."
+    },
+    "stats_pending": "Esta seção ainda está pendente de definição — em breve você verá aqui métricas de desempenho das suas campanhas e clínicas."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Excluir este histórico clínico?",
+    "title": "Históricos Clínicos",
+    "records_count": "{{count}} registros",
+    "add_record": "Novo histórico",
+    "search_placeholder": "Buscar por paciente, diagnóstico, motivo…",
+    "no_records": "Não há históricos clínicos",
+    "table_headers": ["Paciente", "Data", "Motivo da consulta", "Diagnóstico", "Médico", ""]
+  },
+  "labPartners": {
+    "title": "Laboratórios Parceiros",
+    "count": "{{count}} cadastrados",
+    "new_lab": "Novo Laboratório",
+    "search_placeholder": "Buscar laboratório…",
+    "no_labs": "Não há laboratórios.",
+    "col_name": "Nome",
+    "col_email": "Email",
+    "col_contact": "Contato",
+    "col_phone": "Telefone",
+    "col_status": "Status",
+    "col_actions": "Ações",
+    "status_active": "Ativo",
+    "status_inactive": "Inativo",
+    "confirm_deactivate": "Desativar laboratório?",
+    "form": {
+      "edit_title": "Editar Laboratório",
+      "new_title": "Novo Laboratório",
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone",
+      "contact_person": "Pessoa de contato",
+      "website": "Site",
+      "notes": "Notas",
+      "name_email_required": "Nome e email são obrigatórios",
+      "unknown_error": "Erro desconhecido"
+    },
+    "campaigns": {
+      "title": "Campanhas de {{name}}",
+      "new_campaign": "Nova Campanha",
+      "no_campaigns": "Não há campanhas.",
+      "col_name": "Nome",
+      "col_type": "Tipo",
+      "col_trigger": "Gatilho",
+      "col_status": "Status",
+      "col_actions": "Ações",
+      "confirm_delete": "Excluir campanha?",
+      "form": {
+        "edit_title": "Editar Campanha",
+        "new_title": "Nova Campanha",
+        "name": "Nome",
+        "name_required": "O nome é obrigatório",
+        "unknown_error": "Erro desconhecido",
+        "type": "Tipo",
+        "rotation_mode": "Modo de rotação",
+        "rotation_random": "Aleatório",
+        "rotation_manual": "Manual",
+        "creative_url": "URL da criatividade",
+        "trigger": "Gatilho",
+        "interval_minutes": "Intervalo (min)",
+        "start_date": "Data de início",
+        "end_date": "Data de término",
+        "active": "Ativo"
+      }
+    },
+    "creative_types": {
+      "image": "Imagem",
+      "video": "Vídeo",
+      "url": "URL",
+      "offer": "Oferta",
+      "training": "Treinamento"
+    },
+    "triggers": {
+      "on_login": "Ao abrir",
+      "on_consent": "Ao criar consentimento",
+      "every_x_minutes": "A cada X minutos",
+      "once_daily": "Uma vez por dia"
+    }
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Agendamentos, tratamentos e planejamento de horários",
+    "tab_appointments": "Agendamentos",
+    "tab_treatments": "Tratamentos",
+    "tab_planning": "Planejamento de Agenda"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID não fornecido",
+    "verifying": "Verificando documento…",
+    "subtitle": "Verificação de documento",
+    "not_found_title": "Documento não encontrado",
+    "signed_title": "Documento válido e assinado",
+    "signed_subtitle": "A assinatura foi verificada com sucesso",
+    "revoked_title": "Consentimento revogado",
+    "revoked_subtitle": "O paciente revogou este consentimento",
+    "pending_title": "Pendente de assinatura",
+    "pending_subtitle": "Este documento ainda não foi assinado",
+    "patient": "Paciente",
+    "doctor": "Médico",
+    "treatment": "Tratamento",
+    "signed_date": "Data de assinatura",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "ID do documento:",
+    "verified_on": "Verificado em {{date}}. Este documento é válido nos termos da legislação vigente (CFM 1.931/2009) e assinado eletronicamente conforme a ICP-Brasil (MP 2.200-2/2001)."
+  },
+  "recharge": {
+    "title": "Planos de Assinatura",
+    "subtitle": "Escolha o plano que melhor se adapta à sua clínica",
+    "monthly": "Mensal",
+    "annual": "Anual",
+    "per_month": "/mês",
+    "save_20_annual": "Economize 20% pagando anualmente",
+    "switch_annual_save": "Mude para o anual e economize 20%",
+    "hire_plan": "Contratar plano",
+    "note_title": "Nota sobre o Plano IA e o Plano IA Premium:",
+    "note_text": "A configuração inicial dos agentes de IA (serviços, tratamentos e personalização) e a implantação são orçadas separadamente, de acordo com a complexidade de cada clínica. Os custos de agente de voz e WhatsApp API não estão incluídos na mensalidade.",
+    "plans": {
+      "base": {
+        "name": "Plano Base",
+        "features": [
+          "CIs ilimitados",
+          "Histórico clínico",
+          "Galeria fotográfica",
+          "Portal do paciente",
+          "Magic Link + biometria",
+          "Suporte incluso"
+        ]
+      },
+      "pro": {
+        "name": "Plano Pro",
+        "badge": "Mais popular",
+        "features": [
+          "Tudo do Plano Base +",
+          "Agenda de consultas",
+          "CRM de pacientes",
+          "Controle de toxina",
+          "Orçamentos para Pacientes"
+        ]
+      },
+      "ia": {
+        "name": "Plano IA",
+        "features": [
+          "Tudo do Plano Pro +",
+          "Agente WhatsApp IA 24/7 — captação de agendamentos",
+          "Confirmação de agendamentos automatizada",
+          "Lembretes de agendamentos automatizados",
+          "Painel de gestão de WhatsApp",
+          "Comunicação com pacientes por WhatsApp",
+          "Envio por WhatsApp de CIs, histórico clínico, fotos, orçamentos e faturas"
+        ]
+      },
+      "ia_plus": {
+        "name": "Plano IA Premium",
+        "badge": "Novo",
+        "features": [
+          "Tudo do Plano IA +",
+          "Agente de voz IA 24/7: atende ligações",
+          "Agenda consultas por telefone automaticamente",
+          "Clona a voz da sua recepcionista em 100%"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Controle de Toxina",
+    "subtitle": "Rastreabilidade de lotes de toxina botulínica",
+    "new_record": "Novo registro",
+    "from": "De",
+    "to": "Até",
+    "doctor": "Médico",
+    "patient": "Paciente",
+    "all": "Todos",
+    "lot_number": "Nº do lote",
+    "search_lot_placeholder": "Buscar lote…",
+    "clear_filters": "Limpar filtros",
+    "no_results": "Não há registros de toxina com esses filtros.",
+    "col_date": "Data",
+    "col_patient": "Paciente",
+    "col_doctor": "Médico",
+    "col_brand": "Nome comercial",
+    "col_lot": "Lote",
+    "col_expiry": "Validade",
+    "col_zones": "Zonas",
+    "col_units": "Unidades",
+    "col_signature": "Assinatura",
+    "col_ci": "CI",
+    "col_actions": "Ações",
+    "signed": "Assinado",
+    "unsigned": "Sem assinatura",
+    "consent_linked": "Com consentimento vinculado",
+    "consent_not_linked": "Sem consentimento vinculado",
+    "confirm_delete": "Excluir este registro de toxina?",
+    "detail": {
+      "not_found": "Registro não encontrado.",
+      "patient": "Paciente",
+      "doctor": "Médico",
+      "brand": "Nome comercial",
+      "manufacturer": "Fabricante",
+      "lot": "Número do lote",
+      "expiry": "Data de validade",
+      "vials": "Frascos abertos",
+      "total_units": "Total de unidades",
+      "treated_zones": "Zonas tratadas",
+      "no_zones": "Sem zonas registradas.",
+      "notes": "Notas",
+      "doctor_signature": "Assinatura do médico",
+      "signature_alt": "Assinatura do médico",
+      "signed_on": "Assinado em {{date}}",
+      "no_signature": "Este registro não possui assinatura do médico.",
+      "linked_consent": "Termo de consentimento vinculado",
+      "consent_default_name": "Consentimento",
+      "consent_unsigned": "Não assinado",
+      "loading_pdf": "Carregando PDF…",
+      "consent_load_error": "Não foi possível carregar as informações do consentimento vinculado."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token não encontrado na URL",
+    "invalid_token": "Token inválido ou expirado",
+    "connection_error": "Erro de conexão",
+    "verifying": "Verificando link…",
+    "invalid_link": "Link inválido",
+    "back_home": "Voltar ao início"
+  },
+  "photoSessions": {
+    "confirm_delete": "Excluir esta sessão e todas as suas fotos?",
+    "title": "Fotos",
+    "subtitle": "{{count}} sessões fotográficas",
+    "new_session": "Nova sessão",
+    "search_placeholder": "Buscar por paciente ou nome da sessão…",
+    "no_sessions": "Não há sessões fotográficas"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Meus Consentimentos",
+      "clinical": "Meu Histórico Clínico",
+      "photos": "Minhas Fotos"
+    },
+    "consents": {
+      "empty": "Você ainda não tem consentimentos assinados.",
+      "default_name": "Consentimento",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Assinado em {{date}}",
+      "status_signed": "Assinado",
+      "status_pending": "Pendente"
+    },
+    "clinical": {
+      "empty": "Seu histórico clínico está vazio.",
+      "default_name": "Consulta",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnóstico",
+        "anamnesis": "Anamnese",
+        "current_medications": "Medicação atual",
+        "allergies": "Alergias",
+        "treatment_plan": "Plano de tratamento",
+        "notes": "Observações"
+      }
+    },
+    "photos": {
+      "empty": "Ainda não há sessões de fotos.",
+      "back_to_sessions": "Voltar para sessões",
+      "default_session_name": "Sessão fotográfica",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Comparação antes / depois",
+      "before": "Antes",
+      "after": "Depois",
+      "close_compare": "Fechar comparação",
+      "compare_button": "Comparar",
+      "photo_count": "{{count}} fotos"
+    }
   },
   "settings": {
     "title": "Configurações",
-    "subtitle": "Gestão de usuários e acessos",
+    "subtitle": "Gestão de usuários e acessos ao sistema",
+    "tabs": {
+      "users": "Usuários",
+      "media": "Publicidade",
+      "preview": "Pré-visualização"
+    },
     "users": {
       "title": "Usuários",
       "invite_user": "Convidar usuário",
@@ -174,14 +1048,40 @@
       "role": "Função",
       "role_admin": "Administrador",
       "role_clinica": "Clínica",
-      "admin_hint": "O administrador tem acesso total a todas as seções.",
+      "admin_hint": "O administrador tem acesso total a todas as seções do sistema.",
       "permissions": "Permissões de acesso",
-      "permissions_hint": "Selecione as seções acessíveis.",
+      "permissions_hint": "Selecione a quais seções este usuário terá acesso.",
       "send_invite": "Enviar convite",
       "no_users": "Sem usuários. Convide o primeiro.",
       "inactive": "Inativo",
       "activate": "Ativar",
-      "deactivate": "Desativar"
+      "deactivate": "Desativar",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Médico",
+      "role_receptionist": "Recepcionista",
+      "role_lab_partner": "Laboratório",
+      "role_patient": "Paciente",
+      "filter_all": "Todos",
+      "invite_accepted": "Convite aceito",
+      "invite_expired": "Convite expirado",
+      "invite_pending": "Convite pendente",
+      "email_placeholder": "usuario@clinica.com.br",
+      "full_name_placeholder": "Nome Sobrenome",
+      "linked_lab": "Laboratório vinculado",
+      "no_lab": "Sem laboratório",
+      "lab_hint": "O usuário verá apenas as clínicas vinculadas a este laboratório.",
+      "admin_only_hint": "A seção Configurações é exclusiva de administradores e nunca pode ser delegada a uma clínica.",
+      "load_error": "Não foi possível carregar a lista de usuários",
+      "retry": "Tentar novamente"
+    },
+    "media": {
+      "title": "Gestão de mídias publicitárias",
+      "managed_by_lab": "Esta publicidade é gerenciada pelo seu laboratório parceiro. Você pode vê-la aqui, mas apenas o laboratório pode modificá-la.",
+      "managed_by_lab_named": "Esta publicidade é gerenciada pelo seu laboratório parceiro ({{name}}). Você pode vê-la aqui, mas apenas o laboratório pode modificá-la.",
+      "welcome_title": "Tela de boas-vindas",
+      "welcome_description": "Até 5 imagens ou vídeos. Escolha qual exibir, em modo aleatório ou em sequência (máx. 100 MB por arquivo).",
+      "patient_title": "Conteúdo para paciente",
+      "patient_description": "Até 5 imagens ou vídeos destinados ao paciente. Seu uso exato será configurado em breve."
     }
   }
 }
