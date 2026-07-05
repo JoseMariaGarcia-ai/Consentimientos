@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Toksin kaydını düzenle",
+    "title_new": "Yeni toksin kaydı",
+    "patient": "Hasta",
+    "select_patient": "Hasta seçin…",
+    "linked_consent": "Bağlantılı bilgilendirilmiş onam",
+    "not_linked": "Bağlantılı değil",
+    "consent_default_name": "Onam",
+    "unsigned": "imzalanmadı",
+    "loading_consents": "Onaylar yükleniyor…",
+    "no_consents_hint": "Bu hastanın henüz imzalanmış toksin onamı yok. İsteğe bağlıdır, kaydı bağlantı kurmadan kaydedebilirsiniz.",
+    "doctor": "Doktor",
+    "unassigned": "Atanmadı",
+    "application_date": "Uygulama tarihi",
+    "brand_name": "Ticari adı",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Üretici",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Lot numarası",
+    "expiry_date": "Son kullanma tarihi",
+    "vials_opened": "Açılan flakon sayısı",
+    "treated_zones": "Tedavi edilen bölgeler",
+    "other_zone_placeholder": "Diğer bölge…",
+    "add": "Ekle",
+    "total_units": "Toplam ünite",
+    "notes": "Notlar",
+    "notes_placeholder": "Gözlemler…",
+    "doctor_signature": "Doktor imzası",
+    "signature_alt": "Doktor imzası",
+    "signed_on": "{{date}} tarihinde imzalandı",
+    "sign_again": "Tekrar imzala",
+    "signature_hint": "Kaydetmeden önce imzayı çizin ve \"İmzayı onayla\"ya tıklayın.",
+    "confirm_delete": "Bu toksin kaydı silinsin mi?",
+    "deleting": "Siliniyor…",
+    "delete_record": "Kaydı sil",
+    "cancel": "İptal",
+    "save_changes": "Değişiklikleri kaydet",
+    "create_record": "Kayıt oluştur",
+    "saving": "Kaydediliyor…",
+    "unknown_error": "Bilinmeyen hata",
+    "validation": {
+      "required_fields": "Hasta, ticari ad, lot, son kullanma tarihi ve üretici zorunludur",
+      "signature_required": "Kaydı kaydetmek için doktor imzası zorunludur"
+    },
+    "zones": {
+      "forehead": "Alın (yatay çizgiler)",
+      "glabella": "Kaşlar arası (glabella)",
+      "crows_feet": "Kaz ayağı (göz çevresi)",
+      "lower_eyelid": "Alt göz kapağı",
+      "eyebrow_lift": "Kaş (kaldırma)",
+      "bunny_lines": "Burun (bunny lines)",
+      "upper_lip": "Üst dudak (barkod çizgileri)",
+      "oral_commissures": "Ağız kenarları",
+      "chin_dimpling": "Çene (portakal kabuğu görünümü)",
+      "platysmal_bands": "Boyun (platisma bantları)",
+      "decolletage": "Dekolte",
+      "axillary_sweating": "Koltuk altı terlemesi (hiperhidroz)",
+      "palmar_sweating": "Avuç içi terlemesi",
+      "plantar_sweating": "Ayak tabanı terlemesi",
+      "jaw_bruxism": "Çene (bruksizm / masseter)",
+      "migraine_occipital": "Migren (oksipital noktalar)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (boyun ve çene)",
+      "other_zone": "Diğer bölge"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Oluşturuluyor…",
+    "export_pdf": "PDF'yi dışa aktar"
+  },
+  "patientGallery": {
+    "title": "Fotoğraf galerisi",
+    "upload_photos": "Fotoğraf yükle",
+    "loading": "Yükleniyor…",
+    "empty": "Fotoğraf yok. İlk görseli yükleyin.",
+    "confirm_delete": "Bu fotoğraf silinsin mi?",
+    "count_stored": "{{count}} {{unit}} · Cloudflare R2'de saklanıyor",
+    "photo_singular": "fotoğraf",
+    "photo_plural": "fotoğraf"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Klinik kaydı düzenle",
+    "title_new": "Yeni klinik kayıt",
+    "patient": "Hasta",
+    "select_patient": "Hasta seçin…",
+    "doctor": "Doktor",
+    "unassigned": "Atanmadı",
+    "branch": "Klinik / Şube",
+    "unspecified": "Belirtilmedi",
+    "visit_date": "Ziyaret tarihi",
+    "reason_for_visit": "Başvuru nedeni",
+    "anamnesis": "Anamnez / Öykü",
+    "current_medications": "Kullanılan ilaçlar",
+    "allergies": "Bilinen alerjiler",
+    "physical_exam": "Fizik muayene",
+    "diagnosis": "Tanı",
+    "treatment_plan": "Tedavi planı",
+    "notes": "Gözlemler / Notlar",
+    "select_patient_error": "Bir hasta seçin",
+    "unknown_error": "Bilinmeyen hata",
+    "cancel": "İptal",
+    "saving": "Kaydediliyor…",
+    "save_record": "Kaydı kaydet"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Dosya {{maxSize}} MB sınırını aşıyor",
+    "upload_error": "Dosya yüklenirken hata oluştu",
+    "confirm_delete": "Bu dosya silinsin mi?",
+    "video": "Video",
+    "image": "Görsel",
+    "uploaded_on": "{{date}} tarihinde yüklendi",
+    "change": "Değiştir",
+    "delete": "Sil",
+    "uploading": "Yükleniyor… %{{progress}}",
+    "drop_hint": "Yüklemek için buraya sürükleyin veya tıklayın",
+    "file_types_hint": "Görsel (JPG, PNG, GIF) veya video (MP4, MOV, WebM) · Maks. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Onam içeriğini yazın…",
+    "bold": "Kalın",
+    "italic": "İtalik",
+    "heading": "Başlık",
+    "bullet_list": "Liste",
+    "ordered_list": "Numaralı liste",
+    "undo": "Geri al",
+    "redo": "Yinele"
+  },
+  "consentPdfButton": {
+    "generating": "PDF oluşturuluyor…",
+    "export": "PDF'yi dışa aktar"
+  },
+  "newSessionModal": {
+    "title": "Yeni fotoğraf seansı",
+    "patient_label": "Hasta",
+    "select_patient_placeholder": "Hasta seçin…",
+    "doctor_label": "Doktor",
+    "no_doctor_assigned": "Atanmadı",
+    "branch_label": "Klinik / Şube",
+    "no_branch_specified": "Belirtilmedi",
+    "session_name_label": "Seans adı",
+    "session_name_placeholder": "Örn: Yüz bakımı seans 1",
+    "date_label": "Tarih ve saat",
+    "notes_label": "Notlar",
+    "notes_placeholder": "Seansla ilgili gözlemler…",
+    "select_patient_error": "Bir hasta seçin",
+    "unknown_error": "Bilinmeyen hata",
+    "cancel": "İptal",
+    "creating": "Oluşturuluyor…",
+    "create_session": "Seans oluştur"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotoğraf seansı",
+    "photo_count": "{{count}}/{{max}} fotoğraf",
+    "compare_button": "Önce / sonra karşılaştır",
+    "delete_session": "Seansı sil",
+    "upload": "Yükle",
+    "remaining": "{{remaining}} kaldı"
+  },
+  "beforeAfterModal": {
+    "select_title": "Karşılaştırılacak fotoğrafları seçin",
+    "compare_title": "Önce / Sonra Karşılaştırması",
+    "change_selection": "← Seçimi değiştir",
+    "select_intro": "Bir fotoğraf seçin:",
+    "select_middle": "ve bir diğerini:",
+    "before": "Önce",
+    "after": "Sonra",
+    "before_badge": "ÖNCE",
+    "after_badge": "SONRA",
+    "compare_button": "Karşılaştır"
+  },
+  "biometricPrompt": {
+    "title": "Biyometrik erişimi etkinleştir",
+    "description": "Bir dahaki sefere 2 saniyeden kısa sürede giriş yapmak için Face ID, parmak izi veya Windows Hello kullanın.",
+    "device_label": "Cihaz:",
+    "activate": "Etkinleştir",
+    "default_device": "Cihazım"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Manuel seçim",
+        "desc": "Hangisinin gösterileceğini siz seçersiniz. Etkinleştirmek için bir kreatife tıklayın."
+      },
+      "random": {
+        "label": "Rastgele sıra",
+        "desc": "Gösterme zamanı geldiğinde rastgele bir kreatif seçilir."
+      },
+      "sequential": {
+        "label": "Sıralı düzen",
+        "desc": "Sıra geldiğinde birer birer, sırayla gösterilirler."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Dosya 100 MB sınırını aşıyor",
+      "invalidUrl": "Geçersiz URL"
+    },
+    "confirmDelete": "Bu kreatif silinsin mi?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Görsel"
+    },
+    "active": "✓ Aktif",
+    "select": "Seç",
+    "upload": {
+      "label": "Dosya yükle",
+      "slotsFree": "{{count}} boş yer{{suffix}}"
+    },
+    "addUrlButton": "Video URL'si ekle (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "URL ile video ekle",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… veya doğrudan .mp4 URL'si",
+      "labelPlaceholder": "Ad veya açıklama (isteğe bağlı)",
+      "hint": "YouTube, Vimeo ve doğrudan video URL'leri (.mp4, .webm…) ile uyumludur",
+      "add": "Ekle",
+      "saving": "Kaydediliyor…"
+    },
+    "displayModeHeading": "Nasıl gösterilsin?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Hoş geldiniz",
+    "continue": "Devam et →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Reklam ne zaman gösterilsin?",
+    "subheading": "Aynı anda birden fazla seçenek belirleyebilirsiniz.",
+    "options": {
+      "session": {
+        "label": "Oturum açıldığında bir kez",
+        "desc": "Kullanıcı uygulamayı tarayıcıda her açtığında yalnızca bir kez gösterilir."
+      },
+      "consent": {
+        "label": "Her onam oluşturulduğunda",
+        "desc": "Her bilgilendirilmiş onam oluşturulduktan hemen sonra görünür."
+      },
+      "clinical": {
+        "label": "Her klinik kayıt oluşturulduğunda",
+        "desc": "Her klinik kayıt kaydedildikten hemen sonra görünür."
+      },
+      "interval": {
+        "label": "Her X dakikada bir",
+        "desc": "Uygulama açık olduğu sürece periyodik olarak gösterilir."
+      }
+    },
+    "every": "Her",
+    "minutes": "dakika",
+    "errors": {
+      "selectAtLeastOne": "En az bir seçenek belirleyin",
+      "saveFailed": "Kaydetme hatası"
+    },
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi",
+    "saveButton": "Yapılandırmayı kaydet",
+    "appliedMessage": "✅ Yapılandırma uygulandı"
+  },
+  "demoPreviewPanel": {
+    "heading": "Rollere göre önizleme",
+    "subheading": "Test verileri oluşturun ve programa tam olarak bir hastanın, kliniğin veya laboratuvarın göreceği şekilde girin.",
+    "createAllButton": "Tüm test verilerini oluştur",
+    "errors": {
+      "checkFailed": "Test verileri kontrol edilirken hata oluştu",
+      "createPatientFailed": "Test hastası oluşturulamadı",
+      "createBranchFailed": "Test şubesi oluşturulamadı",
+      "createLabFailed": "Test laboratuvarı oluşturulamadı"
+    },
+    "cards": {
+      "patient": {
+        "title": "Hasta Görünümü",
+        "description": "Bir hastanın gördüğü portalı simüle eder: onamları, klinik kaydı ve fotoğrafları."
+      },
+      "branch": {
+        "title": "Klinik Görünümü",
+        "description": "Klinik personelinin gördüğü paneli, menüsü gerçek izinleriyle sınırlı olacak şekilde simüle eder."
+      },
+      "lab": {
+        "title": "Laboratuvar Görünümü",
+        "description": "İş birliği yapan bir laboratuvarın panelini simüle eder: profili, bağlantılı klinikleri ve kampanyaları."
+      }
+    },
+    "testDataCreated": "Test verisi oluşturuldu",
+    "viewAs": "{{role}} olarak görüntüle",
+    "roleNames": {
+      "patient": "hasta",
+      "branch": "klinik",
+      "lab": "laboratuvar"
+    },
+    "creating": "Oluşturuluyor…",
+    "createTestData": "Test verisi oluştur"
+  },
+  "previewBanner": {
+    "message": "Önizleme — arayüzü şu şekilde görüntülüyorsunuz:",
+    "exitButton": "Önizlemeden çık",
+    "roles": {
+      "patient": "Hasta",
+      "clinica": "Klinik",
+      "labPartner": "Laboratuvar"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Ayı görüntüle",
+    "today": "Bugün",
+    "new_appointment": "Yeni randevu",
+    "no_treatments_warning": "Henüz oluşturulmuş bir tedavi yok. Randevu planlamadan önce ilkini oluşturmak için \"Tedaviler\" sekmesine gidin.",
+    "day_closed_notice": "Bu gün, Ajanda Planlaması bölümünde kapalı olarak işaretlenmiştir. Bu sekmeden kontrol edebilir veya açabilirsiniz.",
+    "slot_aria_label": "Saat {{time}} için randevu al",
+    "outside_availability": "Müsait saatlerin dışında",
+    "treatment_fallback": "Tedavi",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Müsait",
+      "outside_hours": "Mesai saatleri dışında",
+      "scheduled": "Randevu planlandı"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Randevuyu düzenle",
+    "title_new": "Yeni randevu",
+    "validation_required": "Hasta, tedavi ve saat zorunludur",
+    "error_unknown": "Bilinmeyen hata",
+    "confirm_delete": "Bu randevu silinsin mi?",
+    "deleting": "Siliniyor…",
+    "delete_appointment": "Randevuyu sil",
+    "cancel": "İptal",
+    "saving": "Kaydediliyor…",
+    "save_changes": "Değişiklikleri kaydet",
+    "create_appointment": "Randevu oluştur",
+    "form": {
+      "patient": "Hasta",
+      "select_patient": "Hasta seçin…",
+      "doctor": "Doktor",
+      "unassigned": "Atanmadı",
+      "branch": "Klinik / Şube",
+      "main_branch": "Ana şube",
+      "treatment": "Tedavi",
+      "select_treatment": "Tedavi seçin…",
+      "treatment_option": "{{name}} — {{duration}} dk — {{price}} €",
+      "no_treatments_warning": "Oluşturulmuş tedavi yok. Önce \"Tedaviler\" sekmesinden bir tane ekleyin.",
+      "datetime": "Tarih ve saat",
+      "duration_note": "Ajandada {{duration}} dakika yer kaplayacak.",
+      "notes": "Notlar",
+      "notes_placeholder": "Randevuyla ilgili gözlemler…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Tedaviler",
+    "subtitle": "Randevu planlayabilmek için her tedavinin süresi ve fiyatı",
+    "new_treatment": "Yeni tedavi",
+    "loading": "Yükleniyor…",
+    "empty_state": "Henüz oluşturulmuş tedavi yok",
+    "duration_display": "{{duration}} dk",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Bu tedavi silinsin mi?",
+    "form": {
+      "title_edit": "Tedaviyi düzenle",
+      "title_new": "Yeni tedavi",
+      "name": "Ad",
+      "name_placeholder": "Örn: Botulinum toksini",
+      "duration": "Süre (dk)",
+      "price": "Fiyat (€)",
+      "validation_name_required": "Ad zorunludur",
+      "error_unknown": "Bilinmeyen hata",
+      "cancel": "İptal",
+      "saving": "Kaydediliyor…",
+      "save": "Kaydet"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
+    "months": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+    "has_exception_tooltip": "Zaten bir istisna yapılandırılmış",
+    "legend": {
+      "usually_open": "Normalde açık",
+      "usually_closed": "Normalde kapalı",
+      "has_exception": "İstisnalı",
+      "selected": "Seçildi"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
+    "months": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+    "legend": {
+      "open_day": "Açık gün",
+      "closed": "Kapalı",
+      "today": "Bugün"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Ajanda Planlaması",
+    "subtitle": "Hangi günlerde ve hangi saatlerde randevu alınabileceğini yapılandırın.",
+    "time_separator": "-",
+    "add_time_range": "Saat aralığı ekle",
+    "weekdays": ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+    "confirm_delete_exception": "Bu istisna silinsin ve o günün olağan saatlerine dönülsün mü?",
+    "errors": {
+      "save_schedule_failed": "Program kaydedilemedi",
+      "apply_pattern_failed": "Desen uygulanamadı",
+      "select_day_required": "Takvimde en az bir gün seçin",
+      "save_exception_failed": "Özel gün kaydedilemedi"
+    },
+    "bulk": {
+      "title": "Birden fazla güne aynı anda bir desen uygula",
+      "description": "Örn: Pazartesi'den Cuma'ya 09:00 - 20:00. Günleri ve saatleri seçin, ardından uygulayın — her günü daha sonra ayrı ayrı ayarlayabilirsiniz.",
+      "applying": "Uygulanıyor…",
+      "apply_button": "Seçilen günlere uygula"
+    },
+    "weekly": {
+      "title": "Olağan haftalık program",
+      "closed": "Kapalı",
+      "saving": "Kaydediliyor…",
+      "save": "Kaydet"
+    },
+    "exceptions": {
+      "title": "Tekil günler (istisnalar)",
+      "description": "Özel bir günü açın (örn. bir cumartesi) veya normalde açık olan bir günü kapatın (örn. resmi tatil).",
+      "select_days_label": "Bir veya daha fazla gün seçin",
+      "days_selected_singular": "{{count}} gün seçildi",
+      "days_selected_plural": "{{count}} gün seçildi",
+      "clear_selection": "Seçimi temizle",
+      "open_special": "Özel aç",
+      "close": "Kapat",
+      "schedule_label": "Bu günlerdeki program",
+      "notes_placeholder": "Neden (isteğe bağlı) — örn: Ağustos tatili",
+      "saving": "Kaydediliyor…",
+      "save_button_singular": "Özel günü kaydet",
+      "save_button_plural": "{{count}} özel günü kaydet",
+      "no_exceptions": "Yapılandırılmış tekil gün yok.",
+      "open_special_status": "Özel açık · {{ranges}}",
+      "closed_status": "Kapalı"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Dijital Onaylar · Biyometrik İmza"
@@ -14,7 +445,15 @@
     "settings": "Ayarlar",
     "clinicalRecords": "Klinik Kayıt",
     "photos": "Fotoğraflar",
-    "recharge": "Kredi Yükle"
+    "recharge": "Abonelik Planları",
+    "agenda": "Ajanda",
+    "toxin": "Toksin Kontrolü",
+    "labPartners": "Laboratuvarlar",
+    "menu": "Menü"
+  },
+  "topbar": {
+    "tagline": "Dijital Onaylar · Biyometrik İmza",
+    "legal": "eIDAS (AB 910/2014) · Hasta Hakları Yönetmeliği · KVKK"
   },
   "auth": {
     "login_title": "Güvenli erişim",
@@ -23,17 +462,30 @@
     "send_link": "Erişim bağlantısı gönder",
     "check_email": "E-postanızı kontrol edin — erişim bağlantısı gönderdik",
     "magic_link_sent": "Bağlantı başarıyla gönderildi",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Bu cihazı hatırla",
+    "remember_7": "7 gün",
+    "remember_30": "30 gün",
+    "remember_90": "90 gün",
+    "biometric_activate": "Face ID / parmak izini etkinleştir",
+    "biometric_prompt": "İlk girişinizden sonra Face ID / parmak izini etkinleştirebilirsiniz",
+    "biometric_registering": "Etkinleştiriliyor…",
+    "biometric_success": "Biyometri etkinleştirildi!",
+    "biometric_success_msg": "Bir dahaki sefere tek dokunuşla giriş yapacaksınız.",
+    "biometric_error": "Etkinleştirilemedi. Cihazınızda biyometrinin yapılandırıldığından emin olun.",
+    "biometric_now": "Şimdi değil",
+    "portal_subtitle": "Dijital Onaylar · Biyometrik İmza",
+    "portal_title": "Belgeye erişim",
+    "portal_email_prompt": "Güvenli bir erişim bağlantısı almak için e-postanızı girin.",
+    "portal_link_sent_title": "Bağlantı gönderildi",
+    "portal_link_sent_message": "E-postanızı kontrol edin ve devam etmek için bağlantıya tıklayın.",
+    "portal_email_placeholder": "siz@email.com",
+    "portal_consent_default_title": "Bilgilendirilmiş Onam",
+    "portal_accept_label": "Bu bilgilendirilmiş onamı okudum ve kabul ediyorum",
+    "portal_proceed_to_sign": "İmzaya geç →",
+    "portal_saving_signature": "İmza kaydediliyor…",
+    "portal_signed_title": "İmza tamamlandı",
+    "portal_signed_message": "Onamınız imzalandı ve güvenli bir şekilde kaydedildi.",
+    "portal_error_message": "Bağlantının süresi dolmuş veya yanlış olabilir."
   },
   "patients": {
     "title": "Hastalar",
@@ -54,10 +506,37 @@
     "edit": "Düzenle",
     "delete": "Sil",
     "no_results": "Kayıtlı hasta yok",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Fotoğraf galerisi",
+    "no_photos": "Fotoğraf yok. İlk görseli yükleyin.",
+    "upload_photos": "Fotoğraf yükle",
+    "uploading": "Yükleniyor…",
+    "count_registered": "{{count}} kayıtlı",
+    "form": {
+      "doc_type": "Tür",
+      "doc_type_passport": "Pasaport",
+      "city": "Şehir",
+      "province": "İl",
+      "country": "Ülke",
+      "select_placeholder": "— Seçin —",
+      "countries": [
+        "İspanya", "Almanya", "Arjantin", "Belçika", "Bolivya", "Brezilya", "Şili", "Çin",
+        "Kolombiya", "Kosta Rika", "Küba", "Ekvador", "El Salvador", "ABD", "Fransa",
+        "Guatemala", "Honduras", "İtalya", "Fas", "Meksika", "Nikaragua", "Hollanda",
+        "Panama", "Paraguay", "Peru", "Portekiz", "Birleşik Krallık", "Dominik Cumhuriyeti",
+        "İsviçre", "Uruguay", "Venezuela", "Diğer"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Kaydetme hatası:",
+      "unknown_error": "Bilinmeyen hata"
+    }
   },
   "doctors": {
     "title": "Doktorlar",
@@ -73,17 +552,45 @@
       "receptionist": "Resepsiyonist"
     },
     "save": "Doktoru kaydet",
-    "no_results": "Kayıtlı doktor yok"
+    "no_results": "Kayıtlı doktor yok",
+    "last_name": "Soyad",
+    "phone": "Telefon",
+    "phone_placeholder": "0500 000 00 00",
+    "unknown_error": "Bilinmeyen hata",
+    "count_registered": "{{count}} kayıtlı",
+    "license_display": "No {{number}}"
   },
   "consents": {
     "title": "Onaylar",
     "add": "Yeni onay",
     "search": "Onayları ara…",
+    "step_labels": ["Bilgiler", "İnceleme", "Doktor imzası", "Hasta imzası", "Tamamlandı"],
+    "branch_label": "Şube",
+    "main_branch": "Ana şube",
+    "select_patient": "Hasta seçin…",
+    "select_doctor": "Doktor seçin…",
+    "select_treatment": "Tedavi seçin…",
+    "translating": "Çevriliyor…",
+    "continue": "Devam et",
+    "responsible_doctor": "Sorumlu doktor",
+    "legal_framework_title": "Yasal Çerçeve — {{jurisdiction}}",
+    "witness_required_notice": "Bu ülke imza için tanık gerektirir",
+    "back": "← Geri",
+    "sign_arrow": "İmzala →",
+    "doctor_signature_title": "Doktor imzası",
+    "doctor_signature_notice": "Onamı geçerli kılmak için önce doktorun imzalaması gerekir",
+    "back_to_preview": "← Geri dön",
+    "patient_signature_title": "Hasta imzası",
+    "patient_signature_notice": "Hastanın, onamı okuduğunu ve kabul ettiğini onaylamak için imzalaması gerekir",
+    "signed_title": "Onam imzalandı",
+    "signed_description": "Belge doğru şekilde imzalandı ve kaydedildi.",
+    "close": "Kapat",
     "status": {
       "pending": "Beklemede",
       "signed": "İmzalandı",
       "revoked": "İptal edildi",
-      "expired": "Süresi doldu"
+      "expired": "Süresi doldu",
+      "all": "Tümü"
     },
     "sign": "İmzala",
     "generate_pdf": "PDF oluştur",
@@ -93,7 +600,13 @@
     "treatment": "Tedavi",
     "language": "Dil",
     "signed_at": "İmzalanma tarihi",
-    "no_results": "Onay yok"
+    "no_results": "Onay yok",
+    "confirm_delete": "Bu onay silinsin mi?",
+    "stats": "{{total}} toplam · {{signed}} imzalandı · {{pending}} beklemede",
+    "branch": "Şube",
+    "created_at": "Oluşturulma tarihi",
+    "status_header": "Durum",
+    "continue_signature": "İmzaya devam et"
   },
   "signature": {
     "title": "Hasta imzası",
@@ -112,14 +625,21 @@
     "tax_id": "Vergi numarası",
     "logo": "Logo",
     "save": "Ayarları kaydet",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Ek şubeler",
+    "branches_desc": "Kliniğinizin birden fazla lokasyonunu yönetin",
+    "add_branch": "Şube ekle",
+    "no_branches": "Ek şube yok",
+    "branch_name": "Şube adı",
+    "save_branches": "Şubeleri kaydet",
+    "edit_branch": "Şubeyi düzenle",
+    "new_branch": "Yeni şube",
+    "save_branch": "Şubeyi kaydet",
+    "subtitle": "Kliniğin genel ayarları",
+    "trade_name": "Ticari unvan",
+    "legal_name": "Vergi unvanı / tüzel kişilik adı",
+    "nika_number": "NIKA numarası",
+    "save_success": "Başarıyla kaydedildi",
+    "confirm_delete_branch": "Bu şube silinsin mi?"
   },
   "language": {
     "select": "Dil",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Magic Link gönderdik",
     "email": "E-posta",
     "magic_link": "Magic Link ile giriş yap",
-    "footer": "Geçerli dijital onaylar · Hasta Hakları Yönetmeliği · KVKK"
+    "footer": "Geçerli dijital onaylar · Hasta Hakları Yönetmeliği · KVKK",
+    "invalid_email": "Geçerli bir e-posta girin",
+    "send_error": "Bağlantı gönderilirken hata oluştu",
+    "subtitle": "Dijital Onaylar · eIDAS",
+    "email_placeholder": "siz@klinik.com.tr"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "subtitle": "Faaliyet özeti",
+    "pending_signature": "İmza bekleyenler",
+    "signature_rate": "İmzalanma oranı",
+    "signed_count": "{{count}} imzalandı",
+    "pending_count": "{{count}} beklemede",
+    "recent_consents": "Son onaylar",
+    "view_all_consents": "Tümünü gör →",
+    "view_all": "Tümünü gör →",
+    "no_consents": "Onay yok",
+    "recent_clinical": "Son klinik kayıtlar",
+    "no_clinical": "Klinik kayıt yok",
+    "recent_photos": "Son fotoğraf seansları",
+    "no_photos": "Fotoğraf seansı yok"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Şablonlar",
+    "search": "Tedavi ara…",
+    "editor_title": "Şablon düzenleyici",
+    "consent_title_label": "Onam başlığı",
+    "no_translation": "Şurada çeviri yok:",
+    "translate_all": "21 dile çevir",
+    "translating": "Çevriliyor…",
+    "legal_framework": "Yasal çerçeve",
+    "select_template": "Düzenlemek için bir şablon seçin",
     "empty": "Şablon yok",
     "title_placeholder": "Aydınlatılmış Onam — Tedavi…",
     "content_label": "Onam içeriği",
     "content_placeholder": "Aydınlatılmış onam metnini yazın…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Bu klinik kayıt silinsin mi?",
+    "confirm_delete_session": "Bu seans ve tüm fotoğrafları silinsin mi?",
+    "not_found": "Hasta bulunamadı",
+    "date_of_birth": "Doğum tarihi",
+    "email": "E-posta",
+    "blood_type": "Kan grubu",
+    "address": "Adres",
+    "allergies": "Alerjiler",
+    "medications": "İlaçlar",
+    "tabs": {
+      "history": "Klinik kayıtlar ({{count}})",
+      "photos": "Fotoğraflar ({{count}})",
+      "consents": "Onaylar ({{count}})"
+    },
+    "new_clinical_record": "Yeni kayıt",
+    "no_clinical_records": "Bu hasta için klinik kayıt yok",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnez",
+      "allergies": "Alerjiler",
+      "current_medications": "Kullanılan ilaçlar",
+      "physical_exam": "Fizik muayene",
+      "diagnosis": "Tanı",
+      "treatment_plan": "Tedavi planı",
+      "notes": "Gözlemler"
+    },
+    "new_photo_session": "Yeni seans",
+    "no_photo_sessions": "Bu hasta için fotoğraf seansı yok",
+    "no_consents": "Bu hasta için onay yok",
+    "status": {
+      "signed": "İmzalandı",
+      "pending": "Beklemede",
+      "revoked": "İptal edildi",
+      "expired": "Süresi doldu"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratuvar",
+    "not_found": "Laboratuvar profili bulunamadı.",
+    "panel_subtitle": "İş birliği yapan laboratuvar paneli",
+    "tabs": {
+      "clinics": "Bağlantılı klinikler",
+      "campaigns": "Reklam kampanyaları",
+      "stats": "İstatistikler"
+    },
+    "no_clinics": "Bu laboratuvara henüz bağlantılı klinik yok.",
+    "media_management": "Reklam medyası yönetimi",
+    "welcome_screen": {
+      "title": "Karşılama ekranı",
+      "description": "En fazla 5 görsel veya video. Hangisinin gösterileceğini, rastgele veya sırayla seçin (dosya başına maks. 100 MB)."
+    },
+    "patient_content": {
+      "title": "Hasta için içerik",
+      "description": "Hasta için en fazla 5 görsel veya video. Tam kullanımı yakında yapılandırılacaktır."
+    },
+    "stats_pending": "Bu bölüm henüz tanımlanmadı — yakında burada kampanyalarınızın ve kliniklerinizin performans metriklerini göreceksiniz."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Bu klinik kayıt silinsin mi?",
+    "title": "Klinik Kayıtlar",
+    "records_count": "{{count}} kayıt",
+    "add_record": "Yeni kayıt",
+    "search_placeholder": "Hasta, tanı, neden ile ara…",
+    "no_records": "Klinik kayıt yok",
+    "table_headers": ["Hasta", "Tarih", "Başvuru nedeni", "Tanı", "Doktor", ""]
+  },
+  "labPartners": {
+    "title": "İş Birliği Yapılan Laboratuvarlar",
+    "count": "{{count}} kayıtlı",
+    "new_lab": "Yeni Laboratuvar",
+    "search_placeholder": "Laboratuvar ara…",
+    "no_labs": "Laboratuvar yok.",
+    "col_name": "Ad",
+    "col_email": "E-posta",
+    "col_contact": "İletişim",
+    "col_phone": "Telefon",
+    "col_status": "Durum",
+    "col_actions": "İşlemler",
+    "status_active": "Aktif",
+    "status_inactive": "Pasif",
+    "confirm_deactivate": "Laboratuvar devre dışı bırakılsın mı?",
+    "form": {
+      "edit_title": "Laboratuvarı Düzenle",
+      "new_title": "Yeni Laboratuvar",
+      "name": "Ad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "contact_person": "İletişim kişisi",
+      "website": "Web sitesi",
+      "notes": "Notlar",
+      "name_email_required": "Ad ve e-posta zorunludur",
+      "unknown_error": "Bilinmeyen hata"
+    },
+    "campaigns": {
+      "title": "{{name}} Kampanyaları",
+      "new_campaign": "Yeni Kampanya",
+      "no_campaigns": "Kampanya yok.",
+      "col_name": "Ad",
+      "col_type": "Tür",
+      "col_trigger": "Tetikleyici",
+      "col_status": "Durum",
+      "col_actions": "İşlemler",
+      "confirm_delete": "Kampanya silinsin mi?",
+      "form": {
+        "edit_title": "Kampanyayı Düzenle",
+        "new_title": "Yeni Kampanya",
+        "name": "Ad",
+        "name_required": "Ad zorunludur",
+        "unknown_error": "Bilinmeyen hata",
+        "type": "Tür",
+        "rotation_mode": "Döngü modu",
+        "rotation_random": "Rastgele",
+        "rotation_manual": "Manuel",
+        "creative_url": "Kreatif URL'si",
+        "trigger": "Tetikleyici",
+        "interval_minutes": "Aralık (dk)",
+        "start_date": "Başlangıç tarihi",
+        "end_date": "Bitiş tarihi",
+        "active": "Aktif"
+      }
+    },
+    "creative_types": {
+      "image": "Görsel",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Teklif",
+      "training": "Eğitim"
+    },
+    "triggers": {
+      "on_login": "Açılışta",
+      "on_consent": "Onam oluşturulduğunda",
+      "every_x_minutes": "Her X dakikada",
+      "once_daily": "Günde bir kez"
+    }
+  },
+  "agenda": {
+    "title": "Ajanda",
+    "subtitle": "Randevular, tedaviler ve program planlaması",
+    "tab_appointments": "Randevular",
+    "tab_treatments": "Tedaviler",
+    "tab_planning": "Ajanda Planlaması"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID belirtilmedi",
+    "verifying": "Belge doğrulanıyor…",
+    "subtitle": "Belge doğrulama",
+    "not_found_title": "Belge bulunamadı",
+    "signed_title": "Belge geçerli ve imzalı",
+    "signed_subtitle": "İmza başarıyla doğrulandı",
+    "revoked_title": "Onam iptal edildi",
+    "revoked_subtitle": "Hasta bu onamı iptal etti",
+    "pending_title": "İmza bekleniyor",
+    "pending_subtitle": "Bu belge henüz imzalanmadı",
+    "patient": "Hasta",
+    "doctor": "Doktor",
+    "treatment": "Tedavi",
+    "signed_date": "İmzalanma tarihi",
+    "hash_label": "SHA-256 Hash",
+    "document_id_label": "Belge ID'si:",
+    "verified_on": "{{date}} tarihinde doğrulandı. Bu belge Hasta Hakları Yönetmeliği'ne uygundur ve eIDAS Tüzüğü'ne (AB) 910/2014 göre elektronik olarak imzalanmıştır."
+  },
+  "recharge": {
+    "title": "Abonelik Planları",
+    "subtitle": "Kliniğinize en uygun planı seçin",
+    "monthly": "Aylık",
+    "annual": "Yıllık",
+    "per_month": "/ay",
+    "save_20_annual": "Yıllık ödeyerek %20 tasarruf edin",
+    "switch_annual_save": "Yıllığa geçin ve %20 tasarruf edin",
+    "hire_plan": "Planı satın al",
+    "note_title": "AI Planı ve AI Premium Planı Notu:",
+    "note_text": "Yapay zeka ajanlarının ilk yapılandırması (hizmetler, tedaviler ve kişiselleştirme) ve kurulum, her kliniğin karmaşıklığına göre ayrıca bütçelendirilir. Sesli ajan ve WhatsApp API maliyetleri aylık ücrete dahil değildir.",
+    "plans": {
+      "base": {
+        "name": "Temel Plan",
+        "features": [
+          "Sınırsız onam",
+          "Klinik kayıt",
+          "Fotoğraf galerisi",
+          "Hasta portalı",
+          "Magic Link + biyometri",
+          "Destek dahil"
+        ]
+      },
+      "pro": {
+        "name": "Pro Plan",
+        "badge": "En popüler",
+        "features": [
+          "Temel Plan'ın tamamı +",
+          "Randevu ajandası",
+          "Hasta CRM",
+          "Toksin kontrolü",
+          "Hastalara Teklif"
+        ]
+      },
+      "ia": {
+        "name": "AI Planı",
+        "features": [
+          "Pro Plan'ın tamamı +",
+          "7/24 WhatsApp AI Ajanı — randevu edinme",
+          "Otomatik randevu onayı",
+          "Otomatik randevu hatırlatmaları",
+          "WhatsApp yönetim paneli",
+          "WhatsApp ile hasta iletişimi",
+          "WhatsApp üzerinden onam, klinik kayıt, fotoğraf, teklif ve fatura gönderimi"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium Planı",
+        "badge": "Yeni",
+        "features": [
+          "AI Planı'nın tamamı +",
+          "7/24 Sesli AI Ajanı: çağrıları yanıtlar",
+          "Telefonla otomatik randevu planlar",
+          "Resepsiyonistinizin sesini %100 klonlar"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toksin Kontrolü",
+    "subtitle": "Botulinum toksini lotlarının izlenebilirliği",
+    "new_record": "Yeni kayıt",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "doctor": "Doktor",
+    "patient": "Hasta",
+    "all": "Tümü",
+    "lot_number": "Lot no",
+    "search_lot_placeholder": "Lot ara…",
+    "clear_filters": "Filtreleri temizle",
+    "no_results": "Bu filtrelerle eşleşen toksin kaydı yok.",
+    "col_date": "Tarih",
+    "col_patient": "Hasta",
+    "col_doctor": "Doktor",
+    "col_brand": "Ticari ad",
+    "col_lot": "Lot",
+    "col_expiry": "Son kullanma",
+    "col_zones": "Bölgeler",
+    "col_units": "Ünite",
+    "col_signature": "İmza",
+    "col_ci": "Onam",
+    "col_actions": "İşlemler",
+    "signed": "İmzalandı",
+    "unsigned": "İmzasız",
+    "consent_linked": "Bağlantılı onam ile",
+    "consent_not_linked": "Bağlantılı onam olmadan",
+    "confirm_delete": "Bu toksin kaydı silinsin mi?",
+    "detail": {
+      "not_found": "Kayıt bulunamadı.",
+      "patient": "Hasta",
+      "doctor": "Doktor",
+      "brand": "Ticari ad",
+      "manufacturer": "Üretici",
+      "lot": "Lot numarası",
+      "expiry": "Son kullanma tarihi",
+      "vials": "Açılan flakon sayısı",
+      "total_units": "Toplam ünite",
+      "treated_zones": "Tedavi edilen bölgeler",
+      "no_zones": "Kayıtlı bölge yok.",
+      "notes": "Notlar",
+      "doctor_signature": "Doktor imzası",
+      "signature_alt": "Doktor imzası",
+      "signed_on": "{{date}} tarihinde imzalandı",
+      "no_signature": "Bu kayıtta doktor imzası yok.",
+      "linked_consent": "Bağlantılı bilgilendirilmiş onam",
+      "consent_default_name": "Onam",
+      "consent_unsigned": "İmzalanmadı",
+      "loading_pdf": "PDF yükleniyor…",
+      "consent_load_error": "Bağlantılı onam bilgisi yüklenemedi."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "URL'de token bulunamadı",
+    "invalid_token": "Geçersiz veya süresi dolmuş token",
+    "connection_error": "Bağlantı hatası",
+    "verifying": "Bağlantı doğrulanıyor…",
+    "invalid_link": "Geçersiz bağlantı",
+    "back_home": "Ana sayfaya dön"
+  },
+  "photoSessions": {
+    "confirm_delete": "Bu seans ve tüm fotoğrafları silinsin mi?",
+    "title": "Fotoğraflar",
+    "subtitle": "{{count}} fotoğraf seansı",
+    "new_session": "Yeni seans",
+    "search_placeholder": "Hasta veya seans adına göre ara…",
+    "no_sessions": "Fotoğraf seansı yok"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Onaylarım",
+      "clinical": "Klinik Kaydım",
+      "photos": "Fotoğraflarım"
+    },
+    "consents": {
+      "empty": "Henüz imzalanmış onayınız yok.",
+      "default_name": "Onam",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "{{date}} tarihinde imzalandı",
+      "status_signed": "İmzalandı",
+      "status_pending": "Beklemede"
+    },
+    "clinical": {
+      "empty": "Klinik kaydınız boş.",
+      "default_name": "Muayene",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Tanı",
+        "anamnesis": "Anamnez",
+        "current_medications": "Kullanılan ilaçlar",
+        "allergies": "Alerjiler",
+        "treatment_plan": "Tedavi planı",
+        "notes": "Gözlemler"
+      }
+    },
+    "photos": {
+      "empty": "Henüz fotoğraf seansı yok.",
+      "back_to_sessions": "Seanslara dön",
+      "default_session_name": "Fotoğraf seansı",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Önce / sonra karşılaştırması",
+      "before": "Önce",
+      "after": "Sonra",
+      "close_compare": "Karşılaştırmayı kapat",
+      "compare_button": "Karşılaştır",
+      "photo_count": "{{count}} fotoğraf"
+    }
   },
   "settings": {
     "title": "Ayarlar",
     "subtitle": "Kullanıcı ve erişim yönetimi",
+    "tabs": {
+      "users": "Kullanıcılar",
+      "media": "Reklam",
+      "preview": "Önizleme"
+    },
     "users": {
       "title": "Kullanıcılar",
       "invite_user": "Kullanıcı davet et",
@@ -174,14 +1048,40 @@
       "role": "Rol",
       "role_admin": "Yönetici",
       "role_clinica": "Klinik",
-      "admin_hint": "Yönetici tüm bölümlere tam erişime sahiptir.",
+      "admin_hint": "Yönetici, sistemin tüm bölümlerine tam erişime sahiptir.",
       "permissions": "Erişim izinleri",
-      "permissions_hint": "Erişilebilir bölümleri seçin.",
+      "permissions_hint": "Bu kullanıcının erişebileceği bölümleri seçin.",
       "send_invite": "Davet gönder",
-      "no_users": "Kullanıcı yok. İlkini davet edin.",
+      "no_users": "Kayıtlı kullanıcı yok. İlkini davet edin.",
       "inactive": "Pasif",
-      "activate": "Etkinleştir",
-      "deactivate": "Devre dışı bırak"
+      "activate": "Kullanıcıyı etkinleştir",
+      "deactivate": "Kullanıcıyı devre dışı bırak",
+      "role_superadmin": "Süper Yönetici",
+      "role_doctor": "Doktor",
+      "role_receptionist": "Resepsiyonist",
+      "role_lab_partner": "Laboratuvar",
+      "role_patient": "Hasta",
+      "filter_all": "Tümü",
+      "invite_accepted": "Davet kabul edildi",
+      "invite_expired": "Davetin süresi doldu",
+      "invite_pending": "Davet beklemede",
+      "email_placeholder": "kullanici@klinik.com.tr",
+      "full_name_placeholder": "Ad Soyad",
+      "linked_lab": "Bağlantılı laboratuvar",
+      "no_lab": "Laboratuvar yok",
+      "lab_hint": "Kullanıcı yalnızca bu laboratuvara bağlı klinikleri görecektir.",
+      "admin_only_hint": "Ayarlar yalnızca yöneticilere özeldir ve asla bir kliniğe devredilemez.",
+      "load_error": "Kullanıcı listesi yüklenemedi",
+      "retry": "Tekrar dene"
+    },
+    "media": {
+      "title": "Reklam medyası yönetimi",
+      "managed_by_lab": "Bu reklamı iş birliği yaptığınız laboratuvar yönetiyor. Burada görüntüleyebilirsiniz, ancak yalnızca laboratuvar değiştirebilir.",
+      "managed_by_lab_named": "Bu reklamı iş birliği yaptığınız laboratuvar ({{name}}) yönetiyor. Burada görüntüleyebilirsiniz, ancak yalnızca laboratuvar değiştirebilir.",
+      "welcome_title": "Karşılama ekranı",
+      "welcome_description": "En fazla 5 görsel veya video. Hangisinin gösterileceğini, rastgele veya sırayla seçin (dosya başına maks. 100 MB).",
+      "patient_title": "Hasta için içerik",
+      "patient_description": "Hasta için en fazla 5 görsel veya video. Tam kullanımı yakında yapılandırılacaktır."
     }
   }
 }

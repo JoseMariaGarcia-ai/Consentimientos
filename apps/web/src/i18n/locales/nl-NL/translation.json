@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Toxine-registratie bewerken",
+    "title_new": "Nieuwe toxine-registratie",
+    "patient": "Patiënt",
+    "select_patient": "Patiënt selecteren…",
+    "linked_consent": "Gekoppelde geïnformeerde toestemming",
+    "not_linked": "Niet gekoppeld",
+    "consent_default_name": "Toestemming",
+    "unsigned": "niet ondertekend",
+    "loading_consents": "Toestemmingen laden…",
+    "no_consents_hint": "Deze patiënt heeft nog geen ondertekende toxine-toestemmingen. Dit is optioneel, u kunt de registratie opslaan zonder deze te koppelen.",
+    "doctor": "Arts",
+    "unassigned": "Niet toegewezen",
+    "application_date": "Toedieningsdatum",
+    "brand_name": "Merknaam",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Fabrikant",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Partijnummer",
+    "expiry_date": "Vervaldatum",
+    "vials_opened": "Geopende flacons",
+    "treated_zones": "Behandelde zones",
+    "other_zone_placeholder": "Andere zone…",
+    "add": "Toevoegen",
+    "total_units": "Totaal aantal eenheden",
+    "notes": "Notities",
+    "notes_placeholder": "Opmerkingen…",
+    "doctor_signature": "Handtekening arts",
+    "signature_alt": "Handtekening arts",
+    "signed_on": "Ondertekend {{date}}",
+    "sign_again": "Opnieuw ondertekenen",
+    "signature_hint": "Teken de handtekening en klik op \"Handtekening bevestigen\" voordat u opslaat.",
+    "confirm_delete": "Deze toxine-registratie verwijderen?",
+    "deleting": "Verwijderen…",
+    "delete_record": "Registratie verwijderen",
+    "cancel": "Annuleren",
+    "save_changes": "Wijzigingen opslaan",
+    "create_record": "Registratie aanmaken",
+    "saving": "Opslaan…",
+    "unknown_error": "Onbekende fout",
+    "validation": {
+      "required_fields": "Patiënt, merknaam, partij, vervaldatum en fabrikant zijn verplicht",
+      "signature_required": "De handtekening van de arts is verplicht om de registratie op te slaan"
+    },
+    "zones": {
+      "forehead": "Voorhoofd (horizontale lijnen)",
+      "glabella": "Tussen wenkbrauwen (glabella)",
+      "crows_feet": "Kraaienpootjes (periorbitaal)",
+      "lower_eyelid": "Onderooglid",
+      "eyebrow_lift": "Wenkbrauwen (lifting)",
+      "bunny_lines": "Neus (bunny lines)",
+      "upper_lip": "Bovenlip (barcode)",
+      "oral_commissures": "Mondhoeken",
+      "chin_dimpling": "Kin (sinaasappelhuid)",
+      "platysmal_bands": "Nek (platysmabanden)",
+      "decolletage": "Decolleté",
+      "axillary_sweating": "Okselzweten (hyperhidrose)",
+      "palmar_sweating": "Handpalmzweten",
+      "plantar_sweating": "Voetzoolzweten",
+      "jaw_bruxism": "Kaak (bruxisme / masseters)",
+      "migraine_occipital": "Migraine (occipitale punten)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (nek en kaak)",
+      "other_zone": "Andere zone"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Genereren…",
+    "export_pdf": "PDF exporteren"
+  },
+  "patientGallery": {
+    "title": "Fotogalerij",
+    "upload_photos": "Foto's uploaden",
+    "loading": "Laden…",
+    "empty": "Geen foto's. Upload de eerste afbeelding.",
+    "confirm_delete": "Deze foto verwijderen?",
+    "count_stored": "{{count}} {{unit}} · Opgeslagen in Cloudflare R2",
+    "photo_singular": "foto",
+    "photo_plural": "foto's"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Klinisch dossier bewerken",
+    "title_new": "Nieuw klinisch dossier",
+    "patient": "Patiënt",
+    "select_patient": "Patiënt selecteren…",
+    "doctor": "Arts",
+    "unassigned": "Niet toegewezen",
+    "branch": "Kliniek / Vestiging",
+    "unspecified": "Niet gespecificeerd",
+    "visit_date": "Bezoekdatum",
+    "reason_for_visit": "Reden van consult",
+    "anamnesis": "Anamnese / Voorgeschiedenis",
+    "current_medications": "Huidige medicatie",
+    "allergies": "Bekende allergieën",
+    "physical_exam": "Lichamelijk onderzoek",
+    "diagnosis": "Diagnose",
+    "treatment_plan": "Behandelplan",
+    "notes": "Opmerkingen / Notities",
+    "select_patient_error": "Selecteer een patiënt",
+    "unknown_error": "Onbekende fout",
+    "cancel": "Annuleren",
+    "saving": "Opslaan…",
+    "save_record": "Dossier opslaan"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Het bestand overschrijdt de limiet van {{maxSize}} MB",
+    "upload_error": "Fout bij het uploaden van het bestand",
+    "confirm_delete": "Dit bestand verwijderen?",
+    "video": "Video",
+    "image": "Afbeelding",
+    "uploaded_on": "Geüpload op {{date}}",
+    "change": "Wijzigen",
+    "delete": "Verwijderen",
+    "uploading": "Uploaden… {{progress}}%",
+    "drop_hint": "Sleep hierheen of klik om te uploaden",
+    "file_types_hint": "Afbeelding (JPG, PNG, GIF) of video (MP4, MOV, WebM) · Max. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Schrijf de inhoud van de toestemming…",
+    "bold": "Vet",
+    "italic": "Cursief",
+    "heading": "Titel",
+    "bullet_list": "Lijst",
+    "ordered_list": "Genummerde lijst",
+    "undo": "Ongedaan maken",
+    "redo": "Opnieuw"
+  },
+  "consentPdfButton": {
+    "generating": "PDF genereren…",
+    "export": "PDF exporteren"
+  },
+  "newSessionModal": {
+    "title": "Nieuwe fotosessie",
+    "patient_label": "Patiënt",
+    "select_patient_placeholder": "Patiënt selecteren…",
+    "doctor_label": "Arts",
+    "no_doctor_assigned": "Niet toegewezen",
+    "branch_label": "Kliniek / Vestiging",
+    "no_branch_specified": "Niet gespecificeerd",
+    "session_name_label": "Naam van de sessie",
+    "session_name_placeholder": "Bijv.: Gezichtsbehandeling sessie 1",
+    "date_label": "Datum en tijd",
+    "notes_label": "Notities",
+    "notes_placeholder": "Opmerkingen over de sessie…",
+    "select_patient_error": "Selecteer een patiënt",
+    "unknown_error": "Onbekende fout",
+    "cancel": "Annuleren",
+    "creating": "Aanmaken…",
+    "create_session": "Sessie aanmaken"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotosessie",
+    "photo_count": "{{count}}/{{max}} foto's",
+    "compare_button": "Voor / na vergelijken",
+    "delete_session": "Sessie verwijderen",
+    "upload": "Uploaden",
+    "remaining": "{{remaining}} resterend"
+  },
+  "beforeAfterModal": {
+    "select_title": "Selecteer foto's om te vergelijken",
+    "compare_title": "Vergelijking Voor / Na",
+    "change_selection": "← Selectie wijzigen",
+    "select_intro": "Selecteer een foto voor",
+    "select_middle": "en een andere voor",
+    "before": "Voor",
+    "after": "Na",
+    "before_badge": "VOOR",
+    "after_badge": "NA",
+    "compare_button": "Vergelijken"
+  },
+  "biometricPrompt": {
+    "title": "Biometrische toegang activeren",
+    "description": "Gebruik Face ID, vingerafdruk of Windows Hello om de volgende keer in minder dan 2 seconden in te loggen.",
+    "device_label": "Apparaat:",
+    "activate": "Activeren",
+    "default_device": "Mijn apparaat"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Handmatige selectie",
+        "desc": "U kiest wat wordt weergegeven. Klik op een creative om deze te activeren."
+      },
+      "random": {
+        "label": "Willekeurige volgorde",
+        "desc": "Er wordt telkens willekeurig een creative gekozen om te tonen."
+      },
+      "sequential": {
+        "label": "Opeenvolgende volgorde",
+        "desc": "Ze worden één voor één in volgorde getoond, telkens wanneer het aan de beurt is."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Het bestand overschrijdt de limiet van 100 MB",
+      "invalidUrl": "Ongeldige URL"
+    },
+    "confirmDelete": "Deze creative verwijderen?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Afbeelding"
+    },
+    "active": "✓ Actief",
+    "select": "Selecteren",
+    "upload": {
+      "label": "Bestand uploaden",
+      "slotsFree": "{{count}} vrije plek{{suffix}}"
+    },
+    "addUrlButton": "Video-URL toevoegen (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Video toevoegen via URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… of directe URL naar .mp4",
+      "labelPlaceholder": "Naam of beschrijving (optioneel)",
+      "hint": "Compatibel met YouTube, Vimeo en directe video-URL's (.mp4, .webm…)",
+      "add": "Toevoegen",
+      "saving": "Opslaan…"
+    },
+    "displayModeHeading": "Hoe wilt u ze weergeven?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Welkom",
+    "continue": "Doorgaan →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Wanneer moet de advertentie worden getoond?",
+    "subheading": "U kunt meerdere opties tegelijk selecteren.",
+    "options": {
+      "session": {
+        "label": "Eén keer bij het inloggen",
+        "desc": "Wordt slechts één keer getoond, telkens wanneer de gebruiker de applicatie opent in de browser."
+      },
+      "consent": {
+        "label": "Elke keer dat een toestemming wordt aangemaakt",
+        "desc": "Verschijnt onmiddellijk nadat elke geïnformeerde toestemming is aangemaakt."
+      },
+      "clinical": {
+        "label": "Elke keer dat een klinisch dossier wordt aangemaakt",
+        "desc": "Verschijnt onmiddellijk na het opslaan van elk klinisch dossier."
+      },
+      "interval": {
+        "label": "Elke X minuten",
+        "desc": "Wordt periodiek getoond zolang de applicatie open is."
+      }
+    },
+    "every": "Elke",
+    "minutes": "minuten",
+    "errors": {
+      "selectAtLeastOne": "Selecteer ten minste één optie",
+      "saveFailed": "Fout bij het opslaan"
+    },
+    "saving": "Opslaan…",
+    "saved": "Opgeslagen",
+    "saveButton": "Configuratie opslaan",
+    "appliedMessage": "✅ Configuratie toegepast"
+  },
+  "demoPreviewPanel": {
+    "heading": "Voorbeeldweergave per rol",
+    "subheading": "Maak testgegevens aan en log in bij het programma precies zoals een patiënt, kliniek of laboratorium het zou zien.",
+    "createAllButton": "Alle testgegevens aanmaken",
+    "errors": {
+      "checkFailed": "Fout bij het controleren van de testgegevens",
+      "createPatientFailed": "De testpatiënt kon niet worden aangemaakt",
+      "createBranchFailed": "De testvestiging kon niet worden aangemaakt",
+      "createLabFailed": "Het testlaboratorium kon niet worden aangemaakt"
+    },
+    "cards": {
+      "patient": {
+        "title": "Patiëntweergave",
+        "description": "Simuleert het portaal dat een patiënt ziet: zijn toestemmingen, klinisch dossier en foto's."
+      },
+      "branch": {
+        "title": "Kliniekweergave",
+        "description": "Simuleert het paneel dat het klinisch personeel ziet, met het menu beperkt tot hun werkelijke rechten."
+      },
+      "lab": {
+        "title": "Laboratoriumweergave",
+        "description": "Simuleert het paneel van een samenwerkend laboratorium: hun profiel, gekoppelde klinieken en campagnes."
+      }
+    },
+    "testDataCreated": "Testgegevens aangemaakt",
+    "viewAs": "Bekijken als {{role}}",
+    "roleNames": {
+      "patient": "patiënt",
+      "branch": "kliniek",
+      "lab": "laboratorium"
+    },
+    "creating": "Aanmaken…",
+    "createTestData": "Testgegevens aanmaken"
+  },
+  "previewBanner": {
+    "message": "Voorbeeld — u bekijkt de interface zoals deze eruit zou zien voor",
+    "exitButton": "Voorbeeld verlaten",
+    "roles": {
+      "patient": "Patiënt",
+      "clinica": "Kliniek",
+      "labPartner": "Laboratorium"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Maand bekijken",
+    "today": "Vandaag",
+    "new_appointment": "Nieuwe afspraak",
+    "no_treatments_warning": "Er zijn nog geen behandelingen aangemaakt. Ga naar het tabblad \"Behandelingen\" om de eerste aan te maken voordat u afspraken plant.",
+    "day_closed_notice": "Deze dag is gemarkeerd als gesloten in de Agendaplanning. U kunt dit controleren of openen vanaf dat tabblad.",
+    "slot_aria_label": "Afspraak plannen om {{time}}",
+    "outside_availability": "Buiten beschikbare uren",
+    "treatment_fallback": "Behandeling",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Beschikbaar",
+      "outside_hours": "Buiten openingstijden",
+      "scheduled": "Afspraak gepland"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Afspraak bewerken",
+    "title_new": "Nieuwe afspraak",
+    "validation_required": "Patiënt, behandeling en tijd zijn verplicht",
+    "error_unknown": "Onbekende fout",
+    "confirm_delete": "Deze afspraak verwijderen?",
+    "deleting": "Verwijderen…",
+    "delete_appointment": "Afspraak verwijderen",
+    "cancel": "Annuleren",
+    "saving": "Opslaan…",
+    "save_changes": "Wijzigingen opslaan",
+    "create_appointment": "Afspraak aanmaken",
+    "form": {
+      "patient": "Patiënt",
+      "select_patient": "Patiënt selecteren…",
+      "doctor": "Arts",
+      "unassigned": "Niet toegewezen",
+      "branch": "Kliniek / Vestiging",
+      "main_branch": "Hoofdvestiging",
+      "treatment": "Behandeling",
+      "select_treatment": "Behandeling selecteren…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Er zijn geen behandelingen aangemaakt. Voeg er eerst een toe op het tabblad \"Behandelingen\".",
+      "datetime": "Datum en tijd",
+      "duration_note": "Neemt {{duration}} minuten in beslag in de agenda.",
+      "notes": "Notities",
+      "notes_placeholder": "Opmerkingen over de afspraak…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Behandelingen",
+    "subtitle": "Duur en prijs van elke behandeling om afspraken te kunnen plannen",
+    "new_treatment": "Nieuwe behandeling",
+    "loading": "Laden…",
+    "empty_state": "Er zijn nog geen behandelingen aangemaakt",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Deze behandeling verwijderen?",
+    "form": {
+      "title_edit": "Behandeling bewerken",
+      "title_new": "Nieuwe behandeling",
+      "name": "Naam",
+      "name_placeholder": "Bijv.: Botulinetoxine",
+      "duration": "Duur (min)",
+      "price": "Prijs (€)",
+      "validation_name_required": "De naam is verplicht",
+      "error_unknown": "Onbekende fout",
+      "cancel": "Annuleren",
+      "saving": "Opslaan…",
+      "save": "Opslaan"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
+    "months": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+    "has_exception_tooltip": "Heeft al een uitzondering geconfigureerd",
+    "legend": {
+      "usually_open": "Normaal open",
+      "usually_closed": "Normaal gesloten",
+      "has_exception": "Met uitzondering",
+      "selected": "Geselecteerd"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"],
+    "months": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
+    "legend": {
+      "open_day": "Open dag",
+      "closed": "Gesloten",
+      "today": "Vandaag"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Agendaplanning",
+    "subtitle": "Configureer welke dagen en op welke tijden afspraken mogelijk zijn.",
+    "time_separator": "tot",
+    "add_time_range": "Tijdsblok toevoegen",
+    "weekdays": ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"],
+    "confirm_delete_exception": "Deze uitzondering verwijderen en terugkeren naar het normale schema van die dag?",
+    "errors": {
+      "save_schedule_failed": "Het schema kon niet worden opgeslagen",
+      "apply_pattern_failed": "Het patroon kon niet worden toegepast",
+      "select_day_required": "Selecteer ten minste één dag in de kalender",
+      "save_exception_failed": "De bijzondere dag kon niet worden opgeslagen"
+    },
+    "bulk": {
+      "title": "Een patroon toepassen op meerdere dagen tegelijk",
+      "description": "Bijv.: maandag t/m vrijdag van 09:00 tot 20:00. Selecteer de dagen en het tijdschema, pas het dan toe — u kunt elke dag later individueel aanpassen.",
+      "applying": "Toepassen…",
+      "apply_button": "Toepassen op geselecteerde dagen"
+    },
+    "weekly": {
+      "title": "Gebruikelijk weekschema",
+      "closed": "Gesloten",
+      "saving": "Opslaan…",
+      "save": "Opslaan"
+    },
+    "exceptions": {
+      "title": "Losse dagen (uitzonderingen)",
+      "description": "Open een bijzondere dag (bijv. een zaterdag) of sluit een dag die normaal open is (bijv. feestdag).",
+      "select_days_label": "Selecteer één of meerdere dagen",
+      "days_selected_singular": "{{count}} dag geselecteerd",
+      "days_selected_plural": "{{count}} dagen geselecteerd",
+      "clear_selection": "Selectie wissen",
+      "open_special": "Speciaal openen",
+      "close": "Sluiten",
+      "schedule_label": "Schema op deze dagen",
+      "notes_placeholder": "Reden (optioneel) — bijv.: Bouwvak augustus",
+      "saving": "Opslaan…",
+      "save_button_singular": "Bijzondere dag opslaan",
+      "save_button_plural": "{{count}} bijzondere dagen opslaan",
+      "no_exceptions": "Er zijn geen losse dagen geconfigureerd.",
+      "open_special_status": "Speciaal open · {{ranges}}",
+      "closed_status": "Gesloten"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening"
@@ -14,7 +445,15 @@
     "settings": "Instellingen",
     "clinicalRecords": "Klinisch Dossier",
     "photos": "Foto's",
-    "recharge": "Bijvullen"
+    "recharge": "Abonnementen",
+    "agenda": "Agenda",
+    "toxin": "Toxinecontrole",
+    "labPartners": "Laboratoria",
+    "menu": "Menu"
+  },
+  "topbar": {
+    "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
+    "legal": "eIDAS (EU 910/2014) · WGBO · AVG"
   },
   "auth": {
     "login_title": "Beveiligde toegang",
@@ -23,17 +462,30 @@
     "send_link": "Toegangslink verzenden",
     "check_email": "Controleer uw e-mail — we hebben de toegangslink verzonden",
     "magic_link_sent": "Link succesvol verzonden",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Dit apparaat onthouden",
+    "remember_7": "7 dagen",
+    "remember_30": "30 dagen",
+    "remember_90": "90 dagen",
+    "biometric_activate": "Face ID / vingerafdruk activeren",
+    "biometric_prompt": "Na uw eerste keer inloggen kunt u Face ID / vingerafdruk activeren",
+    "biometric_registering": "Activeren…",
+    "biometric_success": "Biometrie geactiveerd!",
+    "biometric_success_msg": "De volgende keer logt u in met één tik.",
+    "biometric_error": "Activeren mislukt. Zorg ervoor dat uw apparaat biometrie heeft geconfigureerd.",
+    "biometric_now": "Niet nu",
+    "portal_subtitle": "Digitale Toestemmingen · Biometrische Handtekening",
+    "portal_title": "Toegang tot document",
+    "portal_email_prompt": "Voer uw e-mail in om een beveiligde toegangslink te ontvangen.",
+    "portal_link_sent_title": "Link verzonden",
+    "portal_link_sent_message": "Controleer uw e-mail en klik op de link om verder te gaan.",
+    "portal_email_placeholder": "uw@email.com",
+    "portal_consent_default_title": "Geïnformeerde Toestemming",
+    "portal_accept_label": "Ik heb deze geïnformeerde toestemming gelezen en geaccepteerd",
+    "portal_proceed_to_sign": "Doorgaan naar ondertekening →",
+    "portal_saving_signature": "Handtekening opslaan…",
+    "portal_signed_title": "Ondertekening voltooid",
+    "portal_signed_message": "Uw toestemming is ondertekend en veilig geregistreerd.",
+    "portal_error_message": "De link is mogelijk verlopen of onjuist."
   },
   "patients": {
     "title": "Patiënten",
@@ -54,10 +506,37 @@
     "edit": "Bewerken",
     "delete": "Verwijderen",
     "no_results": "Geen patiënten geregistreerd",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Fotogalerij",
+    "no_photos": "Geen foto's. Upload de eerste afbeelding.",
+    "upload_photos": "Foto's uploaden",
+    "uploading": "Uploaden…",
+    "count_registered": "{{count}} geregistreerd",
+    "form": {
+      "doc_type": "Type",
+      "doc_type_passport": "Paspoort",
+      "city": "Stad",
+      "province": "Provincie",
+      "country": "Land",
+      "select_placeholder": "— Selecteren —",
+      "countries": [
+        "Spanje", "Duitsland", "Argentinië", "België", "Bolivia", "Brazilië", "Chili", "China",
+        "Colombia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "VS", "Frankrijk",
+        "Guatemala", "Honduras", "Italië", "Marokko", "Mexico", "Nicaragua", "Nederland",
+        "Panama", "Paraguay", "Peru", "Portugal", "Verenigd Koninkrijk", "Dominicaanse Republiek",
+        "Zwitserland", "Uruguay", "Venezuela", "Overig"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Fout bij opslaan:",
+      "unknown_error": "Onbekende fout"
+    }
   },
   "doctors": {
     "title": "Artsen",
@@ -73,17 +552,45 @@
       "receptionist": "Receptionist"
     },
     "save": "Arts opslaan",
-    "no_results": "Geen artsen geregistreerd"
+    "no_results": "Geen artsen geregistreerd",
+    "last_name": "Achternaam",
+    "phone": "Telefoon",
+    "phone_placeholder": "06 00000000",
+    "unknown_error": "Onbekende fout",
+    "count_registered": "{{count}} geregistreerd",
+    "license_display": "Nr. {{number}}"
   },
   "consents": {
     "title": "Toestemmingen",
     "add": "Nieuwe toestemming",
     "search": "Toestemmingen zoeken…",
+    "step_labels": ["Gegevens", "Controle", "Handtekening arts", "Handtekening patiënt", "Klaar"],
+    "branch_label": "Vestiging",
+    "main_branch": "Hoofdvestiging",
+    "select_patient": "Patiënt selecteren…",
+    "select_doctor": "Arts selecteren…",
+    "select_treatment": "Behandeling selecteren…",
+    "translating": "Vertalen…",
+    "continue": "Doorgaan",
+    "responsible_doctor": "Verantwoordelijke arts",
+    "legal_framework_title": "Juridisch Kader — {{jurisdiction}}",
+    "witness_required_notice": "Dit land vereist een getuige voor de ondertekening",
+    "back": "← Terug",
+    "sign_arrow": "Ondertekenen →",
+    "doctor_signature_title": "Handtekening van de arts",
+    "doctor_signature_notice": "De arts moet eerst ondertekenen om de toestemming te valideren",
+    "back_to_preview": "← Terug",
+    "patient_signature_title": "Handtekening van de patiënt",
+    "patient_signature_notice": "De patiënt moet ondertekenen om te bevestigen dat hij/zij de toestemming heeft gelezen en accepteert",
+    "signed_title": "Toestemming ondertekend",
+    "signed_description": "Het document is correct ondertekend en geregistreerd.",
+    "close": "Sluiten",
     "status": {
       "pending": "In behandeling",
       "signed": "Ondertekend",
       "revoked": "Ingetrokken",
-      "expired": "Verlopen"
+      "expired": "Verlopen",
+      "all": "Alle"
     },
     "sign": "Ondertekenen",
     "generate_pdf": "PDF genereren",
@@ -93,7 +600,13 @@
     "treatment": "Behandeling",
     "language": "Taal",
     "signed_at": "Ondertekend op",
-    "no_results": "Geen toestemmingen"
+    "no_results": "Geen toestemmingen",
+    "confirm_delete": "Deze toestemming verwijderen?",
+    "stats": "{{total}} totaal · {{signed}} ondertekend · {{pending}} in behandeling",
+    "branch": "Vestiging",
+    "created_at": "Aanmaakdatum",
+    "status_header": "Status",
+    "continue_signature": "Ondertekening voortzetten"
   },
   "signature": {
     "title": "Handtekening patiënt",
@@ -112,14 +625,21 @@
     "tax_id": "KvK-nummer / BTW-nummer",
     "logo": "Logo",
     "save": "Instellingen opslaan",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Extra vestigingen",
+    "branches_desc": "Beheer meerdere locaties van uw kliniek",
+    "add_branch": "Vestiging toevoegen",
+    "no_branches": "Geen extra vestigingen",
+    "branch_name": "Naam vestiging",
+    "save_branches": "Vestigingen opslaan",
+    "edit_branch": "Vestiging bewerken",
+    "new_branch": "Nieuwe vestiging",
+    "save_branch": "Vestiging opslaan",
+    "subtitle": "Algemene instellingen van de kliniek",
+    "trade_name": "Handelsnaam",
+    "legal_name": "Fiscale naam / bedrijfsnaam",
+    "nika_number": "NIKA-nummer",
+    "save_success": "Succesvol opgeslagen",
+    "confirm_delete_branch": "Deze vestiging verwijderen?"
   },
   "language": {
     "select": "Taal",
@@ -144,28 +664,382 @@
     "magic_link_sent": "We hebben een Magic Link gestuurd naar",
     "email": "Email",
     "magic_link": "Inloggen met Magic Link",
-    "footer": "Geldige digitale toestemmingen · WGBO · AVG"
+    "footer": "Geldige digitale toestemmingen · WGBO · AVG",
+    "invalid_email": "Voer een geldig e-mailadres in",
+    "send_error": "Fout bij het verzenden van de link",
+    "subtitle": "Digitale Toestemmingen · eIDAS",
+    "email_placeholder": "uw@kliniek.nl"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overzicht van activiteit",
+    "pending_signature": "Wachtend op ondertekening",
+    "signature_rate": "Ondertekeningspercentage",
+    "signed_count": "{{count}} ondertekend",
+    "pending_count": "{{count}} in behandeling",
+    "recent_consents": "Laatste toestemmingen",
+    "view_all_consents": "Alles bekijken →",
+    "view_all": "Alles bekijken →",
+    "no_consents": "Geen toestemmingen",
+    "recent_clinical": "Laatste klinische dossiers",
+    "no_clinical": "Geen klinische dossiers",
+    "recent_photos": "Laatste fotosessies",
+    "no_photos": "Geen fotosessies"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Sjablonen",
+    "search": "Behandeling zoeken…",
+    "editor_title": "Sjabloon-editor",
+    "consent_title_label": "Titel van de toestemming",
+    "no_translation": "Geen vertaling in",
+    "translate_all": "Vertalen naar 21 talen",
+    "translating": "Vertalen…",
+    "legal_framework": "Juridisch kader",
+    "select_template": "Selecteer een sjabloon om te bewerken",
     "empty": "Geen sjablonen",
     "title_placeholder": "Geïnformeerde toestemming — Behandeling…",
     "content_label": "Inhoud van de toestemming",
     "content_placeholder": "Schrijf de tekst van de geïnformeerde toestemming…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Opslaan…",
+    "saved": "Opgeslagen"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Dit klinisch dossier verwijderen?",
+    "confirm_delete_session": "Deze sessie en alle bijbehorende foto's verwijderen?",
+    "not_found": "Patiënt niet gevonden",
+    "date_of_birth": "Geboortedatum",
+    "email": "E-mail",
+    "blood_type": "Bloedgroep",
+    "address": "Adres",
+    "allergies": "Allergieën",
+    "medications": "Medicatie",
+    "tabs": {
+      "history": "Klinische dossiers ({{count}})",
+      "photos": "Foto's ({{count}})",
+      "consents": "Toestemmingen ({{count}})"
+    },
+    "new_clinical_record": "Nieuw dossier",
+    "no_clinical_records": "Er zijn geen klinische dossiers voor deze patiënt",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnese",
+      "allergies": "Allergieën",
+      "current_medications": "Huidige medicatie",
+      "physical_exam": "Lichamelijk onderzoek",
+      "diagnosis": "Diagnose",
+      "treatment_plan": "Behandelplan",
+      "notes": "Opmerkingen"
+    },
+    "new_photo_session": "Nieuwe sessie",
+    "no_photo_sessions": "Er zijn geen fotosessies voor deze patiënt",
+    "no_consents": "Er zijn geen toestemmingen voor deze patiënt",
+    "status": {
+      "signed": "Ondertekend",
+      "pending": "In behandeling",
+      "revoked": "Ingetrokken",
+      "expired": "Verlopen"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratorium",
+    "not_found": "Laboratoriumprofiel niet gevonden.",
+    "panel_subtitle": "Paneel voor samenwerkend laboratorium",
+    "tabs": {
+      "clinics": "Gekoppelde klinieken",
+      "campaigns": "Reclamecampagnes",
+      "stats": "Statistieken"
+    },
+    "no_clinics": "Er zijn nog geen klinieken gekoppeld aan dit laboratorium.",
+    "media_management": "Beheer van reclamemedia",
+    "welcome_screen": {
+      "title": "Welkomstscherm",
+      "description": "Tot 5 afbeeldingen of video's. Kies welke wordt getoond, willekeurig of achtereenvolgens (max. 100 MB per bestand)."
+    },
+    "patient_content": {
+      "title": "Inhoud voor patiënt",
+      "description": "Tot 5 afbeeldingen of video's bestemd voor de patiënt. Het exacte gebruik ervan wordt binnenkort geconfigureerd."
+    },
+    "stats_pending": "Deze sectie moet nog worden gedefinieerd — binnenkort ziet u hier prestatiestatistieken van uw campagnes en klinieken."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Dit klinisch dossier verwijderen?",
+    "title": "Klinische Dossiers",
+    "records_count": "{{count}} dossiers",
+    "add_record": "Nieuw dossier",
+    "search_placeholder": "Zoeken op patiënt, diagnose, reden…",
+    "no_records": "Geen klinische dossiers",
+    "table_headers": ["Patiënt", "Datum", "Reden van consult", "Diagnose", "Arts", ""]
+  },
+  "labPartners": {
+    "title": "Samenwerkende Laboratoria",
+    "count": "{{count}} geregistreerd",
+    "new_lab": "Nieuw Laboratorium",
+    "search_placeholder": "Laboratorium zoeken…",
+    "no_labs": "Geen laboratoria.",
+    "col_name": "Naam",
+    "col_email": "E-mail",
+    "col_contact": "Contact",
+    "col_phone": "Telefoon",
+    "col_status": "Status",
+    "col_actions": "Acties",
+    "status_active": "Actief",
+    "status_inactive": "Inactief",
+    "confirm_deactivate": "Laboratorium deactiveren?",
+    "form": {
+      "edit_title": "Laboratorium bewerken",
+      "new_title": "Nieuw Laboratorium",
+      "name": "Naam",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "contact_person": "Contactpersoon",
+      "website": "Website",
+      "notes": "Notities",
+      "name_email_required": "Naam en e-mail zijn verplicht",
+      "unknown_error": "Onbekende fout"
+    },
+    "campaigns": {
+      "title": "Campagnes van {{name}}",
+      "new_campaign": "Nieuwe Campagne",
+      "no_campaigns": "Geen campagnes.",
+      "col_name": "Naam",
+      "col_type": "Type",
+      "col_trigger": "Trigger",
+      "col_status": "Status",
+      "col_actions": "Acties",
+      "confirm_delete": "Campagne verwijderen?",
+      "form": {
+        "edit_title": "Campagne bewerken",
+        "new_title": "Nieuwe Campagne",
+        "name": "Naam",
+        "name_required": "De naam is verplicht",
+        "unknown_error": "Onbekende fout",
+        "type": "Type",
+        "rotation_mode": "Rotatiemodus",
+        "rotation_random": "Willekeurig",
+        "rotation_manual": "Handmatig",
+        "creative_url": "URL creative",
+        "trigger": "Trigger",
+        "interval_minutes": "Interval (min)",
+        "start_date": "Startdatum",
+        "end_date": "Einddatum",
+        "active": "Actief"
+      }
+    },
+    "creative_types": {
+      "image": "Afbeelding",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Aanbieding",
+      "training": "Training"
+    },
+    "triggers": {
+      "on_login": "Bij het openen",
+      "on_consent": "Bij het aanmaken van toestemming",
+      "every_x_minutes": "Elke X minuten",
+      "once_daily": "Eén keer per dag"
+    }
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Afspraken, behandelingen en planning van schema's",
+    "tab_appointments": "Afspraken",
+    "tab_treatments": "Behandelingen",
+    "tab_planning": "Agendaplanning"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID niet opgegeven",
+    "verifying": "Document verifiëren…",
+    "subtitle": "Documentverificatie",
+    "not_found_title": "Document niet gevonden",
+    "signed_title": "Document geldig en ondertekend",
+    "signed_subtitle": "De handtekening is correct geverifieerd",
+    "revoked_title": "Toestemming ingetrokken",
+    "revoked_subtitle": "De patiënt heeft deze toestemming ingetrokken",
+    "pending_title": "Wachtend op ondertekening",
+    "pending_subtitle": "Dit document is nog niet ondertekend",
+    "patient": "Patiënt",
+    "doctor": "Arts",
+    "treatment": "Behandeling",
+    "signed_date": "Ondertekeningsdatum",
+    "hash_label": "SHA-256 Hash",
+    "document_id_label": "Document-ID:",
+    "verified_on": "Geverifieerd op {{date}}. Dit document is geldig conform de WGBO en elektronisch ondertekend volgens de eIDAS-verordening (EU) 910/2014."
+  },
+  "recharge": {
+    "title": "Abonnementen",
+    "subtitle": "Kies het abonnement dat het beste bij uw kliniek past",
+    "monthly": "Maandelijks",
+    "annual": "Jaarlijks",
+    "per_month": "/maand",
+    "save_20_annual": "Bespaar 20% door jaarlijks te betalen",
+    "switch_annual_save": "Schakel over naar jaarlijks en bespaar 20%",
+    "hire_plan": "Abonnement afsluiten",
+    "note_title": "Let op AI-abonnement en AI Premium-abonnement:",
+    "note_text": "De initiële configuratie van de AI-agenten (diensten, behandelingen en personalisatie) en de implementatie worden apart begroot afhankelijk van de complexiteit van elke kliniek. De kosten voor spraakagent en WhatsApp API zijn niet inbegrepen in de maandelijkse vergoeding.",
+    "plans": {
+      "base": {
+        "name": "Basisabonnement",
+        "features": [
+          "Onbeperkte toestemmingen",
+          "Klinisch dossier",
+          "Fotogalerij",
+          "Patiëntenportaal",
+          "Magic Link + biometrie",
+          "Ondersteuning inbegrepen"
+        ]
+      },
+      "pro": {
+        "name": "Pro-abonnement",
+        "badge": "Meest populair",
+        "features": [
+          "Alles van het Basisabonnement +",
+          "Afsprakenagenda",
+          "Patiënten-CRM",
+          "Toxinecontrole",
+          "Offertes voor patiënten"
+        ]
+      },
+      "ia": {
+        "name": "AI-abonnement",
+        "features": [
+          "Alles van het Pro-abonnement +",
+          "WhatsApp AI-agent 24/7 — afsprakenwerving",
+          "Geautomatiseerde afspraakbevestiging",
+          "Geautomatiseerde afspraakherinneringen",
+          "WhatsApp-beheerpaneel",
+          "Communicatie met patiënten via WhatsApp",
+          "Verzending via WhatsApp van toestemmingen, klinisch dossier, foto's, offertes en facturen"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium-abonnement",
+        "badge": "Nieuw",
+        "features": [
+          "Alles van het AI-abonnement +",
+          "AI-spraakagent 24/7: beantwoordt oproepen",
+          "Plant automatisch telefonische afspraken",
+          "Kloont de stem van uw receptionist voor 100%"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toxinecontrole",
+    "subtitle": "Traceerbaarheid van botulinetoxinepartijen",
+    "new_record": "Nieuwe registratie",
+    "from": "Van",
+    "to": "Tot",
+    "doctor": "Arts",
+    "patient": "Patiënt",
+    "all": "Alle",
+    "lot_number": "Partijnummer",
+    "search_lot_placeholder": "Partij zoeken…",
+    "clear_filters": "Filters wissen",
+    "no_results": "Geen toxineregistraties met deze filters.",
+    "col_date": "Datum",
+    "col_patient": "Patiënt",
+    "col_doctor": "Arts",
+    "col_brand": "Merknaam",
+    "col_lot": "Partij",
+    "col_expiry": "Vervaldatum",
+    "col_zones": "Zones",
+    "col_units": "Eenheden",
+    "col_signature": "Handtekening",
+    "col_ci": "Toestemming",
+    "col_actions": "Acties",
+    "signed": "Ondertekend",
+    "unsigned": "Niet ondertekend",
+    "consent_linked": "Met gekoppelde toestemming",
+    "consent_not_linked": "Zonder gekoppelde toestemming",
+    "confirm_delete": "Deze toxine-registratie verwijderen?",
+    "detail": {
+      "not_found": "Registratie niet gevonden.",
+      "patient": "Patiënt",
+      "doctor": "Arts",
+      "brand": "Merknaam",
+      "manufacturer": "Fabrikant",
+      "lot": "Partijnummer",
+      "expiry": "Vervaldatum",
+      "vials": "Geopende flacons",
+      "total_units": "Totaal aantal eenheden",
+      "treated_zones": "Behandelde zones",
+      "no_zones": "Geen zones geregistreerd.",
+      "notes": "Notities",
+      "doctor_signature": "Handtekening arts",
+      "signature_alt": "Handtekening arts",
+      "signed_on": "Ondertekend op {{date}}",
+      "no_signature": "Deze registratie heeft geen handtekening van de arts.",
+      "linked_consent": "Gekoppelde geïnformeerde toestemming",
+      "consent_default_name": "Toestemming",
+      "consent_unsigned": "Niet ondertekend",
+      "loading_pdf": "PDF laden…",
+      "consent_load_error": "De informatie van de gekoppelde toestemming kon niet worden geladen."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token niet gevonden in de URL",
+    "invalid_token": "Ongeldig of verlopen token",
+    "connection_error": "Verbindingsfout",
+    "verifying": "Link verifiëren…",
+    "invalid_link": "Ongeldige link",
+    "back_home": "Terug naar start"
+  },
+  "photoSessions": {
+    "confirm_delete": "Deze sessie en alle bijbehorende foto's verwijderen?",
+    "title": "Foto's",
+    "subtitle": "{{count}} fotosessies",
+    "new_session": "Nieuwe sessie",
+    "search_placeholder": "Zoeken op patiënt of sessienaam…",
+    "no_sessions": "Geen fotosessies"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Mijn Toestemmingen",
+      "clinical": "Mijn Klinisch Dossier",
+      "photos": "Mijn Foto's"
+    },
+    "consents": {
+      "empty": "U heeft nog geen ondertekende toestemmingen.",
+      "default_name": "Toestemming",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Ondertekend op {{date}}",
+      "status_signed": "Ondertekend",
+      "status_pending": "In behandeling"
+    },
+    "clinical": {
+      "empty": "Uw klinisch dossier is leeg.",
+      "default_name": "Consult",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnose",
+        "anamnesis": "Anamnese",
+        "current_medications": "Huidige medicatie",
+        "allergies": "Allergieën",
+        "treatment_plan": "Behandelplan",
+        "notes": "Opmerkingen"
+      }
+    },
+    "photos": {
+      "empty": "Er zijn nog geen fotosessies.",
+      "back_to_sessions": "Terug naar sessies",
+      "default_session_name": "Fotosessie",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Vergelijking voor / na",
+      "before": "Voor",
+      "after": "Na",
+      "close_compare": "Vergelijking sluiten",
+      "compare_button": "Vergelijken",
+      "photo_count": "{{count}} foto's"
+    }
   },
   "settings": {
     "title": "Instellingen",
     "subtitle": "Gebruikers- en toegangsbeheer",
+    "tabs": {
+      "users": "Gebruikers",
+      "media": "Reclame",
+      "preview": "Voorbeeld"
+    },
     "users": {
       "title": "Gebruikers",
       "invite_user": "Gebruiker uitnodigen",
@@ -174,14 +1048,40 @@
       "role": "Rol",
       "role_admin": "Beheerder",
       "role_clinica": "Kliniek",
-      "admin_hint": "De beheerder heeft volledige toegang tot alle secties.",
+      "admin_hint": "De beheerder heeft volledige toegang tot alle secties van het systeem.",
       "permissions": "Toegangsrechten",
-      "permissions_hint": "Selecteer de toegankelijke secties.",
+      "permissions_hint": "Selecteer tot welke secties deze gebruiker toegang heeft.",
       "send_invite": "Uitnodiging sturen",
-      "no_users": "Geen gebruikers. Nodig de eerste uit.",
+      "no_users": "Geen gebruikers geregistreerd. Nodig de eerste uit.",
       "inactive": "Inactief",
-      "activate": "Activeren",
-      "deactivate": "Deactiveren"
+      "activate": "Gebruiker activeren",
+      "deactivate": "Gebruiker deactiveren",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Arts",
+      "role_receptionist": "Receptionist",
+      "role_lab_partner": "Laboratorium",
+      "role_patient": "Patiënt",
+      "filter_all": "Alle",
+      "invite_accepted": "Uitnodiging geaccepteerd",
+      "invite_expired": "Uitnodiging verlopen",
+      "invite_pending": "Uitnodiging in behandeling",
+      "email_placeholder": "gebruiker@kliniek.nl",
+      "full_name_placeholder": "Voornaam Achternaam",
+      "linked_lab": "Gekoppeld laboratorium",
+      "no_lab": "Geen laboratorium",
+      "lab_hint": "De gebruiker ziet alleen de klinieken die aan dit laboratorium zijn gekoppeld.",
+      "admin_only_hint": "Instellingen is exclusief voor beheerders en kan nooit worden gedelegeerd aan een kliniek.",
+      "load_error": "De gebruikerslijst kon niet worden geladen",
+      "retry": "Opnieuw proberen"
+    },
+    "media": {
+      "title": "Beheer van reclamemedia",
+      "managed_by_lab": "Deze reclame wordt beheerd door uw samenwerkend laboratorium. U kunt deze hier bekijken, maar alleen het laboratorium kan deze wijzigen.",
+      "managed_by_lab_named": "Deze reclame wordt beheerd door uw samenwerkend laboratorium ({{name}}). U kunt deze hier bekijken, maar alleen het laboratorium kan deze wijzigen.",
+      "welcome_title": "Welkomstscherm",
+      "welcome_description": "Tot 5 afbeeldingen of video's. Kies welke wordt getoond, willekeurig of achtereenvolgens (max. 100 MB per bestand).",
+      "patient_title": "Inhoud voor patiënt",
+      "patient_description": "Tot 5 afbeeldingen of video's bestemd voor de patiënt. Het exacte gebruik ervan wordt binnenkort geconfigureerd."
     }
   }
 }
