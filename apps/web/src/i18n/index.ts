@@ -62,9 +62,9 @@ i18n
 
 // Lazy load initial language
 const savedLang = localStorage.getItem('consentspro_lang') || 'es-ES'
-loadLocale(savedLang).then(translations => {
+export const i18nReady = loadLocale(savedLang).then(translations => {
   i18n.addResourceBundle(savedLang, 'translation', translations, true, true)
-  i18n.changeLanguage(savedLang)
+  return i18n.changeLanguage(savedLang)
 })
 
 export default i18n
