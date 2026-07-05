@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "टॉक्सिन रिकॉर्ड संपादित करें",
+    "title_new": "नया टॉक्सिन रिकॉर्ड",
+    "patient": "मरीज़",
+    "select_patient": "मरीज़ चुनें…",
+    "linked_consent": "जुड़ी हुई सूचित सहमति",
+    "not_linked": "लिंक नहीं किया गया",
+    "consent_default_name": "सहमति",
+    "unsigned": "हस्ताक्षरित नहीं",
+    "loading_consents": "सहमतियाँ लोड हो रही हैं…",
+    "no_consents_hint": "इस मरीज़ के पास अभी तक हस्ताक्षरित टॉक्सिन सहमति नहीं है। यह वैकल्पिक है, आप बिना लिंक किए रिकॉर्ड सहेज सकते हैं।",
+    "doctor": "डॉक्टर",
+    "unassigned": "सौंपा नहीं गया",
+    "application_date": "प्रयोग की तिथि",
+    "brand_name": "ब्रांड नाम",
+    "brand_name_placeholder": "बोटॉक्स, डिस्पोर्ट, ज़ीओमिन…",
+    "manufacturer": "निर्माता",
+    "manufacturer_placeholder": "एलर्गन, इप्सेन, मर्ज़…",
+    "lot_number": "लॉट संख्या",
+    "expiry_date": "समाप्ति तिथि",
+    "vials_opened": "खोली गई शीशियाँ",
+    "treated_zones": "उपचारित क्षेत्र",
+    "other_zone_placeholder": "अन्य क्षेत्र…",
+    "add": "जोड़ें",
+    "total_units": "कुल यूनिट",
+    "notes": "टिप्पणियाँ",
+    "notes_placeholder": "टिप्पणियाँ…",
+    "doctor_signature": "डॉक्टर के हस्ताक्षर",
+    "signature_alt": "डॉक्टर के हस्ताक्षर",
+    "signed_on": "{{date}} को हस्ताक्षरित",
+    "sign_again": "फिर से हस्ताक्षर करें",
+    "signature_hint": "हस्ताक्षर बनाएं और सहेजने से पहले \"हस्ताक्षर की पुष्टि करें\" दबाएं।",
+    "confirm_delete": "क्या इस टॉक्सिन रिकॉर्ड को हटाना है?",
+    "deleting": "हटाया जा रहा है…",
+    "delete_record": "रिकॉर्ड हटाएं",
+    "cancel": "रद्द करें",
+    "save_changes": "बदलाव सहेजें",
+    "create_record": "रिकॉर्ड बनाएं",
+    "saving": "सहेजा जा रहा है…",
+    "unknown_error": "अज्ञात त्रुटि",
+    "validation": {
+      "required_fields": "मरीज़, ब्रांड नाम, लॉट, समाप्ति तिथि और निर्माता आवश्यक हैं",
+      "signature_required": "रिकॉर्ड सहेजने के लिए डॉक्टर के हस्ताक्षर आवश्यक हैं"
+    },
+    "zones": {
+      "forehead": "माथा (क्षैतिज रेखाएं)",
+      "glabella": "भौंहों के बीच (ग्लैबेला)",
+      "crows_feet": "आंखों के कोने (पेरिऑक्युलर)",
+      "lower_eyelid": "निचली पलक",
+      "eyebrow_lift": "भौंहें (लिफ्टिंग)",
+      "bunny_lines": "नाक (बनी लाइन्स)",
+      "upper_lip": "ऊपरी होंठ (बारकोड लाइन्स)",
+      "oral_commissures": "मुंह के कोने",
+      "chin_dimpling": "ठुड्डी (संतरे के छिलके जैसी त्वचा)",
+      "platysmal_bands": "गर्दन (प्लैटिस्मल बैंड्स)",
+      "decolletage": "गर्दन-छाती क्षेत्र",
+      "axillary_sweating": "बगल में पसीना (हाइपरहाइड्रोसिस)",
+      "palmar_sweating": "हथेली में पसीना",
+      "plantar_sweating": "तलवों में पसीना",
+      "jaw_bruxism": "जबड़ा (ब्रक्सिज्म / मैसेटर)",
+      "migraine_occipital": "माइग्रेन (ओसीपिटल बिंदु)",
+      "trampoline_chin": "ट्रैम्पोलिन चिन",
+      "gummy_smile": "गमी स्माइल",
+      "nefertiti_lift": "नेफ़र्टिटी लिफ्ट (गर्दन और जबड़ा)",
+      "other_zone": "अन्य क्षेत्र"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "बन रहा है…",
+    "export_pdf": "PDF निर्यात करें"
+  },
+  "patientGallery": {
+    "title": "फ़ोटो गैलरी",
+    "upload_photos": "फ़ोटो अपलोड करें",
+    "loading": "लोड हो रहा है…",
+    "empty": "कोई फ़ोटो नहीं। पहली छवि अपलोड करें।",
+    "confirm_delete": "क्या इस फ़ोटो को हटाना है?",
+    "count_stored": "{{count}} {{unit}} · Cloudflare R2 में संग्रहीत",
+    "photo_singular": "फ़ोटो",
+    "photo_plural": "फ़ोटो"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "क्लिनिकल रिकॉर्ड संपादित करें",
+    "title_new": "नया क्लिनिकल रिकॉर्ड",
+    "patient": "मरीज़",
+    "select_patient": "मरीज़ चुनें…",
+    "doctor": "डॉक्टर",
+    "unassigned": "सौंपा नहीं गया",
+    "branch": "क्लिनिक / शाखा",
+    "unspecified": "निर्दिष्ट नहीं",
+    "visit_date": "विज़िट की तिथि",
+    "reason_for_visit": "परामर्श का कारण",
+    "anamnesis": "एनामनेसिस / पूर्व इतिहास",
+    "current_medications": "वर्तमान दवाएं",
+    "allergies": "ज्ञात एलर्जी",
+    "physical_exam": "शारीरिक परीक्षण",
+    "diagnosis": "निदान",
+    "treatment_plan": "उपचार योजना",
+    "notes": "टिप्पणियाँ / नोट्स",
+    "select_patient_error": "एक मरीज़ चुनें",
+    "unknown_error": "अज्ञात त्रुटि",
+    "cancel": "रद्द करें",
+    "saving": "सहेजा जा रहा है…",
+    "save_record": "रिकॉर्ड सहेजें"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "फ़ाइल {{maxSize}} MB की सीमा से अधिक है",
+    "upload_error": "फ़ाइल अपलोड करने में त्रुटि",
+    "confirm_delete": "क्या इस फ़ाइल को हटाना है?",
+    "video": "वीडियो",
+    "image": "छवि",
+    "uploaded_on": "{{date}} को अपलोड किया गया",
+    "change": "बदलें",
+    "delete": "हटाएं",
+    "uploading": "अपलोड हो रहा है… {{progress}}%",
+    "drop_hint": "यहां खींचें या अपलोड करने के लिए क्लिक करें",
+    "file_types_hint": "छवि (JPG, PNG, GIF) या वीडियो (MP4, MOV, WebM) · अधिकतम {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "सहमति की सामग्री लिखें…",
+    "bold": "बोल्ड",
+    "italic": "इटैलिक",
+    "heading": "शीर्षक",
+    "bullet_list": "सूची",
+    "ordered_list": "क्रमांकित सूची",
+    "undo": "पूर्ववत करें",
+    "redo": "फिर से करें"
+  },
+  "consentPdfButton": {
+    "generating": "PDF बन रहा है…",
+    "export": "PDF निर्यात करें"
+  },
+  "newSessionModal": {
+    "title": "नया फ़ोटो सत्र",
+    "patient_label": "मरीज़",
+    "select_patient_placeholder": "मरीज़ चुनें…",
+    "doctor_label": "डॉक्टर",
+    "no_doctor_assigned": "सौंपा नहीं गया",
+    "branch_label": "क्लिनिक / शाखा",
+    "no_branch_specified": "निर्दिष्ट नहीं",
+    "session_name_label": "सत्र का नाम",
+    "session_name_placeholder": "उदा: चेहरे का उपचार सत्र 1",
+    "date_label": "तिथि और समय",
+    "notes_label": "टिप्पणियाँ",
+    "notes_placeholder": "सत्र के बारे में टिप्पणियाँ…",
+    "select_patient_error": "एक मरीज़ चुनें",
+    "unknown_error": "अज्ञात त्रुटि",
+    "cancel": "रद्द करें",
+    "creating": "बनाया जा रहा है…",
+    "create_session": "सत्र बनाएं"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "फ़ोटो सत्र",
+    "photo_count": "{{count}}/{{max}} फ़ोटो",
+    "compare_button": "पहले / बाद की तुलना करें",
+    "delete_session": "सत्र हटाएं",
+    "upload": "अपलोड करें",
+    "remaining": "{{remaining}} शेष"
+  },
+  "beforeAfterModal": {
+    "select_title": "तुलना के लिए फ़ोटो चुनें",
+    "compare_title": "पहले / बाद की तुलना",
+    "change_selection": "← चयन बदलें",
+    "select_intro": "इसके लिए एक फ़ोटो चुनें",
+    "select_middle": "और दूसरी इसके लिए",
+    "before": "पहले",
+    "after": "बाद में",
+    "before_badge": "पहले",
+    "after_badge": "बाद में",
+    "compare_button": "तुलना करें"
+  },
+  "biometricPrompt": {
+    "title": "बायोमेट्रिक एक्सेस सक्रिय करें",
+    "description": "अगली बार 2 सेकंड से कम समय में प्रवेश करने के लिए Face ID, फिंगरप्रिंट या Windows Hello का उपयोग करें।",
+    "device_label": "डिवाइस:",
+    "activate": "सक्रिय करें",
+    "default_device": "मेरा डिवाइस"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "मैन्युअल चयन",
+        "desc": "आप चुनते हैं कि कौन सी दिखाई जाए। किसी क्रिएटिव को सक्रिय करने के लिए उस पर क्लिक करें।"
+      },
+      "random": {
+        "label": "यादृच्छिक क्रम",
+        "desc": "जब भी दिखाने की बारी आती है, एक क्रिएटिव यादृच्छिक रूप से चुना जाता है।"
+      },
+      "sequential": {
+        "label": "क्रमिक क्रम",
+        "desc": "बारी आने पर वे एक-एक करके क्रम में दिखाए जाते हैं।"
+      }
+    },
+    "errors": {
+      "fileTooLarge": "फ़ाइल 100 MB की सीमा से अधिक है",
+      "invalidUrl": "अमान्य URL"
+    },
+    "confirmDelete": "क्या इस क्रिएटिव को हटाना है?",
+    "types": {
+      "url": "URL",
+      "video": "वीडियो",
+      "image": "छवि"
+    },
+    "active": "✓ सक्रिय",
+    "select": "चुनें",
+    "upload": {
+      "label": "फ़ाइल अपलोड करें",
+      "slotsFree": "{{count}} खाली{{suffix}}"
+    },
+    "addUrlButton": "वीडियो URL जोड़ें (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "URL द्वारा वीडियो जोड़ें",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… या .mp4 की सीधी URL",
+      "labelPlaceholder": "नाम या विवरण (वैकल्पिक)",
+      "hint": "YouTube, Vimeo और सीधी वीडियो URL (.mp4, .webm…) के साथ संगत",
+      "add": "जोड़ें",
+      "saving": "सहेजा जा रहा है…"
+    },
+    "displayModeHeading": "इन्हें कैसे दिखाएं?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "स्वागत है",
+    "continue": "जारी रखें →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "विज्ञापन कब दिखाएं?",
+    "subheading": "आप एक साथ कई विकल्प चुन सकते हैं।",
+    "options": {
+      "session": {
+        "label": "लॉगिन करते समय एक बार",
+        "desc": "जब भी उपयोगकर्ता ब्राउज़र में एप्लिकेशन खोलता है, यह केवल एक बार दिखाया जाता है।"
+      },
+      "consent": {
+        "label": "हर बार जब कोई सहमति बनती है",
+        "desc": "प्रत्येक सूचित सहमति बनाने के तुरंत बाद यह दिखाई देता है।"
+      },
+      "clinical": {
+        "label": "हर बार जब कोई क्लिनिकल रिकॉर्ड बनता है",
+        "desc": "प्रत्येक क्लिनिकल रिकॉर्ड सहेजने के तुरंत बाद यह दिखाई देता है।"
+      },
+      "interval": {
+        "label": "हर X मिनट में",
+        "desc": "जब तक एप्लिकेशन खुला रहता है, यह समय-समय पर दिखाया जाता है।"
+      }
+    },
+    "every": "हर",
+    "minutes": "मिनट",
+    "errors": {
+      "selectAtLeastOne": "कम से कम एक विकल्प चुनें",
+      "saveFailed": "सहेजने में त्रुटि"
+    },
+    "saving": "सहेजा जा रहा है…",
+    "saved": "सहेजा गया",
+    "saveButton": "कॉन्फ़िगरेशन सहेजें",
+    "appliedMessage": "✅ कॉन्फ़िगरेशन लागू किया गया"
+  },
+  "demoPreviewPanel": {
+    "heading": "भूमिकाओं के अनुसार पूर्वावलोकन",
+    "subheading": "परीक्षण डेटा बनाएं और प्रोग्राम में ठीक वैसे ही प्रवेश करें जैसे कोई मरीज़, क्लिनिक या प्रयोगशाला देखेगी।",
+    "createAllButton": "सभी परीक्षण डेटा बनाएं",
+    "errors": {
+      "checkFailed": "परीक्षण डेटा जांचने में त्रुटि",
+      "createPatientFailed": "परीक्षण मरीज़ नहीं बनाया जा सका",
+      "createBranchFailed": "परीक्षण शाखा नहीं बनाई जा सकी",
+      "createLabFailed": "परीक्षण प्रयोगशाला नहीं बनाई जा सकी"
+    },
+    "cards": {
+      "patient": {
+        "title": "मरीज़ का दृश्य",
+        "description": "उस पोर्टल का अनुकरण करें जो एक मरीज़ देखता है: उनकी सहमतियाँ, क्लिनिकल रिकॉर्ड और फ़ोटो।"
+      },
+      "branch": {
+        "title": "क्लिनिक का दृश्य",
+        "description": "उस पैनल का अनुकरण करें जो क्लिनिक स्टाफ़ देखता है, जिसमें मेनू उनकी वास्तविक अनुमतियों तक सीमित है।"
+      },
+      "lab": {
+        "title": "प्रयोगशाला का दृश्य",
+        "description": "सहयोगी प्रयोगशाला के पैनल का अनुकरण करें: उसकी प्रोफ़ाइल, जुड़े क्लिनिक और अभियान।"
+      }
+    },
+    "testDataCreated": "परीक्षण डेटा बनाया गया",
+    "viewAs": "{{role}} के रूप में देखें",
+    "roleNames": {
+      "patient": "मरीज़",
+      "branch": "क्लिनिक",
+      "lab": "प्रयोगशाला"
+    },
+    "creating": "बनाया जा रहा है…",
+    "createTestData": "परीक्षण डेटा बनाएं"
+  },
+  "previewBanner": {
+    "message": "पूर्वावलोकन — आप इंटरफ़ेस को वैसे देख रहे हैं जैसे यह देखेगा",
+    "exitButton": "पूर्वावलोकन से बाहर निकलें",
+    "roles": {
+      "patient": "मरीज़",
+      "clinica": "क्लिनिक",
+      "labPartner": "प्रयोगशाला"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "महीना देखें",
+    "today": "आज",
+    "new_appointment": "नई अपॉइंटमेंट",
+    "no_treatments_warning": "अभी तक कोई उपचार नहीं बनाया गया है। अपॉइंटमेंट शेड्यूल करने से पहले पहला उपचार बनाने के लिए \"उपचार\" टैब पर जाएं।",
+    "day_closed_notice": "यह दिन एजेंडा योजना में बंद के रूप में चिह्नित है। आप इसे उस टैब से देख या खोल सकते हैं।",
+    "slot_aria_label": "{{time}} बजे शेड्यूल करें",
+    "outside_availability": "उपलब्ध समय के बाहर",
+    "treatment_fallback": "उपचार",
+    "doctor_prefix": "डॉ. {{name}}",
+    "legend": {
+      "available": "उपलब्ध",
+      "outside_hours": "समय के बाहर",
+      "scheduled": "अपॉइंटमेंट शेड्यूल की गई"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "अपॉइंटमेंट संपादित करें",
+    "title_new": "नई अपॉइंटमेंट",
+    "validation_required": "मरीज़, उपचार और समय आवश्यक हैं",
+    "error_unknown": "अज्ञात त्रुटि",
+    "confirm_delete": "क्या इस अपॉइंटमेंट को हटाना है?",
+    "deleting": "हटाया जा रहा है…",
+    "delete_appointment": "अपॉइंटमेंट हटाएं",
+    "cancel": "रद्द करें",
+    "saving": "सहेजा जा रहा है…",
+    "save_changes": "बदलाव सहेजें",
+    "create_appointment": "अपॉइंटमेंट बनाएं",
+    "form": {
+      "patient": "मरीज़",
+      "select_patient": "मरीज़ चुनें…",
+      "doctor": "डॉक्टर",
+      "unassigned": "सौंपा नहीं गया",
+      "branch": "क्लिनिक / शाखा",
+      "main_branch": "मुख्य शाखा",
+      "treatment": "उपचार",
+      "select_treatment": "उपचार चुनें…",
+      "treatment_option": "{{name}} — {{duration}} मिनट — {{price}} €",
+      "no_treatments_warning": "कोई उपचार नहीं बनाया गया है। पहले \"उपचार\" टैब में एक जोड़ें।",
+      "datetime": "तिथि और समय",
+      "duration_note": "यह एजेंडा में {{duration}} मिनट लेगा।",
+      "notes": "टिप्पणियाँ",
+      "notes_placeholder": "अपॉइंटमेंट के बारे में टिप्पणियाँ…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "उपचार",
+    "subtitle": "अपॉइंटमेंट शेड्यूल करने के लिए प्रत्येक उपचार की अवधि और मूल्य",
+    "new_treatment": "नया उपचार",
+    "loading": "लोड हो रहा है…",
+    "empty_state": "अभी तक कोई उपचार नहीं बनाया गया",
+    "duration_display": "{{duration}} मिनट",
+    "price_display": "{{price}} €",
+    "confirm_delete": "क्या इस उपचार को हटाना है?",
+    "form": {
+      "title_edit": "उपचार संपादित करें",
+      "title_new": "नया उपचार",
+      "name": "नाम",
+      "name_placeholder": "उदा: बोटुलिनम टॉक्सिन",
+      "duration": "अवधि (मिनट)",
+      "price": "मूल्य (€)",
+      "validation_name_required": "नाम आवश्यक है",
+      "error_unknown": "अज्ञात त्रुटि",
+      "cancel": "रद्द करें",
+      "saving": "सहेजा जा रहा है…",
+      "save": "सहेजें"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि", "रवि"],
+    "months": ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"],
+    "has_exception_tooltip": "पहले से ही एक अपवाद कॉन्फ़िगर किया गया है",
+    "legend": {
+      "usually_open": "आमतौर पर खुला",
+      "usually_closed": "आमतौर पर बंद",
+      "has_exception": "अपवाद के साथ",
+      "selected": "चयनित"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि", "रवि"],
+    "months": ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"],
+    "legend": {
+      "open_day": "खुला दिन",
+      "closed": "बंद",
+      "today": "आज"
+    }
+  },
+  "schedulePlanner": {
+    "title": "एजेंडा योजना",
+    "subtitle": "कॉन्फ़िगर करें कि किन दिनों और किस समय अपॉइंटमेंट दी जा सकती हैं।",
+    "time_separator": "से",
+    "add_time_range": "समय सीमा जोड़ें",
+    "weekdays": ["सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार", "रविवार"],
+    "confirm_delete_exception": "क्या इस अपवाद को हटाकर उस दिन के सामान्य समय पर वापस जाना है?",
+    "errors": {
+      "save_schedule_failed": "समय सारिणी सहेजी नहीं जा सकी",
+      "apply_pattern_failed": "पैटर्न लागू नहीं किया जा सका",
+      "select_day_required": "कैलेंडर में कम से कम एक दिन चुनें",
+      "save_exception_failed": "विशेष दिन सहेजा नहीं जा सका"
+    },
+    "bulk": {
+      "title": "एक साथ कई दिनों पर एक पैटर्न लागू करें",
+      "description": "उदा: सोमवार से शुक्रवार 09:00 से 20:00 तक। दिन और समय चुनें, फिर लागू करें — आप बाद में प्रत्येक दिन को अलग-अलग समायोजित कर सकते हैं।",
+      "applying": "लागू किया जा रहा है…",
+      "apply_button": "चयनित दिनों पर लागू करें"
+    },
+    "weekly": {
+      "title": "सामान्य साप्ताहिक समय सारिणी",
+      "closed": "बंद",
+      "saving": "सहेजा जा रहा है…",
+      "save": "सहेजें"
+    },
+    "exceptions": {
+      "title": "अलग दिन (अपवाद)",
+      "description": "एक विशेष दिन खोलें (उदा. शनिवार) या किसी सामान्य रूप से खुले दिन को बंद करें (उदा. छुट्टी)।",
+      "select_days_label": "एक या अधिक दिन चुनें",
+      "days_selected_singular": "{{count}} दिन चयनित",
+      "days_selected_plural": "{{count}} दिन चयनित",
+      "clear_selection": "चयन साफ़ करें",
+      "open_special": "विशेष रूप से खोलें",
+      "close": "बंद करें",
+      "schedule_label": "उन दिनों का समय",
+      "notes_placeholder": "कारण (वैकल्पिक) — उदा: अगस्त की छुट्टी",
+      "saving": "सहेजा जा रहा है…",
+      "save_button_singular": "विशेष दिन सहेजें",
+      "save_button_plural": "{{count}} विशेष दिन सहेजें",
+      "no_exceptions": "कोई अलग दिन कॉन्फ़िगर नहीं किया गया है।",
+      "open_special_status": "विशेष रूप से खुला · {{ranges}}",
+      "closed_status": "बंद"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर"
@@ -14,7 +445,15 @@
     "settings": "सेटिंग्स",
     "clinicalRecords": "क्लिनिकल रिकॉर्ड",
     "photos": "फ़ोटो",
-    "recharge": "रिचार्ज"
+    "recharge": "सदस्यता योजनाएं",
+    "agenda": "एजेंडा",
+    "toxin": "टॉक्सिन नियंत्रण",
+    "labPartners": "प्रयोगशालाएं",
+    "menu": "मेनू"
+  },
+  "topbar": {
+    "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
+    "legal": "eIDAS (EU 910/2014) · कानून 41/2002 · GDPR"
   },
   "auth": {
     "login_title": "सुरक्षित पहुँच",
@@ -33,12 +472,25 @@
     "biometric_success": "बायोमेट्रिक्स सक्रिय!",
     "biometric_success_msg": "अगली बार आप एक स्पर्श से लॉगिन करेंगे।",
     "biometric_error": "सक्रिय नहीं हो सका। सुनिश्चित करें कि आपके डिवाइस में बायोमेट्रिक्स कॉन्फ़िगर है।",
-    "biometric_now": "अभी नहीं"
+    "biometric_now": "अभी नहीं",
+    "portal_subtitle": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
+    "portal_title": "दस्तावेज़ तक पहुंच",
+    "portal_email_prompt": "सुरक्षित एक्सेस लिंक प्राप्त करने के लिए अपना ईमेल दर्ज करें।",
+    "portal_link_sent_title": "लिंक भेज दिया गया",
+    "portal_link_sent_message": "अपना ईमेल देखें और जारी रखने के लिए लिंक पर क्लिक करें।",
+    "portal_email_placeholder": "aapka@email.com",
+    "portal_consent_default_title": "सूचित सहमति",
+    "portal_accept_label": "मैंने इस सूचित सहमति को पढ़ लिया है और स्वीकार करता/करती हूं",
+    "portal_proceed_to_sign": "हस्ताक्षर के लिए आगे बढ़ें →",
+    "portal_saving_signature": "हस्ताक्षर सहेजा जा रहा है…",
+    "portal_signed_title": "हस्ताक्षर पूर्ण",
+    "portal_signed_message": "आपकी सहमति पर हस्ताक्षर हो चुके हैं और इसे सुरक्षित रूप से दर्ज कर लिया गया है।",
+    "portal_error_message": "लिंक की समय-सीमा समाप्त हो गई होगी या यह गलत हो सकता है।"
   },
   "patients": {
     "title": "मरीज़",
     "add": "मरीज़ जोड़ें",
-    "search": "नाम, आईडी, फ़ोन से खोजें…",
+    "search": "नाम, दस्तावेज़ आईडी, फ़ोन से खोजें…",
     "name": "पहला नाम",
     "surname": "उपनाम",
     "dob": "जन्म तिथि",
@@ -57,7 +509,34 @@
     "gallery": "फ़ोटो गैलरी",
     "no_photos": "कोई फ़ोटो नहीं। पहली छवि अपलोड करें।",
     "upload_photos": "फ़ोटो अपलोड करें",
-    "uploading": "अपलोड हो रहा है…"
+    "uploading": "अपलोड हो रहा है…",
+    "count_registered": "{{count}} पंजीकृत",
+    "form": {
+      "doc_type": "प्रकार",
+      "doc_type_passport": "पासपोर्ट",
+      "city": "शहर",
+      "province": "प्रांत",
+      "country": "देश",
+      "select_placeholder": "— चुनें —",
+      "countries": [
+        "स्पेन", "जर्मनी", "अर्जेंटीना", "बेल्जियम", "बोलीविया", "ब्राज़ील", "चिली", "चीन",
+        "कोलंबिया", "कोस्टा रिका", "क्यूबा", "इक्वाडोर", "अल साल्वाडोर", "संयुक्त राज्य अमेरिका", "फ़्रांस",
+        "ग्वाटेमाला", "होंडुरास", "इटली", "मोरक्को", "मेक्सिको", "निकारागुआ", "नीदरलैंड",
+        "पनामा", "पैराग्वे", "पेरू", "पुर्तगाल", "यूनाइटेड किंगडम", "डोमिनिकन गणराज्य",
+        "स्विट्ज़रलैंड", "उरुग्वे", "वेनेज़ुएला", "अन्य"
+      ],
+      "provinces": [
+        "आलावा", "अल्बासेते", "अलिकांते", "अल्मेरिया", "अस्तूरियस", "आविला", "बादाखोस", "बालेआरेस",
+        "बार्सिलोना", "बुर्गोस", "कासेरेस", "कादिस", "कांताब्रिया", "कास्तेयोन", "स्यूदाद रेआल",
+        "कोर्दोबा", "कुएंका", "हिरोना", "ग्रानादा", "ग्वादालाहारा", "गिपुस्कोआ", "ह्वेल्वा", "ह्वेस्का",
+        "हाएन", "ला कोरुन्या", "ला रिओहा", "लास पाल्मास", "लेओन", "ल्येइदा", "लूगो", "मैड्रिड",
+        "मलागा", "मुर्सिया", "नावारा", "ओरेंसे", "पालेंसिया", "पोंतेवेद्रा", "सलामांका",
+        "सांता क्रूज़ दे तेनेरिफ़े", "सेगोविया", "सेविया", "सोरिया", "तारागोना", "तेरुएल", "तोलेदो",
+        "वालेंसिया", "वायादोलीद", "विस्काया", "ज़ामोरा", "ज़ारागोसा", "सेउता", "मेलिया"
+      ],
+      "save_error_prefix": "सहेजने में त्रुटि:",
+      "unknown_error": "अज्ञात त्रुटि"
+    }
   },
   "doctors": {
     "title": "डॉक्टर",
@@ -73,17 +552,45 @@
       "receptionist": "स्वागतकर्ता"
     },
     "save": "डॉक्टर सहेजें",
-    "no_results": "कोई डॉक्टर पंजीकृत नहीं"
+    "no_results": "कोई डॉक्टर पंजीकृत नहीं",
+    "last_name": "उपनाम",
+    "phone": "फ़ोन",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "अज्ञात त्रुटि",
+    "count_registered": "{{count}} पंजीकृत",
+    "license_display": "नं. {{number}}"
   },
   "consents": {
     "title": "सहमति",
     "add": "नई सहमति",
     "search": "सहमति खोजें…",
+    "step_labels": ["डेटा", "समीक्षा", "डॉक्टर के हस्ताक्षर", "मरीज़ के हस्ताक्षर", "पूर्ण"],
+    "branch_label": "शाखा",
+    "main_branch": "मुख्य शाखा",
+    "select_patient": "मरीज़ चुनें…",
+    "select_doctor": "डॉक्टर चुनें…",
+    "select_treatment": "उपचार चुनें…",
+    "translating": "अनुवाद हो रहा है…",
+    "continue": "जारी रखें",
+    "responsible_doctor": "जिम्मेदार डॉक्टर",
+    "legal_framework_title": "कानूनी ढांचा — {{jurisdiction}}",
+    "witness_required_notice": "इस देश में हस्ताक्षर के लिए गवाह आवश्यक है",
+    "back": "← पीछे",
+    "sign_arrow": "हस्ताक्षर करें →",
+    "doctor_signature_title": "डॉक्टर के हस्ताक्षर",
+    "doctor_signature_notice": "सहमति को मान्य करने के लिए डॉक्टर को पहले हस्ताक्षर करना होगा",
+    "back_to_preview": "← वापस",
+    "patient_signature_title": "मरीज़ के हस्ताक्षर",
+    "patient_signature_notice": "यह पुष्टि करने के लिए कि उन्होंने सहमति पढ़ ली है और स्वीकार कर ली है, मरीज़ को हस्ताक्षर करना होगा",
+    "signed_title": "सहमति पर हस्ताक्षर हो गए",
+    "signed_description": "दस्तावेज़ पर सफलतापूर्वक हस्ताक्षर होकर उसे दर्ज कर लिया गया है।",
+    "close": "बंद करें",
     "status": {
       "pending": "लंबित",
       "signed": "हस्ताक्षरित",
       "revoked": "रद्द",
-      "expired": "समाप्त"
+      "expired": "समाप्त",
+      "all": "सभी"
     },
     "sign": "हस्ताक्षर करें",
     "generate_pdf": "PDF बनाएं",
@@ -93,7 +600,13 @@
     "treatment": "उपचार",
     "language": "भाषा",
     "signed_at": "हस्ताक्षर तिथि",
-    "no_results": "कोई सहमति नहीं"
+    "no_results": "कोई सहमति नहीं",
+    "confirm_delete": "क्या इस सहमति को हटाना है?",
+    "stats": "{{total}} कुल · {{signed}} हस्ताक्षरित · {{pending}} लंबित",
+    "branch": "शाखा",
+    "created_at": "निर्माण तिथि",
+    "status_header": "स्थिति",
+    "continue_signature": "हस्ताक्षर जारी रखें"
   },
   "signature": {
     "title": "मरीज़ का हस्ताक्षर",
@@ -113,13 +626,20 @@
     "logo": "लोगो",
     "save": "कॉन्फ़िगरेशन सहेजें",
     "branches": "अतिरिक्त शाखाएं",
-    "branches_desc": "एकाधिक स्थानों का प्रबंधन करें",
+    "branches_desc": "अपने क्लिनिक के एकाधिक स्थानों का प्रबंधन करें",
     "add_branch": "शाखा जोड़ें",
     "no_branches": "कोई अतिरिक्त शाखा नहीं",
     "branch_name": "शाखा का नाम",
     "save_branches": "शाखाएं सहेजें",
     "edit_branch": "शाखा संपादित करें",
-    "new_branch": "नई शाखा"
+    "new_branch": "नई शाखा",
+    "save_branch": "शाखा सहेजें",
+    "subtitle": "क्लिनिक की सामान्य सेटिंग्स",
+    "trade_name": "व्यापारिक नाम",
+    "legal_name": "कानूनी नाम / फर्म का नाम",
+    "nika_number": "NIKA नंबर",
+    "save_success": "सफलतापूर्वक सहेजा गया",
+    "confirm_delete_branch": "क्या इस शाखा को हटाना है?"
   },
   "language": {
     "select": "भाषा",
@@ -144,7 +664,27 @@
     "magic_link_sent": "हमने Magic Link भेजा है:",
     "email": "ईमेल",
     "magic_link": "Magic Link से लॉगिन करें",
-    "footer": "वैध डिजिटल सहमति · भारतीय चिकित्सा परिषद अधिनियम · GDPR"
+    "footer": "वैध डिजिटल सहमति · कानून 41/2002 · GDPR",
+    "invalid_email": "एक मान्य ईमेल दर्ज करें",
+    "send_error": "लिंक भेजने में त्रुटि",
+    "subtitle": "डिजिटल सहमति · eIDAS",
+    "email_placeholder": "aapka@clinic.in"
+  },
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "subtitle": "गतिविधि सारांश",
+    "pending_signature": "हस्ताक्षर लंबित",
+    "signature_rate": "हस्ताक्षर दर",
+    "signed_count": "{{count}} हस्ताक्षरित",
+    "pending_count": "{{count}} लंबित",
+    "recent_consents": "हाल की सहमतियाँ",
+    "view_all_consents": "सभी देखें →",
+    "view_all": "सभी देखें →",
+    "no_consents": "कोई सहमति नहीं",
+    "recent_clinical": "हाल के क्लिनिकल रिकॉर्ड",
+    "no_clinical": "कोई क्लिनिकल रिकॉर्ड नहीं",
+    "recent_photos": "हाल के फ़ोटो सत्र",
+    "no_photos": "कोई फ़ोटो सत्र नहीं"
   },
   "templates": {
     "title": "टेम्पलेट",
@@ -152,7 +692,7 @@
     "editor_title": "टेम्पलेट संपादक",
     "consent_title_label": "सहमति शीर्षक",
     "no_translation": "इसमें कोई अनुवाद नहीं",
-    "translate_all": "31 भाषाओं में अनुवाद करें",
+    "translate_all": "21 भाषाओं में अनुवाद करें",
     "translating": "अनुवाद हो रहा है…",
     "legal_framework": "कानूनी ढांचा",
     "select_template": "संपादन के लिए एक टेम्पलेट चुनें",
@@ -163,9 +703,343 @@
     "saving": "सहेजा जा रहा है…",
     "saved": "सहेजा गया"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "क्या इस क्लिनिकल रिकॉर्ड को हटाना है?",
+    "confirm_delete_session": "क्या इस सत्र और इसकी सभी फ़ोटो को हटाना है?",
+    "not_found": "मरीज़ नहीं मिला",
+    "date_of_birth": "जन्म तिथि",
+    "email": "ईमेल",
+    "blood_type": "रक्त समूह",
+    "address": "पता",
+    "allergies": "एलर्जी",
+    "medications": "दवाएं",
+    "tabs": {
+      "history": "क्लिनिकल रिकॉर्ड ({{count}})",
+      "photos": "फ़ोटो ({{count}})",
+      "consents": "सहमतियाँ ({{count}})"
+    },
+    "new_clinical_record": "नया रिकॉर्ड",
+    "no_clinical_records": "इस मरीज़ के लिए कोई क्लिनिकल रिकॉर्ड नहीं है",
+    "doctor_prefix": "डॉ. {{name}}",
+    "fields": {
+      "anamnesis": "एनामनेसिस",
+      "allergies": "एलर्जी",
+      "current_medications": "वर्तमान दवाएं",
+      "physical_exam": "शारीरिक परीक्षण",
+      "diagnosis": "निदान",
+      "treatment_plan": "उपचार योजना",
+      "notes": "टिप्पणियाँ"
+    },
+    "new_photo_session": "नया सत्र",
+    "no_photo_sessions": "इस मरीज़ के लिए कोई फ़ोटो सत्र नहीं है",
+    "no_consents": "इस मरीज़ के लिए कोई सहमति नहीं है",
+    "status": {
+      "signed": "हस्ताक्षरित",
+      "pending": "लंबित",
+      "revoked": "रद्द",
+      "expired": "समाप्त"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "प्रयोगशाला",
+    "not_found": "प्रयोगशाला प्रोफ़ाइल नहीं मिली।",
+    "panel_subtitle": "सहयोगी प्रयोगशाला पैनल",
+    "tabs": {
+      "clinics": "जुड़े क्लिनिक",
+      "campaigns": "विज्ञापन अभियान",
+      "stats": "आंकड़े"
+    },
+    "no_clinics": "अभी तक इस प्रयोगशाला से कोई क्लिनिक जुड़ा नहीं है।",
+    "media_management": "विज्ञापन मीडिया प्रबंधन",
+    "welcome_screen": {
+      "title": "स्वागत स्क्रीन",
+      "description": "5 तक छवियां या वीडियो। चुनें कि क्या दिखाना है, यादृच्छिक रूप से या क्रम में (प्रति फ़ाइल अधिकतम 100 MB)।"
+    },
+    "patient_content": {
+      "title": "मरीज़ के लिए सामग्री",
+      "description": "मरीज़ के लिए 5 तक छवियां या वीडियो। इसका सटीक उपयोग जल्द ही कॉन्फ़िगर किया जाएगा।"
+    },
+    "stats_pending": "यह अनुभाग अभी परिभाषित किया जाना बाकी है — जल्द ही यहां आप अपने अभियानों और क्लिनिकों के प्रदर्शन के आंकड़े देखेंगे।"
+  },
+  "clinicalRecords": {
+    "confirm_delete": "क्या इस क्लिनिकल रिकॉर्ड को हटाना है?",
+    "title": "क्लिनिकल रिकॉर्ड",
+    "records_count": "{{count}} रिकॉर्ड",
+    "add_record": "नया रिकॉर्ड",
+    "search_placeholder": "मरीज़, निदान, कारण से खोजें…",
+    "no_records": "कोई क्लिनिकल रिकॉर्ड नहीं",
+    "table_headers": ["मरीज़", "तिथि", "परामर्श का कारण", "निदान", "डॉक्टर", ""]
+  },
+  "labPartners": {
+    "title": "सहयोगी प्रयोगशालाएं",
+    "count": "{{count}} पंजीकृत",
+    "new_lab": "नई प्रयोगशाला",
+    "search_placeholder": "प्रयोगशाला खोजें…",
+    "no_labs": "कोई प्रयोगशाला नहीं है।",
+    "col_name": "नाम",
+    "col_email": "ईमेल",
+    "col_contact": "संपर्क",
+    "col_phone": "फ़ोन",
+    "col_status": "स्थिति",
+    "col_actions": "कार्रवाई",
+    "status_active": "सक्रिय",
+    "status_inactive": "निष्क्रिय",
+    "confirm_deactivate": "क्या प्रयोगशाला निष्क्रिय करनी है?",
+    "form": {
+      "edit_title": "प्रयोगशाला संपादित करें",
+      "new_title": "नई प्रयोगशाला",
+      "name": "नाम",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "contact_person": "संपर्क व्यक्ति",
+      "website": "वेबसाइट",
+      "notes": "टिप्पणियाँ",
+      "name_email_required": "नाम और ईमेल आवश्यक हैं",
+      "unknown_error": "अज्ञात त्रुटि"
+    },
+    "campaigns": {
+      "title": "{{name}} के अभियान",
+      "new_campaign": "नया अभियान",
+      "no_campaigns": "कोई अभियान नहीं है।",
+      "col_name": "नाम",
+      "col_type": "प्रकार",
+      "col_trigger": "ट्रिगर",
+      "col_status": "स्थिति",
+      "col_actions": "कार्रवाई",
+      "confirm_delete": "क्या अभियान हटाना है?",
+      "form": {
+        "edit_title": "अभियान संपादित करें",
+        "new_title": "नया अभियान",
+        "name": "नाम",
+        "name_required": "नाम आवश्यक है",
+        "unknown_error": "अज्ञात त्रुटि",
+        "type": "प्रकार",
+        "rotation_mode": "रोटेशन मोड",
+        "rotation_random": "यादृच्छिक",
+        "rotation_manual": "मैन्युअल",
+        "creative_url": "क्रिएटिव URL",
+        "trigger": "ट्रिगर",
+        "interval_minutes": "अंतराल (मिनट)",
+        "start_date": "प्रारंभ तिथि",
+        "end_date": "समाप्ति तिथि",
+        "active": "सक्रिय"
+      }
+    },
+    "creative_types": {
+      "image": "छवि",
+      "video": "वीडियो",
+      "url": "URL",
+      "offer": "ऑफ़र",
+      "training": "प्रशिक्षण"
+    },
+    "triggers": {
+      "on_login": "खोलते समय",
+      "on_consent": "सहमति बनाते समय",
+      "every_x_minutes": "हर X मिनट में",
+      "once_daily": "दिन में एक बार"
+    }
+  },
+  "agenda": {
+    "title": "एजेंडा",
+    "subtitle": "अपॉइंटमेंट, उपचार और समय-सारिणी योजना",
+    "tab_appointments": "अपॉइंटमेंट",
+    "tab_treatments": "उपचार",
+    "tab_planning": "एजेंडा योजना"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID प्रदान नहीं की गई",
+    "verifying": "दस्तावेज़ सत्यापित हो रहा है…",
+    "subtitle": "दस्तावेज़ सत्यापन",
+    "not_found_title": "दस्तावेज़ नहीं मिला",
+    "signed_title": "दस्तावेज़ मान्य और हस्ताक्षरित है",
+    "signed_subtitle": "हस्ताक्षर सफलतापूर्वक सत्यापित किए गए हैं",
+    "revoked_title": "सहमति रद्द की गई",
+    "revoked_subtitle": "मरीज़ ने इस सहमति को रद्द कर दिया",
+    "pending_title": "हस्ताक्षर लंबित",
+    "pending_subtitle": "इस दस्तावेज़ पर अभी तक हस्ताक्षर नहीं हुए हैं",
+    "patient": "मरीज़",
+    "doctor": "डॉक्टर",
+    "treatment": "उपचार",
+    "signed_date": "हस्ताक्षर तिथि",
+    "hash_label": "SHA-256 हैश",
+    "document_id_label": "दस्तावेज़ ID:",
+    "verified_on": "{{date}} को सत्यापित। यह दस्तावेज़ कानून 41/2002 के अनुसार मान्य है और eIDAS विनियमन (EU) 910/2014 के अनुसार इलेक्ट्रॉनिक रूप से हस्ताक्षरित है।"
+  },
+  "recharge": {
+    "title": "सदस्यता योजनाएं",
+    "subtitle": "अपने क्लिनिक के लिए सबसे उपयुक्त योजना चुनें",
+    "monthly": "मासिक",
+    "annual": "वार्षिक",
+    "per_month": "/माह",
+    "save_20_annual": "वार्षिक भुगतान करने पर 20% की बचत",
+    "switch_annual_save": "वार्षिक में बदलें और 20% बचाएं",
+    "hire_plan": "योजना लें",
+    "note_title": "AI योजना और AI प्रीमियम योजना पर नोट:",
+    "note_text": "AI एजेंटों की प्रारंभिक सेटअप (सेवाएं, उपचार और अनुकूलन) और कार्यान्वयन प्रत्येक क्लिनिक की जटिलता के अनुसार अलग से कोट किया जाता है। वॉइस एजेंट और WhatsApp API की लागत मासिक शुल्क में शामिल नहीं है।",
+    "plans": {
+      "base": {
+        "name": "बेसिक योजना",
+        "features": [
+          "असीमित सूचित सहमतियाँ",
+          "क्लिनिकल रिकॉर्ड",
+          "फ़ोटो गैलरी",
+          "मरीज़ पोर्टल",
+          "Magic Link + बायोमेट्रिक्स",
+          "सहायता शामिल"
+        ]
+      },
+      "pro": {
+        "name": "प्रो योजना",
+        "badge": "सबसे लोकप्रिय",
+        "features": [
+          "पूरी बेसिक योजना +",
+          "अपॉइंटमेंट एजेंडा",
+          "मरीज़ CRM",
+          "टॉक्सिन नियंत्रण",
+          "मरीज़ों के लिए अनुमान"
+        ]
+      },
+      "ia": {
+        "name": "AI योजना",
+        "features": [
+          "पूरी प्रो योजना +",
+          "24/7 AI WhatsApp एजेंट — अपॉइंटमेंट प्राप्ति",
+          "स्वचालित अपॉइंटमेंट पुष्टिकरण",
+          "स्वचालित अपॉइंटमेंट रिमाइंडर",
+          "WhatsApp प्रबंधन पैनल",
+          "WhatsApp द्वारा मरीज़ों से संचार",
+          "WhatsApp द्वारा सहमति, क्लिनिकल रिकॉर्ड, फ़ोटो, अनुमान और बिल भेजना"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI प्रीमियम योजना",
+        "badge": "नया",
+        "features": [
+          "पूरी AI योजना +",
+          "24/7 AI वॉइस एजेंट: कॉल का जवाब देता है",
+          "फ़ोन पर स्वचालित रूप से अपॉइंटमेंट शेड्यूल करता है",
+          "आपके स्वागतकर्ता की आवाज़ को 100% क्लोन करता है"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "टॉक्सिन नियंत्रण",
+    "subtitle": "बोटुलिनम टॉक्सिन लॉट की ट्रेसेबिलिटी",
+    "new_record": "नया रिकॉर्ड",
+    "from": "से",
+    "to": "तक",
+    "doctor": "डॉक्टर",
+    "patient": "मरीज़",
+    "all": "सभी",
+    "lot_number": "लॉट नं.",
+    "search_lot_placeholder": "लॉट खोजें…",
+    "clear_filters": "फ़िल्टर साफ़ करें",
+    "no_results": "इन फ़िल्टरों के साथ कोई टॉक्सिन रिकॉर्ड नहीं है।",
+    "col_date": "तिथि",
+    "col_patient": "मरीज़",
+    "col_doctor": "डॉक्टर",
+    "col_brand": "ब्रांड नाम",
+    "col_lot": "लॉट",
+    "col_expiry": "समाप्ति",
+    "col_zones": "क्षेत्र",
+    "col_units": "यूनिट",
+    "col_signature": "हस्ताक्षर",
+    "col_ci": "CI",
+    "col_actions": "कार्रवाई",
+    "signed": "हस्ताक्षरित",
+    "unsigned": "बिना हस्ताक्षर",
+    "consent_linked": "जुड़ी हुई सहमति के साथ",
+    "consent_not_linked": "बिना जुड़ी सहमति के",
+    "confirm_delete": "क्या इस टॉक्सिन रिकॉर्ड को हटाना है?",
+    "detail": {
+      "not_found": "रिकॉर्ड नहीं मिला।",
+      "patient": "मरीज़",
+      "doctor": "डॉक्टर",
+      "brand": "ब्रांड नाम",
+      "manufacturer": "निर्माता",
+      "lot": "लॉट संख्या",
+      "expiry": "समाप्ति तिथि",
+      "vials": "खोली गई शीशियाँ",
+      "total_units": "कुल यूनिट",
+      "treated_zones": "उपचारित क्षेत्र",
+      "no_zones": "कोई क्षेत्र दर्ज नहीं है।",
+      "notes": "टिप्पणियाँ",
+      "doctor_signature": "डॉक्टर के हस्ताक्षर",
+      "signature_alt": "डॉक्टर के हस्ताक्षर",
+      "signed_on": "{{date}} को हस्ताक्षरित",
+      "no_signature": "इस रिकॉर्ड में डॉक्टर के हस्ताक्षर नहीं हैं।",
+      "linked_consent": "जुड़ी हुई सूचित सहमति",
+      "consent_default_name": "सहमति",
+      "consent_unsigned": "हस्ताक्षरित नहीं",
+      "loading_pdf": "PDF लोड हो रहा है…",
+      "consent_load_error": "जुड़ी हुई सहमति की जानकारी लोड नहीं की जा सकी।"
+    }
+  },
+  "authVerify": {
+    "token_not_found": "URL में टोकन नहीं मिला",
+    "invalid_token": "अमान्य या समाप्त टोकन",
+    "connection_error": "कनेक्शन त्रुटि",
+    "verifying": "लिंक सत्यापित हो रहा है…",
+    "invalid_link": "अमान्य लिंक",
+    "back_home": "होम पर वापस जाएं"
+  },
+  "photoSessions": {
+    "confirm_delete": "क्या इस सत्र और इसकी सभी फ़ोटो को हटाना है?",
+    "title": "फ़ोटो",
+    "subtitle": "{{count}} फ़ोटो सत्र",
+    "new_session": "नया सत्र",
+    "search_placeholder": "मरीज़ या सत्र के नाम से खोजें…",
+    "no_sessions": "कोई फ़ोटो सत्र नहीं"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "मेरी सहमतियाँ",
+      "clinical": "मेरा क्लिनिकल रिकॉर्ड",
+      "photos": "मेरी फ़ोटो"
+    },
+    "consents": {
+      "empty": "अभी तक आपकी कोई हस्ताक्षरित सहमति नहीं है।",
+      "default_name": "सहमति",
+      "doctor": "डॉ. {{name}}",
+      "signed_on": "{{date}} को हस्ताक्षरित",
+      "status_signed": "हस्ताक्षरित",
+      "status_pending": "लंबित"
+    },
+    "clinical": {
+      "empty": "आपका क्लिनिकल रिकॉर्ड खाली है।",
+      "default_name": "परामर्श",
+      "doctor_suffix": " · डॉ. {{name}}",
+      "fields": {
+        "diagnosis": "निदान",
+        "anamnesis": "एनामनेसिस",
+        "current_medications": "वर्तमान दवाएं",
+        "allergies": "एलर्जी",
+        "treatment_plan": "उपचार योजना",
+        "notes": "टिप्पणियाँ"
+      }
+    },
+    "photos": {
+      "empty": "अभी तक कोई फ़ोटो सत्र नहीं है।",
+      "back_to_sessions": "सत्रों पर वापस जाएं",
+      "default_session_name": "फ़ोटो सत्र",
+      "doctor_suffix": " · डॉ. {{name}}",
+      "compare_title": "पहले / बाद की तुलना",
+      "before": "पहले",
+      "after": "बाद में",
+      "close_compare": "तुलना बंद करें",
+      "compare_button": "तुलना करें",
+      "photo_count": "{{count}} फ़ोटो"
+    }
+  },
   "settings": {
     "title": "सेटिंग्स",
     "subtitle": "उपयोगकर्ता और सिस्टम एक्सेस प्रबंधन",
+    "tabs": {
+      "users": "उपयोगकर्ता",
+      "media": "विज्ञापन",
+      "preview": "पूर्वावलोकन"
+    },
     "users": {
       "title": "उपयोगकर्ता",
       "invite_user": "उपयोगकर्ता आमंत्रित करें",
@@ -176,12 +1050,38 @@
       "role_clinica": "क्लिनिक",
       "admin_hint": "प्रशासक के पास सभी अनुभागों तक पूर्ण पहुँच है।",
       "permissions": "पहुँच अनुमतियाँ",
-      "permissions_hint": "सुलभ अनुभाग चुनें।",
+      "permissions_hint": "चुनें कि इस उपयोगकर्ता की किन अनुभागों तक पहुंच होगी।",
       "send_invite": "आमंत्रण भेजें",
       "no_users": "कोई उपयोगकर्ता नहीं। पहले को आमंत्रित करें।",
       "inactive": "निष्क्रिय",
-      "activate": "सक्रिय करें",
-      "deactivate": "निष्क्रिय करें"
+      "activate": "उपयोगकर्ता सक्रिय करें",
+      "deactivate": "उपयोगकर्ता निष्क्रिय करें",
+      "role_superadmin": "सुपर एडमिन",
+      "role_doctor": "डॉक्टर",
+      "role_receptionist": "स्वागतकर्ता",
+      "role_lab_partner": "प्रयोगशाला",
+      "role_patient": "मरीज़",
+      "filter_all": "सभी",
+      "invite_accepted": "आमंत्रण स्वीकृत",
+      "invite_expired": "आमंत्रण समाप्त",
+      "invite_pending": "आमंत्रण लंबित",
+      "email_placeholder": "user@clinic.in",
+      "full_name_placeholder": "पूरा नाम",
+      "linked_lab": "जुड़ी हुई प्रयोगशाला",
+      "no_lab": "कोई प्रयोगशाला नहीं",
+      "lab_hint": "उपयोगकर्ता केवल इस प्रयोगशाला से जुड़े क्लिनिक देख पाएगा।",
+      "admin_only_hint": "सेटिंग्स केवल प्रशासकों के लिए है और इसे कभी भी किसी क्लिनिक को नहीं सौंपा जा सकता।",
+      "load_error": "उपयोगकर्ता सूची लोड नहीं की जा सकी",
+      "retry": "पुनः प्रयास करें"
+    },
+    "media": {
+      "title": "विज्ञापन मीडिया प्रबंधन",
+      "managed_by_lab": "यह विज्ञापन आपकी सहयोगी प्रयोगशाला द्वारा प्रबंधित है। आप इसे यहां देख सकते हैं, लेकिन केवल प्रयोगशाला ही इसे संशोधित कर सकती है।",
+      "managed_by_lab_named": "यह विज्ञापन आपकी सहयोगी प्रयोगशाला ({{name}}) द्वारा प्रबंधित है। आप इसे यहां देख सकते हैं, लेकिन केवल प्रयोगशाला ही इसे संशोधित कर सकती है।",
+      "welcome_title": "स्वागत स्क्रीन",
+      "welcome_description": "5 तक छवियां या वीडियो। चुनें कि क्या दिखाना है, यादृच्छिक रूप से या क्रम में (प्रति फ़ाइल अधिकतम 100 MB)।",
+      "patient_title": "मरीज़ के लिए सामग्री",
+      "patient_description": "मरीज़ के लिए 5 तक छवियां या वीडियो। इसका सटीक उपयोग जल्द ही कॉन्फ़िगर किया जाएगा।"
     }
   }
 }

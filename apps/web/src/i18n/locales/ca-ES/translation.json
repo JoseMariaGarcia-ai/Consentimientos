@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Editar registre de toxina",
+    "title_new": "Nou registre de toxina",
+    "patient": "Pacient",
+    "select_patient": "Seleccionar pacient…",
+    "linked_consent": "Consentiment informat vinculat",
+    "not_linked": "Sense vincular",
+    "consent_default_name": "Consentiment",
+    "unsigned": "sense signar",
+    "loading_consents": "Carregant consentiments…",
+    "no_consents_hint": "Aquest pacient encara no té consentiments de toxina signats. És opcional, pots desar el registre sense vincular-lo.",
+    "doctor": "Metge",
+    "unassigned": "Sense assignar",
+    "application_date": "Data d'aplicació",
+    "brand_name": "Nom comercial",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Fabricant",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Número de lot",
+    "expiry_date": "Data de caducitat",
+    "vials_opened": "Vials oberts",
+    "treated_zones": "Zones tractades",
+    "other_zone_placeholder": "Altra zona…",
+    "add": "Afegir",
+    "total_units": "Total d'unitats",
+    "notes": "Notes",
+    "notes_placeholder": "Observacions…",
+    "doctor_signature": "Signatura del metge",
+    "signature_alt": "Signatura del metge",
+    "signed_on": "Signat {{date}}",
+    "sign_again": "Signar de nou",
+    "signature_hint": "Dibuixeu la signatura i premeu \"Confirmar signatura\" abans de desar.",
+    "confirm_delete": "Vols eliminar aquest registre de toxina?",
+    "deleting": "Eliminant…",
+    "delete_record": "Eliminar registre",
+    "cancel": "Cancel·lar",
+    "save_changes": "Desar canvis",
+    "create_record": "Crear registre",
+    "saving": "Desant…",
+    "unknown_error": "Error desconegut",
+    "validation": {
+      "required_fields": "Pacient, nom comercial, lot, caducitat i fabricant són obligatoris",
+      "signature_required": "La signatura del metge és obligatòria per desar el registre"
+    },
+    "zones": {
+      "forehead": "Front (línies horitzontals)",
+      "glabella": "Entre celles (glabel·la)",
+      "crows_feet": "Potes de gall (periocular)",
+      "lower_eyelid": "Parpella inferior",
+      "eyebrow_lift": "Celles (lífting)",
+      "bunny_lines": "Nas (bunny lines)",
+      "upper_lip": "Llavi superior (codi de barres)",
+      "oral_commissures": "Comissures bucals",
+      "chin_dimpling": "Mentó (pell de taronja)",
+      "platysmal_bands": "Coll (bandes platismals)",
+      "decolletage": "Escot",
+      "axillary_sweating": "Sudoració axil·lar (hiperhidrosi)",
+      "palmar_sweating": "Sudoració palmar",
+      "plantar_sweating": "Sudoració plantar",
+      "jaw_bruxism": "Mandíbula (bruxisme / masseters)",
+      "migraine_occipital": "Migranya (punts occipitals)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (coll i mandíbula)",
+      "other_zone": "Altra zona"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Generant…",
+    "export_pdf": "Exportar PDF"
+  },
+  "patientGallery": {
+    "title": "Galeria de fotos",
+    "upload_photos": "Pujar fotos",
+    "loading": "Carregant…",
+    "empty": "Sense fotos. Puja la primera imatge.",
+    "confirm_delete": "Vols eliminar aquesta foto?",
+    "count_stored": "{{count}} {{unit}} · Emmagatzemades a Cloudflare R2",
+    "photo_singular": "foto",
+    "photo_plural": "fotos"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Editar història clínica",
+    "title_new": "Nova història clínica",
+    "patient": "Pacient",
+    "select_patient": "Seleccionar pacient…",
+    "doctor": "Metge",
+    "unassigned": "Sense assignar",
+    "branch": "Clínica / Seu",
+    "unspecified": "Sense especificar",
+    "visit_date": "Data de visita",
+    "reason_for_visit": "Motiu de consulta",
+    "anamnesis": "Anamnesi / Antecedents",
+    "current_medications": "Medicació actual",
+    "allergies": "Al·lèrgies conegudes",
+    "physical_exam": "Exploració física",
+    "diagnosis": "Diagnòstic",
+    "treatment_plan": "Pla de tractament",
+    "notes": "Observacions / Notes",
+    "select_patient_error": "Selecciona un pacient",
+    "unknown_error": "Error desconegut",
+    "cancel": "Cancel·lar",
+    "saving": "Desant…",
+    "save_record": "Desar història"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "L'arxiu supera el límit de {{maxSize}} MB",
+    "upload_error": "Error en pujar l'arxiu",
+    "confirm_delete": "Vols eliminar aquest arxiu?",
+    "video": "Vídeo",
+    "image": "Imatge",
+    "uploaded_on": "Pujat el {{date}}",
+    "change": "Canviar",
+    "delete": "Eliminar",
+    "uploading": "Pujant… {{progress}}%",
+    "drop_hint": "Arrossega aquí o fes clic per pujar",
+    "file_types_hint": "Imatge (JPG, PNG, GIF) o vídeo (MP4, MOV, WebM) · Màx. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Escriu el contingut del consentiment…",
+    "bold": "Negreta",
+    "italic": "Cursiva",
+    "heading": "Títol",
+    "bullet_list": "Llista",
+    "ordered_list": "Llista numerada",
+    "undo": "Desfer",
+    "redo": "Refer"
+  },
+  "consentPdfButton": {
+    "generating": "Generant PDF…",
+    "export": "Exportar PDF"
+  },
+  "newSessionModal": {
+    "title": "Nova sessió fotogràfica",
+    "patient_label": "Pacient",
+    "select_patient_placeholder": "Seleccionar pacient…",
+    "doctor_label": "Metge",
+    "no_doctor_assigned": "Sense assignar",
+    "branch_label": "Clínica / Seu",
+    "no_branch_specified": "Sense especificar",
+    "session_name_label": "Nom de la sessió",
+    "session_name_placeholder": "Ex: Tractament facial sessió 1",
+    "date_label": "Data i hora",
+    "notes_label": "Notes",
+    "notes_placeholder": "Observacions sobre la sessió…",
+    "select_patient_error": "Selecciona un pacient",
+    "unknown_error": "Error desconegut",
+    "cancel": "Cancel·lar",
+    "creating": "Creant…",
+    "create_session": "Crear sessió"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Sessió fotogràfica",
+    "photo_count": "{{count}}/{{max}} fotos",
+    "compare_button": "Comparar abans / després",
+    "delete_session": "Eliminar sessió",
+    "upload": "Pujar",
+    "remaining": "{{remaining}} restants"
+  },
+  "beforeAfterModal": {
+    "select_title": "Seleccionar fotos per comparar",
+    "compare_title": "Comparativa Abans / Després",
+    "change_selection": "← Canviar selecció",
+    "select_intro": "Selecciona una foto per a",
+    "select_middle": "i una altra per a",
+    "before": "Abans",
+    "after": "Després",
+    "before_badge": "ABANS",
+    "after_badge": "DESPRÉS",
+    "compare_button": "Comparar"
+  },
+  "biometricPrompt": {
+    "title": "Activar accés biomètric",
+    "description": "Utilitza Face ID, empremta o Windows Hello per entrar en menys de 2 segons la propera vegada.",
+    "device_label": "Dispositiu:",
+    "activate": "Activar",
+    "default_device": "El meu dispositiu"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Selecció manual",
+        "desc": "Tu tries quina es mostra. Fes clic en una creativitat per activar-la."
+      },
+      "random": {
+        "label": "Ordre aleatori",
+        "desc": "Es tria una creativitat a l'atzar cada vegada que toca mostrar-la."
+      },
+      "sequential": {
+        "label": "Ordre seqüencial",
+        "desc": "Es van mostrant en ordre, una per una, cada vegada que toca."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "L'arxiu supera el límit de 100 MB",
+      "invalidUrl": "URL no vàlida"
+    },
+    "confirmDelete": "Vols eliminar aquesta creativitat?",
+    "types": {
+      "url": "URL",
+      "video": "Vídeo",
+      "image": "Imatge"
+    },
+    "active": "✓ Activa",
+    "select": "Seleccionar",
+    "upload": {
+      "label": "Pujar arxiu",
+      "slotsFree": "{{count}} lliure{{suffix}}"
+    },
+    "addUrlButton": "Afegir URL de vídeo (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Afegir vídeo per URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… o URL directa a .mp4",
+      "labelPlaceholder": "Nom o descripció (opcional)",
+      "hint": "Compatible amb YouTube, Vimeo i URLs directes de vídeo (.mp4, .webm…)",
+      "add": "Afegir",
+      "saving": "Desant…"
+    },
+    "displayModeHeading": "Com mostrar-les?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Benvinguda",
+    "continue": "Continuar →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Quan mostrar la publicitat?",
+    "subheading": "Pots seleccionar diverses opcions alhora.",
+    "options": {
+      "session": {
+        "label": "Una vegada en iniciar sessió",
+        "desc": "Es mostra una sola vegada cada vegada que l'usuari obre l'aplicació al navegador."
+      },
+      "consent": {
+        "label": "Cada vegada que es crea un consentiment",
+        "desc": "Apareix immediatament després de crear cada consentiment informat."
+      },
+      "clinical": {
+        "label": "Cada vegada que es crea una història clínica",
+        "desc": "Apareix immediatament després de desar cada història clínica."
+      },
+      "interval": {
+        "label": "Cada X minuts",
+        "desc": "Es mostra periòdicament mentre l'aplicació estigui oberta."
+      }
+    },
+    "every": "Cada",
+    "minutes": "minuts",
+    "errors": {
+      "selectAtLeastOne": "Selecciona almenys una opció",
+      "saveFailed": "Error en desar"
+    },
+    "saving": "Desant…",
+    "saved": "Desat",
+    "saveButton": "Desar configuració",
+    "appliedMessage": "✅ Configuració aplicada"
+  },
+  "demoPreviewPanel": {
+    "heading": "Vista prèvia per rols",
+    "subheading": "Crea dades de prova i entra al programa exactament com ho veuria un pacient, una clínica o un laboratori.",
+    "createAllButton": "Crear totes les dades de prova",
+    "errors": {
+      "checkFailed": "Error en comprovar les dades de prova",
+      "createPatientFailed": "No s'ha pogut crear el pacient de prova",
+      "createBranchFailed": "No s'ha pogut crear la seu de prova",
+      "createLabFailed": "No s'ha pogut crear el laboratori de prova"
+    },
+    "cards": {
+      "patient": {
+        "title": "Vista de Pacient",
+        "description": "Simula el portal que veu un pacient: els seus consentiments, història clínica i fotos."
+      },
+      "branch": {
+        "title": "Vista de Clínica",
+        "description": "Simula el panell que veu el personal de la clínica, amb el menú restringit als seus permisos reals."
+      },
+      "lab": {
+        "title": "Vista de Laboratori",
+        "description": "Simula el panell d'un laboratori col·laborador: el seu perfil, clíniques vinculades i campanyes."
+      }
+    },
+    "testDataCreated": "Dada de prova creada",
+    "viewAs": "Veure com {{role}}",
+    "roleNames": {
+      "patient": "pacient",
+      "branch": "clínica",
+      "lab": "laboratori"
+    },
+    "creating": "Creant…",
+    "createTestData": "Crear dada de prova"
+  },
+  "previewBanner": {
+    "message": "Vista prèvia — estàs veient la interfície com la veuria",
+    "exitButton": "Sortir de la vista prèvia",
+    "roles": {
+      "patient": "Pacient",
+      "clinica": "Clínica",
+      "labPartner": "Laboratori"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Veure mes",
+    "today": "Avui",
+    "new_appointment": "Nova cita",
+    "no_treatments_warning": "Encara no hi ha tractaments creats. Vés a la pestanya \"Tractaments\" per crear el primer abans de programar cites.",
+    "day_closed_notice": "Aquest dia està marcat com a tancat a la Planificació d'Agenda. Pots revisar-ho o obrir-ho des d'aquesta pestanya.",
+    "slot_aria_label": "Programar a les {{time}}",
+    "outside_availability": "Fora de l'horari disponible",
+    "treatment_fallback": "Tractament",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Disponible",
+      "outside_hours": "Fora d'horari",
+      "scheduled": "Cita programada"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Editar cita",
+    "title_new": "Nova cita",
+    "validation_required": "Pacient, tractament i hora són obligatoris",
+    "error_unknown": "Error desconegut",
+    "confirm_delete": "Vols eliminar aquesta cita?",
+    "deleting": "Eliminant…",
+    "delete_appointment": "Eliminar cita",
+    "cancel": "Cancel·lar",
+    "saving": "Desant…",
+    "save_changes": "Desar canvis",
+    "create_appointment": "Crear cita",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Seleccionar pacient…",
+      "doctor": "Metge",
+      "unassigned": "Sense assignar",
+      "branch": "Clínica / Seu",
+      "main_branch": "Seu principal",
+      "treatment": "Tractament",
+      "select_treatment": "Seleccionar tractament…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "No hi ha tractaments creats. Afegeix-ne un a la pestanya \"Tractaments\" primer.",
+      "datetime": "Data i hora",
+      "duration_note": "Ocuparà {{duration}} minuts a l'agenda.",
+      "notes": "Notes",
+      "notes_placeholder": "Observacions sobre la cita…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Tractaments",
+    "subtitle": "Durada i preu de cada tractament per poder programar cites",
+    "new_treatment": "Nou tractament",
+    "loading": "Carregant…",
+    "empty_state": "No hi ha tractaments creats encara",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Vols eliminar aquest tractament?",
+    "form": {
+      "title_edit": "Editar tractament",
+      "title_new": "Nou tractament",
+      "name": "Nom",
+      "name_placeholder": "Ex: Toxina botulínica",
+      "duration": "Durada (min)",
+      "price": "Preu (€)",
+      "validation_name_required": "El nom és obligatori",
+      "error_unknown": "Error desconegut",
+      "cancel": "Cancel·lar",
+      "saving": "Desant…",
+      "save": "Desar"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Dl", "Dt", "Dc", "Dj", "Dv", "Ds", "Dg"],
+    "months": ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"],
+    "has_exception_tooltip": "Ja té una excepció configurada",
+    "legend": {
+      "usually_open": "Normalment obert",
+      "usually_closed": "Normalment tancat",
+      "has_exception": "Amb excepció",
+      "selected": "Seleccionat"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Dl", "Dt", "Dc", "Dj", "Dv", "Ds", "Dg"],
+    "months": ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"],
+    "legend": {
+      "open_day": "Dia obert",
+      "closed": "Tancat",
+      "today": "Avui"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Planificació d'Agenda",
+    "subtitle": "Configura quins dies i en quin horari es poden donar cites.",
+    "time_separator": "a",
+    "add_time_range": "Afegir tram horari",
+    "weekdays": ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"],
+    "confirm_delete_exception": "Vols eliminar aquesta excepció i tornar a l'horari habitual d'aquest dia?",
+    "errors": {
+      "save_schedule_failed": "No s'ha pogut desar l'horari",
+      "apply_pattern_failed": "No s'ha pogut aplicar el patró",
+      "select_day_required": "Selecciona almenys un dia al calendari",
+      "save_exception_failed": "No s'ha pogut desar el dia especial"
+    },
+    "bulk": {
+      "title": "Aplicar un patró a diversos dies alhora",
+      "description": "Ex: dilluns a divendres de 09:00 a 20:00. Selecciona els dies i l'horari, després aplica — pots ajustar cada dia individualment després.",
+      "applying": "Aplicant…",
+      "apply_button": "Aplicar als dies seleccionats"
+    },
+    "weekly": {
+      "title": "Horari setmanal habitual",
+      "closed": "Tancat",
+      "saving": "Desant…",
+      "save": "Desar"
+    },
+    "exceptions": {
+      "title": "Dies solts (excepcions)",
+      "description": "Obre un dia especial (ex. un dissabte) o tanca un dia que normalment està obert (ex. festiu).",
+      "select_days_label": "Selecciona un o diversos dies",
+      "days_selected_singular": "{{count}} dia seleccionat",
+      "days_selected_plural": "{{count}} dies seleccionats",
+      "clear_selection": "Netejar selecció",
+      "open_special": "Obrir especial",
+      "close": "Tancar",
+      "schedule_label": "Horari aquests dies",
+      "notes_placeholder": "Motiu (opcional) — ex: Pont d'agost",
+      "saving": "Desant…",
+      "save_button_singular": "Desar dia especial",
+      "save_button_plural": "Desar {{count}} dies especials",
+      "no_exceptions": "No hi ha dies solts configurats.",
+      "open_special_status": "Obert especial · {{ranges}}",
+      "closed_status": "Tancat"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Consentiments Digitals · Signatura Digital"
@@ -14,7 +445,15 @@
     "settings": "Configuració",
     "clinicalRecords": "Història Clínica",
     "photos": "Fotos",
-    "recharge": "Recarregar"
+    "recharge": "Plans de Subscripció",
+    "agenda": "Agenda",
+    "toxin": "Control de Toxina",
+    "labPartners": "Laboratoris",
+    "menu": "Menú"
+  },
+  "topbar": {
+    "tagline": "Consentiments Digitals · Signatura Digital",
+    "legal": "eIDAS (UE 910/2014) · Llei 41/2002 · RGPD"
   },
   "auth": {
     "login_title": "Accés segur",
@@ -33,7 +472,20 @@
     "biometric_success": "Biometria activada!",
     "biometric_success_msg": "La propera vegada entraràs amb un toc.",
     "biometric_error": "No s'ha pogut activar. Assegura't que el teu dispositiu té biometria configurada.",
-    "biometric_now": "Ara no"
+    "biometric_now": "Ara no",
+    "portal_subtitle": "Consentiments Digitals · Signatura Digital",
+    "portal_title": "Accés al document",
+    "portal_email_prompt": "Introdueix el teu email per rebre un enllaç d'accés segur.",
+    "portal_link_sent_title": "Enllaç enviat",
+    "portal_link_sent_message": "Comprova el teu correu i fes clic a l'enllaç per continuar.",
+    "portal_email_placeholder": "tu@email.com",
+    "portal_consent_default_title": "Consentiment Informat",
+    "portal_accept_label": "He llegit i accepto aquest consentiment informat",
+    "portal_proceed_to_sign": "Procedir a la signatura →",
+    "portal_saving_signature": "Desant signatura…",
+    "portal_signed_title": "Signatura completada",
+    "portal_signed_message": "El vostre consentiment ha estat signat i registrat de forma segura.",
+    "portal_error_message": "L'enllaç pot haver caducat o ser incorrecte."
   },
   "patients": {
     "title": "Pacients",
@@ -57,7 +509,34 @@
     "gallery": "Galeria de fotos",
     "no_photos": "Sense fotos. Puja la primera imatge.",
     "upload_photos": "Pujar fotos",
-    "uploading": "Pujant…"
+    "uploading": "Pujant…",
+    "count_registered": "{{count}} registrats",
+    "form": {
+      "doc_type": "Tipus",
+      "doc_type_passport": "Passaport",
+      "city": "Ciutat",
+      "province": "Província",
+      "country": "País",
+      "select_placeholder": "— Seleccionar —",
+      "countries": [
+        "Espanya", "Alemanya", "Argentina", "Bèlgica", "Bolívia", "Brasil", "Xile", "Xina",
+        "Colòmbia", "Costa Rica", "Cuba", "Equador", "El Salvador", "EUA", "França",
+        "Guatemala", "Hondures", "Itàlia", "Marroc", "Mèxic", "Nicaragua", "Països Baixos",
+        "Panamà", "Paraguai", "Perú", "Portugal", "Regne Unit", "República Dominicana",
+        "Suïssa", "Uruguai", "Veneçuela", "Un altre"
+      ],
+      "provinces": [
+        "Àlaba", "Albacete", "Alacant", "Almeria", "Astúries", "Àvila", "Badajoz", "Balears",
+        "Barcelona", "Burgos", "Càceres", "Cadis", "Cantàbria", "Castelló", "Ciudad Real",
+        "Còrdova", "Conca", "Girona", "Granada", "Guadalajara", "Guipúscoa", "Huelva", "Osca",
+        "Jaén", "La Corunya", "La Rioja", "Las Palmas", "Lleó", "Lleida", "Lugo", "Madrid",
+        "Màlaga", "Múrcia", "Navarra", "Ourense", "Palència", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segòvia", "Sevilla", "Sòria", "Tarragona", "Terol", "Toledo",
+        "València", "Valladolid", "Biscaia", "Zamora", "Saragossa", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Error en desar:",
+      "unknown_error": "Error desconegut"
+    }
   },
   "doctors": {
     "title": "Metges",
@@ -73,17 +552,45 @@
       "receptionist": "Recepcionista"
     },
     "save": "Desar metge",
-    "no_results": "No hi ha metges registrats"
+    "no_results": "No hi ha metges registrats",
+    "last_name": "Cognoms",
+    "phone": "Telèfon",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "Error desconegut",
+    "count_registered": "{{count}} registrats",
+    "license_display": "Núm. {{number}}"
   },
   "consents": {
     "title": "Consentiments",
     "add": "Nou consentiment",
     "search": "Cercar consentiments…",
+    "step_labels": ["Dades", "Revisió", "Signatura metge", "Signatura pacient", "Fet"],
+    "branch_label": "Seu",
+    "main_branch": "Seu principal",
+    "select_patient": "Seleccionar pacient…",
+    "select_doctor": "Seleccionar metge…",
+    "select_treatment": "Seleccionar tractament…",
+    "translating": "Traduint…",
+    "continue": "Continuar",
+    "responsible_doctor": "Metge responsable",
+    "legal_framework_title": "Marc Legal — {{jurisdiction}}",
+    "witness_required_notice": "Aquest país requereix testimoni per a la signatura",
+    "back": "← Enrere",
+    "sign_arrow": "Signar →",
+    "doctor_signature_title": "Signatura del metge",
+    "doctor_signature_notice": "El metge ha de signar primer per validar el consentiment",
+    "back_to_preview": "← Tornar",
+    "patient_signature_title": "Signatura del pacient",
+    "patient_signature_notice": "El pacient ha de signar per confirmar que ha llegit i accepta el consentiment",
+    "signed_title": "Consentiment signat",
+    "signed_description": "El document ha estat signat i registrat correctament.",
+    "close": "Tancar",
     "status": {
       "pending": "Pendent",
       "signed": "Signat",
       "revoked": "Revocat",
-      "expired": "Caducat"
+      "expired": "Caducat",
+      "all": "Tots"
     },
     "sign": "Signar",
     "generate_pdf": "Generar PDF",
@@ -93,7 +600,13 @@
     "treatment": "Tractament",
     "language": "Idioma",
     "signed_at": "Data de signatura",
-    "no_results": "No hi ha consentiments"
+    "no_results": "No hi ha consentiments",
+    "confirm_delete": "Vols eliminar aquest consentiment?",
+    "stats": "{{total}} total · {{signed}} signats · {{pending}} pendents",
+    "branch": "Seu",
+    "created_at": "Data de creació",
+    "status_header": "Estat",
+    "continue_signature": "Continuar signatura"
   },
   "signature": {
     "title": "Signatura del pacient",
@@ -113,13 +626,20 @@
     "logo": "Logotip",
     "save": "Desar configuració",
     "branches": "Seus addicionals",
-    "branches_desc": "Gestiona múltiples ubicacions",
+    "branches_desc": "Gestiona múltiples ubicacions de la teva clínica",
     "add_branch": "Afegir seu",
     "no_branches": "Sense seus addicionals",
     "branch_name": "Nom de la seu",
     "save_branches": "Desar seus",
     "edit_branch": "Editar seu",
-    "new_branch": "Nova seu"
+    "new_branch": "Nova seu",
+    "save_branch": "Desar seu",
+    "subtitle": "Configuració general de la clínica",
+    "trade_name": "Nom comercial",
+    "legal_name": "Nom fiscal / raó social",
+    "nika_number": "Número NIKA",
+    "save_success": "Desat correctament",
+    "confirm_delete_branch": "Vols eliminar aquesta seu?"
   },
   "language": {
     "select": "Idioma",
@@ -133,7 +653,7 @@
     "loading": "Carregant…",
     "error": "Error",
     "success": "Èxit",
-    "confirm_delete": "Eliminar aquest registre?",
+    "confirm_delete": "Vols eliminar aquest registre?",
     "no_data": "Sense dades",
     "required": "Camp obligatori",
     "saving": "Desant…",
@@ -144,7 +664,27 @@
     "magic_link_sent": "T'hem enviat un Magic Link a",
     "email": "Email",
     "magic_link": "Entrar amb Magic Link",
-    "footer": "Consentiments digitals vàlids · Llei 41/2002 · RGPD"
+    "footer": "Consentiments digitals vàlids · Llei 41/2002 · RGPD",
+    "invalid_email": "Introdueix un email vàlid",
+    "send_error": "Error en enviar l'enllaç",
+    "subtitle": "Consentiments Digitals · eIDAS",
+    "email_placeholder": "tu@clinica.cat"
+  },
+  "dashboard": {
+    "title": "Tauler",
+    "subtitle": "Resum d'activitat",
+    "pending_signature": "Pendents de signatura",
+    "signature_rate": "Taxa de signatura",
+    "signed_count": "{{count}} signats",
+    "pending_count": "{{count}} pendents",
+    "recent_consents": "Últims consentiments",
+    "view_all_consents": "Veure tots →",
+    "view_all": "Veure totes →",
+    "no_consents": "Sense consentiments",
+    "recent_clinical": "Últimes històries clíniques",
+    "no_clinical": "Sense històries clíniques",
+    "recent_photos": "Últimes sessions de fotos",
+    "no_photos": "Sense sessions fotogràfiques"
   },
   "templates": {
     "title": "Plantilles",
@@ -152,7 +692,7 @@
     "editor_title": "Editor de plantilla",
     "consent_title_label": "Títol del consentiment",
     "no_translation": "Sense traducció en",
-    "translate_all": "Traduir a 31 idiomes",
+    "translate_all": "Traduir a 21 idiomes",
     "translating": "Traduint…",
     "legal_framework": "Marc legal",
     "select_template": "Selecciona una plantilla per editar-la",
@@ -163,9 +703,343 @@
     "saving": "Desant…",
     "saved": "Desat"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Vols eliminar aquesta història clínica?",
+    "confirm_delete_session": "Vols eliminar aquesta sessió i totes les seves fotos?",
+    "not_found": "Pacient no trobat",
+    "date_of_birth": "Data de naixement",
+    "email": "Email",
+    "blood_type": "Grup sanguini",
+    "address": "Adreça",
+    "allergies": "Al·lèrgies",
+    "medications": "Medicació",
+    "tabs": {
+      "history": "Històries clíniques ({{count}})",
+      "photos": "Fotos ({{count}})",
+      "consents": "Consentiments ({{count}})"
+    },
+    "new_clinical_record": "Nova història",
+    "no_clinical_records": "No hi ha històries clíniques per a aquest pacient",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnesi",
+      "allergies": "Al·lèrgies",
+      "current_medications": "Medicació actual",
+      "physical_exam": "Exploració física",
+      "diagnosis": "Diagnòstic",
+      "treatment_plan": "Pla de tractament",
+      "notes": "Observacions"
+    },
+    "new_photo_session": "Nova sessió",
+    "no_photo_sessions": "No hi ha sessions fotogràfiques per a aquest pacient",
+    "no_consents": "No hi ha consentiments per a aquest pacient",
+    "status": {
+      "signed": "Signat",
+      "pending": "Pendent",
+      "revoked": "Revocat",
+      "expired": "Caducat"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratori",
+    "not_found": "No s'ha trobat el perfil de laboratori.",
+    "panel_subtitle": "Panell de laboratori col·laborador",
+    "tabs": {
+      "clinics": "Clíniques vinculades",
+      "campaigns": "Campanyes publicitàries",
+      "stats": "Estadístiques"
+    },
+    "no_clinics": "Encara no hi ha clíniques vinculades a aquest laboratori.",
+    "media_management": "Gestió de mitjans publicitaris",
+    "welcome_screen": {
+      "title": "Pantalla de benvinguda",
+      "description": "Fins a 5 imatges o vídeos. Tria quin mostrar, a l'atzar o en seqüència (màx. 100 MB per arxiu)."
+    },
+    "patient_content": {
+      "title": "Contingut per al pacient",
+      "description": "Fins a 5 imatges o vídeos destinats al pacient. El seu ús exacte es configurarà properament."
+    },
+    "stats_pending": "Aquesta secció està pendent de definir — properament hi veuràs mètriques de rendiment de les teves campanyes i clíniques."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Vols eliminar aquesta història clínica?",
+    "title": "Històries Clíniques",
+    "records_count": "{{count}} registres",
+    "add_record": "Nova història",
+    "search_placeholder": "Cercar per pacient, diagnòstic, motiu…",
+    "no_records": "No hi ha històries clíniques",
+    "table_headers": ["Pacient", "Data", "Motiu de consulta", "Diagnòstic", "Metge", ""]
+  },
+  "labPartners": {
+    "title": "Laboratoris Col·laboradors",
+    "count": "{{count}} registrats",
+    "new_lab": "Nou Laboratori",
+    "search_placeholder": "Cercar laboratori…",
+    "no_labs": "No hi ha laboratoris.",
+    "col_name": "Nom",
+    "col_email": "Email",
+    "col_contact": "Contacte",
+    "col_phone": "Telèfon",
+    "col_status": "Estat",
+    "col_actions": "Accions",
+    "status_active": "Actiu",
+    "status_inactive": "Inactiu",
+    "confirm_deactivate": "Vols desactivar el laboratori?",
+    "form": {
+      "edit_title": "Editar Laboratori",
+      "new_title": "Nou Laboratori",
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Telèfon",
+      "contact_person": "Persona de contacte",
+      "website": "Web",
+      "notes": "Notes",
+      "name_email_required": "Nom i email són obligatoris",
+      "unknown_error": "Error desconegut"
+    },
+    "campaigns": {
+      "title": "Campanyes de {{name}}",
+      "new_campaign": "Nova Campanya",
+      "no_campaigns": "No hi ha campanyes.",
+      "col_name": "Nom",
+      "col_type": "Tipus",
+      "col_trigger": "Trigger",
+      "col_status": "Estat",
+      "col_actions": "Accions",
+      "confirm_delete": "Vols eliminar la campanya?",
+      "form": {
+        "edit_title": "Editar Campanya",
+        "new_title": "Nova Campanya",
+        "name": "Nom",
+        "name_required": "El nom és obligatori",
+        "unknown_error": "Error desconegut",
+        "type": "Tipus",
+        "rotation_mode": "Mode rotació",
+        "rotation_random": "Aleatori",
+        "rotation_manual": "Manual",
+        "creative_url": "URL creativitat",
+        "trigger": "Trigger",
+        "interval_minutes": "Interval (min)",
+        "start_date": "Data inici",
+        "end_date": "Data fi",
+        "active": "Actiu"
+      }
+    },
+    "creative_types": {
+      "image": "Imatge",
+      "video": "Vídeo",
+      "url": "URL",
+      "offer": "Oferta",
+      "training": "Formació"
+    },
+    "triggers": {
+      "on_login": "En obrir",
+      "on_consent": "En crear consentiment",
+      "every_x_minutes": "Cada X minuts",
+      "once_daily": "Una vegada al dia"
+    }
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Cites, tractaments i planificació d'horaris",
+    "tab_appointments": "Cites",
+    "tab_treatments": "Tractaments",
+    "tab_planning": "Planificació d'Agenda"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID no proporcionat",
+    "verifying": "Verificant document…",
+    "subtitle": "Verificació de document",
+    "not_found_title": "Document no trobat",
+    "signed_title": "Document vàlid i signat",
+    "signed_subtitle": "La signatura ha estat verificada correctament",
+    "revoked_title": "Consentiment revocat",
+    "revoked_subtitle": "El pacient va revocar aquest consentiment",
+    "pending_title": "Pendent de signatura",
+    "pending_subtitle": "Aquest document encara no ha estat signat",
+    "patient": "Pacient",
+    "doctor": "Metge",
+    "treatment": "Tractament",
+    "signed_date": "Data de signatura",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "ID de document:",
+    "verified_on": "Verificat el {{date}}. Aquest document és vàlid d'acord amb la Llei 41/2002 i signat electrònicament segons el Reglament eIDAS (UE) 910/2014."
+  },
+  "recharge": {
+    "title": "Plans de subscripció",
+    "subtitle": "Tria el pla que millor s'adapti a la teva clínica",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "per_month": "/mes",
+    "save_20_annual": "Estalvies un 20 % pagant a l'any",
+    "switch_annual_save": "Canvia a anual i estalvia un 20 %",
+    "hire_plan": "Contractar pla",
+    "note_title": "Nota Pla IA i Pla IA Premium:",
+    "note_text": "La configuració inicial dels agents IA (serveis, tractaments i personalització) i la implantació es pressuposten a part segons la complexitat de cada clínica. Els costos d'agent de veu i WhatsApp API no estan inclosos a la quota mensual.",
+    "plans": {
+      "base": {
+        "name": "Pla Base",
+        "features": [
+          "CIs il·limitats",
+          "Història clínica",
+          "Galeria fotogràfica",
+          "Portal pacient",
+          "Magic Link + biometria",
+          "Suport inclòs"
+        ]
+      },
+      "pro": {
+        "name": "Pla Pro",
+        "badge": "Més popular",
+        "features": [
+          "Tot el Pla Base +",
+          "Agenda de cites",
+          "CRM pacients",
+          "Control de toxina",
+          "Pressupostos a Pacients"
+        ]
+      },
+      "ia": {
+        "name": "Pla IA",
+        "features": [
+          "Tot el Pla Pro +",
+          "Agent WhatsApp IA 24/7 — captació de cites",
+          "Confirmació de cites automatitzada",
+          "Recordatoris de cites automatitzats",
+          "Panell de gestió de WhatsApp",
+          "Comunicació amb pacients per WhatsApp",
+          "Enviament per WhatsApp de CIs, història clínica, fotos, pressupostos i factures"
+        ]
+      },
+      "ia_plus": {
+        "name": "Pla IA Premium",
+        "badge": "Nou",
+        "features": [
+          "Tot el Pla IA +",
+          "Agent de veu IA 24/7: respon trucades",
+          "Programa cites per telèfon automàticament",
+          "Clona la veu de la recepcionista al 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Control de Toxina",
+    "subtitle": "Traçabilitat de lots de toxina botulínica",
+    "new_record": "Nou registre",
+    "from": "Des de",
+    "to": "Fins a",
+    "doctor": "Metge",
+    "patient": "Pacient",
+    "all": "Tots",
+    "lot_number": "Núm. de lot",
+    "search_lot_placeholder": "Cercar lot…",
+    "clear_filters": "Netejar filtres",
+    "no_results": "No hi ha registres de toxina amb aquests filtres.",
+    "col_date": "Data",
+    "col_patient": "Pacient",
+    "col_doctor": "Metge",
+    "col_brand": "Nom comercial",
+    "col_lot": "Lot",
+    "col_expiry": "Caducitat",
+    "col_zones": "Zones",
+    "col_units": "Unitats",
+    "col_signature": "Signatura",
+    "col_ci": "CI",
+    "col_actions": "Accions",
+    "signed": "Signat",
+    "unsigned": "Sense signar",
+    "consent_linked": "Amb consentiment vinculat",
+    "consent_not_linked": "Sense consentiment vinculat",
+    "confirm_delete": "Vols eliminar aquest registre de toxina?",
+    "detail": {
+      "not_found": "Registre no trobat.",
+      "patient": "Pacient",
+      "doctor": "Metge",
+      "brand": "Nom comercial",
+      "manufacturer": "Fabricant",
+      "lot": "Número de lot",
+      "expiry": "Data de caducitat",
+      "vials": "Vials oberts",
+      "total_units": "Total d'unitats",
+      "treated_zones": "Zones tractades",
+      "no_zones": "Sense zones registrades.",
+      "notes": "Notes",
+      "doctor_signature": "Signatura del metge",
+      "signature_alt": "Signatura del metge",
+      "signed_on": "Signat el {{date}}",
+      "no_signature": "Aquest registre no té signatura del metge.",
+      "linked_consent": "Consentiment informat vinculat",
+      "consent_default_name": "Consentiment",
+      "consent_unsigned": "Sense signar",
+      "loading_pdf": "Carregant PDF…",
+      "consent_load_error": "No s'ha pogut carregar la informació del consentiment vinculat."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token no trobat a l'URL",
+    "invalid_token": "Token invàlid o caducat",
+    "connection_error": "Error de connexió",
+    "verifying": "Verificant enllaç…",
+    "invalid_link": "Enllaç invàlid",
+    "back_home": "Tornar a l'inici"
+  },
+  "photoSessions": {
+    "confirm_delete": "Vols eliminar aquesta sessió i totes les seves fotos?",
+    "title": "Fotos",
+    "subtitle": "{{count}} sessions fotogràfiques",
+    "new_session": "Nova sessió",
+    "search_placeholder": "Cercar per pacient o nom de sessió…",
+    "no_sessions": "No hi ha sessions fotogràfiques"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Els Meus Consentiments",
+      "clinical": "La Meva Història Clínica",
+      "photos": "Les Meves Fotos"
+    },
+    "consents": {
+      "empty": "Encara no tens consentiments signats.",
+      "default_name": "Consentiment",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Signat el {{date}}",
+      "status_signed": "Signat",
+      "status_pending": "Pendent"
+    },
+    "clinical": {
+      "empty": "La teva història clínica està buida.",
+      "default_name": "Consulta",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnòstic",
+        "anamnesis": "Anamnesi",
+        "current_medications": "Medicació actual",
+        "allergies": "Al·lèrgies",
+        "treatment_plan": "Pla de tractament",
+        "notes": "Observacions"
+      }
+    },
+    "photos": {
+      "empty": "Encara no hi ha sessions de fotos.",
+      "back_to_sessions": "Tornar a sessions",
+      "default_session_name": "Sessió fotogràfica",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Comparativa abans / després",
+      "before": "Abans",
+      "after": "Després",
+      "close_compare": "Tancar comparativa",
+      "compare_button": "Comparar",
+      "photo_count": "{{count}} fotos"
+    }
+  },
   "settings": {
     "title": "Configuració",
     "subtitle": "Gestió d'usuaris i accessos al sistema",
+    "tabs": {
+      "users": "Usuaris",
+      "media": "Publicitat",
+      "preview": "Vista prèvia"
+    },
     "users": {
       "title": "Usuaris",
       "invite_user": "Convidar usuari",
@@ -174,14 +1048,40 @@
       "role": "Rol",
       "role_admin": "Administrador",
       "role_clinica": "Clínica",
-      "admin_hint": "L'administrador té accés total a totes les seccions.",
+      "admin_hint": "L'administrador té accés total a totes les seccions del sistema.",
       "permissions": "Permisos d'accés",
-      "permissions_hint": "Selecciona les seccions accessibles.",
+      "permissions_hint": "Selecciona a quines seccions tindrà accés aquest usuari.",
       "send_invite": "Enviar invitació",
-      "no_users": "Cap usuari. Convida el primer.",
+      "no_users": "No hi ha usuaris registrats. Convida el primer.",
       "inactive": "Inactiu",
-      "activate": "Activar",
-      "deactivate": "Desactivar"
+      "activate": "Activar usuari",
+      "deactivate": "Desactivar usuari",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Metge",
+      "role_receptionist": "Recepcionista",
+      "role_lab_partner": "Laboratori",
+      "role_patient": "Pacient",
+      "filter_all": "Tots",
+      "invite_accepted": "Invitació acceptada",
+      "invite_expired": "Invitació caducada",
+      "invite_pending": "Invitació pendent",
+      "email_placeholder": "usuari@clinica.cat",
+      "full_name_placeholder": "Nom Cognoms",
+      "linked_lab": "Laboratori vinculat",
+      "no_lab": "Sense laboratori",
+      "lab_hint": "L'usuari només veurà les clíniques vinculades a aquest laboratori.",
+      "admin_only_hint": "Configuració és exclusiu d'administradors i mai es pot delegar a una clínica.",
+      "load_error": "No s'ha pogut carregar la llista d'usuaris",
+      "retry": "Reintentar"
+    },
+    "media": {
+      "title": "Gestió de mitjans publicitaris",
+      "managed_by_lab": "Aquesta publicitat la gestiona el teu laboratori col·laborador. Pots veure-la aquí, però només el laboratori la pot modificar.",
+      "managed_by_lab_named": "Aquesta publicitat la gestiona el teu laboratori col·laborador ({{name}}). Pots veure-la aquí, però només el laboratori la pot modificar.",
+      "welcome_title": "Pantalla de benvinguda",
+      "welcome_description": "Fins a 5 imatges o vídeos. Tria quin mostrar, a l'atzar o en seqüència (màx. 100 MB per arxiu).",
+      "patient_title": "Contingut per al pacient",
+      "patient_description": "Fins a 5 imatges o vídeos destinats al pacient. El seu ús exacte es configurarà properament."
     }
   }
 }

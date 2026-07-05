@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Upravit záznam toxinu",
+    "title_new": "Nový záznam toxinu",
+    "patient": "Pacient",
+    "select_patient": "Vybrat pacienta…",
+    "linked_consent": "Propojený informovaný souhlas",
+    "not_linked": "Nepropojeno",
+    "consent_default_name": "Souhlas",
+    "unsigned": "nepodepsáno",
+    "loading_consents": "Načítání souhlasů…",
+    "no_consents_hint": "Tento pacient zatím nemá podepsané souhlasy s aplikací toxinu. Je to volitelné, záznam můžete uložit bez propojení.",
+    "doctor": "Lékař",
+    "unassigned": "Nepřiřazeno",
+    "application_date": "Datum aplikace",
+    "brand_name": "Obchodní název",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Výrobce",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Číslo šarže",
+    "expiry_date": "Datum expirace",
+    "vials_opened": "Otevřené lahvičky",
+    "treated_zones": "Ošetřené oblasti",
+    "other_zone_placeholder": "Jiná oblast…",
+    "add": "Přidat",
+    "total_units": "Celkem jednotek",
+    "notes": "Poznámky",
+    "notes_placeholder": "Poznámky…",
+    "doctor_signature": "Podpis lékaře",
+    "signature_alt": "Podpis lékaře",
+    "signed_on": "Podepsáno {{date}}",
+    "sign_again": "Podepsat znovu",
+    "signature_hint": "Nakreslete podpis a před uložením klikněte na „Potvrdit podpis“.",
+    "confirm_delete": "Smazat tento záznam toxinu?",
+    "deleting": "Mazání…",
+    "delete_record": "Smazat záznam",
+    "cancel": "Zrušit",
+    "save_changes": "Uložit změny",
+    "create_record": "Vytvořit záznam",
+    "saving": "Ukládání…",
+    "unknown_error": "Neznámá chyba",
+    "validation": {
+      "required_fields": "Pacient, obchodní název, šarže, expirace a výrobce jsou povinné",
+      "signature_required": "Podpis lékaře je povinný pro uložení záznamu"
+    },
+    "zones": {
+      "forehead": "Čelo (horizontální vrásky)",
+      "glabella": "Mezi obočím (glabela)",
+      "crows_feet": "Vrásky kolem očí (periokulární oblast)",
+      "lower_eyelid": "Dolní víčko",
+      "eyebrow_lift": "Obočí (lifting)",
+      "bunny_lines": "Nos (bunny lines)",
+      "upper_lip": "Horní ret (kód čárky)",
+      "oral_commissures": "Koutky úst",
+      "chin_dimpling": "Brada (pomerančová kůra)",
+      "platysmal_bands": "Krk (platyzmové pruhy)",
+      "decolletage": "Dekolt",
+      "axillary_sweating": "Pocení podpaží (hyperhidróza)",
+      "palmar_sweating": "Pocení dlaní",
+      "plantar_sweating": "Pocení chodidel",
+      "jaw_bruxism": "Čelist (bruxismus / žvýkací svaly)",
+      "migraine_occipital": "Migréna (okcipitální body)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (krk a čelist)",
+      "other_zone": "Jiná oblast"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Generování…",
+    "export_pdf": "Exportovat PDF"
+  },
+  "patientGallery": {
+    "title": "Fotogalerie",
+    "upload_photos": "Nahrát fotografie",
+    "loading": "Načítání…",
+    "empty": "Žádné fotografie. Nahrajte první snímek.",
+    "confirm_delete": "Smazat tuto fotografii?",
+    "count_stored": "{{count}} {{unit}} · Uloženo v Cloudflare R2",
+    "photo_singular": "fotka",
+    "photo_plural": "fotek"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Upravit klinický záznam",
+    "title_new": "Nový klinický záznam",
+    "patient": "Pacient",
+    "select_patient": "Vybrat pacienta…",
+    "doctor": "Lékař",
+    "unassigned": "Nepřiřazeno",
+    "branch": "Klinika / Pobočka",
+    "unspecified": "Neurčeno",
+    "visit_date": "Datum návštěvy",
+    "reason_for_visit": "Důvod návštěvy",
+    "anamnesis": "Anamnéza",
+    "current_medications": "Aktuální medikace",
+    "allergies": "Známé alergie",
+    "physical_exam": "Fyzikální vyšetření",
+    "diagnosis": "Diagnóza",
+    "treatment_plan": "Plán léčby",
+    "notes": "Poznámky",
+    "select_patient_error": "Vyberte pacienta",
+    "unknown_error": "Neznámá chyba",
+    "cancel": "Zrušit",
+    "saving": "Ukládání…",
+    "save_record": "Uložit záznam"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Soubor překračuje limit {{maxSize}} MB",
+    "upload_error": "Chyba při nahrávání souboru",
+    "confirm_delete": "Smazat tento soubor?",
+    "video": "Video",
+    "image": "Obrázek",
+    "uploaded_on": "Nahráno {{date}}",
+    "change": "Změnit",
+    "delete": "Smazat",
+    "uploading": "Nahrávání… {{progress}} %",
+    "drop_hint": "Přetáhněte sem nebo klikněte pro nahrání",
+    "file_types_hint": "Obrázek (JPG, PNG, GIF) nebo video (MP4, MOV, WebM) · Max. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Napište obsah souhlasu…",
+    "bold": "Tučné",
+    "italic": "Kurzíva",
+    "heading": "Nadpis",
+    "bullet_list": "Seznam",
+    "ordered_list": "Číslovaný seznam",
+    "undo": "Zpět",
+    "redo": "Znovu"
+  },
+  "consentPdfButton": {
+    "generating": "Generování PDF…",
+    "export": "Exportovat PDF"
+  },
+  "newSessionModal": {
+    "title": "Nové fotografické sezení",
+    "patient_label": "Pacient",
+    "select_patient_placeholder": "Vybrat pacienta…",
+    "doctor_label": "Lékař",
+    "no_doctor_assigned": "Nepřiřazeno",
+    "branch_label": "Klinika / Pobočka",
+    "no_branch_specified": "Neurčeno",
+    "session_name_label": "Název sezení",
+    "session_name_placeholder": "Např.: Ošetření obličeje – sezení 1",
+    "date_label": "Datum a čas",
+    "notes_label": "Poznámky",
+    "notes_placeholder": "Poznámky k sezení…",
+    "select_patient_error": "Vyberte pacienta",
+    "unknown_error": "Neznámá chyba",
+    "cancel": "Zrušit",
+    "creating": "Vytváření…",
+    "create_session": "Vytvořit sezení"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotografické sezení",
+    "photo_count": "{{count}}/{{max}} fotek",
+    "compare_button": "Porovnat před / po",
+    "delete_session": "Smazat sezení",
+    "upload": "Nahrát",
+    "remaining": "zbývá {{remaining}}"
+  },
+  "beforeAfterModal": {
+    "select_title": "Vybrat fotografie k porovnání",
+    "compare_title": "Porovnání Před / Po",
+    "change_selection": "← Změnit výběr",
+    "select_intro": "Vyberte fotografii pro",
+    "select_middle": "a druhou pro",
+    "before": "Před",
+    "after": "Po",
+    "before_badge": "PŘED",
+    "after_badge": "PO",
+    "compare_button": "Porovnat"
+  },
+  "biometricPrompt": {
+    "title": "Aktivovat biometrický přístup",
+    "description": "Použijte Face ID, otisk prstu nebo Windows Hello a příště se přihlaste za méně než 2 sekundy.",
+    "device_label": "Zařízení:",
+    "activate": "Aktivovat",
+    "default_device": "Moje zařízení"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Ruční výběr",
+        "desc": "Vy vyberete, co se zobrazí. Kliknutím na kreativu ji aktivujete."
+      },
+      "random": {
+        "label": "Náhodné pořadí",
+        "desc": "Pokaždé, když má být zobrazena kreativa, vybere se náhodně."
+      },
+      "sequential": {
+        "label": "Sekvenční pořadí",
+        "desc": "Zobrazují se postupně, jedna po druhé, pokaždé, když je na řadě."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Soubor překračuje limit 100 MB",
+      "invalidUrl": "Neplatná URL"
+    },
+    "confirmDelete": "Smazat tuto kreativu?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Obrázek"
+    },
+    "active": "✓ Aktivní",
+    "select": "Vybrat",
+    "upload": {
+      "label": "Nahrát soubor",
+      "slotsFree": "{{count}} volných míst{{suffix}}"
+    },
+    "addUrlButton": "Přidat URL videa (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Přidat video pomocí URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… nebo přímá URL na .mp4",
+      "labelPlaceholder": "Název nebo popis (volitelné)",
+      "hint": "Kompatibilní s YouTube, Vimeo a přímými URL adresami videí (.mp4, .webm…)",
+      "add": "Přidat",
+      "saving": "Ukládání…"
+    },
+    "displayModeHeading": "Jak je zobrazovat?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Vítejte",
+    "continue": "Pokračovat →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Kdy zobrazit reklamu?",
+    "subheading": "Můžete vybrat více možností najednou.",
+    "options": {
+      "session": {
+        "label": "Jednou při přihlášení",
+        "desc": "Zobrazí se pouze jednou pokaždé, kdy uživatel otevře aplikaci v prohlížeči."
+      },
+      "consent": {
+        "label": "Pokaždé, když je vytvořen souhlas",
+        "desc": "Zobrazí se ihned po vytvoření každého informovaného souhlasu."
+      },
+      "clinical": {
+        "label": "Pokaždé, když je vytvořen klinický záznam",
+        "desc": "Zobrazí se ihned po uložení každého klinického záznamu."
+      },
+      "interval": {
+        "label": "Každých X minut",
+        "desc": "Zobrazuje se pravidelně, dokud je aplikace otevřená."
+      }
+    },
+    "every": "Každých",
+    "minutes": "minut",
+    "errors": {
+      "selectAtLeastOne": "Vyberte alespoň jednu možnost",
+      "saveFailed": "Chyba při ukládání"
+    },
+    "saving": "Ukládání…",
+    "saved": "Uloženo",
+    "saveButton": "Uložit konfiguraci",
+    "appliedMessage": "✅ Konfigurace použita"
+  },
+  "demoPreviewPanel": {
+    "heading": "Náhled podle rolí",
+    "subheading": "Vytvořte testovací data a vstupte do programu přesně tak, jak by ho viděl pacient, klinika nebo laboratoř.",
+    "createAllButton": "Vytvořit všechna testovací data",
+    "errors": {
+      "checkFailed": "Chyba při kontrole testovacích dat",
+      "createPatientFailed": "Nepodařilo se vytvořit testovacího pacienta",
+      "createBranchFailed": "Nepodařilo se vytvořit testovací pobočku",
+      "createLabFailed": "Nepodařilo se vytvořit testovací laboratoř"
+    },
+    "cards": {
+      "patient": {
+        "title": "Náhled pacienta",
+        "description": "Simuluje portál, který vidí pacient: jeho souhlasy, klinický záznam a fotografie."
+      },
+      "branch": {
+        "title": "Náhled kliniky",
+        "description": "Simuluje panel, který vidí personál kliniky, s nabídkou omezenou na jejich skutečná oprávnění."
+      },
+      "lab": {
+        "title": "Náhled laboratoře",
+        "description": "Simuluje panel spolupracující laboratoře: její profil, propojené kliniky a kampaně."
+      }
+    },
+    "testDataCreated": "Testovací data vytvořena",
+    "viewAs": "Zobrazit jako {{role}}",
+    "roleNames": {
+      "patient": "pacient",
+      "branch": "klinika",
+      "lab": "laboratoř"
+    },
+    "creating": "Vytváření…",
+    "createTestData": "Vytvořit testovací data"
+  },
+  "previewBanner": {
+    "message": "Náhled — vidíte rozhraní tak, jak by ho viděl(a)",
+    "exitButton": "Ukončit náhled",
+    "roles": {
+      "patient": "Pacient",
+      "clinica": "Klinika",
+      "labPartner": "Laboratoř"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Zobrazit měsíc",
+    "today": "Dnes",
+    "new_appointment": "Nová schůzka",
+    "no_treatments_warning": "Zatím nejsou vytvořeny žádné léčby. Přejděte na kartu „Léčby“ a vytvořte první, než začnete plánovat schůzky.",
+    "day_closed_notice": "Tento den je v Plánování rozvrhu označen jako zavřený. Můžete jej zkontrolovat nebo otevřít na této kartě.",
+    "slot_aria_label": "Naplánovat na {{time}}",
+    "outside_availability": "Mimo dostupné hodiny",
+    "treatment_fallback": "Léčba",
+    "doctor_prefix": "MUDr. {{name}}",
+    "legend": {
+      "available": "Dostupné",
+      "outside_hours": "Mimo otevírací dobu",
+      "scheduled": "Naplánovaná schůzka"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Upravit schůzku",
+    "title_new": "Nová schůzka",
+    "validation_required": "Pacient, léčba a čas jsou povinné",
+    "error_unknown": "Neznámá chyba",
+    "confirm_delete": "Smazat tuto schůzku?",
+    "deleting": "Mazání…",
+    "delete_appointment": "Smazat schůzku",
+    "cancel": "Zrušit",
+    "saving": "Ukládání…",
+    "save_changes": "Uložit změny",
+    "create_appointment": "Vytvořit schůzku",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Vybrat pacienta…",
+      "doctor": "Lékař",
+      "unassigned": "Nepřiřazeno",
+      "branch": "Klinika / Pobočka",
+      "main_branch": "Hlavní pobočka",
+      "treatment": "Léčba",
+      "select_treatment": "Vybrat léčbu…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Nejsou vytvořeny žádné léčby. Nejprve přidejte jednu na kartě „Léčby“.",
+      "datetime": "Datum a čas",
+      "duration_note": "V rozvrhu zabere {{duration}} minut.",
+      "notes": "Poznámky",
+      "notes_placeholder": "Poznámky ke schůzce…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Léčby",
+    "subtitle": "Doba trvání a cena každé léčby pro plánování schůzek",
+    "new_treatment": "Nová léčba",
+    "loading": "Načítání…",
+    "empty_state": "Zatím nejsou vytvořeny žádné léčby",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Smazat tuto léčbu?",
+    "form": {
+      "title_edit": "Upravit léčbu",
+      "title_new": "Nová léčba",
+      "name": "Název",
+      "name_placeholder": "Např.: Botulotoxin",
+      "duration": "Doba trvání (min)",
+      "price": "Cena (€)",
+      "validation_name_required": "Název je povinný",
+      "error_unknown": "Neznámá chyba",
+      "cancel": "Zrušit",
+      "saving": "Ukládání…",
+      "save": "Uložit"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+    "months": ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+    "has_exception_tooltip": "Již má nastavenou výjimku",
+    "legend": {
+      "usually_open": "Obvykle otevřeno",
+      "usually_closed": "Obvykle zavřeno",
+      "has_exception": "S výjimkou",
+      "selected": "Vybráno"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+    "months": ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+    "legend": {
+      "open_day": "Otevřený den",
+      "closed": "Zavřeno",
+      "today": "Dnes"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Plánování rozvrhu",
+    "subtitle": "Nastavte, které dny a v jakých hodinách lze plánovat schůzky.",
+    "time_separator": "do",
+    "add_time_range": "Přidat časový úsek",
+    "weekdays": ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
+    "confirm_delete_exception": "Smazat tuto výjimku a vrátit se k obvyklému rozvrhu tohoto dne?",
+    "errors": {
+      "save_schedule_failed": "Nepodařilo se uložit rozvrh",
+      "apply_pattern_failed": "Nepodařilo se použít vzor",
+      "select_day_required": "Vyberte alespoň jeden den v kalendáři",
+      "save_exception_failed": "Nepodařilo se uložit zvláštní den"
+    },
+    "bulk": {
+      "title": "Použít vzor na více dní najednou",
+      "description": "Např.: pondělí až pátek od 9:00 do 20:00. Vyberte dny a časový rozvrh, poté použijte — každý den můžete později upravit individuálně.",
+      "applying": "Používání…",
+      "apply_button": "Použít na vybrané dny"
+    },
+    "weekly": {
+      "title": "Obvyklý týdenní rozvrh",
+      "closed": "Zavřeno",
+      "saving": "Ukládání…",
+      "save": "Uložit"
+    },
+    "exceptions": {
+      "title": "Jednotlivé dny (výjimky)",
+      "description": "Otevřete zvláštní den (např. sobotu) nebo zavřete den, který je obvykle otevřený (např. svátek).",
+      "select_days_label": "Vyberte jeden nebo více dní",
+      "days_selected_singular": "{{count}} vybraný den",
+      "days_selected_plural": "{{count}} vybraných dní",
+      "clear_selection": "Vymazat výběr",
+      "open_special": "Otevřít zvláštní",
+      "close": "Zavřít",
+      "schedule_label": "Rozvrh v tyto dny",
+      "notes_placeholder": "Důvod (volitelné) — např.: Srpnové prázdniny",
+      "saving": "Ukládání…",
+      "save_button_singular": "Uložit zvláštní den",
+      "save_button_plural": "Uložit {{count}} zvláštních dní",
+      "no_exceptions": "Nejsou nastaveny žádné jednotlivé dny.",
+      "open_special_status": "Zvláštní otevření · {{ranges}}",
+      "closed_status": "Zavřeno"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Digitální Souhlasy · Digitální Podpis"
@@ -14,7 +445,15 @@
     "settings": "Nastavení",
     "clinicalRecords": "Klinický Záznam",
     "photos": "Fotografie",
-    "recharge": "Dobít kredit"
+    "recharge": "Předplatné",
+    "agenda": "Rozvrh",
+    "toxin": "Kontrola Toxinu",
+    "labPartners": "Laboratoře",
+    "menu": "Menu"
+  },
+  "topbar": {
+    "tagline": "Digitální Souhlasy · Digitální Podpis",
+    "legal": "eIDAS (EU 910/2014) · Zákon č. 372/2011 Sb. · GDPR"
   },
   "auth": {
     "login_title": "Zabezpečený přístup",
@@ -33,7 +472,20 @@
     "biometric_success": "Biometrie aktivována!",
     "biometric_success_msg": "Příště se přihlásíte jedním dotykem.",
     "biometric_error": "Aktivace se nezdařila. Ujistěte se, že vaše zařízení má nakonfigurovanou biometrii.",
-    "biometric_now": "Teď ne"
+    "biometric_now": "Teď ne",
+    "portal_subtitle": "Digitální Souhlasy · Digitální Podpis",
+    "portal_title": "Přístup k dokumentu",
+    "portal_email_prompt": "Zadejte svůj e-mail pro obdržení bezpečného přístupového odkazu.",
+    "portal_link_sent_title": "Odkaz odeslán",
+    "portal_link_sent_message": "Zkontrolujte svou poštu a klikněte na odkaz pro pokračování.",
+    "portal_email_placeholder": "vas@email.com",
+    "portal_consent_default_title": "Informovaný souhlas",
+    "portal_accept_label": "Přečetl/a jsem a souhlasím s tímto informovaným souhlasem",
+    "portal_proceed_to_sign": "Přejít k podpisu →",
+    "portal_saving_signature": "Ukládání podpisu…",
+    "portal_signed_title": "Podpis dokončen",
+    "portal_signed_message": "Váš souhlas byl bezpečně podepsán a zaregistrován.",
+    "portal_error_message": "Odkaz mohl vypršet nebo je nesprávný."
   },
   "patients": {
     "title": "Pacienti",
@@ -57,7 +509,34 @@
     "gallery": "Fotogalerie",
     "no_photos": "Žádné fotografie. Nahrajte první snímek.",
     "upload_photos": "Nahrát fotografie",
-    "uploading": "Nahrávání…"
+    "uploading": "Nahrávání…",
+    "count_registered": "{{count}} registrováno",
+    "form": {
+      "doc_type": "Typ",
+      "doc_type_passport": "Pas",
+      "city": "Město",
+      "province": "Kraj",
+      "country": "Země",
+      "select_placeholder": "— Vybrat —",
+      "countries": [
+        "Španělsko", "Německo", "Argentina", "Belgie", "Bolívie", "Brazílie", "Chile", "Čína",
+        "Kolumbie", "Kostarika", "Kuba", "Ekvádor", "Salvador", "USA", "Francie",
+        "Guatemala", "Honduras", "Itálie", "Maroko", "Mexiko", "Nikaragua", "Nizozemsko",
+        "Panama", "Paraguay", "Peru", "Portugalsko", "Spojené království", "Dominikánská republika",
+        "Švýcarsko", "Uruguay", "Venezuela", "Jiná"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Chyba při ukládání:",
+      "unknown_error": "Neznámá chyba"
+    }
   },
   "doctors": {
     "title": "Lékaři",
@@ -73,17 +552,45 @@
       "receptionist": "Recepční"
     },
     "save": "Uložit lékaře",
-    "no_results": "Žádní registrovaní lékaři"
+    "no_results": "Žádní registrovaní lékaři",
+    "last_name": "Příjmení",
+    "phone": "Telefon",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "Neznámá chyba",
+    "count_registered": "{{count}} registrováno",
+    "license_display": "Č. {{number}}"
   },
   "consents": {
     "title": "Souhlasy",
     "add": "Nový souhlas",
     "search": "Hledat souhlasy…",
+    "step_labels": ["Údaje", "Kontrola", "Podpis lékaře", "Podpis pacienta", "Hotovo"],
+    "branch_label": "Pobočka",
+    "main_branch": "Hlavní pobočka",
+    "select_patient": "Vybrat pacienta…",
+    "select_doctor": "Vybrat lékaře…",
+    "select_treatment": "Vybrat léčbu…",
+    "translating": "Překládání…",
+    "continue": "Pokračovat",
+    "responsible_doctor": "Zodpovědný lékař",
+    "legal_framework_title": "Právní rámec — {{jurisdiction}}",
+    "witness_required_notice": "Tato země vyžaduje svědka pro podpis",
+    "back": "← Zpět",
+    "sign_arrow": "Podepsat →",
+    "doctor_signature_title": "Podpis lékaře",
+    "doctor_signature_notice": "Lékař musí nejprve podepsat, aby souhlas byl platný",
+    "back_to_preview": "← Zpět",
+    "patient_signature_title": "Podpis pacienta",
+    "patient_signature_notice": "Pacient musí podepsat, aby potvrdil, že si přečetl a souhlasí se souhlasem",
+    "signed_title": "Souhlas podepsán",
+    "signed_description": "Dokument byl úspěšně podepsán a zaregistrován.",
+    "close": "Zavřít",
     "status": {
       "pending": "Čekající",
       "signed": "Podepsáno",
       "revoked": "Odvoláno",
-      "expired": "Vypršelo"
+      "expired": "Vypršelo",
+      "all": "Všechny"
     },
     "sign": "Podepsat",
     "generate_pdf": "Generovat PDF",
@@ -93,7 +600,13 @@
     "treatment": "Léčba",
     "language": "Jazyk",
     "signed_at": "Datum podpisu",
-    "no_results": "Žádné souhlasy"
+    "no_results": "Žádné souhlasy",
+    "confirm_delete": "Smazat tento souhlas?",
+    "stats": "{{total}} celkem · {{signed}} podepsáno · {{pending}} čeká",
+    "branch": "Pobočka",
+    "created_at": "Datum vytvoření",
+    "status_header": "Stav",
+    "continue_signature": "Pokračovat v podpisu"
   },
   "signature": {
     "title": "Podpis pacienta",
@@ -119,7 +632,14 @@
     "branch_name": "Název pobočky",
     "save_branches": "Uložit pobočky",
     "edit_branch": "Upravit pobočku",
-    "new_branch": "Nová pobočka"
+    "new_branch": "Nová pobočka",
+    "save_branch": "Uložit pobočku",
+    "subtitle": "Obecné nastavení kliniky",
+    "trade_name": "Obchodní název",
+    "legal_name": "Právní název / obchodní firma",
+    "nika_number": "Číslo NIKA",
+    "save_success": "Úspěšně uloženo",
+    "confirm_delete_branch": "Smazat tuto pobočku?"
   },
   "language": {
     "select": "Jazyk",
@@ -144,7 +664,27 @@
     "magic_link_sent": "Odeslali jsme Magic Link na",
     "email": "E-mail",
     "magic_link": "Přihlásit se pomocí Magic Link",
-    "footer": "Platné digitální souhlasy · Zákon č. 372/2011 Sb. · GDPR"
+    "footer": "Platné digitální souhlasy · Zákon č. 372/2011 Sb. · GDPR",
+    "invalid_email": "Zadejte platný e-mail",
+    "send_error": "Chyba při odesílání odkazu",
+    "subtitle": "Digitální Souhlasy · eIDAS",
+    "email_placeholder": "vas@klinika.cz"
+  },
+  "dashboard": {
+    "title": "Přehled",
+    "subtitle": "Souhrn aktivity",
+    "pending_signature": "Čekající na podpis",
+    "signature_rate": "Míra podpisu",
+    "signed_count": "{{count}} podepsáno",
+    "pending_count": "{{count}} čeká",
+    "recent_consents": "Poslední souhlasy",
+    "view_all_consents": "Zobrazit vše →",
+    "view_all": "Zobrazit vše →",
+    "no_consents": "Žádné souhlasy",
+    "recent_clinical": "Poslední klinické záznamy",
+    "no_clinical": "Žádné klinické záznamy",
+    "recent_photos": "Poslední fotografická sezení",
+    "no_photos": "Žádná fotografická sezení"
   },
   "templates": {
     "title": "Šablony",
@@ -152,7 +692,7 @@
     "editor_title": "Editor šablony",
     "consent_title_label": "Název souhlasu",
     "no_translation": "Žádný překlad v",
-    "translate_all": "Přeložit do 31 jazyků",
+    "translate_all": "Přeložit do 21 jazyků",
     "translating": "Překládání…",
     "legal_framework": "Právní rámec",
     "select_template": "Vyberte šablonu pro úpravy",
@@ -163,9 +703,343 @@
     "saving": "Ukládání…",
     "saved": "Uloženo"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Smazat tento klinický záznam?",
+    "confirm_delete_session": "Smazat toto sezení a všechny jeho fotografie?",
+    "not_found": "Pacient nenalezen",
+    "date_of_birth": "Datum narození",
+    "email": "E-mail",
+    "blood_type": "Krevní skupina",
+    "address": "Adresa",
+    "allergies": "Alergie",
+    "medications": "Medikace",
+    "tabs": {
+      "history": "Klinické záznamy ({{count}})",
+      "photos": "Fotografie ({{count}})",
+      "consents": "Souhlasy ({{count}})"
+    },
+    "new_clinical_record": "Nový záznam",
+    "no_clinical_records": "Tento pacient nemá žádné klinické záznamy",
+    "doctor_prefix": "MUDr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnéza",
+      "allergies": "Alergie",
+      "current_medications": "Aktuální medikace",
+      "physical_exam": "Fyzikální vyšetření",
+      "diagnosis": "Diagnóza",
+      "treatment_plan": "Plán léčby",
+      "notes": "Poznámky"
+    },
+    "new_photo_session": "Nové sezení",
+    "no_photo_sessions": "Tento pacient nemá žádná fotografická sezení",
+    "no_consents": "Tento pacient nemá žádné souhlasy",
+    "status": {
+      "signed": "Podepsáno",
+      "pending": "Čeká",
+      "revoked": "Odvoláno",
+      "expired": "Vypršelo"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratoř",
+    "not_found": "Profil laboratoře nebyl nalezen.",
+    "panel_subtitle": "Panel spolupracující laboratoře",
+    "tabs": {
+      "clinics": "Propojené kliniky",
+      "campaigns": "Reklamní kampaně",
+      "stats": "Statistiky"
+    },
+    "no_clinics": "K této laboratoři zatím nejsou propojeny žádné kliniky.",
+    "media_management": "Správa reklamních médií",
+    "welcome_screen": {
+      "title": "Úvodní obrazovka",
+      "description": "Až 5 obrázků nebo videí. Vyberte, co se zobrazí, náhodně nebo v pořadí (max. 100 MB na soubor)."
+    },
+    "patient_content": {
+      "title": "Obsah pro pacienta",
+      "description": "Až 5 obrázků nebo videí určených pro pacienta. Jejich přesné využití bude brzy nastavitelné."
+    },
+    "stats_pending": "Tato sekce zatím čeká na definici — brzy zde uvidíte metriky výkonu vašich kampaní a klinik."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Smazat tento klinický záznam?",
+    "title": "Klinické Záznamy",
+    "records_count": "{{count}} záznamů",
+    "add_record": "Nový záznam",
+    "search_placeholder": "Hledat podle pacienta, diagnózy, důvodu…",
+    "no_records": "Žádné klinické záznamy",
+    "table_headers": ["Pacient", "Datum", "Důvod návštěvy", "Diagnóza", "Lékař", ""]
+  },
+  "labPartners": {
+    "title": "Spolupracující Laboratoře",
+    "count": "{{count}} registrováno",
+    "new_lab": "Nová Laboratoř",
+    "search_placeholder": "Hledat laboratoř…",
+    "no_labs": "Žádné laboratoře.",
+    "col_name": "Název",
+    "col_email": "E-mail",
+    "col_contact": "Kontakt",
+    "col_phone": "Telefon",
+    "col_status": "Stav",
+    "col_actions": "Akce",
+    "status_active": "Aktivní",
+    "status_inactive": "Neaktivní",
+    "confirm_deactivate": "Deaktivovat laboratoř?",
+    "form": {
+      "edit_title": "Upravit Laboratoř",
+      "new_title": "Nová Laboratoř",
+      "name": "Název",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "contact_person": "Kontaktní osoba",
+      "website": "Web",
+      "notes": "Poznámky",
+      "name_email_required": "Název a e-mail jsou povinné",
+      "unknown_error": "Neznámá chyba"
+    },
+    "campaigns": {
+      "title": "Kampaně {{name}}",
+      "new_campaign": "Nová Kampaň",
+      "no_campaigns": "Žádné kampaně.",
+      "col_name": "Název",
+      "col_type": "Typ",
+      "col_trigger": "Spouštěč",
+      "col_status": "Stav",
+      "col_actions": "Akce",
+      "confirm_delete": "Smazat kampaň?",
+      "form": {
+        "edit_title": "Upravit Kampaň",
+        "new_title": "Nová Kampaň",
+        "name": "Název",
+        "name_required": "Název je povinný",
+        "unknown_error": "Neznámá chyba",
+        "type": "Typ",
+        "rotation_mode": "Režim rotace",
+        "rotation_random": "Náhodný",
+        "rotation_manual": "Ruční",
+        "creative_url": "URL kreativy",
+        "trigger": "Spouštěč",
+        "interval_minutes": "Interval (min)",
+        "start_date": "Datum zahájení",
+        "end_date": "Datum ukončení",
+        "active": "Aktivní"
+      }
+    },
+    "creative_types": {
+      "image": "Obrázek",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Nabídka",
+      "training": "Školení"
+    },
+    "triggers": {
+      "on_login": "Při otevření",
+      "on_consent": "Při vytvoření souhlasu",
+      "every_x_minutes": "Každých X minut",
+      "once_daily": "Jednou denně"
+    }
+  },
+  "agenda": {
+    "title": "Rozvrh",
+    "subtitle": "Schůzky, léčby a plánování rozvrhu",
+    "tab_appointments": "Schůzky",
+    "tab_treatments": "Léčby",
+    "tab_planning": "Plánování rozvrhu"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID nebylo zadáno",
+    "verifying": "Ověřování dokumentu…",
+    "subtitle": "Ověření dokumentu",
+    "not_found_title": "Dokument nenalezen",
+    "signed_title": "Dokument platný a podepsaný",
+    "signed_subtitle": "Podpis byl úspěšně ověřen",
+    "revoked_title": "Souhlas odvolán",
+    "revoked_subtitle": "Pacient tento souhlas odvolal",
+    "pending_title": "Čeká na podpis",
+    "pending_subtitle": "Tento dokument ještě nebyl podepsán",
+    "patient": "Pacient",
+    "doctor": "Lékař",
+    "treatment": "Léčba",
+    "signed_date": "Datum podpisu",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "ID dokumentu:",
+    "verified_on": "Ověřeno {{date}}. Tento dokument je platný v souladu se zákonem č. 372/2011 Sb. a elektronicky podepsán podle nařízení eIDAS (EU) č. 910/2014."
+  },
+  "recharge": {
+    "title": "Plány předplatného",
+    "subtitle": "Vyberte plán, který nejlépe vyhovuje vaší klinice",
+    "monthly": "Měsíční",
+    "annual": "Roční",
+    "per_month": "/měsíc",
+    "save_20_annual": "Ušetříte 20 % při roční platbě",
+    "switch_annual_save": "Přejděte na roční platbu a ušetřete 20 %",
+    "hire_plan": "Objednat plán",
+    "note_title": "Poznámka k Plánu AI a Plánu AI Premium:",
+    "note_text": "Počáteční konfigurace AI agentů (služby, léčby a personalizace) a implementace se vyčíslují zvlášť podle složitosti dané kliniky. Náklady na hlasového agenta a WhatsApp API nejsou zahrnuty v měsíčním poplatku.",
+    "plans": {
+      "base": {
+        "name": "Základní plán",
+        "features": [
+          "Neomezené informované souhlasy",
+          "Klinický záznam",
+          "Fotogalerie",
+          "Portál pacienta",
+          "Magic Link + biometrie",
+          "Podpora v ceně"
+        ]
+      },
+      "pro": {
+        "name": "Plán Pro",
+        "badge": "Nejoblíbenější",
+        "features": [
+          "Vše ze Základního plánu +",
+          "Rozvrh schůzek",
+          "CRM pacientů",
+          "Kontrola toxinu",
+          "Cenové nabídky pro pacienty"
+        ]
+      },
+      "ia": {
+        "name": "Plán AI",
+        "features": [
+          "Vše z Plánu Pro +",
+          "AI WhatsApp agent 24/7 — získávání schůzek",
+          "Automatizované potvrzování schůzek",
+          "Automatizované připomínky schůzek",
+          "Panel pro správu WhatsApp",
+          "Komunikace s pacienty přes WhatsApp",
+          "Odesílání souhlasů, klinických záznamů, fotografií, cenových nabídek a faktur přes WhatsApp"
+        ]
+      },
+      "ia_plus": {
+        "name": "Plán AI Premium",
+        "badge": "Novinka",
+        "features": [
+          "Vše z Plánu AI +",
+          "AI hlasový agent 24/7: přijímá hovory",
+          "Automaticky plánuje schůzky po telefonu",
+          "Klonuje hlas vaší recepční na 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Kontrola Toxinu",
+    "subtitle": "Sledovatelnost šarží botulotoxinu",
+    "new_record": "Nový záznam",
+    "from": "Od",
+    "to": "Do",
+    "doctor": "Lékař",
+    "patient": "Pacient",
+    "all": "Všichni",
+    "lot_number": "Č. šarže",
+    "search_lot_placeholder": "Hledat šarži…",
+    "clear_filters": "Vymazat filtry",
+    "no_results": "S těmito filtry nejsou žádné záznamy toxinu.",
+    "col_date": "Datum",
+    "col_patient": "Pacient",
+    "col_doctor": "Lékař",
+    "col_brand": "Obchodní název",
+    "col_lot": "Šarže",
+    "col_expiry": "Expirace",
+    "col_zones": "Oblasti",
+    "col_units": "Jednotky",
+    "col_signature": "Podpis",
+    "col_ci": "IS",
+    "col_actions": "Akce",
+    "signed": "Podepsáno",
+    "unsigned": "Bez podpisu",
+    "consent_linked": "S propojeným souhlasem",
+    "consent_not_linked": "Bez propojeného souhlasu",
+    "confirm_delete": "Smazat tento záznam toxinu?",
+    "detail": {
+      "not_found": "Záznam nenalezen.",
+      "patient": "Pacient",
+      "doctor": "Lékař",
+      "brand": "Obchodní název",
+      "manufacturer": "Výrobce",
+      "lot": "Číslo šarže",
+      "expiry": "Datum expirace",
+      "vials": "Otevřené lahvičky",
+      "total_units": "Celkem jednotek",
+      "treated_zones": "Ošetřené oblasti",
+      "no_zones": "Žádné zaznamenané oblasti.",
+      "notes": "Poznámky",
+      "doctor_signature": "Podpis lékaře",
+      "signature_alt": "Podpis lékaře",
+      "signed_on": "Podepsáno {{date}}",
+      "no_signature": "Tento záznam nemá podpis lékaře.",
+      "linked_consent": "Propojený informovaný souhlas",
+      "consent_default_name": "Souhlas",
+      "consent_unsigned": "Nepodepsáno",
+      "loading_pdf": "Načítání PDF…",
+      "consent_load_error": "Nepodařilo se načíst informace o propojeném souhlasu."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token nebyl v URL nalezen",
+    "invalid_token": "Neplatný nebo vypršelý token",
+    "connection_error": "Chyba připojení",
+    "verifying": "Ověřování odkazu…",
+    "invalid_link": "Neplatný odkaz",
+    "back_home": "Zpět na hlavní stránku"
+  },
+  "photoSessions": {
+    "confirm_delete": "Smazat toto sezení a všechny jeho fotografie?",
+    "title": "Fotografie",
+    "subtitle": "{{count}} fotografických sezení",
+    "new_session": "Nové sezení",
+    "search_placeholder": "Hledat podle pacienta nebo názvu sezení…",
+    "no_sessions": "Žádná fotografická sezení"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Moje souhlasy",
+      "clinical": "Můj klinický záznam",
+      "photos": "Moje fotografie"
+    },
+    "consents": {
+      "empty": "Zatím nemáte podepsané žádné souhlasy.",
+      "default_name": "Souhlas",
+      "doctor": "MUDr. {{name}}",
+      "signed_on": "Podepsáno {{date}}",
+      "status_signed": "Podepsáno",
+      "status_pending": "Čeká"
+    },
+    "clinical": {
+      "empty": "Váš klinický záznam je prázdný.",
+      "default_name": "Konzultace",
+      "doctor_suffix": " · MUDr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnóza",
+        "anamnesis": "Anamnéza",
+        "current_medications": "Aktuální medikace",
+        "allergies": "Alergie",
+        "treatment_plan": "Plán léčby",
+        "notes": "Poznámky"
+      }
+    },
+    "photos": {
+      "empty": "Zatím nejsou žádná fotografická sezení.",
+      "back_to_sessions": "Zpět na sezení",
+      "default_session_name": "Fotografické sezení",
+      "doctor_suffix": " · MUDr. {{name}}",
+      "compare_title": "Porovnání před / po",
+      "before": "Před",
+      "after": "Po",
+      "close_compare": "Zavřít porovnání",
+      "compare_button": "Porovnat",
+      "photo_count": "{{count}} fotek"
+    }
+  },
   "settings": {
     "title": "Nastavení",
     "subtitle": "Správa uživatelů a přístupu",
+    "tabs": {
+      "users": "Uživatelé",
+      "media": "Reklama",
+      "preview": "Náhled"
+    },
     "users": {
       "title": "Uživatelé",
       "invite_user": "Pozvat uživatele",
@@ -181,7 +1055,33 @@
       "no_users": "Žádní uživatelé. Pozvěte prvního.",
       "inactive": "Neaktivní",
       "activate": "Aktivovat",
-      "deactivate": "Deaktivovat"
+      "deactivate": "Deaktivovat",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Lékař",
+      "role_receptionist": "Recepční",
+      "role_lab_partner": "Laboratoř",
+      "role_patient": "Pacient",
+      "filter_all": "Všichni",
+      "invite_accepted": "Pozvánka přijata",
+      "invite_expired": "Pozvánka vypršela",
+      "invite_pending": "Pozvánka čeká",
+      "email_placeholder": "uzivatel@klinika.cz",
+      "full_name_placeholder": "Jméno Příjmení",
+      "linked_lab": "Propojená laboratoř",
+      "no_lab": "Bez laboratoře",
+      "lab_hint": "Uživatel uvidí pouze kliniky propojené s touto laboratoří.",
+      "admin_only_hint": "Nastavení je vyhrazeno pouze administrátorům a nikdy jej nelze delegovat na kliniku.",
+      "load_error": "Nepodařilo se načíst seznam uživatelů",
+      "retry": "Zkusit znovu"
+    },
+    "media": {
+      "title": "Správa reklamních médií",
+      "managed_by_lab": "Tuto reklamu spravuje vaše spolupracující laboratoř. Zde ji můžete zobrazit, ale upravit ji může pouze laboratoř.",
+      "managed_by_lab_named": "Tuto reklamu spravuje vaše spolupracující laboratoř ({{name}}). Zde ji můžete zobrazit, ale upravit ji může pouze laboratoř.",
+      "welcome_title": "Úvodní obrazovka",
+      "welcome_description": "Až 5 obrázků nebo videí. Vyberte, co se zobrazí, náhodně nebo v pořadí (max. 100 MB na soubor).",
+      "patient_title": "Obsah pro pacienta",
+      "patient_description": "Až 5 obrázků nebo videí určených pro pacienta. Jejich přesné využití bude brzy nastavitelné."
     }
   }
 }

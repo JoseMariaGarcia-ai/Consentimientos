@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Redigera toxinregistrering",
+    "title_new": "Ny toxinregistrering",
+    "patient": "Patient",
+    "select_patient": "Välj patient…",
+    "linked_consent": "Kopplat samtycke",
+    "not_linked": "Ej kopplat",
+    "consent_default_name": "Samtycke",
+    "unsigned": "osignerat",
+    "loading_consents": "Laddar samtycken…",
+    "no_consents_hint": "Denna patient har inga signerade toxinsamtycken än. Det är valfritt — du kan spara registreringen utan att koppla den.",
+    "doctor": "Läkare",
+    "unassigned": "Ej tilldelad",
+    "application_date": "Appliceringsdatum",
+    "brand_name": "Varumärke",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Tillverkare",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Batchnummer",
+    "expiry_date": "Utgångsdatum",
+    "vials_opened": "Öppnade injektionsflaskor",
+    "treated_zones": "Behandlade zoner",
+    "other_zone_placeholder": "Annan zon…",
+    "add": "Lägg till",
+    "total_units": "Totalt antal enheter",
+    "notes": "Anteckningar",
+    "notes_placeholder": "Observationer…",
+    "doctor_signature": "Läkarens signatur",
+    "signature_alt": "Läkarens signatur",
+    "signed_on": "Signerat {{date}}",
+    "sign_again": "Signera igen",
+    "signature_hint": "Rita signaturen och tryck på \"Bekräfta signatur\" innan du sparar.",
+    "confirm_delete": "Ta bort denna toxinregistrering?",
+    "deleting": "Tar bort…",
+    "delete_record": "Ta bort registrering",
+    "cancel": "Avbryt",
+    "save_changes": "Spara ändringar",
+    "create_record": "Skapa registrering",
+    "saving": "Sparar…",
+    "unknown_error": "Okänt fel",
+    "validation": {
+      "required_fields": "Patient, varumärke, batch, utgångsdatum och tillverkare är obligatoriska",
+      "signature_required": "Läkarens signatur krävs för att spara registreringen"
+    },
+    "zones": {
+      "forehead": "Panna (horisontella linjer)",
+      "glabella": "Mellan ögonbrynen (glabella)",
+      "crows_feet": "Kråksparkar (periokulärt)",
+      "lower_eyelid": "Nedre ögonlock",
+      "eyebrow_lift": "Ögonbryn (lyft)",
+      "bunny_lines": "Näsa (bunny lines)",
+      "upper_lip": "Överläpp (streckkod)",
+      "oral_commissures": "Munvinklar",
+      "chin_dimpling": "Haka (apelsinskal)",
+      "platysmal_bands": "Hals (platysmabanden)",
+      "decolletage": "Dekolletage",
+      "axillary_sweating": "Armhålssvettning (hyperhidros)",
+      "palmar_sweating": "Handflatssvettning",
+      "plantar_sweating": "Fotsulesvettning",
+      "jaw_bruxism": "Käke (bruxism / massetermuskler)",
+      "migraine_occipital": "Migrän (occipitala punkter)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti-lyft (hals och käke)",
+      "other_zone": "Annan zon"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Genererar…",
+    "export_pdf": "Exportera PDF"
+  },
+  "patientGallery": {
+    "title": "Fotogalleri",
+    "upload_photos": "Ladda upp foton",
+    "loading": "Laddar…",
+    "empty": "Inga foton. Ladda upp den första bilden.",
+    "confirm_delete": "Ta bort detta foto?",
+    "count_stored": "{{count}} {{unit}} · Lagrade i Cloudflare R2",
+    "photo_singular": "foto",
+    "photo_plural": "foton"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Redigera journal",
+    "title_new": "Ny journal",
+    "patient": "Patient",
+    "select_patient": "Välj patient…",
+    "doctor": "Läkare",
+    "unassigned": "Ej tilldelad",
+    "branch": "Klinik / Filial",
+    "unspecified": "Ej angivet",
+    "visit_date": "Besöksdatum",
+    "reason_for_visit": "Anledning till besök",
+    "anamnesis": "Anamnes / Sjukdomshistoria",
+    "current_medications": "Aktuell medicinering",
+    "allergies": "Kända allergier",
+    "physical_exam": "Fysisk undersökning",
+    "diagnosis": "Diagnos",
+    "treatment_plan": "Behandlingsplan",
+    "notes": "Observationer / Anteckningar",
+    "select_patient_error": "Välj en patient",
+    "unknown_error": "Okänt fel",
+    "cancel": "Avbryt",
+    "saving": "Sparar…",
+    "save_record": "Spara journal"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Filen överskrider gränsen på {{maxSize}} MB",
+    "upload_error": "Fel vid uppladdning av filen",
+    "confirm_delete": "Ta bort denna fil?",
+    "video": "Video",
+    "image": "Bild",
+    "uploaded_on": "Uppladdad {{date}}",
+    "change": "Ändra",
+    "delete": "Ta bort",
+    "uploading": "Laddar upp… {{progress}}%",
+    "drop_hint": "Dra hit eller klicka för att ladda upp",
+    "file_types_hint": "Bild (JPG, PNG, GIF) eller video (MP4, MOV, WebM) · Max {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Skriv innehållet i samtycket…",
+    "bold": "Fet",
+    "italic": "Kursiv",
+    "heading": "Rubrik",
+    "bullet_list": "Punktlista",
+    "ordered_list": "Numrerad lista",
+    "undo": "Ångra",
+    "redo": "Gör om"
+  },
+  "consentPdfButton": {
+    "generating": "Genererar PDF…",
+    "export": "Exportera PDF"
+  },
+  "newSessionModal": {
+    "title": "Ny fotosession",
+    "patient_label": "Patient",
+    "select_patient_placeholder": "Välj patient…",
+    "doctor_label": "Läkare",
+    "no_doctor_assigned": "Ej tilldelad",
+    "branch_label": "Klinik / Filial",
+    "no_branch_specified": "Ej angivet",
+    "session_name_label": "Sessionens namn",
+    "session_name_placeholder": "Ex: Ansiktsbehandling session 1",
+    "date_label": "Datum och tid",
+    "notes_label": "Anteckningar",
+    "notes_placeholder": "Observationer om sessionen…",
+    "select_patient_error": "Välj en patient",
+    "unknown_error": "Okänt fel",
+    "cancel": "Avbryt",
+    "creating": "Skapar…",
+    "create_session": "Skapa session"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotosession",
+    "photo_count": "{{count}}/{{max}} foton",
+    "compare_button": "Jämför före / efter",
+    "delete_session": "Ta bort session",
+    "upload": "Ladda upp",
+    "remaining": "{{remaining}} kvar"
+  },
+  "beforeAfterModal": {
+    "select_title": "Välj foton att jämföra",
+    "compare_title": "Jämförelse Före / Efter",
+    "change_selection": "← Ändra val",
+    "select_intro": "Välj ett foto för",
+    "select_middle": "och ett annat för",
+    "before": "Före",
+    "after": "Efter",
+    "before_badge": "FÖRE",
+    "after_badge": "EFTER",
+    "compare_button": "Jämför"
+  },
+  "biometricPrompt": {
+    "title": "Aktivera biometrisk åtkomst",
+    "description": "Använd Face ID, fingeravtryck eller Windows Hello för att logga in på under 2 sekunder nästa gång.",
+    "device_label": "Enhet:",
+    "activate": "Aktivera",
+    "default_device": "Min enhet"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Manuellt val",
+        "desc": "Du väljer vilken som visas. Klicka på en kreativ för att aktivera den."
+      },
+      "random": {
+        "label": "Slumpmässig ordning",
+        "desc": "En kreativ väljs slumpmässigt varje gång det är dags att visa den."
+      },
+      "sequential": {
+        "label": "Sekventiell ordning",
+        "desc": "De visas i ordning, en i taget, varje gång det är dags."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Filen överskrider gränsen på 100 MB",
+      "invalidUrl": "Ogiltig URL"
+    },
+    "confirmDelete": "Ta bort denna kreativ?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Bild"
+    },
+    "active": "✓ Aktiv",
+    "select": "Välj",
+    "upload": {
+      "label": "Ladda upp fil",
+      "slotsFree": "{{count}} ledig{{suffix}}"
+    },
+    "addUrlButton": "Lägg till video-URL (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Lägg till video via URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… eller direkt URL till .mp4",
+      "labelPlaceholder": "Namn eller beskrivning (valfritt)",
+      "hint": "Kompatibel med YouTube, Vimeo och direkta video-URL:er (.mp4, .webm…)",
+      "add": "Lägg till",
+      "saving": "Sparar…"
+    },
+    "displayModeHeading": "Hur ska de visas?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Välkommen",
+    "continue": "Fortsätt →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "När ska annonseringen visas?",
+    "subheading": "Du kan välja flera alternativ samtidigt.",
+    "options": {
+      "session": {
+        "label": "En gång vid inloggning",
+        "desc": "Visas endast en gång varje gång användaren öppnar applikationen i webbläsaren."
+      },
+      "consent": {
+        "label": "Varje gång ett samtycke skapas",
+        "desc": "Visas omedelbart efter att varje informerat samtycke har skapats."
+      },
+      "clinical": {
+        "label": "Varje gång en journal skapas",
+        "desc": "Visas omedelbart efter att varje journal har sparats."
+      },
+      "interval": {
+        "label": "Var X:e minut",
+        "desc": "Visas periodiskt medan applikationen är öppen."
+      }
+    },
+    "every": "Var",
+    "minutes": "minut",
+    "errors": {
+      "selectAtLeastOne": "Välj minst ett alternativ",
+      "saveFailed": "Fel vid sparande"
+    },
+    "saving": "Sparar…",
+    "saved": "Sparat",
+    "saveButton": "Spara konfiguration",
+    "appliedMessage": "✅ Konfigurationen har tillämpats"
+  },
+  "demoPreviewPanel": {
+    "heading": "Förhandsgranskning per roll",
+    "subheading": "Skapa testdata och gå in i programmet exakt som en patient, en klinik eller ett laboratorium skulle se det.",
+    "createAllButton": "Skapa alla testdata",
+    "errors": {
+      "checkFailed": "Fel vid kontroll av testdata",
+      "createPatientFailed": "Kunde inte skapa testpatienten",
+      "createBranchFailed": "Kunde inte skapa testfilialen",
+      "createLabFailed": "Kunde inte skapa testlaboratoriet"
+    },
+    "cards": {
+      "patient": {
+        "title": "Patientvy",
+        "description": "Simulerar portalen som en patient ser: dess samtycken, journal och foton."
+      },
+      "branch": {
+        "title": "Klinikvy",
+        "description": "Simulerar panelen som klinikens personal ser, med menyn begränsad till deras faktiska behörigheter."
+      },
+      "lab": {
+        "title": "Laboratorievy",
+        "description": "Simulerar panelen för ett samarbetande laboratorium: dess profil, kopplade kliniker och kampanjer."
+      }
+    },
+    "testDataCreated": "Testdata skapad",
+    "viewAs": "Visa som {{role}}",
+    "roleNames": {
+      "patient": "patient",
+      "branch": "klinik",
+      "lab": "laboratorium"
+    },
+    "creating": "Skapar…",
+    "createTestData": "Skapa testdata"
+  },
+  "previewBanner": {
+    "message": "Förhandsgranskning — du ser gränssnittet som",
+    "exitButton": "Avsluta förhandsgranskning",
+    "roles": {
+      "patient": "Patient",
+      "clinica": "Klinik",
+      "labPartner": "Laboratorium"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Visa månad",
+    "today": "Idag",
+    "new_appointment": "Ny bokning",
+    "no_treatments_warning": "Inga behandlingar har skapats än. Gå till fliken \"Behandlingar\" för att skapa den första innan du bokar tider.",
+    "day_closed_notice": "Den här dagen är markerad som stängd i Schemaplaneringen. Du kan granska eller öppna den från den fliken.",
+    "slot_aria_label": "Boka kl. {{time}}",
+    "outside_availability": "Utanför tillgänglig tid",
+    "treatment_fallback": "Behandling",
+    "doctor_prefix": "Dr {{name}}",
+    "legend": {
+      "available": "Tillgänglig",
+      "outside_hours": "Utanför öppettider",
+      "scheduled": "Bokad tid"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Redigera bokning",
+    "title_new": "Ny bokning",
+    "validation_required": "Patient, behandling och tid är obligatoriska",
+    "error_unknown": "Okänt fel",
+    "confirm_delete": "Ta bort denna bokning?",
+    "deleting": "Tar bort…",
+    "delete_appointment": "Ta bort bokning",
+    "cancel": "Avbryt",
+    "saving": "Sparar…",
+    "save_changes": "Spara ändringar",
+    "create_appointment": "Skapa bokning",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Välj patient…",
+      "doctor": "Läkare",
+      "unassigned": "Ej tilldelad",
+      "branch": "Klinik / Filial",
+      "main_branch": "Huvudklinik",
+      "treatment": "Behandling",
+      "select_treatment": "Välj behandling…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} kr",
+      "no_treatments_warning": "Inga behandlingar har skapats. Lägg till en på fliken \"Behandlingar\" först.",
+      "datetime": "Datum och tid",
+      "duration_note": "Kommer att uppta {{duration}} minuter i agendan.",
+      "notes": "Anteckningar",
+      "notes_placeholder": "Observationer om bokningen…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Behandlingar",
+    "subtitle": "Varaktighet och pris för varje behandling för att kunna boka tider",
+    "new_treatment": "Ny behandling",
+    "loading": "Laddar…",
+    "empty_state": "Inga behandlingar skapade än",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} kr",
+    "confirm_delete": "Ta bort denna behandling?",
+    "form": {
+      "title_edit": "Redigera behandling",
+      "title_new": "Ny behandling",
+      "name": "Namn",
+      "name_placeholder": "Ex: Botulinumtoxin",
+      "duration": "Varaktighet (min)",
+      "price": "Pris (kr)",
+      "validation_name_required": "Namn är obligatoriskt",
+      "error_unknown": "Okänt fel",
+      "cancel": "Avbryt",
+      "saving": "Sparar…",
+      "save": "Spara"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
+    "months": ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+    "has_exception_tooltip": "Har redan ett undantag konfigurerat",
+    "legend": {
+      "usually_open": "Normalt öppet",
+      "usually_closed": "Normalt stängt",
+      "has_exception": "Med undantag",
+      "selected": "Vald"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
+    "months": ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+    "legend": {
+      "open_day": "Öppen dag",
+      "closed": "Stängt",
+      "today": "Idag"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Schemaplanering",
+    "subtitle": "Konfigurera vilka dagar och vilka tider bokningar kan göras.",
+    "time_separator": "till",
+    "add_time_range": "Lägg till tidsintervall",
+    "weekdays": ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"],
+    "confirm_delete_exception": "Ta bort detta undantag och återgå till den vanliga tiden för den dagen?",
+    "errors": {
+      "save_schedule_failed": "Kunde inte spara schemat",
+      "apply_pattern_failed": "Kunde inte tillämpa mönstret",
+      "select_day_required": "Välj minst en dag i kalendern",
+      "save_exception_failed": "Kunde inte spara specialdagen"
+    },
+    "bulk": {
+      "title": "Tillämpa ett mönster på flera dagar samtidigt",
+      "description": "Ex: måndag till fredag 09:00 till 20:00. Välj dagar och tid, tillämpa sedan — du kan justera varje dag individuellt efteråt.",
+      "applying": "Tillämpar…",
+      "apply_button": "Tillämpa på valda dagar"
+    },
+    "weekly": {
+      "title": "Vanligt veckoschema",
+      "closed": "Stängt",
+      "saving": "Sparar…",
+      "save": "Spara"
+    },
+    "exceptions": {
+      "title": "Enstaka dagar (undantag)",
+      "description": "Öppna en specialdag (t.ex. en lördag) eller stäng en dag som normalt är öppen (t.ex. en helgdag).",
+      "select_days_label": "Välj en eller flera dagar",
+      "days_selected_singular": "{{count}} dag vald",
+      "days_selected_plural": "{{count}} dagar valda",
+      "clear_selection": "Rensa val",
+      "open_special": "Öppna special",
+      "close": "Stäng",
+      "schedule_label": "Tider dessa dagar",
+      "notes_placeholder": "Anledning (valfritt) — ex: Sommarledigt",
+      "saving": "Sparar…",
+      "save_button_singular": "Spara specialdag",
+      "save_button_plural": "Spara {{count}} specialdagar",
+      "no_exceptions": "Inga enstaka dagar konfigurerade.",
+      "open_special_status": "Öppet special · {{ranges}}",
+      "closed_status": "Stängt"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Digitala Samtycken · Biometrisk Signatur"
@@ -14,26 +445,47 @@
     "settings": "Inställningar",
     "clinicalRecords": "Journalanteckningar",
     "photos": "Foton",
-    "recharge": "Fyll på"
+    "recharge": "Prenumerationsplaner",
+    "agenda": "Agenda",
+    "toxin": "Toxinkontroll",
+    "labPartners": "Laboratorier",
+    "menu": "Meny"
+  },
+  "topbar": {
+    "tagline": "Digitala Samtycken · Biometrisk Signatur",
+    "legal": "eIDAS (EU 910/2014) · Patientdatalagen · GDPR"
   },
   "auth": {
     "login_title": "Säker åtkomst",
     "login_subtitle": "Ange din e-post för att få en åtkomstlänk",
-    "email_placeholder": "email@klinik.se",
+    "email_placeholder": "epost@klinik.se",
     "send_link": "Skicka åtkomstlänk",
-    "check_email": "Kontrollera din e-post — vi skickade åtkomstlänken",
+    "check_email": "Kontrollera din e-post — vi har skickat åtkomstlänken",
     "magic_link_sent": "Länk skickad",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Kom ihåg denna enhet",
+    "remember_7": "7 dagar",
+    "remember_30": "30 dagar",
+    "remember_90": "90 dagar",
+    "biometric_activate": "Aktivera Face ID / fingeravtryck",
+    "biometric_prompt": "Efter din första inloggning kan du aktivera Face ID / fingeravtryck",
+    "biometric_registering": "Aktiverar…",
+    "biometric_success": "Biometri aktiverad!",
+    "biometric_success_msg": "Nästa gång loggar du in med ett enda tryck.",
+    "biometric_error": "Kunde inte aktivera. Se till att din enhet har biometri konfigurerad.",
+    "biometric_now": "Inte nu",
+    "portal_subtitle": "Digitala Samtycken · Biometrisk Signatur",
+    "portal_title": "Åtkomst till dokumentet",
+    "portal_email_prompt": "Ange din e-post för att få en säker åtkomstlänk.",
+    "portal_link_sent_title": "Länk skickad",
+    "portal_link_sent_message": "Kontrollera din e-post och klicka på länken för att fortsätta.",
+    "portal_email_placeholder": "din@epost.se",
+    "portal_consent_default_title": "Informerat Samtycke",
+    "portal_accept_label": "Jag har läst och godkänner detta informerade samtycke",
+    "portal_proceed_to_sign": "Fortsätt till signering →",
+    "portal_saving_signature": "Sparar signatur…",
+    "portal_signed_title": "Signering slutförd",
+    "portal_signed_message": "Ditt samtycke har signerats och registrerats på ett säkert sätt.",
+    "portal_error_message": "Länken kan ha gått ut eller vara felaktig."
   },
   "patients": {
     "title": "Patienter",
@@ -54,10 +506,37 @@
     "edit": "Redigera",
     "delete": "Ta bort",
     "no_results": "Inga patienter registrerade",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Fotogalleri",
+    "no_photos": "Inga foton. Ladda upp den första bilden.",
+    "upload_photos": "Ladda upp foton",
+    "uploading": "Laddar upp…",
+    "count_registered": "{{count}} registrerade",
+    "form": {
+      "doc_type": "Typ",
+      "doc_type_passport": "Pass",
+      "city": "Stad",
+      "province": "Län / Provins",
+      "country": "Land",
+      "select_placeholder": "— Välj —",
+      "countries": [
+        "Spanien", "Tyskland", "Argentina", "Belgien", "Bolivia", "Brasilien", "Chile", "Kina",
+        "Colombia", "Costa Rica", "Kuba", "Ecuador", "El Salvador", "USA", "Frankrike",
+        "Guatemala", "Honduras", "Italien", "Marocko", "Mexiko", "Nicaragua", "Nederländerna",
+        "Panama", "Paraguay", "Peru", "Portugal", "Storbritannien", "Dominikanska republiken",
+        "Schweiz", "Uruguay", "Venezuela", "Övrigt"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Fel vid sparande:",
+      "unknown_error": "Okänt fel"
+    }
   },
   "doctors": {
     "title": "Läkare",
@@ -73,17 +552,45 @@
       "receptionist": "Receptionist"
     },
     "save": "Spara läkare",
-    "no_results": "Inga läkare registrerade"
+    "no_results": "Inga läkare registrerade",
+    "last_name": "Efternamn",
+    "phone": "Telefon",
+    "phone_placeholder": "070 000 00 00",
+    "unknown_error": "Okänt fel",
+    "count_registered": "{{count}} registrerade",
+    "license_display": "Nr {{number}}"
   },
   "consents": {
     "title": "Samtycken",
     "add": "Nytt samtycke",
     "search": "Sök samtycken…",
+    "step_labels": ["Uppgifter", "Granskning", "Läkarsignatur", "Patientsignatur", "Klart"],
+    "branch_label": "Filial",
+    "main_branch": "Huvudklinik",
+    "select_patient": "Välj patient…",
+    "select_doctor": "Välj läkare…",
+    "select_treatment": "Välj behandling…",
+    "translating": "Översätter…",
+    "continue": "Fortsätt",
+    "responsible_doctor": "Ansvarig läkare",
+    "legal_framework_title": "Juridisk ram — {{jurisdiction}}",
+    "witness_required_notice": "Detta land kräver vittne för signeringen",
+    "back": "← Tillbaka",
+    "sign_arrow": "Signera →",
+    "doctor_signature_title": "Läkarens signatur",
+    "doctor_signature_notice": "Läkaren måste signera först för att validera samtycket",
+    "back_to_preview": "← Tillbaka",
+    "patient_signature_title": "Patientens signatur",
+    "patient_signature_notice": "Patienten måste signera för att bekräfta att hen har läst och godkänner samtycket",
+    "signed_title": "Samtycke signerat",
+    "signed_description": "Dokumentet har signerats och registrerats korrekt.",
+    "close": "Stäng",
     "status": {
       "pending": "Väntande",
       "signed": "Signerat",
       "revoked": "Återkallat",
-      "expired": "Utgånget"
+      "expired": "Utgånget",
+      "all": "Alla"
     },
     "sign": "Signera",
     "generate_pdf": "Generera PDF",
@@ -92,15 +599,21 @@
     "doctor": "Läkare",
     "treatment": "Behandling",
     "language": "Språk",
-    "signed_at": "Signerat",
-    "no_results": "Inga samtycken"
+    "signed_at": "Signeringsdatum",
+    "no_results": "Inga samtycken",
+    "confirm_delete": "Ta bort detta samtycke?",
+    "stats": "{{total}} totalt · {{signed}} signerade · {{pending}} väntande",
+    "branch": "Filial",
+    "created_at": "Skapandedatum",
+    "status_header": "Status",
+    "continue_signature": "Fortsätt signering"
   },
   "signature": {
     "title": "Patientens signatur",
     "instructions": "Signera i rutan nedan",
     "clear": "Rensa",
     "confirm": "Bekräfta signatur",
-    "legal_notice": "Jag har läst och accepterar det informerade samtycket",
+    "legal_notice": "Jag har läst och godkänner det informerade samtycket",
     "biometric_capture": "Samlar in biometriska data…"
   },
   "clinic": {
@@ -109,17 +622,24 @@
     "address": "Adress",
     "phone": "Telefon",
     "email": "E-post",
-    "tax_id": "Organisationsnummer / VAT",
+    "tax_id": "Organisationsnummer",
     "logo": "Logotyp",
     "save": "Spara inställningar",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Ytterligare filialer",
+    "branches_desc": "Hantera flera platser för din klinik",
+    "add_branch": "Lägg till filial",
+    "no_branches": "Inga ytterligare filialer",
+    "branch_name": "Filialens namn",
+    "save_branches": "Spara filialer",
+    "edit_branch": "Redigera filial",
+    "new_branch": "Ny filial",
+    "save_branch": "Spara filial",
+    "subtitle": "Allmänna klinikinställningar",
+    "trade_name": "Handelsnamn",
+    "legal_name": "Juridiskt namn / firmanamn",
+    "nika_number": "NIKA-nummer",
+    "save_success": "Sparat",
+    "confirm_delete_branch": "Ta bort denna filial?"
   },
   "language": {
     "select": "Språk",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Vi skickade en Magic Link till",
     "email": "E-post",
     "magic_link": "Logga in med Magic Link",
-    "footer": "Giltiga digitala samtycken · Patientlagen · GDPR"
+    "footer": "Giltiga digitala samtycken · Patientdatalagen · GDPR",
+    "invalid_email": "Ange en giltig e-postadress",
+    "send_error": "Fel vid sändning av länken",
+    "subtitle": "Digitala Samtycken · eIDAS",
+    "email_placeholder": "din@klinik.se"
+  },
+  "dashboard": {
+    "title": "Översikt",
+    "subtitle": "Aktivitetssammanfattning",
+    "pending_signature": "Väntar på signering",
+    "signature_rate": "Signeringsgrad",
+    "signed_count": "{{count}} signerade",
+    "pending_count": "{{count}} väntande",
+    "recent_consents": "Senaste samtyckena",
+    "view_all_consents": "Visa alla →",
+    "view_all": "Visa alla →",
+    "no_consents": "Inga samtycken",
+    "recent_clinical": "Senaste journalerna",
+    "no_clinical": "Inga journaler",
+    "recent_photos": "Senaste fotosessionerna",
+    "no_photos": "Inga fotosessioner"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Mallar",
+    "search": "Sök behandling…",
+    "editor_title": "Mallredigerare",
+    "consent_title_label": "Samtyckets titel",
+    "no_translation": "Ingen översättning på",
+    "translate_all": "Översätt till 21 språk",
+    "translating": "Översätter…",
+    "legal_framework": "Juridisk ram",
+    "select_template": "Välj en mall för att redigera den",
     "empty": "Inga mallar",
     "title_placeholder": "Informerat samtycke — Behandling…",
     "content_label": "Samtyckesinnehåll",
     "content_placeholder": "Skriv texten till det informerade samtycket…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Sparar…",
+    "saved": "Sparat"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Ta bort denna journal?",
+    "confirm_delete_session": "Ta bort denna session och alla dess foton?",
+    "not_found": "Patienten hittades inte",
+    "date_of_birth": "Födelsedatum",
+    "email": "E-post",
+    "blood_type": "Blodgrupp",
+    "address": "Adress",
+    "allergies": "Allergier",
+    "medications": "Medicinering",
+    "tabs": {
+      "history": "Journaler ({{count}})",
+      "photos": "Foton ({{count}})",
+      "consents": "Samtycken ({{count}})"
+    },
+    "new_clinical_record": "Ny journal",
+    "no_clinical_records": "Det finns inga journaler för denna patient",
+    "doctor_prefix": "Dr {{name}}",
+    "fields": {
+      "anamnesis": "Anamnes",
+      "allergies": "Allergier",
+      "current_medications": "Aktuell medicinering",
+      "physical_exam": "Fysisk undersökning",
+      "diagnosis": "Diagnos",
+      "treatment_plan": "Behandlingsplan",
+      "notes": "Observationer"
+    },
+    "new_photo_session": "Ny session",
+    "no_photo_sessions": "Det finns inga fotosessioner för denna patient",
+    "no_consents": "Det finns inga samtycken för denna patient",
+    "status": {
+      "signed": "Signerat",
+      "pending": "Väntande",
+      "revoked": "Återkallat",
+      "expired": "Utgånget"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratorium",
+    "not_found": "Laboratorieprofilen hittades inte.",
+    "panel_subtitle": "Panel för samarbetande laboratorium",
+    "tabs": {
+      "clinics": "Kopplade kliniker",
+      "campaigns": "Reklamkampanjer",
+      "stats": "Statistik"
+    },
+    "no_clinics": "Det finns ännu inga kliniker kopplade till detta laboratorium.",
+    "media_management": "Hantering av reklammedia",
+    "welcome_screen": {
+      "title": "Välkomstskärm",
+      "description": "Upp till 5 bilder eller videor. Välj vilken som ska visas, slumpmässigt eller i sekvens (max 100 MB per fil)."
+    },
+    "patient_content": {
+      "title": "Innehåll för patienten",
+      "description": "Upp till 5 bilder eller videor riktade till patienten. Exakt användning konfigureras inom kort."
+    },
+    "stats_pending": "Detta avsnitt är ännu inte definierat — snart kommer du att se prestandamått för dina kampanjer och kliniker här."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Ta bort denna journal?",
+    "title": "Journaler",
+    "records_count": "{{count}} journaler",
+    "add_record": "Ny journal",
+    "search_placeholder": "Sök på patient, diagnos, anledning…",
+    "no_records": "Det finns inga journaler",
+    "table_headers": ["Patient", "Datum", "Anledning till besök", "Diagnos", "Läkare", ""]
+  },
+  "labPartners": {
+    "title": "Samarbetande Laboratorier",
+    "count": "{{count}} registrerade",
+    "new_lab": "Nytt Laboratorium",
+    "search_placeholder": "Sök laboratorium…",
+    "no_labs": "Det finns inga laboratorier.",
+    "col_name": "Namn",
+    "col_email": "E-post",
+    "col_contact": "Kontakt",
+    "col_phone": "Telefon",
+    "col_status": "Status",
+    "col_actions": "Åtgärder",
+    "status_active": "Aktiv",
+    "status_inactive": "Inaktiv",
+    "confirm_deactivate": "Inaktivera laboratorium?",
+    "form": {
+      "edit_title": "Redigera Laboratorium",
+      "new_title": "Nytt Laboratorium",
+      "name": "Namn",
+      "email": "E-post",
+      "phone": "Telefon",
+      "contact_person": "Kontaktperson",
+      "website": "Webbplats",
+      "notes": "Anteckningar",
+      "name_email_required": "Namn och e-post är obligatoriska",
+      "unknown_error": "Okänt fel"
+    },
+    "campaigns": {
+      "title": "Kampanjer för {{name}}",
+      "new_campaign": "Ny Kampanj",
+      "no_campaigns": "Det finns inga kampanjer.",
+      "col_name": "Namn",
+      "col_type": "Typ",
+      "col_trigger": "Utlösare",
+      "col_status": "Status",
+      "col_actions": "Åtgärder",
+      "confirm_delete": "Ta bort kampanj?",
+      "form": {
+        "edit_title": "Redigera Kampanj",
+        "new_title": "Ny Kampanj",
+        "name": "Namn",
+        "name_required": "Namn är obligatoriskt",
+        "unknown_error": "Okänt fel",
+        "type": "Typ",
+        "rotation_mode": "Rotationsläge",
+        "rotation_random": "Slumpmässig",
+        "rotation_manual": "Manuell",
+        "creative_url": "Kreativ-URL",
+        "trigger": "Utlösare",
+        "interval_minutes": "Intervall (min)",
+        "start_date": "Startdatum",
+        "end_date": "Slutdatum",
+        "active": "Aktiv"
+      }
+    },
+    "creative_types": {
+      "image": "Bild",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Erbjudande",
+      "training": "Utbildning"
+    },
+    "triggers": {
+      "on_login": "Vid öppning",
+      "on_consent": "Vid skapande av samtycke",
+      "every_x_minutes": "Var X:e minut",
+      "once_daily": "En gång per dag"
+    }
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Bokningar, behandlingar och schemaplanering",
+    "tab_appointments": "Bokningar",
+    "tab_treatments": "Behandlingar",
+    "tab_planning": "Schemaplanering"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID:t angavs inte",
+    "verifying": "Verifierar dokument…",
+    "subtitle": "Dokumentverifiering",
+    "not_found_title": "Dokumentet hittades inte",
+    "signed_title": "Giltigt och signerat dokument",
+    "signed_subtitle": "Signaturen har verifierats korrekt",
+    "revoked_title": "Samtycke återkallat",
+    "revoked_subtitle": "Patienten återkallade detta samtycke",
+    "pending_title": "Väntar på signering",
+    "pending_subtitle": "Detta dokument har ännu inte signerats",
+    "patient": "Patient",
+    "doctor": "Läkare",
+    "treatment": "Behandling",
+    "signed_date": "Signeringsdatum",
+    "hash_label": "SHA-256-hash",
+    "document_id_label": "Dokument-ID:",
+    "verified_on": "Verifierad {{date}}. Detta dokument är giltigt enligt gällande lagstiftning och elektroniskt signerat enligt eIDAS-förordningen (EU) 910/2014."
+  },
+  "recharge": {
+    "title": "Prenumerationsplaner",
+    "subtitle": "Välj den plan som passar din klinik bäst",
+    "monthly": "Månadsvis",
+    "annual": "Årsvis",
+    "per_month": "/månad",
+    "save_20_annual": "Spara 20 % genom att betala årsvis",
+    "switch_annual_save": "Byt till årsvis och spara 20 %",
+    "hire_plan": "Teckna plan",
+    "note_title": "Anmärkning AI-plan och AI Premium-plan:",
+    "note_text": "Den initiala konfigurationen av AI-agenterna (tjänster, behandlingar och anpassning) samt implementeringen offereras separat beroende på varje kliniks komplexitet. Kostnader för röstagent och WhatsApp API ingår inte i månadsavgiften.",
+    "plans": {
+      "base": {
+        "name": "Grundplan",
+        "features": [
+          "Obegränsat antal samtycken",
+          "Journal",
+          "Fotogalleri",
+          "Patientportal",
+          "Magic Link + biometri",
+          "Support ingår"
+        ]
+      },
+      "pro": {
+        "name": "Proplan",
+        "badge": "Mest populär",
+        "features": [
+          "Allt i Grundplanen +",
+          "Bokningsagenda",
+          "Patient-CRM",
+          "Toxinkontroll",
+          "Kostnadsförslag till patienter"
+        ]
+      },
+      "ia": {
+        "name": "AI-plan",
+        "features": [
+          "Allt i Proplanen +",
+          "WhatsApp AI-agent 24/7 — bokningsgenerering",
+          "Automatiserad bokningsbekräftelse",
+          "Automatiserade bokningspåminnelser",
+          "WhatsApp-hanteringspanel",
+          "Kommunikation med patienter via WhatsApp",
+          "Sändning via WhatsApp av samtycken, journal, foton, kostnadsförslag och fakturor"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium-plan",
+        "badge": "Nytt",
+        "features": [
+          "Allt i AI-planen +",
+          "AI-röstagent 24/7: svarar på samtal",
+          "Bokar tider per telefon automatiskt",
+          "Klonar din receptionists röst till 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toxinkontroll",
+    "subtitle": "Spårbarhet av botulinumtoxinbatcher",
+    "new_record": "Ny registrering",
+    "from": "Från",
+    "to": "Till",
+    "doctor": "Läkare",
+    "patient": "Patient",
+    "all": "Alla",
+    "lot_number": "Batchnummer",
+    "search_lot_placeholder": "Sök batch…",
+    "clear_filters": "Rensa filter",
+    "no_results": "Det finns inga toxinregistreringar med dessa filter.",
+    "col_date": "Datum",
+    "col_patient": "Patient",
+    "col_doctor": "Läkare",
+    "col_brand": "Varumärke",
+    "col_lot": "Batch",
+    "col_expiry": "Utgångsdatum",
+    "col_zones": "Zoner",
+    "col_units": "Enheter",
+    "col_signature": "Signatur",
+    "col_ci": "Samtycke",
+    "col_actions": "Åtgärder",
+    "signed": "Signerat",
+    "unsigned": "Osignerat",
+    "consent_linked": "Med kopplat samtycke",
+    "consent_not_linked": "Utan kopplat samtycke",
+    "confirm_delete": "Ta bort denna toxinregistrering?",
+    "detail": {
+      "not_found": "Registreringen hittades inte.",
+      "patient": "Patient",
+      "doctor": "Läkare",
+      "brand": "Varumärke",
+      "manufacturer": "Tillverkare",
+      "lot": "Batchnummer",
+      "expiry": "Utgångsdatum",
+      "vials": "Öppnade injektionsflaskor",
+      "total_units": "Totalt antal enheter",
+      "treated_zones": "Behandlade zoner",
+      "no_zones": "Inga zoner registrerade.",
+      "notes": "Anteckningar",
+      "doctor_signature": "Läkarens signatur",
+      "signature_alt": "Läkarens signatur",
+      "signed_on": "Signerat den {{date}}",
+      "no_signature": "Denna registrering har ingen läkarsignatur.",
+      "linked_consent": "Kopplat informerat samtycke",
+      "consent_default_name": "Samtycke",
+      "consent_unsigned": "Osignerat",
+      "loading_pdf": "Laddar PDF…",
+      "consent_load_error": "Kunde inte ladda information om det kopplade samtycket."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token hittades inte i URL:en",
+    "invalid_token": "Ogiltig eller utgången token",
+    "connection_error": "Anslutningsfel",
+    "verifying": "Verifierar länk…",
+    "invalid_link": "Ogiltig länk",
+    "back_home": "Tillbaka till startsidan"
+  },
+  "photoSessions": {
+    "confirm_delete": "Ta bort denna session och alla dess foton?",
+    "title": "Foton",
+    "subtitle": "{{count}} fotosessioner",
+    "new_session": "Ny session",
+    "search_placeholder": "Sök på patient eller sessionens namn…",
+    "no_sessions": "Det finns inga fotosessioner"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Mina Samtycken",
+      "clinical": "Min Journal",
+      "photos": "Mina Foton"
+    },
+    "consents": {
+      "empty": "Du har inga signerade samtycken än.",
+      "default_name": "Samtycke",
+      "doctor": "Dr {{name}}",
+      "signed_on": "Signerat den {{date}}",
+      "status_signed": "Signerat",
+      "status_pending": "Väntande"
+    },
+    "clinical": {
+      "empty": "Din journal är tom.",
+      "default_name": "Besök",
+      "doctor_suffix": " · Dr {{name}}",
+      "fields": {
+        "diagnosis": "Diagnos",
+        "anamnesis": "Anamnes",
+        "current_medications": "Aktuell medicinering",
+        "allergies": "Allergier",
+        "treatment_plan": "Behandlingsplan",
+        "notes": "Observationer"
+      }
+    },
+    "photos": {
+      "empty": "Det finns ännu inga fotosessioner.",
+      "back_to_sessions": "Tillbaka till sessioner",
+      "default_session_name": "Fotosession",
+      "doctor_suffix": " · Dr {{name}}",
+      "compare_title": "Jämförelse före / efter",
+      "before": "Före",
+      "after": "Efter",
+      "close_compare": "Stäng jämförelse",
+      "compare_button": "Jämför",
+      "photo_count": "{{count}} foton"
+    }
   },
   "settings": {
     "title": "Inställningar",
     "subtitle": "Hantering av användare och åtkomst",
+    "tabs": {
+      "users": "Användare",
+      "media": "Reklam",
+      "preview": "Förhandsgranskning"
+    },
     "users": {
       "title": "Användare",
       "invite_user": "Bjud in användare",
@@ -174,14 +1048,40 @@
       "role": "Roll",
       "role_admin": "Administratör",
       "role_clinica": "Klinik",
-      "admin_hint": "Administratören har fullständig åtkomst till alla avsnitt.",
+      "admin_hint": "Administratören har fullständig åtkomst till alla avsnitt i systemet.",
       "permissions": "Åtkomstbehörigheter",
-      "permissions_hint": "Välj tillgängliga avsnitt.",
+      "permissions_hint": "Välj vilka avsnitt denna användare ska ha åtkomst till.",
       "send_invite": "Skicka inbjudan",
-      "no_users": "Inga användare. Bjud in den första.",
+      "no_users": "Inga användare registrerade. Bjud in den första.",
       "inactive": "Inaktiv",
-      "activate": "Aktivera",
-      "deactivate": "Inaktivera"
+      "activate": "Aktivera användare",
+      "deactivate": "Inaktivera användare",
+      "role_superadmin": "Superadministratör",
+      "role_doctor": "Läkare",
+      "role_receptionist": "Receptionist",
+      "role_lab_partner": "Laboratorium",
+      "role_patient": "Patient",
+      "filter_all": "Alla",
+      "invite_accepted": "Inbjudan accepterad",
+      "invite_expired": "Inbjudan utgången",
+      "invite_pending": "Inbjudan väntande",
+      "email_placeholder": "anvandare@klinik.se",
+      "full_name_placeholder": "Förnamn Efternamn",
+      "linked_lab": "Kopplat laboratorium",
+      "no_lab": "Inget laboratorium",
+      "lab_hint": "Användaren kommer endast att se kliniker kopplade till detta laboratorium.",
+      "admin_only_hint": "Inställningar är exklusivt för administratörer och kan aldrig delegeras till en klinik.",
+      "load_error": "Kunde inte ladda användarlistan",
+      "retry": "Försök igen"
+    },
+    "media": {
+      "title": "Hantering av reklammedia",
+      "managed_by_lab": "Denna reklam hanteras av ditt samarbetande laboratorium. Du kan se den här, men endast laboratoriet kan ändra den.",
+      "managed_by_lab_named": "Denna reklam hanteras av ditt samarbetande laboratorium ({{name}}). Du kan se den här, men endast laboratoriet kan ändra den.",
+      "welcome_title": "Välkomstskärm",
+      "welcome_description": "Upp till 5 bilder eller videor. Välj vilken som ska visas, slumpmässigt eller i sekvens (max 100 MB per fil).",
+      "patient_title": "Innehåll för patienten",
+      "patient_description": "Upp till 5 bilder eller videor riktade till patienten. Exakt användning konfigureras inom kort."
     }
   }
 }

@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "トキシン記録を編集",
+    "title_new": "新規トキシン記録",
+    "patient": "患者",
+    "select_patient": "患者を選択…",
+    "linked_consent": "紐づけられた同意書",
+    "not_linked": "未紐づけ",
+    "consent_default_name": "同意書",
+    "unsigned": "未署名",
+    "loading_consents": "同意書を読み込み中…",
+    "no_consents_hint": "この患者にはまだ署名済みのトキシン同意書がありません。任意項目のため、紐づけずに記録を保存できます。",
+    "doctor": "医師",
+    "unassigned": "未割当",
+    "application_date": "施術日",
+    "brand_name": "商品名",
+    "brand_name_placeholder": "ボトックス、ディスポート、ゼオミン…",
+    "manufacturer": "製造元",
+    "manufacturer_placeholder": "Allergan、Ipsen、Merz…",
+    "lot_number": "ロット番号",
+    "expiry_date": "有効期限",
+    "vials_opened": "開封したバイアル数",
+    "treated_zones": "施術部位",
+    "other_zone_placeholder": "その他の部位…",
+    "add": "追加",
+    "total_units": "総単位数",
+    "notes": "メモ",
+    "notes_placeholder": "所見…",
+    "doctor_signature": "医師の署名",
+    "signature_alt": "医師の署名",
+    "signed_on": "{{date}}に署名済み",
+    "sign_again": "再署名",
+    "signature_hint": "署名を記入し、保存する前に「署名を確定」を押してください。",
+    "confirm_delete": "このトキシン記録を削除しますか？",
+    "deleting": "削除中…",
+    "delete_record": "記録を削除",
+    "cancel": "キャンセル",
+    "save_changes": "変更を保存",
+    "create_record": "記録を作成",
+    "saving": "保存中…",
+    "unknown_error": "不明なエラー",
+    "validation": {
+      "required_fields": "患者、商品名、ロット、有効期限、製造元は必須です",
+      "signature_required": "記録を保存するには医師の署名が必要です"
+    },
+    "zones": {
+      "forehead": "額（水平のしわ）",
+      "glabella": "眉間（グラベラ）",
+      "crows_feet": "目尻のしわ（眼周囲）",
+      "lower_eyelid": "下まぶた",
+      "eyebrow_lift": "眉（リフトアップ）",
+      "bunny_lines": "鼻（バニーライン）",
+      "upper_lip": "上唇（バーコードじわ）",
+      "oral_commissures": "口角",
+      "chin_dimpling": "あご（オレンジピール様肌）",
+      "platysmal_bands": "首（広頸筋バンド）",
+      "decolletage": "デコルテ",
+      "axillary_sweating": "脇の多汗症",
+      "palmar_sweating": "手掌多汗症",
+      "plantar_sweating": "足底多汗症",
+      "jaw_bruxism": "顎（歯ぎしり／咬筋）",
+      "migraine_occipital": "偏頭痛（後頭部ポイント）",
+      "trampoline_chin": "トランポリンチン",
+      "gummy_smile": "ガミースマイル",
+      "nefertiti_lift": "ネフェルティティリフト（首と顎）",
+      "other_zone": "その他の部位"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "作成中…",
+    "export_pdf": "PDFを出力"
+  },
+  "patientGallery": {
+    "title": "写真ギャラリー",
+    "upload_photos": "写真をアップロード",
+    "loading": "読み込み中…",
+    "empty": "写真がありません。最初の画像をアップロードしてください。",
+    "confirm_delete": "この写真を削除しますか？",
+    "count_stored": "{{count}}{{unit}} · Cloudflare R2に保存",
+    "photo_singular": "枚",
+    "photo_plural": "枚"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "カルテを編集",
+    "title_new": "新規カルテ",
+    "patient": "患者",
+    "select_patient": "患者を選択…",
+    "doctor": "医師",
+    "unassigned": "未割当",
+    "branch": "クリニック／院",
+    "unspecified": "未指定",
+    "visit_date": "来院日",
+    "reason_for_visit": "受診理由",
+    "anamnesis": "既往歴／病歴",
+    "current_medications": "現在の服薬",
+    "allergies": "既知のアレルギー",
+    "physical_exam": "身体所見",
+    "diagnosis": "診断",
+    "treatment_plan": "治療計画",
+    "notes": "所見／メモ",
+    "select_patient_error": "患者を選択してください",
+    "unknown_error": "不明なエラー",
+    "cancel": "キャンセル",
+    "saving": "保存中…",
+    "save_record": "カルテを保存"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "ファイルが{{maxSize}}MBの上限を超えています",
+    "upload_error": "ファイルのアップロードに失敗しました",
+    "confirm_delete": "このファイルを削除しますか？",
+    "video": "動画",
+    "image": "画像",
+    "uploaded_on": "{{date}}にアップロード",
+    "change": "変更",
+    "delete": "削除",
+    "uploading": "アップロード中… {{progress}}%",
+    "drop_hint": "ここにドラッグするかクリックしてアップロード",
+    "file_types_hint": "画像（JPG、PNG、GIF）または動画（MP4、MOV、WebM） · 最大{{maxSize}}MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "同意書の内容を入力…",
+    "bold": "太字",
+    "italic": "斜体",
+    "heading": "見出し",
+    "bullet_list": "箇条書き",
+    "ordered_list": "番号付きリスト",
+    "undo": "元に戻す",
+    "redo": "やり直す"
+  },
+  "consentPdfButton": {
+    "generating": "PDFを作成中…",
+    "export": "PDFを出力"
+  },
+  "newSessionModal": {
+    "title": "新規撮影セッション",
+    "patient_label": "患者",
+    "select_patient_placeholder": "患者を選択…",
+    "doctor_label": "医師",
+    "no_doctor_assigned": "未割当",
+    "branch_label": "クリニック／院",
+    "no_branch_specified": "未指定",
+    "session_name_label": "セッション名",
+    "session_name_placeholder": "例：フェイシャル治療セッション1",
+    "date_label": "日時",
+    "notes_label": "メモ",
+    "notes_placeholder": "セッションに関する所見…",
+    "select_patient_error": "患者を選択してください",
+    "unknown_error": "不明なエラー",
+    "cancel": "キャンセル",
+    "creating": "作成中…",
+    "create_session": "セッションを作成"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "撮影セッション",
+    "photo_count": "{{count}}/{{max}}枚",
+    "compare_button": "施術前／施術後を比較",
+    "delete_session": "セッションを削除",
+    "upload": "アップロード",
+    "remaining": "残り{{remaining}}枚"
+  },
+  "beforeAfterModal": {
+    "select_title": "比較する写真を選択",
+    "compare_title": "施術前／施術後の比較",
+    "change_selection": "← 選択を変更",
+    "select_intro": "写真を選択してください：",
+    "select_middle": "および、もう一枚：",
+    "before": "施術前",
+    "after": "施術後",
+    "before_badge": "施術前",
+    "after_badge": "施術後",
+    "compare_button": "比較する"
+  },
+  "biometricPrompt": {
+    "title": "生体認証アクセスを有効化",
+    "description": "Face ID、指紋、または Windows Hello を使うと、次回は2秒未満でログインできます。",
+    "device_label": "デバイス：",
+    "activate": "有効化",
+    "default_device": "自分のデバイス"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "手動選択",
+        "desc": "表示するものを自分で選びます。クリエイティブをクリックして有効にしてください。"
+      },
+      "random": {
+        "label": "ランダム表示",
+        "desc": "表示のたびにクリエイティブがランダムに選ばれます。"
+      },
+      "sequential": {
+        "label": "順番に表示",
+        "desc": "表示のたびに、順番に一つずつ表示されます。"
+      }
+    },
+    "errors": {
+      "fileTooLarge": "ファイルが100MBの上限を超えています",
+      "invalidUrl": "無効なURLです"
+    },
+    "confirmDelete": "このクリエイティブを削除しますか？",
+    "types": {
+      "url": "URL",
+      "video": "動画",
+      "image": "画像"
+    },
+    "active": "✓ 有効",
+    "select": "選択",
+    "upload": {
+      "label": "ファイルをアップロード",
+      "slotsFree": "空き{{count}}枠"
+    },
+    "addUrlButton": "動画URLを追加（YouTube、Vimeo、MP4…）",
+    "urlForm": {
+      "title": "URLから動画を追加",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… または .mp4への直接URL",
+      "labelPlaceholder": "名前または説明（任意）",
+      "hint": "YouTube、Vimeo、および動画への直接URL（.mp4、.webm…）に対応",
+      "add": "追加",
+      "saving": "保存中…"
+    },
+    "displayModeHeading": "どのように表示しますか？"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "ようこそ",
+    "continue": "続ける →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "広告をいつ表示しますか？",
+    "subheading": "複数のオプションを同時に選択できます。",
+    "options": {
+      "session": {
+        "label": "ログイン時に一度だけ",
+        "desc": "ユーザーがブラウザでアプリを開くたびに一度だけ表示されます。"
+      },
+      "consent": {
+        "label": "同意書を作成するたびに",
+        "desc": "各同意書の作成直後に表示されます。"
+      },
+      "clinical": {
+        "label": "カルテを作成するたびに",
+        "desc": "各カルテの保存直後に表示されます。"
+      },
+      "interval": {
+        "label": "X分ごとに",
+        "desc": "アプリが開いている間、定期的に表示されます。"
+      }
+    },
+    "every": "間隔",
+    "minutes": "分ごと",
+    "errors": {
+      "selectAtLeastOne": "少なくとも1つのオプションを選択してください",
+      "saveFailed": "保存に失敗しました"
+    },
+    "saving": "保存中…",
+    "saved": "保存済み",
+    "saveButton": "設定を保存",
+    "appliedMessage": "✅ 設定が適用されました"
+  },
+  "demoPreviewPanel": {
+    "heading": "ロール別プレビュー",
+    "subheading": "テストデータを作成し、患者・クリニック・ラボがそれぞれ実際に見る画面としてプログラムに入ります。",
+    "createAllButton": "すべてのテストデータを作成",
+    "errors": {
+      "checkFailed": "テストデータの確認に失敗しました",
+      "createPatientFailed": "テスト患者を作成できませんでした",
+      "createBranchFailed": "テスト院を作成できませんでした",
+      "createLabFailed": "テストラボを作成できませんでした"
+    },
+    "cards": {
+      "patient": {
+        "title": "患者ビュー",
+        "description": "患者が見るポータルをシミュレートします：同意書、カルテ、写真。"
+      },
+      "branch": {
+        "title": "クリニックビュー",
+        "description": "クリニックのスタッフが見るパネルをシミュレートします。実際の権限に応じたメニューに制限されます。"
+      },
+      "lab": {
+        "title": "ラボビュー",
+        "description": "提携ラボのパネルをシミュレートします：プロフィール、連携クリニック、キャンペーン。"
+      }
+    },
+    "testDataCreated": "テストデータを作成しました",
+    "viewAs": "{{role}}として表示",
+    "roleNames": {
+      "patient": "患者",
+      "branch": "クリニック",
+      "lab": "ラボ"
+    },
+    "creating": "作成中…",
+    "createTestData": "テストデータを作成"
+  },
+  "previewBanner": {
+    "message": "プレビュー — 次の視点でインターフェースを表示しています：",
+    "exitButton": "プレビューを終了",
+    "roles": {
+      "patient": "患者",
+      "clinica": "クリニック",
+      "labPartner": "ラボ"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "月表示",
+    "today": "今日",
+    "new_appointment": "新規予約",
+    "no_treatments_warning": "まだ治療メニューが作成されていません。予約を組む前に「治療メニュー」タブで最初の1件を作成してください。",
+    "day_closed_notice": "この日は診療スケジュール設定で休診日としてマークされています。そのタブから確認・変更できます。",
+    "slot_aria_label": "{{time}}に予約する",
+    "outside_availability": "対応可能時間外",
+    "treatment_fallback": "治療",
+    "doctor_prefix": "{{name}}先生",
+    "legend": {
+      "available": "予約可能",
+      "outside_hours": "営業時間外",
+      "scheduled": "予約あり"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "予約を編集",
+    "title_new": "新規予約",
+    "validation_required": "患者、治療、時間は必須です",
+    "error_unknown": "不明なエラー",
+    "confirm_delete": "この予約を削除しますか？",
+    "deleting": "削除中…",
+    "delete_appointment": "予約を削除",
+    "cancel": "キャンセル",
+    "saving": "保存中…",
+    "save_changes": "変更を保存",
+    "create_appointment": "予約を作成",
+    "form": {
+      "patient": "患者",
+      "select_patient": "患者を選択…",
+      "doctor": "医師",
+      "unassigned": "未割当",
+      "branch": "クリニック／院",
+      "main_branch": "本院",
+      "treatment": "治療",
+      "select_treatment": "治療を選択…",
+      "treatment_option": "{{name}} — {{duration}}分 — {{price}}€",
+      "no_treatments_warning": "治療メニューが作成されていません。まず「治療メニュー」タブで1件追加してください。",
+      "datetime": "日時",
+      "duration_note": "予約表で{{duration}}分を占有します。",
+      "notes": "メモ",
+      "notes_placeholder": "予約に関する所見…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "治療メニュー",
+    "subtitle": "予約を組むための各治療の所要時間と料金",
+    "new_treatment": "新規治療",
+    "loading": "読み込み中…",
+    "empty_state": "まだ治療メニューが作成されていません",
+    "duration_display": "{{duration}}分",
+    "price_display": "{{price}}€",
+    "confirm_delete": "この治療を削除しますか？",
+    "form": {
+      "title_edit": "治療を編集",
+      "title_new": "新規治療",
+      "name": "名前",
+      "name_placeholder": "例：ボツリヌストキシン注射",
+      "duration": "所要時間（分）",
+      "price": "料金（€）",
+      "validation_name_required": "名前は必須です",
+      "error_unknown": "不明なエラー",
+      "cancel": "キャンセル",
+      "saving": "保存中…",
+      "save": "保存"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["月", "火", "水", "木", "金", "土", "日"],
+    "months": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    "has_exception_tooltip": "すでに特例が設定されています",
+    "legend": {
+      "usually_open": "通常営業日",
+      "usually_closed": "通常休診日",
+      "has_exception": "特例あり",
+      "selected": "選択中"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["月", "火", "水", "木", "金", "土", "日"],
+    "months": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    "legend": {
+      "open_day": "診療日",
+      "closed": "休診",
+      "today": "今日"
+    }
+  },
+  "schedulePlanner": {
+    "title": "診療スケジュール設定",
+    "subtitle": "予約を受け付ける曜日と時間帯を設定します。",
+    "time_separator": "〜",
+    "add_time_range": "時間帯を追加",
+    "weekdays": ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日", "日曜日"],
+    "confirm_delete_exception": "この特例を削除して、その日の通常スケジュールに戻しますか？",
+    "errors": {
+      "save_schedule_failed": "スケジュールを保存できませんでした",
+      "apply_pattern_failed": "パターンを適用できませんでした",
+      "select_day_required": "カレンダーで少なくとも1日を選択してください",
+      "save_exception_failed": "特別日を保存できませんでした"
+    },
+    "bulk": {
+      "title": "複数日にまとめてパターンを適用",
+      "description": "例：月曜から金曜、9:00〜20:00。曜日と時間を選んで適用してください — 後で各曜日を個別に調整できます。",
+      "applying": "適用中…",
+      "apply_button": "選択した曜日に適用"
+    },
+    "weekly": {
+      "title": "通常の週次スケジュール",
+      "closed": "休診",
+      "saving": "保存中…",
+      "save": "保存"
+    },
+    "exceptions": {
+      "title": "個別日（特例）",
+      "description": "特別な日（例：土曜日）を開院にしたり、通常開院日（例：祝日）を休診にしたりできます。",
+      "select_days_label": "1日または複数日を選択してください",
+      "days_selected_singular": "{{count}}日選択中",
+      "days_selected_plural": "{{count}}日選択中",
+      "clear_selection": "選択をクリア",
+      "open_special": "特別開院",
+      "close": "休診にする",
+      "schedule_label": "その日のスケジュール",
+      "notes_placeholder": "理由（任意）— 例：夏季休暇",
+      "saving": "保存中…",
+      "save_button_singular": "特別日を保存",
+      "save_button_plural": "{{count}}件の特別日を保存",
+      "no_exceptions": "個別日は設定されていません。",
+      "open_special_status": "特別開院 · {{ranges}}",
+      "closed_status": "休診"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "デジタル同意書 · 生体認証署名"
   },
   "nav": {
-    "dashboard": "ダッシュボード",
+    "dashboard": "ホーム",
     "patients": "患者",
     "doctors": "医師",
     "consents": "同意書",
@@ -14,7 +445,15 @@
     "settings": "設定",
     "clinicalRecords": "カルテ",
     "photos": "写真",
-    "recharge": "チャージ"
+    "recharge": "サブスクリプションプラン",
+    "agenda": "予約管理",
+    "toxin": "トキシン管理",
+    "labPartners": "ラボ",
+    "menu": "メニュー"
+  },
+  "topbar": {
+    "tagline": "デジタル同意書 · 生体認証署名",
+    "legal": "eIDAS（EU規則910/2014） · スペイン法41/2002 · GDPR"
   },
   "auth": {
     "login_title": "セキュアアクセス",
@@ -23,17 +462,30 @@
     "send_link": "アクセスリンクを送信",
     "check_email": "メールをご確認ください — アクセスリンクを送信しました",
     "magic_link_sent": "リンクを正常に送信しました",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "このデバイスを記憶する",
+    "remember_7": "7日間",
+    "remember_30": "30日間",
+    "remember_90": "90日間",
+    "biometric_activate": "Face ID／指紋認証を有効化",
+    "biometric_prompt": "初回ログイン後にFace ID／指紋認証を有効化できます",
+    "biometric_registering": "有効化中…",
+    "biometric_success": "生体認証が有効になりました！",
+    "biometric_success_msg": "次回はワンタッチでログインできます。",
+    "biometric_error": "有効化できませんでした。デバイスで生体認証が設定されていることを確認してください。",
+    "biometric_now": "後で",
+    "portal_subtitle": "デジタル同意書 · 生体認証署名",
+    "portal_title": "書類へのアクセス",
+    "portal_email_prompt": "安全なアクセスリンクを受け取るためにメールアドレスを入力してください。",
+    "portal_link_sent_title": "リンクを送信しました",
+    "portal_link_sent_message": "メールを確認し、リンクをクリックして続行してください。",
+    "portal_email_placeholder": "you@email.com",
+    "portal_consent_default_title": "インフォームドコンセント",
+    "portal_accept_label": "このインフォームドコンセントを読み、同意します",
+    "portal_proceed_to_sign": "署名に進む →",
+    "portal_saving_signature": "署名を保存中…",
+    "portal_signed_title": "署名完了",
+    "portal_signed_message": "同意書は安全に署名・登録されました。",
+    "portal_error_message": "リンクの有効期限が切れているか、正しくない可能性があります。"
   },
   "patients": {
     "title": "患者",
@@ -42,7 +494,7 @@
     "name": "名前",
     "surname": "姓",
     "dob": "生年月日",
-    "id_doc": "マイナンバーカード / パスポート",
+    "id_doc": "マイナンバーカード／パスポート",
     "phone": "電話番号",
     "email": "メールアドレス",
     "address": "住所",
@@ -54,10 +506,37 @@
     "edit": "編集",
     "delete": "削除",
     "no_results": "登録された患者はいません",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "写真ギャラリー",
+    "no_photos": "写真がありません。最初の画像をアップロードしてください。",
+    "upload_photos": "写真をアップロード",
+    "uploading": "アップロード中…",
+    "count_registered": "{{count}}件登録済み",
+    "form": {
+      "doc_type": "種類",
+      "doc_type_passport": "パスポート",
+      "city": "市区町村",
+      "province": "都道府県／州",
+      "country": "国",
+      "select_placeholder": "— 選択してください —",
+      "countries": [
+        "スペイン", "ドイツ", "アルゼンチン", "ベルギー", "ボリビア", "ブラジル", "チリ", "中国",
+        "コロンビア", "コスタリカ", "キューバ", "エクアドル", "エルサルバドル", "アメリカ合衆国", "フランス",
+        "グアテマラ", "ホンジュラス", "イタリア", "モロッコ", "メキシコ", "ニカラグア", "オランダ",
+        "パナマ", "パラグアイ", "ペルー", "ポルトガル", "イギリス", "ドミニカ共和国",
+        "スイス", "ウルグアイ", "ベネズエラ", "その他"
+      ],
+      "provinces": [
+        "アラバ", "アルバセテ", "アリカンテ", "アルメリア", "アストゥリアス", "アビラ", "バダホス", "バレアレス諸島",
+        "バルセロナ", "ブルゴス", "カセレス", "カディス", "カンタブリア", "カステリョン", "シウダー・レアル",
+        "コルドバ", "クエンカ", "ヒローナ", "グラナダ", "グアダラハラ", "ギプスコア", "ウエルバ", "ウエスカ",
+        "ハエン", "ラ・コルーニャ", "ラ・リオハ", "ラス・パルマス", "レオン", "リェイダ", "ルーゴ", "マドリード",
+        "マラガ", "ムルシア", "ナバラ", "オウレンセ", "パレンシア", "ポンテベドラ", "サラマンカ",
+        "サンタ・クルス・デ・テネリフェ", "セゴビア", "セビリア", "ソリア", "タラゴナ", "テルエル", "トレド",
+        "バレンシア", "バリャドリッド", "ビスカヤ", "サモラ", "サラゴサ", "セウタ", "メリリャ"
+      ],
+      "save_error_prefix": "保存エラー：",
+      "unknown_error": "不明なエラー"
+    }
   },
   "doctors": {
     "title": "医師",
@@ -73,17 +552,45 @@
       "receptionist": "受付"
     },
     "save": "医師を保存",
-    "no_results": "登録された医師はいません"
+    "no_results": "登録された医師はいません",
+    "last_name": "姓",
+    "phone": "電話番号",
+    "phone_placeholder": "090-0000-0000",
+    "unknown_error": "不明なエラー",
+    "count_registered": "{{count}}件登録済み",
+    "license_display": "No. {{number}}"
   },
   "consents": {
     "title": "同意書",
     "add": "新しい同意書",
     "search": "同意書を検索…",
+    "step_labels": ["データ", "確認", "医師署名", "患者署名", "完了"],
+    "branch_label": "院",
+    "main_branch": "本院",
+    "select_patient": "患者を選択…",
+    "select_doctor": "医師を選択…",
+    "select_treatment": "治療を選択…",
+    "translating": "翻訳中…",
+    "continue": "続ける",
+    "responsible_doctor": "担当医師",
+    "legal_framework_title": "法的枠組み — {{jurisdiction}}",
+    "witness_required_notice": "この国では署名に証人が必要です",
+    "back": "← 戻る",
+    "sign_arrow": "署名する →",
+    "doctor_signature_title": "医師の署名",
+    "doctor_signature_notice": "同意書を有効にするには、まず医師が署名する必要があります",
+    "back_to_preview": "← 戻る",
+    "patient_signature_title": "患者の署名",
+    "patient_signature_notice": "患者は、同意書を読み承諾したことを確認するために署名する必要があります",
+    "signed_title": "同意書に署名済み",
+    "signed_description": "書類は正しく署名・登録されました。",
+    "close": "閉じる",
     "status": {
       "pending": "保留中",
       "signed": "署名済み",
       "revoked": "取り消し済み",
-      "expired": "期限切れ"
+      "expired": "期限切れ",
+      "all": "すべて"
     },
     "sign": "署名する",
     "generate_pdf": "PDFを生成",
@@ -93,7 +600,13 @@
     "treatment": "治療",
     "language": "言語",
     "signed_at": "署名日時",
-    "no_results": "同意書はありません"
+    "no_results": "同意書はありません",
+    "confirm_delete": "この同意書を削除しますか？",
+    "stats": "合計{{total}}件 · 署名済み{{signed}}件 · 保留中{{pending}}件",
+    "branch": "院",
+    "created_at": "作成日",
+    "status_header": "ステータス",
+    "continue_signature": "署名を続ける"
   },
   "signature": {
     "title": "患者の署名",
@@ -109,17 +622,24 @@
     "address": "住所",
     "phone": "電話番号",
     "email": "メールアドレス",
-    "tax_id": "法人番号 / 適格請求書番号",
+    "tax_id": "法人番号／適格請求書発行事業者番号",
     "logo": "ロゴ",
     "save": "設定を保存",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "追加の院",
+    "branches_desc": "クリニックの複数拠点を管理します",
+    "add_branch": "院を追加",
+    "no_branches": "追加の院はありません",
+    "branch_name": "院の名前",
+    "save_branches": "院を保存",
+    "edit_branch": "院を編集",
+    "new_branch": "新規院",
+    "save_branch": "院を保存",
+    "subtitle": "クリニックの全般設定",
+    "trade_name": "屋号",
+    "legal_name": "法人名／正式名称",
+    "nika_number": "NIKA番号",
+    "save_success": "正常に保存されました",
+    "confirm_delete_branch": "この院を削除しますか？"
   },
   "language": {
     "select": "言語",
@@ -141,31 +661,385 @@
   },
   "login": {
     "check_email": "メールを確認してください",
-    "magic_link_sent": "マジックリンクを送信しました",
+    "magic_link_sent": "マジックリンクを送信しました：",
     "email": "メールアドレス",
     "magic_link": "マジックリンクでサインイン",
-    "footer": "有効なデジタル同意書 · 医療法 · 個人情報保護法"
+    "footer": "有効なデジタル同意書 · 医療法 · 個人情報保護法",
+    "invalid_email": "有効なメールアドレスを入力してください",
+    "send_error": "リンクの送信に失敗しました",
+    "subtitle": "デジタル同意書 · eIDAS",
+    "email_placeholder": "you@clinic.jp"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "subtitle": "活動状況の概要",
+    "pending_signature": "署名待ち",
+    "signature_rate": "署名率",
+    "signed_count": "{{count}}件署名済み",
+    "pending_count": "{{count}}件保留中",
+    "recent_consents": "最近の同意書",
+    "view_all_consents": "すべて見る →",
+    "view_all": "すべて見る →",
+    "no_consents": "同意書はありません",
+    "recent_clinical": "最近のカルテ",
+    "no_clinical": "カルテはありません",
+    "recent_photos": "最近の撮影セッション",
+    "no_photos": "撮影セッションはありません"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "テンプレート",
+    "search": "治療を検索…",
+    "editor_title": "テンプレートエディタ",
+    "consent_title_label": "同意書のタイトル",
+    "no_translation": "翻訳がありません：",
+    "translate_all": "21言語に翻訳",
+    "translating": "翻訳中…",
+    "legal_framework": "法的枠組み",
+    "select_template": "編集するテンプレートを選択してください",
     "empty": "テンプレートなし",
     "title_placeholder": "インフォームドコンセント — 治療…",
     "content_label": "同意書の内容",
     "content_placeholder": "インフォームドコンセントのテキストを書いてください…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "保存中…",
+    "saved": "保存済み"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "このカルテを削除しますか？",
+    "confirm_delete_session": "このセッションとすべての写真を削除しますか？",
+    "not_found": "患者が見つかりません",
+    "date_of_birth": "生年月日",
+    "email": "メールアドレス",
+    "blood_type": "血液型",
+    "address": "住所",
+    "allergies": "アレルギー",
+    "medications": "服薬情報",
+    "tabs": {
+      "history": "カルテ（{{count}}）",
+      "photos": "写真（{{count}}）",
+      "consents": "同意書（{{count}}）"
+    },
+    "new_clinical_record": "新規カルテ",
+    "no_clinical_records": "この患者のカルテはありません",
+    "doctor_prefix": "{{name}}先生",
+    "fields": {
+      "anamnesis": "既往歴",
+      "allergies": "アレルギー",
+      "current_medications": "現在の服薬",
+      "physical_exam": "身体所見",
+      "diagnosis": "診断",
+      "treatment_plan": "治療計画",
+      "notes": "所見"
+    },
+    "new_photo_session": "新規セッション",
+    "no_photo_sessions": "この患者の撮影セッションはありません",
+    "no_consents": "この患者の同意書はありません",
+    "status": {
+      "signed": "署名済み",
+      "pending": "保留中",
+      "revoked": "取り消し済み",
+      "expired": "期限切れ"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "ラボ",
+    "not_found": "ラボのプロフィールが見つかりませんでした。",
+    "panel_subtitle": "提携ラボパネル",
+    "tabs": {
+      "clinics": "連携クリニック",
+      "campaigns": "広告キャンペーン",
+      "stats": "統計"
+    },
+    "no_clinics": "このラボにはまだ連携クリニックがありません。",
+    "media_management": "広告メディア管理",
+    "welcome_screen": {
+      "title": "ウェルカム画面",
+      "description": "画像または動画を最大5点まで。ランダムまたは順番に表示するかを選択できます（1ファイルあたり最大100MB）。"
+    },
+    "patient_content": {
+      "title": "患者向けコンテンツ",
+      "description": "患者向けの画像または動画を最大5点まで。具体的な用途は今後設定される予定です。"
+    },
+    "stats_pending": "このセクションはまだ未定義です — 今後、キャンペーンやクリニックのパフォーマンス指標がここに表示される予定です。"
+  },
+  "clinicalRecords": {
+    "confirm_delete": "このカルテを削除しますか？",
+    "title": "カルテ",
+    "records_count": "{{count}}件の記録",
+    "add_record": "新規カルテ",
+    "search_placeholder": "患者名、診断、受診理由で検索…",
+    "no_records": "カルテはありません",
+    "table_headers": ["患者", "日付", "受診理由", "診断", "医師", ""]
+  },
+  "labPartners": {
+    "title": "提携ラボ",
+    "count": "{{count}}件登録済み",
+    "new_lab": "新規ラボ",
+    "search_placeholder": "ラボを検索…",
+    "no_labs": "ラボがありません。",
+    "col_name": "名前",
+    "col_email": "メールアドレス",
+    "col_contact": "担当者",
+    "col_phone": "電話番号",
+    "col_status": "ステータス",
+    "col_actions": "操作",
+    "status_active": "有効",
+    "status_inactive": "無効",
+    "confirm_deactivate": "このラボを無効化しますか？",
+    "form": {
+      "edit_title": "ラボを編集",
+      "new_title": "新規ラボ",
+      "name": "名前",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "contact_person": "担当者",
+      "website": "ウェブサイト",
+      "notes": "メモ",
+      "name_email_required": "名前とメールアドレスは必須です",
+      "unknown_error": "不明なエラー"
+    },
+    "campaigns": {
+      "title": "{{name}}のキャンペーン",
+      "new_campaign": "新規キャンペーン",
+      "no_campaigns": "キャンペーンがありません。",
+      "col_name": "名前",
+      "col_type": "種類",
+      "col_trigger": "トリガー",
+      "col_status": "ステータス",
+      "col_actions": "操作",
+      "confirm_delete": "キャンペーンを削除しますか？",
+      "form": {
+        "edit_title": "キャンペーンを編集",
+        "new_title": "新規キャンペーン",
+        "name": "名前",
+        "name_required": "名前は必須です",
+        "unknown_error": "不明なエラー",
+        "type": "種類",
+        "rotation_mode": "ローテーションモード",
+        "rotation_random": "ランダム",
+        "rotation_manual": "手動",
+        "creative_url": "クリエイティブURL",
+        "trigger": "トリガー",
+        "interval_minutes": "間隔（分）",
+        "start_date": "開始日",
+        "end_date": "終了日",
+        "active": "有効"
+      }
+    },
+    "creative_types": {
+      "image": "画像",
+      "video": "動画",
+      "url": "URL",
+      "offer": "オファー",
+      "training": "研修"
+    },
+    "triggers": {
+      "on_login": "ログイン時",
+      "on_consent": "同意書作成時",
+      "every_x_minutes": "X分ごと",
+      "once_daily": "1日1回"
+    }
+  },
+  "agenda": {
+    "title": "予約管理",
+    "subtitle": "予約、治療メニュー、スケジュール設定",
+    "tab_appointments": "予約",
+    "tab_treatments": "治療メニュー",
+    "tab_planning": "診療スケジュール設定"
+  },
+  "verifyConsent": {
+    "id_not_provided": "IDが指定されていません",
+    "verifying": "書類を検証中…",
+    "subtitle": "書類の検証",
+    "not_found_title": "書類が見つかりません",
+    "signed_title": "有効かつ署名済みの書類です",
+    "signed_subtitle": "署名は正常に検証されました",
+    "revoked_title": "同意が取り消されました",
+    "revoked_subtitle": "患者がこの同意を取り消しました",
+    "pending_title": "署名待ち",
+    "pending_subtitle": "この書類はまだ署名されていません",
+    "patient": "患者",
+    "doctor": "医師",
+    "treatment": "治療",
+    "signed_date": "署名日",
+    "hash_label": "SHA-256ハッシュ",
+    "document_id_label": "書類ID：",
+    "verified_on": "{{date}}に検証済み。この書類はスペイン法41/2002に基づき有効であり、eIDAS規則（EU）910/2014に従って電子署名されています。"
+  },
+  "recharge": {
+    "title": "サブスクリプションプラン",
+    "subtitle": "クリニックに最適なプランをお選びください",
+    "monthly": "月払い",
+    "annual": "年払い",
+    "per_month": "／月",
+    "save_20_annual": "年払いで20%お得",
+    "switch_annual_save": "年払いに切り替えて20%節約",
+    "hire_plan": "プランを契約",
+    "note_title": "AIプランおよびAIプレミアムプランに関する注記：",
+    "note_text": "AIエージェントの初期設定（サービス、治療メニュー、カスタマイズ）および導入作業は、クリニックごとの複雑さに応じて別途お見積りいたします。音声エージェントおよびWhatsApp APIの費用は月額料金には含まれません。",
+    "plans": {
+      "base": {
+        "name": "ベーシックプラン",
+        "features": [
+          "無制限の同意書",
+          "カルテ",
+          "写真ギャラリー",
+          "患者ポータル",
+          "マジックリンク＋生体認証",
+          "サポート込み"
+        ]
+      },
+      "pro": {
+        "name": "プロプラン",
+        "badge": "一番人気",
+        "features": [
+          "ベーシックプランのすべて＋",
+          "予約管理",
+          "患者CRM",
+          "トキシン管理",
+          "患者向け見積書"
+        ]
+      },
+      "ia": {
+        "name": "AIプラン",
+        "features": [
+          "プロプランのすべて＋",
+          "AI WhatsAppエージェント24時間対応 — 予約獲得",
+          "予約の自動確認",
+          "予約の自動リマインダー",
+          "WhatsApp管理パネル",
+          "WhatsAppでの患者とのコミュニケーション",
+          "WhatsAppでの同意書・カルテ・写真・見積書・請求書の送信"
+        ]
+      },
+      "ia_plus": {
+        "name": "AIプレミアムプラン",
+        "badge": "新登場",
+        "features": [
+          "AIプランのすべて＋",
+          "AI音声エージェント24時間対応：電話応対",
+          "電話での予約を自動的に設定",
+          "受付担当者の声を100%クローン化"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "トキシン管理",
+    "subtitle": "ボツリヌストキシンロットのトレーサビリティ",
+    "new_record": "新規記録",
+    "from": "開始日",
+    "to": "終了日",
+    "doctor": "医師",
+    "patient": "患者",
+    "all": "すべて",
+    "lot_number": "ロット番号",
+    "search_lot_placeholder": "ロットを検索…",
+    "clear_filters": "フィルターをクリア",
+    "no_results": "この条件に一致するトキシン記録はありません。",
+    "col_date": "日付",
+    "col_patient": "患者",
+    "col_doctor": "医師",
+    "col_brand": "商品名",
+    "col_lot": "ロット",
+    "col_expiry": "有効期限",
+    "col_zones": "部位",
+    "col_units": "単位数",
+    "col_signature": "署名",
+    "col_ci": "同意書",
+    "col_actions": "操作",
+    "signed": "署名済み",
+    "unsigned": "未署名",
+    "consent_linked": "同意書と紐づけ済み",
+    "consent_not_linked": "同意書と未紐づけ",
+    "confirm_delete": "このトキシン記録を削除しますか？",
+    "detail": {
+      "not_found": "記録が見つかりません。",
+      "patient": "患者",
+      "doctor": "医師",
+      "brand": "商品名",
+      "manufacturer": "製造元",
+      "lot": "ロット番号",
+      "expiry": "有効期限",
+      "vials": "開封したバイアル数",
+      "total_units": "総単位数",
+      "treated_zones": "施術部位",
+      "no_zones": "登録された部位はありません。",
+      "notes": "メモ",
+      "doctor_signature": "医師の署名",
+      "signature_alt": "医師の署名",
+      "signed_on": "{{date}}に署名済み",
+      "no_signature": "この記録には医師の署名がありません。",
+      "linked_consent": "紐づけられた同意書",
+      "consent_default_name": "同意書",
+      "consent_unsigned": "未署名",
+      "loading_pdf": "PDFを読み込み中…",
+      "consent_load_error": "紐づけられた同意書の情報を読み込めませんでした。"
+    }
+  },
+  "authVerify": {
+    "token_not_found": "URLにトークンが見つかりません",
+    "invalid_token": "無効または期限切れのトークンです",
+    "connection_error": "接続エラー",
+    "verifying": "リンクを検証中…",
+    "invalid_link": "無効なリンクです",
+    "back_home": "ホームに戻る"
+  },
+  "photoSessions": {
+    "confirm_delete": "このセッションとすべての写真を削除しますか？",
+    "title": "写真",
+    "subtitle": "撮影セッション{{count}}件",
+    "new_session": "新規セッション",
+    "search_placeholder": "患者名またはセッション名で検索…",
+    "no_sessions": "撮影セッションはありません"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "マイ同意書",
+      "clinical": "マイカルテ",
+      "photos": "マイ写真"
+    },
+    "consents": {
+      "empty": "まだ署名済みの同意書はありません。",
+      "default_name": "同意書",
+      "doctor": "{{name}}先生",
+      "signed_on": "{{date}}に署名済み",
+      "status_signed": "署名済み",
+      "status_pending": "保留中"
+    },
+    "clinical": {
+      "empty": "あなたのカルテはまだ空です。",
+      "default_name": "診察",
+      "doctor_suffix": " · {{name}}先生",
+      "fields": {
+        "diagnosis": "診断",
+        "anamnesis": "既往歴",
+        "current_medications": "現在の服薬",
+        "allergies": "アレルギー",
+        "treatment_plan": "治療計画",
+        "notes": "所見"
+      }
+    },
+    "photos": {
+      "empty": "まだ撮影セッションはありません。",
+      "back_to_sessions": "セッション一覧に戻る",
+      "default_session_name": "撮影セッション",
+      "doctor_suffix": " · {{name}}先生",
+      "compare_title": "施術前／施術後の比較",
+      "before": "施術前",
+      "after": "施術後",
+      "close_compare": "比較を閉じる",
+      "compare_button": "比較する",
+      "photo_count": "{{count}}枚"
+    }
   },
   "settings": {
     "title": "設定",
     "subtitle": "ユーザーとシステムアクセスの管理",
+    "tabs": {
+      "users": "ユーザー",
+      "media": "広告",
+      "preview": "プレビュー"
+    },
     "users": {
       "title": "ユーザー",
       "invite_user": "ユーザーを招待",
@@ -174,14 +1048,40 @@
       "role": "役割",
       "role_admin": "管理者",
       "role_clinica": "クリニック",
-      "admin_hint": "管理者はすべてのセクションに完全にアクセスできます。",
+      "admin_hint": "管理者はシステムのすべてのセクションに完全にアクセスできます。",
       "permissions": "アクセス権限",
-      "permissions_hint": "アクセス可能なセクションを選択してください。",
+      "permissions_hint": "このユーザーがアクセスできるセクションを選択してください。",
       "send_invite": "招待を送信",
-      "no_users": "ユーザーなし。最初のユーザーを招待してください。",
+      "no_users": "ユーザーが登録されていません。最初のユーザーを招待してください。",
       "inactive": "非アクティブ",
-      "activate": "有効化",
-      "deactivate": "無効化"
+      "activate": "ユーザーを有効化",
+      "deactivate": "ユーザーを無効化",
+      "role_superadmin": "スーパー管理者",
+      "role_doctor": "医師",
+      "role_receptionist": "受付",
+      "role_lab_partner": "ラボ",
+      "role_patient": "患者",
+      "filter_all": "すべて",
+      "invite_accepted": "招待承諾済み",
+      "invite_expired": "招待期限切れ",
+      "invite_pending": "招待保留中",
+      "email_placeholder": "user@clinic.jp",
+      "full_name_placeholder": "姓 名",
+      "linked_lab": "連携ラボ",
+      "no_lab": "ラボなし",
+      "lab_hint": "このユーザーはこのラボに連携するクリニックのみ閲覧できます。",
+      "admin_only_hint": "設定は管理者専用であり、クリニックに委任することはできません。",
+      "load_error": "ユーザー一覧を読み込めませんでした",
+      "retry": "再試行"
+    },
+    "media": {
+      "title": "広告メディア管理",
+      "managed_by_lab": "この広告は提携ラボが管理しています。ここで閲覧できますが、変更できるのはラボのみです。",
+      "managed_by_lab_named": "この広告は提携ラボ（{{name}}）が管理しています。ここで閲覧できますが、変更できるのはラボのみです。",
+      "welcome_title": "ウェルカム画面",
+      "welcome_description": "画像または動画を最大5点まで。ランダムまたは順番に表示するかを選択できます（1ファイルあたり最大100MB）。",
+      "patient_title": "患者向けコンテンツ",
+      "patient_description": "患者向けの画像または動画を最大5点まで。具体的な用途は今後設定される予定です。"
     }
   }
 }

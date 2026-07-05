@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "Редактировать запись о токсине",
+    "title_new": "Новая запись о токсине",
+    "patient": "Пациент",
+    "select_patient": "Выбрать пациента…",
+    "linked_consent": "Связанное информированное согласие",
+    "not_linked": "Не привязано",
+    "consent_default_name": "Согласие",
+    "unsigned": "не подписано",
+    "loading_consents": "Загрузка согласий…",
+    "no_consents_hint": "У этого пациента пока нет подписанных согласий на токсин. Это необязательно, вы можете сохранить запись без привязки.",
+    "doctor": "Врач",
+    "unassigned": "Не назначен",
+    "application_date": "Дата применения",
+    "brand_name": "Торговое название",
+    "brand_name_placeholder": "Ботокс, Диспорт, Ксеомин…",
+    "manufacturer": "Производитель",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Номер партии",
+    "expiry_date": "Срок годности",
+    "vials_opened": "Открытые флаконы",
+    "treated_zones": "Обработанные зоны",
+    "other_zone_placeholder": "Другая зона…",
+    "add": "Добавить",
+    "total_units": "Всего единиц",
+    "notes": "Примечания",
+    "notes_placeholder": "Замечания…",
+    "doctor_signature": "Подпись врача",
+    "signature_alt": "Подпись врача",
+    "signed_on": "Подписано {{date}}",
+    "sign_again": "Подписать снова",
+    "signature_hint": "Нарисуйте подпись и нажмите «Подтвердить подпись» перед сохранением.",
+    "confirm_delete": "Удалить эту запись о токсине?",
+    "deleting": "Удаление…",
+    "delete_record": "Удалить запись",
+    "cancel": "Отмена",
+    "save_changes": "Сохранить изменения",
+    "create_record": "Создать запись",
+    "saving": "Сохранение…",
+    "unknown_error": "Неизвестная ошибка",
+    "validation": {
+      "required_fields": "Пациент, торговое название, партия, срок годности и производитель обязательны",
+      "signature_required": "Подпись врача обязательна для сохранения записи"
+    },
+    "zones": {
+      "forehead": "Лоб (горизонтальные линии)",
+      "glabella": "Межбровье (глабелла)",
+      "crows_feet": "Гусиные лапки (периорбитальная зона)",
+      "lower_eyelid": "Нижнее веко",
+      "eyebrow_lift": "Брови (лифтинг)",
+      "bunny_lines": "Нос (bunny lines)",
+      "upper_lip": "Верхняя губа (штрих-код)",
+      "oral_commissures": "Уголки рта",
+      "chin_dimpling": "Подбородок (апельсиновая корка)",
+      "platysmal_bands": "Шея (платизмальные тяжи)",
+      "decolletage": "Декольте",
+      "axillary_sweating": "Потливость подмышек (гипергидроз)",
+      "palmar_sweating": "Потливость ладоней",
+      "plantar_sweating": "Потливость стоп",
+      "jaw_bruxism": "Челюсть (бруксизм / жевательные мышцы)",
+      "migraine_occipital": "Мигрень (затылочные точки)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Лифтинг Нефертити (шея и челюсть)",
+      "other_zone": "Другая зона"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Создание…",
+    "export_pdf": "Экспортировать PDF"
+  },
+  "patientGallery": {
+    "title": "Галерея фото",
+    "upload_photos": "Загрузить фото",
+    "loading": "Загрузка…",
+    "empty": "Нет фото. Загрузите первое изображение.",
+    "confirm_delete": "Удалить это фото?",
+    "count_stored": "{{count}} {{unit}} · Хранится в Cloudflare R2",
+    "photo_singular": "фото",
+    "photo_plural": "фото"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Редактировать медицинскую карту",
+    "title_new": "Новая медицинская карта",
+    "patient": "Пациент",
+    "select_patient": "Выбрать пациента…",
+    "doctor": "Врач",
+    "unassigned": "Не назначен",
+    "branch": "Клиника / Филиал",
+    "unspecified": "Не указано",
+    "visit_date": "Дата визита",
+    "reason_for_visit": "Причина обращения",
+    "anamnesis": "Анамнез",
+    "current_medications": "Текущие лекарства",
+    "allergies": "Известные аллергии",
+    "physical_exam": "Физический осмотр",
+    "diagnosis": "Диагноз",
+    "treatment_plan": "План лечения",
+    "notes": "Замечания / Примечания",
+    "select_patient_error": "Выберите пациента",
+    "unknown_error": "Неизвестная ошибка",
+    "cancel": "Отмена",
+    "saving": "Сохранение…",
+    "save_record": "Сохранить карту"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Файл превышает лимит {{maxSize}} МБ",
+    "upload_error": "Ошибка при загрузке файла",
+    "confirm_delete": "Удалить этот файл?",
+    "video": "Видео",
+    "image": "Изображение",
+    "uploaded_on": "Загружено {{date}}",
+    "change": "Изменить",
+    "delete": "Удалить",
+    "uploading": "Загрузка… {{progress}}%",
+    "drop_hint": "Перетащите сюда или нажмите для загрузки",
+    "file_types_hint": "Изображение (JPG, PNG, GIF) или видео (MP4, MOV, WebM) · Макс. {{maxSize}} МБ"
+  },
+  "consentEditor": {
+    "placeholder_default": "Введите текст согласия…",
+    "bold": "Жирный",
+    "italic": "Курсив",
+    "heading": "Заголовок",
+    "bullet_list": "Список",
+    "ordered_list": "Нумерованный список",
+    "undo": "Отменить",
+    "redo": "Повторить"
+  },
+  "consentPdfButton": {
+    "generating": "Создание PDF…",
+    "export": "Экспортировать PDF"
+  },
+  "newSessionModal": {
+    "title": "Новая фотосессия",
+    "patient_label": "Пациент",
+    "select_patient_placeholder": "Выбрать пациента…",
+    "doctor_label": "Врач",
+    "no_doctor_assigned": "Не назначен",
+    "branch_label": "Клиника / Филиал",
+    "no_branch_specified": "Не указано",
+    "session_name_label": "Название сессии",
+    "session_name_placeholder": "Напр.: Сеанс лечения лица 1",
+    "date_label": "Дата и время",
+    "notes_label": "Примечания",
+    "notes_placeholder": "Замечания о сессии…",
+    "select_patient_error": "Выберите пациента",
+    "unknown_error": "Неизвестная ошибка",
+    "cancel": "Отмена",
+    "creating": "Создание…",
+    "create_session": "Создать сессию"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Фотосессия",
+    "photo_count": "{{count}}/{{max}} фото",
+    "compare_button": "Сравнить до / после",
+    "delete_session": "Удалить сессию",
+    "upload": "Загрузить",
+    "remaining": "осталось {{remaining}}"
+  },
+  "beforeAfterModal": {
+    "select_title": "Выбрать фото для сравнения",
+    "compare_title": "Сравнение До / После",
+    "change_selection": "← Изменить выбор",
+    "select_intro": "Выберите фото для",
+    "select_middle": "и другое для",
+    "before": "До",
+    "after": "После",
+    "before_badge": "ДО",
+    "after_badge": "ПОСЛЕ",
+    "compare_button": "Сравнить"
+  },
+  "biometricPrompt": {
+    "title": "Включить биометрический доступ",
+    "description": "Используйте Face ID, отпечаток пальца или Windows Hello, чтобы входить менее чем за 2 секунды в следующий раз.",
+    "device_label": "Устройство:",
+    "activate": "Активировать",
+    "default_device": "Моё устройство"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Ручной выбор",
+        "desc": "Вы выбираете, что показывать. Нажмите на креатив, чтобы активировать его."
+      },
+      "random": {
+        "label": "Случайный порядок",
+        "desc": "Каждый раз, когда нужно показать креатив, он выбирается случайно."
+      },
+      "sequential": {
+        "label": "Последовательный порядок",
+        "desc": "Показываются по очереди, один за другим, каждый раз, когда наступает время."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Файл превышает лимит 100 МБ",
+      "invalidUrl": "Недействительный URL"
+    },
+    "confirmDelete": "Удалить этот креатив?",
+    "types": {
+      "url": "URL",
+      "video": "Видео",
+      "image": "Изображение"
+    },
+    "active": "✓ Активен",
+    "select": "Выбрать",
+    "upload": {
+      "label": "Загрузить файл",
+      "slotsFree": "{{count}} свободно{{suffix}}"
+    },
+    "addUrlButton": "Добавить URL видео (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Добавить видео по URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… или прямая ссылка на .mp4",
+      "labelPlaceholder": "Название или описание (необязательно)",
+      "hint": "Поддерживает YouTube, Vimeo и прямые ссылки на видео (.mp4, .webm…)",
+      "add": "Добавить",
+      "saving": "Сохранение…"
+    },
+    "displayModeHeading": "Как их показывать?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Добро пожаловать",
+    "continue": "Продолжить →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Когда показывать рекламу?",
+    "subheading": "Вы можете выбрать несколько вариантов одновременно.",
+    "options": {
+      "session": {
+        "label": "Один раз при входе",
+        "desc": "Показывается один раз каждый раз, когда пользователь открывает приложение в браузере."
+      },
+      "consent": {
+        "label": "Каждый раз при создании согласия",
+        "desc": "Появляется сразу после создания каждого информированного согласия."
+      },
+      "clinical": {
+        "label": "Каждый раз при создании медицинской карты",
+        "desc": "Появляется сразу после сохранения каждой медицинской карты."
+      },
+      "interval": {
+        "label": "Каждые X минут",
+        "desc": "Показывается периодически, пока приложение открыто."
+      }
+    },
+    "every": "Каждые",
+    "minutes": "минут",
+    "errors": {
+      "selectAtLeastOne": "Выберите хотя бы один вариант",
+      "saveFailed": "Ошибка при сохранении"
+    },
+    "saving": "Сохранение…",
+    "saved": "Сохранено",
+    "saveButton": "Сохранить настройки",
+    "appliedMessage": "✅ Настройки применены"
+  },
+  "demoPreviewPanel": {
+    "heading": "Предварительный просмотр по ролям",
+    "subheading": "Создайте тестовые данные и войдите в программу именно так, как её видит пациент, клиника или лаборатория.",
+    "createAllButton": "Создать все тестовые данные",
+    "errors": {
+      "checkFailed": "Ошибка при проверке тестовых данных",
+      "createPatientFailed": "Не удалось создать тестового пациента",
+      "createBranchFailed": "Не удалось создать тестовый филиал",
+      "createLabFailed": "Не удалось создать тестовую лабораторию"
+    },
+    "cards": {
+      "patient": {
+        "title": "Вид пациента",
+        "description": "Симулирует портал, который видит пациент: его согласия, медицинскую карту и фото."
+      },
+      "branch": {
+        "title": "Вид клиники",
+        "description": "Симулирует панель, которую видит персонал клиники, с меню, ограниченным их реальными правами."
+      },
+      "lab": {
+        "title": "Вид лаборатории",
+        "description": "Симулирует панель лаборатории-партнёра: её профиль, связанные клиники и кампании."
+      }
+    },
+    "testDataCreated": "Тестовые данные созданы",
+    "viewAs": "Смотреть как {{role}}",
+    "roleNames": {
+      "patient": "пациент",
+      "branch": "клиника",
+      "lab": "лаборатория"
+    },
+    "creating": "Создание…",
+    "createTestData": "Создать тестовые данные"
+  },
+  "previewBanner": {
+    "message": "Предварительный просмотр — вы видите интерфейс так, как его видит",
+    "exitButton": "Выйти из предпросмотра",
+    "roles": {
+      "patient": "Пациент",
+      "clinica": "Клиника",
+      "labPartner": "Лаборатория"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Показать месяц",
+    "today": "Сегодня",
+    "new_appointment": "Новая запись",
+    "no_treatments_warning": "Пока нет созданных процедур. Перейдите на вкладку «Процедуры», чтобы создать первую, прежде чем планировать записи.",
+    "day_closed_notice": "Этот день отмечен как закрытый в Планировании расписания. Вы можете проверить или открыть его на этой вкладке.",
+    "slot_aria_label": "Записать на {{time}}",
+    "outside_availability": "Вне доступного времени",
+    "treatment_fallback": "Процедура",
+    "doctor_prefix": "Д-р {{name}}",
+    "legend": {
+      "available": "Доступно",
+      "outside_hours": "Вне графика",
+      "scheduled": "Запись назначена"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Редактировать запись",
+    "title_new": "Новая запись",
+    "validation_required": "Пациент, процедура и время обязательны",
+    "error_unknown": "Неизвестная ошибка",
+    "confirm_delete": "Удалить эту запись?",
+    "deleting": "Удаление…",
+    "delete_appointment": "Удалить запись",
+    "cancel": "Отмена",
+    "saving": "Сохранение…",
+    "save_changes": "Сохранить изменения",
+    "create_appointment": "Создать запись",
+    "form": {
+      "patient": "Пациент",
+      "select_patient": "Выбрать пациента…",
+      "doctor": "Врач",
+      "unassigned": "Не назначен",
+      "branch": "Клиника / Филиал",
+      "main_branch": "Основной филиал",
+      "treatment": "Процедура",
+      "select_treatment": "Выбрать процедуру…",
+      "treatment_option": "{{name}} — {{duration}} мин — {{price}} €",
+      "no_treatments_warning": "Нет созданных процедур. Сначала добавьте одну на вкладке «Процедуры».",
+      "datetime": "Дата и время",
+      "duration_note": "Займёт {{duration}} минут в расписании.",
+      "notes": "Примечания",
+      "notes_placeholder": "Замечания о записи…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Процедуры",
+    "subtitle": "Длительность и цена каждой процедуры для планирования записей",
+    "new_treatment": "Новая процедура",
+    "loading": "Загрузка…",
+    "empty_state": "Процедуры пока не созданы",
+    "duration_display": "{{duration}} мин",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Удалить эту процедуру?",
+    "form": {
+      "title_edit": "Редактировать процедуру",
+      "title_new": "Новая процедура",
+      "name": "Название",
+      "name_placeholder": "Напр.: Ботулинотерапия",
+      "duration": "Длительность (мин)",
+      "price": "Цена (€)",
+      "validation_name_required": "Название обязательно",
+      "error_unknown": "Неизвестная ошибка",
+      "cancel": "Отмена",
+      "saving": "Сохранение…",
+      "save": "Сохранить"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+    "months": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    "has_exception_tooltip": "Уже настроено исключение",
+    "legend": {
+      "usually_open": "Обычно открыто",
+      "usually_closed": "Обычно закрыто",
+      "has_exception": "С исключением",
+      "selected": "Выбрано"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+    "months": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    "legend": {
+      "open_day": "Рабочий день",
+      "closed": "Закрыто",
+      "today": "Сегодня"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Планирование расписания",
+    "subtitle": "Настройте, в какие дни и в какие часы можно назначать записи.",
+    "time_separator": "до",
+    "add_time_range": "Добавить интервал времени",
+    "weekdays": ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+    "confirm_delete_exception": "Удалить это исключение и вернуться к обычному расписанию этого дня?",
+    "errors": {
+      "save_schedule_failed": "Не удалось сохранить расписание",
+      "apply_pattern_failed": "Не удалось применить шаблон",
+      "select_day_required": "Выберите хотя бы один день в календаре",
+      "save_exception_failed": "Не удалось сохранить особый день"
+    },
+    "bulk": {
+      "title": "Применить шаблон к нескольким дням сразу",
+      "description": "Напр.: с понедельника по пятницу с 09:00 до 20:00. Выберите дни и время, затем примените — позже вы сможете скорректировать каждый день отдельно.",
+      "applying": "Применение…",
+      "apply_button": "Применить к выбранным дням"
+    },
+    "weekly": {
+      "title": "Обычное еженедельное расписание",
+      "closed": "Закрыто",
+      "saving": "Сохранение…",
+      "save": "Сохранить"
+    },
+    "exceptions": {
+      "title": "Отдельные дни (исключения)",
+      "description": "Откройте особый день (напр., субботу) или закройте день, который обычно открыт (напр., праздник).",
+      "select_days_label": "Выберите один или несколько дней",
+      "days_selected_singular": "{{count}} день выбран",
+      "days_selected_plural": "{{count}} дней выбрано",
+      "clear_selection": "Очистить выбор",
+      "open_special": "Открыть особый день",
+      "close": "Закрыть",
+      "schedule_label": "Расписание на эти дни",
+      "notes_placeholder": "Причина (необязательно) — напр.: августовские праздники",
+      "saving": "Сохранение…",
+      "save_button_singular": "Сохранить особый день",
+      "save_button_plural": "Сохранить {{count}} особых дней",
+      "no_exceptions": "Отдельные дни не настроены.",
+      "open_special_status": "Особо открыт · {{ranges}}",
+      "closed_status": "Закрыто"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Цифровые согласия · Биометрическая подпись"
   },
   "nav": {
-    "dashboard": "Дашборд",
+    "dashboard": "Главная",
     "patients": "Пациенты",
     "doctors": "Врачи",
     "consents": "Согласия",
@@ -14,7 +445,15 @@
     "settings": "Настройки",
     "clinicalRecords": "История болезни",
     "photos": "Фото",
-    "recharge": "Пополнить"
+    "recharge": "Планы подписки",
+    "agenda": "Расписание",
+    "toxin": "Контроль токсина",
+    "labPartners": "Лаборатории",
+    "menu": "Меню"
+  },
+  "topbar": {
+    "tagline": "Цифровые согласия · Биометрическая подпись",
+    "legal": "eIDAS (Регламент ЕС № 910/2014) · Закон 41/2002 · GDPR"
   },
   "auth": {
     "login_title": "Безопасный вход",
@@ -23,17 +462,30 @@
     "send_link": "Отправить ссылку доступа",
     "check_email": "Проверьте почту — мы отправили ссылку доступа",
     "magic_link_sent": "Ссылка успешно отправлена",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Запомнить это устройство",
+    "remember_7": "7 дней",
+    "remember_30": "30 дней",
+    "remember_90": "90 дней",
+    "biometric_activate": "Активировать Face ID / отпечаток",
+    "biometric_prompt": "После первого входа вы сможете активировать Face ID / отпечаток пальца",
+    "biometric_registering": "Активация…",
+    "biometric_success": "Биометрия активирована!",
+    "biometric_success_msg": "В следующий раз вы войдёте одним касанием.",
+    "biometric_error": "Не удалось активировать. Убедитесь, что на вашем устройстве настроена биометрия.",
+    "biometric_now": "Не сейчас",
+    "portal_subtitle": "Цифровые согласия · Биометрическая подпись",
+    "portal_title": "Доступ к документу",
+    "portal_email_prompt": "Введите email, чтобы получить безопасную ссылку доступа.",
+    "portal_link_sent_title": "Ссылка отправлена",
+    "portal_link_sent_message": "Проверьте почту и нажмите на ссылку, чтобы продолжить.",
+    "portal_email_placeholder": "your@email.com",
+    "portal_consent_default_title": "Информированное согласие",
+    "portal_accept_label": "Я прочитал(а) и принимаю это информированное согласие",
+    "portal_proceed_to_sign": "Перейти к подписанию →",
+    "portal_saving_signature": "Сохранение подписи…",
+    "portal_signed_title": "Подписание завершено",
+    "portal_signed_message": "Ваше согласие было подписано и надёжно зарегистрировано.",
+    "portal_error_message": "Ссылка могла истечь или быть неверной."
   },
   "patients": {
     "title": "Пациенты",
@@ -54,10 +506,37 @@
     "edit": "Редактировать",
     "delete": "Удалить",
     "no_results": "Пациенты не зарегистрированы",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Галерея фото",
+    "no_photos": "Нет фото. Загрузите первое изображение.",
+    "upload_photos": "Загрузить фото",
+    "uploading": "Загрузка…",
+    "count_registered": "{{count}} зарегистрировано",
+    "form": {
+      "doc_type": "Тип",
+      "doc_type_passport": "Паспорт",
+      "city": "Город",
+      "province": "Область / Регион",
+      "country": "Страна",
+      "select_placeholder": "— Выбрать —",
+      "countries": [
+        "Испания", "Германия", "Аргентина", "Бельгия", "Боливия", "Бразилия", "Чили", "Китай",
+        "Колумбия", "Коста-Рика", "Куба", "Эквадор", "Сальвадор", "США", "Франция",
+        "Гватемала", "Гондурас", "Италия", "Марокко", "Мексика", "Никарагуа", "Нидерланды",
+        "Панама", "Парагвай", "Перу", "Португалия", "Великобритания", "Доминиканская Республика",
+        "Швейцария", "Уругвай", "Венесуэла", "Другое"
+      ],
+      "provinces": [
+        "Алава", "Альбасете", "Аликанте", "Альмерия", "Астурия", "Авила", "Бадахос", "Балеарские острова",
+        "Барселона", "Бургос", "Касерес", "Кадис", "Кантабрия", "Кастельон", "Сьюдад-Реаль",
+        "Кордова", "Куэнка", "Жирона", "Гранада", "Гвадалахара", "Гипускоа", "Уэльва", "Уэска",
+        "Хаэн", "Ла-Корунья", "Ла-Риоха", "Лас-Пальмас", "Леон", "Лерида", "Луго", "Мадрид",
+        "Малага", "Мурсия", "Наварра", "Оренсе", "Паленсия", "Понтеведра", "Саламанка",
+        "Санта-Крус-де-Тенерифе", "Сеговия", "Севилья", "Сория", "Таррагона", "Теруэль", "Толедо",
+        "Валенсия", "Вальядолид", "Бискайя", "Самора", "Сарагоса", "Сеута", "Мелилья"
+      ],
+      "save_error_prefix": "Ошибка при сохранении:",
+      "unknown_error": "Неизвестная ошибка"
+    }
   },
   "doctors": {
     "title": "Врачи",
@@ -73,17 +552,45 @@
       "receptionist": "Регистратор"
     },
     "save": "Сохранить врача",
-    "no_results": "Врачи не зарегистрированы"
+    "no_results": "Врачи не зарегистрированы",
+    "last_name": "Фамилия",
+    "phone": "Телефон",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "Неизвестная ошибка",
+    "count_registered": "{{count}} зарегистрировано",
+    "license_display": "№ {{number}}"
   },
   "consents": {
     "title": "Согласия",
     "add": "Новое согласие",
     "search": "Поиск согласий…",
+    "step_labels": ["Данные", "Просмотр", "Подпись врача", "Подпись пациента", "Готово"],
+    "branch_label": "Филиал",
+    "main_branch": "Основной филиал",
+    "select_patient": "Выбрать пациента…",
+    "select_doctor": "Выбрать врача…",
+    "select_treatment": "Выбрать процедуру…",
+    "translating": "Перевод…",
+    "continue": "Продолжить",
+    "responsible_doctor": "Ответственный врач",
+    "legal_framework_title": "Правовая база — {{jurisdiction}}",
+    "witness_required_notice": "В этой стране для подписи требуется свидетель",
+    "back": "← Назад",
+    "sign_arrow": "Подписать →",
+    "doctor_signature_title": "Подпись врача",
+    "doctor_signature_notice": "Врач должен подписать первым, чтобы подтвердить согласие",
+    "back_to_preview": "← Назад",
+    "patient_signature_title": "Подпись пациента",
+    "patient_signature_notice": "Пациент должен подписать, чтобы подтвердить, что он прочитал и принимает согласие",
+    "signed_title": "Согласие подписано",
+    "signed_description": "Документ был подписан и корректно зарегистрирован.",
+    "close": "Закрыть",
     "status": {
       "pending": "Ожидает",
       "signed": "Подписано",
       "revoked": "Отозвано",
-      "expired": "Истекло"
+      "expired": "Истекло",
+      "all": "Все"
     },
     "sign": "Подписать",
     "generate_pdf": "Создать PDF",
@@ -93,7 +600,13 @@
     "treatment": "Лечение",
     "language": "Язык",
     "signed_at": "Дата подписания",
-    "no_results": "Нет согласий"
+    "no_results": "Нет согласий",
+    "confirm_delete": "Удалить это согласие?",
+    "stats": "{{total}} всего · {{signed}} подписано · {{pending}} ожидает",
+    "branch": "Филиал",
+    "created_at": "Дата создания",
+    "status_header": "Статус",
+    "continue_signature": "Продолжить подписание"
   },
   "signature": {
     "title": "Подпись пациента",
@@ -112,14 +625,21 @@
     "tax_id": "ИНН / ОГРН",
     "logo": "Логотип",
     "save": "Сохранить настройки",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Дополнительные филиалы",
+    "branches_desc": "Управляйте несколькими филиалами вашей клиники",
+    "add_branch": "Добавить филиал",
+    "no_branches": "Нет дополнительных филиалов",
+    "branch_name": "Название филиала",
+    "save_branches": "Сохранить филиалы",
+    "edit_branch": "Редактировать филиал",
+    "new_branch": "Новый филиал",
+    "save_branch": "Сохранить филиал",
+    "subtitle": "Общие настройки клиники",
+    "trade_name": "Торговое название",
+    "legal_name": "Юридическое название / фирменное наименование",
+    "nika_number": "Номер НИКА",
+    "save_success": "Успешно сохранено",
+    "confirm_delete_branch": "Удалить этот филиал?"
   },
   "language": {
     "select": "Язык",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Мы отправили Magic Link на",
     "email": "Email",
     "magic_link": "Войти с Magic Link",
-    "footer": "Действительные цифровые согласия · ФЗ-323 · ФЗ-152"
+    "footer": "Действительные цифровые согласия · ФЗ-323 · ФЗ-152",
+    "invalid_email": "Введите действительный email",
+    "send_error": "Ошибка при отправке ссылки",
+    "subtitle": "Цифровые согласия · eIDAS",
+    "email_placeholder": "you@clinic.ru"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "subtitle": "Обзор активности",
+    "pending_signature": "Ожидают подписания",
+    "signature_rate": "Процент подписания",
+    "signed_count": "{{count}} подписано",
+    "pending_count": "{{count}} ожидает",
+    "recent_consents": "Последние согласия",
+    "view_all_consents": "Смотреть все →",
+    "view_all": "Смотреть все →",
+    "no_consents": "Нет согласий",
+    "recent_clinical": "Последние медицинские карты",
+    "no_clinical": "Нет медицинских карт",
+    "recent_photos": "Последние фотосессии",
+    "no_photos": "Нет фотосессий"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Шаблоны",
+    "search": "Поиск процедуры…",
+    "editor_title": "Редактор шаблона",
+    "consent_title_label": "Название согласия",
+    "no_translation": "Нет перевода на",
+    "translate_all": "Перевести на 21 язык",
+    "translating": "Перевод…",
+    "legal_framework": "Правовая база",
+    "select_template": "Выберите шаблон для редактирования",
     "empty": "Нет шаблонов",
     "title_placeholder": "Информированное согласие — Лечение…",
     "content_label": "Содержание согласия",
     "content_placeholder": "Напишите текст информированного согласия…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Сохранение…",
+    "saved": "Сохранено"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Удалить эту медицинскую карту?",
+    "confirm_delete_session": "Удалить эту сессию и все её фото?",
+    "not_found": "Пациент не найден",
+    "date_of_birth": "Дата рождения",
+    "email": "Email",
+    "blood_type": "Группа крови",
+    "address": "Адрес",
+    "allergies": "Аллергии",
+    "medications": "Медикаменты",
+    "tabs": {
+      "history": "Медицинские карты ({{count}})",
+      "photos": "Фото ({{count}})",
+      "consents": "Согласия ({{count}})"
+    },
+    "new_clinical_record": "Новая карта",
+    "no_clinical_records": "У этого пациента нет медицинских карт",
+    "doctor_prefix": "Д-р {{name}}",
+    "fields": {
+      "anamnesis": "Анамнез",
+      "allergies": "Аллергии",
+      "current_medications": "Текущие лекарства",
+      "physical_exam": "Физический осмотр",
+      "diagnosis": "Диагноз",
+      "treatment_plan": "План лечения",
+      "notes": "Замечания"
+    },
+    "new_photo_session": "Новая сессия",
+    "no_photo_sessions": "У этого пациента нет фотосессий",
+    "no_consents": "У этого пациента нет согласий",
+    "status": {
+      "signed": "Подписано",
+      "pending": "Ожидает",
+      "revoked": "Отозвано",
+      "expired": "Истекло"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Лаборатория",
+    "not_found": "Профиль лаборатории не найден.",
+    "panel_subtitle": "Панель лаборатории-партнёра",
+    "tabs": {
+      "clinics": "Связанные клиники",
+      "campaigns": "Рекламные кампании",
+      "stats": "Статистика"
+    },
+    "no_clinics": "К этой лаборатории пока не привязаны клиники.",
+    "media_management": "Управление рекламными материалами",
+    "welcome_screen": {
+      "title": "Экран приветствия",
+      "description": "До 5 изображений или видео. Выберите, что показывать: случайно или по очереди (макс. 100 МБ на файл)."
+    },
+    "patient_content": {
+      "title": "Контент для пациента",
+      "description": "До 5 изображений или видео, предназначенных для пациента. Их точное использование будет настроено позже."
+    },
+    "stats_pending": "Этот раздел ещё не определён — скоро здесь появятся показатели эффективности ваших кампаний и клиник."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Удалить эту медицинскую карту?",
+    "title": "Медицинские карты",
+    "records_count": "{{count}} записей",
+    "add_record": "Новая карта",
+    "search_placeholder": "Поиск по пациенту, диагнозу, причине…",
+    "no_records": "Нет медицинских карт",
+    "table_headers": ["Пациент", "Дата", "Причина обращения", "Диагноз", "Врач", ""]
+  },
+  "labPartners": {
+    "title": "Лаборатории-партнёры",
+    "count": "{{count}} зарегистрировано",
+    "new_lab": "Новая лаборатория",
+    "search_placeholder": "Поиск лаборатории…",
+    "no_labs": "Нет лабораторий.",
+    "col_name": "Название",
+    "col_email": "Email",
+    "col_contact": "Контакт",
+    "col_phone": "Телефон",
+    "col_status": "Статус",
+    "col_actions": "Действия",
+    "status_active": "Активна",
+    "status_inactive": "Неактивна",
+    "confirm_deactivate": "Деактивировать лабораторию?",
+    "form": {
+      "edit_title": "Редактировать лабораторию",
+      "new_title": "Новая лаборатория",
+      "name": "Название",
+      "email": "Email",
+      "phone": "Телефон",
+      "contact_person": "Контактное лицо",
+      "website": "Сайт",
+      "notes": "Примечания",
+      "name_email_required": "Название и email обязательны",
+      "unknown_error": "Неизвестная ошибка"
+    },
+    "campaigns": {
+      "title": "Кампании {{name}}",
+      "new_campaign": "Новая кампания",
+      "no_campaigns": "Нет кампаний.",
+      "col_name": "Название",
+      "col_type": "Тип",
+      "col_trigger": "Триггер",
+      "col_status": "Статус",
+      "col_actions": "Действия",
+      "confirm_delete": "Удалить кампанию?",
+      "form": {
+        "edit_title": "Редактировать кампанию",
+        "new_title": "Новая кампания",
+        "name": "Название",
+        "name_required": "Название обязательно",
+        "unknown_error": "Неизвестная ошибка",
+        "type": "Тип",
+        "rotation_mode": "Режим ротации",
+        "rotation_random": "Случайный",
+        "rotation_manual": "Ручной",
+        "creative_url": "URL креатива",
+        "trigger": "Триггер",
+        "interval_minutes": "Интервал (мин)",
+        "start_date": "Дата начала",
+        "end_date": "Дата окончания",
+        "active": "Активна"
+      }
+    },
+    "creative_types": {
+      "image": "Изображение",
+      "video": "Видео",
+      "url": "URL",
+      "offer": "Предложение",
+      "training": "Обучение"
+    },
+    "triggers": {
+      "on_login": "При входе",
+      "on_consent": "При создании согласия",
+      "every_x_minutes": "Каждые X минут",
+      "once_daily": "Раз в день"
+    }
+  },
+  "agenda": {
+    "title": "Расписание",
+    "subtitle": "Записи, процедуры и планирование расписания",
+    "tab_appointments": "Записи",
+    "tab_treatments": "Процедуры",
+    "tab_planning": "Планирование расписания"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID не указан",
+    "verifying": "Проверка документа…",
+    "subtitle": "Проверка документа",
+    "not_found_title": "Документ не найден",
+    "signed_title": "Документ действителен и подписан",
+    "signed_subtitle": "Подпись была успешно проверена",
+    "revoked_title": "Согласие отозвано",
+    "revoked_subtitle": "Пациент отозвал это согласие",
+    "pending_title": "Ожидает подписания",
+    "pending_subtitle": "Этот документ ещё не подписан",
+    "patient": "Пациент",
+    "doctor": "Врач",
+    "treatment": "Лечение",
+    "signed_date": "Дата подписания",
+    "hash_label": "Хеш SHA-256",
+    "document_id_label": "ID документа:",
+    "verified_on": "Проверено {{date}}. Этот документ действителен согласно Закону 41/2002 и подписан электронно в соответствии с Регламентом eIDAS (ЕС) 910/2014."
+  },
+  "recharge": {
+    "title": "Планы подписки",
+    "subtitle": "Выберите план, который лучше всего подходит вашей клинике",
+    "monthly": "Ежемесячно",
+    "annual": "Ежегодно",
+    "per_month": "/мес",
+    "save_20_annual": "Экономьте 20 % при годовой оплате",
+    "switch_annual_save": "Перейдите на годовой план и сэкономьте 20 %",
+    "hire_plan": "Оформить план",
+    "note_title": "Примечание к плану ИИ и плану ИИ Премиум:",
+    "note_text": "Первоначальная настройка ИИ-агентов (услуги, процедуры и персонализация) и внедрение оцениваются отдельно в зависимости от сложности каждой клиники. Расходы на голосового агента и WhatsApp API не включены в ежемесячную плату.",
+    "plans": {
+      "base": {
+        "name": "Базовый план",
+        "features": [
+          "Неограниченные согласия",
+          "Медицинская карта",
+          "Фотогалерея",
+          "Портал пациента",
+          "Magic Link + биометрия",
+          "Поддержка включена"
+        ]
+      },
+      "pro": {
+        "name": "План Про",
+        "badge": "Самый популярный",
+        "features": [
+          "Всё из Базового плана +",
+          "Расписание записей",
+          "CRM пациентов",
+          "Контроль токсина",
+          "Сметы для пациентов"
+        ]
+      },
+      "ia": {
+        "name": "План ИИ",
+        "features": [
+          "Всё из плана Про +",
+          "ИИ-агент WhatsApp 24/7 — привлечение записей",
+          "Автоматическое подтверждение записей",
+          "Автоматические напоминания о записях",
+          "Панель управления WhatsApp",
+          "Общение с пациентами через WhatsApp",
+          "Отправка через WhatsApp согласий, медкарты, фото, смет и счетов"
+        ]
+      },
+      "ia_plus": {
+        "name": "План ИИ Премиум",
+        "badge": "Новинка",
+        "features": [
+          "Всё из плана ИИ +",
+          "ИИ голосовой агент 24/7: отвечает на звонки",
+          "Автоматически назначает записи по телефону",
+          "Клонирует голос вашего администратора на 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Контроль токсина",
+    "subtitle": "Отслеживание партий ботулотоксина",
+    "new_record": "Новая запись",
+    "from": "С",
+    "to": "По",
+    "doctor": "Врач",
+    "patient": "Пациент",
+    "all": "Все",
+    "lot_number": "№ партии",
+    "search_lot_placeholder": "Поиск партии…",
+    "clear_filters": "Очистить фильтры",
+    "no_results": "Нет записей о токсине с этими фильтрами.",
+    "col_date": "Дата",
+    "col_patient": "Пациент",
+    "col_doctor": "Врач",
+    "col_brand": "Торговое название",
+    "col_lot": "Партия",
+    "col_expiry": "Срок годности",
+    "col_zones": "Зоны",
+    "col_units": "Единицы",
+    "col_signature": "Подпись",
+    "col_ci": "СИ",
+    "col_actions": "Действия",
+    "signed": "Подписано",
+    "unsigned": "Без подписи",
+    "consent_linked": "С привязанным согласием",
+    "consent_not_linked": "Без привязанного согласия",
+    "confirm_delete": "Удалить эту запись о токсине?",
+    "detail": {
+      "not_found": "Запись не найдена.",
+      "patient": "Пациент",
+      "doctor": "Врач",
+      "brand": "Торговое название",
+      "manufacturer": "Производитель",
+      "lot": "Номер партии",
+      "expiry": "Срок годности",
+      "vials": "Открытые флаконы",
+      "total_units": "Всего единиц",
+      "treated_zones": "Обработанные зоны",
+      "no_zones": "Зоны не зарегистрированы.",
+      "notes": "Примечания",
+      "doctor_signature": "Подпись врача",
+      "signature_alt": "Подпись врача",
+      "signed_on": "Подписано {{date}}",
+      "no_signature": "У этой записи нет подписи врача.",
+      "linked_consent": "Связанное информированное согласие",
+      "consent_default_name": "Согласие",
+      "consent_unsigned": "Не подписано",
+      "loading_pdf": "Загрузка PDF…",
+      "consent_load_error": "Не удалось загрузить информацию о связанном согласии."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Токен не найден в URL",
+    "invalid_token": "Недействительный или истёкший токен",
+    "connection_error": "Ошибка соединения",
+    "verifying": "Проверка ссылки…",
+    "invalid_link": "Недействительная ссылка",
+    "back_home": "Вернуться на главную"
+  },
+  "photoSessions": {
+    "confirm_delete": "Удалить эту сессию и все её фото?",
+    "title": "Фото",
+    "subtitle": "{{count}} фотосессий",
+    "new_session": "Новая сессия",
+    "search_placeholder": "Поиск по пациенту или названию сессии…",
+    "no_sessions": "Нет фотосессий"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Мои согласия",
+      "clinical": "Моя медицинская карта",
+      "photos": "Мои фото"
+    },
+    "consents": {
+      "empty": "У вас пока нет подписанных согласий.",
+      "default_name": "Согласие",
+      "doctor": "Д-р {{name}}",
+      "signed_on": "Подписано {{date}}",
+      "status_signed": "Подписано",
+      "status_pending": "Ожидает"
+    },
+    "clinical": {
+      "empty": "Ваша медицинская карта пуста.",
+      "default_name": "Приём",
+      "doctor_suffix": " · Д-р {{name}}",
+      "fields": {
+        "diagnosis": "Диагноз",
+        "anamnesis": "Анамнез",
+        "current_medications": "Текущие лекарства",
+        "allergies": "Аллергии",
+        "treatment_plan": "План лечения",
+        "notes": "Замечания"
+      }
+    },
+    "photos": {
+      "empty": "Пока нет фотосессий.",
+      "back_to_sessions": "Вернуться к сессиям",
+      "default_session_name": "Фотосессия",
+      "doctor_suffix": " · Д-р {{name}}",
+      "compare_title": "Сравнение до / после",
+      "before": "До",
+      "after": "После",
+      "close_compare": "Закрыть сравнение",
+      "compare_button": "Сравнить",
+      "photo_count": "{{count}} фото"
+    }
   },
   "settings": {
     "title": "Настройки",
-    "subtitle": "Управление пользователями и доступом",
+    "subtitle": "Управление пользователями и доступом к системе",
+    "tabs": {
+      "users": "Пользователи",
+      "media": "Реклама",
+      "preview": "Предпросмотр"
+    },
     "users": {
       "title": "Пользователи",
       "invite_user": "Пригласить пользователя",
@@ -174,14 +1048,40 @@
       "role": "Роль",
       "role_admin": "Администратор",
       "role_clinica": "Клиника",
-      "admin_hint": "Администратор имеет полный доступ ко всем разделам.",
+      "admin_hint": "Администратор имеет полный доступ ко всем разделам системы.",
       "permissions": "Права доступа",
-      "permissions_hint": "Выберите доступные разделы.",
+      "permissions_hint": "Выберите, к каким разделам будет иметь доступ этот пользователь.",
       "send_invite": "Отправить приглашение",
-      "no_users": "Нет пользователей. Пригласите первого.",
+      "no_users": "Нет зарегистрированных пользователей. Пригласите первого.",
       "inactive": "Неактивен",
-      "activate": "Активировать",
-      "deactivate": "Деактивировать"
+      "activate": "Активировать пользователя",
+      "deactivate": "Деактивировать пользователя",
+      "role_superadmin": "Супер-администратор",
+      "role_doctor": "Врач",
+      "role_receptionist": "Регистратор",
+      "role_lab_partner": "Лаборатория",
+      "role_patient": "Пациент",
+      "filter_all": "Все",
+      "invite_accepted": "Приглашение принято",
+      "invite_expired": "Приглашение истекло",
+      "invite_pending": "Приглашение ожидает",
+      "email_placeholder": "user@clinic.ru",
+      "full_name_placeholder": "Имя Фамилия",
+      "linked_lab": "Связанная лаборатория",
+      "no_lab": "Без лаборатории",
+      "lab_hint": "Пользователь будет видеть только клиники, связанные с этой лабораторией.",
+      "admin_only_hint": "Настройки доступны только администраторам и никогда не могут быть делегированы клинике.",
+      "load_error": "Не удалось загрузить список пользователей",
+      "retry": "Повторить"
+    },
+    "media": {
+      "title": "Управление рекламными материалами",
+      "managed_by_lab": "Этой рекламой управляет ваша лаборатория-партнёр. Вы можете просматривать её здесь, но изменять может только лаборатория.",
+      "managed_by_lab_named": "Этой рекламой управляет ваша лаборатория-партнёр ({{name}}). Вы можете просматривать её здесь, но изменять может только лаборатория.",
+      "welcome_title": "Экран приветствия",
+      "welcome_description": "До 5 изображений или видео. Выберите, что показывать: случайно или по очереди (макс. 100 МБ на файл).",
+      "patient_title": "Контент для пациента",
+      "patient_description": "До 5 изображений или видео, предназначенных для пациента. Их точное использование будет настроено позже."
     }
   }
 }

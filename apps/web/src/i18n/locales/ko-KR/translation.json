@@ -1,7 +1,438 @@
 {
+  "toxinModal": {
+    "title_edit": "톡신 기록 수정",
+    "title_new": "새 톡신 기록",
+    "patient": "환자",
+    "select_patient": "환자 선택…",
+    "linked_consent": "연결된 동의서",
+    "not_linked": "연결 안 됨",
+    "consent_default_name": "동의서",
+    "unsigned": "미서명",
+    "loading_consents": "동의서 불러오는 중…",
+    "no_consents_hint": "이 환자는 아직 서명된 톡신 동의서가 없습니다. 선택 사항이므로 연결하지 않고도 기록을 저장할 수 있습니다.",
+    "doctor": "의사",
+    "unassigned": "미배정",
+    "application_date": "시술 날짜",
+    "brand_name": "제품명",
+    "brand_name_placeholder": "보톡스, 디스포트, 제오민…",
+    "manufacturer": "제조사",
+    "manufacturer_placeholder": "앨러간, 입센, 머츠…",
+    "lot_number": "로트 번호",
+    "expiry_date": "유효기간",
+    "vials_opened": "개봉한 바이알",
+    "treated_zones": "시술 부위",
+    "other_zone_placeholder": "기타 부위…",
+    "add": "추가",
+    "total_units": "총 유닛",
+    "notes": "메모",
+    "notes_placeholder": "관찰 사항…",
+    "doctor_signature": "의사 서명",
+    "signature_alt": "의사 서명",
+    "signed_on": "{{date}}에 서명됨",
+    "sign_again": "다시 서명",
+    "signature_hint": "서명란에 그린 후 저장하기 전에 \"서명 확인\"을 누르세요.",
+    "confirm_delete": "이 톡신 기록을 삭제하시겠습니까?",
+    "deleting": "삭제 중…",
+    "delete_record": "기록 삭제",
+    "cancel": "취소",
+    "save_changes": "변경 사항 저장",
+    "create_record": "기록 생성",
+    "saving": "저장 중…",
+    "unknown_error": "알 수 없는 오류",
+    "validation": {
+      "required_fields": "환자, 제품명, 로트, 유효기간, 제조사는 필수입니다",
+      "signature_required": "기록을 저장하려면 의사 서명이 필요합니다"
+    },
+    "zones": {
+      "forehead": "이마 (가로 주름)",
+      "glabella": "미간 (눈썹 사이)",
+      "crows_feet": "눈가 주름 (눈가 부위)",
+      "lower_eyelid": "아래 눈꺼풀",
+      "eyebrow_lift": "눈썹 (리프팅)",
+      "bunny_lines": "코 (버니라인)",
+      "upper_lip": "윗입술 (바코드 주름)",
+      "oral_commissures": "입꼬리",
+      "chin_dimpling": "턱 (오렌지 필 피부)",
+      "platysmal_bands": "목 (플라티스마 밴드)",
+      "decolletage": "데콜테",
+      "axillary_sweating": "겨드랑이 다한증",
+      "palmar_sweating": "손바닥 다한증",
+      "plantar_sweating": "발바닥 다한증",
+      "jaw_bruxism": "턱 (이갈이 / 저작근)",
+      "migraine_occipital": "편두통 (후두부 포인트)",
+      "trampoline_chin": "트램폴린 친",
+      "gummy_smile": "잇몸 미소 (거미 스마일)",
+      "nefertiti_lift": "네페르티티 리프트 (목과 턱선)",
+      "other_zone": "기타 부위"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "생성 중…",
+    "export_pdf": "PDF 내보내기"
+  },
+  "patientGallery": {
+    "title": "사진 갤러리",
+    "upload_photos": "사진 업로드",
+    "loading": "로딩 중…",
+    "empty": "사진이 없습니다. 첫 이미지를 업로드하세요.",
+    "confirm_delete": "이 사진을 삭제하시겠습니까?",
+    "count_stored": "{{count}} {{unit}} · Cloudflare R2에 저장됨",
+    "photo_singular": "장",
+    "photo_plural": "장"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "진료 기록 수정",
+    "title_new": "새 진료 기록",
+    "patient": "환자",
+    "select_patient": "환자 선택…",
+    "doctor": "의사",
+    "unassigned": "미배정",
+    "branch": "클리닉 / 지점",
+    "unspecified": "지정 안 됨",
+    "visit_date": "방문 날짜",
+    "reason_for_visit": "방문 사유",
+    "anamnesis": "병력 / 문진",
+    "current_medications": "현재 복용 약물",
+    "allergies": "알려진 알레르기",
+    "physical_exam": "신체 검사",
+    "diagnosis": "진단",
+    "treatment_plan": "치료 계획",
+    "notes": "관찰 사항 / 메모",
+    "select_patient_error": "환자를 선택하세요",
+    "unknown_error": "알 수 없는 오류",
+    "cancel": "취소",
+    "saving": "저장 중…",
+    "save_record": "진료 기록 저장"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "파일이 {{maxSize}} MB 제한을 초과합니다",
+    "upload_error": "파일 업로드 오류",
+    "confirm_delete": "이 파일을 삭제하시겠습니까?",
+    "video": "동영상",
+    "image": "이미지",
+    "uploaded_on": "{{date}}에 업로드됨",
+    "change": "변경",
+    "delete": "삭제",
+    "uploading": "업로드 중… {{progress}}%",
+    "drop_hint": "여기로 드래그하거나 클릭하여 업로드",
+    "file_types_hint": "이미지 (JPG, PNG, GIF) 또는 동영상 (MP4, MOV, WebM) · 최대 {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "동의서 내용을 작성하세요…",
+    "bold": "굵게",
+    "italic": "기울임",
+    "heading": "제목",
+    "bullet_list": "목록",
+    "ordered_list": "번호 목록",
+    "undo": "실행 취소",
+    "redo": "다시 실행"
+  },
+  "consentPdfButton": {
+    "generating": "PDF 생성 중…",
+    "export": "PDF 내보내기"
+  },
+  "newSessionModal": {
+    "title": "새 사진 세션",
+    "patient_label": "환자",
+    "select_patient_placeholder": "환자 선택…",
+    "doctor_label": "의사",
+    "no_doctor_assigned": "미배정",
+    "branch_label": "클리닉 / 지점",
+    "no_branch_specified": "지정 안 됨",
+    "session_name_label": "세션 이름",
+    "session_name_placeholder": "예: 얼굴 치료 세션 1",
+    "date_label": "날짜 및 시간",
+    "notes_label": "메모",
+    "notes_placeholder": "세션에 대한 관찰 사항…",
+    "select_patient_error": "환자를 선택하세요",
+    "unknown_error": "알 수 없는 오류",
+    "cancel": "취소",
+    "creating": "생성 중…",
+    "create_session": "세션 생성"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "사진 세션",
+    "photo_count": "{{count}}/{{max}} 장",
+    "compare_button": "전후 비교",
+    "delete_session": "세션 삭제",
+    "upload": "업로드",
+    "remaining": "{{remaining}}장 남음"
+  },
+  "beforeAfterModal": {
+    "select_title": "비교할 사진 선택",
+    "compare_title": "전후 비교",
+    "change_selection": "← 선택 변경",
+    "select_intro": "다음을 위한 사진을 선택하세요",
+    "select_middle": "그리고 다음을 위한 사진을",
+    "before": "이전",
+    "after": "이후",
+    "before_badge": "이전",
+    "after_badge": "이후",
+    "compare_button": "비교"
+  },
+  "biometricPrompt": {
+    "title": "생체 인증 활성화",
+    "description": "다음번에는 Face ID, 지문 또는 Windows Hello를 사용해 2초 이내에 로그인하세요.",
+    "device_label": "기기:",
+    "activate": "활성화",
+    "default_device": "내 기기"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "수동 선택",
+        "desc": "표시할 항목을 직접 선택합니다. 크리에이티브를 클릭하여 활성화하세요."
+      },
+      "random": {
+        "label": "무작위 순서",
+        "desc": "표시할 때마다 크리에이티브 하나가 무작위로 선택됩니다."
+      },
+      "sequential": {
+        "label": "순차 순서",
+        "desc": "표시할 때마다 순서대로 하나씩 보여줍니다."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "파일이 100MB 제한을 초과합니다",
+      "invalidUrl": "유효하지 않은 URL"
+    },
+    "confirmDelete": "이 크리에이티브를 삭제하시겠습니까?",
+    "types": {
+      "url": "URL",
+      "video": "동영상",
+      "image": "이미지"
+    },
+    "active": "✓ 활성",
+    "select": "선택",
+    "upload": {
+      "label": "파일 업로드",
+      "slotsFree": "{{count}}개 여유{{suffix}}"
+    },
+    "addUrlButton": "동영상 URL 추가 (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "URL로 동영상 추가",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… 또는 .mp4 직접 링크",
+      "labelPlaceholder": "이름 또는 설명 (선택 사항)",
+      "hint": "YouTube, Vimeo 및 동영상 직접 URL과 호환됩니다 (.mp4, .webm 등)",
+      "add": "추가",
+      "saving": "저장 중…"
+    },
+    "displayModeHeading": "어떻게 표시할까요?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "환영",
+    "continue": "계속 →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "언제 광고를 표시할까요?",
+    "subheading": "여러 옵션을 동시에 선택할 수 있습니다.",
+    "options": {
+      "session": {
+        "label": "로그인할 때 한 번",
+        "desc": "사용자가 브라우저에서 애플리케이션을 열 때마다 한 번만 표시됩니다."
+      },
+      "consent": {
+        "label": "동의서를 생성할 때마다",
+        "desc": "각 동의서를 생성한 직후에 즉시 표시됩니다."
+      },
+      "clinical": {
+        "label": "진료 기록을 생성할 때마다",
+        "desc": "각 진료 기록을 저장한 직후에 즉시 표시됩니다."
+      },
+      "interval": {
+        "label": "매 X분마다",
+        "desc": "애플리케이션이 열려 있는 동안 주기적으로 표시됩니다."
+      }
+    },
+    "every": "매",
+    "minutes": "분",
+    "errors": {
+      "selectAtLeastOne": "옵션을 하나 이상 선택하세요",
+      "saveFailed": "저장 오류"
+    },
+    "saving": "저장 중…",
+    "saved": "저장됨",
+    "saveButton": "설정 저장",
+    "appliedMessage": "✅ 설정이 적용되었습니다"
+  },
+  "demoPreviewPanel": {
+    "heading": "역할별 미리보기",
+    "subheading": "테스트 데이터를 만들고 환자, 클리닉 또는 실험실이 보는 것과 똑같이 프로그램에 들어가 보세요.",
+    "createAllButton": "모든 테스트 데이터 생성",
+    "errors": {
+      "checkFailed": "테스트 데이터 확인 오류",
+      "createPatientFailed": "테스트 환자를 생성할 수 없습니다",
+      "createBranchFailed": "테스트 지점을 생성할 수 없습니다",
+      "createLabFailed": "테스트 실험실을 생성할 수 없습니다"
+    },
+    "cards": {
+      "patient": {
+        "title": "환자 보기",
+        "description": "환자가 보는 포털을 시뮬레이션합니다: 동의서, 진료 기록 및 사진."
+      },
+      "branch": {
+        "title": "클리닉 보기",
+        "description": "클리닉 직원이 보는 패널을 시뮬레이션하며, 실제 권한에 맞춰 메뉴가 제한됩니다."
+      },
+      "lab": {
+        "title": "실험실 보기",
+        "description": "협력 실험실의 패널을 시뮬레이션합니다: 프로필, 연결된 클리닉 및 캠페인."
+      }
+    },
+    "testDataCreated": "테스트 데이터가 생성되었습니다",
+    "viewAs": "{{role}}(으)로 보기",
+    "roleNames": {
+      "patient": "환자",
+      "branch": "클리닉",
+      "lab": "실험실"
+    },
+    "creating": "생성 중…",
+    "createTestData": "테스트 데이터 생성"
+  },
+  "previewBanner": {
+    "message": "미리보기 — 다음 사용자로서 인터페이스를 보고 있습니다:",
+    "exitButton": "미리보기 종료",
+    "roles": {
+      "patient": "환자",
+      "clinica": "클리닉",
+      "labPartner": "실험실"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "월별 보기",
+    "today": "오늘",
+    "new_appointment": "새 예약",
+    "no_treatments_warning": "아직 생성된 치료가 없습니다. 예약을 잡기 전에 \"치료\" 탭에서 첫 번째 치료를 만드세요.",
+    "day_closed_notice": "이 날은 일정 계획에서 휴무로 표시되어 있습니다. 해당 탭에서 확인하거나 열 수 있습니다.",
+    "slot_aria_label": "{{time}}에 예약하기",
+    "outside_availability": "이용 가능 시간 외",
+    "treatment_fallback": "치료",
+    "doctor_prefix": "{{name}} 원장님",
+    "legend": {
+      "available": "예약 가능",
+      "outside_hours": "영업시간 외",
+      "scheduled": "예약됨"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "예약 수정",
+    "title_new": "새 예약",
+    "validation_required": "환자, 치료, 시간은 필수입니다",
+    "error_unknown": "알 수 없는 오류",
+    "confirm_delete": "이 예약을 삭제하시겠습니까?",
+    "deleting": "삭제 중…",
+    "delete_appointment": "예약 삭제",
+    "cancel": "취소",
+    "saving": "저장 중…",
+    "save_changes": "변경 사항 저장",
+    "create_appointment": "예약 생성",
+    "form": {
+      "patient": "환자",
+      "select_patient": "환자 선택…",
+      "doctor": "의사",
+      "unassigned": "미배정",
+      "branch": "클리닉 / 지점",
+      "main_branch": "본점",
+      "treatment": "치료",
+      "select_treatment": "치료 선택…",
+      "treatment_option": "{{name}} — {{duration}}분 — {{price}}€",
+      "no_treatments_warning": "생성된 치료가 없습니다. 먼저 \"치료\" 탭에서 하나를 추가하세요.",
+      "datetime": "날짜 및 시간",
+      "duration_note": "일정에서 {{duration}}분을 차지합니다.",
+      "notes": "메모",
+      "notes_placeholder": "예약에 대한 관찰 사항…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "치료",
+    "subtitle": "예약을 잡기 위한 각 치료의 소요 시간과 가격",
+    "new_treatment": "새 치료",
+    "loading": "로딩 중…",
+    "empty_state": "아직 생성된 치료가 없습니다",
+    "duration_display": "{{duration}}분",
+    "price_display": "{{price}}€",
+    "confirm_delete": "이 치료를 삭제하시겠습니까?",
+    "form": {
+      "title_edit": "치료 수정",
+      "title_new": "새 치료",
+      "name": "이름",
+      "name_placeholder": "예: 보톨리눔 톡신",
+      "duration": "소요 시간 (분)",
+      "price": "가격 (€)",
+      "validation_name_required": "이름은 필수입니다",
+      "error_unknown": "알 수 없는 오류",
+      "cancel": "취소",
+      "saving": "저장 중…",
+      "save": "저장"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["월", "화", "수", "목", "금", "토", "일"],
+    "months": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+    "has_exception_tooltip": "이미 예외가 설정되어 있습니다",
+    "legend": {
+      "usually_open": "보통 영업",
+      "usually_closed": "보통 휴무",
+      "has_exception": "예외 있음",
+      "selected": "선택됨"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["월", "화", "수", "목", "금", "토", "일"],
+    "months": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+    "legend": {
+      "open_day": "영업일",
+      "closed": "휴무",
+      "today": "오늘"
+    }
+  },
+  "schedulePlanner": {
+    "title": "일정 계획",
+    "subtitle": "예약이 가능한 요일과 시간을 설정하세요.",
+    "time_separator": "~",
+    "add_time_range": "시간대 추가",
+    "weekdays": ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+    "confirm_delete_exception": "이 예외를 삭제하고 해당 요일의 일반 일정으로 되돌리시겠습니까?",
+    "errors": {
+      "save_schedule_failed": "일정을 저장할 수 없습니다",
+      "apply_pattern_failed": "패턴을 적용할 수 없습니다",
+      "select_day_required": "달력에서 최소 하루를 선택하세요",
+      "save_exception_failed": "특별한 날을 저장할 수 없습니다"
+    },
+    "bulk": {
+      "title": "여러 날에 한 번에 패턴 적용",
+      "description": "예: 월요일부터 금요일까지 09:00~20:00. 요일과 시간을 선택한 후 적용하세요 — 이후 각 요일을 개별적으로 조정할 수 있습니다.",
+      "applying": "적용 중…",
+      "apply_button": "선택한 요일에 적용"
+    },
+    "weekly": {
+      "title": "일반 주간 일정",
+      "closed": "휴무",
+      "saving": "저장 중…",
+      "save": "저장"
+    },
+    "exceptions": {
+      "title": "개별 날짜 (예외)",
+      "description": "특별한 날(예: 토요일)을 열거나 평소 영업일(예: 공휴일)을 닫으세요.",
+      "select_days_label": "하루 또는 여러 날을 선택하세요",
+      "days_selected_singular": "{{count}}일 선택됨",
+      "days_selected_plural": "{{count}}일 선택됨",
+      "clear_selection": "선택 지우기",
+      "open_special": "특별 영업",
+      "close": "휴무",
+      "schedule_label": "해당 날짜의 일정",
+      "notes_placeholder": "사유 (선택 사항) — 예: 8월 연휴",
+      "saving": "저장 중…",
+      "save_button_singular": "특별한 날 저장",
+      "save_button_plural": "특별한 날 {{count}}일 저장",
+      "no_exceptions": "설정된 개별 날짜가 없습니다.",
+      "open_special_status": "특별 영업 · {{ranges}}",
+      "closed_status": "휴무"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
-    "tagline": "디지털 동의서 · 생체인식 서명"
+    "tagline": "디지털 동의서 · 생체 인식 서명"
   },
   "nav": {
     "dashboard": "대시보드",
@@ -14,35 +445,56 @@
     "settings": "설정",
     "clinicalRecords": "진료 기록",
     "photos": "사진",
-    "recharge": "충전"
+    "recharge": "구독 플랜",
+    "agenda": "일정",
+    "toxin": "톡신 관리",
+    "labPartners": "실험실",
+    "menu": "메뉴"
+  },
+  "topbar": {
+    "tagline": "디지털 동의서 · 생체 인식 서명",
+    "legal": "eIDAS (EU 910/2014) · 의료법 41/2002 · GDPR"
   },
   "auth": {
-    "login_title": "보안 접속",
-    "login_subtitle": "이메일을 입력하여 접속 링크를 받으세요",
-    "email_placeholder": "email@clinic.co.kr",
+    "login_title": "안전한 접속",
+    "login_subtitle": "접속 링크를 받으려면 이메일을 입력하세요",
+    "email_placeholder": "email@clinic.com",
     "send_link": "접속 링크 보내기",
     "check_email": "이메일을 확인하세요 — 접속 링크를 보냈습니다",
     "magic_link_sent": "링크가 성공적으로 전송되었습니다",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "이 기기 기억하기",
+    "remember_7": "7일",
+    "remember_30": "30일",
+    "remember_90": "90일",
+    "biometric_activate": "Face ID / 지문 활성화",
+    "biometric_prompt": "처음 로그인한 후 Face ID / 지문을 활성화할 수 있습니다",
+    "biometric_registering": "활성화 중…",
+    "biometric_success": "생체 인증이 활성화되었습니다!",
+    "biometric_success_msg": "다음번에는 한 번의 터치로 로그인하실 수 있습니다.",
+    "biometric_error": "활성화할 수 없습니다. 기기에 생체 인증이 설정되어 있는지 확인하세요.",
+    "biometric_now": "나중에",
+    "portal_subtitle": "디지털 동의서 · 생체 인식 서명",
+    "portal_title": "문서 접속",
+    "portal_email_prompt": "안전한 접속 링크를 받으려면 이메일을 입력하세요.",
+    "portal_link_sent_title": "링크가 전송되었습니다",
+    "portal_link_sent_message": "이메일을 확인하고 링크를 클릭하여 계속하세요.",
+    "portal_email_placeholder": "you@email.com",
+    "portal_consent_default_title": "동의서",
+    "portal_accept_label": "본인은 이 동의서를 읽었으며 이에 동의합니다",
+    "portal_proceed_to_sign": "서명하러 가기 →",
+    "portal_saving_signature": "서명 저장 중…",
+    "portal_signed_title": "서명 완료",
+    "portal_signed_message": "귀하의 동의서가 안전하게 서명 및 등록되었습니다.",
+    "portal_error_message": "링크가 만료되었거나 올바르지 않을 수 있습니다."
   },
   "patients": {
     "title": "환자",
     "add": "환자 추가",
-    "search": "이름, 주민번호, 전화번호로 검색…",
+    "search": "이름, 주민등록번호, 전화번호로 검색…",
     "name": "이름",
     "surname": "성",
     "dob": "생년월일",
-    "id_doc": "주민등록증 / 여권",
+    "id_doc": "주민등록증 / 외국인등록증 / 여권",
     "phone": "전화번호",
     "email": "이메일",
     "address": "주소",
@@ -54,17 +506,44 @@
     "edit": "편집",
     "delete": "삭제",
     "no_results": "등록된 환자가 없습니다",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "사진 갤러리",
+    "no_photos": "사진이 없습니다. 첫 이미지를 업로드하세요.",
+    "upload_photos": "사진 업로드",
+    "uploading": "업로드 중…",
+    "count_registered": "{{count}}명 등록됨",
+    "form": {
+      "doc_type": "종류",
+      "doc_type_passport": "여권",
+      "city": "도시",
+      "province": "지역",
+      "country": "국가",
+      "select_placeholder": "— 선택 —",
+      "countries": [
+        "스페인", "독일", "아르헨티나", "벨기에", "볼리비아", "브라질", "칠레", "중국",
+        "콜롬비아", "코스타리카", "쿠바", "에콰도르", "엘살바도르", "미국", "프랑스",
+        "과테말라", "온두라스", "이탈리아", "모로코", "멕시코", "니카라과", "네덜란드",
+        "파나마", "파라과이", "페루", "포르투갈", "영국", "도미니카공화국",
+        "스위스", "우루과이", "베네수엘라", "기타"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "저장 오류:",
+      "unknown_error": "알 수 없는 오류"
+    }
   },
   "doctors": {
     "title": "의사",
     "add": "의사 추가",
     "name": "이름",
     "specialty": "전문 분야",
-    "license": "의사 면허 번호",
+    "license": "면허 번호",
     "email": "이메일",
     "role": "역할",
     "roles": {
@@ -73,17 +552,45 @@
       "receptionist": "접수원"
     },
     "save": "의사 저장",
-    "no_results": "등록된 의사가 없습니다"
+    "no_results": "등록된 의사가 없습니다",
+    "last_name": "성",
+    "phone": "전화번호",
+    "phone_placeholder": "010-0000-0000",
+    "unknown_error": "알 수 없는 오류",
+    "count_registered": "{{count}}명 등록됨",
+    "license_display": "번호 {{number}}"
   },
   "consents": {
     "title": "동의서",
     "add": "새 동의서",
     "search": "동의서 검색…",
+    "step_labels": ["정보", "검토", "의사 서명", "환자 서명", "완료"],
+    "branch_label": "지점",
+    "main_branch": "본점",
+    "select_patient": "환자 선택…",
+    "select_doctor": "의사 선택…",
+    "select_treatment": "치료 선택…",
+    "translating": "번역 중…",
+    "continue": "계속",
+    "responsible_doctor": "담당 의사",
+    "legal_framework_title": "법적 근거 — {{jurisdiction}}",
+    "witness_required_notice": "이 국가는 서명에 증인이 필요합니다",
+    "back": "← 뒤로",
+    "sign_arrow": "서명 →",
+    "doctor_signature_title": "의사 서명",
+    "doctor_signature_notice": "동의서를 확정하려면 의사가 먼저 서명해야 합니다",
+    "back_to_preview": "← 돌아가기",
+    "patient_signature_title": "환자 서명",
+    "patient_signature_notice": "환자는 동의서를 읽고 동의함을 확인하기 위해 서명해야 합니다",
+    "signed_title": "동의서 서명 완료",
+    "signed_description": "문서가 올바르게 서명 및 등록되었습니다.",
+    "close": "닫기",
     "status": {
       "pending": "대기 중",
       "signed": "서명됨",
       "revoked": "취소됨",
-      "expired": "만료됨"
+      "expired": "만료됨",
+      "all": "전체"
     },
     "sign": "서명",
     "generate_pdf": "PDF 생성",
@@ -92,15 +599,21 @@
     "doctor": "의사",
     "treatment": "치료",
     "language": "언어",
-    "signed_at": "서명 일시",
-    "no_results": "동의서 없음"
+    "signed_at": "서명 날짜",
+    "no_results": "동의서가 없습니다",
+    "confirm_delete": "이 동의서를 삭제하시겠습니까?",
+    "stats": "총 {{total}}건 · 서명 {{signed}}건 · 대기 {{pending}}건",
+    "branch": "지점",
+    "created_at": "생성 날짜",
+    "status_header": "상태",
+    "continue_signature": "서명 계속"
   },
   "signature": {
     "title": "환자 서명",
     "instructions": "아래 상자에 서명하세요",
     "clear": "지우기",
     "confirm": "서명 확인",
-    "legal_notice": "설명서를 읽었으며 동의합니다",
+    "legal_notice": "본인은 동의서를 읽었으며 이에 동의합니다",
     "biometric_capture": "생체 데이터 수집 중…"
   },
   "clinic": {
@@ -112,14 +625,21 @@
     "tax_id": "사업자등록번호",
     "logo": "로고",
     "save": "설정 저장",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "추가 지점",
+    "branches_desc": "클리닉의 여러 위치를 관리하세요",
+    "add_branch": "지점 추가",
+    "no_branches": "추가 지점 없음",
+    "branch_name": "지점 이름",
+    "save_branches": "지점 저장",
+    "edit_branch": "지점 편집",
+    "new_branch": "새 지점",
+    "save_branch": "지점 저장",
+    "subtitle": "클리닉 일반 설정",
+    "trade_name": "상호명",
+    "legal_name": "법인명 / 상호",
+    "nika_number": "NIKA 번호",
+    "save_success": "성공적으로 저장되었습니다",
+    "confirm_delete_branch": "이 지점을 삭제하시겠습니까?"
   },
   "language": {
     "select": "언어",
@@ -141,31 +661,385 @@
   },
   "login": {
     "check_email": "이메일을 확인하세요",
-    "magic_link_sent": "매직 링크를 발송했습니다",
+    "magic_link_sent": "다음 주소로 매직 링크를 보냈습니다:",
     "email": "이메일",
     "magic_link": "매직 링크로 로그인",
-    "footer": "유효한 디지털 동의서 · 의료법 · 개인정보보호법"
+    "footer": "유효한 디지털 동의서 · 의료법 41/2002 · GDPR",
+    "invalid_email": "유효한 이메일을 입력하세요",
+    "send_error": "링크 전송 오류",
+    "subtitle": "디지털 동의서 · eIDAS",
+    "email_placeholder": "you@clinic.com"
+  },
+  "dashboard": {
+    "title": "대시보드",
+    "subtitle": "활동 요약",
+    "pending_signature": "서명 대기 중",
+    "signature_rate": "서명율",
+    "signed_count": "{{count}}건 서명됨",
+    "pending_count": "{{count}}건 대기 중",
+    "recent_consents": "최근 동의서",
+    "view_all_consents": "모두 보기 →",
+    "view_all": "모두 보기 →",
+    "no_consents": "동의서 없음",
+    "recent_clinical": "최근 진료 기록",
+    "no_clinical": "진료 기록 없음",
+    "recent_photos": "최근 사진 세션",
+    "no_photos": "사진 세션 없음"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "템플릿",
+    "search": "치료 검색…",
+    "editor_title": "템플릿 편집기",
+    "consent_title_label": "동의서 제목",
+    "no_translation": "다음 언어로 번역 없음:",
+    "translate_all": "21개 언어로 번역",
+    "translating": "번역 중…",
+    "legal_framework": "법적 근거",
+    "select_template": "편집할 템플릿을 선택하세요",
     "empty": "템플릿 없음",
     "title_placeholder": "동의서 — 치료…",
     "content_label": "동의서 내용",
     "content_placeholder": "동의서 텍스트를 작성하세요…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "저장 중…",
+    "saved": "저장됨"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "이 진료 기록을 삭제하시겠습니까?",
+    "confirm_delete_session": "이 세션과 모든 사진을 삭제하시겠습니까?",
+    "not_found": "환자를 찾을 수 없습니다",
+    "date_of_birth": "생년월일",
+    "email": "이메일",
+    "blood_type": "혈액형",
+    "address": "주소",
+    "allergies": "알레르기",
+    "medications": "복용 약물",
+    "tabs": {
+      "history": "진료 기록 ({{count}})",
+      "photos": "사진 ({{count}})",
+      "consents": "동의서 ({{count}})"
+    },
+    "new_clinical_record": "새 진료 기록",
+    "no_clinical_records": "이 환자에 대한 진료 기록이 없습니다",
+    "doctor_prefix": "{{name}} 원장님",
+    "fields": {
+      "anamnesis": "병력",
+      "allergies": "알레르기",
+      "current_medications": "현재 복용 약물",
+      "physical_exam": "신체 검사",
+      "diagnosis": "진단",
+      "treatment_plan": "치료 계획",
+      "notes": "관찰 사항"
+    },
+    "new_photo_session": "새 세션",
+    "no_photo_sessions": "이 환자에 대한 사진 세션이 없습니다",
+    "no_consents": "이 환자에 대한 동의서가 없습니다",
+    "status": {
+      "signed": "서명됨",
+      "pending": "대기 중",
+      "revoked": "취소됨",
+      "expired": "만료됨"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "실험실",
+    "not_found": "실험실 프로필을 찾을 수 없습니다.",
+    "panel_subtitle": "협력 실험실 패널",
+    "tabs": {
+      "clinics": "연결된 클리닉",
+      "campaigns": "광고 캠페인",
+      "stats": "통계"
+    },
+    "no_clinics": "아직 이 실험실에 연결된 클리닉이 없습니다.",
+    "media_management": "광고 미디어 관리",
+    "welcome_screen": {
+      "title": "환영 화면",
+      "description": "최대 5개의 이미지 또는 동영상. 표시 방식을 선택하세요, 무작위 또는 순차 (파일당 최대 100MB)."
+    },
+    "patient_content": {
+      "title": "환자용 콘텐츠",
+      "description": "환자를 위한 최대 5개의 이미지 또는 동영상. 정확한 사용법은 곧 설정될 예정입니다."
+    },
+    "stats_pending": "이 섹션은 아직 정의되지 않았습니다 — 곧 여기에서 캠페인 및 클리닉의 성과 지표를 확인할 수 있습니다."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "이 진료 기록을 삭제하시겠습니까?",
+    "title": "진료 기록",
+    "records_count": "{{count}}건 기록됨",
+    "add_record": "새 진료 기록",
+    "search_placeholder": "환자, 진단, 사유로 검색…",
+    "no_records": "진료 기록이 없습니다",
+    "table_headers": ["환자", "날짜", "방문 사유", "진단", "의사", ""]
+  },
+  "labPartners": {
+    "title": "협력 실험실",
+    "count": "{{count}}개 등록됨",
+    "new_lab": "새 실험실",
+    "search_placeholder": "실험실 검색…",
+    "no_labs": "실험실이 없습니다.",
+    "col_name": "이름",
+    "col_email": "이메일",
+    "col_contact": "담당자",
+    "col_phone": "전화번호",
+    "col_status": "상태",
+    "col_actions": "작업",
+    "status_active": "활성",
+    "status_inactive": "비활성",
+    "confirm_deactivate": "실험실을 비활성화하시겠습니까?",
+    "form": {
+      "edit_title": "실험실 수정",
+      "new_title": "새 실험실",
+      "name": "이름",
+      "email": "이메일",
+      "phone": "전화번호",
+      "contact_person": "담당자",
+      "website": "웹사이트",
+      "notes": "메모",
+      "name_email_required": "이름과 이메일은 필수입니다",
+      "unknown_error": "알 수 없는 오류"
+    },
+    "campaigns": {
+      "title": "{{name}}의 캠페인",
+      "new_campaign": "새 캠페인",
+      "no_campaigns": "캠페인이 없습니다.",
+      "col_name": "이름",
+      "col_type": "유형",
+      "col_trigger": "트리거",
+      "col_status": "상태",
+      "col_actions": "작업",
+      "confirm_delete": "캠페인을 삭제하시겠습니까?",
+      "form": {
+        "edit_title": "캠페인 수정",
+        "new_title": "새 캠페인",
+        "name": "이름",
+        "name_required": "이름은 필수입니다",
+        "unknown_error": "알 수 없는 오류",
+        "type": "유형",
+        "rotation_mode": "회전 모드",
+        "rotation_random": "무작위",
+        "rotation_manual": "수동",
+        "creative_url": "크리에이티브 URL",
+        "trigger": "트리거",
+        "interval_minutes": "간격 (분)",
+        "start_date": "시작일",
+        "end_date": "종료일",
+        "active": "활성"
+      }
+    },
+    "creative_types": {
+      "image": "이미지",
+      "video": "동영상",
+      "url": "URL",
+      "offer": "혜택",
+      "training": "교육"
+    },
+    "triggers": {
+      "on_login": "접속 시",
+      "on_consent": "동의서 생성 시",
+      "every_x_minutes": "매 X분마다",
+      "once_daily": "하루에 한 번"
+    }
+  },
+  "agenda": {
+    "title": "일정",
+    "subtitle": "예약, 치료 및 일정 계획",
+    "tab_appointments": "예약",
+    "tab_treatments": "치료",
+    "tab_planning": "일정 계획"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID가 제공되지 않았습니다",
+    "verifying": "문서 확인 중…",
+    "subtitle": "문서 확인",
+    "not_found_title": "문서를 찾을 수 없습니다",
+    "signed_title": "유효하고 서명된 문서",
+    "signed_subtitle": "서명이 올바르게 확인되었습니다",
+    "revoked_title": "동의서가 취소되었습니다",
+    "revoked_subtitle": "환자가 이 동의서를 취소했습니다",
+    "pending_title": "서명 대기 중",
+    "pending_subtitle": "이 문서는 아직 서명되지 않았습니다",
+    "patient": "환자",
+    "doctor": "의사",
+    "treatment": "치료",
+    "signed_date": "서명 날짜",
+    "hash_label": "SHA-256 해시",
+    "document_id_label": "문서 ID:",
+    "verified_on": "{{date}}에 확인됨. 이 문서는 의료법 41/2002에 따라 유효하며 eIDAS 규정 (EU) 910/2014에 따라 전자 서명되었습니다."
+  },
+  "recharge": {
+    "title": "구독 플랜",
+    "subtitle": "클리닉에 가장 적합한 플랜을 선택하세요",
+    "monthly": "월간",
+    "annual": "연간",
+    "per_month": "/월",
+    "save_20_annual": "연간 결제 시 20% 절약",
+    "switch_annual_save": "연간으로 전환하고 20% 절약하세요",
+    "hire_plan": "플랜 신청",
+    "note_title": "IA 플랜 및 프리미엄 IA 플랜 참고:",
+    "note_text": "AI 에이전트의 초기 설정(서비스, 치료 및 맞춤화)과 도입은 각 클리닉의 복잡도에 따라 별도로 견적됩니다. 음성 에이전트 및 WhatsApp API 비용은 월 요금에 포함되지 않습니다.",
+    "plans": {
+      "base": {
+        "name": "베이직 플랜",
+        "features": [
+          "무제한 동의서",
+          "진료 기록",
+          "사진 갤러리",
+          "환자 포털",
+          "매직 링크 + 생체 인증",
+          "지원 포함"
+        ]
+      },
+      "pro": {
+        "name": "프로 플랜",
+        "badge": "가장 인기",
+        "features": [
+          "베이직 플랜의 모든 기능 +",
+          "예약 일정",
+          "환자 CRM",
+          "톡신 관리",
+          "환자 견적서"
+        ]
+      },
+      "ia": {
+        "name": "IA 플랜",
+        "features": [
+          "프로 플랜의 모든 기능 +",
+          "AI WhatsApp 에이전트 24/7 — 예약 확보",
+          "자동 예약 확인",
+          "자동 예약 알림",
+          "WhatsApp 관리 패널",
+          "WhatsApp을 통한 환자 소통",
+          "WhatsApp으로 동의서, 진료 기록, 사진, 견적서 및 청구서 전송"
+        ]
+      },
+      "ia_plus": {
+        "name": "프리미엄 IA 플랜",
+        "badge": "신규",
+        "features": [
+          "IA 플랜의 모든 기능 +",
+          "AI 음성 에이전트 24/7: 전화 응대",
+          "전화로 자동 예약 일정 잡기",
+          "접수 담당자의 목소리를 100% 복제"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "톡신 관리",
+    "subtitle": "보톨리눔 톡신 로트 추적",
+    "new_record": "새 기록",
+    "from": "부터",
+    "to": "까지",
+    "doctor": "의사",
+    "patient": "환자",
+    "all": "전체",
+    "lot_number": "로트 번호",
+    "search_lot_placeholder": "로트 검색…",
+    "clear_filters": "필터 지우기",
+    "no_results": "이 필터에 해당하는 톡신 기록이 없습니다.",
+    "col_date": "날짜",
+    "col_patient": "환자",
+    "col_doctor": "의사",
+    "col_brand": "제품명",
+    "col_lot": "로트",
+    "col_expiry": "유효기간",
+    "col_zones": "부위",
+    "col_units": "유닛",
+    "col_signature": "서명",
+    "col_ci": "동의서",
+    "col_actions": "작업",
+    "signed": "서명됨",
+    "unsigned": "미서명",
+    "consent_linked": "연결된 동의서 있음",
+    "consent_not_linked": "연결된 동의서 없음",
+    "confirm_delete": "이 톡신 기록을 삭제하시겠습니까?",
+    "detail": {
+      "not_found": "기록을 찾을 수 없습니다.",
+      "patient": "환자",
+      "doctor": "의사",
+      "brand": "제품명",
+      "manufacturer": "제조사",
+      "lot": "로트 번호",
+      "expiry": "유효기간",
+      "vials": "개봉한 바이알",
+      "total_units": "총 유닛",
+      "treated_zones": "시술 부위",
+      "no_zones": "등록된 부위가 없습니다.",
+      "notes": "메모",
+      "doctor_signature": "의사 서명",
+      "signature_alt": "의사 서명",
+      "signed_on": "{{date}}에 서명됨",
+      "no_signature": "이 기록에는 의사 서명이 없습니다.",
+      "linked_consent": "연결된 동의서",
+      "consent_default_name": "동의서",
+      "consent_unsigned": "미서명",
+      "loading_pdf": "PDF 로딩 중…",
+      "consent_load_error": "연결된 동의서 정보를 불러올 수 없습니다."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "URL에서 토큰을 찾을 수 없습니다",
+    "invalid_token": "유효하지 않거나 만료된 토큰",
+    "connection_error": "연결 오류",
+    "verifying": "링크 확인 중…",
+    "invalid_link": "유효하지 않은 링크",
+    "back_home": "홈으로 돌아가기"
+  },
+  "photoSessions": {
+    "confirm_delete": "이 세션과 모든 사진을 삭제하시겠습니까?",
+    "title": "사진",
+    "subtitle": "사진 세션 {{count}}개",
+    "new_session": "새 세션",
+    "search_placeholder": "환자 또는 세션 이름으로 검색…",
+    "no_sessions": "사진 세션이 없습니다"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "내 동의서",
+      "clinical": "내 진료 기록",
+      "photos": "내 사진"
+    },
+    "consents": {
+      "empty": "아직 서명된 동의서가 없습니다.",
+      "default_name": "동의서",
+      "doctor": "{{name}} 원장님",
+      "signed_on": "{{date}}에 서명됨",
+      "status_signed": "서명됨",
+      "status_pending": "대기 중"
+    },
+    "clinical": {
+      "empty": "진료 기록이 비어 있습니다.",
+      "default_name": "진료",
+      "doctor_suffix": " · {{name}} 원장님",
+      "fields": {
+        "diagnosis": "진단",
+        "anamnesis": "병력",
+        "current_medications": "현재 복용 약물",
+        "allergies": "알레르기",
+        "treatment_plan": "치료 계획",
+        "notes": "관찰 사항"
+      }
+    },
+    "photos": {
+      "empty": "아직 사진 세션이 없습니다.",
+      "back_to_sessions": "세션으로 돌아가기",
+      "default_session_name": "사진 세션",
+      "doctor_suffix": " · {{name}} 원장님",
+      "compare_title": "전후 비교",
+      "before": "이전",
+      "after": "이후",
+      "close_compare": "비교 닫기",
+      "compare_button": "비교",
+      "photo_count": "사진 {{count}}장"
+    }
   },
   "settings": {
     "title": "설정",
     "subtitle": "사용자 및 시스템 액세스 관리",
+    "tabs": {
+      "users": "사용자",
+      "media": "광고",
+      "preview": "미리보기"
+    },
     "users": {
       "title": "사용자",
       "invite_user": "사용자 초대",
@@ -174,14 +1048,40 @@
       "role": "역할",
       "role_admin": "관리자",
       "role_clinica": "클리닉",
-      "admin_hint": "관리자는 모든 섹션에 완전히 액세스할 수 있습니다.",
+      "admin_hint": "관리자는 시스템의 모든 섹션에 전체 액세스 권한을 갖습니다.",
       "permissions": "액세스 권한",
-      "permissions_hint": "액세스 가능한 섹션을 선택하세요.",
+      "permissions_hint": "이 사용자가 액세스할 수 있는 섹션을 선택하세요.",
       "send_invite": "초대 보내기",
-      "no_users": "사용자 없음. 첫 번째를 초대하세요.",
+      "no_users": "등록된 사용자가 없습니다. 첫 번째 사용자를 초대하세요.",
       "inactive": "비활성",
-      "activate": "활성화",
-      "deactivate": "비활성화"
+      "activate": "사용자 활성화",
+      "deactivate": "사용자 비활성화",
+      "role_superadmin": "슈퍼 관리자",
+      "role_doctor": "의사",
+      "role_receptionist": "접수원",
+      "role_lab_partner": "실험실",
+      "role_patient": "환자",
+      "filter_all": "전체",
+      "invite_accepted": "초대 수락됨",
+      "invite_expired": "초대 만료됨",
+      "invite_pending": "초대 대기 중",
+      "email_placeholder": "user@clinic.com",
+      "full_name_placeholder": "이름 성",
+      "linked_lab": "연결된 실험실",
+      "no_lab": "실험실 없음",
+      "lab_hint": "사용자는 이 실험실에 연결된 클리닉만 볼 수 있습니다.",
+      "admin_only_hint": "설정은 관리자 전용이며 클리닉에 위임할 수 없습니다.",
+      "load_error": "사용자 목록을 불러올 수 없습니다",
+      "retry": "다시 시도"
+    },
+    "media": {
+      "title": "광고 미디어 관리",
+      "managed_by_lab": "이 광고는 협력 실험실이 관리합니다. 여기서 볼 수 있지만 실험실만 수정할 수 있습니다.",
+      "managed_by_lab_named": "이 광고는 협력 실험실 ({{name}})이 관리합니다. 여기서 볼 수 있지만 실험실만 수정할 수 있습니다.",
+      "welcome_title": "환영 화면",
+      "welcome_description": "최대 5개의 이미지 또는 동영상. 표시 방식을 선택하세요, 무작위 또는 순차 (파일당 최대 100MB).",
+      "patient_title": "환자용 콘텐츠",
+      "patient_description": "환자를 위한 최대 5개의 이미지 또는 동영상. 정확한 사용법은 곧 설정될 예정입니다."
     }
   }
 }
