@@ -514,7 +514,8 @@
       "pending": "Pendiente",
       "signed": "Firmado",
       "revoked": "Revocado",
-      "expired": "Caducado"
+      "expired": "Caducado",
+      "all": "Todos"
     },
     "sign": "Firmar",
     "generate_pdf": "Generar PDF",
@@ -524,7 +525,13 @@
     "treatment": "Tratamiento",
     "language": "Idioma",
     "signed_at": "Fecha de firma",
-    "no_results": "No hay consentimientos"
+    "no_results": "No hay consentimientos",
+    "confirm_delete": "¿Eliminar este consentimiento?",
+    "stats": "{{total}} total · {{signed}} firmados · {{pending}} pendientes",
+    "branch": "Sede",
+    "created_at": "Fecha creación",
+    "status_header": "Estado",
+    "continue_signature": "Continuar firma"
   },
   "signature": {
     "title": "Firma del paciente",
@@ -550,7 +557,14 @@
     "branch_name": "Nombre de sede",
     "save_branches": "Guardar sedes",
     "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "new_branch": "Nueva sede",
+    "save_branch": "Guardar sede",
+    "subtitle": "Configuración general de la clínica",
+    "trade_name": "Nombre comercial",
+    "legal_name": "Nombre fiscal / razón social",
+    "nika_number": "Número NIKA",
+    "save_success": "Guardado correctamente",
+    "confirm_delete_branch": "¿Eliminar esta sede?"
   },
   "language": {
     "select": "Idioma",

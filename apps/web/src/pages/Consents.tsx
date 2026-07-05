@@ -27,7 +27,7 @@ export default function Consents() {
   const initialPatient = searchParams.get('patient') ?? undefined
 
   const handleDelete = async (id: string) => {
-    if (!confirm('¿Eliminar este consentimiento?')) return
+    if (!confirm(t('consents.confirm_delete'))) return
     await api.delete(`/consents/${id}`)
     await load()
   }
@@ -74,7 +74,7 @@ export default function Consents() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">{t('consents.title')}</h1>
-          <p className="text-sm text-slate-500 mt-0.5">{stats.total} total · {stats.signed} firmados · {stats.pending} pendientes</p>
+          <p className="text-sm text-slate-500 mt-0.5">{t('consents.stats', { total: stats.total, signed: stats.signed, pending: stats.pending })}</p>
         </div>
         <button
           onClick={() => setModalOpen(true)}
@@ -105,7 +105,7 @@ export default function Consents() {
                 statusFilter === s ? 'bg-blue-600 text-white' : 'text-slate-600 hover:bg-slate-100'
               }`}
             >
-              {s === 'all' ? 'Todos' : t(`consents.status.${s}`)}
+              {s === 'all' ? t('consents.status.all') : t(`consents.status.${s}`)}
             </button>
           ))}
         </div>
@@ -122,7 +122,7 @@ export default function Consents() {
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), 'Sede', 'Fecha creación', t('consents.signed_at'), 'Estado', ''].map((h, i) => (
+                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), t('consents.branch'), t('consents.created_at'), t('consents.signed_at'), t('consents.status_header'), ''].map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
@@ -155,16 +155,16 @@ export default function Consents() {
                             <button
                               onClick={() => { setContinueConsent(c); setModalOpen(true) }}
                               className="flex items-center gap-1 px-2 py-1 text-xs bg-blue-50 text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-100"
-                              title="Continuar firma"
+                              title={t('consents.continue_signature')}
                             >
-                              <PenLine className="w-3.5 h-3.5" /> Firmar
+                              <PenLine className="w-3.5 h-3.5" /> {t('consents.sign')}
                             </button>
                           )}
                           <ConsentPdfButton consent={c} clinic={clinic} />
                           <button
                             onClick={() => handleDelete(c.id)}
                             className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
-                            title="Eliminar"
+                            title={t('common.delete')}
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>

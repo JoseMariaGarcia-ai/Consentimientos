@@ -16,6 +16,7 @@ function BranchModal({ branch, onSave, onClose }: {
   onSave: (b: Partial<Branch>) => void
   onClose: () => void
 }) {
+  const { t } = useTranslation()
   const [form, setForm] = useState<Partial<Branch>>(branch)
   const set = (k: keyof Branch, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
 
@@ -23,20 +24,20 @@ function BranchModal({ branch, onSave, onClose }: {
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 flex flex-col gap-4" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-slate-800">{branch.id ? 'Editar sede' : 'Nueva sede'}</h3>
+          <h3 className="font-semibold text-slate-800">{branch.id ? t('clinic.edit_branch') : t('clinic.new_branch')}</h3>
           <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
-        <Field label="Nombre de sede" value={form.name ?? ''} onChange={v => set('name', v)} />
-        <Field label="Dirección" value={form.address ?? ''} onChange={v => set('address', v)} />
-        <Field label="Teléfono" value={form.phone ?? ''} onChange={v => set('phone', v)} type="tel" />
+        <Field label={t('clinic.branch_name')} value={form.name ?? ''} onChange={v => set('name', v)} />
+        <Field label={t('clinic.address')} value={form.address ?? ''} onChange={v => set('address', v)} />
+        <Field label={t('clinic.phone')} value={form.phone ?? ''} onChange={v => set('phone', v)} type="tel" />
         <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
-          <button onClick={onClose} className="px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 rounded-xl">Cancelar</button>
+          <button onClick={onClose} className="px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 rounded-xl">{t('common.cancel')}</button>
           <button
             onClick={() => { onSave(form); onClose() }}
             disabled={!form.name}
             className="px-4 py-2 text-sm bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50"
           >
-            Guardar sede
+            {t('clinic.save_branch')}
           </button>
         </div>
       </div>
@@ -99,7 +100,7 @@ export default function ClinicPage() {
   }
 
   const deleteBranch = (id: string) => {
-    if (!confirm('¿Eliminar esta sede?')) return
+    if (!confirm(t('clinic.confirm_delete_branch'))) return
     setBranches(bs => bs.filter(b => b.id !== id))
   }
 
@@ -113,15 +114,15 @@ export default function ClinicPage() {
         </div>
         <div>
           <h1 className="text-2xl font-bold text-slate-800">{t('clinic.title')}</h1>
-          <p className="text-sm text-slate-500">Configuración general de la clínica</p>
+          <p className="text-sm text-slate-500">{t('clinic.subtitle')}</p>
         </div>
       </div>
 
       {/* Main clinic config */}
       <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-4">
-          <Field label="Nombre comercial" value={(form as any).trade_name ?? (form as any).tradeName ?? ''} onChange={v => set('trade_name', v)} />
-          <Field label="Nombre fiscal / razón social" value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />
+          <Field label={t('clinic.trade_name')} value={(form as any).trade_name ?? (form as any).tradeName ?? ''} onChange={v => set('trade_name', v)} />
+          <Field label={t('clinic.legal_name')} value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />
         </div>
         <Field label={t('clinic.address')} value={(form.address as string) ?? ''} onChange={v => set('address', v)} />
         <div className="grid grid-cols-2 gap-4">
@@ -130,11 +131,11 @@ export default function ClinicPage() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <Field label={t('clinic.tax_id')} value={(form.taxId as string) ?? (form as any).tax_id ?? ''} onChange={v => set('taxId', v)} />
-          <Field label="Número NIKA" value={(form as any).nika_number ?? ''} onChange={v => set('nika_number', v)} />
+          <Field label={t('clinic.nika_number')} value={(form as any).nika_number ?? ''} onChange={v => set('nika_number', v)} />
         </div>
 
         <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-          {saved && <span className="text-sm text-emerald-600 font-medium">✓ Guardado correctamente</span>}
+          {saved && <span className="text-sm text-emerald-600 font-medium">✓ {t('clinic.save_success')}</span>}
           <div className="ml-auto">
             <button
               type="submit"
@@ -152,22 +153,22 @@ export default function ClinicPage() {
       <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
         <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
           <div>
-            <h2 className="text-sm font-semibold text-slate-700">Sedes adicionales</h2>
-            <p className="text-xs text-slate-400 mt-0.5">Gestiona múltiples ubicaciones de tu clínica</p>
+            <h2 className="text-sm font-semibold text-slate-700">{t('clinic.branches')}</h2>
+            <p className="text-xs text-slate-400 mt-0.5">{t('clinic.branches_desc')}</p>
           </div>
           <button
             onClick={() => setBranchModal({ open: true, branch: {} })}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-200"
           >
             <Plus className="w-4 h-4" />
-            Añadir sede
+            {t('clinic.add_branch')}
           </button>
         </div>
 
         {branches.length === 0 ? (
           <div className="px-6 py-10 text-center text-slate-400 text-sm">
             <MapPin className="w-8 h-8 mx-auto mb-2 opacity-30" />
-            Sin sedes adicionales
+            {t('clinic.no_branches')}
           </div>
         ) : (
           <div className="divide-y divide-slate-100">
@@ -205,7 +206,7 @@ export default function ClinicPage() {
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
-              Guardar sedes
+              {t('clinic.save_branches')}
             </button>
           </div>
         )}
