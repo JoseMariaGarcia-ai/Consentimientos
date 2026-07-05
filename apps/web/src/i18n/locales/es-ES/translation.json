@@ -163,6 +163,117 @@
     "saving": "Saving…",
     "saved": "Saved"
   },
+  "recharge": {
+    "title": "Planes de suscripción",
+    "subtitle": "Elige el plan que mejor se adapte a tu clínica",
+    "monthly": "Mensual",
+    "annual": "Anual",
+    "per_month": "/mes",
+    "save_20_annual": "Ahorras un 20 % pagando al año",
+    "switch_annual_save": "Cambia a anual y ahorra un 20 %",
+    "hire_plan": "Contratar plan",
+    "note_title": "Nota Plan IA y Plan IA Premium:",
+    "note_text": "La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz y WhatsApp API no están incluidos en la cuota mensual.",
+    "plans": {
+      "base": {
+        "name": "Plan Base",
+        "features": [
+          "CIs ilimitados",
+          "Historia clínica",
+          "Galería fotográfica",
+          "Portal paciente",
+          "Magic Link + biometría",
+          "Soporte incluido"
+        ]
+      },
+      "pro": {
+        "name": "Plan Pro",
+        "badge": "Más popular",
+        "features": [
+          "Todo el Plan Base +",
+          "Agenda de citas",
+          "CRM pacientes",
+          "Control de toxina",
+          "Presupuestos a Pacientes"
+        ]
+      },
+      "ia": {
+        "name": "Plan IA",
+        "features": [
+          "Todo el Plan Pro +",
+          "Agente WhatsApp IA 24/7 — captación de citas",
+          "Confirmación de citas automatizada",
+          "Recordatorios de citas automatizados",
+          "Panel de gestión de WhatsApp",
+          "Comunicación con pacientes por WhatsApp",
+          "Envío por WhatsApp de CIs, historia clínica, fotos, presupuestos y facturas"
+        ]
+      },
+      "ia_plus": {
+        "name": "Plan IA Premium",
+        "badge": "Nuevo",
+        "features": [
+          "Todo el Plan IA +",
+          "Agente de voz IA 24/7: contesta llamadas",
+          "Agenda citas por teléfono automáticamente",
+          "Clona la voz de su recepcionista al 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Control de Toxina",
+    "subtitle": "Trazabilidad de lotes de toxina botulínica",
+    "new_record": "Nuevo registro",
+    "from": "Desde",
+    "to": "Hasta",
+    "doctor": "Doctor",
+    "patient": "Paciente",
+    "all": "Todos",
+    "lot_number": "Nº de lote",
+    "search_lot_placeholder": "Buscar lote…",
+    "clear_filters": "Limpiar filtros",
+    "no_results": "No hay registros de toxina con estos filtros.",
+    "col_date": "Fecha",
+    "col_patient": "Paciente",
+    "col_doctor": "Doctor",
+    "col_brand": "Nombre comercial",
+    "col_lot": "Lote",
+    "col_expiry": "Caducidad",
+    "col_zones": "Zonas",
+    "col_units": "Unidades",
+    "col_signature": "Firma",
+    "col_ci": "CI",
+    "col_actions": "Acciones",
+    "signed": "Firmado",
+    "unsigned": "Sin firma",
+    "consent_linked": "Con consentimiento vinculado",
+    "consent_not_linked": "Sin consentimiento vinculado",
+    "confirm_delete": "¿Eliminar este registro de toxina?",
+    "detail": {
+      "not_found": "Registro no encontrado.",
+      "patient": "Paciente",
+      "doctor": "Doctor",
+      "brand": "Nombre comercial",
+      "manufacturer": "Fabricante",
+      "lot": "Número de lote",
+      "expiry": "Fecha de caducidad",
+      "vials": "Viales abiertos",
+      "total_units": "Total de unidades",
+      "treated_zones": "Zonas tratadas",
+      "no_zones": "Sin zonas registradas.",
+      "notes": "Notas",
+      "doctor_signature": "Firma del médico",
+      "signature_alt": "Firma del médico",
+      "signed_on": "Firmado el {{date}}",
+      "no_signature": "Este registro no tiene firma del médico.",
+      "linked_consent": "Consentimiento informado vinculado",
+      "consent_default_name": "Consentimiento",
+      "consent_unsigned": "Sin firmar",
+      "loading_pdf": "Cargando PDF…",
+      "consent_load_error": "No se pudo cargar la información del consentimiento vinculado."
+    }
+  },
   "settings": {
     "title": "Configuración",
     "subtitle": "Gestión de usuarios y accesos al sistema",
