@@ -57,7 +57,7 @@ export default function Doctors() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">{t('doctors.title')}</h1>
-          <p className="text-sm text-slate-500 mt-0.5">{doctors.length} registrados</p>
+          <p className="text-sm text-slate-500 mt-0.5">{t('doctors.count_registered', { count: doctors.length })}</p>
         </div>
         <button
           onClick={openNew}
@@ -91,7 +91,7 @@ export default function Doctors() {
               <h3 className="font-semibold text-slate-800">{firstName}</h3>
               {lastName && <p className="text-sm font-medium text-slate-700">{lastName}</p>}
               {d.specialty && <p className="text-sm text-slate-500 mt-0.5">{d.specialty}</p>}
-              {d.licenseNumber && <p className="text-xs text-slate-400 mt-1">Nº {d.licenseNumber}</p>}
+              {d.licenseNumber && <p className="text-xs text-slate-400 mt-1">{t('doctors.license_display', { number: d.licenseNumber })}</p>}
               {(d as any).phone && <p className="text-xs text-slate-400 mt-0.5">{(d as any).phone}</p>}
               <p className="text-xs text-slate-400 mt-1 truncate">{d.email}</p>
               <div className="flex gap-2 mt-4 pt-4 border-t border-slate-100">

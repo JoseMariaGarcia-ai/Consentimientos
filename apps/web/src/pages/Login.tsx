@@ -16,7 +16,7 @@ export default function Login() {
 
   const handleSubmit = async () => {
     if (!EMAIL_RE.test(email.trim())) {
-      setError('Introduce un email válido')
+      setError(t('login.invalid_email'))
       return
     }
     setLoading(true)
@@ -28,7 +28,7 @@ export default function Login() {
         body: JSON.stringify({ email: email.trim() }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.error ?? 'Error al enviar el enlace')
+      if (!res.ok) throw new Error(data.error ?? t('login.send_error'))
       setSent(true)
     } catch (err: any) {
       setError(err.message)
@@ -51,7 +51,7 @@ export default function Login() {
           <h1 className="text-2xl font-bold text-slate-800">
             Consents<span className="text-amber-500 underline underline-offset-2">Pro</span>
           </h1>
-          <p className="text-sm text-slate-500 mt-1">Consentimientos Digitales · eIDAS</p>
+          <p className="text-sm text-slate-500 mt-1">{t('login.subtitle')}</p>
         </div>
 
         {sent ? (
@@ -79,7 +79,7 @@ export default function Login() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && handleSubmit()}
-                placeholder="tu@clinica.es"
+                placeholder={t('login.email_placeholder')}
                 className="px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>

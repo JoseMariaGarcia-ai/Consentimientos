@@ -11,6 +11,8 @@ interface PatientFormProps {
 const BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 const DOC_TYPES = ['DNI', 'NIE', 'Pasaporte', 'Other']
 
+// Canonical values persisted to the data model — keep stable across locales.
+// Display labels are looked up via i18n (patients.form.countries) in the component.
 const COUNTRIES = [
   'España', 'Alemania', 'Argentina', 'Bélgica', 'Bolivia', 'Brasil', 'Chile', 'China',
   'Colombia', 'Costa Rica', 'Cuba', 'Ecuador', 'El Salvador', 'EE.UU.', 'Francia',
@@ -19,6 +21,8 @@ const COUNTRIES = [
   'Suiza', 'Uruguay', 'Venezuela', 'Otro',
 ]
 
+// Canonical values persisted to the data model — keep stable across locales.
+// Display labels are looked up via i18n (patients.form.provinces) in the component.
 const PROVINCIAS_ES = [
   'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares',
   'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real',
@@ -54,6 +58,9 @@ const PHONE_PREFIXES = [
 
 export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps) {
   const { t } = useTranslation()
+  const countryLabels = t('patients.form.countries', { returnObjects: true }) as string[]
+  const provinceLabels = t('patients.form.provinces', { returnObjects: true }) as string[]
+  const docTypeLabel = (d: string) => d === 'Pasaporte' ? t('patients.form.doc_type_passport') : d
   const initFirst = ((initial as any).firstName ?? (initial as any).first_name ?? '').toString()
   const initLast  = ((initial as any).lastName  ?? (initial as any).last_name  ?? '').toString()
 
@@ -124,7 +131,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
       } as any)
       onClose()
     } catch (err: any) {
-      setSaveError(err.message ?? 'Error desconocido')
+      setSaveError(err.message ?? t('patients.form.unknown_error'))
     } finally {
       setSaving(false)
     }
@@ -158,19 +165,19 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
         </div>
 
         <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {field('firstName', t('patients.first_name', 'Nombre'), { required: true })}
-          {field('lastName', t('patients.last_name', 'Apellidos'))}
+          {field('firstName', t('patients.name'), { required: true })}
+          {field('lastName', t('patients.surname'))}
           {field('dateOfBirth', t('patients.dob'), { type: 'date' })}
 
           <div className="flex gap-2">
             <div className="flex flex-col gap-1 w-28 flex-shrink-0">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Tipo</label>
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.form.doc_type')}</label>
               <select
                 value={form.idDocType}
                 onChange={e => set('idDocType', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                {DOC_TYPES.map(d => <option key={d}>{d}</option>)}
+                {DOC_TYPES.map(d => <option key={d} value={d}>{docTypeLabel(d)}</option>)}
               </select>
             </div>
             <div className="flex-1">{field('idDocument', t('patients.id_doc'))}</div>
@@ -178,7 +185,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
 
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">
-              {t('patients.phone', 'Teléfono')}<span className="text-red-500 ml-1">*</span>
+              {t('patients.phone')}<span className="text-red-500 ml-1">*</span>
             </label>
             <div className={`flex border rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 ${errors.phoneNumber ? 'border-red-400' : 'border-slate-300'}`}>
               <select
@@ -201,27 +208,27 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
           </div>
           {field('email', t('patients.email'), { type: 'email' })}
-          <div className="sm:col-span-2">{field('addrStreet', 'Dirección')}</div>
-          {field('addrCity', 'Ciudad')}
+          <div className="sm:col-span-2">{field('addrStreet', t('patients.address'))}</div>
+          {field('addrCity', t('patients.form.city'))}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Provincia</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.form.province')}</label>
             <select
               value={form.addrProvince}
               onChange={e => setForm(f => ({ ...f, addrProvince: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">— Seleccionar —</option>
-              {PROVINCIAS_ES.map(p => <option key={p}>{p}</option>)}
+              <option value="">{t('patients.form.select_placeholder')}</option>
+              {PROVINCIAS_ES.map((p, i) => <option key={p} value={p}>{provinceLabels[i] ?? p}</option>)}
             </select>
           </div>
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">País</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.form.country')}</label>
             <select
               value={form.addrCountry}
               onChange={e => setForm(f => ({ ...f, addrCountry: e.target.value }))}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {COUNTRIES.map(c => <option key={c}>{c}</option>)}
+              {COUNTRIES.map((c, i) => <option key={c} value={c}>{countryLabels[i] ?? c}</option>)}
             </select>
           </div>
 
@@ -255,7 +262,7 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
 
           {saveError && (
             <div className="sm:col-span-2 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
-              ⚠️ Error al guardar: <strong>{saveError}</strong>
+              ⚠️ {t('patients.form.save_error_prefix')} <strong>{saveError}</strong>
             </div>
           )}
 

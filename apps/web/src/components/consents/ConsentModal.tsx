@@ -136,7 +136,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {/* Step indicator */}
           {(() => {
             const steps: Step[] = ['form', 'preview', 'sign_doctor', 'sign_patient', 'done']
-            const labels = ['Datos', 'Revisión', 'Firma doctor', 'Firma paciente', 'Hecho']
+            const labels = t('consents.step_labels', { returnObjects: true }) as string[]
             const cur = steps.indexOf(step)
             return (
               <div className="flex items-center gap-1 mb-6">
@@ -160,13 +160,13 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
             <div className="flex flex-col gap-4">
               {branches.length > 0 && (
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">Sede</label>
+                  <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('consents.branch_label')}</label>
                   <select
                     value={sede}
                     onChange={e => setSede(e.target.value)}
                     className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="">Sede principal</option>
+                    <option value="">{t('consents.main_branch')}</option>
                     {branches.map((b: any) => (
                       <option key={b.id} value={b.name}>{b.name}{b.address ? ` — ${b.address}` : ''}</option>
                     ))}
@@ -181,7 +181,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   onChange={e => setPatientId(e.target.value)}
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">Seleccionar paciente…</option>
+                  <option value="">{t('consents.select_patient')}</option>
                   {patients.map(p => <option key={p.id} value={p.id}>{(p as any).firstName && (p as any).lastName ? `${(p as any).firstName} ${(p as any).lastName}` : p.fullName}</option>)}
                 </select>
               </div>
@@ -193,7 +193,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   onChange={e => setDoctorId(e.target.value)}
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">Seleccionar doctor…</option>
+                  <option value="">{t('consents.select_doctor')}</option>
                   {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                 </select>
               </div>
@@ -205,7 +205,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   onChange={e => setTemplateId(e.target.value)}
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="">Seleccionar tratamiento…</option>
+                  <option value="">{t('consents.select_treatment')}</option>
                   {templates.map(t => <option key={t.id} value={t.id}>{t.treatmentType}</option>)}
                 </select>
               </div>
@@ -216,7 +216,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   disabled={translating}
                   className="self-start text-xs text-blue-600 border border-blue-200 rounded-lg px-3 py-1.5 hover:bg-blue-50 disabled:opacity-50"
                 >
-                  {translating ? 'Traduciendo…' : t('consents.translate')}
+                  {translating ? t('consents.translating') : t('consents.translate')}
                 </button>
               )}
 
@@ -227,7 +227,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   disabled={!patientId || !doctorId || !templateId || saving}
                   className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 font-medium"
                 >
-                  {saving ? t('common.loading') : 'Continuar'}
+                  {saving ? t('common.loading') : t('consents.continue')}
                 </button>
               </div>
             </div>
@@ -243,13 +243,13 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                 return doc ? (
                   <div className="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide">Doctor responsable</p>
+                      <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide">{t('consents.responsible_doctor')}</p>
                       <p className="text-sm font-medium text-slate-800 mt-0.5">{doc.name}</p>
                       {doc.specialty && <p className="text-xs text-slate-500">{doc.specialty}</p>}
                     </div>
                     {license && (
                       <div className="text-right">
-                        <p className="text-xs text-slate-400">Nº Colegiado</p>
+                        <p className="text-xs text-slate-400">{t('doctors.license')}</p>
                         <p className="text-sm font-semibold text-slate-700">{license}</p>
                       </div>
                     )}
@@ -258,7 +258,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
               })()}
 
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-                <p className="text-xs font-semibold text-blue-700 uppercase mb-1">Marco Legal — {legalData.jurisdiction}</p>
+                <p className="text-xs font-semibold text-blue-700 uppercase mb-1">{t('consents.legal_framework_title', { jurisdiction: legalData.jurisdiction })}</p>
                 <p className="text-xs text-blue-600">{legalData.applicableLaw}</p>
               </div>
 
@@ -278,7 +278,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
               {legalData.witnessRequired && (
                 <div className="border border-orange-200 bg-orange-50 rounded-xl p-3">
-                  <p className="text-xs font-semibold text-orange-700">⚠ Este país requiere testigo para la firma</p>
+                  <p className="text-xs font-semibold text-orange-700">⚠ {t('consents.witness_required_notice')}</p>
                 </div>
               )}
 
@@ -293,13 +293,13 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
               </label>
 
               <div className="flex justify-between pt-2 border-t border-slate-100">
-                <button onClick={() => setStep('form')} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">← Atrás</button>
+                <button onClick={() => setStep('form')} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('consents.back')}</button>
                 <button
                   onClick={() => setStep('sign_doctor')}
                   disabled={!acceptedLegal}
                   className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 font-medium"
                 >
-                  Firmar →
+                  {t('consents.sign_arrow')}
                 </button>
               </div>
             </div>
@@ -309,12 +309,12 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {step === 'sign_doctor' && (
             <div className="flex flex-col gap-4">
               <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
-                <p className="text-sm font-semibold text-blue-800">Firma del doctor</p>
-                <p className="text-xs text-blue-600 mt-0.5">El doctor debe firmar primero para validar el consentimiento</p>
+                <p className="text-sm font-semibold text-blue-800">{t('consents.doctor_signature_title')}</p>
+                <p className="text-xs text-blue-600 mt-0.5">{t('consents.doctor_signature_notice')}</p>
               </div>
               <p className="text-sm text-slate-600">{t('signature.instructions')}</p>
               <SignatureCanvas onSave={(dataUrl) => handleDoctorSign(dataUrl)} />
-              <button onClick={() => setStep('preview')} className="self-start text-xs text-slate-500 hover:text-slate-700">← Volver</button>
+              <button onClick={() => setStep('preview')} className="self-start text-xs text-slate-500 hover:text-slate-700">{t('consents.back_to_preview')}</button>
             </div>
           )}
 
@@ -322,8 +322,8 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {step === 'sign_patient' && (
             <div className="flex flex-col gap-4">
               <div className="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
-                <p className="text-sm font-semibold text-emerald-800">Firma del paciente</p>
-                <p className="text-xs text-emerald-600 mt-0.5">El paciente debe firmar para confirmar que ha leído y acepta el consentimiento</p>
+                <p className="text-sm font-semibold text-emerald-800">{t('consents.patient_signature_title')}</p>
+                <p className="text-xs text-emerald-600 mt-0.5">{t('consents.patient_signature_notice')}</p>
               </div>
               <p className="text-sm text-slate-600">{t('signature.instructions')}</p>
               <SignatureCanvas onSave={handlePatientSign} />
@@ -334,11 +334,11 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {step === 'done' && (
             <div className="text-center py-8 flex flex-col items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center text-3xl">✓</div>
-              <h3 className="text-xl font-bold text-slate-800">Consentimiento firmado</h3>
-              <p className="text-sm text-slate-500">El documento ha sido firmado y registrado correctamente.</p>
+              <h3 className="text-xl font-bold text-slate-800">{t('consents.signed_title')}</h3>
+              <p className="text-sm text-slate-500">{t('consents.signed_description')}</p>
               <p className="text-xs text-slate-400">{legalData.footerLegal}</p>
               <button onClick={onClose} className="mt-2 px-6 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700">
-                Cerrar
+                {t('consents.close')}
               </button>
             </div>
           )}

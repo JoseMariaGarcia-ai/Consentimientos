@@ -57,14 +57,14 @@ export default function Dashboard() {
     { label: t('nav.patients'),     value: stats.patients, icon: Users,       color: 'text-blue-600',    bg: 'bg-blue-50',    path: '/patients'  },
     { label: t('nav.consents'),     value: stats.consents, icon: FileText,    color: 'text-purple-600',  bg: 'bg-purple-50',  path: '/consents'  },
     { label: t('nav.doctors'),      value: stats.doctors,  icon: Stethoscope, color: 'text-emerald-600', bg: 'bg-emerald-50', path: '/doctors'   },
-    { label: 'Pendientes de firma', value: stats.pending,  icon: Clock,       color: 'text-amber-600',   bg: 'bg-amber-50',   path: '/consents?status=pending' },
+    { label: t('dashboard.pending_signature'), value: stats.pending,  icon: Clock,       color: 'text-amber-600',   bg: 'bg-amber-50',   path: '/consents?status=pending' },
   ]
 
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-800">Dashboard</h1>
-        <p className="text-sm text-slate-500 mt-0.5">Resumen de actividad</p>
+        <h1 className="text-2xl font-bold text-slate-800">{t('dashboard.title')}</h1>
+        <p className="text-sm text-slate-500 mt-0.5">{t('dashboard.subtitle')}</p>
       </div>
 
       {/* Stat cards */}
@@ -90,7 +90,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
               <TrendingUp className="w-4 h-4 text-blue-600" />
-              Tasa de firma
+              {t('dashboard.signature_rate')}
             </div>
             <span className="text-sm font-bold text-slate-800">
               {Math.round((stats.signed / stats.consents) * 100)}%
@@ -103,8 +103,8 @@ export default function Dashboard() {
             />
           </div>
           <div className="flex justify-between text-xs text-slate-400 mt-1.5">
-            <span>{stats.signed} firmados</span>
-            <span>{stats.pending} pendientes</span>
+            <span>{t('dashboard.signed_count', { count: stats.signed })}</span>
+            <span>{t('dashboard.pending_count', { count: stats.pending })}</span>
           </div>
         </div>
       )}
@@ -117,14 +117,14 @@ export default function Dashboard() {
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <FileText className="w-4 h-4 text-purple-500" />
-              <h2 className="text-sm font-semibold text-slate-700">Últimos consentimientos</h2>
+              <h2 className="text-sm font-semibold text-slate-700">{t('dashboard.recent_consents')}</h2>
             </div>
-            <button onClick={() => navigate('/consents')} className="text-xs text-blue-600 hover:underline">Ver todos →</button>
+            <button onClick={() => navigate('/consents')} className="text-xs text-blue-600 hover:underline">{t('dashboard.view_all_consents')}</button>
           </div>
           {loading ? (
-            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('common.loading')}</div>
           ) : recentConsents.length === 0 ? (
-            <div className="p-6 text-center text-xs text-slate-400">Sin consentimientos</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('dashboard.no_consents')}</div>
           ) : (
             <div className="divide-y divide-slate-50">
               {recentConsents.map(c => (
@@ -151,14 +151,14 @@ export default function Dashboard() {
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <ClipboardList className="w-4 h-4 text-teal-500" />
-              <h2 className="text-sm font-semibold text-slate-700">Últimas historias clínicas</h2>
+              <h2 className="text-sm font-semibold text-slate-700">{t('dashboard.recent_clinical')}</h2>
             </div>
-            <button onClick={() => navigate('/clinical-records')} className="text-xs text-blue-600 hover:underline">Ver todas →</button>
+            <button onClick={() => navigate('/clinical-records')} className="text-xs text-blue-600 hover:underline">{t('dashboard.view_all')}</button>
           </div>
           {loading ? (
-            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('common.loading')}</div>
           ) : recentClinical.length === 0 ? (
-            <div className="p-6 text-center text-xs text-slate-400">Sin historias clínicas</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('dashboard.no_clinical')}</div>
           ) : (
             <div className="divide-y divide-slate-50">
               {recentClinical.map(r => (
@@ -181,14 +181,14 @@ export default function Dashboard() {
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Camera className="w-4 h-4 text-violet-500" />
-              <h2 className="text-sm font-semibold text-slate-700">Últimas sesiones de fotos</h2>
+              <h2 className="text-sm font-semibold text-slate-700">{t('dashboard.recent_photos')}</h2>
             </div>
-            <button onClick={() => navigate('/photos')} className="text-xs text-blue-600 hover:underline">Ver todas →</button>
+            <button onClick={() => navigate('/photos')} className="text-xs text-blue-600 hover:underline">{t('dashboard.view_all')}</button>
           </div>
           {loading ? (
-            <div className="p-6 text-center text-xs text-slate-400">Cargando…</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('common.loading')}</div>
           ) : recentPhotos.length === 0 ? (
-            <div className="p-6 text-center text-xs text-slate-400">Sin sesiones fotográficas</div>
+            <div className="p-6 text-center text-xs text-slate-400">{t('dashboard.no_photos')}</div>
           ) : (
             <div className="divide-y divide-slate-50">
               {recentPhotos.map(s => (

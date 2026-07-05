@@ -445,7 +445,15 @@
     "settings": "Configuración",
     "clinicalRecords": "Historia Clínica",
     "photos": "Fotos",
-    "recharge": "Planes de Suscripción"
+    "recharge": "Planes de Suscripción",
+    "agenda": "Agenda",
+    "toxin": "Control de Toxina",
+    "labPartners": "Laboratorios",
+    "menu": "Menú"
+  },
+  "topbar": {
+    "tagline": "Consentimientos Digitales · Huella Digital",
+    "legal": "eIDAS (UE 910/2014) · Ley 41/2002 · RGPD"
   },
   "auth": {
     "login_title": "Acceso seguro",
@@ -464,7 +472,20 @@
     "biometric_success": "¡Biometría activada!",
     "biometric_success_msg": "La próxima vez entrarás con un toque.",
     "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "biometric_now": "Ahora no",
+    "portal_subtitle": "Consentimientos Digitales · Huella Digital",
+    "portal_title": "Acceso al documento",
+    "portal_email_prompt": "Introduce tu email para recibir un enlace de acceso seguro.",
+    "portal_link_sent_title": "Enlace enviado",
+    "portal_link_sent_message": "Revisa tu correo y haz clic en el enlace para continuar.",
+    "portal_email_placeholder": "tu@email.com",
+    "portal_consent_default_title": "Consentimiento Informado",
+    "portal_accept_label": "He leído y acepto este consentimiento informado",
+    "portal_proceed_to_sign": "Proceder a la firma →",
+    "portal_saving_signature": "Guardando firma…",
+    "portal_signed_title": "Firma completada",
+    "portal_signed_message": "Su consentimiento ha sido firmado y registrado de forma segura.",
+    "portal_error_message": "El enlace puede haber expirado o ser incorrecto."
   },
   "patients": {
     "title": "Pacientes",
@@ -488,7 +509,34 @@
     "gallery": "Galería de fotos",
     "no_photos": "Sin fotos. Sube la primera imagen.",
     "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "uploading": "Subiendo…",
+    "count_registered": "{{count}} registrados",
+    "form": {
+      "doc_type": "Tipo",
+      "doc_type_passport": "Pasaporte",
+      "city": "Ciudad",
+      "province": "Provincia",
+      "country": "País",
+      "select_placeholder": "— Seleccionar —",
+      "countries": [
+        "España", "Alemania", "Argentina", "Bélgica", "Bolivia", "Brasil", "Chile", "China",
+        "Colombia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "EE.UU.", "Francia",
+        "Guatemala", "Honduras", "Italia", "Marruecos", "México", "Nicaragua", "Países Bajos",
+        "Panamá", "Paraguay", "Perú", "Portugal", "Reino Unido", "República Dominicana",
+        "Suiza", "Uruguay", "Venezuela", "Otro"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Error al guardar:",
+      "unknown_error": "Error desconocido"
+    }
   },
   "doctors": {
     "title": "Doctores",
@@ -504,12 +552,39 @@
       "receptionist": "Recepcionista"
     },
     "save": "Guardar médico",
-    "no_results": "No hay médicos registrados"
+    "no_results": "No hay médicos registrados",
+    "last_name": "Apellidos",
+    "phone": "Teléfono",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "Error desconocido",
+    "count_registered": "{{count}} registrados",
+    "license_display": "Nº {{number}}"
   },
   "consents": {
     "title": "Consentimientos",
     "add": "Nuevo consentimiento",
     "search": "Buscar consentimientos…",
+    "step_labels": ["Datos", "Revisión", "Firma doctor", "Firma paciente", "Hecho"],
+    "branch_label": "Sede",
+    "main_branch": "Sede principal",
+    "select_patient": "Seleccionar paciente…",
+    "select_doctor": "Seleccionar doctor…",
+    "select_treatment": "Seleccionar tratamiento…",
+    "translating": "Traduciendo…",
+    "continue": "Continuar",
+    "responsible_doctor": "Doctor responsable",
+    "legal_framework_title": "Marco Legal — {{jurisdiction}}",
+    "witness_required_notice": "Este país requiere testigo para la firma",
+    "back": "← Atrás",
+    "sign_arrow": "Firmar →",
+    "doctor_signature_title": "Firma del doctor",
+    "doctor_signature_notice": "El doctor debe firmar primero para validar el consentimiento",
+    "back_to_preview": "← Volver",
+    "patient_signature_title": "Firma del paciente",
+    "patient_signature_notice": "El paciente debe firmar para confirmar que ha leído y acepta el consentimiento",
+    "signed_title": "Consentimiento firmado",
+    "signed_description": "El documento ha sido firmado y registrado correctamente.",
+    "close": "Cerrar",
     "status": {
       "pending": "Pendiente",
       "signed": "Firmado",
@@ -589,7 +664,27 @@
     "magic_link_sent": "Te hemos enviado un Magic Link a",
     "email": "Email",
     "magic_link": "Entrar con Magic Link",
-    "footer": "Consentimientos digitales válidos · Ley 41/2002 · RGPD"
+    "footer": "Consentimientos digitales válidos · Ley 41/2002 · RGPD",
+    "invalid_email": "Introduce un email válido",
+    "send_error": "Error al enviar el enlace",
+    "subtitle": "Consentimientos Digitales · eIDAS",
+    "email_placeholder": "tu@clinica.es"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Resumen de actividad",
+    "pending_signature": "Pendientes de firma",
+    "signature_rate": "Tasa de firma",
+    "signed_count": "{{count}} firmados",
+    "pending_count": "{{count}} pendientes",
+    "recent_consents": "Últimos consentimientos",
+    "view_all_consents": "Ver todos →",
+    "view_all": "Ver todas →",
+    "no_consents": "Sin consentimientos",
+    "recent_clinical": "Últimas historias clínicas",
+    "no_clinical": "Sin historias clínicas",
+    "recent_photos": "Últimas sesiones de fotos",
+    "no_photos": "Sin sesiones fotográficas"
   },
   "templates": {
     "title": "Plantillas",
@@ -940,6 +1035,11 @@
   "settings": {
     "title": "Configuración",
     "subtitle": "Gestión de usuarios y accesos al sistema",
+    "tabs": {
+      "users": "Usuarios",
+      "media": "Publicidad",
+      "preview": "Vista previa"
+    },
     "users": {
       "title": "Usuarios",
       "invite_user": "Invitar usuario",
@@ -955,7 +1055,33 @@
       "no_users": "No hay usuarios registrados. Invita al primero.",
       "inactive": "Inactivo",
       "activate": "Activar usuario",
-      "deactivate": "Desactivar usuario"
+      "deactivate": "Desactivar usuario",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Doctor",
+      "role_receptionist": "Recepcionista",
+      "role_lab_partner": "Laboratorio",
+      "role_patient": "Paciente",
+      "filter_all": "Todos",
+      "invite_accepted": "Invitación aceptada",
+      "invite_expired": "Invitación caducada",
+      "invite_pending": "Invitación pendiente",
+      "email_placeholder": "usuario@clinica.es",
+      "full_name_placeholder": "Nombre Apellidos",
+      "linked_lab": "Laboratorio vinculado",
+      "no_lab": "Sin laboratorio",
+      "lab_hint": "El usuario solo verá las clínicas vinculadas a este laboratorio.",
+      "admin_only_hint": "Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.",
+      "load_error": "No se pudo cargar la lista de usuarios",
+      "retry": "Reintentar"
+    },
+    "media": {
+      "title": "Gestión de medios publicitarios",
+      "managed_by_lab": "Esta publicidad la gestiona tu laboratorio colaborador. Puedes verla aquí, pero solo el laboratorio puede modificarla.",
+      "managed_by_lab_named": "Esta publicidad la gestiona tu laboratorio colaborador ({{name}}). Puedes verla aquí, pero solo el laboratorio puede modificarla.",
+      "welcome_title": "Pantalla de bienvenida",
+      "welcome_description": "Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo).",
+      "patient_title": "Contenido para paciente",
+      "patient_description": "Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
     }
   }
 }

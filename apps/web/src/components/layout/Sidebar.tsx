@@ -4,18 +4,18 @@ import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Setting
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 
-const navItems: { to: string; icon: typeof LayoutDashboard; label: string; fallback?: string; moduleKey: string }[] = [
+const navItems: { to: string; icon: typeof LayoutDashboard; label: string; moduleKey: string }[] = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard', moduleKey: 'dashboard' },
-  { to: '/agenda', icon: CalendarClock, label: 'nav.agenda', fallback: 'Agenda', moduleKey: 'agenda' },
+  { to: '/agenda', icon: CalendarClock, label: 'nav.agenda', moduleKey: 'agenda' },
   { to: '/patients', icon: Users, label: 'nav.patients', moduleKey: 'patients' },
   { to: '/doctors', icon: UserCog, label: 'nav.doctors', moduleKey: 'doctors' },
   { to: '/consents', icon: FileText, label: 'nav.consents', moduleKey: 'consents' },
   { to: '/clinical-records', icon: ClipboardList, label: 'nav.clinicalRecords', moduleKey: 'clinical-records' },
   { to: '/photos', icon: Camera, label: 'nav.photos', moduleKey: 'photos' },
-  { to: '/toxina', icon: Syringe, label: 'nav.toxin', fallback: 'Control de Toxina', moduleKey: 'toxin' },
+  { to: '/toxina', icon: Syringe, label: 'nav.toxin', moduleKey: 'toxin' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates', moduleKey: 'templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic', moduleKey: 'clinic' },
-  { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', fallback: 'Laboratorios', moduleKey: 'lab-partners' },
+  { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', moduleKey: 'lab-partners' },
 ]
 
 const bottomNavItems = [
@@ -52,7 +52,7 @@ export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
         }`}
       >
         <nav className="flex-1">
-          {visibleNavItems.map(({ to, icon: Icon, label, fallback }) => (
+          {visibleNavItems.map(({ to, icon: Icon, label }) => (
             <NavLink
               key={to}
               to={to}
@@ -65,7 +65,7 @@ export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
               }
             >
               <Icon className="w-4 h-4" />
-              {fallback ? t(label, fallback) : t(label)}
+              {t(label)}
             </NavLink>
           ))}
 
@@ -111,7 +111,7 @@ export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
         {/* Language selector */}
         <div className="mx-2 mt-4 pt-4 border-t border-slate-100">
           <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide px-3 mb-2">
-            {t('language.select', 'Idioma')}
+            {t('language.select')}
           </p>
           <div className="px-1">
             <LanguageSelector variant="sidebar" />

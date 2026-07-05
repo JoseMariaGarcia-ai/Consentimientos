@@ -14,7 +14,7 @@ export function Topbar({ onMenuClick }: TopbarProps) {
       <button
         onClick={onMenuClick}
         className="md:hidden p-2 -ml-1 text-white hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
-        aria-label={t('nav.menu', 'Menú')}
+        aria-label={t('nav.menu')}
       >
         <Menu className="w-5 h-5" />
       </button>
@@ -22,8 +22,8 @@ export function Topbar({ onMenuClick }: TopbarProps) {
         <span className="text-white font-bold text-base md:text-lg leading-none truncate">
           Consents<span className="text-yellow-400 underline underline-offset-2">Pro</span>
         </span>
-        <span className="text-white/70 text-xs hidden sm:block truncate">Consentimientos Digitales · Huella Digital</span>
-        <span className="text-yellow-400 text-[10px] hidden md:block">eIDAS (UE 910/2014) · Ley 41/2002 · RGPD</span>
+        <span className="text-white/70 text-xs hidden sm:block truncate">{t('topbar.tagline')}</span>
+        <span className="text-yellow-400 text-[10px] hidden md:block">{t('topbar.legal')}</span>
       </div>
       <div className="ml-auto flex items-center gap-2 md:gap-3 flex-shrink-0">
         <LanguageSelector />

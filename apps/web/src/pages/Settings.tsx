@@ -19,35 +19,35 @@ const ROLE_BADGE: Record<string, string> = {
 }
 const roleBadgeClass = (role: string) => ROLE_BADGE[role] ?? 'bg-slate-100 text-slate-600'
 
-const ROLE_LABEL: Record<string, string> = {
-  superadmin:   'Super Admin',
-  admin:        'Administrador',
-  clinica:      'Clínica',
-  doctor:       'Doctor',
-  receptionist: 'Recepcionista',
-  lab_partner:  'Laboratorio',
-  patient:      'Paciente',
+const ROLE_LABEL_KEY: Record<string, string> = {
+  superadmin:   'settings.users.role_superadmin',
+  admin:        'settings.users.role_admin',
+  clinica:      'settings.users.role_clinica',
+  doctor:       'settings.users.role_doctor',
+  receptionist: 'settings.users.role_receptionist',
+  lab_partner:  'settings.users.role_lab_partner',
+  patient:      'settings.users.role_patient',
 }
-const roleLabel = (role: string) => ROLE_LABEL[role] ?? role
+const roleLabel = (role: string, t: (key: string) => string) => t(ROLE_LABEL_KEY[role] ?? role)
 
 // No hay un enlace de invitación con caducidad propia (el acceso es por
 // magic link, uno nuevo cada vez) — "pendiente"/"caducada" es una
 // aproximación basada en cuánto tiempo lleva sin iniciar sesión desde que
 // se le dio de alta.
 const INVITE_EXPIRY_DAYS = 7
-function inviteStatus(user: AppUser): { label: string; className: string } {
-  if (user.last_login) return { label: 'Invitación aceptada', className: 'bg-emerald-50 text-emerald-700' }
+function inviteStatus(user: AppUser, t: (key: string) => string): { label: string; className: string } {
+  if (user.last_login) return { label: t('settings.users.invite_accepted'), className: 'bg-emerald-50 text-emerald-700' }
   const ageDays = (Date.now() - new Date(user.invited_at).getTime()) / (1000 * 60 * 60 * 24)
-  if (ageDays > INVITE_EXPIRY_DAYS) return { label: 'Invitación caducada', className: 'bg-red-50 text-red-600' }
-  return { label: 'Invitación pendiente', className: 'bg-amber-50 text-amber-700' }
+  if (ageDays > INVITE_EXPIRY_DAYS) return { label: t('settings.users.invite_expired'), className: 'bg-red-50 text-red-600' }
+  return { label: t('settings.users.invite_pending'), className: 'bg-amber-50 text-amber-700' }
 }
 
 const ROLE_FILTERS = [
-  { value: 'all',          label: 'Todos' },
-  { value: 'superadmin',   label: 'Super Admin' },
-  { value: 'clinica',      label: 'Clínica' },
-  { value: 'lab_partner',  label: 'Laboratorio' },
-  { value: 'patient',      label: 'Paciente' },
+  { value: 'all',          labelKey: 'settings.users.filter_all' },
+  { value: 'superadmin',   labelKey: 'settings.users.role_superadmin' },
+  { value: 'clinica',      labelKey: 'settings.users.role_clinica' },
+  { value: 'lab_partner',  labelKey: 'settings.users.role_lab_partner' },
+  { value: 'patient',      labelKey: 'settings.users.role_patient' },
 ]
 
 interface AppUser {
@@ -64,9 +64,9 @@ interface AppUser {
 interface LabPartner { id: string; name: string }
 
 const ROLE_OPTIONS = [
-  { value: 'superadmin',  label: 'Super Admin', icon: ShieldCheck,  color: 'purple' },
-  { value: 'clinica',     label: 'Clínica',     icon: UserCheck,    color: 'sky'    },
-  { value: 'lab_partner', label: 'Laboratorio', icon: FlaskConical, color: 'amber'  },
+  { value: 'superadmin',  labelKey: 'settings.users.role_superadmin',  icon: ShieldCheck,  color: 'purple' },
+  { value: 'clinica',     labelKey: 'settings.users.role_clinica',     icon: UserCheck,    color: 'sky'    },
+  { value: 'lab_partner', labelKey: 'settings.users.role_lab_partner', icon: FlaskConical, color: 'amber'  },
 ]
 
 const ROLE_ACTIVE: Record<string, string> = {
@@ -147,7 +147,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 type="email"
-                placeholder="usuario@clinica.es"
+                placeholder={t('settings.users.email_placeholder')}
                 className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -157,7 +157,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
             <input
               value={form.full_name}
               onChange={e => setForm(f => ({ ...f, full_name: e.target.value }))}
-              placeholder="Nombre Apellidos"
+              placeholder={t('settings.users.full_name_placeholder')}
               className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -178,7 +178,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    {r.label}
+                    {t(r.labelKey)}
                   </button>
                 )
               })}
@@ -193,16 +193,16 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
           {/* Lab partner selector */}
           {form.role === 'lab_partner' && (
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Laboratorio vinculado</label>
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.linked_lab')}</label>
               <select
                 value={form.lab_partner_id}
                 onChange={e => setForm(f => ({ ...f, lab_partner_id: e.target.value }))}
                 className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
-                <option value="">Sin laboratorio</option>
+                <option value="">{t('settings.users.no_lab')}</option>
                 {labs.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
               </select>
-              <p className="text-xs text-slate-400">El usuario solo verá las clínicas vinculadas a este laboratorio.</p>
+              <p className="text-xs text-slate-400">{t('settings.users.lab_hint')}</p>
             </div>
           )}
 
@@ -233,7 +233,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
                 ))}
               </div>
               <p className="text-xs text-slate-400">{t('settings.users.permissions_hint')}</p>
-              <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2">Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.</p>
+              <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2">{t('settings.users.admin_only_hint')}</p>
             </div>
           )}
 
@@ -275,7 +275,7 @@ export default function Settings() {
       setUsers(Array.isArray(data) ? data : [])
     } catch (e: any) {
       setUsers([])
-      setUsersError(e?.message || 'No se pudo cargar la lista de usuarios')
+      setUsersError(e?.message || t('settings.users.load_error'))
     } finally {
       setLoading(false)
     }
@@ -316,14 +316,14 @@ export default function Settings() {
       {/* Tabs */}
       <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit">
         <button onClick={() => setActiveTab('users')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'users' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-          <Users className="w-4 h-4" />Usuarios
+          <Users className="w-4 h-4" />{t('settings.tabs.users')}
         </button>
         <button onClick={() => setActiveTab('media')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-          <Megaphone className="w-4 h-4" />Publicidad
+          <Megaphone className="w-4 h-4" />{t('settings.tabs.media')}
         </button>
         {isSuperAdmin && (
           <button onClick={() => setActiveTab('preview')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-            <Eye className="w-4 h-4" />Vista previa
+            <Eye className="w-4 h-4" />{t('settings.tabs.preview')}
           </button>
         )}
       </div>
@@ -337,20 +337,22 @@ export default function Settings() {
           <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
               <Megaphone className="w-4 h-4 text-pink-500" />
-              <h3 className="text-sm font-bold text-slate-700">Gestión de medios publicitarios</h3>
+              <h3 className="text-sm font-bold text-slate-700">{t('settings.media.title')}</h3>
             </div>
 
             {mediaData?.managedByLab && (
               <div className="px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-700">
-                Esta publicidad la gestiona tu laboratorio colaborador{mediaData.managedByLabName ? ` (${mediaData.managedByLabName})` : ''}. Puedes verla aquí, pero solo el laboratorio puede modificarla.
+                {mediaData.managedByLabName
+                  ? t('settings.media.managed_by_lab_named', { name: mediaData.managedByLabName })
+                  : t('settings.media.managed_by_lab')}
               </div>
             )}
 
             {/* Slot 1: welcome screen — up to 5 creatives */}
             <CreativesGallery
               type="welcome"
-              title="Pantalla de bienvenida"
-              description="Hasta 5 imágenes o vídeos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo)."
+              title={t('settings.media.welcome_title')}
+              description={t('settings.media.welcome_description')}
               files={mediaData?.welcome?.files ?? []}
               settings={mediaData?.welcome?.settings ?? null}
               onChanged={loadMedia}
@@ -373,8 +375,8 @@ export default function Settings() {
             {/* Slot 2: patient content — up to 5 creatives */}
             <CreativesGallery
               type="patient"
-              title="Contenido para paciente"
-              description="Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
+              title={t('settings.media.patient_title')}
+              description={t('settings.media.patient_description')}
               files={mediaData?.patient?.files ?? []}
               settings={mediaData?.patient?.settings ?? null}
               readOnly={!!mediaData?.managedByLab}
@@ -398,7 +400,7 @@ export default function Settings() {
               onChange={e => setRoleFilter(e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {ROLE_FILTERS.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}
+              {ROLE_FILTERS.map(f => <option key={f.value} value={f.value}>{t(f.labelKey)}</option>)}
             </select>
             <button
               onClick={() => setModal({ open: true, user: null })}
@@ -415,10 +417,10 @@ export default function Settings() {
         ) : usersError ? (
           <div className="text-center text-sm py-12 flex flex-col items-center gap-3 px-6">
             <Users className="w-10 h-10 opacity-20 text-red-400" />
-            <p className="text-red-600 font-medium">No se pudo cargar la lista de usuarios</p>
+            <p className="text-red-600 font-medium">{t('settings.users.load_error')}</p>
             <p className="text-slate-400 max-w-md">{usersError}</p>
             <button onClick={load} className="px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50">
-              Reintentar
+              {t('settings.users.retry')}
             </button>
           </div>
         ) : users.length === 0 ? (
@@ -444,13 +446,13 @@ export default function Settings() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-sm font-semibold text-slate-800">{user.full_name}</p>
                       <span className={`flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${roleBadgeClass(user.role)}`}>
-                        {roleLabel(user.role)}
+                        {roleLabel(user.role, t)}
                       </span>
                       {!user.is_active && (
                         <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">{t('settings.users.inactive')}</span>
                       )}
                       {(() => {
-                        const inv = inviteStatus(user)
+                        const inv = inviteStatus(user, t)
                         return <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${inv.className}`}>{inv.label}</span>
                       })()}
                     </div>

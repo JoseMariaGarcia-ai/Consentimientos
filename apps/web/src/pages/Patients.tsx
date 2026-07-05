@@ -88,7 +88,7 @@ export default function Patients() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-800">{t('patients.title')}</h1>
-          <p className="text-sm text-slate-500 mt-0.5">{patients.length} registrados</p>
+          <p className="text-sm text-slate-500 mt-0.5">{t('patients.count_registered', { count: patients.length })}</p>
         </div>
         <button
           onClick={openNew}
@@ -121,7 +121,7 @@ export default function Patients() {
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {['Nombre', 'Apellidos', 'DNI / NIE / Pasaporte', 'Teléfono', ''].map((h, i) => (
+                  {[t('patients.name'), t('patients.surname'), t('patients.id_doc'), t('patients.phone'), ''].map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
