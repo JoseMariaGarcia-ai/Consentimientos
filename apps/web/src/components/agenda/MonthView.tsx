@@ -1,10 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-
-const WEEKDAY_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
-const MONTH_LABELS = [
-  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
-]
+import { useTranslation } from 'react-i18next'
 
 function dateKey(y: number, m: number, d: number) {
   return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
@@ -32,6 +27,9 @@ interface MonthViewProps {
 }
 
 export function MonthView({ year, month, availability, appointmentCounts, todayKey, onNavigate, onSelectDay }: MonthViewProps) {
+  const { t } = useTranslation()
+  const weekdayLabels = t('monthView.weekdays_short', { returnObjects: true }) as string[]
+  const monthLabels = t('monthView.months', { returnObjects: true }) as string[]
   const weeks = buildWeeks(year, month)
 
   return (
@@ -40,14 +38,14 @@ export function MonthView({ year, month, availability, appointmentCounts, todayK
         <button onClick={() => onNavigate(-1)} className="p-1.5 rounded-lg hover:bg-slate-100">
           <ChevronLeft className="w-4 h-4" />
         </button>
-        <h3 className="text-sm font-bold text-slate-800">{MONTH_LABELS[month]} {year}</h3>
+        <h3 className="text-sm font-bold text-slate-800">{monthLabels[month]} {year}</h3>
         <button onClick={() => onNavigate(1)} className="p-1.5 rounded-lg hover:bg-slate-100">
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
 
       <div className="grid grid-cols-7 border-b border-slate-100">
-        {WEEKDAY_LABELS.map(l => (
+        {weekdayLabels.map(l => (
           <div key={l} className="text-center text-[11px] font-semibold text-slate-400 uppercase tracking-wide py-2">{l}</div>
         ))}
       </div>
@@ -79,9 +77,9 @@ export function MonthView({ year, month, availability, appointmentCounts, todayK
       </div>
 
       <div className="flex items-center gap-4 px-5 py-3 border-t border-slate-100 text-xs text-slate-500">
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-emerald-50 border border-emerald-200 inline-block" />Día abierto</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-slate-100 border border-slate-300 inline-block" />Cerrado</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-600 inline-block" />Hoy</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-emerald-50 border border-emerald-200 inline-block" />{t('monthView.legend.open_day')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-slate-100 border border-slate-300 inline-block" />{t('monthView.legend.closed')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-600 inline-block" />{t('monthView.legend.today')}</span>
       </div>
     </div>
   )

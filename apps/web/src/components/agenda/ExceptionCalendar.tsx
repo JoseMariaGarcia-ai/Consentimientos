@@ -1,10 +1,5 @@
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
-
-const WEEKDAY_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
-const MONTH_LABELS = [
-  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
-]
+import { useTranslation } from 'react-i18next'
 
 function dateKey(y: number, m: number, d: number) {
   return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
@@ -35,6 +30,9 @@ interface ExceptionCalendarProps {
 export function ExceptionCalendar({
   year, month, patternOpenByWeekday, existingExceptionDates, selected, todayKey, onNavigate, onToggleDay,
 }: ExceptionCalendarProps) {
+  const { t } = useTranslation()
+  const weekdayLabels = t('exceptionCalendar.weekdays_short', { returnObjects: true }) as string[]
+  const monthLabels = t('exceptionCalendar.months', { returnObjects: true }) as string[]
   const weeks = buildWeeks(year, month)
 
   return (
@@ -43,14 +41,14 @@ export function ExceptionCalendar({
         <button type="button" onClick={() => onNavigate(-1)} className="p-1.5 rounded-lg hover:bg-slate-200">
           <ChevronLeft className="w-4 h-4" />
         </button>
-        <h4 className="text-sm font-bold text-slate-700">{MONTH_LABELS[month]} {year}</h4>
+        <h4 className="text-sm font-bold text-slate-700">{monthLabels[month]} {year}</h4>
         <button type="button" onClick={() => onNavigate(1)} className="p-1.5 rounded-lg hover:bg-slate-200">
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
 
       <div className="grid grid-cols-7 border-b border-slate-100">
-        {WEEKDAY_LABELS.map(l => (
+        {weekdayLabels.map(l => (
           <div key={l} className="text-center text-[10px] font-semibold text-slate-400 uppercase tracking-wide py-1.5">{l}</div>
         ))}
       </div>
@@ -85,7 +83,7 @@ export function ExceptionCalendar({
                 {day}
               </span>
               {hasException && !isSelected && (
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 absolute bottom-1.5" title="Ya tiene una excepción configurada" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 absolute bottom-1.5" title={t('exceptionCalendar.has_exception_tooltip')} />
               )}
               {isSelected && <Check className="w-3 h-3 text-white absolute bottom-1" />}
             </button>
@@ -94,10 +92,10 @@ export function ExceptionCalendar({
       </div>
 
       <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-t border-slate-100 text-[11px] text-slate-500">
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-emerald-50 border border-emerald-200 inline-block" />Normalmente abierto</span>
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-slate-100 border border-slate-300 inline-block" />Normalmente cerrado</span>
-        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block" />Con excepción</span>
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-blue-600 inline-block" />Seleccionado</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-emerald-50 border border-emerald-200 inline-block" />{t('exceptionCalendar.legend.usually_open')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-slate-100 border border-slate-300 inline-block" />{t('exceptionCalendar.legend.usually_closed')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block" />{t('exceptionCalendar.legend.has_exception')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-blue-600 inline-block" />{t('exceptionCalendar.legend.selected')}</span>
       </div>
     </div>
   )

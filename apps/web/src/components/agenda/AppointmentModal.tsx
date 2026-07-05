@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { CalendarClock, X } from 'lucide-react'
 
 interface Treatment {
@@ -34,6 +35,7 @@ function toLocalInputValue(iso?: string) {
 }
 
 export function AppointmentModal({ initial, defaultStartTime, patients, doctors, treatments, branches = [], onSave, onDelete, onClose }: Props) {
+  const { t } = useTranslation()
   const isEdit = !!initial?.id
   const [form, setForm] = useState({
     patient_id: initial?.patient_id ?? '',
@@ -53,7 +55,7 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.patient_id || !form.treatment_id || !form.start_time) {
-      setError('Paciente, tratamiento y hora son obligatorios')
+      setError(t('appointmentModal.validation_required'))
       return
     }
     setSaving(true)
@@ -67,7 +69,7 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
       })
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('appointmentModal.error_unknown'))
     } finally {
       setSaving(false)
     }
@@ -75,13 +77,13 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
 
   const handleDelete = async () => {
     if (!onDelete) return
-    if (!confirm('¿Eliminar esta cita?')) return
+    if (!confirm(t('appointmentModal.confirm_delete'))) return
     setDeleting(true)
     try {
       await onDelete()
       onClose()
     } catch (err: any) {
-      setError(err.message ?? 'Error desconocido')
+      setError(err.message ?? t('appointmentModal.error_unknown'))
       setDeleting(false)
     }
   }
@@ -92,7 +94,7 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <CalendarClock className="w-5 h-5 text-blue-600" />
-            <h2 className="text-lg font-bold text-slate-800">{isEdit ? 'Editar cita' : 'Nueva cita'}</h2>
+            <h2 className="text-lg font-bold text-slate-800">{isEdit ? t('appointmentModal.title_edit') : t('appointmentModal.title_new')}</h2>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
         </div>
@@ -100,13 +102,13 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
         <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
           {/* Paciente */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Paciente <span className="text-red-500">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.patient')} <span className="text-red-500">*</span></label>
             <select
               value={form.patient_id}
               onChange={e => set('patient_id', e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Seleccionar paciente…</option>
+              <option value="">{t('appointmentModal.form.select_patient')}</option>
               {patients.map(p => {
                 const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
                 return <option key={p.id} value={p.id}>{name}</option>
@@ -116,51 +118,51 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
 
           {/* Doctor */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Doctor</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.doctor')}</label>
             <select
               value={form.doctor_id}
               onChange={e => set('doctor_id', e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Sin asignar</option>
+              <option value="">{t('appointmentModal.form.unassigned')}</option>
               {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
             </select>
           </div>
 
           {/* Clínica / Sede */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Clínica / Sede</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.branch')}</label>
             <select
               value={form.branch}
               onChange={e => set('branch', e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Sede principal</option>
+              <option value="">{t('appointmentModal.form.main_branch')}</option>
               {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
             </select>
           </div>
 
           {/* Tratamiento */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Tratamiento <span className="text-red-500">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.treatment')} <span className="text-red-500">*</span></label>
             <select
               value={form.treatment_id}
               onChange={e => set('treatment_id', e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Seleccionar tratamiento…</option>
-              {treatments.map(t => (
-                <option key={t.id} value={t.id}>{t.name} — {t.duration_minutes} min — {Number(t.price).toFixed(2)} €</option>
+              <option value="">{t('appointmentModal.form.select_treatment')}</option>
+              {treatments.map(tr => (
+                <option key={tr.id} value={tr.id}>{t('appointmentModal.form.treatment_option', { name: tr.name, duration: tr.duration_minutes, price: Number(tr.price).toFixed(2) })}</option>
               ))}
             </select>
             {treatments.length === 0 && (
-              <p className="text-xs text-amber-600 mt-1">No hay tratamientos creados. Añade uno en la pestaña "Tratamientos" primero.</p>
+              <p className="text-xs text-amber-600 mt-1">{t('appointmentModal.form.no_treatments_warning')}</p>
             )}
           </div>
 
           {/* Hora de inicio */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Fecha y hora <span className="text-red-500">*</span></label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.datetime')} <span className="text-red-500">*</span></label>
             <input
               type="datetime-local"
               step={900}
@@ -169,18 +171,18 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {selectedTreatment && (
-              <p className="text-xs text-slate-400 mt-1">Ocupará {selectedTreatment.duration_minutes} minutos en la agenda.</p>
+              <p className="text-xs text-slate-400 mt-1">{t('appointmentModal.form.duration_note', { duration: selectedTreatment.duration_minutes })}</p>
             )}
           </div>
 
           {/* Notas */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">Notas</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.notes')}</label>
             <textarea
               value={form.notes}
               onChange={e => set('notes', e.target.value)}
               rows={2}
-              placeholder="Observaciones sobre la cita…"
+              placeholder={t('appointmentModal.form.notes_placeholder')}
               className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
           </div>
@@ -192,19 +194,19 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
           <div className="flex justify-between items-center gap-3 pt-2 border-t border-slate-100">
             {isEdit && onDelete ? (
               <button type="button" onClick={handleDelete} disabled={deleting} className="px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg disabled:opacity-50">
-                {deleting ? 'Eliminando…' : 'Eliminar cita'}
+                {deleting ? t('appointmentModal.deleting') : t('appointmentModal.delete_appointment')}
               </button>
             ) : <span />}
             <div className="flex gap-3">
               <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-                Cancelar
+                {t('appointmentModal.cancel')}
               </button>
               <button
                 type="submit"
                 disabled={saving}
                 className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 font-medium"
               >
-                {saving ? 'Guardando…' : isEdit ? 'Guardar cambios' : 'Crear cita'}
+                {saving ? t('appointmentModal.saving') : isEdit ? t('appointmentModal.save_changes') : t('appointmentModal.create_appointment')}
               </button>
             </div>
           </div>

@@ -1,4 +1,136 @@
 {
+  "appointmentCalendar": {
+    "view_month": "Ver mes",
+    "today": "Hoy",
+    "new_appointment": "Nueva cita",
+    "no_treatments_warning": "Todavía no hay tratamientos creados. Ve a la pestaña \"Tratamientos\" para crear el primero antes de agendar citas.",
+    "day_closed_notice": "Este día está marcado como cerrado en la Planificación de Agenda. Puedes revisarlo o abrirlo desde esa pestaña.",
+    "slot_aria_label": "Agendar a las {{time}}",
+    "outside_availability": "Fuera del horario disponible",
+    "treatment_fallback": "Tratamiento",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Disponible",
+      "outside_hours": "Fuera de horario",
+      "scheduled": "Cita agendada"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Editar cita",
+    "title_new": "Nueva cita",
+    "validation_required": "Paciente, tratamiento y hora son obligatorios",
+    "error_unknown": "Error desconocido",
+    "confirm_delete": "¿Eliminar esta cita?",
+    "deleting": "Eliminando…",
+    "delete_appointment": "Eliminar cita",
+    "cancel": "Cancelar",
+    "saving": "Guardando…",
+    "save_changes": "Guardar cambios",
+    "create_appointment": "Crear cita",
+    "form": {
+      "patient": "Paciente",
+      "select_patient": "Seleccionar paciente…",
+      "doctor": "Doctor",
+      "unassigned": "Sin asignar",
+      "branch": "Clínica / Sede",
+      "main_branch": "Sede principal",
+      "treatment": "Tratamiento",
+      "select_treatment": "Seleccionar tratamiento…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "No hay tratamientos creados. Añade uno en la pestaña \"Tratamientos\" primero.",
+      "datetime": "Fecha y hora",
+      "duration_note": "Ocupará {{duration}} minutos en la agenda.",
+      "notes": "Notas",
+      "notes_placeholder": "Observaciones sobre la cita…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Tratamientos",
+    "subtitle": "Duración y precio de cada tratamiento para poder agendar citas",
+    "new_treatment": "Nuevo tratamiento",
+    "loading": "Cargando…",
+    "empty_state": "No hay tratamientos creados todavía",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "¿Eliminar este tratamiento?",
+    "form": {
+      "title_edit": "Editar tratamiento",
+      "title_new": "Nuevo tratamiento",
+      "name": "Nombre",
+      "name_placeholder": "Ej: Toxina botulínica",
+      "duration": "Duración (min)",
+      "price": "Precio (€)",
+      "validation_name_required": "El nombre es obligatorio",
+      "error_unknown": "Error desconocido",
+      "cancel": "Cancelar",
+      "saving": "Guardando…",
+      "save": "Guardar"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "has_exception_tooltip": "Ya tiene una excepción configurada",
+    "legend": {
+      "usually_open": "Normalmente abierto",
+      "usually_closed": "Normalmente cerrado",
+      "has_exception": "Con excepción",
+      "selected": "Seleccionado"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "legend": {
+      "open_day": "Día abierto",
+      "closed": "Cerrado",
+      "today": "Hoy"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Planificación de Agenda",
+    "subtitle": "Configura qué días y en qué horario se pueden dar citas.",
+    "time_separator": "a",
+    "add_time_range": "Añadir tramo horario",
+    "weekdays": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    "confirm_delete_exception": "¿Eliminar esta excepción y volver al horario habitual de ese día?",
+    "errors": {
+      "save_schedule_failed": "No se pudo guardar el horario",
+      "apply_pattern_failed": "No se pudo aplicar el patrón",
+      "select_day_required": "Selecciona al menos un día en el calendario",
+      "save_exception_failed": "No se pudo guardar el día especial"
+    },
+    "bulk": {
+      "title": "Aplicar un patrón a varios días a la vez",
+      "description": "Ej: lunes a viernes de 09:00 a 20:00. Selecciona los días y el horario, luego aplica — puedes ajustar cada día individualmente después.",
+      "applying": "Aplicando…",
+      "apply_button": "Aplicar a los días seleccionados"
+    },
+    "weekly": {
+      "title": "Horario semanal habitual",
+      "closed": "Cerrado",
+      "saving": "Guardando…",
+      "save": "Guardar"
+    },
+    "exceptions": {
+      "title": "Días sueltos (excepciones)",
+      "description": "Abre un día especial (ej. un sábado) o cierra un día que normalmente está abierto (ej. festivo).",
+      "select_days_label": "Selecciona uno o varios días",
+      "days_selected_singular": "{{count}} día seleccionado",
+      "days_selected_plural": "{{count}} días seleccionados",
+      "clear_selection": "Limpiar selección",
+      "open_special": "Abrir especial",
+      "close": "Cerrar",
+      "schedule_label": "Horario esos días",
+      "notes_placeholder": "Motivo (opcional) — ej: Puente de agosto",
+      "saving": "Guardando…",
+      "save_button_singular": "Guardar día especial",
+      "save_button_plural": "Guardar {{count}} días especiales",
+      "no_exceptions": "No hay días sueltos configurados.",
+      "open_special_status": "Abierto especial · {{ranges}}",
+      "closed_status": "Cerrado"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Consentimientos Digitales · Huella Digital"

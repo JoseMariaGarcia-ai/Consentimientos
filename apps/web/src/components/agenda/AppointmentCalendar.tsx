@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, Plus, CalendarRange } from 'lucide-react'
 import { api } from '@/lib/api'
 import { AppointmentModal } from './AppointmentModal'
@@ -78,6 +79,7 @@ const STATUS_COLOR: Record<string, string> = {
 }
 
 export function AppointmentCalendar() {
+  const { t } = useTranslation()
   const today = todayStr()
   const [viewMode, setViewMode] = useState<'month' | 'day'>('month')
   const [date, setDate] = useState(today)
@@ -211,7 +213,7 @@ export function AppointmentCalendar() {
               onClick={() => setViewMode('month')}
               className="flex items-center gap-1.5 px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50"
             >
-              <CalendarRange className="w-4 h-4" />Ver mes
+              <CalendarRange className="w-4 h-4" />{t('appointmentCalendar.view_month')}
             </button>
             <button onClick={() => setDate(d => addDays(d, -1))} className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50">
               <ChevronLeft className="w-4 h-4" />
@@ -226,7 +228,7 @@ export function AppointmentCalendar() {
               <ChevronRight className="w-4 h-4" />
             </button>
             <button onClick={() => setDate(today)} className="px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-              Hoy
+              {t('appointmentCalendar.today')}
             </button>
           </div>
         ) : (
@@ -236,13 +238,13 @@ export function AppointmentCalendar() {
           onClick={() => setModal({ open: true, defaultStartTime: slots[0]?.iso })}
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 shadow-sm"
         >
-          <Plus className="w-4 h-4" />Nueva cita
+          <Plus className="w-4 h-4" />{t('appointmentCalendar.new_appointment')}
         </button>
       </div>
 
       {treatments.length === 0 && (
         <div className="px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-700">
-          Todavía no hay tratamientos creados. Ve a la pestaña "Tratamientos" para crear el primero antes de agendar citas.
+          {t('appointmentCalendar.no_treatments_warning')}
         </div>
       )}
 
@@ -260,7 +262,7 @@ export function AppointmentCalendar() {
         <>
           {dayIsOpen === false && (
             <div className="px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-sm text-slate-600">
-              Este día está marcado como cerrado en la Planificación de Agenda. Puedes revisarlo o abrirlo desde esa pestaña.
+              {t('appointmentCalendar.day_closed_notice')}
             </div>
           )}
 
@@ -287,14 +289,14 @@ export function AppointmentCalendar() {
                       onClick={() => openCreate(s)}
                       className={`absolute left-0 right-0 text-left bg-white hover:bg-blue-50 transition-colors ${s.minute === 0 ? 'border-t border-slate-200' : 'border-t border-slate-50'}`}
                       style={{ top: i * ROW_HEIGHT, height: ROW_HEIGHT }}
-                      aria-label={`Agendar a las ${s.label}`}
+                      aria-label={t('appointmentCalendar.slot_aria_label', { time: s.label })}
                     />
                   ) : (
                     <div
                       key={s.label}
                       className={`absolute left-0 right-0 bg-slate-100 cursor-not-allowed ${s.minute === 0 ? 'border-t border-slate-200' : 'border-t border-slate-100'}`}
                       style={{ top: i * ROW_HEIGHT, height: ROW_HEIGHT }}
-                      title="Fuera del horario disponible"
+                      title={t('appointmentCalendar.outside_availability')}
                     />
                   )
                 })}
@@ -315,11 +317,11 @@ export function AppointmentCalendar() {
                       style={{ top: top + 1, height, left: `calc(${leftPct}% + 2px)`, width: `calc(${widthPct}% - 4px)` }}
                     >
                       <p className="text-xs font-semibold truncate">
-                        {a.treatment?.name ?? 'Tratamiento'}
+                        {a.treatment?.name ?? t('appointmentCalendar.treatment_fallback')}
                         {a.treatment?.price != null && <span className="font-normal"> · {Number(a.treatment.price).toFixed(2)} €</span>}
                       </p>
                       <p className="text-[11px] truncate">{patientName(a.patient)}</p>
-                      {a.doctor?.name && <p className="text-[10px] truncate opacity-75">Dr. {a.doctor.name}</p>}
+                      {a.doctor?.name && <p className="text-[10px] truncate opacity-75">{t('appointmentCalendar.doctor_prefix', { name: a.doctor.name })}</p>}
                     </button>
                   )
                 })}
@@ -328,9 +330,9 @@ export function AppointmentCalendar() {
           </div>
 
           <div className="flex items-center gap-4 text-xs text-slate-500">
-            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-white border border-slate-300 inline-block" />Disponible</span>
-            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-slate-100 border border-slate-300 inline-block" />Fuera de horario</span>
-            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-blue-100 border border-blue-300 inline-block" />Cita agendada</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-white border border-slate-300 inline-block" />{t('appointmentCalendar.legend.available')}</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-slate-100 border border-slate-300 inline-block" />{t('appointmentCalendar.legend.outside_hours')}</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded bg-blue-100 border border-blue-300 inline-block" />{t('appointmentCalendar.legend.scheduled')}</span>
           </div>
         </>
       )}
