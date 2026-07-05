@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "编辑毒素注射记录",
+    "title_new": "新建毒素注射记录",
+    "patient": "患者",
+    "select_patient": "选择患者…",
+    "linked_consent": "关联的知情同意书",
+    "not_linked": "未关联",
+    "consent_default_name": "知情同意书",
+    "unsigned": "未签署",
+    "loading_consents": "正在加载知情同意书…",
+    "no_consents_hint": "该患者目前还没有已签署的毒素知情同意书。此项为可选，您可以不关联而直接保存记录。",
+    "doctor": "医生",
+    "unassigned": "未指定",
+    "application_date": "注射日期",
+    "brand_name": "商品名称",
+    "brand_name_placeholder": "保妥适、丽舒妥、希尔宁…",
+    "manufacturer": "生产厂商",
+    "manufacturer_placeholder": "艾尔建、益普生、默茨…",
+    "lot_number": "批号",
+    "expiry_date": "有效期至",
+    "vials_opened": "已开启药瓶数",
+    "treated_zones": "治疗部位",
+    "other_zone_placeholder": "其他部位…",
+    "add": "添加",
+    "total_units": "总单位数",
+    "notes": "备注",
+    "notes_placeholder": "备注说明…",
+    "doctor_signature": "医生签名",
+    "signature_alt": "医生签名",
+    "signed_on": "签署于 {{date}}",
+    "sign_again": "重新签名",
+    "signature_hint": "请在下方绘制签名，并在保存前点击“确认签名”。",
+    "confirm_delete": "确定要删除此毒素记录吗？",
+    "deleting": "正在删除…",
+    "delete_record": "删除记录",
+    "cancel": "取消",
+    "save_changes": "保存更改",
+    "create_record": "创建记录",
+    "saving": "正在保存…",
+    "unknown_error": "未知错误",
+    "validation": {
+      "required_fields": "患者、商品名称、批号、有效期和生产厂商为必填项",
+      "signature_required": "必须有医生签名才能保存记录"
+    },
+    "zones": {
+      "forehead": "额头（水平纹）",
+      "glabella": "眉间（皱眉纹）",
+      "crows_feet": "鱼尾纹（眼周）",
+      "lower_eyelid": "下眼睑",
+      "eyebrow_lift": "眉部（提升）",
+      "bunny_lines": "鼻部（兔纹）",
+      "upper_lip": "上唇（条形纹）",
+      "oral_commissures": "口角",
+      "chin_dimpling": "下巴（橘皮样凹陷）",
+      "platysmal_bands": "颈部（颈阔肌带）",
+      "decolletage": "胸前区",
+      "axillary_sweating": "腋下多汗（腋下多汗症）",
+      "palmar_sweating": "手掌多汗",
+      "plantar_sweating": "足底多汗",
+      "jaw_bruxism": "下颌（磨牙症/咬肌）",
+      "migraine_occipital": "偏头痛（枕部注射点）",
+      "trampoline_chin": "蹦床下巴",
+      "gummy_smile": "露龈笑",
+      "nefertiti_lift": "娜芙蒂蒂提升（颈部及下颌）",
+      "other_zone": "其他部位"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "正在生成…",
+    "export_pdf": "导出PDF"
+  },
+  "patientGallery": {
+    "title": "照片相册",
+    "upload_photos": "上传照片",
+    "loading": "正在加载…",
+    "empty": "暂无照片，请上传第一张图片。",
+    "confirm_delete": "确定要删除这张照片吗？",
+    "count_stored": "{{count}} {{unit}} · 存储于 Cloudflare R2",
+    "photo_singular": "张照片",
+    "photo_plural": "张照片"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "编辑病历",
+    "title_new": "新建病历",
+    "patient": "患者",
+    "select_patient": "选择患者…",
+    "doctor": "医生",
+    "unassigned": "未指定",
+    "branch": "诊所 / 分院",
+    "unspecified": "未指定",
+    "visit_date": "就诊日期",
+    "reason_for_visit": "就诊原因",
+    "anamnesis": "病史 / 既往史",
+    "current_medications": "当前用药",
+    "allergies": "已知过敏史",
+    "physical_exam": "体格检查",
+    "diagnosis": "诊断",
+    "treatment_plan": "治疗方案",
+    "notes": "备注 / 说明",
+    "select_patient_error": "请选择一位患者",
+    "unknown_error": "未知错误",
+    "cancel": "取消",
+    "saving": "正在保存…",
+    "save_record": "保存病历"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "文件超过 {{maxSize}} MB 限制",
+    "upload_error": "文件上传出错",
+    "confirm_delete": "确定要删除此文件吗？",
+    "video": "视频",
+    "image": "图片",
+    "uploaded_on": "上传于 {{date}}",
+    "change": "更换",
+    "delete": "删除",
+    "uploading": "正在上传… {{progress}}%",
+    "drop_hint": "拖拽到此处或点击上传",
+    "file_types_hint": "图片（JPG、PNG、GIF）或视频（MP4、MOV、WebM）· 最大 {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "请输入知情同意书内容…",
+    "bold": "加粗",
+    "italic": "斜体",
+    "heading": "标题",
+    "bullet_list": "项目符号列表",
+    "ordered_list": "编号列表",
+    "undo": "撤销",
+    "redo": "重做"
+  },
+  "consentPdfButton": {
+    "generating": "正在生成PDF…",
+    "export": "导出PDF"
+  },
+  "newSessionModal": {
+    "title": "新建拍照场次",
+    "patient_label": "患者",
+    "select_patient_placeholder": "选择患者…",
+    "doctor_label": "医生",
+    "no_doctor_assigned": "未指定",
+    "branch_label": "诊所 / 分院",
+    "no_branch_specified": "未指定",
+    "session_name_label": "场次名称",
+    "session_name_placeholder": "例如：面部治疗第1次",
+    "date_label": "日期和时间",
+    "notes_label": "备注",
+    "notes_placeholder": "关于本次拍照的说明…",
+    "select_patient_error": "请选择一位患者",
+    "unknown_error": "未知错误",
+    "cancel": "取消",
+    "creating": "正在创建…",
+    "create_session": "创建场次"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "拍照场次",
+    "photo_count": "{{count}}/{{max}} 张照片",
+    "compare_button": "对比 前后",
+    "delete_session": "删除场次",
+    "upload": "上传",
+    "remaining": "还剩 {{remaining}} 张"
+  },
+  "beforeAfterModal": {
+    "select_title": "选择要对比的照片",
+    "compare_title": "前后对比",
+    "change_selection": "← 更改选择",
+    "select_intro": "选择一张照片作为",
+    "select_middle": "另一张作为",
+    "before": "治疗前",
+    "after": "治疗后",
+    "before_badge": "治疗前",
+    "after_badge": "治疗后",
+    "compare_button": "对比"
+  },
+  "biometricPrompt": {
+    "title": "启用生物识别访问",
+    "description": "使用 Face ID、指纹或 Windows Hello，下次可在 2 秒内快速登录。",
+    "device_label": "设备：",
+    "activate": "启用",
+    "default_device": "我的设备"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "手动选择",
+        "desc": "由您选择显示哪一个。点击某个素材即可将其设为激活状态。"
+      },
+      "random": {
+        "label": "随机顺序",
+        "desc": "每次展示时都会随机选择一个素材。"
+      },
+      "sequential": {
+        "label": "顺序展示",
+        "desc": "每次展示时按顺序依次显示。"
+      }
+    },
+    "errors": {
+      "fileTooLarge": "文件超过 100 MB 限制",
+      "invalidUrl": "URL 无效"
+    },
+    "confirmDelete": "确定要删除此素材吗？",
+    "types": {
+      "url": "URL",
+      "video": "视频",
+      "image": "图片"
+    },
+    "active": "✓ 已激活",
+    "select": "选择",
+    "upload": {
+      "label": "上传文件",
+      "slotsFree": "剩余 {{count}} 个名额"
+    },
+    "addUrlButton": "添加视频链接（YouTube、Vimeo、MP4…）",
+    "urlForm": {
+      "title": "通过URL添加视频",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… 或直接的 .mp4 链接",
+      "labelPlaceholder": "名称或描述（可选）",
+      "hint": "支持 YouTube、Vimeo 以及直接视频链接（.mp4、.webm 等）",
+      "add": "添加",
+      "saving": "正在保存…"
+    },
+    "displayModeHeading": "如何展示？"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "欢迎",
+    "continue": "继续 →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "何时展示广告？",
+    "subheading": "您可以同时选择多个选项。",
+    "options": {
+      "session": {
+        "label": "每次登录时展示一次",
+        "desc": "用户每次在浏览器中打开应用时只展示一次。"
+      },
+      "consent": {
+        "label": "每次创建知情同意书时",
+        "desc": "在每次创建知情同意书后立即展示。"
+      },
+      "clinical": {
+        "label": "每次创建病历时",
+        "desc": "在每次保存病历后立即展示。"
+      },
+      "interval": {
+        "label": "每隔 X 分钟",
+        "desc": "只要应用处于打开状态，就会定期展示。"
+      }
+    },
+    "every": "每隔",
+    "minutes": "分钟",
+    "errors": {
+      "selectAtLeastOne": "请至少选择一个选项",
+      "saveFailed": "保存失败"
+    },
+    "saving": "正在保存…",
+    "saved": "已保存",
+    "saveButton": "保存配置",
+    "appliedMessage": "✅ 配置已应用"
+  },
+  "demoPreviewPanel": {
+    "heading": "按角色预览",
+    "subheading": "创建测试数据，并以患者、诊所或实验室的视角进入系统查看效果。",
+    "createAllButton": "创建所有测试数据",
+    "errors": {
+      "checkFailed": "检查测试数据时出错",
+      "createPatientFailed": "无法创建测试患者",
+      "createBranchFailed": "无法创建测试分院",
+      "createLabFailed": "无法创建测试实验室"
+    },
+    "cards": {
+      "patient": {
+        "title": "患者视图",
+        "description": "模拟患者所看到的门户：其知情同意书、病历和照片。"
+      },
+      "branch": {
+        "title": "诊所视图",
+        "description": "模拟诊所员工所看到的面板，菜单会限制为其实际权限范围。"
+      },
+      "lab": {
+        "title": "实验室视图",
+        "description": "模拟合作实验室的面板：其资料、关联诊所和推广活动。"
+      }
+    },
+    "testDataCreated": "测试数据已创建",
+    "viewAs": "以{{role}}身份查看",
+    "roleNames": {
+      "patient": "患者",
+      "branch": "诊所",
+      "lab": "实验室"
+    },
+    "creating": "正在创建…",
+    "createTestData": "创建测试数据"
+  },
+  "previewBanner": {
+    "message": "预览模式 — 您正在以下列身份查看界面：",
+    "exitButton": "退出预览",
+    "roles": {
+      "patient": "患者",
+      "clinica": "诊所",
+      "labPartner": "实验室"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "查看月份",
+    "today": "今天",
+    "new_appointment": "新建预约",
+    "no_treatments_warning": "目前还没有创建任何治疗项目。请先前往“治疗项目”标签页创建第一个项目，然后再安排预约。",
+    "day_closed_notice": "此日期在日程安排中被标记为休息日。您可以在该标签页中查看或开放此日期。",
+    "slot_aria_label": "预约 {{time}}",
+    "outside_availability": "不在可预约时段内",
+    "treatment_fallback": "治疗项目",
+    "doctor_prefix": "{{name}} 医生",
+    "legend": {
+      "available": "可预约",
+      "outside_hours": "非工作时间",
+      "scheduled": "已预约"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "编辑预约",
+    "title_new": "新建预约",
+    "validation_required": "患者、治疗项目和时间为必填项",
+    "error_unknown": "未知错误",
+    "confirm_delete": "确定要删除此预约吗？",
+    "deleting": "正在删除…",
+    "delete_appointment": "删除预约",
+    "cancel": "取消",
+    "saving": "正在保存…",
+    "save_changes": "保存更改",
+    "create_appointment": "创建预约",
+    "form": {
+      "patient": "患者",
+      "select_patient": "选择患者…",
+      "doctor": "医生",
+      "unassigned": "未指定",
+      "branch": "诊所 / 分院",
+      "main_branch": "主诊所",
+      "treatment": "治疗项目",
+      "select_treatment": "选择治疗项目…",
+      "treatment_option": "{{name}} — {{duration}} 分钟 — {{price}} €",
+      "no_treatments_warning": "尚未创建任何治疗项目。请先在“治疗项目”标签页中添加一个。",
+      "datetime": "日期和时间",
+      "duration_note": "此预约将在日程中占用 {{duration}} 分钟。",
+      "notes": "备注",
+      "notes_placeholder": "关于此预约的说明…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "治疗项目",
+    "subtitle": "每个治疗项目的时长和价格，用于安排预约",
+    "new_treatment": "新建治疗项目",
+    "loading": "正在加载…",
+    "empty_state": "目前还没有创建任何治疗项目",
+    "duration_display": "{{duration}} 分钟",
+    "price_display": "{{price}} €",
+    "confirm_delete": "确定要删除此治疗项目吗？",
+    "form": {
+      "title_edit": "编辑治疗项目",
+      "title_new": "新建治疗项目",
+      "name": "名称",
+      "name_placeholder": "例如：肉毒素注射",
+      "duration": "时长（分钟）",
+      "price": "价格（€）",
+      "validation_name_required": "名称为必填项",
+      "error_unknown": "未知错误",
+      "cancel": "取消",
+      "saving": "正在保存…",
+      "save": "保存"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    "months": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+    "has_exception_tooltip": "已配置例外情况",
+    "legend": {
+      "usually_open": "通常营业",
+      "usually_closed": "通常休息",
+      "has_exception": "有例外",
+      "selected": "已选择"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    "months": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+    "legend": {
+      "open_day": "营业日",
+      "closed": "休息",
+      "today": "今天"
+    }
+  },
+  "schedulePlanner": {
+    "title": "日程规划",
+    "subtitle": "配置可以安排预约的日期和时间段。",
+    "time_separator": "至",
+    "add_time_range": "添加时间段",
+    "weekdays": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    "confirm_delete_exception": "确定要删除此例外并恢复该日的常规时间安排吗？",
+    "errors": {
+      "save_schedule_failed": "无法保存日程",
+      "apply_pattern_failed": "无法应用该模式",
+      "select_day_required": "请在日历中至少选择一天",
+      "save_exception_failed": "无法保存特殊日期"
+    },
+    "bulk": {
+      "title": "一次性为多天应用同一模式",
+      "description": "例如：周一至周五 09:00 至 20:00。选择日期和时间后应用 — 之后仍可对每一天单独调整。",
+      "applying": "正在应用…",
+      "apply_button": "应用到所选日期"
+    },
+    "weekly": {
+      "title": "常规每周日程",
+      "closed": "休息",
+      "saving": "正在保存…",
+      "save": "保存"
+    },
+    "exceptions": {
+      "title": "特殊日期（例外）",
+      "description": "开放一个特殊日期（例如某个周六）或关闭一个通常开放的日期（例如法定假日）。",
+      "select_days_label": "选择一天或多天",
+      "days_selected_singular": "已选择 {{count}} 天",
+      "days_selected_plural": "已选择 {{count}} 天",
+      "clear_selection": "清除选择",
+      "open_special": "特殊开放",
+      "close": "关闭",
+      "schedule_label": "当天的时间安排",
+      "notes_placeholder": "原因（可选）— 例如：八月连休",
+      "saving": "正在保存…",
+      "save_button_singular": "保存特殊日期",
+      "save_button_plural": "保存 {{count}} 个特殊日期",
+      "no_exceptions": "尚未配置任何特殊日期。",
+      "open_special_status": "特殊开放 · {{ranges}}",
+      "closed_status": "休息"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "数字知情同意书 · 生物特征签名"
@@ -14,7 +445,15 @@
     "settings": "设置",
     "clinicalRecords": "病历",
     "photos": "照片",
-    "recharge": "充值"
+    "recharge": "订阅套餐",
+    "agenda": "日程",
+    "toxin": "毒素管理",
+    "labPartners": "实验室",
+    "menu": "菜单"
+  },
+  "topbar": {
+    "tagline": "数字知情同意书 · 生物特征签名",
+    "legal": "eIDAS（欧盟910/2014号条例）· 41/2002法 · GDPR"
   },
   "auth": {
     "login_title": "安全访问",
@@ -23,17 +462,30 @@
     "send_link": "发送访问链接",
     "check_email": "请检查您的电子邮件 — 我们已发送访问链接",
     "magic_link_sent": "链接发送成功",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "记住此设备",
+    "remember_7": "7 天",
+    "remember_30": "30 天",
+    "remember_90": "90 天",
+    "biometric_activate": "启用 Face ID / 指纹",
+    "biometric_prompt": "首次登录后，您可以启用 Face ID / 指纹识别",
+    "biometric_registering": "正在启用…",
+    "biometric_success": "生物识别已启用！",
+    "biometric_success_msg": "下次登录只需轻轻一触。",
+    "biometric_error": "无法启用。请确认您的设备已配置生物识别功能。",
+    "biometric_now": "暂不启用",
+    "portal_subtitle": "数字知情同意书 · 生物特征签名",
+    "portal_title": "文档访问",
+    "portal_email_prompt": "请输入您的电子邮件以接收安全访问链接。",
+    "portal_link_sent_title": "链接已发送",
+    "portal_link_sent_message": "请查看您的邮箱并点击链接以继续。",
+    "portal_email_placeholder": "tu@email.com",
+    "portal_consent_default_title": "知情同意书",
+    "portal_accept_label": "我已阅读并接受此知情同意书",
+    "portal_proceed_to_sign": "前往签署 →",
+    "portal_saving_signature": "正在保存签名…",
+    "portal_signed_title": "签署完成",
+    "portal_signed_message": "您的知情同意书已安全签署并存档。",
+    "portal_error_message": "链接可能已过期或不正确。"
   },
   "patients": {
     "title": "患者",
@@ -54,10 +506,37 @@
     "edit": "编辑",
     "delete": "删除",
     "no_results": "暂无患者记录",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "照片相册",
+    "no_photos": "暂无照片，请上传第一张图片。",
+    "upload_photos": "上传照片",
+    "uploading": "正在上传…",
+    "count_registered": "已登记 {{count}} 位",
+    "form": {
+      "doc_type": "类型",
+      "doc_type_passport": "护照",
+      "city": "城市",
+      "province": "省份",
+      "country": "国家",
+      "select_placeholder": "— 请选择 —",
+      "countries": [
+        "西班牙", "德国", "阿根廷", "比利时", "玻利维亚", "巴西", "智利", "中国",
+        "哥伦比亚", "哥斯达黎加", "古巴", "厄瓜多尔", "萨尔瓦多", "美国", "法国",
+        "危地马拉", "洪都拉斯", "意大利", "摩洛哥", "墨西哥", "尼加拉瓜", "荷兰",
+        "巴拿马", "巴拉圭", "秘鲁", "葡萄牙", "英国", "多米尼加共和国",
+        "瑞士", "乌拉圭", "委内瑞拉", "其他"
+      ],
+      "provinces": [
+        "阿拉瓦", "阿尔瓦塞特", "阿利坎特", "阿尔梅里亚", "阿斯图里亚斯", "阿维拉", "巴达霍斯", "巴利阿里群岛",
+        "巴塞罗那", "布尔戈斯", "卡塞雷斯", "加的斯", "坎塔布里亚", "卡斯特利翁", "雷阿尔城",
+        "科尔多瓦", "昆卡", "赫罗纳", "格拉纳达", "瓜达拉哈拉", "吉普斯夸", "韦尔瓦", "韦斯卡",
+        "哈恩", "拉科鲁尼亚", "拉里奥哈", "拉斯帕尔马斯", "莱昂", "莱里达", "卢戈", "马德里",
+        "马拉加", "穆尔西亚", "纳瓦拉", "奥伦塞", "帕伦西亚", "蓬特维德拉", "萨拉曼卡",
+        "圣克鲁斯-德特内里费", "塞哥维亚", "塞维利亚", "索里亚", "塔拉戈纳", "特鲁埃尔", "托莱多",
+        "巴伦西亚", "巴利亚多利德", "比斯开", "萨莫拉", "萨拉戈萨", "休达", "梅利利亚"
+      ],
+      "save_error_prefix": "保存出错：",
+      "unknown_error": "未知错误"
+    }
   },
   "doctors": {
     "title": "医生",
@@ -73,17 +552,45 @@
       "receptionist": "前台"
     },
     "save": "保存医生",
-    "no_results": "暂无医生记录"
+    "no_results": "暂无医生记录",
+    "last_name": "姓氏",
+    "phone": "电话",
+    "phone_placeholder": "600 000 000",
+    "unknown_error": "未知错误",
+    "count_registered": "已登记 {{count}} 位",
+    "license_display": "执照号 {{number}}"
   },
   "consents": {
     "title": "知情同意书",
     "add": "新建同意书",
     "search": "搜索同意书…",
+    "step_labels": ["资料", "审查", "医生签名", "患者签名", "完成"],
+    "branch_label": "分院",
+    "main_branch": "主诊所",
+    "select_patient": "选择患者…",
+    "select_doctor": "选择医生…",
+    "select_treatment": "选择治疗项目…",
+    "translating": "正在翻译…",
+    "continue": "继续",
+    "responsible_doctor": "负责医生",
+    "legal_framework_title": "法律框架 — {{jurisdiction}}",
+    "witness_required_notice": "该国家要求签署时有证人在场",
+    "back": "← 返回",
+    "sign_arrow": "签署 →",
+    "doctor_signature_title": "医生签名",
+    "doctor_signature_notice": "医生须先签名以确认此知情同意书",
+    "back_to_preview": "← 返回",
+    "patient_signature_title": "患者签名",
+    "patient_signature_notice": "患者须签名以确认已阅读并接受此知情同意书",
+    "signed_title": "知情同意书已签署",
+    "signed_description": "该文件已成功签署并存档。",
+    "close": "关闭",
     "status": {
       "pending": "待处理",
       "signed": "已签署",
       "revoked": "已撤销",
-      "expired": "已过期"
+      "expired": "已过期",
+      "all": "全部"
     },
     "sign": "签署",
     "generate_pdf": "生成PDF",
@@ -93,7 +600,13 @@
     "treatment": "治疗方案",
     "language": "语言",
     "signed_at": "签署时间",
-    "no_results": "暂无同意书"
+    "no_results": "暂无同意书",
+    "confirm_delete": "确定要删除此知情同意书吗？",
+    "stats": "共 {{total}} 份 · 已签署 {{signed}} 份 · 待处理 {{pending}} 份",
+    "branch": "分院",
+    "created_at": "创建日期",
+    "status_header": "状态",
+    "continue_signature": "继续签署"
   },
   "signature": {
     "title": "患者签名",
@@ -112,14 +625,21 @@
     "tax_id": "统一社会信用代码",
     "logo": "Logo",
     "save": "保存设置",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "其他分院",
+    "branches_desc": "管理您诊所的多个地点",
+    "add_branch": "添加分院",
+    "no_branches": "暂无其他分院",
+    "branch_name": "分院名称",
+    "save_branches": "保存分院",
+    "edit_branch": "编辑分院",
+    "new_branch": "新建分院",
+    "save_branch": "保存分院",
+    "subtitle": "诊所常规设置",
+    "trade_name": "商用名称",
+    "legal_name": "法定名称 / 公司名称",
+    "nika_number": "NIKA 编号",
+    "save_success": "保存成功",
+    "confirm_delete_branch": "确定要删除此分院吗？"
   },
   "language": {
     "select": "语言",
@@ -144,28 +664,382 @@
     "magic_link_sent": "我们已向以下地址发送了魔法链接",
     "email": "电子邮件",
     "magic_link": "使用魔法链接登录",
-    "footer": "有效的数字知情同意书 · 中华人民共和国民法典"
+    "footer": "合法有效的数字知情同意书 · 41/2002法 · GDPR",
+    "invalid_email": "请输入有效的电子邮件",
+    "send_error": "发送链接时出错",
+    "subtitle": "数字知情同意书 · eIDAS",
+    "email_placeholder": "tu@clinica.es"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "subtitle": "活动概览",
+    "pending_signature": "待签署",
+    "signature_rate": "签署率",
+    "signed_count": "已签署 {{count}} 份",
+    "pending_count": "待处理 {{count}} 份",
+    "recent_consents": "最近的知情同意书",
+    "view_all_consents": "查看全部 →",
+    "view_all": "查看全部 →",
+    "no_consents": "暂无知情同意书",
+    "recent_clinical": "最近的病历",
+    "no_clinical": "暂无病历",
+    "recent_photos": "最近的拍照场次",
+    "no_photos": "暂无拍照场次"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "模板",
+    "search": "搜索治疗项目…",
+    "editor_title": "模板编辑器",
+    "consent_title_label": "知情同意书标题",
+    "no_translation": "暂无以下语言的翻译：",
+    "translate_all": "翻译成21种语言",
+    "translating": "正在翻译…",
+    "legal_framework": "法律框架",
+    "select_template": "请选择一个模板进行编辑",
     "empty": "没有模板",
     "title_placeholder": "知情同意书 — 治疗…",
     "content_label": "同意书内容",
     "content_placeholder": "写知情同意书文本…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "正在保存…",
+    "saved": "已保存"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "确定要删除此病历吗？",
+    "confirm_delete_session": "确定要删除此场次及其所有照片吗？",
+    "not_found": "未找到患者",
+    "date_of_birth": "出生日期",
+    "email": "电子邮件",
+    "blood_type": "血型",
+    "address": "地址",
+    "allergies": "过敏史",
+    "medications": "用药情况",
+    "tabs": {
+      "history": "病历（{{count}}）",
+      "photos": "照片（{{count}}）",
+      "consents": "知情同意书（{{count}}）"
+    },
+    "new_clinical_record": "新建病历",
+    "no_clinical_records": "该患者暂无病历",
+    "doctor_prefix": "{{name}} 医生",
+    "fields": {
+      "anamnesis": "病史",
+      "allergies": "过敏史",
+      "current_medications": "当前用药",
+      "physical_exam": "体格检查",
+      "diagnosis": "诊断",
+      "treatment_plan": "治疗方案",
+      "notes": "备注"
+    },
+    "new_photo_session": "新建场次",
+    "no_photo_sessions": "该患者暂无拍照场次",
+    "no_consents": "该患者暂无知情同意书",
+    "status": {
+      "signed": "已签署",
+      "pending": "待处理",
+      "revoked": "已撤销",
+      "expired": "已过期"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "实验室",
+    "not_found": "未找到实验室资料。",
+    "panel_subtitle": "合作实验室面板",
+    "tabs": {
+      "clinics": "关联诊所",
+      "campaigns": "推广活动",
+      "stats": "统计数据"
+    },
+    "no_clinics": "该实验室目前还没有关联诊所。",
+    "media_management": "推广媒体管理",
+    "welcome_screen": {
+      "title": "欢迎界面",
+      "description": "最多5张图片或视频。可选择固定展示、随机展示或按顺序展示（每个文件最大100 MB）。"
+    },
+    "patient_content": {
+      "title": "患者内容",
+      "description": "最多5张面向患者的图片或视频。具体使用方式将在后续配置。"
+    },
+    "stats_pending": "该功能尚待完善 — 未来您将在此看到有关推广活动和诊所表现的相关数据。"
+  },
+  "clinicalRecords": {
+    "confirm_delete": "确定要删除此病历吗？",
+    "title": "病历",
+    "records_count": "{{count}} 条记录",
+    "add_record": "新建病历",
+    "search_placeholder": "按患者、诊断、就诊原因搜索…",
+    "no_records": "暂无病历",
+    "table_headers": ["患者", "日期", "就诊原因", "诊断", "医生", ""]
+  },
+  "labPartners": {
+    "title": "合作实验室",
+    "count": "已登记 {{count}} 家",
+    "new_lab": "新建实验室",
+    "search_placeholder": "搜索实验室…",
+    "no_labs": "暂无实验室。",
+    "col_name": "名称",
+    "col_email": "电子邮件",
+    "col_contact": "联系人",
+    "col_phone": "电话",
+    "col_status": "状态",
+    "col_actions": "操作",
+    "status_active": "启用",
+    "status_inactive": "停用",
+    "confirm_deactivate": "确定要停用该实验室吗？",
+    "form": {
+      "edit_title": "编辑实验室",
+      "new_title": "新建实验室",
+      "name": "名称",
+      "email": "电子邮件",
+      "phone": "电话",
+      "contact_person": "联系人",
+      "website": "网站",
+      "notes": "备注",
+      "name_email_required": "名称和电子邮件为必填项",
+      "unknown_error": "未知错误"
+    },
+    "campaigns": {
+      "title": "{{name}} 的推广活动",
+      "new_campaign": "新建推广活动",
+      "no_campaigns": "暂无推广活动。",
+      "col_name": "名称",
+      "col_type": "类型",
+      "col_trigger": "触发条件",
+      "col_status": "状态",
+      "col_actions": "操作",
+      "confirm_delete": "确定要删除此推广活动吗？",
+      "form": {
+        "edit_title": "编辑推广活动",
+        "new_title": "新建推广活动",
+        "name": "名称",
+        "name_required": "名称为必填项",
+        "unknown_error": "未知错误",
+        "type": "类型",
+        "rotation_mode": "轮播方式",
+        "rotation_random": "随机",
+        "rotation_manual": "手动",
+        "creative_url": "素材URL",
+        "trigger": "触发条件",
+        "interval_minutes": "间隔（分钟）",
+        "start_date": "开始日期",
+        "end_date": "结束日期",
+        "active": "启用"
+      }
+    },
+    "creative_types": {
+      "image": "图片",
+      "video": "视频",
+      "url": "URL",
+      "offer": "优惠",
+      "training": "培训"
+    },
+    "triggers": {
+      "on_login": "打开时",
+      "on_consent": "创建知情同意书时",
+      "every_x_minutes": "每隔X分钟",
+      "once_daily": "每天一次"
+    }
+  },
+  "agenda": {
+    "title": "日程",
+    "subtitle": "预约、治疗项目和日程规划",
+    "tab_appointments": "预约",
+    "tab_treatments": "治疗项目",
+    "tab_planning": "日程规划"
+  },
+  "verifyConsent": {
+    "id_not_provided": "未提供ID",
+    "verifying": "正在验证文件…",
+    "subtitle": "文件验证",
+    "not_found_title": "未找到文件",
+    "signed_title": "文件有效且已签署",
+    "signed_subtitle": "签名已成功验证",
+    "revoked_title": "知情同意书已撤销",
+    "revoked_subtitle": "患者已撤销此知情同意书",
+    "pending_title": "待签署",
+    "pending_subtitle": "该文件尚未签署",
+    "patient": "患者",
+    "doctor": "医生",
+    "treatment": "治疗方案",
+    "signed_date": "签署日期",
+    "hash_label": "SHA-256 哈希值",
+    "document_id_label": "文件ID：",
+    "verified_on": "验证于 {{date}}。根据41/2002法，本文件合法有效，并根据欧盟eIDAS法规（910/2014）完成电子签署。"
+  },
+  "recharge": {
+    "title": "订阅套餐",
+    "subtitle": "选择最适合您诊所的套餐",
+    "monthly": "按月",
+    "annual": "按年",
+    "per_month": "/月",
+    "save_20_annual": "按年支付可节省20%",
+    "switch_annual_save": "切换为按年支付，节省20%",
+    "hire_plan": "订阅此套餐",
+    "note_title": "AI套餐和AI高级套餐说明：",
+    "note_text": "AI智能体的初始配置（服务、治疗项目和个性化设置）及实施工作将根据每家诊所的复杂程度单独报价。语音智能体和WhatsApp API相关费用不包含在月费中。",
+    "plans": {
+      "base": {
+        "name": "基础套餐",
+        "features": [
+          "知情同意书数量不限",
+          "病历管理",
+          "照片相册",
+          "患者门户",
+          "魔法链接 + 生物识别",
+          "含技术支持"
+        ]
+      },
+      "pro": {
+        "name": "专业套餐",
+        "badge": "最受欢迎",
+        "features": [
+          "包含基础套餐全部功能 +",
+          "预约日程",
+          "患者CRM",
+          "毒素管理",
+          "患者预算/报价单"
+        ]
+      },
+      "ia": {
+        "name": "AI套餐",
+        "features": [
+          "包含专业套餐全部功能 +",
+          "24/7 AI WhatsApp智能体 — 获客预约",
+          "自动预约确认",
+          "自动预约提醒",
+          "WhatsApp管理面板",
+          "通过WhatsApp与患者沟通",
+          "通过WhatsApp发送知情同意书、病历、照片、预算单和发票"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI高级套餐",
+        "badge": "新品",
+        "features": [
+          "包含AI套餐全部功能 +",
+          "24/7 AI语音智能体：接听电话",
+          "自动通过电话安排预约",
+          "100%克隆您前台的声音"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "毒素管理",
+    "subtitle": "肉毒素批次可追溯性",
+    "new_record": "新建记录",
+    "from": "从",
+    "to": "至",
+    "doctor": "医生",
+    "patient": "患者",
+    "all": "全部",
+    "lot_number": "批号",
+    "search_lot_placeholder": "搜索批号…",
+    "clear_filters": "清除筛选",
+    "no_results": "没有符合这些筛选条件的毒素记录。",
+    "col_date": "日期",
+    "col_patient": "患者",
+    "col_doctor": "医生",
+    "col_brand": "商品名称",
+    "col_lot": "批号",
+    "col_expiry": "有效期",
+    "col_zones": "部位",
+    "col_units": "单位数",
+    "col_signature": "签名",
+    "col_ci": "知情同意书",
+    "col_actions": "操作",
+    "signed": "已签署",
+    "unsigned": "未签署",
+    "consent_linked": "已关联知情同意书",
+    "consent_not_linked": "未关联知情同意书",
+    "confirm_delete": "确定要删除此毒素记录吗？",
+    "detail": {
+      "not_found": "未找到记录。",
+      "patient": "患者",
+      "doctor": "医生",
+      "brand": "商品名称",
+      "manufacturer": "生产厂商",
+      "lot": "批号",
+      "expiry": "有效期",
+      "vials": "已开启药瓶数",
+      "total_units": "总单位数",
+      "treated_zones": "治疗部位",
+      "no_zones": "未记录部位。",
+      "notes": "备注",
+      "doctor_signature": "医生签名",
+      "signature_alt": "医生签名",
+      "signed_on": "签署于 {{date}}",
+      "no_signature": "此记录没有医生签名。",
+      "linked_consent": "关联的知情同意书",
+      "consent_default_name": "知情同意书",
+      "consent_unsigned": "未签署",
+      "loading_pdf": "正在加载PDF…",
+      "consent_load_error": "无法加载关联知情同意书的信息。"
+    }
+  },
+  "authVerify": {
+    "token_not_found": "在URL中未找到令牌",
+    "invalid_token": "令牌无效或已过期",
+    "connection_error": "连接错误",
+    "verifying": "正在验证链接…",
+    "invalid_link": "链接无效",
+    "back_home": "返回首页"
+  },
+  "photoSessions": {
+    "confirm_delete": "确定要删除此场次及其所有照片吗？",
+    "title": "照片",
+    "subtitle": "{{count}} 个拍照场次",
+    "new_session": "新建场次",
+    "search_placeholder": "按患者或场次名称搜索…",
+    "no_sessions": "暂无拍照场次"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "我的知情同意书",
+      "clinical": "我的病历",
+      "photos": "我的照片"
+    },
+    "consents": {
+      "empty": "您目前还没有已签署的知情同意书。",
+      "default_name": "知情同意书",
+      "doctor": "{{name}} 医生",
+      "signed_on": "签署于 {{date}}",
+      "status_signed": "已签署",
+      "status_pending": "待处理"
+    },
+    "clinical": {
+      "empty": "您的病历暂无内容。",
+      "default_name": "就诊记录",
+      "doctor_suffix": " · {{name}} 医生",
+      "fields": {
+        "diagnosis": "诊断",
+        "anamnesis": "病史",
+        "current_medications": "当前用药",
+        "allergies": "过敏史",
+        "treatment_plan": "治疗方案",
+        "notes": "备注"
+      }
+    },
+    "photos": {
+      "empty": "目前还没有拍照场次。",
+      "back_to_sessions": "返回场次列表",
+      "default_session_name": "拍照场次",
+      "doctor_suffix": " · {{name}} 医生",
+      "compare_title": "前后对比",
+      "before": "治疗前",
+      "after": "治疗后",
+      "close_compare": "关闭对比",
+      "compare_button": "对比",
+      "photo_count": "{{count}} 张照片"
+    }
   },
   "settings": {
     "title": "设置",
     "subtitle": "用户和系统访问管理",
+    "tabs": {
+      "users": "用户",
+      "media": "推广内容",
+      "preview": "预览"
+    },
     "users": {
       "title": "用户",
       "invite_user": "邀请用户",
@@ -174,14 +1048,40 @@
       "role": "角色",
       "role_admin": "管理员",
       "role_clinica": "诊所",
-      "admin_hint": "管理员可完全访问所有部分。",
+      "admin_hint": "管理员可完全访问系统所有部分。",
       "permissions": "访问权限",
-      "permissions_hint": "选择可访问的部分。",
+      "permissions_hint": "选择该用户可以访问的部分。",
       "send_invite": "发送邀请",
-      "no_users": "没有用户。邀请第一位。",
-      "inactive": "不活跃",
-      "activate": "激活",
-      "deactivate": "停用"
+      "no_users": "暂无用户，请邀请第一位。",
+      "inactive": "停用",
+      "activate": "启用用户",
+      "deactivate": "停用用户",
+      "role_superadmin": "超级管理员",
+      "role_doctor": "医生",
+      "role_receptionist": "前台",
+      "role_lab_partner": "实验室",
+      "role_patient": "患者",
+      "filter_all": "全部",
+      "invite_accepted": "邀请已接受",
+      "invite_expired": "邀请已过期",
+      "invite_pending": "邀请待处理",
+      "email_placeholder": "usuario@clinica.es",
+      "full_name_placeholder": "姓 名",
+      "linked_lab": "关联实验室",
+      "no_lab": "无关联实验室",
+      "lab_hint": "该用户仅能看到与此实验室关联的诊所。",
+      "admin_only_hint": "“设置”功能仅限管理员使用，且不能委托给诊所人员。",
+      "load_error": "无法加载用户列表",
+      "retry": "重试"
+    },
+    "media": {
+      "title": "推广媒体管理",
+      "managed_by_lab": "该推广内容由您的合作实验室管理。您可以在此查看，但只有该实验室才能修改。",
+      "managed_by_lab_named": "该推广内容由您的合作实验室（{{name}}）管理。您可以在此查看，但只有该实验室才能修改。",
+      "welcome_title": "欢迎界面",
+      "welcome_description": "最多5张图片或视频。可选择固定展示、随机展示或按顺序展示（每个文件最大100 MB）。",
+      "patient_title": "患者内容",
+      "patient_description": "最多5张面向患者的图片或视频。具体使用方式将在后续配置。"
     }
   }
 }

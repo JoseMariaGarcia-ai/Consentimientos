@@ -1,4 +1,435 @@
 {
+  "toxinModal": {
+    "title_edit": "Muokkaa toksiinimerkintää",
+    "title_new": "Uusi toksiinimerkintä",
+    "patient": "Potilas",
+    "select_patient": "Valitse potilas…",
+    "linked_consent": "Liitetty tietoinen suostumus",
+    "not_linked": "Ei liitetty",
+    "consent_default_name": "Suostumus",
+    "unsigned": "allekirjoittamaton",
+    "loading_consents": "Ladataan suostumuksia…",
+    "no_consents_hint": "Tällä potilaalla ei ole vielä allekirjoitettuja toksiinihoidon suostumuksia. Tämä on valinnaista — voit tallentaa merkinnän ilman liitäntää.",
+    "doctor": "Lääkäri",
+    "unassigned": "Ei määritetty",
+    "application_date": "Käyttöpäivä",
+    "brand_name": "Kauppanimi",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Valmistaja",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Eränumero",
+    "expiry_date": "Viimeinen käyttöpäivä",
+    "vials_opened": "Avatut ampullit",
+    "treated_zones": "Hoidetut alueet",
+    "other_zone_placeholder": "Muu alue…",
+    "add": "Lisää",
+    "total_units": "Yksiköitä yhteensä",
+    "notes": "Muistiinpanot",
+    "notes_placeholder": "Huomioita…",
+    "doctor_signature": "Lääkärin allekirjoitus",
+    "signature_alt": "Lääkärin allekirjoitus",
+    "signed_on": "Allekirjoitettu {{date}}",
+    "sign_again": "Allekirjoita uudelleen",
+    "signature_hint": "Piirrä allekirjoitus ja paina \"Vahvista allekirjoitus\" ennen tallentamista.",
+    "confirm_delete": "Poistetaanko tämä toksiinimerkintä?",
+    "deleting": "Poistetaan…",
+    "delete_record": "Poista merkintä",
+    "cancel": "Peruuta",
+    "save_changes": "Tallenna muutokset",
+    "create_record": "Luo merkintä",
+    "saving": "Tallennetaan…",
+    "unknown_error": "Tuntematon virhe",
+    "validation": {
+      "required_fields": "Potilas, kauppanimi, erä, viimeinen käyttöpäivä ja valmistaja ovat pakollisia",
+      "signature_required": "Lääkärin allekirjoitus vaaditaan merkinnän tallentamiseksi"
+    },
+    "zones": {
+      "forehead": "Otsa (vaakasuorat linjat)",
+      "glabella": "Kulmakarvojen väli (glabella)",
+      "crows_feet": "Naurunrypyt (silmien ympärys)",
+      "lower_eyelid": "Alaluomi",
+      "eyebrow_lift": "Kulmakarvat (nosto)",
+      "bunny_lines": "Nenä (bunny lines)",
+      "upper_lip": "Ylähuuli (viivakoodilinjat)",
+      "oral_commissures": "Suupielet",
+      "chin_dimpling": "Leuka (appelsiininkuoriihonta)",
+      "platysmal_bands": "Kaula (platysma-nauhat)",
+      "decolletage": "Dekoltee",
+      "axillary_sweating": "Kainalohikoilu (hyperhidroosi)",
+      "palmar_sweating": "Kämmenhikoilu",
+      "plantar_sweating": "Jalkapohjahikoilu",
+      "jaw_bruxism": "Leukanivel (bruksismi / puremalihakset)",
+      "migraine_occipital": "Migreeni (takaraivon pistekohdat)",
+      "trampoline_chin": "Trampoliinileuka",
+      "gummy_smile": "Ienhymy (gummy smile)",
+      "nefertiti_lift": "Nefertiti-nosto (kaula ja leukalinja)",
+      "other_zone": "Muu alue"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Luodaan…",
+    "export_pdf": "Vie PDF"
+  },
+  "patientGallery": {
+    "title": "Valokuvagalleria",
+    "upload_photos": "Lataa kuvia",
+    "loading": "Ladataan…",
+    "empty": "Ei kuvia. Lataa ensimmäinen kuva.",
+    "confirm_delete": "Poistetaanko tämä kuva?",
+    "count_stored": "{{count}} {{unit}} · Tallennettu Cloudflare R2:een",
+    "photo_singular": "kuva",
+    "photo_plural": "kuvaa"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Muokkaa potilaskertomusta",
+    "title_new": "Uusi potilaskertomus",
+    "patient": "Potilas",
+    "select_patient": "Valitse potilas…",
+    "doctor": "Lääkäri",
+    "unassigned": "Ei määritetty",
+    "branch": "Klinikka / Toimipiste",
+    "unspecified": "Ei määritetty",
+    "visit_date": "Käyntipäivä",
+    "reason_for_visit": "Käynnin syy",
+    "anamnesis": "Anamneesi / Esitiedot",
+    "current_medications": "Nykyinen lääkitys",
+    "allergies": "Tunnetut allergiat",
+    "physical_exam": "Kliininen tutkimus",
+    "diagnosis": "Diagnoosi",
+    "treatment_plan": "Hoitosuunnitelma",
+    "notes": "Huomiot / Muistiinpanot",
+    "select_patient_error": "Valitse potilas",
+    "unknown_error": "Tuntematon virhe",
+    "cancel": "Peruuta",
+    "saving": "Tallennetaan…",
+    "save_record": "Tallenna kertomus"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Tiedosto ylittää {{maxSize}} Mt:n rajan",
+    "upload_error": "Virhe tiedoston lataamisessa",
+    "confirm_delete": "Poistetaanko tämä tiedosto?",
+    "video": "Video",
+    "image": "Kuva",
+    "uploaded_on": "Ladattu {{date}}",
+    "change": "Vaihda",
+    "delete": "Poista",
+    "uploading": "Ladataan… {{progress}} %",
+    "drop_hint": "Vedä tiedosto tähän tai napsauta ladataksesi",
+    "file_types_hint": "Kuva (JPG, PNG, GIF) tai video (MP4, MOV, WebM) · Enintään {{maxSize}} Mt"
+  },
+  "consentEditor": {
+    "placeholder_default": "Kirjoita suostumuksen sisältö…",
+    "bold": "Lihavointi",
+    "italic": "Kursivointi",
+    "heading": "Otsikko",
+    "bullet_list": "Luettelo",
+    "ordered_list": "Numeroitu luettelo",
+    "undo": "Kumoa",
+    "redo": "Tee uudelleen"
+  },
+  "consentPdfButton": {
+    "generating": "Luodaan PDF:ää…",
+    "export": "Vie PDF"
+  },
+  "newSessionModal": {
+    "title": "Uusi valokuvausistunto",
+    "patient_label": "Potilas",
+    "select_patient_placeholder": "Valitse potilas…",
+    "doctor_label": "Lääkäri",
+    "no_doctor_assigned": "Ei määritetty",
+    "branch_label": "Klinikka / Toimipiste",
+    "no_branch_specified": "Ei määritetty",
+    "session_name_label": "Istunnon nimi",
+    "session_name_placeholder": "Esim: Kasvohoito istunto 1",
+    "date_label": "Päivämäärä ja aika",
+    "notes_label": "Muistiinpanot",
+    "notes_placeholder": "Huomioita istunnosta…",
+    "select_patient_error": "Valitse potilas",
+    "unknown_error": "Tuntematon virhe",
+    "cancel": "Peruuta",
+    "creating": "Luodaan…",
+    "create_session": "Luo istunto"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Valokuvausistunto",
+    "photo_count": "{{count}}/{{max}} kuvaa",
+    "compare_button": "Vertaa ennen / jälkeen",
+    "delete_session": "Poista istunto",
+    "upload": "Lataa",
+    "remaining": "{{remaining}} jäljellä"
+  },
+  "beforeAfterModal": {
+    "select_title": "Valitse verrattavat kuvat",
+    "compare_title": "Vertailu Ennen / Jälkeen",
+    "change_selection": "← Vaihda valintaa",
+    "select_intro": "Valitse kuva kohtaan",
+    "select_middle": "ja toinen kohtaan",
+    "before": "Ennen",
+    "after": "Jälkeen",
+    "before_badge": "ENNEN",
+    "after_badge": "JÄLKEEN",
+    "compare_button": "Vertaa"
+  },
+  "biometricPrompt": {
+    "title": "Ota biometrinen kirjautuminen käyttöön",
+    "description": "Käytä Face ID:tä, sormenjälkeä tai Windows Helloa kirjautuaksesi alle 2 sekunnissa ensi kerralla.",
+    "device_label": "Laite:",
+    "activate": "Aktivoi",
+    "default_device": "Oma laitteeni"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Manuaalinen valinta",
+        "desc": "Sinä valitset mikä näytetään. Napsauta mainosta aktivoidaksesi sen."
+      },
+      "random": {
+        "label": "Satunnainen järjestys",
+        "desc": "Mainos valitaan satunnaisesti joka kerta kun sen näyttämisen vuoro on."
+      },
+      "sequential": {
+        "label": "Peräkkäinen järjestys",
+        "desc": "Mainokset näytetään järjestyksessä, yksi kerrallaan, aina kun on niiden vuoro."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Tiedosto ylittää 100 Mt:n rajan",
+      "invalidUrl": "Virheellinen URL-osoite"
+    },
+    "confirmDelete": "Poistetaanko tämä mainos?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Kuva"
+    },
+    "active": "✓ Aktiivinen",
+    "select": "Valitse",
+    "upload": {
+      "label": "Lataa tiedosto",
+      "slotsFree": "{{count}} vapaana{{suffix}}"
+    },
+    "addUrlButton": "Lisää video-URL (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Lisää video URL-osoitteella",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… tai suora .mp4-URL",
+      "labelPlaceholder": "Nimi tai kuvaus (valinnainen)",
+      "hint": "Tukee YouTubea, Vimeota ja suoria videon URL-osoitteita (.mp4, .webm…)",
+      "add": "Lisää",
+      "saving": "Tallennetaan…"
+    },
+    "displayModeHeading": "Miten ne näytetään?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Tervetuloa",
+    "continue": "Jatka →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Milloin mainos näytetään?",
+    "subheading": "Voit valita useita vaihtoehtoja samanaikaisesti.",
+    "options": {
+      "session": {
+        "label": "Kerran kirjautuessa sisään",
+        "desc": "Näytetään vain kerran joka kerta kun käyttäjä avaa sovelluksen selaimessa."
+      },
+      "consent": {
+        "label": "Joka kerta kun suostumus luodaan",
+        "desc": "Näkyy heti jokaisen tietoisen suostumuksen luomisen jälkeen."
+      },
+      "clinical": {
+        "label": "Joka kerta kun potilaskertomus luodaan",
+        "desc": "Näkyy heti jokaisen potilaskertomuksen tallentamisen jälkeen."
+      },
+      "interval": {
+        "label": "Joka X minuutti",
+        "desc": "Näytetään säännöllisesti sovelluksen ollessa auki."
+      }
+    },
+    "every": "Joka",
+    "minutes": "minuutti",
+    "errors": {
+      "selectAtLeastOne": "Valitse vähintään yksi vaihtoehto",
+      "saveFailed": "Virhe tallennettaessa"
+    },
+    "saving": "Tallennetaan…",
+    "saved": "Tallennettu",
+    "saveButton": "Tallenna asetukset",
+    "appliedMessage": "✅ Asetukset otettu käyttöön"
+  },
+  "demoPreviewPanel": {
+    "heading": "Roolikohtainen esikatselu",
+    "subheading": "Luo testidataa ja kirjaudu ohjelmaan täsmälleen sellaisena kuin potilas, klinikka tai laboratorio sen näkisi.",
+    "createAllButton": "Luo kaikki testidata",
+    "errors": {
+      "checkFailed": "Virhe testidatan tarkistuksessa",
+      "createPatientFailed": "Testipotilasta ei voitu luoda",
+      "createBranchFailed": "Testitoimipistettä ei voitu luoda",
+      "createLabFailed": "Testilaboratoriota ei voitu luoda"
+    },
+    "cards": {
+      "patient": {
+        "title": "Potilaan näkymä",
+        "description": "Simuloi portaalia, jonka potilas näkee: hänen suostumuksensa, potilaskertomuksensa ja kuvansa."
+      },
+      "branch": {
+        "title": "Klinikan näkymä",
+        "description": "Simuloi paneelia, jonka klinikan henkilökunta näkee, valikko rajattuna heidän todellisiin oikeuksiinsa."
+      },
+      "lab": {
+        "title": "Laboratorion näkymä",
+        "description": "Simuloi yhteistyölaboratorion paneelia: profiili, liitetyt klinikat ja kampanjat."
+      }
+    },
+    "testDataCreated": "Testidata luotu",
+    "viewAs": "Näytä roolina {{role}}",
+    "roleNames": {
+      "patient": "potilas",
+      "branch": "klinikka",
+      "lab": "laboratorio"
+    },
+    "creating": "Luodaan…",
+    "createTestData": "Luo testidata"
+  },
+  "previewBanner": {
+    "message": "Esikatselu — näet käyttöliittymän sellaisena kuin sen näkisi",
+    "exitButton": "Poistu esikatselusta",
+    "roles": {
+      "patient": "Potilas",
+      "clinica": "Klinikka",
+      "labPartner": "Laboratorio"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Näytä kuukausi",
+    "today": "Tänään",
+    "new_appointment": "Uusi käynti",
+    "no_treatments_warning": "Hoitoja ei ole vielä luotu. Siirry välilehdelle \"Hoidot\" luodaksesi ensimmäisen ennen käyntien varaamista.",
+    "day_closed_notice": "Tämä päivä on merkitty suljetuksi Ajanvarauksen suunnittelussa. Voit tarkistaa tai avata sen kyseiseltä välilehdeltä.",
+    "slot_aria_label": "Varaa aika klo {{time}}",
+    "outside_availability": "Aukioloajan ulkopuolella",
+    "treatment_fallback": "Hoito",
+    "doctor_prefix": "Lääk. {{name}}",
+    "legend": {
+      "available": "Vapaa",
+      "outside_hours": "Aukioloajan ulkopuolella",
+      "scheduled": "Varattu käynti"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Muokkaa käyntiä",
+    "title_new": "Uusi käynti",
+    "validation_required": "Potilas, hoito ja aika ovat pakollisia",
+    "error_unknown": "Tuntematon virhe",
+    "confirm_delete": "Poistetaanko tämä käynti?",
+    "deleting": "Poistetaan…",
+    "delete_appointment": "Poista käynti",
+    "cancel": "Peruuta",
+    "saving": "Tallennetaan…",
+    "save_changes": "Tallenna muutokset",
+    "create_appointment": "Luo käynti",
+    "form": {
+      "patient": "Potilas",
+      "select_patient": "Valitse potilas…",
+      "doctor": "Lääkäri",
+      "unassigned": "Ei määritetty",
+      "branch": "Klinikka / Toimipiste",
+      "main_branch": "Pääklinikka",
+      "treatment": "Hoito",
+      "select_treatment": "Valitse hoito…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Hoitoja ei ole luotu. Lisää ensin yksi välilehdellä \"Hoidot\".",
+      "datetime": "Päivämäärä ja aika",
+      "duration_note": "Varaa {{duration}} minuuttia ajanvarauksesta.",
+      "notes": "Muistiinpanot",
+      "notes_placeholder": "Huomioita käynnistä…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Hoidot",
+    "subtitle": "Kunkin hoidon kesto ja hinta käyntien varaamista varten",
+    "new_treatment": "Uusi hoito",
+    "loading": "Ladataan…",
+    "empty_state": "Hoitoja ei ole vielä luotu",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Poistetaanko tämä hoito?",
+    "form": {
+      "title_edit": "Muokkaa hoitoa",
+      "title_new": "Uusi hoito",
+      "name": "Nimi",
+      "name_placeholder": "Esim: Botuliinitoksiini",
+      "duration": "Kesto (min)",
+      "price": "Hinta (€)",
+      "validation_name_required": "Nimi on pakollinen",
+      "error_unknown": "Tuntematon virhe",
+      "cancel": "Peruuta",
+      "saving": "Tallennetaan…",
+      "save": "Tallenna"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Ma", "Ti", "Ke", "To", "Pe", "La", "Su"],
+    "months": ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+    "has_exception_tooltip": "Poikkeus on jo asetettu",
+    "legend": {
+      "usually_open": "Yleensä avoinna",
+      "usually_closed": "Yleensä suljettu",
+      "has_exception": "Poikkeus asetettu",
+      "selected": "Valittu"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Ma", "Ti", "Ke", "To", "Pe", "La", "Su"],
+    "months": ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+    "legend": {
+      "open_day": "Avoinna",
+      "closed": "Suljettu",
+      "today": "Tänään"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Ajanvarauksen suunnittelu",
+    "subtitle": "Määritä minä päivinä ja mihin aikaan käyntejä voi varata.",
+    "time_separator": "–",
+    "add_time_range": "Lisää aikaväli",
+    "weekdays": ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"],
+    "confirm_delete_exception": "Poistetaanko tämä poikkeus ja palataanko kyseisen päivän tavalliseen aikatauluun?",
+    "errors": {
+      "save_schedule_failed": "Aikataulua ei voitu tallentaa",
+      "apply_pattern_failed": "Mallia ei voitu soveltaa",
+      "select_day_required": "Valitse vähintään yksi päivä kalenterista",
+      "save_exception_failed": "Erikoispäivää ei voitu tallentaa"
+    },
+    "bulk": {
+      "title": "Sovella malli useaan päivään kerralla",
+      "description": "Esim: maanantaista perjantaihin klo 09:00–20:00. Valitse päivät ja aika, sovella sitten — voit muokata kutakin päivää yksitellen myöhemmin.",
+      "applying": "Sovelletaan…",
+      "apply_button": "Sovella valittuihin päiviin"
+    },
+    "weekly": {
+      "title": "Tavallinen viikkoaikataulu",
+      "closed": "Suljettu",
+      "saving": "Tallennetaan…",
+      "save": "Tallenna"
+    },
+    "exceptions": {
+      "title": "Erikoispäivät (poikkeukset)",
+      "description": "Avaa erikoispäivä (esim. lauantai) tai sulje päivä, joka on yleensä auki (esim. pyhäpäivä).",
+      "select_days_label": "Valitse yksi tai useampi päivä",
+      "days_selected_singular": "{{count}} päivä valittu",
+      "days_selected_plural": "{{count}} päivää valittu",
+      "clear_selection": "Tyhjennä valinta",
+      "open_special": "Avaa erikoispäivänä",
+      "close": "Sulje",
+      "schedule_label": "Aikataulu näinä päivinä",
+      "notes_placeholder": "Syy (valinnainen) — esim: Kesäloma",
+      "saving": "Tallennetaan…",
+      "save_button_singular": "Tallenna erikoispäivä",
+      "save_button_plural": "Tallenna {{count}} erikoispäivää",
+      "no_exceptions": "Erikoispäiviä ei ole asetettu.",
+      "open_special_status": "Auki erikoisesti · {{ranges}}",
+      "closed_status": "Suljettu"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus"
@@ -14,7 +445,15 @@
     "settings": "Asetukset",
     "clinicalRecords": "Potilaskertomus",
     "photos": "Kuvat",
-    "recharge": "Lataa"
+    "recharge": "Tilaussuunnitelmat",
+    "agenda": "Ajanvaraus",
+    "toxin": "Toksiinin seuranta",
+    "labPartners": "Laboratoriot",
+    "menu": "Valikko"
+  },
+  "topbar": {
+    "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
+    "legal": "eIDAS-asetus (EU) 910/2014 · Laki potilaan asemasta ja oikeuksista · GDPR"
   },
   "auth": {
     "login_title": "Suojattu sisäänpääsy",
@@ -22,7 +461,7 @@
     "email_placeholder": "email@klinikka.fi",
     "send_link": "Lähetä kirjautumislinkki",
     "check_email": "Tarkista sähköpostisi — olemme lähettäneet kirjautumislinkin",
-    "magic_link_sent": "Linkki lähetetty",
+    "magic_link_sent": "Linkki lähetetty onnistuneesti",
     "remember_device": "Muista tämä laite",
     "remember_7": "7 päivää",
     "remember_30": "30 päivää",
@@ -33,7 +472,20 @@
     "biometric_success": "Biometriikka aktivoitu!",
     "biometric_success_msg": "Seuraavalla kerralla kirjaudut sisään yhdellä napautuksella.",
     "biometric_error": "Aktivointi epäonnistui. Varmista, että laitteessasi on biometriikka konfiguroitu.",
-    "biometric_now": "Ei nyt"
+    "biometric_now": "Ei nyt",
+    "portal_subtitle": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
+    "portal_title": "Pääsy asiakirjaan",
+    "portal_email_prompt": "Anna sähköpostiosoitteesi saadaksesi suojatun kirjautumislinkin.",
+    "portal_link_sent_title": "Linkki lähetetty",
+    "portal_link_sent_message": "Tarkista sähköpostisi ja napsauta linkkiä jatkaaksesi.",
+    "portal_email_placeholder": "sinä@email.com",
+    "portal_consent_default_title": "Tietoinen Suostumus",
+    "portal_accept_label": "Olen lukenut ja hyväksyn tämän tietoisen suostumuksen",
+    "portal_proceed_to_sign": "Siirry allekirjoittamaan →",
+    "portal_saving_signature": "Tallennetaan allekirjoitusta…",
+    "portal_signed_title": "Allekirjoitus valmis",
+    "portal_signed_message": "Suostumuksesi on allekirjoitettu ja tallennettu turvallisesti.",
+    "portal_error_message": "Linkki on saattanut vanhentua tai olla virheellinen."
   },
   "patients": {
     "title": "Potilaat",
@@ -57,7 +509,34 @@
     "gallery": "Valokuvagalleria",
     "no_photos": "Ei kuvia. Lataa ensimmäinen kuva.",
     "upload_photos": "Lataa kuvia",
-    "uploading": "Ladataan…"
+    "uploading": "Ladataan…",
+    "count_registered": "{{count}} rekisteröityä",
+    "form": {
+      "doc_type": "Tyyppi",
+      "doc_type_passport": "Passi",
+      "city": "Kaupunki",
+      "province": "Maakunta",
+      "country": "Maa",
+      "select_placeholder": "— Valitse —",
+      "countries": [
+        "Espanja", "Saksa", "Argentiina", "Belgia", "Bolivia", "Brasilia", "Chile", "Kiina",
+        "Kolumbia", "Costa Rica", "Kuuba", "Ecuador", "El Salvador", "Yhdysvallat", "Ranska",
+        "Guatemala", "Honduras", "Italia", "Marokko", "Meksiko", "Nicaragua", "Alankomaat",
+        "Panama", "Paraguay", "Peru", "Portugali", "Yhdistynyt kuningaskunta", "Dominikaaninen tasavalta",
+        "Sveitsi", "Uruguay", "Venezuela", "Muu"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleaarit",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Virhe tallennettaessa:",
+      "unknown_error": "Tuntematon virhe"
+    }
   },
   "doctors": {
     "title": "Lääkärit",
@@ -73,17 +552,45 @@
       "receptionist": "Vastaanottovirkailija"
     },
     "save": "Tallenna lääkäri",
-    "no_results": "Ei rekisteröityjä lääkäreitä"
+    "no_results": "Ei rekisteröityjä lääkäreitä",
+    "last_name": "Sukunimi",
+    "phone": "Puhelin",
+    "phone_placeholder": "040 000 0000",
+    "unknown_error": "Tuntematon virhe",
+    "count_registered": "{{count}} rekisteröityä",
+    "license_display": "Nro {{number}}"
   },
   "consents": {
     "title": "Suostumukset",
     "add": "Uusi suostumus",
     "search": "Hae suostumuksia…",
+    "step_labels": ["Tiedot", "Tarkistus", "Lääkärin allekirjoitus", "Potilaan allekirjoitus", "Valmis"],
+    "branch_label": "Toimipiste",
+    "main_branch": "Pääklinikka",
+    "select_patient": "Valitse potilas…",
+    "select_doctor": "Valitse lääkäri…",
+    "select_treatment": "Valitse hoito…",
+    "translating": "Käännetään…",
+    "continue": "Jatka",
+    "responsible_doctor": "Vastuulääkäri",
+    "legal_framework_title": "Oikeudellinen kehys — {{jurisdiction}}",
+    "witness_required_notice": "Tämä maa vaatii todistajan allekirjoitusta varten",
+    "back": "← Takaisin",
+    "sign_arrow": "Allekirjoita →",
+    "doctor_signature_title": "Lääkärin allekirjoitus",
+    "doctor_signature_notice": "Lääkärin on allekirjoitettava ensin vahvistaakseen suostumuksen",
+    "back_to_preview": "← Takaisin",
+    "patient_signature_title": "Potilaan allekirjoitus",
+    "patient_signature_notice": "Potilaan on allekirjoitettava vahvistaakseen, että hän on lukenut ja hyväksyy suostumuksen",
+    "signed_title": "Suostumus allekirjoitettu",
+    "signed_description": "Asiakirja on allekirjoitettu ja rekisteröity onnistuneesti.",
+    "close": "Sulje",
     "status": {
       "pending": "Odottaa",
       "signed": "Allekirjoitettu",
       "revoked": "Peruutettu",
-      "expired": "Vanhentunut"
+      "expired": "Vanhentunut",
+      "all": "Kaikki"
     },
     "sign": "Allekirjoita",
     "generate_pdf": "Luo PDF",
@@ -93,7 +600,13 @@
     "treatment": "Hoito",
     "language": "Kieli",
     "signed_at": "Allekirjoitettu",
-    "no_results": "Ei suostumuksia"
+    "no_results": "Ei suostumuksia",
+    "confirm_delete": "Poistetaanko tämä suostumus?",
+    "stats": "{{total}} yhteensä · {{signed}} allekirjoitettu · {{pending}} odottaa",
+    "branch": "Toimipiste",
+    "created_at": "Luontipäivä",
+    "status_header": "Tila",
+    "continue_signature": "Jatka allekirjoitusta"
   },
   "signature": {
     "title": "Potilaan allekirjoitus",
@@ -119,7 +632,14 @@
     "branch_name": "Toimipisteen nimi",
     "save_branches": "Tallenna toimipisteet",
     "edit_branch": "Muokkaa toimipistettä",
-    "new_branch": "Uusi toimipiste"
+    "new_branch": "Uusi toimipiste",
+    "save_branch": "Tallenna toimipiste",
+    "subtitle": "Klinikan yleiset asetukset",
+    "trade_name": "Toiminimi",
+    "legal_name": "Virallinen nimi / y-tunnus",
+    "nika_number": "NIKA-numero",
+    "save_success": "Tallennettu onnistuneesti",
+    "confirm_delete_branch": "Poistetaanko tämä toimipiste?"
   },
   "language": {
     "select": "Kieli",
@@ -144,7 +664,27 @@
     "magic_link_sent": "Olemme lähettäneet Magic Linkin osoitteeseen",
     "email": "Sähköposti",
     "magic_link": "Kirjaudu Magic Linkillä",
-    "footer": "Kelvolliset digitaaliset suostumukset · Laki potilaan asemasta · GDPR"
+    "footer": "Kelvolliset digitaaliset suostumukset · Laki potilaan asemasta ja oikeuksista · GDPR",
+    "invalid_email": "Anna kelvollinen sähköpostiosoite",
+    "send_error": "Virhe linkin lähettämisessä",
+    "subtitle": "Digitaaliset Suostumukset · eIDAS",
+    "email_placeholder": "sinä@klinikka.fi"
+  },
+  "dashboard": {
+    "title": "Kojelauta",
+    "subtitle": "Toiminnan yhteenveto",
+    "pending_signature": "Odottaa allekirjoitusta",
+    "signature_rate": "Allekirjoitusaste",
+    "signed_count": "{{count}} allekirjoitettu",
+    "pending_count": "{{count}} odottaa",
+    "recent_consents": "Viimeisimmät suostumukset",
+    "view_all_consents": "Näytä kaikki →",
+    "view_all": "Näytä kaikki →",
+    "no_consents": "Ei suostumuksia",
+    "recent_clinical": "Viimeisimmät potilaskertomukset",
+    "no_clinical": "Ei potilaskertomuksia",
+    "recent_photos": "Viimeisimmät valokuvausistunnot",
+    "no_photos": "Ei valokuvausistuntoja"
   },
   "templates": {
     "title": "Mallit",
@@ -152,7 +692,7 @@
     "editor_title": "Mallieditori",
     "consent_title_label": "Suostumuksen otsikko",
     "no_translation": "Ei käännöstä kielelle",
-    "translate_all": "Käännä 31 kielelle",
+    "translate_all": "Käännä 21 kielelle",
     "translating": "Käännetään…",
     "legal_framework": "Oikeudellinen kehys",
     "select_template": "Valitse malli muokataksesi sitä",
@@ -163,9 +703,343 @@
     "saving": "Tallennetaan…",
     "saved": "Tallennettu"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "Poistetaanko tämä potilaskertomus?",
+    "confirm_delete_session": "Poistetaanko tämä istunto ja kaikki sen kuvat?",
+    "not_found": "Potilasta ei löytynyt",
+    "date_of_birth": "Syntymäaika",
+    "email": "Sähköposti",
+    "blood_type": "Verityyppi",
+    "address": "Osoite",
+    "allergies": "Allergiat",
+    "medications": "Lääkitys",
+    "tabs": {
+      "history": "Potilaskertomukset ({{count}})",
+      "photos": "Kuvat ({{count}})",
+      "consents": "Suostumukset ({{count}})"
+    },
+    "new_clinical_record": "Uusi kertomus",
+    "no_clinical_records": "Tällä potilaalla ei ole potilaskertomuksia",
+    "doctor_prefix": "Lääk. {{name}}",
+    "fields": {
+      "anamnesis": "Anamneesi",
+      "allergies": "Allergiat",
+      "current_medications": "Nykyinen lääkitys",
+      "physical_exam": "Kliininen tutkimus",
+      "diagnosis": "Diagnoosi",
+      "treatment_plan": "Hoitosuunnitelma",
+      "notes": "Huomiot"
+    },
+    "new_photo_session": "Uusi istunto",
+    "no_photo_sessions": "Tällä potilaalla ei ole valokuvausistuntoja",
+    "no_consents": "Tällä potilaalla ei ole suostumuksia",
+    "status": {
+      "signed": "Allekirjoitettu",
+      "pending": "Odottaa",
+      "revoked": "Peruutettu",
+      "expired": "Vanhentunut"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratorio",
+    "not_found": "Laboratorion profiilia ei löytynyt.",
+    "panel_subtitle": "Yhteistyölaboratorion paneeli",
+    "tabs": {
+      "clinics": "Liitetyt klinikat",
+      "campaigns": "Mainoskampanjat",
+      "stats": "Tilastot"
+    },
+    "no_clinics": "Tähän laboratorioon ei ole vielä liitetty klinikoita.",
+    "media_management": "Mainosmedian hallinta",
+    "welcome_screen": {
+      "title": "Tervetuloa-näyttö",
+      "description": "Enintään 5 kuvaa tai videota. Valitse mikä näytetään, satunnaisesti tai järjestyksessä (enintään 100 Mt per tiedosto)."
+    },
+    "patient_content": {
+      "title": "Sisältö potilaalle",
+      "description": "Enintään 5 kuvaa tai videota potilaalle. Tarkka käyttötapa määritetään myöhemmin."
+    },
+    "stats_pending": "Tämä osio on vielä määrittelemättä — pian näet täällä klinikoidesi ja kampanjoidesi suorituskykymittarit."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Poistetaanko tämä potilaskertomus?",
+    "title": "Potilaskertomukset",
+    "records_count": "{{count}} tietuetta",
+    "add_record": "Uusi kertomus",
+    "search_placeholder": "Hae potilaalla, diagnoosilla, käynnin syyllä…",
+    "no_records": "Ei potilaskertomuksia",
+    "table_headers": ["Potilas", "Päivämäärä", "Käynnin syy", "Diagnoosi", "Lääkäri", ""]
+  },
+  "labPartners": {
+    "title": "Yhteistyölaboratoriot",
+    "count": "{{count}} rekisteröityä",
+    "new_lab": "Uusi laboratorio",
+    "search_placeholder": "Hae laboratoriota…",
+    "no_labs": "Ei laboratorioita.",
+    "col_name": "Nimi",
+    "col_email": "Sähköposti",
+    "col_contact": "Yhteyshenkilö",
+    "col_phone": "Puhelin",
+    "col_status": "Tila",
+    "col_actions": "Toiminnot",
+    "status_active": "Aktiivinen",
+    "status_inactive": "Ei aktiivinen",
+    "confirm_deactivate": "Poistetaanko laboratorio käytöstä?",
+    "form": {
+      "edit_title": "Muokkaa laboratoriota",
+      "new_title": "Uusi laboratorio",
+      "name": "Nimi",
+      "email": "Sähköposti",
+      "phone": "Puhelin",
+      "contact_person": "Yhteyshenkilö",
+      "website": "Verkkosivusto",
+      "notes": "Muistiinpanot",
+      "name_email_required": "Nimi ja sähköposti ovat pakollisia",
+      "unknown_error": "Tuntematon virhe"
+    },
+    "campaigns": {
+      "title": "{{name}} — kampanjat",
+      "new_campaign": "Uusi kampanja",
+      "no_campaigns": "Ei kampanjoita.",
+      "col_name": "Nimi",
+      "col_type": "Tyyppi",
+      "col_trigger": "Laukaisin",
+      "col_status": "Tila",
+      "col_actions": "Toiminnot",
+      "confirm_delete": "Poistetaanko kampanja?",
+      "form": {
+        "edit_title": "Muokkaa kampanjaa",
+        "new_title": "Uusi kampanja",
+        "name": "Nimi",
+        "name_required": "Nimi on pakollinen",
+        "unknown_error": "Tuntematon virhe",
+        "type": "Tyyppi",
+        "rotation_mode": "Vaihtotila",
+        "rotation_random": "Satunnainen",
+        "rotation_manual": "Manuaalinen",
+        "creative_url": "Mainoksen URL",
+        "trigger": "Laukaisin",
+        "interval_minutes": "Aikaväli (min)",
+        "start_date": "Alkupäivä",
+        "end_date": "Loppupäivä",
+        "active": "Aktiivinen"
+      }
+    },
+    "creative_types": {
+      "image": "Kuva",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Tarjous",
+      "training": "Koulutus"
+    },
+    "triggers": {
+      "on_login": "Avattaessa",
+      "on_consent": "Suostumusta luotaessa",
+      "every_x_minutes": "Joka X minuutti",
+      "once_daily": "Kerran päivässä"
+    }
+  },
+  "agenda": {
+    "title": "Ajanvaraus",
+    "subtitle": "Käynnit, hoidot ja aikataulusuunnittelu",
+    "tab_appointments": "Käynnit",
+    "tab_treatments": "Hoidot",
+    "tab_planning": "Ajanvarauksen suunnittelu"
+  },
+  "verifyConsent": {
+    "id_not_provided": "Tunnusta ei annettu",
+    "verifying": "Tarkistetaan asiakirjaa…",
+    "subtitle": "Asiakirjan tarkistus",
+    "not_found_title": "Asiakirjaa ei löytynyt",
+    "signed_title": "Asiakirja kelvollinen ja allekirjoitettu",
+    "signed_subtitle": "Allekirjoitus on vahvistettu onnistuneesti",
+    "revoked_title": "Suostumus peruutettu",
+    "revoked_subtitle": "Potilas peruutti tämän suostumuksen",
+    "pending_title": "Odottaa allekirjoitusta",
+    "pending_subtitle": "Tätä asiakirjaa ei ole vielä allekirjoitettu",
+    "patient": "Potilas",
+    "doctor": "Lääkäri",
+    "treatment": "Hoito",
+    "signed_date": "Allekirjoituspäivä",
+    "hash_label": "SHA-256-tiiviste",
+    "document_id_label": "Asiakirjatunnus:",
+    "verified_on": "Tarkistettu {{date}}. Tämä asiakirja on pätevä ja sähköisesti allekirjoitettu eIDAS-asetuksen (EU) 910/2014 mukaisesti."
+  },
+  "recharge": {
+    "title": "Tilaussuunnitelmat",
+    "subtitle": "Valitse klinikallesi parhaiten sopiva suunnitelma",
+    "monthly": "Kuukausittain",
+    "annual": "Vuosittain",
+    "per_month": "/kk",
+    "save_20_annual": "Säästät 20 % maksamalla vuosittain",
+    "switch_annual_save": "Vaihda vuosimaksuun ja säästä 20 %",
+    "hire_plan": "Tilaa suunnitelma",
+    "note_title": "Huomio AI-suunnitelma ja AI Premium -suunnitelma:",
+    "note_text": "Tekoälyagenttien alkuasetukset (palvelut, hoidot ja mukautukset) sekä käyttöönotto hinnoitellaan erikseen kunkin klinikan monimutkaisuuden mukaan. Ääniagentin ja WhatsApp-API:n kustannukset eivät sisälly kuukausimaksuun.",
+    "plans": {
+      "base": {
+        "name": "Peruspaketti",
+        "features": [
+          "Rajattomat suostumukset",
+          "Potilaskertomus",
+          "Valokuvagalleria",
+          "Potilasportaali",
+          "Magic Link + biometriikka",
+          "Tuki sisältyy"
+        ]
+      },
+      "pro": {
+        "name": "Pro-paketti",
+        "badge": "Suosituin",
+        "features": [
+          "Kaikki Peruspaketista +",
+          "Ajanvaraus",
+          "Potilas-CRM",
+          "Toksiinin seuranta",
+          "Kustannusarviot potilaille"
+        ]
+      },
+      "ia": {
+        "name": "AI-paketti",
+        "features": [
+          "Kaikki Pro-paketista +",
+          "AI WhatsApp-agentti 24/7 — ajanvarausten hankinta",
+          "Automaattinen käynnin vahvistus",
+          "Automaattiset käyntimuistutukset",
+          "WhatsApp-hallintapaneeli",
+          "Potilasviestintä WhatsAppin kautta",
+          "Suostumusten, potilaskertomusten, kuvien, kustannusarvioiden ja laskujen lähetys WhatsAppilla"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium -paketti",
+        "badge": "Uusi",
+        "features": [
+          "Kaikki AI-paketista +",
+          "AI-ääniagentti 24/7: vastaa puheluihin",
+          "Varaa käyntejä puhelimitse automaattisesti",
+          "Kloonaa vastaanottovirkailijasi äänen 100-prosenttisesti"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toksiinin seuranta",
+    "subtitle": "Botuliinitoksiinierien jäljitettävyys",
+    "new_record": "Uusi merkintä",
+    "from": "Alkaen",
+    "to": "Päättyen",
+    "doctor": "Lääkäri",
+    "patient": "Potilas",
+    "all": "Kaikki",
+    "lot_number": "Eränumero",
+    "search_lot_placeholder": "Hae erää…",
+    "clear_filters": "Tyhjennä suodattimet",
+    "no_results": "Ei toksiinimerkintöjä näillä suodattimilla.",
+    "col_date": "Päivämäärä",
+    "col_patient": "Potilas",
+    "col_doctor": "Lääkäri",
+    "col_brand": "Kauppanimi",
+    "col_lot": "Erä",
+    "col_expiry": "Viimeinen käyttöpäivä",
+    "col_zones": "Alueet",
+    "col_units": "Yksiköt",
+    "col_signature": "Allekirjoitus",
+    "col_ci": "Suostumus",
+    "col_actions": "Toiminnot",
+    "signed": "Allekirjoitettu",
+    "unsigned": "Ei allekirjoitusta",
+    "consent_linked": "Suostumus liitetty",
+    "consent_not_linked": "Suostumusta ei liitetty",
+    "confirm_delete": "Poistetaanko tämä toksiinimerkintä?",
+    "detail": {
+      "not_found": "Merkintää ei löytynyt.",
+      "patient": "Potilas",
+      "doctor": "Lääkäri",
+      "brand": "Kauppanimi",
+      "manufacturer": "Valmistaja",
+      "lot": "Eränumero",
+      "expiry": "Viimeinen käyttöpäivä",
+      "vials": "Avatut ampullit",
+      "total_units": "Yksiköitä yhteensä",
+      "treated_zones": "Hoidetut alueet",
+      "no_zones": "Ei rekisteröityjä alueita.",
+      "notes": "Muistiinpanot",
+      "doctor_signature": "Lääkärin allekirjoitus",
+      "signature_alt": "Lääkärin allekirjoitus",
+      "signed_on": "Allekirjoitettu {{date}}",
+      "no_signature": "Tällä merkinnällä ei ole lääkärin allekirjoitusta.",
+      "linked_consent": "Liitetty tietoinen suostumus",
+      "consent_default_name": "Suostumus",
+      "consent_unsigned": "Allekirjoittamaton",
+      "loading_pdf": "Ladataan PDF:ää…",
+      "consent_load_error": "Liitetyn suostumuksen tietoja ei voitu ladata."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Tunnusta ei löytynyt URL-osoitteesta",
+    "invalid_token": "Virheellinen tai vanhentunut tunnus",
+    "connection_error": "Yhteysvirhe",
+    "verifying": "Tarkistetaan linkkiä…",
+    "invalid_link": "Virheellinen linkki",
+    "back_home": "Takaisin etusivulle"
+  },
+  "photoSessions": {
+    "confirm_delete": "Poistetaanko tämä istunto ja kaikki sen kuvat?",
+    "title": "Kuvat",
+    "subtitle": "{{count}} valokuvausistuntoa",
+    "new_session": "Uusi istunto",
+    "search_placeholder": "Hae potilaalla tai istunnon nimellä…",
+    "no_sessions": "Ei valokuvausistuntoja"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Suostumukseni",
+      "clinical": "Potilaskertomukseni",
+      "photos": "Kuvani"
+    },
+    "consents": {
+      "empty": "Sinulla ei ole vielä allekirjoitettuja suostumuksia.",
+      "default_name": "Suostumus",
+      "doctor": "Lääk. {{name}}",
+      "signed_on": "Allekirjoitettu {{date}}",
+      "status_signed": "Allekirjoitettu",
+      "status_pending": "Odottaa"
+    },
+    "clinical": {
+      "empty": "Potilaskertomuksesi on tyhjä.",
+      "default_name": "Käynti",
+      "doctor_suffix": " · Lääk. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnoosi",
+        "anamnesis": "Anamneesi",
+        "current_medications": "Nykyinen lääkitys",
+        "allergies": "Allergiat",
+        "treatment_plan": "Hoitosuunnitelma",
+        "notes": "Huomiot"
+      }
+    },
+    "photos": {
+      "empty": "Valokuvausistuntoja ei ole vielä.",
+      "back_to_sessions": "Takaisin istuntoihin",
+      "default_session_name": "Valokuvausistunto",
+      "doctor_suffix": " · Lääk. {{name}}",
+      "compare_title": "Vertailu ennen / jälkeen",
+      "before": "Ennen",
+      "after": "Jälkeen",
+      "close_compare": "Sulje vertailu",
+      "compare_button": "Vertaa",
+      "photo_count": "{{count}} kuvaa"
+    }
+  },
   "settings": {
     "title": "Asetukset",
     "subtitle": "Käyttäjien ja käyttöoikeuksien hallinta",
+    "tabs": {
+      "users": "Käyttäjät",
+      "media": "Mainonta",
+      "preview": "Esikatselu"
+    },
     "users": {
       "title": "Käyttäjät",
       "invite_user": "Kutsu käyttäjä",
@@ -176,12 +1050,38 @@
       "role_clinica": "Klinikka",
       "admin_hint": "Järjestelmänvalvojalla on täysi pääsy kaikkiin osioihin.",
       "permissions": "Käyttöoikeudet",
-      "permissions_hint": "Valitse käytettävissä olevat osiot.",
+      "permissions_hint": "Valitse mihin osioihin tällä käyttäjällä on pääsy.",
       "send_invite": "Lähetä kutsu",
       "no_users": "Ei käyttäjiä. Kutsu ensimmäinen.",
       "inactive": "Ei aktiivinen",
-      "activate": "Aktivoi",
-      "deactivate": "Deaktivoi"
+      "activate": "Aktivoi käyttäjä",
+      "deactivate": "Deaktivoi käyttäjä",
+      "role_superadmin": "Pääylläpitäjä",
+      "role_doctor": "Lääkäri",
+      "role_receptionist": "Vastaanottovirkailija",
+      "role_lab_partner": "Laboratorio",
+      "role_patient": "Potilas",
+      "filter_all": "Kaikki",
+      "invite_accepted": "Kutsu hyväksytty",
+      "invite_expired": "Kutsu vanhentunut",
+      "invite_pending": "Kutsu odottaa",
+      "email_placeholder": "kayttaja@klinikka.fi",
+      "full_name_placeholder": "Etunimi Sukunimi",
+      "linked_lab": "Liitetty laboratorio",
+      "no_lab": "Ei laboratoriota",
+      "lab_hint": "Käyttäjä näkee vain tähän laboratorioon liitetyt klinikat.",
+      "admin_only_hint": "Asetukset on tarkoitettu yksinomaan järjestelmänvalvojille, eikä sitä voi koskaan siirtää klinikalle.",
+      "load_error": "Käyttäjäluetteloa ei voitu ladata",
+      "retry": "Yritä uudelleen"
+    },
+    "media": {
+      "title": "Mainosmedian hallinta",
+      "managed_by_lab": "Tätä mainontaa hallinnoi yhteistyölaboratoriosi. Voit tarkastella sitä täällä, mutta vain laboratorio voi muokata sitä.",
+      "managed_by_lab_named": "Tätä mainontaa hallinnoi yhteistyölaboratoriosi ({{name}}). Voit tarkastella sitä täällä, mutta vain laboratorio voi muokata sitä.",
+      "welcome_title": "Tervetuloa-näyttö",
+      "welcome_description": "Enintään 5 kuvaa tai videota. Valitse mikä näytetään, satunnaisesti tai järjestyksessä (enintään 100 Mt per tiedosto).",
+      "patient_title": "Sisältö potilaalle",
+      "patient_description": "Enintään 5 kuvaa tai videota potilaalle. Tarkka käyttötapa määritetään myöhemmin."
     }
   }
 }

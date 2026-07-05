@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "עריכת רישום טוקסין",
+    "title_new": "רישום טוקסין חדש",
+    "patient": "מטופל",
+    "select_patient": "בחר מטופל…",
+    "linked_consent": "הסכמה מדעת מקושרת",
+    "not_linked": "לא מקושר",
+    "consent_default_name": "הסכמה",
+    "unsigned": "לא חתום",
+    "loading_consents": "טוען הסכמות…",
+    "no_consents_hint": "למטופל זה אין עדיין הסכמות טוקסין חתומות. זה אופציונלי, ניתן לשמור את הרישום ללא קישור.",
+    "doctor": "רופא",
+    "unassigned": "לא הוקצה",
+    "application_date": "תאריך יישום",
+    "brand_name": "שם מסחרי",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "יצרן",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "מספר אצווה",
+    "expiry_date": "תאריך תפוגה",
+    "vials_opened": "אמפולות שנפתחו",
+    "treated_zones": "אזורים שטופלו",
+    "other_zone_placeholder": "אזור אחר…",
+    "add": "הוסף",
+    "total_units": "סך היחידות",
+    "notes": "הערות",
+    "notes_placeholder": "הערות…",
+    "doctor_signature": "חתימת הרופא",
+    "signature_alt": "חתימת הרופא",
+    "signed_on": "נחתם {{date}}",
+    "sign_again": "חתום שוב",
+    "signature_hint": "צייר את החתימה ולחץ על \"אשר חתימה\" לפני השמירה.",
+    "confirm_delete": "למחוק רישום טוקסין זה?",
+    "deleting": "מוחק…",
+    "delete_record": "מחק רישום",
+    "cancel": "ביטול",
+    "save_changes": "שמור שינויים",
+    "create_record": "צור רישום",
+    "saving": "שומר…",
+    "unknown_error": "שגיאה לא ידועה",
+    "validation": {
+      "required_fields": "מטופל, שם מסחרי, אצווה, תוקף ויצרן הם שדות חובה",
+      "signature_required": "חתימת הרופא נדרשת לשמירת הרישום"
+    },
+    "zones": {
+      "forehead": "מצח (קמטים אופקיים)",
+      "glabella": "בין הגבות (גלבלה)",
+      "crows_feet": "קמטי מניפה (סביב העיניים)",
+      "lower_eyelid": "עפעף תחתון",
+      "eyebrow_lift": "הרמת גבות",
+      "bunny_lines": "אף (קמטי ארנב)",
+      "upper_lip": "שפה עליונה (קווי ברקוד)",
+      "oral_commissures": "זוויות הפה",
+      "chin_dimpling": "סנטר (קליפת תפוז)",
+      "platysmal_bands": "צוואר (רצועות פלטיזמה)",
+      "decolletage": "דקולטה",
+      "axillary_sweating": "הזעת בית שחי (היפרהידרוזיס)",
+      "palmar_sweating": "הזעת כפות ידיים",
+      "plantar_sweating": "הזעת כפות רגליים",
+      "jaw_bruxism": "לסת (חריקת שיניים / מסטרים)",
+      "migraine_occipital": "מיגרנה (נקודות עורפיות)",
+      "trampoline_chin": "סנטר טרמפולינה",
+      "gummy_smile": "חיוך חניכיים",
+      "nefertiti_lift": "הרמת נפרטיטי (צוואר ולסת)",
+      "other_zone": "אזור אחר"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "יוצר…",
+    "export_pdf": "ייצוא PDF"
+  },
+  "patientGallery": {
+    "title": "גלריית תמונות",
+    "upload_photos": "העלה תמונות",
+    "loading": "טוען…",
+    "empty": "אין תמונות. העלה את התמונה הראשונה.",
+    "confirm_delete": "למחוק תמונה זו?",
+    "count_stored": "{{count}} {{unit}} · מאוחסן ב-Cloudflare R2",
+    "photo_singular": "תמונה",
+    "photo_plural": "תמונות"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "עריכת רשומה רפואית",
+    "title_new": "רשומה רפואית חדשה",
+    "patient": "מטופל",
+    "select_patient": "בחר מטופל…",
+    "doctor": "רופא",
+    "unassigned": "לא הוקצה",
+    "branch": "קליניקה / סניף",
+    "unspecified": "לא צוין",
+    "visit_date": "תאריך ביקור",
+    "reason_for_visit": "סיבת הביקור",
+    "anamnesis": "אנמנזה / היסטוריה רפואית",
+    "current_medications": "תרופות נוכחיות",
+    "allergies": "אלרגיות ידועות",
+    "physical_exam": "בדיקה גופנית",
+    "diagnosis": "אבחנה",
+    "treatment_plan": "תוכנית טיפול",
+    "notes": "הערות",
+    "select_patient_error": "בחר מטופל",
+    "unknown_error": "שגיאה לא ידועה",
+    "cancel": "ביטול",
+    "saving": "שומר…",
+    "save_record": "שמור רשומה"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "הקובץ חורג מהמגבלה של {{maxSize}} מ\"ב",
+    "upload_error": "שגיאה בהעלאת הקובץ",
+    "confirm_delete": "למחוק קובץ זה?",
+    "video": "וידאו",
+    "image": "תמונה",
+    "uploaded_on": "הועלה בתאריך {{date}}",
+    "change": "שנה",
+    "delete": "מחק",
+    "uploading": "מעלה… {{progress}}%",
+    "drop_hint": "גרור לכאן או לחץ להעלאה",
+    "file_types_hint": "תמונה (JPG, PNG, GIF) או וידאו (MP4, MOV, WebM) · מקסימום {{maxSize}} מ\"ב"
+  },
+  "consentEditor": {
+    "placeholder_default": "כתוב את תוכן ההסכמה…",
+    "bold": "מודגש",
+    "italic": "נטוי",
+    "heading": "כותרת",
+    "bullet_list": "רשימה",
+    "ordered_list": "רשימה ממוספרת",
+    "undo": "בטל",
+    "redo": "בצע שוב"
+  },
+  "consentPdfButton": {
+    "generating": "יוצר PDF…",
+    "export": "ייצוא PDF"
+  },
+  "newSessionModal": {
+    "title": "סשן צילום חדש",
+    "patient_label": "מטופל",
+    "select_patient_placeholder": "בחר מטופל…",
+    "doctor_label": "רופא",
+    "no_doctor_assigned": "לא הוקצה",
+    "branch_label": "קליניקה / סניף",
+    "no_branch_specified": "לא צוין",
+    "session_name_label": "שם הסשן",
+    "session_name_placeholder": "לדוגמה: טיפול פנים סשן 1",
+    "date_label": "תאריך ושעה",
+    "notes_label": "הערות",
+    "notes_placeholder": "הערות על הסשן…",
+    "select_patient_error": "בחר מטופל",
+    "unknown_error": "שגיאה לא ידועה",
+    "cancel": "ביטול",
+    "creating": "יוצר…",
+    "create_session": "צור סשן"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "סשן צילום",
+    "photo_count": "{{count}}/{{max}} תמונות",
+    "compare_button": "השווה לפני / אחרי",
+    "delete_session": "מחק סשן",
+    "upload": "העלה",
+    "remaining": "{{remaining}} נותרו"
+  },
+  "beforeAfterModal": {
+    "select_title": "בחר תמונות להשוואה",
+    "compare_title": "השוואת לפני / אחרי",
+    "change_selection": "← שנה בחירה",
+    "select_intro": "בחר תמונה עבור",
+    "select_middle": "ואחרת עבור",
+    "before": "לפני",
+    "after": "אחרי",
+    "before_badge": "לפני",
+    "after_badge": "אחרי",
+    "compare_button": "השווה"
+  },
+  "biometricPrompt": {
+    "title": "הפעל גישה ביומטרית",
+    "description": "השתמש ב-Face ID, טביעת אצבע או Windows Hello כדי להיכנס תוך פחות משתי שניות בפעם הבאה.",
+    "device_label": "מכשיר:",
+    "activate": "הפעל",
+    "default_device": "המכשיר שלי"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "בחירה ידנית",
+        "desc": "אתה בוחר מה מוצג. לחץ על קריאייטיב כדי להפעיל אותו."
+      },
+      "random": {
+        "label": "סדר אקראי",
+        "desc": "קריאייטיב נבחר באקראי בכל פעם שמגיע תורו להיות מוצג."
+      },
+      "sequential": {
+        "label": "סדר רציף",
+        "desc": "הם מוצגים לפי סדר, אחד אחרי השני, בכל פעם שמגיע תורם."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "הקובץ חורג ממגבלת 100 מ\"ב",
+      "invalidUrl": "כתובת URL לא תקינה"
+    },
+    "confirmDelete": "למחוק קריאייטיב זה?",
+    "types": {
+      "url": "כתובת URL",
+      "video": "וידאו",
+      "image": "תמונה"
+    },
+    "active": "✓ פעיל",
+    "select": "בחר",
+    "upload": {
+      "label": "העלה קובץ",
+      "slotsFree": "{{count}} פנוי{{suffix}}"
+    },
+    "addUrlButton": "הוסף כתובת URL של וידאו (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "הוסף וידאו לפי URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… או קישור ישיר ל-.mp4",
+      "labelPlaceholder": "שם או תיאור (אופציונלי)",
+      "hint": "תואם ל-YouTube, Vimeo וקישורי וידאו ישירים (.mp4, .webm…)",
+      "add": "הוסף",
+      "saving": "שומר…"
+    },
+    "displayModeHeading": "כיצד להציג אותן?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "ברוך הבא",
+    "continue": "המשך →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "מתי להציג את הפרסום?",
+    "subheading": "ניתן לבחור כמה אפשרויות בו־זמנית.",
+    "options": {
+      "session": {
+        "label": "פעם אחת בכניסה למערכת",
+        "desc": "מוצג פעם אחת בכל פעם שהמשתמש פותח את האפליקציה בדפדפן."
+      },
+      "consent": {
+        "label": "בכל פעם שנוצרת הסכמה",
+        "desc": "מופיע מיד לאחר יצירת כל הסכמה מדעת."
+      },
+      "clinical": {
+        "label": "בכל פעם שנוצרת רשומה רפואית",
+        "desc": "מופיע מיד לאחר שמירת כל רשומה רפואית."
+      },
+      "interval": {
+        "label": "כל X דקות",
+        "desc": "מוצג מעת לעת בזמן שהאפליקציה פתוחה."
+      }
+    },
+    "every": "כל",
+    "minutes": "דקות",
+    "errors": {
+      "selectAtLeastOne": "בחר לפחות אפשרות אחת",
+      "saveFailed": "שגיאה בשמירה"
+    },
+    "saving": "שומר…",
+    "saved": "נשמר",
+    "saveButton": "שמור הגדרות",
+    "appliedMessage": "✅ ההגדרות הוחלו"
+  },
+  "demoPreviewPanel": {
+    "heading": "תצוגה מקדימה לפי תפקיד",
+    "subheading": "צור נתוני בדיקה והיכנס לתוכנית בדיוק כפי שיראה אותה מטופל, קליניקה או מעבדה.",
+    "createAllButton": "צור את כל נתוני הבדיקה",
+    "errors": {
+      "checkFailed": "שגיאה בבדיקת נתוני הבדיקה",
+      "createPatientFailed": "לא ניתן היה ליצור מטופל לדוגמה",
+      "createBranchFailed": "לא ניתן היה ליצור סניף לדוגמה",
+      "createLabFailed": "לא ניתן היה ליצור מעבדה לדוגמה"
+    },
+    "cards": {
+      "patient": {
+        "title": "תצוגת מטופל",
+        "description": "מדמה את הפורטל שרואה מטופל: ההסכמות, ההיסטוריה הרפואית והתמונות שלו."
+      },
+      "branch": {
+        "title": "תצוגת קליניקה",
+        "description": "מדמה את הפאנל שרואה צוות הקליניקה, עם תפריט המוגבל להרשאותיו האמיתיות."
+      },
+      "lab": {
+        "title": "תצוגת מעבדה",
+        "description": "מדמה את פאנל המעבדה השותפה: הפרופיל שלה, הקליניקות המקושרות והקמפיינים."
+      }
+    },
+    "testDataCreated": "נתוני בדיקה נוצרו",
+    "viewAs": "צפה כ{{role}}",
+    "roleNames": {
+      "patient": "מטופל",
+      "branch": "קליניקה",
+      "lab": "מעבדה"
+    },
+    "creating": "יוצר…",
+    "createTestData": "צור נתוני בדיקה"
+  },
+  "previewBanner": {
+    "message": "תצוגה מקדימה — אתה צופה בממשק כפי שהיה נראה עבור",
+    "exitButton": "צא מתצוגה מקדימה",
+    "roles": {
+      "patient": "מטופל",
+      "clinica": "קליניקה",
+      "labPartner": "מעבדה"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "הצג חודש",
+    "today": "היום",
+    "new_appointment": "תור חדש",
+    "no_treatments_warning": "עדיין לא נוצרו טיפולים. עבור לכרטיסייה \"טיפולים\" כדי ליצור את הראשון לפני קביעת תורים.",
+    "day_closed_notice": "יום זה מסומן כסגור בתכנון היומן. ניתן לבדוק או לפתוח אותו מאותה כרטיסייה.",
+    "slot_aria_label": "קבע תור בשעה {{time}}",
+    "outside_availability": "מחוץ לשעות הזמינות",
+    "treatment_fallback": "טיפול",
+    "doctor_prefix": "ד\"ר {{name}}",
+    "legend": {
+      "available": "זמין",
+      "outside_hours": "מחוץ לשעות",
+      "scheduled": "תור קבוע"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "עריכת תור",
+    "title_new": "תור חדש",
+    "validation_required": "מטופל, טיפול ושעה הם שדות חובה",
+    "error_unknown": "שגיאה לא ידועה",
+    "confirm_delete": "למחוק תור זה?",
+    "deleting": "מוחק…",
+    "delete_appointment": "מחק תור",
+    "cancel": "ביטול",
+    "saving": "שומר…",
+    "save_changes": "שמור שינויים",
+    "create_appointment": "צור תור",
+    "form": {
+      "patient": "מטופל",
+      "select_patient": "בחר מטופל…",
+      "doctor": "רופא",
+      "unassigned": "לא הוקצה",
+      "branch": "קליניקה / סניף",
+      "main_branch": "סניף ראשי",
+      "treatment": "טיפול",
+      "select_treatment": "בחר טיפול…",
+      "treatment_option": "{{name}} — {{duration}} דק' — {{price}} ₪",
+      "no_treatments_warning": "לא נוצרו טיפולים. הוסף אחד בכרטיסייה \"טיפולים\" תחילה.",
+      "datetime": "תאריך ושעה",
+      "duration_note": "יתפוס {{duration}} דקות ביומן.",
+      "notes": "הערות",
+      "notes_placeholder": "הערות על התור…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "טיפולים",
+    "subtitle": "משך זמן ומחיר לכל טיפול לצורך קביעת תורים",
+    "new_treatment": "טיפול חדש",
+    "loading": "טוען…",
+    "empty_state": "עדיין לא נוצרו טיפולים",
+    "duration_display": "{{duration}} דק'",
+    "price_display": "{{price}} ₪",
+    "confirm_delete": "למחוק טיפול זה?",
+    "form": {
+      "title_edit": "עריכת טיפול",
+      "title_new": "טיפול חדש",
+      "name": "שם",
+      "name_placeholder": "לדוגמה: בוטוקס",
+      "duration": "משך (דק')",
+      "price": "מחיר (₪)",
+      "validation_name_required": "השם הוא שדה חובה",
+      "error_unknown": "שגיאה לא ידועה",
+      "cancel": "ביטול",
+      "saving": "שומר…",
+      "save": "שמור"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳", "א׳"],
+    "months": ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"],
+    "has_exception_tooltip": "כבר הוגדר חריג",
+    "legend": {
+      "usually_open": "פתוח בדרך כלל",
+      "usually_closed": "סגור בדרך כלל",
+      "has_exception": "עם חריג",
+      "selected": "נבחר"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳", "א׳"],
+    "months": ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"],
+    "legend": {
+      "open_day": "יום פתוח",
+      "closed": "סגור",
+      "today": "היום"
+    }
+  },
+  "schedulePlanner": {
+    "title": "תכנון יומן",
+    "subtitle": "הגדר באילו ימים ובאילו שעות ניתן לקבוע תורים.",
+    "time_separator": "עד",
+    "add_time_range": "הוסף טווח שעות",
+    "weekdays": ["יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת", "יום ראשון"],
+    "confirm_delete_exception": "למחוק חריג זה ולחזור ללוח הזמנים הרגיל של יום זה?",
+    "errors": {
+      "save_schedule_failed": "לא ניתן היה לשמור את לוח הזמנים",
+      "apply_pattern_failed": "לא ניתן היה להחיל את התבנית",
+      "select_day_required": "בחר לפחות יום אחד בלוח השנה",
+      "save_exception_failed": "לא ניתן היה לשמור את היום המיוחד"
+    },
+    "bulk": {
+      "title": "החל תבנית על מספר ימים בבת אחת",
+      "description": "לדוגמה: שני עד שישי מ-09:00 עד 20:00. בחר את הימים ואת שעות הפעילות, ולאחר מכן החל — ניתן לכוונן כל יום בנפרד לאחר מכן.",
+      "applying": "מחיל…",
+      "apply_button": "החל על הימים שנבחרו"
+    },
+    "weekly": {
+      "title": "לוח זמנים שבועי רגיל",
+      "closed": "סגור",
+      "saving": "שומר…",
+      "save": "שמור"
+    },
+    "exceptions": {
+      "title": "ימים בודדים (חריגים)",
+      "description": "פתח יום מיוחד (למשל שבת) או סגור יום שבדרך כלל פתוח (למשל חג).",
+      "select_days_label": "בחר יום אחד או יותר",
+      "days_selected_singular": "{{count}} יום נבחר",
+      "days_selected_plural": "{{count}} ימים נבחרו",
+      "clear_selection": "נקה בחירה",
+      "open_special": "פתח במיוחד",
+      "close": "סגור",
+      "schedule_label": "לוח זמנים לימים אלה",
+      "notes_placeholder": "סיבה (אופציונלי) — לדוגמה: חופשת קיץ",
+      "saving": "שומר…",
+      "save_button_singular": "שמור יום מיוחד",
+      "save_button_plural": "שמור {{count}} ימים מיוחדים",
+      "no_exceptions": "לא הוגדרו ימים בודדים.",
+      "open_special_status": "פתוח במיוחד · {{ranges}}",
+      "closed_status": "סגור"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית"
   },
   "nav": {
-    "dashboard": "לוח בקרה",
+    "dashboard": "בית",
     "patients": "מטופלים",
     "doctors": "רופאים",
     "consents": "הסכמות",
@@ -14,7 +445,15 @@
     "settings": "הגדרות",
     "clinicalRecords": "רשומה רפואית",
     "photos": "תמונות",
-    "recharge": "טעינה"
+    "recharge": "תוכניות מנוי",
+    "agenda": "יומן",
+    "toxin": "בקרת טוקסין",
+    "labPartners": "מעבדות",
+    "menu": "תפריט"
+  },
+  "topbar": {
+    "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
+    "legal": "eIDAS (EU 910/2014) · תקנות מקומיות · GDPR"
   },
   "auth": {
     "login_title": "גישה מאובטחת",
@@ -22,7 +461,7 @@
     "email_placeholder": "email@clinic.co.il",
     "send_link": "שלח קישור גישה",
     "check_email": "בדוק את האימייל שלך — שלחנו את קישור הגישה",
-    "magic_link_sent": "הקישור נשלח",
+    "magic_link_sent": "הקישור נשלח בהצלחה",
     "remember_device": "זכור מכשיר זה",
     "remember_7": "7 ימים",
     "remember_30": "30 ימים",
@@ -33,7 +472,20 @@
     "biometric_success": "ביומטריה הופעלה!",
     "biometric_success_msg": "בפעם הבאה תיכנס בנגיעה אחת.",
     "biometric_error": "לא ניתן להפעיל. ודא שהמכשיר שלך מוגדר עם ביומטריה.",
-    "biometric_now": "לא עכשיו"
+    "biometric_now": "לא עכשיו",
+    "portal_subtitle": "הסכמות דיגיטליות · חתימה דיגיטלית",
+    "portal_title": "גישה למסמך",
+    "portal_email_prompt": "הזן את כתובת האימייל שלך לקבלת קישור גישה מאובטח.",
+    "portal_link_sent_title": "הקישור נשלח",
+    "portal_link_sent_message": "בדוק את הדוא\"ל שלך ולחץ על הקישור כדי להמשיך.",
+    "portal_email_placeholder": "you@email.com",
+    "portal_consent_default_title": "הסכמה מדעת",
+    "portal_accept_label": "קראתי ואני מסכים/ה להסכמה המדעת הזו",
+    "portal_proceed_to_sign": "המשך לחתימה →",
+    "portal_saving_signature": "שומר חתימה…",
+    "portal_signed_title": "החתימה הושלמה",
+    "portal_signed_message": "ההסכמה שלך נחתמה ונרשמה באופן מאובטח.",
+    "portal_error_message": "ייתכן שהקישור פג תוקף או שגוי."
   },
   "patients": {
     "title": "מטופלים",
@@ -57,7 +509,28 @@
     "gallery": "גלריית תמונות",
     "no_photos": "אין תמונות. העלה את התמונה הראשונה.",
     "upload_photos": "העלה תמונות",
-    "uploading": "מעלה…"
+    "uploading": "מעלה…",
+    "count_registered": "{{count}} רשומים",
+    "form": {
+      "doc_type": "סוג",
+      "doc_type_passport": "דרכון",
+      "city": "עיר",
+      "province": "מחוז",
+      "country": "מדינה",
+      "select_placeholder": "— בחר —",
+      "countries": [
+        "ישראל", "גרמניה", "ארגנטינה", "בלגיה", "בוליביה", "ברזיל", "צ'ילה", "סין",
+        "קולומביה", "קוסטה ריקה", "קובה", "אקוודור", "אל סלבדור", "ארה\"ב", "צרפת",
+        "גואטמלה", "הונדורס", "איטליה", "מרוקו", "מקסיקו", "ניקרגואה", "הולנד",
+        "פנמה", "פרגוואי", "פרו", "פורטוגל", "בריטניה", "הרפובליקה הדומיניקנית",
+        "שווייץ", "אורוגוואי", "ונצואלה", "אחר"
+      ],
+      "provinces": [
+        "מחוז ירושלים", "מחוז הצפון", "מחוז חיפה", "מחוז המרכז", "מחוז תל אביב", "מחוז הדרום", "יהודה ושומרון", "אחר"
+      ],
+      "save_error_prefix": "שגיאה בשמירה:",
+      "unknown_error": "שגיאה לא ידועה"
+    }
   },
   "doctors": {
     "title": "רופאים",
@@ -73,17 +546,45 @@
       "receptionist": "פקיד קבלה"
     },
     "save": "שמור רופא",
-    "no_results": "אין רופאים רשומים"
+    "no_results": "אין רופאים רשומים",
+    "last_name": "שם משפחה",
+    "phone": "טלפון",
+    "phone_placeholder": "050-0000000",
+    "unknown_error": "שגיאה לא ידועה",
+    "count_registered": "{{count}} רשומים",
+    "license_display": "מס' {{number}}"
   },
   "consents": {
     "title": "הסכמות",
     "add": "הסכמה חדשה",
     "search": "חפש הסכמות…",
+    "step_labels": ["פרטים", "סקירה", "חתימת רופא", "חתימת מטופל", "הושלם"],
+    "branch_label": "סניף",
+    "main_branch": "סניף ראשי",
+    "select_patient": "בחר מטופל…",
+    "select_doctor": "בחר רופא…",
+    "select_treatment": "בחר טיפול…",
+    "translating": "מתרגם…",
+    "continue": "המשך",
+    "responsible_doctor": "רופא אחראי",
+    "legal_framework_title": "מסגרת משפטית — {{jurisdiction}}",
+    "witness_required_notice": "מדינה זו דורשת עד לחתימה",
+    "back": "← חזרה",
+    "sign_arrow": "חתום →",
+    "doctor_signature_title": "חתימת הרופא",
+    "doctor_signature_notice": "הרופא חייב לחתום ראשון כדי לאשר את ההסכמה",
+    "back_to_preview": "← חזרה",
+    "patient_signature_title": "חתימת המטופל",
+    "patient_signature_notice": "על המטופל לחתום כדי לאשר שקרא ומסכים להסכמה",
+    "signed_title": "ההסכמה נחתמה",
+    "signed_description": "המסמך נחתם ונרשם בהצלחה.",
+    "close": "סגור",
     "status": {
       "pending": "ממתין",
       "signed": "חתום",
       "revoked": "בוטל",
-      "expired": "פג תוקף"
+      "expired": "פג תוקף",
+      "all": "הכל"
     },
     "sign": "חתום",
     "generate_pdf": "צור PDF",
@@ -93,7 +594,13 @@
     "treatment": "טיפול",
     "language": "שפה",
     "signed_at": "תאריך חתימה",
-    "no_results": "אין הסכמות"
+    "no_results": "אין הסכמות",
+    "confirm_delete": "למחוק הסכמה זו?",
+    "stats": "{{total}} סה\"כ · {{signed}} חתומות · {{pending}} ממתינות",
+    "branch": "סניף",
+    "created_at": "תאריך יצירה",
+    "status_header": "סטטוס",
+    "continue_signature": "המשך חתימה"
   },
   "signature": {
     "title": "חתימת המטופל",
@@ -113,13 +620,20 @@
     "logo": "לוגו",
     "save": "שמור הגדרות",
     "branches": "סניפים נוספים",
-    "branches_desc": "נהל מיקומים מרובים",
+    "branches_desc": "נהל מיקומים מרובים של הקליניקה שלך",
     "add_branch": "הוסף סניף",
     "no_branches": "אין סניפים נוספים",
     "branch_name": "שם הסניף",
     "save_branches": "שמור סניפים",
     "edit_branch": "ערוך סניף",
-    "new_branch": "סניף חדש"
+    "new_branch": "סניף חדש",
+    "save_branch": "שמור סניף",
+    "subtitle": "הגדרות כלליות של הקליניקה",
+    "trade_name": "שם מסחרי",
+    "legal_name": "שם משפטי / רשום",
+    "nika_number": "מספר עוסק מורשה",
+    "save_success": "נשמר בהצלחה",
+    "confirm_delete_branch": "למחוק סניף זה?"
   },
   "language": {
     "select": "שפה",
@@ -144,7 +658,27 @@
     "magic_link_sent": "שלחנו Magic Link ל-",
     "email": "אימייל",
     "magic_link": "כניסה עם Magic Link",
-    "footer": "הסכמות דיגיטליות תקפות · חוק זכויות החולה · GDPR"
+    "footer": "הסכמות דיגיטליות תקפות · חוק זכויות החולה · GDPR",
+    "invalid_email": "הזן כתובת אימייל תקינה",
+    "send_error": "שגיאה בשליחת הקישור",
+    "subtitle": "הסכמות דיגיטליות · eIDAS",
+    "email_placeholder": "you@clinic.co.il"
+  },
+  "dashboard": {
+    "title": "לוח בקרה",
+    "subtitle": "סיכום פעילות",
+    "pending_signature": "ממתינות לחתימה",
+    "signature_rate": "שיעור חתימה",
+    "signed_count": "{{count}} חתומות",
+    "pending_count": "{{count}} ממתינות",
+    "recent_consents": "הסכמות אחרונות",
+    "view_all_consents": "צפה בכולן →",
+    "view_all": "צפה בכולן →",
+    "no_consents": "אין הסכמות",
+    "recent_clinical": "רשומות רפואיות אחרונות",
+    "no_clinical": "אין רשומות רפואיות",
+    "recent_photos": "סשני צילום אחרונים",
+    "no_photos": "אין סשני צילום"
   },
   "templates": {
     "title": "תבניות",
@@ -152,7 +686,7 @@
     "editor_title": "עורך תבנית",
     "consent_title_label": "כותרת ההסכמה",
     "no_translation": "אין תרגום ב-",
-    "translate_all": "תרגם ל-31 שפות",
+    "translate_all": "תרגם ל-21 שפות",
     "translating": "מתרגם…",
     "legal_framework": "מסגרת משפטית",
     "select_template": "בחר תבנית לעריכה",
@@ -163,9 +697,343 @@
     "saving": "שומר…",
     "saved": "נשמר"
   },
+  "patientDetail": {
+    "confirm_delete_clinical": "למחוק רשומה רפואית זו?",
+    "confirm_delete_session": "למחוק סשן זה ואת כל תמונותיו?",
+    "not_found": "המטופל לא נמצא",
+    "date_of_birth": "תאריך לידה",
+    "email": "אימייל",
+    "blood_type": "סוג דם",
+    "address": "כתובת",
+    "allergies": "אלרגיות",
+    "medications": "תרופות",
+    "tabs": {
+      "history": "רשומות רפואיות ({{count}})",
+      "photos": "תמונות ({{count}})",
+      "consents": "הסכמות ({{count}})"
+    },
+    "new_clinical_record": "רשומה חדשה",
+    "no_clinical_records": "אין רשומות רפואיות למטופל זה",
+    "doctor_prefix": "ד\"ר {{name}}",
+    "fields": {
+      "anamnesis": "אנמנזה",
+      "allergies": "אלרגיות",
+      "current_medications": "תרופות נוכחיות",
+      "physical_exam": "בדיקה גופנית",
+      "diagnosis": "אבחנה",
+      "treatment_plan": "תוכנית טיפול",
+      "notes": "הערות"
+    },
+    "new_photo_session": "סשן חדש",
+    "no_photo_sessions": "אין סשני צילום למטופל זה",
+    "no_consents": "אין הסכמות למטופל זה",
+    "status": {
+      "signed": "חתום",
+      "pending": "ממתין",
+      "revoked": "בוטל",
+      "expired": "פג תוקף"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "מעבדה",
+    "not_found": "לא נמצא פרופיל מעבדה.",
+    "panel_subtitle": "פאנל מעבדה שותפה",
+    "tabs": {
+      "clinics": "קליניקות מקושרות",
+      "campaigns": "קמפיינים פרסומיים",
+      "stats": "סטטיסטיקות"
+    },
+    "no_clinics": "עדיין אין קליניקות מקושרות למעבדה זו.",
+    "media_management": "ניהול מדיה פרסומית",
+    "welcome_screen": {
+      "title": "מסך ברוכים הבאים",
+      "description": "עד 5 תמונות או סרטונים. בחר מה להציג, באקראי או ברצף (מקסימום 100 מ\"ב לקובץ)."
+    },
+    "patient_content": {
+      "title": "תוכן למטופל",
+      "description": "עד 5 תמונות או סרטונים המיועדים למטופל. השימוש המדויק שלהם יוגדר בקרוב."
+    },
+    "stats_pending": "סעיף זה עדיין לא הוגדר — בקרוב תוכל לראות כאן מדדי ביצועים של הקמפיינים והקליניקות שלך."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "למחוק רשומה רפואית זו?",
+    "title": "רשומות רפואיות",
+    "records_count": "{{count}} רשומות",
+    "add_record": "רשומה חדשה",
+    "search_placeholder": "חפש לפי מטופל, אבחנה, סיבה…",
+    "no_records": "אין רשומות רפואיות",
+    "table_headers": ["מטופל", "תאריך", "סיבת הביקור", "אבחנה", "רופא", ""]
+  },
+  "labPartners": {
+    "title": "מעבדות שותפות",
+    "count": "{{count}} רשומות",
+    "new_lab": "מעבדה חדשה",
+    "search_placeholder": "חפש מעבדה…",
+    "no_labs": "אין מעבדות.",
+    "col_name": "שם",
+    "col_email": "אימייל",
+    "col_contact": "איש קשר",
+    "col_phone": "טלפון",
+    "col_status": "סטטוס",
+    "col_actions": "פעולות",
+    "status_active": "פעיל",
+    "status_inactive": "לא פעיל",
+    "confirm_deactivate": "להשבית מעבדה?",
+    "form": {
+      "edit_title": "עריכת מעבדה",
+      "new_title": "מעבדה חדשה",
+      "name": "שם",
+      "email": "אימייל",
+      "phone": "טלפון",
+      "contact_person": "איש קשר",
+      "website": "אתר אינטרנט",
+      "notes": "הערות",
+      "name_email_required": "שם ואימייל הם שדות חובה",
+      "unknown_error": "שגיאה לא ידועה"
+    },
+    "campaigns": {
+      "title": "קמפיינים של {{name}}",
+      "new_campaign": "קמפיין חדש",
+      "no_campaigns": "אין קמפיינים.",
+      "col_name": "שם",
+      "col_type": "סוג",
+      "col_trigger": "טריגר",
+      "col_status": "סטטוס",
+      "col_actions": "פעולות",
+      "confirm_delete": "למחוק קמפיין?",
+      "form": {
+        "edit_title": "עריכת קמפיין",
+        "new_title": "קמפיין חדש",
+        "name": "שם",
+        "name_required": "השם הוא שדה חובה",
+        "unknown_error": "שגיאה לא ידועה",
+        "type": "סוג",
+        "rotation_mode": "מצב סבב",
+        "rotation_random": "אקראי",
+        "rotation_manual": "ידני",
+        "creative_url": "כתובת URL של הקריאייטיב",
+        "trigger": "טריגר",
+        "interval_minutes": "מרווח (דק')",
+        "start_date": "תאריך התחלה",
+        "end_date": "תאריך סיום",
+        "active": "פעיל"
+      }
+    },
+    "creative_types": {
+      "image": "תמונה",
+      "video": "וידאו",
+      "url": "כתובת URL",
+      "offer": "מבצע",
+      "training": "הכשרה"
+    },
+    "triggers": {
+      "on_login": "בפתיחה",
+      "on_consent": "ביצירת הסכמה",
+      "every_x_minutes": "כל X דקות",
+      "once_daily": "פעם ביום"
+    }
+  },
+  "agenda": {
+    "title": "יומן",
+    "subtitle": "תורים, טיפולים ותכנון לוחות זמנים",
+    "tab_appointments": "תורים",
+    "tab_treatments": "טיפולים",
+    "tab_planning": "תכנון יומן"
+  },
+  "verifyConsent": {
+    "id_not_provided": "לא סופק מזהה",
+    "verifying": "מאמת מסמך…",
+    "subtitle": "אימות מסמך",
+    "not_found_title": "המסמך לא נמצא",
+    "signed_title": "מסמך תקף וחתום",
+    "signed_subtitle": "החתימה אומתה בהצלחה",
+    "revoked_title": "ההסכמה בוטלה",
+    "revoked_subtitle": "המטופל ביטל הסכמה זו",
+    "pending_title": "ממתין לחתימה",
+    "pending_subtitle": "מסמך זה עדיין לא נחתם",
+    "patient": "מטופל",
+    "doctor": "רופא",
+    "treatment": "טיפול",
+    "signed_date": "תאריך חתימה",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "מזהה מסמך:",
+    "verified_on": "אומת בתאריך {{date}}. מסמך זה תקף בהתאם לתקנות המקומיות וחתום אלקטרונית בהתאם לתקנת eIDAS (EU) 910/2014."
+  },
+  "recharge": {
+    "title": "תוכניות מנוי",
+    "subtitle": "בחר את התוכנית המתאימה ביותר לקליניקה שלך",
+    "monthly": "חודשי",
+    "annual": "שנתי",
+    "per_month": "/חודש",
+    "save_20_annual": "חסוך 20% בתשלום שנתי",
+    "switch_annual_save": "עבור לשנתי וחסוך 20%",
+    "hire_plan": "רכוש תוכנית",
+    "note_title": "הערה לתוכנית AI ותוכנית AI פרימיום:",
+    "note_text": "התצורה הראשונית של סוכני ה-AI (שירותים, טיפולים והתאמה אישית) וההטמעה מתומחרות בנפרד בהתאם למורכבות של כל קליניקה. עלויות סוכן קול ו-WhatsApp API אינן כלולות בתשלום החודשי.",
+    "plans": {
+      "base": {
+        "name": "תוכנית בסיסית",
+        "features": [
+          "הסכמות מדעת ללא הגבלה",
+          "רשומה רפואית",
+          "גלריית תמונות",
+          "פורטל מטופל",
+          "Magic Link + ביומטריה",
+          "תמיכה כלולה"
+        ]
+      },
+      "pro": {
+        "name": "תוכנית פרו",
+        "badge": "הפופולרית ביותר",
+        "features": [
+          "כל התוכנית הבסיסית +",
+          "יומן תורים",
+          "CRM מטופלים",
+          "בקרת טוקסין",
+          "הצעות מחיר למטופלים"
+        ]
+      },
+      "ia": {
+        "name": "תוכנית AI",
+        "features": [
+          "כל תוכנית פרו +",
+          "סוכן WhatsApp AI 24/7 — קליטת תורים",
+          "אישור תורים אוטומטי",
+          "תזכורות תורים אוטומטיות",
+          "פאנל ניהול WhatsApp",
+          "תקשורת עם מטופלים דרך WhatsApp",
+          "שליחת הסכמות, היסטוריה רפואית, תמונות, הצעות מחיר וחשבוניות דרך WhatsApp"
+        ]
+      },
+      "ia_plus": {
+        "name": "תוכנית AI פרימיום",
+        "badge": "חדש",
+        "features": [
+          "כל תוכנית AI +",
+          "סוכן קול AI 24/7: עונה לשיחות",
+          "קביעת תורים בטלפון באופן אוטומטי",
+          "משכפל את קול פקידת הקבלה שלך ב-100%"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "בקרת טוקסין",
+    "subtitle": "מעקב אצוות של טוקסין בוטולינום",
+    "new_record": "רישום חדש",
+    "from": "מ-",
+    "to": "עד",
+    "doctor": "רופא",
+    "patient": "מטופל",
+    "all": "הכל",
+    "lot_number": "מספר אצווה",
+    "search_lot_placeholder": "חפש אצווה…",
+    "clear_filters": "נקה מסננים",
+    "no_results": "אין רישומי טוקסין עם מסננים אלה.",
+    "col_date": "תאריך",
+    "col_patient": "מטופל",
+    "col_doctor": "רופא",
+    "col_brand": "שם מסחרי",
+    "col_lot": "אצווה",
+    "col_expiry": "תוקף",
+    "col_zones": "אזורים",
+    "col_units": "יחידות",
+    "col_signature": "חתימה",
+    "col_ci": "הסכמה",
+    "col_actions": "פעולות",
+    "signed": "חתום",
+    "unsigned": "ללא חתימה",
+    "consent_linked": "עם הסכמה מקושרת",
+    "consent_not_linked": "ללא הסכמה מקושרת",
+    "confirm_delete": "למחוק רישום טוקסין זה?",
+    "detail": {
+      "not_found": "הרישום לא נמצא.",
+      "patient": "מטופל",
+      "doctor": "רופא",
+      "brand": "שם מסחרי",
+      "manufacturer": "יצרן",
+      "lot": "מספר אצווה",
+      "expiry": "תאריך תפוגה",
+      "vials": "אמפולות שנפתחו",
+      "total_units": "סך היחידות",
+      "treated_zones": "אזורים שטופלו",
+      "no_zones": "לא נרשמו אזורים.",
+      "notes": "הערות",
+      "doctor_signature": "חתימת הרופא",
+      "signature_alt": "חתימת הרופא",
+      "signed_on": "נחתם בתאריך {{date}}",
+      "no_signature": "לרישום זה אין חתימת רופא.",
+      "linked_consent": "הסכמה מדעת מקושרת",
+      "consent_default_name": "הסכמה",
+      "consent_unsigned": "לא חתום",
+      "loading_pdf": "טוען PDF…",
+      "consent_load_error": "לא ניתן היה לטעון את המידע על ההסכמה המקושרת."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "האסימון לא נמצא בכתובת ה-URL",
+    "invalid_token": "אסימון לא תקין או פג תוקף",
+    "connection_error": "שגיאת חיבור",
+    "verifying": "מאמת קישור…",
+    "invalid_link": "קישור לא תקין",
+    "back_home": "חזרה לדף הבית"
+  },
+  "photoSessions": {
+    "confirm_delete": "למחוק סשן זה ואת כל תמונותיו?",
+    "title": "תמונות",
+    "subtitle": "{{count}} סשני צילום",
+    "new_session": "סשן חדש",
+    "search_placeholder": "חפש לפי מטופל או שם סשן…",
+    "no_sessions": "אין סשני צילום"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "ההסכמות שלי",
+      "clinical": "ההיסטוריה הרפואית שלי",
+      "photos": "התמונות שלי"
+    },
+    "consents": {
+      "empty": "עדיין אין לך הסכמות חתומות.",
+      "default_name": "הסכמה",
+      "doctor": "ד\"ר {{name}}",
+      "signed_on": "נחתם בתאריך {{date}}",
+      "status_signed": "חתום",
+      "status_pending": "ממתין"
+    },
+    "clinical": {
+      "empty": "ההיסטוריה הרפואית שלך ריקה.",
+      "default_name": "ביקור",
+      "doctor_suffix": " · ד\"ר {{name}}",
+      "fields": {
+        "diagnosis": "אבחנה",
+        "anamnesis": "אנמנזה",
+        "current_medications": "תרופות נוכחיות",
+        "allergies": "אלרגיות",
+        "treatment_plan": "תוכנית טיפול",
+        "notes": "הערות"
+      }
+    },
+    "photos": {
+      "empty": "עדיין אין סשני צילום.",
+      "back_to_sessions": "חזרה לסשנים",
+      "default_session_name": "סשן צילום",
+      "doctor_suffix": " · ד\"ר {{name}}",
+      "compare_title": "השוואת לפני / אחרי",
+      "before": "לפני",
+      "after": "אחרי",
+      "close_compare": "סגור השוואה",
+      "compare_button": "השווה",
+      "photo_count": "{{count}} תמונות"
+    }
+  },
   "settings": {
     "title": "הגדרות",
     "subtitle": "ניהול משתמשים וגישה למערכת",
+    "tabs": {
+      "users": "משתמשים",
+      "media": "פרסום",
+      "preview": "תצוגה מקדימה"
+    },
     "users": {
       "title": "משתמשים",
       "invite_user": "הזמן משתמש",
@@ -174,14 +1042,40 @@
       "role": "תפקיד",
       "role_admin": "מנהל",
       "role_clinica": "קליניקה",
-      "admin_hint": "למנהל יש גישה מלאה לכל הסעיפים.",
+      "admin_hint": "למנהל יש גישה מלאה לכל הסעיפים במערכת.",
       "permissions": "הרשאות גישה",
-      "permissions_hint": "בחר את הסעיפים הנגישים.",
+      "permissions_hint": "בחר לאילו סעיפים תהיה למשתמש זה גישה.",
       "send_invite": "שלח הזמנה",
-      "no_users": "אין משתמשים. הזמן את הראשון.",
+      "no_users": "אין משתמשים רשומים. הזמן את הראשון.",
       "inactive": "לא פעיל",
-      "activate": "הפעל",
-      "deactivate": "השבת"
+      "activate": "הפעל משתמש",
+      "deactivate": "השבת משתמש",
+      "role_superadmin": "מנהל-על",
+      "role_doctor": "רופא",
+      "role_receptionist": "פקיד קבלה",
+      "role_lab_partner": "מעבדה",
+      "role_patient": "מטופל",
+      "filter_all": "הכל",
+      "invite_accepted": "ההזמנה אושרה",
+      "invite_expired": "ההזמנה פגה",
+      "invite_pending": "הזמנה ממתינה",
+      "email_placeholder": "user@clinic.co.il",
+      "full_name_placeholder": "שם פרטי ושם משפחה",
+      "linked_lab": "מעבדה מקושרת",
+      "no_lab": "ללא מעבדה",
+      "lab_hint": "המשתמש יראה רק את הקליניקות המקושרות למעבדה זו.",
+      "admin_only_hint": "הגדרות מיועדות למנהלים בלבד ולעולם לא ניתן להאציל אותן לקליניקה.",
+      "load_error": "לא ניתן היה לטעון את רשימת המשתמשים",
+      "retry": "נסה שוב"
+    },
+    "media": {
+      "title": "ניהול מדיה פרסומית",
+      "managed_by_lab": "פרסום זה מנוהל על ידי המעבדה השותפה שלך. ניתן לצפות בו כאן, אך רק המעבדה יכולה לשנות אותו.",
+      "managed_by_lab_named": "פרסום זה מנוהל על ידי המעבדה השותפה שלך ({{name}}). ניתן לצפות בו כאן, אך רק המעבדה יכולה לשנות אותו.",
+      "welcome_title": "מסך ברוכים הבאים",
+      "welcome_description": "עד 5 תמונות או סרטונים. בחר מה להציג, באקראי או ברצף (מקסימום 100 מ\"ב לקובץ).",
+      "patient_title": "תוכן למטופל",
+      "patient_description": "עד 5 תמונות או סרטונים המיועדים למטופל. השימוש המדויק שלהם יוגדר בקרוב."
     }
   }
 }

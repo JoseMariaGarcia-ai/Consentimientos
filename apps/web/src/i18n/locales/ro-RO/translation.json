@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "Editare înregistrare toxină",
+    "title_new": "Înregistrare nouă de toxină",
+    "patient": "Pacient",
+    "select_patient": "Selectați pacientul…",
+    "linked_consent": "Consimțământ informat asociat",
+    "not_linked": "Neasociat",
+    "consent_default_name": "Consimțământ",
+    "unsigned": "nesemnat",
+    "loading_consents": "Se încarcă consimțămintele…",
+    "no_consents_hint": "Acest pacient nu are încă niciun consimțământ pentru toxină semnat. Este opțional, puteți salva înregistrarea fără să o asociați.",
+    "doctor": "Medic",
+    "unassigned": "Neatribuit",
+    "application_date": "Data aplicării",
+    "brand_name": "Denumire comercială",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Producător",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Număr de lot",
+    "expiry_date": "Data expirării",
+    "vials_opened": "Fiole deschise",
+    "treated_zones": "Zone tratate",
+    "other_zone_placeholder": "Altă zonă…",
+    "add": "Adaugă",
+    "total_units": "Total unități",
+    "notes": "Note",
+    "notes_placeholder": "Observații…",
+    "doctor_signature": "Semnătura medicului",
+    "signature_alt": "Semnătura medicului",
+    "signed_on": "Semnat {{date}}",
+    "sign_again": "Semnează din nou",
+    "signature_hint": "Desenați semnătura și apăsați „Confirmă semnătura” înainte de a salva.",
+    "confirm_delete": "Ștergeți această înregistrare de toxină?",
+    "deleting": "Se șterge…",
+    "delete_record": "Șterge înregistrarea",
+    "cancel": "Anulare",
+    "save_changes": "Salvează modificările",
+    "create_record": "Creează înregistrarea",
+    "saving": "Se salvează…",
+    "unknown_error": "Eroare necunoscută",
+    "validation": {
+      "required_fields": "Pacientul, denumirea comercială, lotul, data expirării și producătorul sunt obligatorii",
+      "signature_required": "Semnătura medicului este obligatorie pentru a salva înregistrarea"
+    },
+    "zones": {
+      "forehead": "Frunte (linii orizontale)",
+      "glabella": "Între sprâncene (glabelă)",
+      "crows_feet": "Riduri laterale ale ochilor (periocular)",
+      "lower_eyelid": "Pleoapa inferioară",
+      "eyebrow_lift": "Sprâncene (lifting)",
+      "bunny_lines": "Nas (bunny lines)",
+      "upper_lip": "Buza superioară (cod de bare)",
+      "oral_commissures": "Comisuri bucale",
+      "chin_dimpling": "Bărbie (coajă de portocală)",
+      "platysmal_bands": "Gât (benzi platismale)",
+      "decolletage": "Decolteu",
+      "axillary_sweating": "Transpirație axilară (hiperhidroză)",
+      "palmar_sweating": "Transpirație palmară",
+      "plantar_sweating": "Transpirație plantară",
+      "jaw_bruxism": "Mandibulă (bruxism / mușchi maseteri)",
+      "migraine_occipital": "Migrenă (puncte occipitale)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti lift (gât și mandibulă)",
+      "other_zone": "Altă zonă"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Se generează…",
+    "export_pdf": "Exportă PDF"
+  },
+  "patientGallery": {
+    "title": "Galerie foto",
+    "upload_photos": "Încarcă fotografii",
+    "loading": "Se încarcă…",
+    "empty": "Fără fotografii. Încărcați prima imagine.",
+    "confirm_delete": "Ștergeți această fotografie?",
+    "count_stored": "{{count}} {{unit}} · Stocate în Cloudflare R2",
+    "photo_singular": "fotografie",
+    "photo_plural": "fotografii"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Editare istoric medical",
+    "title_new": "Istoric medical nou",
+    "patient": "Pacient",
+    "select_patient": "Selectați pacientul…",
+    "doctor": "Medic",
+    "unassigned": "Neatribuit",
+    "branch": "Clinică / Sediu",
+    "unspecified": "Nespecificat",
+    "visit_date": "Data vizitei",
+    "reason_for_visit": "Motivul consultației",
+    "anamnesis": "Anamneză / Antecedente",
+    "current_medications": "Medicație curentă",
+    "allergies": "Alergii cunoscute",
+    "physical_exam": "Examen fizic",
+    "diagnosis": "Diagnostic",
+    "treatment_plan": "Plan de tratament",
+    "notes": "Observații / Note",
+    "select_patient_error": "Selectați un pacient",
+    "unknown_error": "Eroare necunoscută",
+    "cancel": "Anulare",
+    "saving": "Se salvează…",
+    "save_record": "Salvează istoricul"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Fișierul depășește limita de {{maxSize}} MB",
+    "upload_error": "Eroare la încărcarea fișierului",
+    "confirm_delete": "Ștergeți acest fișier?",
+    "video": "Video",
+    "image": "Imagine",
+    "uploaded_on": "Încărcat la {{date}}",
+    "change": "Schimbă",
+    "delete": "Șterge",
+    "uploading": "Se încarcă… {{progress}}%",
+    "drop_hint": "Trageți fișierul aici sau faceți clic pentru a-l încărca",
+    "file_types_hint": "Imagine (JPG, PNG, GIF) sau video (MP4, MOV, WebM) · Max. {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Scrieți conținutul consimțământului…",
+    "bold": "Aldin",
+    "italic": "Cursiv",
+    "heading": "Titlu",
+    "bullet_list": "Listă cu puncte",
+    "ordered_list": "Listă numerotată",
+    "undo": "Anulează",
+    "redo": "Refă"
+  },
+  "consentPdfButton": {
+    "generating": "Se generează PDF…",
+    "export": "Exportă PDF"
+  },
+  "newSessionModal": {
+    "title": "Sesiune foto nouă",
+    "patient_label": "Pacient",
+    "select_patient_placeholder": "Selectați pacientul…",
+    "doctor_label": "Medic",
+    "no_doctor_assigned": "Neatribuit",
+    "branch_label": "Clinică / Sediu",
+    "no_branch_specified": "Nespecificat",
+    "session_name_label": "Numele sesiunii",
+    "session_name_placeholder": "Ex: Tratament facial sesiunea 1",
+    "date_label": "Dată și oră",
+    "notes_label": "Note",
+    "notes_placeholder": "Observații despre sesiune…",
+    "select_patient_error": "Selectați un pacient",
+    "unknown_error": "Eroare necunoscută",
+    "cancel": "Anulare",
+    "creating": "Se creează…",
+    "create_session": "Creează sesiunea"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Sesiune foto",
+    "photo_count": "{{count}}/{{max}} fotografii",
+    "compare_button": "Compară înainte / după",
+    "delete_session": "Șterge sesiunea",
+    "upload": "Încarcă",
+    "remaining": "{{remaining}} rămase"
+  },
+  "beforeAfterModal": {
+    "select_title": "Selectați fotografiile pentru comparație",
+    "compare_title": "Comparație Înainte / După",
+    "change_selection": "← Schimbă selecția",
+    "select_intro": "Selectați o fotografie pentru",
+    "select_middle": "și alta pentru",
+    "before": "Înainte",
+    "after": "După",
+    "before_badge": "ÎNAINTE",
+    "after_badge": "DUPĂ",
+    "compare_button": "Compară"
+  },
+  "biometricPrompt": {
+    "title": "Activați accesul biometric",
+    "description": "Folosiți Face ID, amprenta sau Windows Hello pentru a intra în mai puțin de 2 secunde data viitoare.",
+    "device_label": "Dispozitiv:",
+    "activate": "Activează",
+    "default_device": "Dispozitivul meu"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Selecție manuală",
+        "desc": "Alegeți dumneavoastră care se afișează. Faceți clic pe un material pentru a-l activa."
+      },
+      "random": {
+        "label": "Ordine aleatorie",
+        "desc": "Se alege un material aleatoriu de fiecare dată când trebuie afișat."
+      },
+      "sequential": {
+        "label": "Ordine secvențială",
+        "desc": "Se afișează pe rând, unul câte unul, de fiecare dată când trebuie afișat."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Fișierul depășește limita de 100 MB",
+      "invalidUrl": "URL invalid"
+    },
+    "confirmDelete": "Ștergeți acest material?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Imagine"
+    },
+    "active": "✓ Activ",
+    "select": "Selectează",
+    "upload": {
+      "label": "Încarcă fișier",
+      "slotsFree": "{{count}} liber{{suffix}}"
+    },
+    "addUrlButton": "Adaugă URL video (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Adaugă video prin URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… sau URL direct .mp4",
+      "labelPlaceholder": "Nume sau descriere (opțional)",
+      "hint": "Compatibil cu YouTube, Vimeo și URL-uri directe de video (.mp4, .webm…)",
+      "add": "Adaugă",
+      "saving": "Se salvează…"
+    },
+    "displayModeHeading": "Cum doriți să le afișați?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Bun venit",
+    "continue": "Continuă →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Când doriți să afișați publicitatea?",
+    "subheading": "Puteți selecta mai multe opțiuni simultan.",
+    "options": {
+      "session": {
+        "label": "O dată la fiecare conectare",
+        "desc": "Se afișează o singură dată de fiecare dată când utilizatorul deschide aplicația în browser."
+      },
+      "consent": {
+        "label": "De fiecare dată când se creează un consimțământ",
+        "desc": "Apare imediat după crearea fiecărui consimțământ informat."
+      },
+      "clinical": {
+        "label": "De fiecare dată când se creează un istoric medical",
+        "desc": "Apare imediat după salvarea fiecărui istoric medical."
+      },
+      "interval": {
+        "label": "La fiecare X minute",
+        "desc": "Se afișează periodic cât timp aplicația este deschisă."
+      }
+    },
+    "every": "La fiecare",
+    "minutes": "minute",
+    "errors": {
+      "selectAtLeastOne": "Selectați cel puțin o opțiune",
+      "saveFailed": "Eroare la salvare"
+    },
+    "saving": "Se salvează…",
+    "saved": "Salvat",
+    "saveButton": "Salvează configurația",
+    "appliedMessage": "✅ Configurație aplicată"
+  },
+  "demoPreviewPanel": {
+    "heading": "Previzualizare pe roluri",
+    "subheading": "Creați date de test și intrați în program exact așa cum le-ar vedea un pacient, o clinică sau un laborator.",
+    "createAllButton": "Creează toate datele de test",
+    "errors": {
+      "checkFailed": "Eroare la verificarea datelor de test",
+      "createPatientFailed": "Nu s-a putut crea pacientul de test",
+      "createBranchFailed": "Nu s-a putut crea sediul de test",
+      "createLabFailed": "Nu s-a putut crea laboratorul de test"
+    },
+    "cards": {
+      "patient": {
+        "title": "Vizualizare Pacient",
+        "description": "Simulează portalul văzut de un pacient: consimțămintele, istoricul medical și fotografiile sale."
+      },
+      "branch": {
+        "title": "Vizualizare Clinică",
+        "description": "Simulează panoul văzut de personalul clinicii, cu meniul restricționat la permisiunile lui reale."
+      },
+      "lab": {
+        "title": "Vizualizare Laborator",
+        "description": "Simulează panoul unui laborator partener: profilul său, clinicile asociate și campaniile."
+      }
+    },
+    "testDataCreated": "Date de test create",
+    "viewAs": "Vizualizează ca {{role}}",
+    "roleNames": {
+      "patient": "pacient",
+      "branch": "clinică",
+      "lab": "laborator"
+    },
+    "creating": "Se creează…",
+    "createTestData": "Creează date de test"
+  },
+  "previewBanner": {
+    "message": "Previzualizare — vizualizați interfața așa cum ar vedea-o",
+    "exitButton": "Ieșiți din previzualizare",
+    "roles": {
+      "patient": "Pacient",
+      "clinica": "Clinică",
+      "labPartner": "Laborator"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Vezi luna",
+    "today": "Azi",
+    "new_appointment": "Programare nouă",
+    "no_treatments_warning": "Încă nu există tratamente create. Mergeți la fila „Tratamente” pentru a crea primul înainte de a programa întâlniri.",
+    "day_closed_notice": "Această zi este marcată ca fiind închisă în Planificarea Agendei. O puteți revizui sau deschide din acea filă.",
+    "slot_aria_label": "Programează la ora {{time}}",
+    "outside_availability": "În afara programului disponibil",
+    "treatment_fallback": "Tratament",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Disponibil",
+      "outside_hours": "În afara programului",
+      "scheduled": "Programare stabilită"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Editare programare",
+    "title_new": "Programare nouă",
+    "validation_required": "Pacientul, tratamentul și ora sunt obligatorii",
+    "error_unknown": "Eroare necunoscută",
+    "confirm_delete": "Ștergeți această programare?",
+    "deleting": "Se șterge…",
+    "delete_appointment": "Șterge programarea",
+    "cancel": "Anulare",
+    "saving": "Se salvează…",
+    "save_changes": "Salvează modificările",
+    "create_appointment": "Creează programarea",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Selectați pacientul…",
+      "doctor": "Medic",
+      "unassigned": "Neatribuit",
+      "branch": "Clinică / Sediu",
+      "main_branch": "Sediul principal",
+      "treatment": "Tratament",
+      "select_treatment": "Selectați tratamentul…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Nu există tratamente create. Adăugați unul în fila „Tratamente” mai întâi.",
+      "datetime": "Dată și oră",
+      "duration_note": "Va ocupa {{duration}} minute în agendă.",
+      "notes": "Note",
+      "notes_placeholder": "Observații despre programare…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Tratamente",
+    "subtitle": "Durata și prețul fiecărui tratament pentru a putea programa întâlniri",
+    "new_treatment": "Tratament nou",
+    "loading": "Se încarcă…",
+    "empty_state": "Nu există încă tratamente create",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Ștergeți acest tratament?",
+    "form": {
+      "title_edit": "Editare tratament",
+      "title_new": "Tratament nou",
+      "name": "Nume",
+      "name_placeholder": "Ex: Toxină botulinică",
+      "duration": "Durată (min)",
+      "price": "Preț (€)",
+      "validation_name_required": "Numele este obligatoriu",
+      "error_unknown": "Eroare necunoscută",
+      "cancel": "Anulare",
+      "saving": "Se salvează…",
+      "save": "Salvează"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Lun", "Mar", "Mie", "Joi", "Vin", "Sâm", "Dum"],
+    "months": ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+    "has_exception_tooltip": "Are deja o excepție configurată",
+    "legend": {
+      "usually_open": "De obicei deschis",
+      "usually_closed": "De obicei închis",
+      "has_exception": "Cu excepție",
+      "selected": "Selectat"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Lun", "Mar", "Mie", "Joi", "Vin", "Sâm", "Dum"],
+    "months": ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+    "legend": {
+      "open_day": "Zi deschisă",
+      "closed": "Închis",
+      "today": "Azi"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Planificarea Agendei",
+    "subtitle": "Configurați ce zile și în ce interval orar se pot face programări.",
+    "time_separator": "până la",
+    "add_time_range": "Adaugă interval orar",
+    "weekdays": ["Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă", "Duminică"],
+    "confirm_delete_exception": "Ștergeți această excepție și reveniți la programul obișnuit al acelei zile?",
+    "errors": {
+      "save_schedule_failed": "Nu s-a putut salva programul",
+      "apply_pattern_failed": "Nu s-a putut aplica modelul",
+      "select_day_required": "Selectați cel puțin o zi din calendar",
+      "save_exception_failed": "Nu s-a putut salva ziua specială"
+    },
+    "bulk": {
+      "title": "Aplicați un model la mai multe zile deodată",
+      "description": "Ex: luni până vineri de la 09:00 la 20:00. Selectați zilele și programul, apoi aplicați — puteți ajusta ulterior fiecare zi individual.",
+      "applying": "Se aplică…",
+      "apply_button": "Aplică la zilele selectate"
+    },
+    "weekly": {
+      "title": "Program săptămânal obișnuit",
+      "closed": "Închis",
+      "saving": "Se salvează…",
+      "save": "Salvează"
+    },
+    "exceptions": {
+      "title": "Zile speciale (excepții)",
+      "description": "Deschideți o zi specială (ex. o sâmbătă) sau închideți o zi care de obicei este deschisă (ex. sărbătoare).",
+      "select_days_label": "Selectați una sau mai multe zile",
+      "days_selected_singular": "{{count}} zi selectată",
+      "days_selected_plural": "{{count}} zile selectate",
+      "clear_selection": "Șterge selecția",
+      "open_special": "Deschidere specială",
+      "close": "Închidere",
+      "schedule_label": "Program în aceste zile",
+      "notes_placeholder": "Motiv (opțional) — ex: Punte de august",
+      "saving": "Se salvează…",
+      "save_button_singular": "Salvează ziua specială",
+      "save_button_plural": "Salvează {{count}} zile speciale",
+      "no_exceptions": "Nu există zile speciale configurate.",
+      "open_special_status": "Deschidere specială · {{ranges}}",
+      "closed_status": "Închis"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
-    "tagline": "Consimțăminte Digitale · Semnătură Biometrică"
+    "tagline": "Consimțăminte Digitale · Amprentă Digitală"
   },
   "nav": {
-    "dashboard": "Panou de control",
+    "dashboard": "Acasă",
     "patients": "Pacienți",
     "doctors": "Medici",
     "consents": "Consimțăminte",
@@ -12,9 +443,17 @@
     "logout": "Deconectare",
     "templates": "Șabloane",
     "settings": "Setări",
-    "clinicalRecords": "Dosar Clinic",
+    "clinicalRecords": "Istoric Medical",
     "photos": "Fotografii",
-    "recharge": "Reîncarcă"
+    "recharge": "Planuri de Abonament",
+    "agenda": "Agendă",
+    "toxin": "Control Toxină",
+    "labPartners": "Laboratoare",
+    "menu": "Meniu"
+  },
+  "topbar": {
+    "tagline": "Consimțăminte Digitale · Amprentă Digitală",
+    "legal": "eIDAS (UE 910/2014) · Legea 41/2002 · RGPD"
   },
   "auth": {
     "login_title": "Acces securizat",
@@ -23,17 +462,30 @@
     "send_link": "Trimite link de acces",
     "check_email": "Verificați email-ul — am trimis link-ul de acces",
     "magic_link_sent": "Link trimis cu succes",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Reține acest dispozitiv",
+    "remember_7": "7 zile",
+    "remember_30": "30 de zile",
+    "remember_90": "90 de zile",
+    "biometric_activate": "Activează Face ID / amprenta",
+    "biometric_prompt": "După prima autentificare veți putea activa Face ID / amprenta",
+    "biometric_registering": "Se activează…",
+    "biometric_success": "Biometrie activată!",
+    "biometric_success_msg": "Data viitoare veți intra cu o singură atingere.",
+    "biometric_error": "Nu s-a putut activa. Asigurați-vă că dispozitivul dvs. are biometria configurată.",
+    "biometric_now": "Nu acum",
+    "portal_subtitle": "Consimțăminte Digitale · Amprentă Digitală",
+    "portal_title": "Acces la document",
+    "portal_email_prompt": "Introduceți email-ul pentru a primi un link de acces securizat.",
+    "portal_link_sent_title": "Link trimis",
+    "portal_link_sent_message": "Verificați email-ul și faceți clic pe link pentru a continua.",
+    "portal_email_placeholder": "tu@email.com",
+    "portal_consent_default_title": "Consimțământ Informat",
+    "portal_accept_label": "Am citit și accept acest consimțământ informat",
+    "portal_proceed_to_sign": "Continuă spre semnătură →",
+    "portal_saving_signature": "Se salvează semnătura…",
+    "portal_signed_title": "Semnătură finalizată",
+    "portal_signed_message": "Consimțământul dumneavoastră a fost semnat și înregistrat în siguranță.",
+    "portal_error_message": "Este posibil ca linkul să fi expirat sau să fie incorect."
   },
   "patients": {
     "title": "Pacienți",
@@ -42,7 +494,7 @@
     "name": "Prenume",
     "surname": "Nume",
     "dob": "Data nașterii",
-    "id_doc": "CI / Pașaport",
+    "id_doc": "CI / CNP / Pașaport",
     "phone": "Telefon",
     "email": "Email",
     "address": "Adresă",
@@ -54,10 +506,37 @@
     "edit": "Editează",
     "delete": "Șterge",
     "no_results": "Nu există pacienți înregistrați",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Galerie foto",
+    "no_photos": "Fără fotografii. Încărcați prima imagine.",
+    "upload_photos": "Încarcă fotografii",
+    "uploading": "Se încarcă…",
+    "count_registered": "{{count}} înregistrați",
+    "form": {
+      "doc_type": "Tip",
+      "doc_type_passport": "Pașaport",
+      "city": "Oraș",
+      "province": "Provincie",
+      "country": "Țară",
+      "select_placeholder": "— Selectați —",
+      "countries": [
+        "Spania", "Germania", "Argentina", "Belgia", "Bolivia", "Brazilia", "Chile", "China",
+        "Columbia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "SUA", "Franța",
+        "Guatemala", "Honduras", "Italia", "Maroc", "Mexic", "Nicaragua", "Țările de Jos",
+        "Panama", "Paraguay", "Peru", "Portugalia", "Regatul Unit", "Republica Dominicană",
+        "Elveția", "Uruguay", "Venezuela", "Altă țară"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Eroare la salvare:",
+      "unknown_error": "Eroare necunoscută"
+    }
   },
   "doctors": {
     "title": "Medici",
@@ -73,17 +552,45 @@
       "receptionist": "Recepționist"
     },
     "save": "Salvează medic",
-    "no_results": "Nu există medici înregistrați"
+    "no_results": "Nu există medici înregistrați",
+    "last_name": "Nume de familie",
+    "phone": "Telefon",
+    "phone_placeholder": "0700 000 000",
+    "unknown_error": "Eroare necunoscută",
+    "count_registered": "{{count}} înregistrați",
+    "license_display": "Nr. {{number}}"
   },
   "consents": {
     "title": "Consimțăminte",
     "add": "Consimțământ nou",
     "search": "Caută consimțăminte…",
+    "step_labels": ["Date", "Revizuire", "Semnătură medic", "Semnătură pacient", "Finalizat"],
+    "branch_label": "Sediu",
+    "main_branch": "Sediul principal",
+    "select_patient": "Selectați pacientul…",
+    "select_doctor": "Selectați medicul…",
+    "select_treatment": "Selectați tratamentul…",
+    "translating": "Se traduce…",
+    "continue": "Continuă",
+    "responsible_doctor": "Medic responsabil",
+    "legal_framework_title": "Cadru Legal — {{jurisdiction}}",
+    "witness_required_notice": "Această țară necesită martor pentru semnătură",
+    "back": "← Înapoi",
+    "sign_arrow": "Semnează →",
+    "doctor_signature_title": "Semnătura medicului",
+    "doctor_signature_notice": "Medicul trebuie să semneze primul pentru a valida consimțământul",
+    "back_to_preview": "← Înapoi",
+    "patient_signature_title": "Semnătura pacientului",
+    "patient_signature_notice": "Pacientul trebuie să semneze pentru a confirma că a citit și acceptă consimțământul",
+    "signed_title": "Consimțământ semnat",
+    "signed_description": "Documentul a fost semnat și înregistrat corect.",
+    "close": "Închide",
     "status": {
       "pending": "În așteptare",
       "signed": "Semnat",
       "revoked": "Revocat",
-      "expired": "Expirat"
+      "expired": "Expirat",
+      "all": "Toate"
     },
     "sign": "Semnează",
     "generate_pdf": "Generează PDF",
@@ -93,7 +600,13 @@
     "treatment": "Tratament",
     "language": "Limbă",
     "signed_at": "Data semnării",
-    "no_results": "Nu există consimțăminte"
+    "no_results": "Nu există consimțăminte",
+    "confirm_delete": "Ștergeți acest consimțământ?",
+    "stats": "{{total}} total · {{signed}} semnate · {{pending}} în așteptare",
+    "branch": "Sediu",
+    "created_at": "Data creării",
+    "status_header": "Stare",
+    "continue_signature": "Continuă semnătura"
   },
   "signature": {
     "title": "Semnătura pacientului",
@@ -112,14 +625,21 @@
     "tax_id": "CUI / CIF",
     "logo": "Logo",
     "save": "Salvează setările",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Sedii suplimentare",
+    "branches_desc": "Gestionați mai multe locații ale clinicii dvs.",
+    "add_branch": "Adaugă sediu",
+    "no_branches": "Fără sedii suplimentare",
+    "branch_name": "Numele sediului",
+    "save_branches": "Salvează sediile",
+    "edit_branch": "Editează sediul",
+    "new_branch": "Sediu nou",
+    "save_branch": "Salvează sediul",
+    "subtitle": "Configurația generală a clinicii",
+    "trade_name": "Nume comercial",
+    "legal_name": "Denumire fiscală / rațiune socială",
+    "nika_number": "Număr NIKA",
+    "save_success": "Salvat cu succes",
+    "confirm_delete_branch": "Ștergeți acest sediu?"
   },
   "language": {
     "select": "Limbă",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Am trimis un Magic Link la",
     "email": "Email",
     "magic_link": "Conectare cu Magic Link",
-    "footer": "Consimțăminte digitale valide · Legea 95/2006 · GDPR"
+    "footer": "Consimțăminte digitale valide · Legea 95/2006 · RGPD",
+    "invalid_email": "Introduceți un email valid",
+    "send_error": "Eroare la trimiterea linkului",
+    "subtitle": "Consimțăminte Digitale · eIDAS",
+    "email_placeholder": "tu@clinica.ro"
+  },
+  "dashboard": {
+    "title": "Panou de control",
+    "subtitle": "Rezumatul activității",
+    "pending_signature": "În așteptarea semnăturii",
+    "signature_rate": "Rata de semnare",
+    "signed_count": "{{count}} semnate",
+    "pending_count": "{{count}} în așteptare",
+    "recent_consents": "Ultimele consimțăminte",
+    "view_all_consents": "Vezi toate →",
+    "view_all": "Vezi toate →",
+    "no_consents": "Fără consimțăminte",
+    "recent_clinical": "Ultimele istorice medicale",
+    "no_clinical": "Fără istorice medicale",
+    "recent_photos": "Ultimele sesiuni foto",
+    "no_photos": "Fără sesiuni foto"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Șabloane",
+    "search": "Caută tratament…",
+    "editor_title": "Editor de șablon",
+    "consent_title_label": "Titlul consimțământului",
+    "no_translation": "Fără traducere în",
+    "translate_all": "Traduce în 21 de limbi",
+    "translating": "Se traduce…",
+    "legal_framework": "Cadru legal",
+    "select_template": "Selectați un șablon pentru a-l edita",
     "empty": "Fără șabloane",
     "title_placeholder": "Consimțământ informat — Tratament…",
     "content_label": "Conținutul consimțământului",
     "content_placeholder": "Scrieți textul consimțământului informat…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Se salvează…",
+    "saved": "Salvat"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Ștergeți acest istoric medical?",
+    "confirm_delete_session": "Ștergeți această sesiune și toate fotografiile ei?",
+    "not_found": "Pacient negăsit",
+    "date_of_birth": "Data nașterii",
+    "email": "Email",
+    "blood_type": "Grupă sanguină",
+    "address": "Adresă",
+    "allergies": "Alergii",
+    "medications": "Medicație",
+    "tabs": {
+      "history": "Istorice medicale ({{count}})",
+      "photos": "Fotografii ({{count}})",
+      "consents": "Consimțăminte ({{count}})"
+    },
+    "new_clinical_record": "Istoric nou",
+    "no_clinical_records": "Nu există istorice medicale pentru acest pacient",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamneză",
+      "allergies": "Alergii",
+      "current_medications": "Medicație curentă",
+      "physical_exam": "Examen fizic",
+      "diagnosis": "Diagnostic",
+      "treatment_plan": "Plan de tratament",
+      "notes": "Observații"
+    },
+    "new_photo_session": "Sesiune nouă",
+    "no_photo_sessions": "Nu există sesiuni foto pentru acest pacient",
+    "no_consents": "Nu există consimțăminte pentru acest pacient",
+    "status": {
+      "signed": "Semnat",
+      "pending": "În așteptare",
+      "revoked": "Revocat",
+      "expired": "Expirat"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laborator",
+    "not_found": "Nu s-a găsit profilul laboratorului.",
+    "panel_subtitle": "Panou de laborator partener",
+    "tabs": {
+      "clinics": "Clinici asociate",
+      "campaigns": "Campanii publicitare",
+      "stats": "Statistici"
+    },
+    "no_clinics": "Încă nu există clinici asociate acestui laborator.",
+    "media_management": "Gestionarea materialelor publicitare",
+    "welcome_screen": {
+      "title": "Ecran de bun venit",
+      "description": "Până la 5 imagini sau videoclipuri. Alegeți ce se afișează, aleatoriu sau secvențial (max. 100 MB per fișier)."
+    },
+    "patient_content": {
+      "title": "Conținut pentru pacient",
+      "description": "Până la 5 imagini sau videoclipuri destinate pacientului. Utilizarea exactă va fi configurată în curând."
+    },
+    "stats_pending": "Această secțiune este în curs de definire — în curând veți vedea aici indicatori de performanță ai campaniilor și clinicilor dvs."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Ștergeți acest istoric medical?",
+    "title": "Istorice Medicale",
+    "records_count": "{{count}} înregistrări",
+    "add_record": "Istoric nou",
+    "search_placeholder": "Caută după pacient, diagnostic, motiv…",
+    "no_records": "Nu există istorice medicale",
+    "table_headers": ["Pacient", "Data", "Motivul consultației", "Diagnostic", "Medic", ""]
+  },
+  "labPartners": {
+    "title": "Laboratoare Partenere",
+    "count": "{{count}} înregistrate",
+    "new_lab": "Laborator nou",
+    "search_placeholder": "Caută laborator…",
+    "no_labs": "Nu există laboratoare.",
+    "col_name": "Nume",
+    "col_email": "Email",
+    "col_contact": "Contact",
+    "col_phone": "Telefon",
+    "col_status": "Stare",
+    "col_actions": "Acțiuni",
+    "status_active": "Activ",
+    "status_inactive": "Inactiv",
+    "confirm_deactivate": "Dezactivați laboratorul?",
+    "form": {
+      "edit_title": "Editare Laborator",
+      "new_title": "Laborator Nou",
+      "name": "Nume",
+      "email": "Email",
+      "phone": "Telefon",
+      "contact_person": "Persoană de contact",
+      "website": "Site web",
+      "notes": "Note",
+      "name_email_required": "Numele și email-ul sunt obligatorii",
+      "unknown_error": "Eroare necunoscută"
+    },
+    "campaigns": {
+      "title": "Campanii {{name}}",
+      "new_campaign": "Campanie Nouă",
+      "no_campaigns": "Nu există campanii.",
+      "col_name": "Nume",
+      "col_type": "Tip",
+      "col_trigger": "Declanșator",
+      "col_status": "Stare",
+      "col_actions": "Acțiuni",
+      "confirm_delete": "Ștergeți campania?",
+      "form": {
+        "edit_title": "Editare Campanie",
+        "new_title": "Campanie Nouă",
+        "name": "Nume",
+        "name_required": "Numele este obligatoriu",
+        "unknown_error": "Eroare necunoscută",
+        "type": "Tip",
+        "rotation_mode": "Mod rotație",
+        "rotation_random": "Aleatoriu",
+        "rotation_manual": "Manual",
+        "creative_url": "URL material",
+        "trigger": "Declanșator",
+        "interval_minutes": "Interval (min)",
+        "start_date": "Data începerii",
+        "end_date": "Data încheierii",
+        "active": "Activ"
+      }
+    },
+    "creative_types": {
+      "image": "Imagine",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Ofertă",
+      "training": "Formare"
+    },
+    "triggers": {
+      "on_login": "La deschidere",
+      "on_consent": "La crearea unui consimțământ",
+      "every_x_minutes": "La fiecare X minute",
+      "once_daily": "O dată pe zi"
+    }
+  },
+  "agenda": {
+    "title": "Agendă",
+    "subtitle": "Programări, tratamente și planificarea orarului",
+    "tab_appointments": "Programări",
+    "tab_treatments": "Tratamente",
+    "tab_planning": "Planificarea Agendei"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID neprecizat",
+    "verifying": "Se verifică documentul…",
+    "subtitle": "Verificare document",
+    "not_found_title": "Document negăsit",
+    "signed_title": "Document valid și semnat",
+    "signed_subtitle": "Semnătura a fost verificată cu succes",
+    "revoked_title": "Consimțământ revocat",
+    "revoked_subtitle": "Pacientul a revocat acest consimțământ",
+    "pending_title": "În așteptarea semnăturii",
+    "pending_subtitle": "Acest document nu a fost încă semnat",
+    "patient": "Pacient",
+    "doctor": "Medic",
+    "treatment": "Tratament",
+    "signed_date": "Data semnării",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "ID document:",
+    "verified_on": "Verificat la {{date}}. Acest document este valid conform Legii 41/2002 și semnat electronic conform Regulamentului eIDAS (UE) 910/2014."
+  },
+  "recharge": {
+    "title": "Planuri de abonament",
+    "subtitle": "Alegeți planul care se potrivește cel mai bine clinicii dvs.",
+    "monthly": "Lunar",
+    "annual": "Anual",
+    "per_month": "/lună",
+    "save_20_annual": "Economisiți 20% plătind anual",
+    "switch_annual_save": "Treceți la plan anual și economisiți 20%",
+    "hire_plan": "Alege planul",
+    "note_title": "Notă Plan AI și Plan AI Premium:",
+    "note_text": "Configurarea inițială a agenților AI (servicii, tratamente și personalizare) și implementarea se estimează separat în funcție de complexitatea fiecărei clinici. Costurile agentului vocal și WhatsApp API nu sunt incluse în abonamentul lunar.",
+    "plans": {
+      "base": {
+        "name": "Plan de Bază",
+        "features": [
+          "Consimțăminte informate nelimitate",
+          "Istoric medical",
+          "Galerie foto",
+          "Portal pacient",
+          "Magic Link + biometrie",
+          "Suport inclus"
+        ]
+      },
+      "pro": {
+        "name": "Plan Pro",
+        "badge": "Cel mai popular",
+        "features": [
+          "Tot ce oferă Planul de Bază +",
+          "Agendă de programări",
+          "CRM pacienți",
+          "Control de toxină",
+          "Devize pentru pacienți"
+        ]
+      },
+      "ia": {
+        "name": "Plan AI",
+        "features": [
+          "Tot ce oferă Planul Pro +",
+          "Agent WhatsApp AI 24/7 — atragere de programări",
+          "Confirmare automată a programărilor",
+          "Remindere automate pentru programări",
+          "Panou de gestionare WhatsApp",
+          "Comunicare cu pacienții prin WhatsApp",
+          "Trimitere prin WhatsApp a consimțămintelor, istoricului medical, fotografiilor, devizelor și facturilor"
+        ]
+      },
+      "ia_plus": {
+        "name": "Plan AI Premium",
+        "badge": "Nou",
+        "features": [
+          "Tot ce oferă Planul AI +",
+          "Agent vocal AI 24/7: răspunde la apeluri",
+          "Programează întâlniri telefonic în mod automat",
+          "Clonează vocea recepționerei dvs. 100%"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Control Toxină",
+    "subtitle": "Trasabilitatea loturilor de toxină botulinică",
+    "new_record": "Înregistrare nouă",
+    "from": "De la",
+    "to": "Până la",
+    "doctor": "Medic",
+    "patient": "Pacient",
+    "all": "Toate",
+    "lot_number": "Nr. lot",
+    "search_lot_placeholder": "Caută lot…",
+    "clear_filters": "Șterge filtrele",
+    "no_results": "Nu există înregistrări de toxină cu aceste filtre.",
+    "col_date": "Data",
+    "col_patient": "Pacient",
+    "col_doctor": "Medic",
+    "col_brand": "Denumire comercială",
+    "col_lot": "Lot",
+    "col_expiry": "Expirare",
+    "col_zones": "Zone",
+    "col_units": "Unități",
+    "col_signature": "Semnătură",
+    "col_ci": "CI",
+    "col_actions": "Acțiuni",
+    "signed": "Semnat",
+    "unsigned": "Fără semnătură",
+    "consent_linked": "Cu consimțământ asociat",
+    "consent_not_linked": "Fără consimțământ asociat",
+    "confirm_delete": "Ștergeți această înregistrare de toxină?",
+    "detail": {
+      "not_found": "Înregistrare negăsită.",
+      "patient": "Pacient",
+      "doctor": "Medic",
+      "brand": "Denumire comercială",
+      "manufacturer": "Producător",
+      "lot": "Număr de lot",
+      "expiry": "Data expirării",
+      "vials": "Fiole deschise",
+      "total_units": "Total unități",
+      "treated_zones": "Zone tratate",
+      "no_zones": "Nicio zonă înregistrată.",
+      "notes": "Note",
+      "doctor_signature": "Semnătura medicului",
+      "signature_alt": "Semnătura medicului",
+      "signed_on": "Semnat la {{date}}",
+      "no_signature": "Această înregistrare nu are semnătura medicului.",
+      "linked_consent": "Consimțământ informat asociat",
+      "consent_default_name": "Consimțământ",
+      "consent_unsigned": "Nesemnat",
+      "loading_pdf": "Se încarcă PDF-ul…",
+      "consent_load_error": "Nu s-a putut încărca informația despre consimțământul asociat."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token negăsit în URL",
+    "invalid_token": "Token invalid sau expirat",
+    "connection_error": "Eroare de conexiune",
+    "verifying": "Se verifică linkul…",
+    "invalid_link": "Link invalid",
+    "back_home": "Înapoi la pagina principală"
+  },
+  "photoSessions": {
+    "confirm_delete": "Ștergeți această sesiune și toate fotografiile ei?",
+    "title": "Fotografii",
+    "subtitle": "{{count}} sesiuni foto",
+    "new_session": "Sesiune nouă",
+    "search_placeholder": "Caută după pacient sau numele sesiunii…",
+    "no_sessions": "Nu există sesiuni foto"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Consimțămintele Mele",
+      "clinical": "Istoricul Meu Medical",
+      "photos": "Fotografiile Mele"
+    },
+    "consents": {
+      "empty": "Încă nu aveți consimțăminte semnate.",
+      "default_name": "Consimțământ",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Semnat la {{date}}",
+      "status_signed": "Semnat",
+      "status_pending": "În așteptare"
+    },
+    "clinical": {
+      "empty": "Istoricul dvs. medical este gol.",
+      "default_name": "Consultație",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnostic",
+        "anamnesis": "Anamneză",
+        "current_medications": "Medicație curentă",
+        "allergies": "Alergii",
+        "treatment_plan": "Plan de tratament",
+        "notes": "Observații"
+      }
+    },
+    "photos": {
+      "empty": "Încă nu există sesiuni foto.",
+      "back_to_sessions": "Înapoi la sesiuni",
+      "default_session_name": "Sesiune foto",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Comparație înainte / după",
+      "before": "Înainte",
+      "after": "După",
+      "close_compare": "Închide comparația",
+      "compare_button": "Compară",
+      "photo_count": "{{count}} fotografii"
+    }
   },
   "settings": {
     "title": "Setări",
-    "subtitle": "Gestionarea utilizatorilor și accesului",
+    "subtitle": "Gestionarea utilizatorilor și accesului la sistem",
+    "tabs": {
+      "users": "Utilizatori",
+      "media": "Publicitate",
+      "preview": "Previzualizare"
+    },
     "users": {
       "title": "Utilizatori",
       "invite_user": "Invitați utilizator",
@@ -174,14 +1048,40 @@
       "role": "Rol",
       "role_admin": "Administrator",
       "role_clinica": "Clinică",
-      "admin_hint": "Administratorul are acces complet la toate secțiunile.",
+      "admin_hint": "Administratorul are acces complet la toate secțiunile sistemului.",
       "permissions": "Permisiuni de acces",
-      "permissions_hint": "Selectați secțiunile accesibile.",
+      "permissions_hint": "Selectați secțiunile la care va avea acces acest utilizator.",
       "send_invite": "Trimiteți invitația",
-      "no_users": "Niciun utilizator. Invitați primul.",
+      "no_users": "Nu există utilizatori înregistrați. Invitați-l pe primul.",
       "inactive": "Inactiv",
-      "activate": "Activați",
-      "deactivate": "Dezactivați"
+      "activate": "Activați utilizatorul",
+      "deactivate": "Dezactivați utilizatorul",
+      "role_superadmin": "Super Admin",
+      "role_doctor": "Medic",
+      "role_receptionist": "Recepționist",
+      "role_lab_partner": "Laborator",
+      "role_patient": "Pacient",
+      "filter_all": "Toate",
+      "invite_accepted": "Invitație acceptată",
+      "invite_expired": "Invitație expirată",
+      "invite_pending": "Invitație în așteptare",
+      "email_placeholder": "utilizator@clinica.ro",
+      "full_name_placeholder": "Nume Prenume",
+      "linked_lab": "Laborator asociat",
+      "no_lab": "Fără laborator",
+      "lab_hint": "Utilizatorul va vedea doar clinicile asociate acestui laborator.",
+      "admin_only_hint": "Setările sunt exclusive administratorilor și nu pot fi delegate niciodată unei clinici.",
+      "load_error": "Nu s-a putut încărca lista de utilizatori",
+      "retry": "Reîncearcă"
+    },
+    "media": {
+      "title": "Gestionarea materialelor publicitare",
+      "managed_by_lab": "Această publicitate este gestionată de laboratorul dvs. partener. O puteți vedea aici, dar doar laboratorul o poate modifica.",
+      "managed_by_lab_named": "Această publicitate este gestionată de laboratorul dvs. partener ({{name}}). O puteți vedea aici, dar doar laboratorul o poate modifica.",
+      "welcome_title": "Ecran de bun venit",
+      "welcome_description": "Până la 5 imagini sau videoclipuri. Alegeți ce se afișează, aleatoriu sau secvențial (max. 100 MB per fișier).",
+      "patient_title": "Conținut pentru pacient",
+      "patient_description": "Până la 5 imagini sau videoclipuri destinate pacientului. Utilizarea exactă va fi configurată în curând."
     }
   }
 }

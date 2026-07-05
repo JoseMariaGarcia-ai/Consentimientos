@@ -1,10 +1,441 @@
 {
+  "toxinModal": {
+    "title_edit": "Rediger toksinregistrering",
+    "title_new": "Ny toksinregistrering",
+    "patient": "Pasient",
+    "select_patient": "Velg pasient…",
+    "linked_consent": "Tilknyttet informert samtykke",
+    "not_linked": "Ikke tilknyttet",
+    "consent_default_name": "Samtykke",
+    "unsigned": "usignert",
+    "loading_consents": "Laster samtykker…",
+    "no_consents_hint": "Denne pasienten har ennå ikke noe signert toksinsamtykke. Det er valgfritt — du kan lagre registreringen uten å knytte den til noe.",
+    "doctor": "Lege",
+    "unassigned": "Ikke tildelt",
+    "application_date": "Behandlingsdato",
+    "brand_name": "Merkenavn",
+    "brand_name_placeholder": "Botox, Dysport, Xeomin…",
+    "manufacturer": "Produsent",
+    "manufacturer_placeholder": "Allergan, Ipsen, Merz…",
+    "lot_number": "Lotnummer",
+    "expiry_date": "Utløpsdato",
+    "vials_opened": "Åpnede ampuller",
+    "treated_zones": "Behandlede soner",
+    "other_zone_placeholder": "Annen sone…",
+    "add": "Legg til",
+    "total_units": "Totalt antall enheter",
+    "notes": "Notater",
+    "notes_placeholder": "Merknader…",
+    "doctor_signature": "Legens signatur",
+    "signature_alt": "Legens signatur",
+    "signed_on": "Signert {{date}}",
+    "sign_again": "Signer på nytt",
+    "signature_hint": "Tegn signaturen og trykk «Bekreft signatur» før du lagrer.",
+    "confirm_delete": "Slette denne toksinregistreringen?",
+    "deleting": "Sletter…",
+    "delete_record": "Slett registrering",
+    "cancel": "Avbryt",
+    "save_changes": "Lagre endringer",
+    "create_record": "Opprett registrering",
+    "saving": "Lagrer…",
+    "unknown_error": "Ukjent feil",
+    "validation": {
+      "required_fields": "Pasient, merkenavn, lotnummer, utløpsdato og produsent er obligatorisk",
+      "signature_required": "Legens signatur er obligatorisk for å lagre registreringen"
+    },
+    "zones": {
+      "forehead": "Panne (horisontale linjer)",
+      "glabella": "Mellom øyenbrynene (glabella)",
+      "crows_feet": "Kråketær (rundt øynene)",
+      "lower_eyelid": "Nedre øyelokk",
+      "eyebrow_lift": "Øyenbryn (løft)",
+      "bunny_lines": "Nese (bunny lines)",
+      "upper_lip": "Overleppe (strekkoderynker)",
+      "oral_commissures": "Munnvikene",
+      "chin_dimpling": "Hake (appelsinhud)",
+      "platysmal_bands": "Hals (platysmabånd)",
+      "decolletage": "Dekolletasje",
+      "axillary_sweating": "Armhuleswette (hyperhidrose)",
+      "palmar_sweating": "Håndflateswette",
+      "plantar_sweating": "Fotsåleswette",
+      "jaw_bruxism": "Kjeve (bruksisme / massetermuskel)",
+      "migraine_occipital": "Migrene (occipitale punkter)",
+      "trampoline_chin": "Trampoline chin",
+      "gummy_smile": "Gummy smile",
+      "nefertiti_lift": "Nefertiti-løft (hals og kjeve)",
+      "other_zone": "Annen sone"
+    }
+  },
+  "toxinPdfButton": {
+    "generating": "Genererer…",
+    "export_pdf": "Eksporter PDF"
+  },
+  "patientGallery": {
+    "title": "Bildegalleri",
+    "upload_photos": "Last opp bilder",
+    "loading": "Laster…",
+    "empty": "Ingen bilder. Last opp det første.",
+    "confirm_delete": "Slette dette bildet?",
+    "count_stored": "{{count}} {{unit}} · Lagret i Cloudflare R2",
+    "photo_singular": "bilde",
+    "photo_plural": "bilder"
+  },
+  "clinicalRecordForm": {
+    "title_edit": "Rediger klinisk journal",
+    "title_new": "Ny klinisk journal",
+    "patient": "Pasient",
+    "select_patient": "Velg pasient…",
+    "doctor": "Lege",
+    "unassigned": "Ikke tildelt",
+    "branch": "Klinikk / Avdeling",
+    "unspecified": "Ikke angitt",
+    "visit_date": "Besøksdato",
+    "reason_for_visit": "Årsak til besøk",
+    "anamnesis": "Anamnese / Sykehistorie",
+    "current_medications": "Nåværende medisinering",
+    "allergies": "Kjente allergier",
+    "physical_exam": "Klinisk undersøkelse",
+    "diagnosis": "Diagnose",
+    "treatment_plan": "Behandlingsplan",
+    "notes": "Merknader / Notater",
+    "select_patient_error": "Velg en pasient",
+    "unknown_error": "Ukjent feil",
+    "cancel": "Avbryt",
+    "saving": "Lagrer…",
+    "save_record": "Lagre journal"
+  },
+  "mediaUploadSlot": {
+    "file_too_large": "Filen overskrider grensen på {{maxSize}} MB",
+    "upload_error": "Feil ved opplasting av fil",
+    "confirm_delete": "Slette denne filen?",
+    "video": "Video",
+    "image": "Bilde",
+    "uploaded_on": "Lastet opp {{date}}",
+    "change": "Endre",
+    "delete": "Slett",
+    "uploading": "Laster opp… {{progress}}%",
+    "drop_hint": "Dra hit eller klikk for å laste opp",
+    "file_types_hint": "Bilde (JPG, PNG, GIF) eller video (MP4, MOV, WebM) · Maks {{maxSize}} MB"
+  },
+  "consentEditor": {
+    "placeholder_default": "Skriv innholdet i samtykket…",
+    "bold": "Fet",
+    "italic": "Kursiv",
+    "heading": "Overskrift",
+    "bullet_list": "Punktliste",
+    "ordered_list": "Nummerert liste",
+    "undo": "Angre",
+    "redo": "Gjør om"
+  },
+  "consentPdfButton": {
+    "generating": "Genererer PDF…",
+    "export": "Eksporter PDF"
+  },
+  "newSessionModal": {
+    "title": "Ny fotoøkt",
+    "patient_label": "Pasient",
+    "select_patient_placeholder": "Velg pasient…",
+    "doctor_label": "Lege",
+    "no_doctor_assigned": "Ikke tildelt",
+    "branch_label": "Klinikk / Avdeling",
+    "no_branch_specified": "Ikke angitt",
+    "session_name_label": "Øktens navn",
+    "session_name_placeholder": "F.eks: Ansiktsbehandling økt 1",
+    "date_label": "Dato og klokkeslett",
+    "notes_label": "Notater",
+    "notes_placeholder": "Merknader om økten…",
+    "select_patient_error": "Velg en pasient",
+    "unknown_error": "Ukjent feil",
+    "cancel": "Avbryt",
+    "creating": "Oppretter…",
+    "create_session": "Opprett økt"
+  },
+  "photoSessionPanel": {
+    "default_session_name": "Fotoøkt",
+    "photo_count": "{{count}}/{{max}} bilder",
+    "compare_button": "Sammenlign før / etter",
+    "delete_session": "Slett økt",
+    "upload": "Last opp",
+    "remaining": "{{remaining}} gjenstår"
+  },
+  "beforeAfterModal": {
+    "select_title": "Velg bilder å sammenligne",
+    "compare_title": "Sammenligning Før / Etter",
+    "change_selection": "← Endre utvalg",
+    "select_intro": "Velg et bilde for",
+    "select_middle": "og et annet for",
+    "before": "Før",
+    "after": "Etter",
+    "before_badge": "FØR",
+    "after_badge": "ETTER",
+    "compare_button": "Sammenlign"
+  },
+  "biometricPrompt": {
+    "title": "Aktiver biometrisk tilgang",
+    "description": "Bruk Face ID, fingeravtrykk eller Windows Hello for å logge inn på under 2 sekunder neste gang.",
+    "device_label": "Enhet:",
+    "activate": "Aktiver",
+    "default_device": "Min enhet"
+  },
+  "creativesGallery": {
+    "displayModes": {
+      "manual": {
+        "label": "Manuelt valg",
+        "desc": "Du velger hvilken som vises. Klikk på et innhold for å aktivere det."
+      },
+      "random": {
+        "label": "Tilfeldig rekkefølge",
+        "desc": "Et innhold velges tilfeldig hver gang det er tid for visning."
+      },
+      "sequential": {
+        "label": "Sekvensiell rekkefølge",
+        "desc": "Innholdet vises i tur og orden, ett om gangen, hver gang det er tid for visning."
+      }
+    },
+    "errors": {
+      "fileTooLarge": "Filen overskrider grensen på 100 MB",
+      "invalidUrl": "Ugyldig URL"
+    },
+    "confirmDelete": "Slette dette innholdet?",
+    "types": {
+      "url": "URL",
+      "video": "Video",
+      "image": "Bilde"
+    },
+    "active": "✓ Aktiv",
+    "select": "Velg",
+    "upload": {
+      "label": "Last opp fil",
+      "slotsFree": "{{count}} ledig{{suffix}}"
+    },
+    "addUrlButton": "Legg til video-URL (YouTube, Vimeo, MP4…)",
+    "urlForm": {
+      "title": "Legg til video via URL",
+      "urlPlaceholder": "https://www.youtube.com/watch?v=… eller direkte URL til .mp4",
+      "labelPlaceholder": "Navn eller beskrivelse (valgfritt)",
+      "hint": "Kompatibel med YouTube, Vimeo og direkte video-URL-er (.mp4, .webm…)",
+      "add": "Legg til",
+      "saving": "Lagrer…"
+    },
+    "displayModeHeading": "Hvordan skal de vises?"
+  },
+  "welcomeMediaModal": {
+    "welcomeAlt": "Velkommen",
+    "continue": "Fortsett →"
+  },
+  "welcomeTriggerConfig": {
+    "heading": "Når skal reklamen vises?",
+    "subheading": "Du kan velge flere alternativer samtidig.",
+    "options": {
+      "session": {
+        "label": "Én gang per innlogging",
+        "desc": "Vises kun én gang hver gang brukeren åpner applikasjonen i nettleseren."
+      },
+      "consent": {
+        "label": "Hver gang et samtykke opprettes",
+        "desc": "Vises umiddelbart etter at hvert informert samtykke er opprettet."
+      },
+      "clinical": {
+        "label": "Hver gang en klinisk journal opprettes",
+        "desc": "Vises umiddelbart etter at hver klinisk journal er lagret."
+      },
+      "interval": {
+        "label": "Hvert X minutt",
+        "desc": "Vises periodisk mens applikasjonen er åpen."
+      }
+    },
+    "every": "Hvert",
+    "minutes": "minutt",
+    "errors": {
+      "selectAtLeastOne": "Velg minst ett alternativ",
+      "saveFailed": "Feil ved lagring"
+    },
+    "saving": "Lagrer…",
+    "saved": "Lagret",
+    "saveButton": "Lagre konfigurasjon",
+    "appliedMessage": "✅ Konfigurasjon anvendt"
+  },
+  "demoPreviewPanel": {
+    "heading": "Forhåndsvisning etter rolle",
+    "subheading": "Opprett testdata og gå inn i programmet akkurat slik en pasient, en klinikk eller et laboratorium ville sett det.",
+    "createAllButton": "Opprett alle testdata",
+    "errors": {
+      "checkFailed": "Feil ved kontroll av testdata",
+      "createPatientFailed": "Kunne ikke opprette testpasient",
+      "createBranchFailed": "Kunne ikke opprette testklinikk",
+      "createLabFailed": "Kunne ikke opprette testlaboratorium"
+    },
+    "cards": {
+      "patient": {
+        "title": "Pasientvisning",
+        "description": "Simulerer portalen en pasient ser: samtykker, klinisk journal og bilder."
+      },
+      "branch": {
+        "title": "Klinikkvisning",
+        "description": "Simulerer panelet klinikkens ansatte ser, med menyen begrenset til deres faktiske tillatelser."
+      },
+      "lab": {
+        "title": "Laboratorievisning",
+        "description": "Simulerer panelet til et samarbeidende laboratorium: profil, tilknyttede klinikker og kampanjer."
+      }
+    },
+    "testDataCreated": "Testdata opprettet",
+    "viewAs": "Vis som {{role}}",
+    "roleNames": {
+      "patient": "pasient",
+      "branch": "klinikk",
+      "lab": "laboratorium"
+    },
+    "creating": "Oppretter…",
+    "createTestData": "Opprett testdata"
+  },
+  "previewBanner": {
+    "message": "Forhåndsvisning — du ser grensesnittet slik det ville blitt sett av",
+    "exitButton": "Avslutt forhåndsvisning",
+    "roles": {
+      "patient": "Pasient",
+      "clinica": "Klinikk",
+      "labPartner": "Laboratorium"
+    }
+  },
+  "appointmentCalendar": {
+    "view_month": "Vis måned",
+    "today": "I dag",
+    "new_appointment": "Ny time",
+    "no_treatments_warning": "Det er ennå ikke opprettet noen behandlinger. Gå til fanen «Behandlinger» for å opprette den første før du booker timer.",
+    "day_closed_notice": "Denne dagen er markert som stengt i Timeplanlegging. Du kan se på eller åpne den fra den fanen.",
+    "slot_aria_label": "Book time kl. {{time}}",
+    "outside_availability": "Utenfor tilgjengelig tid",
+    "treatment_fallback": "Behandling",
+    "doctor_prefix": "Dr. {{name}}",
+    "legend": {
+      "available": "Tilgjengelig",
+      "outside_hours": "Utenfor åpningstid",
+      "scheduled": "Bestilt time"
+    }
+  },
+  "appointmentModal": {
+    "title_edit": "Rediger time",
+    "title_new": "Ny time",
+    "validation_required": "Pasient, behandling og klokkeslett er obligatorisk",
+    "error_unknown": "Ukjent feil",
+    "confirm_delete": "Slette denne timen?",
+    "deleting": "Sletter…",
+    "delete_appointment": "Slett time",
+    "cancel": "Avbryt",
+    "saving": "Lagrer…",
+    "save_changes": "Lagre endringer",
+    "create_appointment": "Opprett time",
+    "form": {
+      "patient": "Pasient",
+      "select_patient": "Velg pasient…",
+      "doctor": "Lege",
+      "unassigned": "Ikke tildelt",
+      "branch": "Klinikk / Avdeling",
+      "main_branch": "Hovedklinikk",
+      "treatment": "Behandling",
+      "select_treatment": "Velg behandling…",
+      "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
+      "no_treatments_warning": "Ingen behandlinger er opprettet. Legg til én i fanen «Behandlinger» først.",
+      "datetime": "Dato og klokkeslett",
+      "duration_note": "Vil oppta {{duration}} minutter i timeplanen.",
+      "notes": "Notater",
+      "notes_placeholder": "Merknader om timen…"
+    }
+  },
+  "treatmentsPanel": {
+    "title": "Behandlinger",
+    "subtitle": "Varighet og pris for hver behandling for å kunne booke timer",
+    "new_treatment": "Ny behandling",
+    "loading": "Laster…",
+    "empty_state": "Ingen behandlinger er opprettet ennå",
+    "duration_display": "{{duration}} min",
+    "price_display": "{{price}} €",
+    "confirm_delete": "Slette denne behandlingen?",
+    "form": {
+      "title_edit": "Rediger behandling",
+      "title_new": "Ny behandling",
+      "name": "Navn",
+      "name_placeholder": "F.eks: Botulinumtoksin",
+      "duration": "Varighet (min)",
+      "price": "Pris (€)",
+      "validation_name_required": "Navn er obligatorisk",
+      "error_unknown": "Ukjent feil",
+      "cancel": "Avbryt",
+      "saving": "Lagrer…",
+      "save": "Lagre"
+    }
+  },
+  "exceptionCalendar": {
+    "weekdays_short": ["Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
+    "months": ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    "has_exception_tooltip": "Har allerede et unntak konfigurert",
+    "legend": {
+      "usually_open": "Vanligvis åpen",
+      "usually_closed": "Vanligvis stengt",
+      "has_exception": "Med unntak",
+      "selected": "Valgt"
+    }
+  },
+  "monthView": {
+    "weekdays_short": ["Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"],
+    "months": ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    "legend": {
+      "open_day": "Åpen dag",
+      "closed": "Stengt",
+      "today": "I dag"
+    }
+  },
+  "schedulePlanner": {
+    "title": "Timeplanlegging",
+    "subtitle": "Konfigurer hvilke dager og i hvilket tidsrom timer kan bookes.",
+    "time_separator": "til",
+    "add_time_range": "Legg til tidsintervall",
+    "weekdays": ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
+    "confirm_delete_exception": "Slette dette unntaket og gå tilbake til vanlig åpningstid for denne dagen?",
+    "errors": {
+      "save_schedule_failed": "Kunne ikke lagre timeplanen",
+      "apply_pattern_failed": "Kunne ikke anvende mønsteret",
+      "select_day_required": "Velg minst én dag i kalenderen",
+      "save_exception_failed": "Kunne ikke lagre den spesielle dagen"
+    },
+    "bulk": {
+      "title": "Anvend et mønster på flere dager samtidig",
+      "description": "F.eks: mandag til fredag fra 09:00 til 20:00. Velg dager og tid, og anvend deretter — du kan justere hver dag individuelt senere.",
+      "applying": "Anvender…",
+      "apply_button": "Anvend på valgte dager"
+    },
+    "weekly": {
+      "title": "Vanlig ukentlig timeplan",
+      "closed": "Stengt",
+      "saving": "Lagrer…",
+      "save": "Lagre"
+    },
+    "exceptions": {
+      "title": "Enkeltdager (unntak)",
+      "description": "Åpne en spesiell dag (f.eks. en lørdag) eller steng en dag som vanligvis er åpen (f.eks. en helligdag).",
+      "select_days_label": "Velg én eller flere dager",
+      "days_selected_singular": "{{count}} dag valgt",
+      "days_selected_plural": "{{count}} dager valgt",
+      "clear_selection": "Tøm utvalg",
+      "open_special": "Åpne spesielt",
+      "close": "Steng",
+      "schedule_label": "Åpningstid disse dagene",
+      "notes_placeholder": "Årsak (valgfritt) — f.eks: Klemdag i august",
+      "saving": "Lagrer…",
+      "save_button_singular": "Lagre spesiell dag",
+      "save_button_plural": "Lagre {{count}} spesielle dager",
+      "no_exceptions": "Ingen enkeltdager er konfigurert.",
+      "open_special_status": "Åpent spesielt · {{ranges}}",
+      "closed_status": "Stengt"
+    }
+  },
   "app": {
     "name": "ConsentsPro",
-    "tagline": "Digitale Samtykker · Biometrisk Signatur"
+    "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk"
   },
   "nav": {
-    "dashboard": "Oversikt",
+    "dashboard": "Hjem",
     "patients": "Pasienter",
     "doctors": "Leger",
     "consents": "Samtykker",
@@ -14,7 +445,15 @@
     "settings": "Innstillinger",
     "clinicalRecords": "Klinisk Journal",
     "photos": "Bilder",
-    "recharge": "Fyll opp"
+    "recharge": "Abonnementsplaner",
+    "agenda": "Timeplan",
+    "toxin": "Toksinkontroll",
+    "labPartners": "Laboratorier",
+    "menu": "Meny"
+  },
+  "topbar": {
+    "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",
+    "legal": "eIDAS (EU 910/2014) · Lov 41/2002 · GDPR"
   },
   "auth": {
     "login_title": "Sikker tilgang",
@@ -23,17 +462,30 @@
     "send_link": "Send tilgangslenke",
     "check_email": "Sjekk e-posten din — vi sendte tilgangslenken",
     "magic_link_sent": "Lenke sendt",
-    "remember_device": "Recordar este dispositivo",
-    "remember_7": "7 días",
-    "remember_30": "30 días",
-    "remember_90": "90 días",
-    "biometric_activate": "Activar Face ID / huella",
-    "biometric_prompt": "Tras tu primer acceso podrás activar Face ID / huella",
-    "biometric_registering": "Activando…",
-    "biometric_success": "¡Biometría activada!",
-    "biometric_success_msg": "La próxima vez entrarás con un toque.",
-    "biometric_error": "No se pudo activar. Asegúrate de que tu dispositivo tiene biometría configurada.",
-    "biometric_now": "Ahora no"
+    "remember_device": "Husk denne enheten",
+    "remember_7": "7 dager",
+    "remember_30": "30 dager",
+    "remember_90": "90 dager",
+    "biometric_activate": "Aktiver Face ID / fingeravtrykk",
+    "biometric_prompt": "Etter din første innlogging kan du aktivere Face ID / fingeravtrykk",
+    "biometric_registering": "Aktiverer…",
+    "biometric_success": "Biometri aktivert!",
+    "biometric_success_msg": "Neste gang logger du inn med ett trykk.",
+    "biometric_error": "Kunne ikke aktivere. Sørg for at enheten din har biometri konfigurert.",
+    "biometric_now": "Ikke nå",
+    "portal_subtitle": "Digitale Samtykker · Digitalt Fingeravtrykk",
+    "portal_title": "Tilgang til dokument",
+    "portal_email_prompt": "Skriv inn e-posten din for å motta en sikker tilgangslenke.",
+    "portal_link_sent_title": "Lenke sendt",
+    "portal_link_sent_message": "Sjekk e-posten din og klikk på lenken for å fortsette.",
+    "portal_email_placeholder": "din@epost.no",
+    "portal_consent_default_title": "Informert Samtykke",
+    "portal_accept_label": "Jeg har lest og godtar dette informerte samtykket",
+    "portal_proceed_to_sign": "Gå videre til signering →",
+    "portal_saving_signature": "Lagrer signatur…",
+    "portal_signed_title": "Signering fullført",
+    "portal_signed_message": "Ditt samtykke er signert og registrert på en sikker måte.",
+    "portal_error_message": "Lenken kan ha utløpt eller vært feil."
   },
   "patients": {
     "title": "Pasienter",
@@ -42,7 +494,7 @@
     "name": "Fornavn",
     "surname": "Etternavn",
     "dob": "Fødselsdato",
-    "id_doc": "Identitetskort / Pass",
+    "id_doc": "ID-kort / Pass",
     "phone": "Telefon",
     "email": "E-post",
     "address": "Adresse",
@@ -54,10 +506,37 @@
     "edit": "Rediger",
     "delete": "Slett",
     "no_results": "Ingen pasienter registrert",
-    "gallery": "Galería de fotos",
-    "no_photos": "Sin fotos. Sube la primera imagen.",
-    "upload_photos": "Subir fotos",
-    "uploading": "Subiendo…"
+    "gallery": "Bildegalleri",
+    "no_photos": "Ingen bilder. Last opp det første.",
+    "upload_photos": "Last opp bilder",
+    "uploading": "Laster opp…",
+    "count_registered": "{{count}} registrert",
+    "form": {
+      "doc_type": "Type",
+      "doc_type_passport": "Pass",
+      "city": "By",
+      "province": "Provins",
+      "country": "Land",
+      "select_placeholder": "— Velg —",
+      "countries": [
+        "Spania", "Tyskland", "Argentina", "Belgia", "Bolivia", "Brasil", "Chile", "Kina",
+        "Colombia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "USA", "Frankrike",
+        "Guatemala", "Honduras", "Italia", "Marokko", "Mexico", "Nicaragua", "Nederland",
+        "Panama", "Paraguay", "Peru", "Portugal", "Storbritannia", "Den dominikanske republikk",
+        "Sveits", "Uruguay", "Venezuela", "Annet"
+      ],
+      "provinces": [
+        "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Baleares",
+        "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
+        "Córdoba", "Cuenca", "Girona", "Granada", "Guadalajara", "Gipuzkoa", "Huelva", "Huesca",
+        "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
+        "Málaga", "Murcia", "Navarra", "Ourense", "Palencia", "Pontevedra", "Salamanca",
+        "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo",
+        "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"
+      ],
+      "save_error_prefix": "Feil ved lagring:",
+      "unknown_error": "Ukjent feil"
+    }
   },
   "doctors": {
     "title": "Leger",
@@ -73,17 +552,45 @@
       "receptionist": "Resepsjonist"
     },
     "save": "Lagre lege",
-    "no_results": "Ingen leger registrert"
+    "no_results": "Ingen leger registrert",
+    "last_name": "Etternavn",
+    "phone": "Telefon",
+    "phone_placeholder": "600 00 000",
+    "unknown_error": "Ukjent feil",
+    "count_registered": "{{count}} registrert",
+    "license_display": "Nr. {{number}}"
   },
   "consents": {
     "title": "Samtykker",
     "add": "Nytt samtykke",
     "search": "Søk samtykker…",
+    "step_labels": ["Data", "Gjennomgang", "Legesignatur", "Pasientsignatur", "Ferdig"],
+    "branch_label": "Klinikk",
+    "main_branch": "Hovedklinikk",
+    "select_patient": "Velg pasient…",
+    "select_doctor": "Velg lege…",
+    "select_treatment": "Velg behandling…",
+    "translating": "Oversetter…",
+    "continue": "Fortsett",
+    "responsible_doctor": "Ansvarlig lege",
+    "legal_framework_title": "Juridisk Rammeverk — {{jurisdiction}}",
+    "witness_required_notice": "Dette landet krever vitne for signaturen",
+    "back": "← Tilbake",
+    "sign_arrow": "Signer →",
+    "doctor_signature_title": "Legens signatur",
+    "doctor_signature_notice": "Legen må signere først for å validere samtykket",
+    "back_to_preview": "← Tilbake",
+    "patient_signature_title": "Pasientens signatur",
+    "patient_signature_notice": "Pasienten må signere for å bekrefte at samtykket er lest og godtatt",
+    "signed_title": "Samtykke signert",
+    "signed_description": "Dokumentet er signert og registrert korrekt.",
+    "close": "Lukk",
     "status": {
       "pending": "Venter",
       "signed": "Signert",
       "revoked": "Trukket tilbake",
-      "expired": "Utløpt"
+      "expired": "Utløpt",
+      "all": "Alle"
     },
     "sign": "Signer",
     "generate_pdf": "Generer PDF",
@@ -92,8 +599,14 @@
     "doctor": "Lege",
     "treatment": "Behandling",
     "language": "Språk",
-    "signed_at": "Signert",
-    "no_results": "Ingen samtykker"
+    "signed_at": "Signeringsdato",
+    "no_results": "Ingen samtykker",
+    "confirm_delete": "Slette dette samtykket?",
+    "stats": "{{total}} totalt · {{signed}} signert · {{pending}} venter",
+    "branch": "Klinikk",
+    "created_at": "Opprettelsesdato",
+    "status_header": "Status",
+    "continue_signature": "Fortsett signering"
   },
   "signature": {
     "title": "Pasientens signatur",
@@ -112,14 +625,21 @@
     "tax_id": "Organisasjonsnummer / MVA",
     "logo": "Logo",
     "save": "Lagre innstillinger",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede"
+    "branches": "Ytterligere avdelinger",
+    "branches_desc": "Administrer flere lokasjoner for klinikken din",
+    "add_branch": "Legg til avdeling",
+    "no_branches": "Ingen ytterligere avdelinger",
+    "branch_name": "Avdelingsnavn",
+    "save_branches": "Lagre avdelinger",
+    "edit_branch": "Rediger avdeling",
+    "new_branch": "Ny avdeling",
+    "save_branch": "Lagre avdeling",
+    "subtitle": "Generelle klinikkinnstillinger",
+    "trade_name": "Handelsnavn",
+    "legal_name": "Juridisk navn / firmanavn",
+    "nika_number": "NIKA-nummer",
+    "save_success": "Lagret",
+    "confirm_delete_branch": "Slette denne avdelingen?"
   },
   "language": {
     "select": "Språk",
@@ -144,28 +664,382 @@
     "magic_link_sent": "Vi sendte en Magic Link til",
     "email": "E-post",
     "magic_link": "Logg inn med Magic Link",
-    "footer": "Gyldige digitale samtykker · Pasientrettighetsloven · GDPR"
+    "footer": "Gyldige digitale samtykker · Pasientrettighetsloven · GDPR",
+    "invalid_email": "Skriv inn en gyldig e-postadresse",
+    "send_error": "Feil ved sending av lenken",
+    "subtitle": "Digitale Samtykker · eIDAS",
+    "email_placeholder": "din@klinikk.no"
+  },
+  "dashboard": {
+    "title": "Oversikt",
+    "subtitle": "Aktivitetssammendrag",
+    "pending_signature": "Venter på signering",
+    "signature_rate": "Signeringsgrad",
+    "signed_count": "{{count}} signert",
+    "pending_count": "{{count}} venter",
+    "recent_consents": "Siste samtykker",
+    "view_all_consents": "Se alle →",
+    "view_all": "Se alle →",
+    "no_consents": "Ingen samtykker",
+    "recent_clinical": "Siste kliniske journaler",
+    "no_clinical": "Ingen kliniske journaler",
+    "recent_photos": "Siste fotoøkter",
+    "no_photos": "Ingen fotoøkter"
   },
   "templates": {
-    "title": "Plantillas",
-    "search": "Buscar tratamiento…",
-    "editor_title": "Editor de plantilla",
-    "consent_title_label": "Título del consentimiento",
-    "no_translation": "Sin traducción en",
-    "translate_all": "Traducir a 21 idiomas",
-    "translating": "Traduciendo…",
-    "legal_framework": "Marco legal",
-    "select_template": "Selecciona una plantilla para editarla",
+    "title": "Maler",
+    "search": "Søk behandling…",
+    "editor_title": "Maleditor",
+    "consent_title_label": "Samtykkets tittel",
+    "no_translation": "Ingen oversettelse på",
+    "translate_all": "Oversett til 21 språk",
+    "translating": "Oversetter…",
+    "legal_framework": "Juridisk rammeverk",
+    "select_template": "Velg en mal for å redigere den",
     "empty": "Ingen maler",
     "title_placeholder": "Informert samtykke — Behandling…",
     "content_label": "Innhold i samtykket",
     "content_placeholder": "Skriv teksten til det informerte samtykket…",
-    "saving": "Saving…",
-    "saved": "Saved"
+    "saving": "Lagrer…",
+    "saved": "Lagret"
+  },
+  "patientDetail": {
+    "confirm_delete_clinical": "Slette denne kliniske journalen?",
+    "confirm_delete_session": "Slette denne økten og alle bildene i den?",
+    "not_found": "Pasient ikke funnet",
+    "date_of_birth": "Fødselsdato",
+    "email": "E-post",
+    "blood_type": "Blodtype",
+    "address": "Adresse",
+    "allergies": "Allergier",
+    "medications": "Medisinering",
+    "tabs": {
+      "history": "Kliniske journaler ({{count}})",
+      "photos": "Bilder ({{count}})",
+      "consents": "Samtykker ({{count}})"
+    },
+    "new_clinical_record": "Ny journal",
+    "no_clinical_records": "Ingen kliniske journaler for denne pasienten",
+    "doctor_prefix": "Dr. {{name}}",
+    "fields": {
+      "anamnesis": "Anamnese",
+      "allergies": "Allergier",
+      "current_medications": "Nåværende medisinering",
+      "physical_exam": "Klinisk undersøkelse",
+      "diagnosis": "Diagnose",
+      "treatment_plan": "Behandlingsplan",
+      "notes": "Merknader"
+    },
+    "new_photo_session": "Ny økt",
+    "no_photo_sessions": "Ingen fotoøkter for denne pasienten",
+    "no_consents": "Ingen samtykker for denne pasienten",
+    "status": {
+      "signed": "Signert",
+      "pending": "Venter",
+      "revoked": "Trukket tilbake",
+      "expired": "Utløpt"
+    }
+  },
+  "labPartnerPortal": {
+    "header_subtitle": "Laboratorium",
+    "not_found": "Fant ikke laboratorieprofilen.",
+    "panel_subtitle": "Panel for samarbeidende laboratorium",
+    "tabs": {
+      "clinics": "Tilknyttede klinikker",
+      "campaigns": "Reklamekampanjer",
+      "stats": "Statistikk"
+    },
+    "no_clinics": "Ingen klinikker er ennå tilknyttet dette laboratoriet.",
+    "media_management": "Administrasjon av reklamemateriell",
+    "welcome_screen": {
+      "title": "Velkomstskjerm",
+      "description": "Opptil 5 bilder eller videoer. Velg hvilken som vises, tilfeldig eller sekvensielt (maks 100 MB per fil)."
+    },
+    "patient_content": {
+      "title": "Innhold for pasient",
+      "description": "Opptil 5 bilder eller videoer rettet mot pasienten. Nøyaktig bruk vil bli konfigurert senere."
+    },
+    "stats_pending": "Denne seksjonen er ennå ikke definert — her vil du snart se ytelsesmålinger for kampanjene og klinikkene dine."
+  },
+  "clinicalRecords": {
+    "confirm_delete": "Slette denne kliniske journalen?",
+    "title": "Kliniske Journaler",
+    "records_count": "{{count}} journaler",
+    "add_record": "Ny journal",
+    "search_placeholder": "Søk etter pasient, diagnose, årsak…",
+    "no_records": "Ingen kliniske journaler",
+    "table_headers": ["Pasient", "Dato", "Årsak til besøk", "Diagnose", "Lege", ""]
+  },
+  "labPartners": {
+    "title": "Samarbeidende Laboratorier",
+    "count": "{{count}} registrert",
+    "new_lab": "Nytt Laboratorium",
+    "search_placeholder": "Søk laboratorium…",
+    "no_labs": "Ingen laboratorier.",
+    "col_name": "Navn",
+    "col_email": "E-post",
+    "col_contact": "Kontakt",
+    "col_phone": "Telefon",
+    "col_status": "Status",
+    "col_actions": "Handlinger",
+    "status_active": "Aktiv",
+    "status_inactive": "Inaktiv",
+    "confirm_deactivate": "Deaktivere laboratoriet?",
+    "form": {
+      "edit_title": "Rediger Laboratorium",
+      "new_title": "Nytt Laboratorium",
+      "name": "Navn",
+      "email": "E-post",
+      "phone": "Telefon",
+      "contact_person": "Kontaktperson",
+      "website": "Nettside",
+      "notes": "Notater",
+      "name_email_required": "Navn og e-post er obligatorisk",
+      "unknown_error": "Ukjent feil"
+    },
+    "campaigns": {
+      "title": "Kampanjer for {{name}}",
+      "new_campaign": "Ny Kampanje",
+      "no_campaigns": "Ingen kampanjer.",
+      "col_name": "Navn",
+      "col_type": "Type",
+      "col_trigger": "Utløser",
+      "col_status": "Status",
+      "col_actions": "Handlinger",
+      "confirm_delete": "Slette kampanjen?",
+      "form": {
+        "edit_title": "Rediger Kampanje",
+        "new_title": "Ny Kampanje",
+        "name": "Navn",
+        "name_required": "Navn er obligatorisk",
+        "unknown_error": "Ukjent feil",
+        "type": "Type",
+        "rotation_mode": "Rotasjonsmodus",
+        "rotation_random": "Tilfeldig",
+        "rotation_manual": "Manuell",
+        "creative_url": "URL til reklamemateriell",
+        "trigger": "Utløser",
+        "interval_minutes": "Intervall (min)",
+        "start_date": "Startdato",
+        "end_date": "Sluttdato",
+        "active": "Aktiv"
+      }
+    },
+    "creative_types": {
+      "image": "Bilde",
+      "video": "Video",
+      "url": "URL",
+      "offer": "Tilbud",
+      "training": "Opplæring"
+    },
+    "triggers": {
+      "on_login": "Ved åpning",
+      "on_consent": "Ved opprettelse av samtykke",
+      "every_x_minutes": "Hvert X minutt",
+      "once_daily": "Én gang daglig"
+    }
+  },
+  "agenda": {
+    "title": "Timeplan",
+    "subtitle": "Timer, behandlinger og timeplanlegging",
+    "tab_appointments": "Timer",
+    "tab_treatments": "Behandlinger",
+    "tab_planning": "Timeplanlegging"
+  },
+  "verifyConsent": {
+    "id_not_provided": "ID ikke oppgitt",
+    "verifying": "Verifiserer dokument…",
+    "subtitle": "Dokumentverifisering",
+    "not_found_title": "Dokument ikke funnet",
+    "signed_title": "Gyldig og signert dokument",
+    "signed_subtitle": "Signaturen er verifisert korrekt",
+    "revoked_title": "Samtykke trukket tilbake",
+    "revoked_subtitle": "Pasienten trakk tilbake dette samtykket",
+    "pending_title": "Venter på signering",
+    "pending_subtitle": "Dette dokumentet er ennå ikke signert",
+    "patient": "Pasient",
+    "doctor": "Lege",
+    "treatment": "Behandling",
+    "signed_date": "Signeringsdato",
+    "hash_label": "Hash SHA-256",
+    "document_id_label": "Dokument-ID:",
+    "verified_on": "Verifisert {{date}}. Dette dokumentet er gyldig i henhold til lov 41/2002 og elektronisk signert i henhold til eIDAS-forordningen (EU) 910/2014."
+  },
+  "recharge": {
+    "title": "Abonnementsplaner",
+    "subtitle": "Velg planen som passer best for klinikken din",
+    "monthly": "Månedlig",
+    "annual": "Årlig",
+    "per_month": "/måned",
+    "save_20_annual": "Spar 20 % ved årlig betaling",
+    "switch_annual_save": "Bytt til årlig og spar 20 %",
+    "hire_plan": "Velg plan",
+    "note_title": "Merknad om AI-plan og AI Premium-plan:",
+    "note_text": "Innledende konfigurasjon av AI-agentene (tjenester, behandlinger og tilpasning) samt implementering prises separat basert på hver klinikks kompleksitet. Kostnader for talebot- og WhatsApp API er ikke inkludert i den månedlige avgiften.",
+    "plans": {
+      "base": {
+        "name": "Grunnplan",
+        "features": [
+          "Ubegrensede informerte samtykker",
+          "Klinisk journal",
+          "Bildegalleri",
+          "Pasientportal",
+          "Magic Link + biometri",
+          "Support inkludert"
+        ]
+      },
+      "pro": {
+        "name": "Pro-plan",
+        "badge": "Mest populær",
+        "features": [
+          "Alt i Grunnplan +",
+          "Timeavtalekalender",
+          "Pasient-CRM",
+          "Toksinkontroll",
+          "Tilbud til pasienter"
+        ]
+      },
+      "ia": {
+        "name": "AI-plan",
+        "features": [
+          "Alt i Pro-plan +",
+          "AI WhatsApp-agent 24/7 — booking av timer",
+          "Automatisert bekreftelse av timer",
+          "Automatiske påminnelser om timer",
+          "WhatsApp-administrasjonspanel",
+          "Kommunikasjon med pasienter via WhatsApp",
+          "Sending via WhatsApp av samtykker, klinisk journal, bilder, tilbud og fakturaer"
+        ]
+      },
+      "ia_plus": {
+        "name": "AI Premium-plan",
+        "badge": "Ny",
+        "features": [
+          "Alt i AI-plan +",
+          "AI-taleagent 24/7: svarer på telefonsamtaler",
+          "Booker timer automatisk per telefon",
+          "Kloner resepsjonistens stemme 100 %"
+        ]
+      }
+    }
+  },
+  "toxin": {
+    "title": "Toksinkontroll",
+    "subtitle": "Sporbarhet for botulinumtoksin-lotnummer",
+    "new_record": "Ny registrering",
+    "from": "Fra",
+    "to": "Til",
+    "doctor": "Lege",
+    "patient": "Pasient",
+    "all": "Alle",
+    "lot_number": "Lotnummer",
+    "search_lot_placeholder": "Søk lotnummer…",
+    "clear_filters": "Tøm filtre",
+    "no_results": "Ingen toksinregistreringer med disse filtrene.",
+    "col_date": "Dato",
+    "col_patient": "Pasient",
+    "col_doctor": "Lege",
+    "col_brand": "Merkenavn",
+    "col_lot": "Lotnummer",
+    "col_expiry": "Utløp",
+    "col_zones": "Soner",
+    "col_units": "Enheter",
+    "col_signature": "Signatur",
+    "col_ci": "Samtykke",
+    "col_actions": "Handlinger",
+    "signed": "Signert",
+    "unsigned": "Usignert",
+    "consent_linked": "Med tilknyttet samtykke",
+    "consent_not_linked": "Uten tilknyttet samtykke",
+    "confirm_delete": "Slette denne toksinregistreringen?",
+    "detail": {
+      "not_found": "Registrering ikke funnet.",
+      "patient": "Pasient",
+      "doctor": "Lege",
+      "brand": "Merkenavn",
+      "manufacturer": "Produsent",
+      "lot": "Lotnummer",
+      "expiry": "Utløpsdato",
+      "vials": "Åpnede ampuller",
+      "total_units": "Totalt antall enheter",
+      "treated_zones": "Behandlede soner",
+      "no_zones": "Ingen soner registrert.",
+      "notes": "Notater",
+      "doctor_signature": "Legens signatur",
+      "signature_alt": "Legens signatur",
+      "signed_on": "Signert {{date}}",
+      "no_signature": "Denne registreringen har ikke legens signatur.",
+      "linked_consent": "Tilknyttet informert samtykke",
+      "consent_default_name": "Samtykke",
+      "consent_unsigned": "Usignert",
+      "loading_pdf": "Laster PDF…",
+      "consent_load_error": "Kunne ikke laste informasjon om det tilknyttede samtykket."
+    }
+  },
+  "authVerify": {
+    "token_not_found": "Token ikke funnet i URL",
+    "invalid_token": "Ugyldig eller utløpt token",
+    "connection_error": "Tilkoblingsfeil",
+    "verifying": "Verifiserer lenke…",
+    "invalid_link": "Ugyldig lenke",
+    "back_home": "Tilbake til startsiden"
+  },
+  "photoSessions": {
+    "confirm_delete": "Slette denne økten og alle bildene i den?",
+    "title": "Bilder",
+    "subtitle": "{{count}} fotoøkter",
+    "new_session": "Ny økt",
+    "search_placeholder": "Søk etter pasient eller øktnavn…",
+    "no_sessions": "Ingen fotoøkter"
+  },
+  "patientPortalApp": {
+    "tabs": {
+      "consents": "Mine Samtykker",
+      "clinical": "Min Kliniske Journal",
+      "photos": "Mine Bilder"
+    },
+    "consents": {
+      "empty": "Du har ennå ingen signerte samtykker.",
+      "default_name": "Samtykke",
+      "doctor": "Dr. {{name}}",
+      "signed_on": "Signert {{date}}",
+      "status_signed": "Signert",
+      "status_pending": "Venter"
+    },
+    "clinical": {
+      "empty": "Din kliniske journal er tom.",
+      "default_name": "Konsultasjon",
+      "doctor_suffix": " · Dr. {{name}}",
+      "fields": {
+        "diagnosis": "Diagnose",
+        "anamnesis": "Anamnese",
+        "current_medications": "Nåværende medisinering",
+        "allergies": "Allergier",
+        "treatment_plan": "Behandlingsplan",
+        "notes": "Merknader"
+      }
+    },
+    "photos": {
+      "empty": "Ingen fotoøkter ennå.",
+      "back_to_sessions": "Tilbake til økter",
+      "default_session_name": "Fotoøkt",
+      "doctor_suffix": " · Dr. {{name}}",
+      "compare_title": "Sammenligning før / etter",
+      "before": "Før",
+      "after": "Etter",
+      "close_compare": "Lukk sammenligning",
+      "compare_button": "Sammenlign",
+      "photo_count": "{{count}} bilder"
+    }
   },
   "settings": {
     "title": "Innstillinger",
-    "subtitle": "Bruker- og tilgangsstyring",
+    "subtitle": "Bruker- og tilgangsstyring for systemet",
+    "tabs": {
+      "users": "Brukere",
+      "media": "Reklame",
+      "preview": "Forhåndsvisning"
+    },
     "users": {
       "title": "Brukere",
       "invite_user": "Inviter bruker",
@@ -174,14 +1048,40 @@
       "role": "Rolle",
       "role_admin": "Administrator",
       "role_clinica": "Klinikk",
-      "admin_hint": "Administrator har full tilgang til alle seksjoner.",
+      "admin_hint": "Administratoren har full tilgang til alle seksjoner i systemet.",
       "permissions": "Tilgangstillatelser",
-      "permissions_hint": "Velg tilgjengelige seksjoner.",
+      "permissions_hint": "Velg hvilke seksjoner denne brukeren skal ha tilgang til.",
       "send_invite": "Send invitasjon",
-      "no_users": "Ingen brukere. Inviter den første.",
+      "no_users": "Ingen brukere registrert. Inviter den første.",
       "inactive": "Inaktiv",
-      "activate": "Aktiver",
-      "deactivate": "Deaktiver"
+      "activate": "Aktiver bruker",
+      "deactivate": "Deaktiver bruker",
+      "role_superadmin": "Superadministrator",
+      "role_doctor": "Lege",
+      "role_receptionist": "Resepsjonist",
+      "role_lab_partner": "Laboratorium",
+      "role_patient": "Pasient",
+      "filter_all": "Alle",
+      "invite_accepted": "Invitasjon akseptert",
+      "invite_expired": "Invitasjon utløpt",
+      "invite_pending": "Invitasjon venter",
+      "email_placeholder": "bruker@klinikk.no",
+      "full_name_placeholder": "Fornavn Etternavn",
+      "linked_lab": "Tilknyttet laboratorium",
+      "no_lab": "Ingen laboratorium",
+      "lab_hint": "Brukeren vil kun se klinikker tilknyttet dette laboratoriet.",
+      "admin_only_hint": "Innstillinger er forbeholdt administratorer og kan aldri delegeres til en klinikk.",
+      "load_error": "Kunne ikke laste brukerlisten",
+      "retry": "Prøv igjen"
+    },
+    "media": {
+      "title": "Administrasjon av reklamemateriell",
+      "managed_by_lab": "Denne reklamen administreres av ditt samarbeidende laboratorium. Du kan se den her, men kun laboratoriet kan endre den.",
+      "managed_by_lab_named": "Denne reklamen administreres av ditt samarbeidende laboratorium ({{name}}). Du kan se den her, men kun laboratoriet kan endre den.",
+      "welcome_title": "Velkomstskjerm",
+      "welcome_description": "Opptil 5 bilder eller videoer. Velg hvilken som vises, tilfeldig eller sekvensielt (maks 100 MB per fil).",
+      "patient_title": "Innhold for pasient",
+      "patient_description": "Opptil 5 bilder eller videoer rettet mot pasienten. Nøyaktig bruk vil bli konfigurert senere."
     }
   }
 }
