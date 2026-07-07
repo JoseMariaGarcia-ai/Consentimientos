@@ -5,7 +5,7 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 - Crear, modificar, mover y eliminar ficheros y carpetas
 - Hacer commits y push a GitHub
 - Crear y modificar ficheros .env y variables de entorno
-- Ejecutar migraciones de base de datos (prisma migrate, supabase)
+- Ejecutar migraciones de base de datos (prisma migrate, migrador propio en supabase/migrations)
 - Ejecutar seeds de base de datos
 - Desplegar a Netlify (netlify deploy)
 - Crear y modificar ramas de Git
@@ -22,8 +22,8 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 ## Proyecto
 - Nombre: ConsentsPro
 - Tipo: SaaS de consentimientos informados digitales para medicina estética
-- Stack Fase 1: React + TypeScript + Tailwind + Supabase + Netlify Functions
-- Stack Fase 2 (futuro): migrar backend a Railway
+- Stack actual: React + TypeScript + Tailwind + Express + PostgreSQL, desplegado en Railway (backend) y Netlify/Railway (frontend estático)
+- Nota histórica: el proyecto arrancó como Fase 1 (Netlify Functions + Supabase); ese stack ya no se usa, se migró por completo a Railway. No añadir dependencias de Supabase.
 
 ## Estructura
 - Seguir exactamente la estructura de carpetas de la Sección 1 del PDF

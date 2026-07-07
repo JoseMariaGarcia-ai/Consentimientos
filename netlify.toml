@@ -9,7 +9,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  directory = "apps/api/netlify/functions"
-  node_bundler = "esbuild"

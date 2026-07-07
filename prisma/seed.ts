@@ -76,7 +76,7 @@ async function main() {
   console.log("\n✅ Seed completo. Credenciales demo:");
   console.log("   Clínica: Clínica ConsentsPro Demo");
   console.log("   Email admin: admin@consentspro.es");
-  console.log("   (Autenticación vía Magic Link — Supabase Auth)");
+  console.log("   (Autenticación vía Magic Link — JWT propio)");
 }
 
 main()
