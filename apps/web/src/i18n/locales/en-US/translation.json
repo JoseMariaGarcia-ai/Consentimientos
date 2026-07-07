@@ -1233,7 +1233,10 @@
       "lab_hint": "This user will only see the clinics linked to this lab.",
       "admin_only_hint": "Settings is exclusive to administrators and can never be delegated to a clinic.",
       "load_error": "Could not load the user list",
-      "retry": "Retry"
+      "retry": "Retry",
+      "plan": "Plan",
+      "plan_hint": "Access permissions are applied automatically based on the selected plan. You can adjust them in Settings → Subscription Plans.",
+      "plan_required": "Select a plan"
     },
     "media": {
       "title": "Ad media management",
@@ -1244,5 +1247,14 @@
       "patient_title": "Patient content",
       "patient_description": "Up to 5 images or videos aimed at the patient. Its exact use will be configured soon."
     }
+  },
+  "planPermissions": {
+    "tab": "Subscription Plans",
+    "title": "Subscription plans",
+    "subtitle": "Configure which menu sections each plan has access to. When you invite a user as Clinic with this plan, these permissions will be applied automatically.",
+    "section": "Section",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved"
   }
 }

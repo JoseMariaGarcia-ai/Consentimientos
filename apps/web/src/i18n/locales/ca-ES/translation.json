@@ -1233,7 +1233,10 @@
       "lab_hint": "L'usuari només veurà les clíniques vinculades a aquest laboratori.",
       "admin_only_hint": "Configuració és exclusiu d'administradors i mai es pot delegar a una clínica.",
       "load_error": "No s'ha pogut carregar la llista d'usuaris",
-      "retry": "Reintentar"
+      "retry": "Reintentar",
+      "plan": "Pla",
+      "plan_hint": "Els permisos d'accés s'apliquen automàticament segons el pla seleccionat. Els pots ajustar a Configuració → Plans de Subscripció.",
+      "plan_required": "Selecciona un pla"
     },
     "media": {
       "title": "Gestió de mitjans publicitaris",
@@ -1244,5 +1247,14 @@
       "patient_title": "Contingut per al pacient",
       "patient_description": "Fins a 5 imatges o vídeos destinats al pacient. El seu ús exacte es configurarà properament."
     }
+  },
+  "planPermissions": {
+    "tab": "Plans de Subscripció",
+    "title": "Plans de subscripció",
+    "subtitle": "Configura a quines seccions del menú té accés cada pla. Quan convidis un usuari com a Clínica amb aquest pla, aquests permisos s'aplicaran automàticament.",
+    "section": "Secció",
+    "save": "Desar",
+    "saving": "Desant…",
+    "saved": "Desat"
   }
 }

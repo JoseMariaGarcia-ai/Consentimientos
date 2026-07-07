@@ -1233,7 +1233,10 @@
       "lab_hint": "Käyttäjä näkee vain tähän laboratorioon liitetyt klinikat.",
       "admin_only_hint": "Asetukset on tarkoitettu yksinomaan järjestelmänvalvojille, eikä sitä voi koskaan siirtää klinikalle.",
       "load_error": "Käyttäjäluetteloa ei voitu ladata",
-      "retry": "Yritä uudelleen"
+      "retry": "Yritä uudelleen",
+      "plan": "Suunnitelma",
+      "plan_hint": "Käyttöoikeudet otetaan käyttöön automaattisesti valitun suunnitelman mukaan. Voit muokata niitä kohdassa Asetukset → Tilaussuunnitelmat.",
+      "plan_required": "Valitse suunnitelma"
     },
     "media": {
       "title": "Mainosmedian hallinta",
@@ -1244,5 +1247,14 @@
       "patient_title": "Sisältö potilaalle",
       "patient_description": "Enintään 5 kuvaa tai videota potilaalle. Tarkka käyttötapa määritetään myöhemmin."
     }
+  },
+  "planPermissions": {
+    "tab": "Tilaussuunnitelmat",
+    "title": "Tilaussuunnitelmat",
+    "subtitle": "Määritä, mihin valikon osioihin kullakin suunnitelmalla on pääsy. Kun kutsut käyttäjän Klinikkana tällä suunnitelmalla, nämä oikeudet otetaan käyttöön automaattisesti.",
+    "section": "Osio",
+    "save": "Tallenna",
+    "saving": "Tallennetaan…",
+    "saved": "Tallennettu"
   }
 }

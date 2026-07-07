@@ -1287,7 +1287,10 @@
       "lab_hint": "L'utente vedrà solo le cliniche collegate a questo laboratorio.",
       "admin_only_hint": "Impostazioni è esclusivo degli amministratori e non può mai essere delegato a una clinica.",
       "load_error": "Impossibile caricare l'elenco degli utenti",
-      "retry": "Riprova"
+      "retry": "Riprova",
+      "plan": "Piano",
+      "plan_hint": "I permessi di accesso vengono applicati automaticamente in base al piano selezionato. Puoi modificarli in Impostazioni → Piani di Abbonamento.",
+      "plan_required": "Seleziona un piano"
     },
     "media": {
       "title": "Gestione dei contenuti pubblicitari",
@@ -1298,5 +1301,14 @@
       "patient_title": "Contenuto per il paziente",
       "patient_description": "Fino a 5 immagini o video destinati al paziente. Il loro uso esatto verrà configurato prossimamente."
     }
+  },
+  "planPermissions": {
+    "tab": "Piani di Abbonamento",
+    "title": "Piani di abbonamento",
+    "subtitle": "Configura a quali sezioni del menu ha accesso ciascun piano. Quando inviti un utente come Clinica con questo piano, questi permessi verranno applicati automaticamente.",
+    "section": "Sezione",
+    "save": "Salva",
+    "saving": "Salvataggio…",
+    "saved": "Salvato"
   }
 }

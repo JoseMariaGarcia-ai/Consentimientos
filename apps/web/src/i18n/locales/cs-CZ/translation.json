@@ -1233,7 +1233,10 @@
       "lab_hint": "Uživatel uvidí pouze kliniky propojené s touto laboratoří.",
       "admin_only_hint": "Nastavení je vyhrazeno pouze administrátorům a nikdy jej nelze delegovat na kliniku.",
       "load_error": "Nepodařilo se načíst seznam uživatelů",
-      "retry": "Zkusit znovu"
+      "retry": "Zkusit znovu",
+      "plan": "Plán",
+      "plan_hint": "Přístupová oprávnění se aplikují automaticky podle vybraného plánu. Můžete je upravit v Nastavení → Předplatné plány.",
+      "plan_required": "Vyberte plán"
     },
     "media": {
       "title": "Správa reklamních médií",
@@ -1244,5 +1247,14 @@
       "patient_title": "Obsah pro pacienta",
       "patient_description": "Až 5 obrázků nebo videí určených pro pacienta. Jejich přesné využití bude brzy nastavitelné."
     }
+  },
+  "planPermissions": {
+    "tab": "Předplatné plány",
+    "title": "Předplatné plány",
+    "subtitle": "Nastavte, ke kterým sekcím menu má přístup každý plán. Při pozvání uživatele jako Klinika s tímto plánem se tato oprávnění použijí automaticky.",
+    "section": "Sekce",
+    "save": "Uložit",
+    "saving": "Ukládání…",
+    "saved": "Uloženo"
   }
 }

@@ -25,6 +25,7 @@ import meRouter from './routes/me'
 import toxinRouter from './routes/toxin'
 import clinicConfigRouter from './routes/clinicConfig'
 import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes/whatsapp'
+import planPermissionsRouter from './routes/planPermissions'
 import { runMigrations } from './lib/migrate'
 
 const app = express()
@@ -65,6 +66,7 @@ app.use('/api/me',              authMiddleware, meRouter)
 app.use('/api/toxin',           authMiddleware, toxinRouter)
 app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
+app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 
 const PORT = process.env.PORT ?? 3001
 

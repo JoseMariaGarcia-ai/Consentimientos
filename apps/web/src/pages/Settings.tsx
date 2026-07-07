@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2 } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 import { DemoPreviewPanel } from '@/components/settings/DemoPreviewPanel'
+import { PlanPermissionsPanel } from '@/components/settings/PlanPermissionsPanel'
 import { useAuth } from '@/lib/auth'
-import { ALL_MODULES, DEFAULT_PERMS } from '@/lib/modules'
+import { ALL_MODULES } from '@/lib/modules'
 
 const ROLE_BADGE: Record<string, string> = {
   admin: 'bg-blue-100 text-blue-800',
@@ -75,6 +76,9 @@ const ROLE_ACTIVE: Record<string, string> = {
   lab_partner: 'border-amber-500 bg-amber-50 text-amber-700',
 }
 
+const PLAN_IDS = ['base', 'pro', 'ia', 'ia-plus']
+const PLAN_KEY: Record<string, string> = { base: 'base', pro: 'pro', ia: 'ia', 'ia-plus': 'ia_plus' }
+
 interface UserModalProps {
   user: AppUser | null
   onClose: () => void
@@ -89,23 +93,27 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
     full_name:      user?.full_name ?? '',
     role:           user?.role ?? 'clinica',
     lab_partner_id: (user as any)?.lab_partner_id ?? '',
+    plan:           '',
   })
-  const [perms, setPerms] = useState<Record<string, boolean>>(() => {
-    if (user?.user_permissions?.length) {
-      return Object.fromEntries(user.user_permissions.map(p => [p.module, p.can_access]))
-    }
-    return { ...DEFAULT_PERMS }
-  })
+  const [planMatrix, setPlanMatrix] = useState<Record<string, Record<string, boolean>>>({})
   const [labs, setLabs] = useState<LabPartner[]>([])
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
   useEffect(() => {
     api.get('/lab-partners').then((data: any) => setLabs(Array.isArray(data) ? data : [])).catch(() => {})
+    api.get('/plan-permissions').then((data: any) => setPlanMatrix(data ?? {})).catch(() => {})
+    // Pre-fill with the current clinic's plan, if any (only correct when the
+    // editor manages their own clinic — a superadmin editing another
+    // clinic's user still has to pick the plan explicitly).
+    api.get('/clinic').then((data: any) => {
+      if (data?.plan) setForm(f => (f.plan ? f : { ...f, plan: data.plan }))
+    }).catch(() => {})
   }, [])
 
   const handleSave = async () => {
     if (!form.email || !form.full_name) { setError(t('common.required')); return }
+    if (form.role === 'clinica' && !form.plan) { setError(t('settings.users.plan_required')); return }
     setSaving(true)
     setError('')
     try {
@@ -113,14 +121,12 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
         full_name:      form.full_name,
         role:           form.role,
         lab_partner_id: form.role === 'lab_partner' ? (form.lab_partner_id || null) : null,
+        plan:           form.role === 'clinica' ? form.plan : undefined,
       }
       if (isEdit) {
         await api.put(`/users/${user.id}`, { ...payload, is_active: user.is_active })
-        if (form.role === 'clinica') {
-          await api.put(`/users/${user.id}/permissions`, perms)
-        }
       } else {
-        await api.post('/users', { email: form.email, ...payload, permissions: perms })
+        await api.post('/users', { email: form.email, ...payload })
       }
       onSaved()
       onClose()
@@ -206,33 +212,47 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
             </div>
           )}
 
-          {/* Permissions checklist (only for clinica role) */}
+          {/* Plan selector + resulting permissions preview (only for clinica role) */}
           {form.role === 'clinica' && (
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.permissions')}</label>
-              <div className="border border-slate-200 rounded-xl overflow-hidden">
-                {ALL_MODULES.filter(mod => mod.key !== 'settings').map((mod, i, arr) => (
-                  <label
-                    key={mod.key}
-                    className={`flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-slate-50 transition-colors ${
-                      i < arr.length - 1 ? 'border-b border-slate-100' : ''
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.plan')}</label>
+              <div className="grid grid-cols-2 gap-2">
+                {PLAN_IDS.map(planId => (
+                  <button
+                    key={planId}
+                    type="button"
+                    onClick={() => setForm(f => ({ ...f, plan: planId }))}
+                    className={`px-4 py-2.5 rounded-xl border-2 text-sm font-medium transition-colors ${
+                      form.plan === planId ? 'border-sky-500 bg-sky-50 text-sky-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <span className="text-sm text-slate-700 font-medium">{t(mod.labelKey)}</span>
-                    <button
-                      type="button"
-                      onClick={() => setPerms(p => ({ ...p, [mod.key]: !p[mod.key] }))}
-                      className="flex-shrink-0"
-                    >
-                      {perms[mod.key]
-                        ? <ToggleRight className="w-8 h-8 text-blue-600" />
-                        : <ToggleLeft className="w-8 h-8 text-slate-300" />
-                      }
-                    </button>
-                  </label>
+                    {t(`recharge.plans.${PLAN_KEY[planId]}.name`)}
+                  </button>
                 ))}
               </div>
-              <p className="text-xs text-slate-400">{t('settings.users.permissions_hint')}</p>
+              <p className="text-xs text-slate-400 mt-1">{t('settings.users.plan_hint')}</p>
+
+              {form.plan && (
+                <div className="border border-slate-200 rounded-xl overflow-hidden mt-1">
+                  {ALL_MODULES.filter(mod => mod.key !== 'settings').map((mod, i, arr) => {
+                    const hasAccess = !!planMatrix[form.plan]?.[mod.key]
+                    return (
+                      <div
+                        key={mod.key}
+                        className={`flex items-center justify-between px-4 py-2.5 ${
+                          i < arr.length - 1 ? 'border-b border-slate-100' : ''
+                        }`}
+                      >
+                        <span className={`text-sm ${hasAccess ? 'text-slate-700 font-medium' : 'text-slate-400'}`}>{t(mod.labelKey)}</span>
+                        {hasAccess
+                          ? <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                          : <span className="text-slate-300 text-xs flex-shrink-0">—</span>
+                        }
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
               <p className="text-xs text-amber-600 bg-amber-50 rounded-lg px-3 py-2">{t('settings.users.admin_only_hint')}</p>
             </div>
           )}
@@ -476,7 +496,7 @@ export default function Settings() {
   }
 
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview' | 'keys'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview' | 'keys' | 'plans'>('users')
   const [mediaData, setMediaData] = useState<any>({})
 
   const loadMedia = async () => {
@@ -508,6 +528,9 @@ export default function Settings() {
             <button onClick={() => setActiveTab('keys')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'keys' ? 'bg-white text-purple-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
               <KeyRound className="w-4 h-4" />Claves
             </button>
+            <button onClick={() => setActiveTab('plans')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'plans' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+              <Layers className="w-4 h-4" />{t('planPermissions.tab')}
+            </button>
           </>
         )}
       </div>
@@ -517,6 +540,9 @@ export default function Settings() {
 
       {/* Keys tab — superadmin only */}
       {activeTab === 'keys' && isSuperAdmin && <ClinicKeysPanel />}
+
+      {/* Planes de suscripción — superadmin only */}
+      {activeTab === 'plans' && isSuperAdmin && <PlanPermissionsPanel />}
 
       {/* Media / Publicidad tab */}
       {activeTab === 'media' && (

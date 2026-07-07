@@ -1233,7 +1233,10 @@
       "lab_hint": "Användaren kommer endast att se kliniker kopplade till detta laboratorium.",
       "admin_only_hint": "Inställningar är exklusivt för administratörer och kan aldrig delegeras till en klinik.",
       "load_error": "Kunde inte ladda användarlistan",
-      "retry": "Försök igen"
+      "retry": "Försök igen",
+      "plan": "Plan",
+      "plan_hint": "Åtkomstbehörigheter tillämpas automatiskt utifrån den valda planen. Du kan justera dem under Inställningar → Abonnemangsplaner.",
+      "plan_required": "Välj en plan"
     },
     "media": {
       "title": "Hantering av reklammedia",
@@ -1244,5 +1247,14 @@
       "patient_title": "Innehåll för patienten",
       "patient_description": "Upp till 5 bilder eller videor riktade till patienten. Exakt användning konfigureras inom kort."
     }
+  },
+  "planPermissions": {
+    "tab": "Abonnemangsplaner",
+    "title": "Abonnemangsplaner",
+    "subtitle": "Konfigurera vilka menyavsnitt varje plan har tillgång till. När du bjuder in en användare som Klinik med denna plan tillämpas dessa behörigheter automatiskt.",
+    "section": "Avsnitt",
+    "save": "Spara",
+    "saving": "Sparar…",
+    "saved": "Sparat"
   }
 }

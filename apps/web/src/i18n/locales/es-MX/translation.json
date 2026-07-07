@@ -1213,7 +1213,10 @@
       "lab_hint": "El usuario solo verá las clínicas vinculadas a este laboratorio.",
       "admin_only_hint": "Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.",
       "load_error": "No se pudo cargar la lista de usuarios",
-      "retry": "Reintentar"
+      "retry": "Reintentar",
+      "plan": "Plan",
+      "plan_hint": "Los permisos de acceso se aplican automáticamente según el plan seleccionado. Puedes ajustarlos en Configuración → Planes Suscripción.",
+      "plan_required": "Selecciona un plan"
     },
     "media": {
       "title": "Gestión de medios publicitarios",
@@ -1224,5 +1227,14 @@
       "patient_title": "Contenido para paciente",
       "patient_description": "Hasta 5 imágenes o videos destinados al paciente. Su uso exacto se configurará próximamente."
     }
+  },
+  "planPermissions": {
+    "tab": "Planes Suscripción",
+    "title": "Planes de suscripción",
+    "subtitle": "Configura qué secciones del menú tiene acceso cada plan. Al invitar a un usuario como Clínica con este plan, se le aplicarán estos permisos automáticamente.",
+    "section": "Sección",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "saved": "Guardado"
   }
 }

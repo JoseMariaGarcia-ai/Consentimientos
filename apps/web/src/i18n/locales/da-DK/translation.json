@@ -1233,7 +1233,10 @@
       "lab_hint": "Brugeren vil kun se de klinikker, der er tilknyttet dette laboratorium.",
       "admin_only_hint": "Indstillinger er forbeholdt administratorer og kan aldrig delegeres til en klinik.",
       "load_error": "Kunne ikke indlæse brugerlisten",
-      "retry": "Prøv igen"
+      "retry": "Prøv igen",
+      "plan": "Plan",
+      "plan_hint": "Adgangstilladelser anvendes automatisk baseret på den valgte plan. Du kan justere dem under Indstillinger → Abonnementsplaner.",
+      "plan_required": "Vælg en plan"
     },
     "media": {
       "title": "Administration af reklamemedier",
@@ -1244,5 +1247,14 @@
       "patient_title": "Indhold til patient",
       "patient_description": "Op til 5 billeder eller videoer til patienten. Den præcise brug konfigureres snart."
     }
+  },
+  "planPermissions": {
+    "tab": "Abonnementsplaner",
+    "title": "Abonnementsplaner",
+    "subtitle": "Konfigurer hvilke menupunkter hver plan har adgang til. Når du inviterer en bruger som Klinik med denne plan, anvendes disse tilladelser automatisk.",
+    "section": "Sektion",
+    "save": "Gem",
+    "saving": "Gemmer…",
+    "saved": "Gemt"
   }
 }

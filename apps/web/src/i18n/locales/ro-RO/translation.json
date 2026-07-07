@@ -1233,7 +1233,10 @@
       "lab_hint": "Utilizatorul va vedea doar clinicile asociate acestui laborator.",
       "admin_only_hint": "Setările sunt exclusive administratorilor și nu pot fi delegate niciodată unei clinici.",
       "load_error": "Nu s-a putut încărca lista de utilizatori",
-      "retry": "Reîncearcă"
+      "retry": "Reîncearcă",
+      "plan": "Plan",
+      "plan_hint": "Permisiunile de acces sunt aplicate automat în funcție de planul selectat. Le poți ajusta din Configurare → Planuri de Abonament.",
+      "plan_required": "Selectează un plan"
     },
     "media": {
       "title": "Gestionarea materialelor publicitare",
@@ -1244,5 +1247,14 @@
       "patient_title": "Conținut pentru pacient",
       "patient_description": "Până la 5 imagini sau videoclipuri destinate pacientului. Utilizarea exactă va fi configurată în curând."
     }
+  },
+  "planPermissions": {
+    "tab": "Planuri de Abonament",
+    "title": "Planuri de abonament",
+    "subtitle": "Configurează la ce secțiuni din meniu are acces fiecare plan. Când inviți un utilizator ca Clinică cu acest plan, aceste permisiuni vor fi aplicate automat.",
+    "section": "Secțiune",
+    "save": "Salvează",
+    "saving": "Se salvează…",
+    "saved": "Salvat"
   }
 }

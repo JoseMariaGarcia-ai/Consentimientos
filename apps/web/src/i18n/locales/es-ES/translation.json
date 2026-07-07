@@ -1212,6 +1212,9 @@
       "admin_hint": "El administrador tiene acceso total a todas las secciones del sistema.",
       "permissions": "Permisos de acceso",
       "permissions_hint": "Selecciona a qué secciones tendrá acceso este usuario.",
+      "plan": "Plan",
+      "plan_hint": "Los permisos de acceso se aplican automáticamente según el plan seleccionado. Puedes ajustarlos en Configuración → Planes Suscripción.",
+      "plan_required": "Selecciona un plan",
       "send_invite": "Enviar invitación",
       "no_users": "No hay usuarios registrados. Invita al primero.",
       "inactive": "Inactivo",
@@ -1244,5 +1247,14 @@
       "patient_title": "Contenido para paciente",
       "patient_description": "Hasta 5 imágenes o vídeos destinados al paciente. Su uso exacto se configurará próximamente."
     }
+  },
+  "planPermissions": {
+    "tab": "Planes Suscripción",
+    "title": "Planes de suscripción",
+    "subtitle": "Configura qué secciones del menú tiene acceso cada plan. Al invitar un usuario como Clínica con este plan, se le aplicarán estos permisos automáticamente.",
+    "section": "Sección",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "saved": "Guardado"
   }
 }

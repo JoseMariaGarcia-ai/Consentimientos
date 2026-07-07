@@ -1233,7 +1233,10 @@
       "lab_hint": "De gebruiker ziet alleen de klinieken die aan dit laboratorium zijn gekoppeld.",
       "admin_only_hint": "Instellingen is exclusief voor beheerders en kan nooit worden gedelegeerd aan een kliniek.",
       "load_error": "De gebruikerslijst kon niet worden geladen",
-      "retry": "Opnieuw proberen"
+      "retry": "Opnieuw proberen",
+      "plan": "Abonnement",
+      "plan_hint": "Toegangsrechten worden automatisch toegepast op basis van het geselecteerde abonnement. Je kunt ze aanpassen bij Instellingen → Abonnementen.",
+      "plan_required": "Selecteer een abonnement"
     },
     "media": {
       "title": "Beheer van reclamemedia",
@@ -1244,5 +1247,14 @@
       "patient_title": "Inhoud voor patiënt",
       "patient_description": "Tot 5 afbeeldingen of video's bestemd voor de patiënt. Het exacte gebruik ervan wordt binnenkort geconfigureerd."
     }
+  },
+  "planPermissions": {
+    "tab": "Abonnementen",
+    "title": "Abonnementen",
+    "subtitle": "Configureer tot welke menuonderdelen elk abonnement toegang heeft. Wanneer je een gebruiker als Kliniek uitnodigt met dit abonnement, worden deze rechten automatisch toegepast.",
+    "section": "Onderdeel",
+    "save": "Opslaan",
+    "saving": "Opslaan…",
+    "saved": "Opgeslagen"
   }
 }

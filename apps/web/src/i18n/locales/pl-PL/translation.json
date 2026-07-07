@@ -1233,7 +1233,10 @@
       "lab_hint": "Użytkownik zobaczy tylko kliniki powiązane z tym laboratorium.",
       "admin_only_hint": "Ustawienia są dostępne wyłącznie dla administratorów i nigdy nie mogą być delegowane do kliniki.",
       "load_error": "Nie udało się załadować listy użytkowników",
-      "retry": "Ponów"
+      "retry": "Ponów",
+      "plan": "Plan",
+      "plan_hint": "Uprawnienia dostępu są stosowane automatycznie w zależności od wybranego planu. Możesz je dostosować w Ustawienia → Plany Subskrypcji.",
+      "plan_required": "Wybierz plan"
     },
     "media": {
       "title": "Zarządzanie mediami reklamowymi",
@@ -1244,5 +1247,14 @@
       "patient_title": "Treść dla pacjenta",
       "patient_description": "Do 5 obrazów lub filmów przeznaczonych dla pacjenta. Ich dokładne zastosowanie zostanie skonfigurowane wkrótce."
     }
+  },
+  "planPermissions": {
+    "tab": "Plany Subskrypcji",
+    "title": "Plany subskrypcji",
+    "subtitle": "Skonfiguruj, do których sekcji menu ma dostęp każdy plan. Podczas zapraszania użytkownika jako Klinika z tym planem uprawnienia te zostaną zastosowane automatycznie.",
+    "section": "Sekcja",
+    "save": "Zapisz",
+    "saving": "Zapisywanie…",
+    "saved": "Zapisano"
   }
 }

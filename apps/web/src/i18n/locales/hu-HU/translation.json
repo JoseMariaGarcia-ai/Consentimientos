@@ -1233,7 +1233,10 @@
       "lab_hint": "A felhasználó csak az ehhez a laboratóriumhoz kapcsolt klinikákat fogja látni.",
       "admin_only_hint": "A Beállítások kizárólag adminisztrátorok számára érhető el, és soha nem delegálható egy klinikának.",
       "load_error": "Nem sikerült betölteni a felhasználók listáját",
-      "retry": "Újrapróbálkozás"
+      "retry": "Újrapróbálkozás",
+      "plan": "Csomag",
+      "plan_hint": "A hozzáférési jogosultságok automatikusan érvénybe lépnek a kiválasztott csomag alapján. Ezeket a Beállítások → Előfizetési Csomagok menüben módosíthatja.",
+      "plan_required": "Válasszon csomagot"
     },
     "media": {
       "title": "Reklámmédia-kezelés",
@@ -1244,5 +1247,14 @@
       "patient_title": "Tartalom a beteg számára",
       "patient_description": "Legfeljebb 5, a betegnek szánt kép vagy videó. A pontos felhasználás konfigurálása hamarosan elérhető lesz."
     }
+  },
+  "planPermissions": {
+    "tab": "Előfizetési Csomagok",
+    "title": "Előfizetési csomagok",
+    "subtitle": "Állítsa be, mely menüszakaszokhoz fér hozzá az egyes csomagok. Amikor egy felhasználót Klinikaként hív meg ezzel a csomaggal, ezek a jogosultságok automatikusan érvénybe lépnek.",
+    "section": "Szakasz",
+    "save": "Mentés",
+    "saving": "Mentés…",
+    "saved": "Mentve"
   }
 }

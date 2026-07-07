@@ -1233,7 +1233,10 @@
       "lab_hint": "Kullanıcı yalnızca bu laboratuvara bağlı klinikleri görecektir.",
       "admin_only_hint": "Ayarlar yalnızca yöneticilere özeldir ve asla bir kliniğe devredilemez.",
       "load_error": "Kullanıcı listesi yüklenemedi",
-      "retry": "Tekrar dene"
+      "retry": "Tekrar dene",
+      "plan": "Plan",
+      "plan_hint": "Erişim izinleri, seçilen plana göre otomatik olarak uygulanır. Bunları Ayarlar → Abonelik Planları bölümünden ayarlayabilirsiniz.",
+      "plan_required": "Bir plan seçin"
     },
     "media": {
       "title": "Reklam medyası yönetimi",
@@ -1244,5 +1247,14 @@
       "patient_title": "Hasta için içerik",
       "patient_description": "Hasta için en fazla 5 görsel veya video. Tam kullanımı yakında yapılandırılacaktır."
     }
+  },
+  "planPermissions": {
+    "tab": "Abonelik Planları",
+    "title": "Abonelik planları",
+    "subtitle": "Her planın menüdeki hangi bölümlere erişebileceğini yapılandırın. Bu planla bir kullanıcıyı Klinik olarak davet ettiğinizde, bu izinler otomatik olarak uygulanır.",
+    "section": "Bölüm",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi"
   }
 }

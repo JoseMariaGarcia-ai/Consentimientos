@@ -1233,7 +1233,10 @@
       "lab_hint": "L'utilisateur ne verra que les cliniques liées à ce laboratoire.",
       "admin_only_hint": "Les paramètres sont réservés aux administrateurs et ne peuvent jamais être délégués à une clinique.",
       "load_error": "Impossible de charger la liste des utilisateurs",
-      "retry": "Réessayer"
+      "retry": "Réessayer",
+      "plan": "Formule",
+      "plan_hint": "Les permissions d'accès sont appliquées automatiquement selon la formule sélectionnée. Vous pouvez les ajuster dans Paramètres → Formules d'abonnement.",
+      "plan_required": "Sélectionnez une formule"
     },
     "media": {
       "title": "Gestion des supports publicitaires",
@@ -1244,5 +1247,14 @@
       "patient_title": "Contenu pour le patient",
       "patient_description": "Jusqu'à 5 images ou vidéos destinées au patient. Leur usage exact sera configuré prochainement."
     }
+  },
+  "planPermissions": {
+    "tab": "Formules d'abonnement",
+    "title": "Formules d'abonnement",
+    "subtitle": "Configurez à quelles sections du menu chaque formule a accès. Lorsque vous invitez un utilisateur en tant que Clinique avec cette formule, ces permissions seront appliquées automatiquement.",
+    "section": "Section",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré"
   }
 }

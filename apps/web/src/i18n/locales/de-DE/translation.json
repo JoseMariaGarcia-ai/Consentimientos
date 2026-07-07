@@ -1233,7 +1233,10 @@
       "lab_hint": "Der Benutzer sieht nur die mit diesem Labor verknüpften Kliniken.",
       "admin_only_hint": "Einstellungen sind ausschließlich Administratoren vorbehalten und können nie an eine Klinik delegiert werden.",
       "load_error": "Die Benutzerliste konnte nicht geladen werden",
-      "retry": "Erneut versuchen"
+      "retry": "Erneut versuchen",
+      "plan": "Plan",
+      "plan_hint": "Die Zugriffsberechtigungen werden automatisch entsprechend dem gewählten Plan angewendet. Sie können sie unter Einstellungen → Abo-Pläne anpassen.",
+      "plan_required": "Wählen Sie einen Plan aus"
     },
     "media": {
       "title": "Verwaltung der Werbemedien",
@@ -1244,5 +1247,14 @@
       "patient_title": "Inhalte für Patienten",
       "patient_description": "Bis zu 5 Bilder oder Videos für den Patienten. Die genaue Verwendung wird in Kürze konfigurierbar sein."
     }
+  },
+  "planPermissions": {
+    "tab": "Abo-Pläne",
+    "title": "Abo-Pläne",
+    "subtitle": "Legen Sie fest, auf welche Menüabschnitte jeder Plan Zugriff hat. Beim Einladen eines Nutzers als Klinik mit diesem Plan werden diese Berechtigungen automatisch angewendet.",
+    "section": "Bereich",
+    "save": "Speichern",
+    "saving": "Speichern…",
+    "saved": "Gespeichert"
   }
 }

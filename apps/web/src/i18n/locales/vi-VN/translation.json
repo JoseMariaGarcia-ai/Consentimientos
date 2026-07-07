@@ -1233,7 +1233,10 @@
       "lab_hint": "Người dùng sẽ chỉ thấy các phòng khám được liên kết với phòng thí nghiệm này.",
       "admin_only_hint": "Mục Cài đặt chỉ dành riêng cho quản trị viên và không bao giờ có thể được ủy quyền cho một phòng khám.",
       "load_error": "Không thể tải danh sách người dùng",
-      "retry": "Thử lại"
+      "retry": "Thử lại",
+      "plan": "Gói",
+      "plan_hint": "Quyền truy cập được áp dụng tự động theo gói đã chọn. Bạn có thể điều chỉnh trong Cài đặt → Gói Đăng Ký.",
+      "plan_required": "Chọn một gói"
     },
     "media": {
       "title": "Quản lý nội dung quảng cáo",
@@ -1244,5 +1247,14 @@
       "patient_title": "Nội dung cho bệnh nhân",
       "patient_description": "Tối đa 5 hình ảnh hoặc video dành cho bệnh nhân. Cách sử dụng chính xác sẽ được cấu hình trong thời gian tới."
     }
+  },
+  "planPermissions": {
+    "tab": "Gói Đăng Ký",
+    "title": "Gói đăng ký",
+    "subtitle": "Cấu hình các mục menu mà mỗi gói được truy cập. Khi bạn mời người dùng với vai trò Phòng khám kèm gói này, các quyền này sẽ được áp dụng tự động.",
+    "section": "Mục",
+    "save": "Lưu",
+    "saving": "Đang lưu…",
+    "saved": "Đã lưu"
   }
 }
