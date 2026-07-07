@@ -14,7 +14,6 @@ ENV VITE_CLOUDINARY_UPLOAD_PRESET=$VITE_CLOUDINARY_UPLOAD_PRESET
 # Copy workspace manifests first for better layer caching
 COPY package.json package-lock.json ./
 COPY apps/web/package.json ./apps/web/
-COPY apps/api/netlify/package.json ./apps/api/netlify/
 COPY packages/ ./packages/
 
 RUN npm install
