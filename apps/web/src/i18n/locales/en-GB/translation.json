@@ -228,7 +228,17 @@
       "add": "Add",
       "saving": "Saving…"
     },
-    "displayModeHeading": "How should they be shown?"
+    "displayModeHeading": "How should they be shown?",
+    "closeDelay": {
+      "heading": "Time before it can be closed",
+      "subheading": "The ad cannot be closed until this time has passed.",
+      "seconds": "seconds",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "readOnlyValue": "Cannot be closed for {{count}} seconds.",
+      "readOnlyNone": "Can be closed at any time."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Welcome",

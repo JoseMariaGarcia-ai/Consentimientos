@@ -228,7 +228,17 @@
       "add": "Hinzufügen",
       "saving": "Wird gespeichert…"
     },
-    "displayModeHeading": "Wie sollen sie angezeigt werden?"
+    "displayModeHeading": "Wie sollen sie angezeigt werden?",
+    "closeDelay": {
+      "heading": "Zeit bis zum Schließen möglich",
+      "subheading": "Solange diese Zeit nicht vergangen ist, kann die Anzeige nicht geschlossen werden.",
+      "seconds": "Sekunden",
+      "save": "Speichern",
+      "saving": "Speichern…",
+      "saved": "Gespeichert",
+      "readOnlyValue": "Kann erst nach {{count}} Sekunden geschlossen werden.",
+      "readOnlyNone": "Kann jederzeit geschlossen werden."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Willkommen",

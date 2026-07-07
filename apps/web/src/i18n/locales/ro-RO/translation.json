@@ -228,7 +228,17 @@
       "add": "Adaugă",
       "saving": "Se salvează…"
     },
-    "displayModeHeading": "Cum doriți să le afișați?"
+    "displayModeHeading": "Cum doriți să le afișați?",
+    "closeDelay": {
+      "heading": "Timp înainte de a putea fi închis",
+      "subheading": "Cât timp nu a trecut acest interval, persoana nu va putea închide anunțul.",
+      "seconds": "secunde",
+      "save": "Salvează",
+      "saving": "Se salvează…",
+      "saved": "Salvat",
+      "readOnlyValue": "Nu poate fi închis timp de {{count}} secunde.",
+      "readOnlyNone": "Poate fi închis oricând."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Bun venit",

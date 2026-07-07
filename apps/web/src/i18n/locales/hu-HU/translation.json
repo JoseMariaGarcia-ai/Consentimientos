@@ -228,7 +228,17 @@
       "add": "Hozzáadás",
       "saving": "Mentés…"
     },
-    "displayModeHeading": "Hogyan jelenjenek meg?"
+    "displayModeHeading": "Hogyan jelenjenek meg?",
+    "closeDelay": {
+      "heading": "Bezárhatóság előtti idő",
+      "subheading": "Amíg ez az idő nem telik le, a felhasználó nem tudja bezárni a hirdetést.",
+      "seconds": "másodperc",
+      "save": "Mentés",
+      "saving": "Mentés…",
+      "saved": "Mentve",
+      "readOnlyValue": "{{count}} másodpercig nem zárható be.",
+      "readOnlyNone": "Bármikor bezárható."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Üdvözlet",

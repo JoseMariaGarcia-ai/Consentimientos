@@ -228,7 +228,17 @@
       "add": "Přidat",
       "saving": "Ukládání…"
     },
-    "displayModeHeading": "Jak je zobrazovat?"
+    "displayModeHeading": "Jak je zobrazovat?",
+    "closeDelay": {
+      "heading": "Čas, než ho lze zavřít",
+      "subheading": "Dokud tento čas neuplyne, osoba nebude moci reklamu zavřít.",
+      "seconds": "sekund",
+      "save": "Uložit",
+      "saving": "Ukládání…",
+      "saved": "Uloženo",
+      "readOnlyValue": "Nelze zavřít dříve než po {{count}} sekundách.",
+      "readOnlyNone": "Lze zavřít kdykoli."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Vítejte",

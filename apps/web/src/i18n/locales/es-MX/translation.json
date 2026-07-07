@@ -228,7 +228,17 @@
       "add": "Agregar",
       "saving": "Guardando…"
     },
-    "displayModeHeading": "¿Cómo mostrarlas?"
+    "displayModeHeading": "¿Cómo mostrarlas?",
+    "closeDelay": {
+      "heading": "Tiempo antes de poder cerrar",
+      "subheading": "Mientras no pase este tiempo, la persona no podrá cerrar el anuncio.",
+      "seconds": "segundos",
+      "save": "Guardar",
+      "saving": "Guardando…",
+      "saved": "Guardado",
+      "readOnlyValue": "No se puede cerrar hasta pasados {{count}} segundos.",
+      "readOnlyNone": "Se puede cerrar en cualquier momento."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Bienvenida",

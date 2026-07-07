@@ -37,11 +37,13 @@ async function fetchSlot(): Promise<SlotData | null> {
 export function WelcomeMediaModal() {
   const { t } = useTranslation()
   const [creative, setCreative] = useState<Creative | null>(null)
+  const [closeDelay, setCloseDelay] = useState(0)
   const [visible, setVisible]   = useState(false)
   const { registerTrigger } = useWelcomeMedia()
 
-  const show = useCallback((c: Creative) => {
+  const show = useCallback((c: Creative, delaySeconds: number) => {
     setCreative(c)
+    setCloseDelay(delaySeconds)
     setVisible(true)
     localStorage.setItem(LS_LAST_SHOWN, Date.now().toString())
     api.post('/media/impressions', { type: 'welcome', creative_id: c.id }).catch(() => {})
@@ -55,7 +57,7 @@ export function WelcomeMediaModal() {
       if (shouldShow(slot.settings)) {
         const c = pickCreative(slot, LS_SEQ_INDEX)
         if (c) {
-          show(c)
+          show(c, slot.settings.close_delay_seconds ?? 0)
           if (slot.settings.show_trigger === 'session') sessionStorage.setItem(SS_SESSION, '1')
         }
       }
@@ -67,7 +69,7 @@ export function WelcomeMediaModal() {
           const s = await fetchSlot()
           if (s && shouldShow(s.settings)) {
             const c = pickCreative(s, LS_SEQ_INDEX)
-            if (c) show(c)
+            if (c) show(c, s.settings.close_delay_seconds ?? 0)
           }
         }, mins * 60 * 1000)
         return () => clearInterval(id)
@@ -81,7 +83,7 @@ export function WelcomeMediaModal() {
       const triggers = parseTriggers(slot.settings.show_trigger)
       if (triggers.includes(event)) {
         const c = pickCreative(slot, LS_SEQ_INDEX)
-        if (c) show(c)
+        if (c) show(c, slot.settings.close_delay_seconds ?? 0)
       }
     })
   }, [])
@@ -94,6 +96,7 @@ export function WelcomeMediaModal() {
       onClose={() => setVisible(false)}
       altText={t('welcomeMediaModal.welcomeAlt')}
       continueLabel={t('welcomeMediaModal.continue')}
+      closeDelaySeconds={closeDelay}
     />
   )
 }

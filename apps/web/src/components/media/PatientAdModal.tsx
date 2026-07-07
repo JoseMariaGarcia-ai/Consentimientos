@@ -13,6 +13,7 @@ const LS_SEQ_INDEX  = 'patient_media_seq_index'
 export function PatientAdModal() {
   const { t } = useTranslation()
   const [creative, setCreative] = useState<Creative | null>(null)
+  const [closeDelay, setCloseDelay] = useState(0)
   const [visible, setVisible]   = useState(false)
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export function PatientAdModal() {
       const c = pickCreative(slot, LS_SEQ_INDEX)
       if (!c) return
       setCreative(c)
+      setCloseDelay(slot.settings.close_delay_seconds ?? 0)
       setVisible(true)
       sessionStorage.setItem(SS_SHOWN, '1')
       api.post('/media/impressions', { type: 'patient', creative_id: c.id }).catch(() => {})
@@ -37,6 +39,7 @@ export function PatientAdModal() {
       onClose={() => setVisible(false)}
       altText={t('patientAdModal.alt')}
       continueLabel={t('patientAdModal.continue')}
+      closeDelaySeconds={closeDelay}
     />
   )
 }

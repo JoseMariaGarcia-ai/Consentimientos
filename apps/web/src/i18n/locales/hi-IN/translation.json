@@ -228,7 +228,17 @@
       "add": "जोड़ें",
       "saving": "सहेजा जा रहा है…"
     },
-    "displayModeHeading": "इन्हें कैसे दिखाएं?"
+    "displayModeHeading": "इन्हें कैसे दिखाएं?",
+    "closeDelay": {
+      "heading": "बंद करने से पहले का समय",
+      "subheading": "जब तक यह समय पूरा नहीं होता, विज्ञापन बंद नहीं किया जा सकेगा।",
+      "seconds": "सेकंड",
+      "save": "सेव करें",
+      "saving": "सेव हो रहा है…",
+      "saved": "सेव हो गया",
+      "readOnlyValue": "{{count}} सेकंड तक बंद नहीं किया जा सकता।",
+      "readOnlyNone": "कभी भी बंद किया जा सकता है।"
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "स्वागत है",

@@ -228,7 +228,17 @@
       "add": "Ajouter",
       "saving": "Enregistrement…"
     },
-    "displayModeHeading": "Comment les afficher ?"
+    "displayModeHeading": "Comment les afficher ?",
+    "closeDelay": {
+      "heading": "Délai avant de pouvoir fermer",
+      "subheading": "Tant que ce délai n'est pas écoulé, la personne ne pourra pas fermer la publicité.",
+      "seconds": "secondes",
+      "save": "Enregistrer",
+      "saving": "Enregistrement…",
+      "saved": "Enregistré",
+      "readOnlyValue": "Impossible à fermer avant {{count}} secondes.",
+      "readOnlyNone": "Peut être fermée à tout moment."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Bienvenue",

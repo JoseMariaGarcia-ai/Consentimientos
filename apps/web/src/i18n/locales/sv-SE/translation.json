@@ -228,7 +228,17 @@
       "add": "Lägg till",
       "saving": "Sparar…"
     },
-    "displayModeHeading": "Hur ska de visas?"
+    "displayModeHeading": "Hur ska de visas?",
+    "closeDelay": {
+      "heading": "Tid innan den kan stängas",
+      "subheading": "Så länge denna tid inte har passerat kan personen inte stänga annonsen.",
+      "seconds": "sekunder",
+      "save": "Spara",
+      "saving": "Sparar…",
+      "saved": "Sparat",
+      "readOnlyValue": "Kan inte stängas förrän efter {{count}} sekunder.",
+      "readOnlyNone": "Kan stängas när som helst."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Välkommen",

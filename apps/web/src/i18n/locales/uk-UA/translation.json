@@ -228,7 +228,17 @@
       "add": "Додати",
       "saving": "Збереження…"
     },
-    "displayModeHeading": "Як їх показувати?"
+    "displayModeHeading": "Як їх показувати?",
+    "closeDelay": {
+      "heading": "Час до можливості закриття",
+      "subheading": "Поки не мине цей час, людина не зможе закрити рекламу.",
+      "seconds": "секунд",
+      "save": "Зберегти",
+      "saving": "Збереження…",
+      "saved": "Збережено",
+      "readOnlyValue": "Не можна закрити протягом {{count}} секунд.",
+      "readOnlyNone": "Можна закрити в будь-який момент."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Ласкаво просимо",

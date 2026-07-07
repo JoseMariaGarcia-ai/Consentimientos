@@ -10,6 +10,7 @@ export interface SlotSettings {
   show_interval_minutes: number
   display_mode: 'manual' | 'random' | 'sequential'
   active_creative_id: string | null
+  close_delay_seconds: number
 }
 
 export interface SlotData {

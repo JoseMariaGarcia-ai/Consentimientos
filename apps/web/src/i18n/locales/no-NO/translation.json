@@ -228,7 +228,17 @@
       "add": "Legg til",
       "saving": "Lagrer…"
     },
-    "displayModeHeading": "Hvordan skal de vises?"
+    "displayModeHeading": "Hvordan skal de vises?",
+    "closeDelay": {
+      "heading": "Tid før det kan lukkes",
+      "subheading": "Så lenge denne tiden ikke har gått, kan ikke personen lukke annonsen.",
+      "seconds": "sekunder",
+      "save": "Lagre",
+      "saving": "Lagrer…",
+      "saved": "Lagret",
+      "readOnlyValue": "Kan ikke lukkes før etter {{count}} sekunder.",
+      "readOnlyNone": "Kan lukkes når som helst."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Velkommen",

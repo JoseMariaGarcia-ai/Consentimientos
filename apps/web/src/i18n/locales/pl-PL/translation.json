@@ -228,7 +228,17 @@
       "add": "Dodaj",
       "saving": "Zapisywanie…"
     },
-    "displayModeHeading": "Jak je wyświetlać?"
+    "displayModeHeading": "Jak je wyświetlać?",
+    "closeDelay": {
+      "heading": "Czas przed możliwością zamknięcia",
+      "subheading": "Dopóki ten czas nie minie, osoba nie będzie mogła zamknąć reklamy.",
+      "seconds": "sekund",
+      "save": "Zapisz",
+      "saving": "Zapisywanie…",
+      "saved": "Zapisano",
+      "readOnlyValue": "Nie można zamknąć przed upływem {{count}} sekund.",
+      "readOnlyNone": "Można zamknąć w dowolnym momencie."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Powitanie",

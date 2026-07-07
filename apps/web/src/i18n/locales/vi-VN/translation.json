@@ -228,7 +228,17 @@
       "add": "Thêm",
       "saving": "Đang lưu…"
     },
-    "displayModeHeading": "Hiển thị như thế nào?"
+    "displayModeHeading": "Hiển thị như thế nào?",
+    "closeDelay": {
+      "heading": "Thời gian trước khi có thể đóng",
+      "subheading": "Trong khi chưa hết thời gian này, người dùng sẽ không thể đóng quảng cáo.",
+      "seconds": "giây",
+      "save": "Lưu",
+      "saving": "Đang lưu…",
+      "saved": "Đã lưu",
+      "readOnlyValue": "Không thể đóng trong {{count}} giây.",
+      "readOnlyNone": "Có thể đóng bất cứ lúc nào."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Chào mừng",

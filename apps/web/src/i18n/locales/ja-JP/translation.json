@@ -228,7 +228,17 @@
       "add": "追加",
       "saving": "保存中…"
     },
-    "displayModeHeading": "どのように表示しますか？"
+    "displayModeHeading": "どのように表示しますか？",
+    "closeDelay": {
+      "heading": "閉じられるまでの時間",
+      "subheading": "この時間が経過するまで、広告を閉じることはできません。",
+      "seconds": "秒",
+      "save": "保存",
+      "saving": "保存中…",
+      "saved": "保存しました",
+      "readOnlyValue": "{{count}}秒間は閉じられません。",
+      "readOnlyNone": "いつでも閉じられます。"
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "ようこそ",

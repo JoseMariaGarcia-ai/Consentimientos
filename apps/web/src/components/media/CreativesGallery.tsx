@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Upload, Trash2, Film, Image, Loader2, CheckCircle2, Shuffle, ListOrdered, MousePointer, Link, X } from 'lucide-react'
+import { Upload, Trash2, Film, Image, Loader2, CheckCircle2, Shuffle, ListOrdered, MousePointer, Link, X, Check, Timer } from 'lucide-react'
 import { api } from '@/lib/api'
 
 interface Creative {
@@ -18,6 +18,7 @@ interface Settings {
   show_interval_minutes: number
   display_mode: 'manual' | 'random' | 'sequential'
   active_creative_id: string | null
+  close_delay_seconds: number
 }
 
 interface Props {
@@ -68,10 +69,28 @@ export function CreativesGallery({ type, title, description, files, settings, on
   const [urlLabel, setUrlLabel]     = useState('')
   const [showUrlForm, setShowUrlForm] = useState(false)
   const [savingUrl, setSavingUrl]   = useState(false)
+  const [closeDelayInput, setCloseDelayInput] = useState(settings?.close_delay_seconds ?? 0)
+  const [savingDelay, setSavingDelay] = useState(false)
+  const [savedDelay, setSavedDelay]   = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const displayMode = settings?.display_mode ?? 'manual'
   const activeId    = settings?.active_creative_id ?? null
+
+  useEffect(() => {
+    setCloseDelayInput(settings?.close_delay_seconds ?? 0)
+  }, [settings?.close_delay_seconds])
+
+  const handleSaveCloseDelay = async () => {
+    setSavingDelay(true); setError(''); setSavedDelay(false)
+    try {
+      await api.put(`/media/${type}/config`, { close_delay_seconds: Math.max(0, closeDelayInput) })
+      onChanged()
+      setSavedDelay(true)
+      setTimeout(() => setSavedDelay(false), 3000)
+    } catch (e: any) { setError(e.message) }
+    finally { setSavingDelay(false) }
+  }
 
   const handleFile = async (file: File) => {
     if (file.size / 1024 / 1024 > 100) { setError(t('creativesGallery.errors.fileTooLarge')); return }
@@ -325,6 +344,46 @@ export function CreativesGallery({ type, title, description, files, settings, on
               )
             })}
           </div>
+        </div>
+      )}
+
+      {/* Close delay — how long before the viewer can be closed */}
+      {files.length > 0 && (
+        <div className="flex flex-col gap-2 pt-1">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('creativesGallery.closeDelay.heading')}</p>
+          <p className="text-[10px] text-slate-400 -mt-1">{t('creativesGallery.closeDelay.subheading')}</p>
+          {readOnly ? (
+            <p className="text-xs text-slate-600">
+              {(settings?.close_delay_seconds ?? 0) > 0
+                ? t('creativesGallery.closeDelay.readOnlyValue', { count: settings?.close_delay_seconds })
+                : t('creativesGallery.closeDelay.readOnlyNone')}
+            </p>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Timer className="w-4 h-4 text-slate-400 flex-shrink-0" />
+              <input
+                type="number"
+                min={0}
+                max={120}
+                value={closeDelayInput}
+                onChange={e => setCloseDelayInput(Math.max(0, parseInt(e.target.value) || 0))}
+                className="w-20 px-2 py-1.5 border border-slate-300 rounded-lg text-sm text-center focus:outline-none focus:ring-2 focus:ring-pink-400"
+              />
+              <span className="text-xs text-slate-500">{t('creativesGallery.closeDelay.seconds')}</span>
+              <button
+                onClick={handleSaveCloseDelay}
+                disabled={savingDelay}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-pink-600 text-white rounded-lg text-xs font-semibold hover:bg-pink-700 disabled:opacity-50"
+              >
+                {savingDelay
+                  ? <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  : savedDelay
+                  ? <Check className="w-3.5 h-3.5" />
+                  : null}
+                {savingDelay ? t('creativesGallery.closeDelay.saving') : savedDelay ? t('creativesGallery.closeDelay.saved') : t('creativesGallery.closeDelay.save')}
+              </button>
+            </div>
+          )}
         </div>
       )}
 

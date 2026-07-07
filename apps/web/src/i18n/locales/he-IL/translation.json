@@ -228,7 +228,17 @@
       "add": "הוסף",
       "saving": "שומר…"
     },
-    "displayModeHeading": "כיצד להציג אותן?"
+    "displayModeHeading": "כיצד להציג אותן?",
+    "closeDelay": {
+      "heading": "זמן לפני שניתן לסגור",
+      "subheading": "כל עוד זמן זה לא חלף, לא ניתן יהיה לסגור את הפרסומת.",
+      "seconds": "שניות",
+      "save": "שמירה",
+      "saving": "שומר…",
+      "saved": "נשמר",
+      "readOnlyValue": "לא ניתן לסגור במשך {{count}} שניות.",
+      "readOnlyNone": "ניתן לסגור בכל עת."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "ברוך הבא",

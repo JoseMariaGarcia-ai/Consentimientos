@@ -228,7 +228,17 @@
       "add": "Adicionar",
       "saving": "Salvando…"
     },
-    "displayModeHeading": "Como exibi-las?"
+    "displayModeHeading": "Como exibi-las?",
+    "closeDelay": {
+      "heading": "Tempo antes de poder fechar",
+      "subheading": "Enquanto esse tempo não passar, a pessoa não poderá fechar o anúncio.",
+      "seconds": "segundos",
+      "save": "Salvar",
+      "saving": "Salvando…",
+      "saved": "Salvo",
+      "readOnlyValue": "Não pode ser fechado antes de {{count}} segundos.",
+      "readOnlyNone": "Pode ser fechado a qualquer momento."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Bem-vindo",

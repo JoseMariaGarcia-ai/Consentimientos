@@ -228,7 +228,17 @@
       "add": "Afegir",
       "saving": "Desant…"
     },
-    "displayModeHeading": "Com mostrar-les?"
+    "displayModeHeading": "Com mostrar-les?",
+    "closeDelay": {
+      "heading": "Temps abans de poder tancar",
+      "subheading": "Mentre no passi aquest temps, la persona no podrà tancar l'anunci.",
+      "seconds": "segons",
+      "save": "Desar",
+      "saving": "Desant…",
+      "saved": "Desat",
+      "readOnlyValue": "No es pot tancar fins que passin {{count}} segons.",
+      "readOnlyNone": "Es pot tancar en qualsevol moment."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Benvinguda",

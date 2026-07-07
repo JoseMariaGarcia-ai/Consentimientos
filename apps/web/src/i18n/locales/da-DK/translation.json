@@ -228,7 +228,17 @@
       "add": "Tilføj",
       "saving": "Gemmer…"
     },
-    "displayModeHeading": "Hvordan skal de vises?"
+    "displayModeHeading": "Hvordan skal de vises?",
+    "closeDelay": {
+      "heading": "Tid før den kan lukkes",
+      "subheading": "Så længe denne tid ikke er gået, kan personen ikke lukke annoncen.",
+      "seconds": "sekunder",
+      "save": "Gem",
+      "saving": "Gemmer…",
+      "saved": "Gemt",
+      "readOnlyValue": "Kan ikke lukkes før efter {{count}} sekunder.",
+      "readOnlyNone": "Kan lukkes når som helst."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Velkommen",

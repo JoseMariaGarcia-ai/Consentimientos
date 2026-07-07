@@ -228,7 +228,17 @@
       "add": "추가",
       "saving": "저장 중…"
     },
-    "displayModeHeading": "어떻게 표시할까요?"
+    "displayModeHeading": "어떻게 표시할까요?",
+    "closeDelay": {
+      "heading": "닫기 가능까지 걸리는 시간",
+      "subheading": "이 시간이 지나기 전까지는 광고를 닫을 수 없습니다.",
+      "seconds": "초",
+      "save": "저장",
+      "saving": "저장 중…",
+      "saved": "저장됨",
+      "readOnlyValue": "{{count}}초 동안 닫을 수 없습니다.",
+      "readOnlyNone": "언제든지 닫을 수 있습니다."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "환영",

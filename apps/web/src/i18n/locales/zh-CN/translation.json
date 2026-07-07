@@ -228,7 +228,17 @@
       "add": "添加",
       "saving": "正在保存…"
     },
-    "displayModeHeading": "如何展示？"
+    "displayModeHeading": "如何展示？",
+    "closeDelay": {
+      "heading": "可关闭前的等待时间",
+      "subheading": "在此时间结束之前，用户将无法关闭广告。",
+      "seconds": "秒",
+      "save": "保存",
+      "saving": "保存中…",
+      "saved": "已保存",
+      "readOnlyValue": "需等待 {{count}} 秒后才能关闭。",
+      "readOnlyNone": "可随时关闭。"
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "欢迎",

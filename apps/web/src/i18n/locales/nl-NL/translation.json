@@ -228,7 +228,17 @@
       "add": "Toevoegen",
       "saving": "Opslaan…"
     },
-    "displayModeHeading": "Hoe wilt u ze weergeven?"
+    "displayModeHeading": "Hoe wilt u ze weergeven?",
+    "closeDelay": {
+      "heading": "Tijd voordat het gesloten kan worden",
+      "subheading": "Zolang deze tijd niet verstreken is, kan de persoon de advertentie niet sluiten.",
+      "seconds": "seconden",
+      "save": "Opslaan",
+      "saving": "Opslaan…",
+      "saved": "Opgeslagen",
+      "readOnlyValue": "Kan pas na {{count}} seconden gesloten worden.",
+      "readOnlyNone": "Kan op elk moment gesloten worden."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Welkom",

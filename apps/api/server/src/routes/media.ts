@@ -250,7 +250,7 @@ router.delete('/:type/file/:fileId', async (req, res) => {
 router.put('/:type/config', async (req, res) => {
   const { userId } = (req as any).user
   const type = req.params.type
-  const { show_trigger, show_interval_minutes, display_mode, active_creative_id } = req.body
+  const { show_trigger, show_interval_minutes, display_mode, active_creative_id, close_delay_seconds } = req.body
   try {
     const owner = await resolveOwner(userId)
     if (!(await canWrite(userId, owner))) return res.status(403).json({ error: 'No tienes permiso para gestionar esta publicidad' })
@@ -262,13 +262,15 @@ router.put('/:type/config', async (req, res) => {
          show_trigger          = COALESCE($1, show_trigger),
          show_interval_minutes = COALESCE($2, show_interval_minutes),
          display_mode          = COALESCE($3, display_mode),
-         active_creative_id    = COALESCE($4, active_creative_id)
-       WHERE ${column}=$5 AND media_type=$6 RETURNING *`,
+         active_creative_id    = COALESCE($4, active_creative_id),
+         close_delay_seconds   = COALESCE($5, close_delay_seconds)
+       WHERE ${column}=$6 AND media_type=$7 RETURNING *`,
       [
         show_trigger ?? null,
         show_interval_minutes ?? null,
         display_mode ?? null,
         active_creative_id ?? null,
+        close_delay_seconds ?? null,
         owner.id,
         type,
       ]

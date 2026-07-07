@@ -228,7 +228,17 @@
       "add": "Добавить",
       "saving": "Сохранение…"
     },
-    "displayModeHeading": "Как их показывать?"
+    "displayModeHeading": "Как их показывать?",
+    "closeDelay": {
+      "heading": "Время до возможности закрытия",
+      "subheading": "Пока не пройдёт это время, закрыть рекламу будет нельзя.",
+      "seconds": "секунд",
+      "save": "Сохранить",
+      "saving": "Сохранение…",
+      "saved": "Сохранено",
+      "readOnlyValue": "Нельзя закрыть в течение {{count}} секунд.",
+      "readOnlyNone": "Можно закрыть в любой момент."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Добро пожаловать",

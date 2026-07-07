@@ -228,7 +228,17 @@
       "add": "إضافة",
       "saving": "جارٍ الحفظ…"
     },
-    "displayModeHeading": "كيف يتم عرضها؟"
+    "displayModeHeading": "كيف يتم عرضها؟",
+    "closeDelay": {
+      "heading": "الوقت قبل إمكانية الإغلاق",
+      "subheading": "لن يتمكن الشخص من إغلاق الإعلان حتى ينقضي هذا الوقت.",
+      "seconds": "ثوانٍ",
+      "save": "حفظ",
+      "saving": "جارٍ الحفظ…",
+      "saved": "تم الحفظ",
+      "readOnlyValue": "لا يمكن الإغلاق قبل مرور {{count}} ثانية.",
+      "readOnlyNone": "يمكن الإغلاق في أي وقت."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "ترحيب",

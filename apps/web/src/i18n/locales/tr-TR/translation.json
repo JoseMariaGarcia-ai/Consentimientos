@@ -228,7 +228,17 @@
       "add": "Ekle",
       "saving": "Kaydediliyor…"
     },
-    "displayModeHeading": "Nasıl gösterilsin?"
+    "displayModeHeading": "Nasıl gösterilsin?",
+    "closeDelay": {
+      "heading": "Kapatılabilir olmadan önceki süre",
+      "subheading": "Bu süre geçmeden kişi reklamı kapatamayacaktır.",
+      "seconds": "saniye",
+      "save": "Kaydet",
+      "saving": "Kaydediliyor…",
+      "saved": "Kaydedildi",
+      "readOnlyValue": "{{count}} saniye geçmeden kapatılamaz.",
+      "readOnlyNone": "Herhangi bir zamanda kapatılabilir."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Hoş geldiniz",

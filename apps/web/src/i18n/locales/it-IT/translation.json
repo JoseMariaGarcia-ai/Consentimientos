@@ -228,7 +228,17 @@
       "add": "Aggiungi",
       "saving": "Salvataggio…"
     },
-    "displayModeHeading": "Come mostrarle?"
+    "displayModeHeading": "Come mostrarle?",
+    "closeDelay": {
+      "heading": "Tempo prima di poter chiudere",
+      "subheading": "Finché non trascorre questo tempo, la persona non potrà chiudere l'annuncio.",
+      "seconds": "secondi",
+      "save": "Salva",
+      "saving": "Salvataggio…",
+      "saved": "Salvato",
+      "readOnlyValue": "Non si può chiudere prima di {{count}} secondi.",
+      "readOnlyNone": "Si può chiudere in qualsiasi momento."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Benvenuto",

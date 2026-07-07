@@ -228,7 +228,17 @@
       "add": "Lisää",
       "saving": "Tallennetaan…"
     },
-    "displayModeHeading": "Miten ne näytetään?"
+    "displayModeHeading": "Miten ne näytetään?",
+    "closeDelay": {
+      "heading": "Aika ennen sulkemismahdollisuutta",
+      "subheading": "Niin kauan kuin tämä aika ei ole kulunut, mainosta ei voi sulkea.",
+      "seconds": "sekuntia",
+      "save": "Tallenna",
+      "saving": "Tallennetaan…",
+      "saved": "Tallennettu",
+      "readOnlyValue": "Ei voi sulkea ennen kuin {{count}} sekuntia on kulunut.",
+      "readOnlyNone": "Voidaan sulkea milloin tahansa."
+    }
   },
   "welcomeMediaModal": {
     "welcomeAlt": "Tervetuloa",
