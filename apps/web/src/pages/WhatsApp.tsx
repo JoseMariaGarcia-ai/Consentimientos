@@ -1,0 +1,318 @@
+import { useState, useEffect, useRef } from 'react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, Check, CheckCheck, Clock } from 'lucide-react'
+import { api } from '@/lib/api'
+import { useAuth } from '@/lib/auth'
+
+interface Conversation {
+  id: string
+  phone: string
+  contact_name: string | null
+  last_message_at: string
+  last_message_preview: string | null
+  unread_count: number
+}
+
+interface Message {
+  id: string
+  direction: 'inbound' | 'outbound'
+  body: string | null
+  status: string
+  created_at: string
+}
+
+export default function WhatsApp() {
+  const { role } = useAuth()
+  const isSuperAdmin = role === 'superadmin'
+
+  const [clinics, setClinics]           = useState<{ id: string; name: string; trade_name: string | null }[]>([])
+  const [clinicId, setClinicId]         = useState<string>('')
+  const [configured, setConfigured]     = useState<boolean | null>(null)
+  const [conversations, setConversations] = useState<Conversation[]>([])
+  const [selected, setSelected]         = useState<Conversation | null>(null)
+  const [messages, setMessages]         = useState<Message[]>([])
+  const [search, setSearch]             = useState('')
+  const [draft, setDraft]               = useState('')
+  const [sending, setSending]           = useState(false)
+  const [error, setError]               = useState('')
+  const [newPhone, setNewPhone]         = useState('')
+  const [showNewChat, setShowNewChat]   = useState(false)
+  const bottomRef = useRef<HTMLDivElement>(null)
+
+  // Load clinics available to this user
+  useEffect(() => {
+    api.get('/whatsapp/clinics').then((data: any) => {
+      const list = Array.isArray(data) ? data : []
+      setClinics(list)
+      if (list.length === 1) setClinicId(list[0].id)
+    }).catch(() => {})
+  }, [])
+
+  // Check YCloud configuration + load conversations whenever clinic changes
+  useEffect(() => {
+    if (!clinicId) return
+    setConfigured(null)
+    api.get(`/whatsapp/status?clinicId=${clinicId}`).then((d: any) => setConfigured(!!d.configured)).catch(() => setConfigured(false))
+    loadConversations()
+    setSelected(null)
+    setMessages([])
+  }, [clinicId])
+
+  const loadConversations = () => {
+    if (!clinicId) return
+    api.get(`/whatsapp/conversations?clinicId=${clinicId}`).then((data: any) => {
+      setConversations(Array.isArray(data) ? data : [])
+    }).catch(() => {})
+  }
+
+  const openConversation = (c: Conversation) => {
+    setSelected(c)
+    api.get(`/whatsapp/conversations/${c.id}/messages?clinicId=${clinicId}`).then((data: any) => {
+      setMessages(Array.isArray(data) ? data : [])
+    }).catch(() => setMessages([]))
+  }
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
+
+  const handleSend = async () => {
+    const phone = selected?.phone ?? newPhone.trim()
+    if (!phone || !draft.trim()) return
+    setSending(true); setError('')
+    try {
+      const msg = await api.post('/whatsapp/send', {
+        targetClinicId: clinicId,
+        phone,
+        body: draft.trim(),
+      })
+      setMessages(m => [...m, msg])
+      setDraft('')
+      loadConversations()
+      if (!selected) {
+        setShowNewChat(false)
+        setNewPhone('')
+        loadConversations()
+      }
+    } catch (e: any) {
+      setError(e.message ?? 'Error al enviar el mensaje')
+    } finally {
+      setSending(false)
+    }
+  }
+
+  const filteredConversations = conversations.filter(c =>
+    !search ||
+    c.phone.includes(search) ||
+    (c.contact_name ?? '').toLowerCase().includes(search.toLowerCase())
+  )
+
+  return (
+    <div className="flex flex-col gap-4 h-full">
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
+            <MessageCircle className="w-5 h-5 text-emerald-600" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-slate-800">WhatsApp</h1>
+            <p className="text-sm text-slate-500 mt-0.5">Envía y recibe mensajes vía YCloud</p>
+          </div>
+        </div>
+
+        {isSuperAdmin && (
+          <div className="flex items-center gap-2">
+            <Building2 className="w-4 h-4 text-slate-400" />
+            <select
+              value={clinicId}
+              onChange={e => setClinicId(e.target.value)}
+              className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              <option value="">— Seleccionar clínica —</option>
+              {clinics.map(c => (
+                <option key={c.id} value={c.id}>{c.trade_name ?? c.name}</option>
+              ))}
+            </select>
+          </div>
+        )}
+      </div>
+
+      {!clinicId ? (
+        <div className="flex-1 flex items-center justify-center text-slate-400 text-sm py-20">
+          {isSuperAdmin ? 'Selecciona una clínica para gestionar su WhatsApp' : 'Cargando…'}
+        </div>
+      ) : configured === false ? (
+        <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4">
+          <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="text-sm font-semibold text-amber-800">YCloud no está configurado para esta clínica</p>
+            <p className="text-xs text-amber-700 mt-1">
+              {isSuperAdmin
+                ? 'Añade la API Key de YCloud en Configuración → Claves para esta clínica.'
+                : 'Contacta con el administrador para activar WhatsApp en esta clínica.'}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-[320px_1fr] gap-4 min-h-[600px]">
+          {/* Conversation list */}
+          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col overflow-hidden">
+            <div className="p-3 border-b border-slate-100 flex flex-col gap-2">
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  placeholder="Buscar conversación…"
+                  className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </div>
+              <button
+                onClick={() => { setShowNewChat(true); setSelected(null); setMessages([]) }}
+                className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 text-left px-1"
+              >
+                + Nuevo mensaje
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto">
+              {filteredConversations.length === 0 ? (
+                <div className="p-6 text-center text-xs text-slate-400">No hay conversaciones todavía</div>
+              ) : (
+                filteredConversations.map(c => (
+                  <button
+                    key={c.id}
+                    onClick={() => { setShowNewChat(false); openConversation(c) }}
+                    className={`w-full flex items-start gap-3 px-4 py-3 text-left border-b border-slate-50 hover:bg-slate-50 transition-colors ${
+                      selected?.id === c.id ? 'bg-emerald-50' : ''
+                    }`}
+                  >
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                      {(c.contact_name ?? c.phone).charAt(0).toUpperCase()}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-semibold text-slate-800 truncate">{c.contact_name ?? c.phone}</p>
+                        <span className="text-[10px] text-slate-400 flex-shrink-0">
+                          {new Date(c.last_message_at).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-400 truncate mt-0.5">{c.last_message_preview ?? c.phone}</p>
+                    </div>
+                    {c.unread_count > 0 && (
+                      <span className="flex-shrink-0 bg-emerald-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                        {c.unread_count}
+                      </span>
+                    )}
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Chat panel */}
+          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col overflow-hidden">
+            {showNewChat ? (
+              <>
+                <div className="p-4 border-b border-slate-100">
+                  <p className="text-sm font-bold text-slate-700 mb-2">Nuevo mensaje</p>
+                  <input
+                    value={newPhone}
+                    onChange={e => setNewPhone(e.target.value)}
+                    placeholder="+34 600 000 000"
+                    className="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  />
+                </div>
+                <div className="flex-1" />
+                <ChatComposer
+                  draft={draft}
+                  setDraft={setDraft}
+                  onSend={handleSend}
+                  sending={sending}
+                  disabled={!newPhone.trim()}
+                />
+              </>
+            ) : !selected ? (
+              <div className="flex-1 flex items-center justify-center text-slate-300 text-sm">
+                Selecciona una conversación o inicia un mensaje nuevo
+              </div>
+            ) : (
+              <>
+                <div className="p-4 border-b border-slate-100 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold">
+                    {(selected.contact_name ?? selected.phone).charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800">{selected.contact_name ?? selected.phone}</p>
+                    <p className="text-xs text-slate-400">{selected.phone}</p>
+                  </div>
+                </div>
+
+                <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 bg-slate-50">
+                  {messages.map(m => (
+                    <div key={m.id} className={`flex ${m.direction === 'outbound' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[75%] rounded-2xl px-4 py-2 text-sm ${
+                        m.direction === 'outbound'
+                          ? 'bg-emerald-500 text-white rounded-br-sm'
+                          : 'bg-white text-slate-700 border border-slate-200 rounded-bl-sm'
+                      }`}>
+                        <p className="whitespace-pre-line">{m.body}</p>
+                        <div className={`flex items-center gap-1 mt-1 ${m.direction === 'outbound' ? 'justify-end text-emerald-100' : 'text-slate-400'}`}>
+                          <span className="text-[10px]">
+                            {new Date(m.created_at).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                          {m.direction === 'outbound' && (
+                            m.status === 'failed' ? <AlertTriangle className="w-3 h-3 text-red-200" /> :
+                            m.status === 'read' ? <CheckCheck className="w-3 h-3" /> :
+                            m.status === 'delivered' ? <CheckCheck className="w-3 h-3" /> :
+                            m.status === 'sent' ? <Check className="w-3 h-3" /> :
+                            <Clock className="w-3 h-3" />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  <div ref={bottomRef} />
+                </div>
+
+                <ChatComposer draft={draft} setDraft={setDraft} onSend={handleSend} sending={sending} />
+              </>
+            )}
+            {error && (
+              <div className="px-4 py-2 bg-red-50 text-red-600 text-xs border-t border-red-100">{error}</div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ChatComposer({ draft, setDraft, onSend, sending, disabled }: {
+  draft: string; setDraft: (v: string) => void; onSend: () => void; sending: boolean; disabled?: boolean
+}) {
+  return (
+    <div className="p-3 border-t border-slate-100 flex items-end gap-2">
+      <textarea
+        value={draft}
+        onChange={e => setDraft(e.target.value)}
+        onKeyDown={e => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault()
+            onSend()
+          }
+        }}
+        placeholder="Escribe un mensaje…"
+        rows={1}
+        disabled={disabled}
+        className="flex-1 px-3 py-2.5 border border-slate-300 rounded-xl text-sm resize-none focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50"
+      />
+      <button
+        onClick={onSend}
+        disabled={sending || !draft.trim() || disabled}
+        className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 disabled:opacity-50 transition-colors"
+      >
+        <Send className="w-4 h-4" />
+      </button>
+    </div>
+  )
+}
