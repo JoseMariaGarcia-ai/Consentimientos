@@ -234,6 +234,10 @@
     "welcomeAlt": "Hoş geldiniz",
     "continue": "Devam et →"
   },
+  "patientAdModal": {
+    "alt": "Reklam",
+    "continue": "Devam et →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Reklam ne zaman gösterilsin?",
     "subheading": "Aynı anda birden fazla seçenek belirleyebilirsiniz.",

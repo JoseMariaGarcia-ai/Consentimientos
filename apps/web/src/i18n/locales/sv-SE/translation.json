@@ -234,6 +234,10 @@
     "welcomeAlt": "Välkommen",
     "continue": "Fortsätt →"
   },
+  "patientAdModal": {
+    "alt": "Annons",
+    "continue": "Fortsätt →"
+  },
   "welcomeTriggerConfig": {
     "heading": "När ska annonseringen visas?",
     "subheading": "Du kan välja flera alternativ samtidigt.",

@@ -234,6 +234,10 @@
     "welcomeAlt": "Welkom",
     "continue": "Doorgaan →"
   },
+  "patientAdModal": {
+    "alt": "Advertentie",
+    "continue": "Doorgaan →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Wanneer moet de advertentie worden getoond?",
     "subheading": "U kunt meerdere opties tegelijk selecteren.",

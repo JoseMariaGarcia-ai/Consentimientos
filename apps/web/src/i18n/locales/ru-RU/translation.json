@@ -234,6 +234,10 @@
     "welcomeAlt": "Добро пожаловать",
     "continue": "Продолжить →"
   },
+  "patientAdModal": {
+    "alt": "Реклама",
+    "continue": "Продолжить →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Когда показывать рекламу?",
     "subheading": "Вы можете выбрать несколько вариантов одновременно.",

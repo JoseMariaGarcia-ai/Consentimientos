@@ -234,6 +234,10 @@
     "welcomeAlt": "欢迎",
     "continue": "继续 →"
   },
+  "patientAdModal": {
+    "alt": "广告",
+    "continue": "继续 →"
+  },
   "welcomeTriggerConfig": {
     "heading": "何时展示广告？",
     "subheading": "您可以同时选择多个选项。",

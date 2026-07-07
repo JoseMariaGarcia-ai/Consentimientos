@@ -6,6 +6,7 @@ import { clearSession } from '@/lib/auth'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
 import { WelcomeMediaProvider } from '@/context/WelcomeMediaContext'
 import { WelcomeMediaModal } from '@/components/media/WelcomeMediaModal'
+import { PatientAdModal } from '@/components/media/PatientAdModal'
 
 type Tab = 'consents' | 'clinical' | 'photos'
 
@@ -78,6 +79,7 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
     <WelcomeMediaProvider>
     <div className="min-h-screen bg-slate-50 font-sans">
       <WelcomeMediaModal />
+      <PatientAdModal />
       {isPreview && onExitPreview && <PreviewBanner role="patient" onExit={onExitPreview} />}
       {/* Header */}
       <header className="bg-[#0D1B2E] text-white">

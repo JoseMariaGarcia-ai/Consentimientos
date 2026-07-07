@@ -1,59 +1,13 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
-
-function getEmbedUrl(url: string): string | null {
-  try {
-    const u = new URL(url)
-    const ytId = u.searchParams.get('v') ?? (u.hostname === 'youtu.be' ? u.pathname.slice(1) : null)
-    if (ytId) return `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1`
-    if (u.hostname.includes('youtube.com') && u.pathname.startsWith('/shorts/')) {
-      return `https://www.youtube.com/embed/${u.pathname.split('/')[2]}?autoplay=1&mute=1`
-    }
-    const vimeoId = u.hostname.includes('vimeo.com') ? u.pathname.split('/').filter(Boolean)[0] : null
-    if (vimeoId) return `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1`
-  } catch {}
-  return null
-}
+import { pickCreative, type SlotData, type Creative } from '@/lib/mediaCreative'
+import { CreativeViewer } from './CreativeViewer'
 
 const LS_LAST_SHOWN = 'welcome_media_last_shown'
 const LS_SEQ_INDEX  = 'welcome_media_seq_index'
 const SS_SESSION    = 'welcome_media_shown_session'
-
-interface Creative {
-  id: string
-  url: string
-  content_type: string
-  original_name: string
-}
-
-interface SlotData {
-  settings: {
-    show_trigger: string
-    show_interval_minutes: number
-    display_mode: 'manual' | 'random' | 'sequential'
-    active_creative_id: string | null
-  }
-  files: Creative[]
-}
-
-function pickCreative(slot: SlotData): Creative | null {
-  const { files, settings } = slot
-  if (!files.length) return null
-  if (settings.display_mode === 'manual') {
-    return files.find(f => f.id === settings.active_creative_id) ?? files[0]
-  }
-  if (settings.display_mode === 'random') {
-    return files[Math.floor(Math.random() * files.length)]
-  }
-  // sequential
-  const idx  = parseInt(localStorage.getItem(LS_SEQ_INDEX) ?? '0')
-  const next = idx % files.length
-  localStorage.setItem(LS_SEQ_INDEX, String(next + 1))
-  return files[next]
-}
 
 function parseTriggers(raw: string | null | undefined): string[] {
   if (!raw) return ['session']
@@ -84,7 +38,6 @@ export function WelcomeMediaModal() {
   const { t } = useTranslation()
   const [creative, setCreative] = useState<Creative | null>(null)
   const [visible, setVisible]   = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const { registerTrigger } = useWelcomeMedia()
 
   const show = useCallback((c: Creative) => {
@@ -100,7 +53,7 @@ export function WelcomeMediaModal() {
       if (!slot) return
 
       if (shouldShow(slot.settings)) {
-        const c = pickCreative(slot)
+        const c = pickCreative(slot, LS_SEQ_INDEX)
         if (c) {
           show(c)
           if (slot.settings.show_trigger === 'session') sessionStorage.setItem(SS_SESSION, '1')
@@ -113,7 +66,7 @@ export function WelcomeMediaModal() {
         const id = setInterval(async () => {
           const s = await fetchSlot()
           if (s && shouldShow(s.settings)) {
-            const c = pickCreative(s)
+            const c = pickCreative(s, LS_SEQ_INDEX)
             if (c) show(c)
           }
         }, mins * 60 * 1000)
@@ -127,62 +80,20 @@ export function WelcomeMediaModal() {
       if (!slot) return
       const triggers = parseTriggers(slot.settings.show_trigger)
       if (triggers.includes(event)) {
-        const c = pickCreative(slot)
+        const c = pickCreative(slot, LS_SEQ_INDEX)
         if (c) show(c)
       }
     })
   }, [])
 
-  const close = () => { setVisible(false); videoRef.current?.pause() }
-
   if (!visible || !creative) return null
 
-  const isUrlCreative = creative.content_type === 'video/url'
-  const isVideo       = creative.content_type?.startsWith('video') && !isUrlCreative
-  const embedUrl      = isUrlCreative ? getEmbedUrl(creative.url) : null
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={close}>
-      <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl max-w-3xl w-full mx-4" onClick={e => e.stopPropagation()}>
-        <button onClick={close} className="absolute top-3 right-3 z-10 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors">
-          <X className="w-5 h-5" />
-        </button>
-
-        {isUrlCreative ? (
-          embedUrl ? (
-            <iframe
-              src={embedUrl}
-              className="w-full"
-              style={{ height: 'min(80vh, 540px)' }}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={creative.original_name}
-            />
-          ) : (
-            <video
-              ref={videoRef}
-              src={creative.url}
-              autoPlay
-              muted
-              controls
-              playsInline
-              className="w-full max-h-[80vh] object-contain"
-              onEnded={close}
-            />
-          )
-        ) : isVideo ? (
-          <video ref={videoRef} src={creative.url} autoPlay muted controls playsInline className="w-full max-h-[80vh] object-contain" onEnded={close} />
-        ) : (
-          <img src={creative.url} alt={t('welcomeMediaModal.welcomeAlt')} className="w-full max-h-[80vh] object-contain" />
-        )}
-
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <button onClick={close} className="px-5 py-2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium rounded-full backdrop-blur-sm transition-colors">
-            {t('welcomeMediaModal.continue')}
-          </button>
-        </div>
-      </div>
-    </div>
+    <CreativeViewer
+      creative={creative}
+      onClose={() => setVisible(false)}
+      altText={t('welcomeMediaModal.welcomeAlt')}
+      continueLabel={t('welcomeMediaModal.continue')}
+    />
   )
 }

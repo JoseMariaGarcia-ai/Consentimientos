@@ -234,6 +234,10 @@
     "welcomeAlt": "Tervetuloa",
     "continue": "Jatka →"
   },
+  "patientAdModal": {
+    "alt": "Mainos",
+    "continue": "Jatka →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Milloin mainos näytetään?",
     "subheading": "Voit valita useita vaihtoehtoja samanaikaisesti.",

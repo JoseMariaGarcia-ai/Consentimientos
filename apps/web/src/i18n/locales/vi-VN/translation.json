@@ -234,6 +234,10 @@
     "welcomeAlt": "Chào mừng",
     "continue": "Tiếp tục →"
   },
+  "patientAdModal": {
+    "alt": "Quảng cáo",
+    "continue": "Tiếp tục →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Khi nào hiển thị quảng cáo?",
     "subheading": "Bạn có thể chọn nhiều tùy chọn cùng lúc.",

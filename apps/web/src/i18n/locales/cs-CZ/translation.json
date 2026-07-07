@@ -234,6 +234,10 @@
     "welcomeAlt": "Vítejte",
     "continue": "Pokračovat →"
   },
+  "patientAdModal": {
+    "alt": "Reklama",
+    "continue": "Pokračovat →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Kdy zobrazit reklamu?",
     "subheading": "Můžete vybrat více možností najednou.",

@@ -234,6 +234,10 @@
     "welcomeAlt": "Bem-vindo",
     "continue": "Continuar →"
   },
+  "patientAdModal": {
+    "alt": "Anúncio",
+    "continue": "Continuar →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Quando mostrar a publicidade?",
     "subheading": "Pode selecionar várias opções ao mesmo tempo.",

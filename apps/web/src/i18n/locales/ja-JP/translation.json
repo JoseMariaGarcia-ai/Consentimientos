@@ -234,6 +234,10 @@
     "welcomeAlt": "ようこそ",
     "continue": "続ける →"
   },
+  "patientAdModal": {
+    "alt": "広告",
+    "continue": "続ける →"
+  },
   "welcomeTriggerConfig": {
     "heading": "広告をいつ表示しますか？",
     "subheading": "複数のオプションを同時に選択できます。",

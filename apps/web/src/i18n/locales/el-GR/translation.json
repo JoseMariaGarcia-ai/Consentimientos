@@ -234,6 +234,10 @@
     "welcomeAlt": "Καλωσόρισμα",
     "continue": "Συνέχεια →"
   },
+  "patientAdModal": {
+    "alt": "Διαφήμιση",
+    "continue": "Συνέχεια →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Πότε να εμφανίζεται η διαφήμιση;",
     "subheading": "Μπορείτε να επιλέξετε πολλές επιλογές ταυτόχρονα.",

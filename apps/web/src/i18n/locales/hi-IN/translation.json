@@ -234,6 +234,10 @@
     "welcomeAlt": "स्वागत है",
     "continue": "जारी रखें →"
   },
+  "patientAdModal": {
+    "alt": "विज्ञापन",
+    "continue": "जारी रखें →"
+  },
   "welcomeTriggerConfig": {
     "heading": "विज्ञापन कब दिखाएं?",
     "subheading": "आप एक साथ कई विकल्प चुन सकते हैं।",

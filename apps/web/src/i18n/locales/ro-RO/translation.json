@@ -234,6 +234,10 @@
     "welcomeAlt": "Bun venit",
     "continue": "Continuă →"
   },
+  "patientAdModal": {
+    "alt": "Reclamă",
+    "continue": "Continuă →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Când doriți să afișați publicitatea?",
     "subheading": "Puteți selecta mai multe opțiuni simultan.",

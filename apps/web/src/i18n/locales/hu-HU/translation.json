@@ -234,6 +234,10 @@
     "welcomeAlt": "Üdvözlet",
     "continue": "Folytatás →"
   },
+  "patientAdModal": {
+    "alt": "Hirdetés",
+    "continue": "Folytatás →"
+  },
   "welcomeTriggerConfig": {
     "heading": "Mikor jelenjen meg a hirdetés?",
     "subheading": "Egyszerre több lehetőséget is kiválaszthat.",
