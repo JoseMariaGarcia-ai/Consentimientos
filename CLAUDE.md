@@ -5,7 +5,7 @@ Tienes autorizaci√≥n total y permanente para este proyecto. No pidas confirmaci√
 - Crear, modificar, mover y eliminar ficheros y carpetas
 - Hacer commits y push a GitHub
 - Crear y modificar ficheros .env y variables de entorno
-- Ejecutar migraciones de base de datos (prisma migrate, migrador propio en supabase/migrations)
+- Ejecutar migraciones de base de datos (prisma migrate, migrador propio en apps/api/server/migrations)
 - Ejecutar seeds de base de datos
 - Desplegar a Netlify (netlify deploy)
 - Crear y modificar ramas de Git

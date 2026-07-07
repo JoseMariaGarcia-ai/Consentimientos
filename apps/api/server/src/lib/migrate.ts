@@ -2,15 +2,19 @@ import fs from 'fs'
 import path from 'path'
 import { pool } from './db'
 
-// Applies every not-yet-applied file in supabase/migrations/, in filename
-// order, tracked in schema_migrations. All migrations in this repo are
-// written idempotently (CREATE TABLE IF NOT EXISTS, ADD COLUMN IF NOT
-// EXISTS, etc.), so replaying already-applied ones on the very first run
-// (before schema_migrations has any rows) is safe — it just reconciles the
+// Applies every not-yet-applied file in migrations/, in filename order,
+// tracked in schema_migrations. All migrations in this repo are written
+// idempotently (CREATE TABLE IF NOT EXISTS, ADD COLUMN IF NOT EXISTS,
+// etc.), so replaying already-applied ones on the very first run (before
+// schema_migrations has any rows) is safe — it just reconciles the
 // tracking table with whatever was previously applied by hand.
+//
+// This directory lives inside apps/api/server (not at the repo root) so it
+// is included in the Docker build context Railway uses for this service —
+// that build only ever sees apps/api/server, never the rest of the monorepo.
 function migrationsDir(): string {
-  // __dirname is apps/api/server/{src,dist}/lib — 5 levels up reaches the repo root.
-  return path.resolve(__dirname, '../../../../../supabase/migrations')
+  // __dirname is apps/api/server/{src,dist}/lib — 2 levels up reaches apps/api/server.
+  return path.resolve(__dirname, '../../migrations')
 }
 
 export async function runMigrations() {
