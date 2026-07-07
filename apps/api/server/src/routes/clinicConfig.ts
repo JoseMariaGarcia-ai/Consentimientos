@@ -3,15 +3,15 @@ import { query, queryOne } from '../lib/db'
 
 const router = Router()
 
-async function getClinicId(req: any, targetClinicId?: string): Promise<string | null> {
+// This entire module is superadmin-only: API keys, knowledge base and prompts
+// must never be readable/writable by clinica/lab_partner/patient roles.
+async function requireSuperAdminClinicId(req: any, targetClinicId?: string): Promise<string | null> {
   const { userId } = req.user
   const me = await queryOne<{ clinic_id: string; role: string }>(
     'SELECT clinic_id, role FROM app_users WHERE id = $1', [userId]
   )
-  if (!me) return null
-  // Superadmin can target any clinic
-  if (me.role === 'superadmin' && targetClinicId) return targetClinicId
-  return me.clinic_id
+  if (!me || me.role !== 'superadmin') return null
+  return targetClinicId ?? me.clinic_id ?? null
 }
 
 // GET /api/clinic-config/clinics — list all clinics (superadmin only)
@@ -25,22 +25,22 @@ router.get('/clinics', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// GET /api/clinic-config?clinicId=xxx  (clinicId only used by superadmin)
+// GET /api/clinic-config?clinicId=xxx — superadmin only
 router.get('/', async (req, res) => {
   try {
-    const clinicId = await getClinicId(req, req.query.clinicId as string)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
+    const clinicId = await requireSuperAdminClinicId(req, req.query.clinicId as string)
+    if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne('SELECT * FROM clinic_api_config WHERE clinic_id = $1', [clinicId])
     return res.json(data ?? { clinic_id: clinicId })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// PUT /api/clinic-config
+// PUT /api/clinic-config — superadmin only
 router.put('/', async (req, res) => {
   try {
     const { targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, knowledge_base, prompt } = req.body
-    const clinicId = await getClinicId(req, targetClinicId)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
+    const clinicId = await requireSuperAdminClinicId(req, targetClinicId)
+    if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne(
       `INSERT INTO clinic_api_config (clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, knowledge_base, prompt, updated_at)
        VALUES ($1,$2,$3,$4,$5,$6,NOW())
