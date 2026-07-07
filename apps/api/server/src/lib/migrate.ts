@@ -35,12 +35,25 @@ export async function runMigrations() {
   const { rows: applied } = await pool.query('SELECT filename FROM schema_migrations')
   const appliedSet = new Set(applied.map((r: any) => r.filename))
 
+  // One bad/incompatible migration (e.g. something that doesn't quite match
+  // production's real history) must not block every migration after it
+  // forever — apply each independently and keep going on failure, so newer
+  // migrations still land even if an older one needs manual attention.
+  const failed: string[] = []
   for (const file of files) {
     if (appliedSet.has(file)) continue
-    const sql = fs.readFileSync(path.join(dir, file), 'utf8')
-    console.log(`[migrate] applying ${file}...`)
-    await pool.query(sql)
-    await pool.query('INSERT INTO schema_migrations (filename) VALUES ($1) ON CONFLICT DO NOTHING', [file])
-    console.log(`[migrate] applied ${file}`)
+    try {
+      const sql = fs.readFileSync(path.join(dir, file), 'utf8')
+      console.log(`[migrate] applying ${file}...`)
+      await pool.query(sql)
+      await pool.query('INSERT INTO schema_migrations (filename) VALUES ($1) ON CONFLICT DO NOTHING', [file])
+      console.log(`[migrate] applied ${file}`)
+    } catch (err: any) {
+      failed.push(file)
+      console.error(`[migrate] FAILED to apply ${file} — continuing with remaining migrations:`, err.message ?? err)
+    }
+  }
+  if (failed.length) {
+    console.error(`[migrate] ${failed.length} migration(s) failed and were skipped: ${failed.join(', ')} — fix and redeploy to retry them`)
   }
 }
