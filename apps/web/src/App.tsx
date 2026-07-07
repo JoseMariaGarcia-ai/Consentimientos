@@ -21,6 +21,7 @@ import Recharge from './pages/Recharge'
 import LabPartners from './pages/LabPartners'
 import LabPartnerPortal from './pages/LabPartnerPortal'
 import Agenda from './pages/Agenda'
+import WhatsApp from './pages/WhatsApp'
 import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
 import PatientPortalApp from './pages/PatientPortalApp'
@@ -150,6 +151,7 @@ function AppShell() {
               <Route path="/photos" element={guard('photos', <PhotoSessions />)} />
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
+              <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />
               <Route path="/recharge" element={<Recharge />} />
               <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />
               <Route path="*" element={<Navigate to="/" />} />
