@@ -23,6 +23,7 @@ import appointmentsRouter from './routes/appointments'
 import scheduleRouter from './routes/schedule'
 import meRouter from './routes/me'
 import toxinRouter from './routes/toxin'
+import clinicConfigRouter from './routes/clinicConfig'
 import { runMigrations } from './lib/migrate'
 
 const app = express()
@@ -59,7 +60,8 @@ app.use('/api/treatments',      authMiddleware, treatmentsRouter)
 app.use('/api/appointments',    authMiddleware, appointmentsRouter)
 app.use('/api/schedule',        authMiddleware, scheduleRouter)
 app.use('/api/me',              authMiddleware, meRouter)
-app.use('/api/toxin',            authMiddleware, toxinRouter)
+app.use('/api/toxin',           authMiddleware, toxinRouter)
+app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 
 const PORT = process.env.PORT ?? 3001
 

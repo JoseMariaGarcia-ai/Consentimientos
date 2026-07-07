@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
@@ -256,6 +256,185 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
   )
 }
 
+/* ─── Clinic Keys Panel (superadmin only) ─────────────────────────── */
+function ClinicKeysPanel() {
+  const [clinics, setClinics]   = useState<{ id: string; name: string; trade_name: string | null }[]>([])
+  const [selectedId, setSelectedId] = useState<string>('')
+  const [form, setForm] = useState({
+    ycloud_api_key:    '',
+    anthropic_api_key: '',
+    retell_api_key:    '',
+    knowledge_base:    '',
+    prompt:            '',
+  })
+  const [loading, setLoading]   = useState(false)
+  const [saving, setSaving]     = useState(false)
+  const [saved, setSaved]       = useState(false)
+  const [error, setError]       = useState('')
+
+  useEffect(() => {
+    api.get('/clinic-config/clinics')
+      .then((data: any) => { if (Array.isArray(data)) setClinics(data) })
+      .catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    if (!selectedId) return
+    setLoading(true)
+    setError('')
+    api.get(`/clinic-config?clinicId=${selectedId}`)
+      .then((data: any) => {
+        setForm({
+          ycloud_api_key:    data.ycloud_api_key    ?? '',
+          anthropic_api_key: data.anthropic_api_key ?? '',
+          retell_api_key:    data.retell_api_key    ?? '',
+          knowledge_base:    data.knowledge_base    ?? '',
+          prompt:            data.prompt            ?? '',
+        })
+      })
+      .catch(e => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [selectedId])
+
+  const handleSave = async () => {
+    if (!selectedId) return
+    setSaving(true); setError(''); setSaved(false)
+    try {
+      await api.put('/clinic-config', { targetClinicId: selectedId, ...form })
+      setSaved(true)
+      setTimeout(() => setSaved(false), 3000)
+    } catch (e: any) { setError(e.message) }
+    finally { setSaving(false) }
+  }
+
+  const Field = ({ label, value, onChange, type = 'text', hint }: {
+    label: string; value: string; onChange: (v: string) => void; type?: string; hint?: string
+  }) => (
+    <div className="flex flex-col gap-1.5">
+      <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{label}</label>
+      {type === 'textarea' ? (
+        <textarea
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          rows={6}
+          className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono resize-y"
+          placeholder={hint}
+        />
+      ) : (
+        <input
+          type="text"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          placeholder={hint}
+          className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono"
+        />
+      )}
+    </div>
+  )
+
+  return (
+    <div className="flex flex-col gap-5">
+      {/* Clinic selector */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <Building2 className="w-4 h-4 text-purple-500" />
+          <p className="text-sm font-bold text-slate-700">Selecciona la clínica</p>
+        </div>
+        {clinics.length === 0 ? (
+          <ClinicSelectorFallback onSelect={setSelectedId} selectedId={selectedId} />
+        ) : (
+          <select
+            value={selectedId}
+            onChange={e => setSelectedId(e.target.value)}
+            className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
+            <option value="">— Seleccionar clínica —</option>
+            {clinics.map(c => (
+              <option key={c.id} value={c.id}>{c.trade_name ?? c.name}</option>
+            ))}
+          </select>
+        )}
+      </div>
+
+      {/* Keys form */}
+      {selectedId && (
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-5">
+          <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
+            <KeyRound className="w-4 h-4 text-purple-500" />
+            <h3 className="text-sm font-bold text-slate-700">API Keys y configuración IA</h3>
+            <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">Solo visible para Super Admin</span>
+          </div>
+
+          {loading ? (
+            <div className="flex justify-center py-8">
+              <div className="w-6 h-6 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 gap-4">
+                <Field label="YCloud API Key" value={form.ycloud_api_key} onChange={v => setForm(f => ({ ...f, ycloud_api_key: v }))} hint="yc_live_..." />
+                <Field label="Anthropic API Key" value={form.anthropic_api_key} onChange={v => setForm(f => ({ ...f, anthropic_api_key: v }))} hint="sk-ant-..." />
+                <Field label="Retell API Key" value={form.retell_api_key} onChange={v => setForm(f => ({ ...f, retell_api_key: v }))} hint="key_..." />
+              </div>
+
+              <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
+                <Field
+                  label="Base de conocimientos"
+                  value={form.knowledge_base}
+                  onChange={v => setForm(f => ({ ...f, knowledge_base: v }))}
+                  type="textarea"
+                  hint="Pega aquí la base de conocimientos de la clínica: servicios, tratamientos, precios, FAQs…"
+                />
+                <Field
+                  label="Prompt del agente IA"
+                  value={form.prompt}
+                  onChange={v => setForm(f => ({ ...f, prompt: v }))}
+                  type="textarea"
+                  hint="Instrucciones de comportamiento para el agente IA de esta clínica…"
+                />
+              </div>
+
+              {error && <p className="text-sm text-red-500">{error}</p>}
+
+              <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                {saved && <span className="text-sm text-emerald-600 font-medium">✓ Guardado correctamente</span>}
+                <button
+                  onClick={handleSave}
+                  disabled={saving}
+                  className="ml-auto flex items-center gap-2 px-5 py-2.5 bg-purple-600 text-white text-sm font-semibold rounded-xl hover:bg-purple-700 disabled:opacity-50 transition-colors"
+                >
+                  <Save className="w-4 h-4" />
+                  {saving ? 'Guardando…' : 'Guardar claves'}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ClinicSelectorFallback({ onSelect, selectedId }: { onSelect: (id: string) => void; selectedId: string }) {
+  const [clinics, setClinics] = useState<{ id: string; name: string }[]>([])
+  useEffect(() => {
+    // Fallback: get clinic from the logged-in user's own clinic
+    api.get('/clinic').then((data: any) => {
+      if (data?.id) setClinics([{ id: data.id, name: data.trade_name ?? data.name ?? 'Mi clínica' }])
+    }).catch(() => {})
+  }, [])
+  return (
+    <select
+      value={selectedId}
+      onChange={e => onSelect(e.target.value)}
+      className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+    >
+      <option value="">— Seleccionar clínica —</option>
+      {clinics.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+    </select>
+  )
+}
+
 export default function Settings() {
   const { t } = useTranslation()
   const { role } = useAuth()
@@ -297,7 +476,7 @@ export default function Settings() {
   }
 
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview' | 'keys'>('users')
   const [mediaData, setMediaData] = useState<any>({})
 
   const loadMedia = async () => {
@@ -322,14 +501,22 @@ export default function Settings() {
           <Megaphone className="w-4 h-4" />{t('settings.tabs.media')}
         </button>
         {isSuperAdmin && (
-          <button onClick={() => setActiveTab('preview')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-            <Eye className="w-4 h-4" />{t('settings.tabs.preview')}
-          </button>
+          <>
+            <button onClick={() => setActiveTab('preview')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'preview' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+              <Eye className="w-4 h-4" />{t('settings.tabs.preview')}
+            </button>
+            <button onClick={() => setActiveTab('keys')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'keys' ? 'bg-white text-purple-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+              <KeyRound className="w-4 h-4" />Claves
+            </button>
+          </>
         )}
       </div>
 
       {/* Vista previa por roles — solo superadmin */}
       {activeTab === 'preview' && isSuperAdmin && <DemoPreviewPanel />}
+
+      {/* Keys tab — superadmin only */}
+      {activeTab === 'keys' && isSuperAdmin && <ClinicKeysPanel />}
 
       {/* Media / Publicidad tab */}
       {activeTab === 'media' && (
