@@ -9,6 +9,7 @@ import { WelcomeMediaProvider } from '@/context/WelcomeMediaContext'
 import { WelcomeMediaModal } from '@/components/media/WelcomeMediaModal'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
+import { MediaStatsPanel } from '@/components/media/MediaStatsPanel'
 
 interface LabPartnerPortalProps {
   labId?: string
@@ -176,13 +177,8 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
               </div>
             )}
 
-            {/* Estadísticas — pendiente de definir */}
-            {tab === 'stats' && (
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 flex flex-col items-center gap-3 text-center">
-                <BarChart3 className="w-10 h-10 text-slate-300" />
-                <p className="text-sm font-semibold text-slate-600">{t('labPartnerPortal.tabs.stats')}</p>
-                <p className="text-sm text-slate-400 max-w-sm">{t('labPartnerPortal.stats_pending')}</p>
-              </div>
+            {tab === 'stats' && effectiveId && (
+              <MediaStatsPanel labId={effectiveId} />
             )}
           </>
         )}

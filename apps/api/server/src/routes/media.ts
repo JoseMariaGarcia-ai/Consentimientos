@@ -92,6 +92,33 @@ router.get('/', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// POST /api/media/impressions — log that a welcome/patient creative was
+// actually shown to clinic staff, for the lab partner's stats dashboard.
+// Registered before /:type so it isn't swallowed by that param route.
+router.post('/impressions', async (req, res) => {
+  const { userId } = (req as any).user
+  const { type, creative_id } = req.body
+  if (!['welcome', 'patient'].includes(type)) return res.status(400).json({ error: 'Invalid type' })
+  try {
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.status(400).json({ error: 'Usuario sin clínica asignada' })
+
+    let labPartnerId: string | null = null
+    if (creative_id) {
+      const creative = await queryOne<{ lab_partner_id: string | null }>(
+        'SELECT lab_partner_id FROM clinic_media WHERE id = $1', [creative_id]
+      )
+      labPartnerId = creative?.lab_partner_id ?? null
+    }
+
+    await query(
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id) VALUES ($1,$2,$3,$4)`,
+      [me.clinic_id, labPartnerId, type, creative_id ?? null]
+    )
+    return res.status(201).json({ logged: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // POST /api/media/:type — upload new creative (max 5)
 router.post('/:type', async (req, res) => {
   const { userId } = (req as any).user

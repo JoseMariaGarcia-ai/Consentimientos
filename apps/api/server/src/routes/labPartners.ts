@@ -43,6 +43,45 @@ router.get('/:id', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// Daily welcome/patient impression counts for the stats dashboard.
+// Defaults to the current month when no from/to given.
+router.get('/:id/media-stats', async (req, res) => {
+  try {
+    const { from, to } = req.query as { from?: string; to?: string }
+    const now = new Date()
+    const fromDate = from ? new Date(from) : new Date(now.getFullYear(), now.getMonth(), 1)
+    const toDate = to ? new Date(to) : now
+    const toExclusive = new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate() + 1)
+
+    const rows = await query<{ day: string; media_type: string; count: string }>(
+      `SELECT to_char(shown_at, 'YYYY-MM-DD') AS day, media_type, COUNT(*) AS count
+       FROM media_impressions
+       WHERE lab_partner_id = $1 AND shown_at >= $2 AND shown_at < $3
+       GROUP BY day, media_type ORDER BY day`,
+      [req.params.id, fromDate.toISOString(), toExclusive.toISOString()]
+    )
+
+    const byDay = new Map<string, { date: string; welcome: number; patient: number }>()
+    for (const r of rows) {
+      const entry = byDay.get(r.day) ?? { date: r.day, welcome: 0, patient: 0 }
+      entry[r.media_type as 'welcome' | 'patient'] = parseInt(r.count, 10)
+      byDay.set(r.day, entry)
+    }
+    const daily = [...byDay.values()].sort((a, b) => a.date.localeCompare(b.date))
+    const totals = daily.reduce(
+      (acc, d) => ({ welcome: acc.welcome + d.welcome, patient: acc.patient + d.patient }),
+      { welcome: 0, patient: 0 }
+    )
+
+    return res.json({
+      daily,
+      totals,
+      from: fromDate.toISOString().slice(0, 10),
+      to: toDate.toISOString().slice(0, 10),
+    })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // Update
 router.put('/:id', async (req, res) => {
   const b = req.body

@@ -91,6 +91,7 @@ export function WelcomeMediaModal() {
     setCreative(c)
     setVisible(true)
     localStorage.setItem(LS_LAST_SHOWN, Date.now().toString())
+    api.post('/media/impressions', { type: 'welcome', creative_id: c.id }).catch(() => {})
   }, [])
 
   useEffect(() => {

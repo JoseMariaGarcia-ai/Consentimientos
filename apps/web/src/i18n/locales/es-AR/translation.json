@@ -1,4 +1,15 @@
 {
+  "mediaStats": {
+    "title": "Visualizaciones de publicidad",
+    "from": "Desde",
+    "to": "Hasta",
+    "welcome_total": "Veces que se mostró la pantalla de bienvenida",
+    "patient_total": "Veces que se mostró el contenido para paciente",
+    "welcome_series": "Pantalla de bienvenida",
+    "patient_series": "Contenido para paciente",
+    "no_data": "No hay visualizaciones registradas en este rango de fechas.",
+    "patient_note": "El contenido para paciente todavía no se muestra en ningún punto de la aplicación, por lo que sus visualizaciones se van a mantener en 0 hasta que se implemente su visor."
+  },
   "toxinModal": {
     "title_edit": "Editar registro de toxina",
     "title_new": "Nuevo registro de toxina",
@@ -367,8 +378,29 @@
     }
   },
   "exceptionCalendar": {
-    "weekdays_short": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
-    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "weekdays_short": [
+      "Lun",
+      "Mar",
+      "Mié",
+      "Jue",
+      "Vie",
+      "Sáb",
+      "Dom"
+    ],
+    "months": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
     "has_exception_tooltip": "Ya tiene una excepción configurada",
     "legend": {
       "usually_open": "Normalmente abierto",
@@ -378,8 +410,29 @@
     }
   },
   "monthView": {
-    "weekdays_short": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
-    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "weekdays_short": [
+      "Lun",
+      "Mar",
+      "Mié",
+      "Jue",
+      "Vie",
+      "Sáb",
+      "Dom"
+    ],
+    "months": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
     "legend": {
       "open_day": "Día abierto",
       "closed": "Cerrado",
@@ -391,7 +444,15 @@
     "subtitle": "Configurá qué días y en qué horario se pueden dar citas.",
     "time_separator": "a",
     "add_time_range": "Agregar tramo horario",
-    "weekdays": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    "weekdays": [
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado",
+      "Domingo"
+    ],
     "confirm_delete_exception": "¿Eliminar esta excepción y volver al horario habitual de ese día?",
     "errors": {
       "save_schedule_failed": "No se pudo guardar el horario",
@@ -519,17 +580,64 @@
       "country": "País",
       "select_placeholder": "— Seleccionar —",
       "countries": [
-        "Argentina", "Alemania", "Bélgica", "Bolivia", "Brasil", "Chile", "China",
-        "Colombia", "Costa Rica", "Cuba", "Ecuador", "El Salvador", "España", "Estados Unidos", "Francia",
-        "Guatemala", "Honduras", "Italia", "Marruecos", "México", "Nicaragua", "Países Bajos",
-        "Panamá", "Paraguay", "Perú", "Portugal", "Reino Unido", "República Dominicana",
-        "Suiza", "Uruguay", "Venezuela", "Otro"
+        "Argentina",
+        "Alemania",
+        "Bélgica",
+        "Bolivia",
+        "Brasil",
+        "Chile",
+        "China",
+        "Colombia",
+        "Costa Rica",
+        "Cuba",
+        "Ecuador",
+        "El Salvador",
+        "España",
+        "Estados Unidos",
+        "Francia",
+        "Guatemala",
+        "Honduras",
+        "Italia",
+        "Marruecos",
+        "México",
+        "Nicaragua",
+        "Países Bajos",
+        "Panamá",
+        "Paraguay",
+        "Perú",
+        "Portugal",
+        "Reino Unido",
+        "República Dominicana",
+        "Suiza",
+        "Uruguay",
+        "Venezuela",
+        "Otro"
       ],
       "provinces": [
-        "Buenos Aires", "Catamarca", "Chaco", "Chubut", "Ciudad Autónoma de Buenos Aires", "Córdoba",
-        "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones",
-        "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe",
-        "Santiago del Estero", "Tierra del Fuego", "Tucumán"
+        "Buenos Aires",
+        "Catamarca",
+        "Chaco",
+        "Chubut",
+        "Ciudad Autónoma de Buenos Aires",
+        "Córdoba",
+        "Corrientes",
+        "Entre Ríos",
+        "Formosa",
+        "Jujuy",
+        "La Pampa",
+        "La Rioja",
+        "Mendoza",
+        "Misiones",
+        "Neuquén",
+        "Río Negro",
+        "Salta",
+        "San Juan",
+        "San Luis",
+        "Santa Cruz",
+        "Santa Fe",
+        "Santiago del Estero",
+        "Tierra del Fuego",
+        "Tucumán"
       ],
       "save_error_prefix": "Error al guardar:",
       "unknown_error": "Error desconocido"
@@ -561,7 +669,13 @@
     "title": "Consentimientos",
     "add": "Nuevo consentimiento",
     "search": "Buscar consentimientos…",
-    "step_labels": ["Datos", "Revisión", "Firma doctor", "Firma paciente", "Hecho"],
+    "step_labels": [
+      "Datos",
+      "Revisión",
+      "Firma doctor",
+      "Firma paciente",
+      "Hecho"
+    ],
     "branch_label": "Sede",
     "main_branch": "Sede principal",
     "select_patient": "Seleccionar paciente…",
@@ -765,7 +879,14 @@
     "add_record": "Nueva historia",
     "search_placeholder": "Buscar por paciente, diagnóstico, motivo…",
     "no_records": "No hay historias clínicas",
-    "table_headers": ["Paciente", "Fecha", "Motivo de consulta", "Diagnóstico", "Doctor", ""]
+    "table_headers": [
+      "Paciente",
+      "Fecha",
+      "Motivo de consulta",
+      "Diagnóstico",
+      "Doctor",
+      ""
+    ]
   },
   "labPartners": {
     "title": "Laboratorios Colaboradores",
