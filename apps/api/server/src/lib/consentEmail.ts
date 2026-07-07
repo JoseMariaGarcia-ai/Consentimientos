@@ -1,10 +1,23 @@
-import { queryOne } from './db'
+import { query, queryOne } from './db'
 import { downloadFile } from './r2'
 
 interface ConsentEmailData {
   consentId: string
   pdfBuffer: Buffer
   clinicId: string
+}
+
+// A clinic linked to a lab partner has its "patient content" advertising
+// managed centrally by that lab (clinic_media/clinic_media_settings rows
+// have clinic_id NULL and lab_partner_id set instead) — same precedence
+// rule as resolveOwner() in routes/media.ts, just keyed by clinic instead
+// of by the logged-in user, since sending an email has no session.
+async function resolveMediaOwner(clinicId: string): Promise<{ column: 'clinic_id' | 'lab_partner_id'; id: string }> {
+  const link = await queryOne<{ lab_partner_id: string }>(
+    'SELECT lab_partner_id FROM clinic_lab_partners WHERE clinic_id = $1 ORDER BY assigned_at ASC LIMIT 1',
+    [clinicId]
+  )
+  return link ? { column: 'lab_partner_id', id: link.lab_partner_id } : { column: 'clinic_id', id: clinicId }
 }
 
 export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: ConsentEmailData) {
@@ -30,17 +43,19 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
   const appUrl = process.env.APP_URL ?? 'http://localhost:5173'
   const portalUrl = `${appUrl}/patient/portal`
 
-  // Get patient media (advertising) for this clinic
+  // Get patient media (advertising) for this clinic — resolved to whichever
+  // clinic or lab partner actually owns it (see resolveMediaOwner above).
+  const mediaOwner = await resolveMediaOwner(clinicId)
   const adCreative = await queryOne<any>(
     `SELECT cm.*, cms.active_creative_id, cms.display_mode
      FROM clinic_media cm
-     JOIN clinic_media_settings cms ON cms.clinic_id = cm.clinic_id AND cms.media_type = 'patient'
-     WHERE cm.clinic_id = $1
+     JOIN clinic_media_settings cms ON cms.${mediaOwner.column} = cm.${mediaOwner.column} AND cms.media_type = 'patient'
+     WHERE cm.${mediaOwner.column} = $1
        AND cm.type = 'patient'
        AND (cms.display_mode != 'manual' OR cm.id = cms.active_creative_id)
      ORDER BY cm.order_index
      LIMIT 1`,
-    [clinicId]
+    [mediaOwner.id]
   )
 
   // Build ad block: image attachment or URL link
@@ -231,4 +246,11 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
     html,
     attachments,
   })
+
+  if (adHtml && adCreative) {
+    await query(
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id) VALUES ($1,$2,'patient',$3)`,
+      [clinicId, mediaOwner.column === 'lab_partner_id' ? mediaOwner.id : null, adCreative.id]
+    ).catch(() => {})
+  }
 }
