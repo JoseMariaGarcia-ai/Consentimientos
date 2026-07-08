@@ -1256,5 +1256,96 @@
     "save": "保存",
     "saving": "保存中…",
     "saved": "已保存"
+  },
+  "landing": {
+    "nav": {
+      "access": "登录"
+    },
+    "hero": {
+      "badge": "美容医学诊所软件",
+      "title_line1": "知情同意书",
+      "title_highlight": "100% 数字化",
+      "subtitle": "生物识别签名、电子病历、预约管理和 AI 智能体集成于一个平台。合法合规有保障 — 41/2002法、eIDAS 和 GDPR。",
+      "cta_primary": "进入平台",
+      "cta_secondary": "查看套餐",
+      "trust_1": "41/2002法",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "支持语言数",
+      "s2_value": "100 %",
+      "s2_label": "100% 数字化，无纸化",
+      "s3_value": "24/7",
+      "s3_label": "患者门户",
+      "s4_value": "0",
+      "s4_label": "无效签名带来的法律风险"
+    },
+    "features": {
+      "title": "您的诊所所需的一切",
+      "subtitle": "专为美容医学诊所打造的一体化平台",
+      "items": {
+        "signature": {
+          "title": "生物识别签名 + Magic Link",
+          "desc": "患者可在任何设备上签署、具有完全法律效力的同意书。"
+        },
+        "multilang": {
+          "title": "31 种语言、无限量同意书",
+          "desc": "可自定义的模板，可自动翻译以适应任何国籍的患者。"
+        },
+        "records": {
+          "title": "数字电子病历",
+          "desc": "所有患者信息集中管理，安全且即时可访问。"
+        },
+        "agenda": {
+          "title": "智能预约管理",
+          "desc": "轻松管理日程、治疗项目和可预约时间。"
+        },
+        "toxin": {
+          "title": "肉毒杆菌毒素追踪管理",
+          "desc": "按患者和疗程完整追溯批次和使用剂量。"
+        },
+        "gallery": {
+          "title": "前后对比图库",
+          "desc": "按疗程整理的临床照片，为患者提供直观的视觉对比。"
+        },
+        "portal": {
+          "title": "24/7 患者门户",
+          "desc": "您的患者可随时查看其同意书、照片及电子病历。"
+        },
+        "whatsapp": {
+          "title": "AI WhatsApp 智能体",
+          "desc": "自动获取并确认预约，全天候与患者沟通。"
+        },
+        "voice": {
+          "title": "AI 语音智能体",
+          "desc": "自动接听电话并通过电话预约，克隆您前台人员的声音。"
+        }
+      }
+    },
+    "how": {
+      "title": "就是这么简单",
+      "subtitle": "三步让您的诊所投入运营",
+      "step1_title": "注册您的诊所",
+      "step1_desc": "几分钟内设置好您的团队、治疗项目和同意书模板。",
+      "step2_title": "邀请您的患者",
+      "step2_desc": "通过电子邮件或 WhatsApp 发送签署链接 — 患者通过 Magic Link 在手机上签署。",
+      "step3_title": "一切均有记录",
+      "step3_desc": "同意书、照片和电子病历安全存档，具有完全法律效力。"
+    },
+    "pricing": {
+      "title": "订阅套餐",
+      "subtitle": "选择最适合您诊所的套餐 — 随时切换或升级"
+    },
+    "final_cta": {
+      "title": "立即让您的诊所数字化",
+      "subtitle": "加入已经在知情同意书上实现无纸化的诊所行列。",
+      "button": "进入平台"
+    },
+    "footer": {
+      "tagline": "合法有效的数字知情同意书 · 41/2002法 · GDPR",
+      "rights": "版权所有，保留一切权利。"
+    }
   }
 }

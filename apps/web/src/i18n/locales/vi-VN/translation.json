@@ -1256,5 +1256,96 @@
     "save": "Lưu",
     "saving": "Đang lưu…",
     "saved": "Đã lưu"
+  },
+  "landing": {
+    "nav": {
+      "access": "Đăng nhập"
+    },
+    "hero": {
+      "badge": "Phần mềm cho các phòng khám y học thẩm mỹ",
+      "title_line1": "Bản chấp thuận có thông tin",
+      "title_highlight": "100% kỹ thuật số",
+      "subtitle": "Chữ ký sinh trắc học, hồ sơ bệnh án, lịch hẹn và các tác nhân AI trên một nền tảng duy nhất. Đảm bảo tuân thủ pháp lý — Luật Khám bệnh, chữa bệnh, eIDAS và GDPR.",
+      "cta_primary": "Truy cập nền tảng",
+      "cta_secondary": "Xem các gói",
+      "trust_1": "Luật Khám bệnh, chữa bệnh",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Ngôn ngữ hỗ trợ",
+      "s2_value": "100 %",
+      "s2_label": "100% kỹ thuật số và không giấy tờ",
+      "s3_value": "24/7",
+      "s3_label": "Cổng thông tin bệnh nhân",
+      "s4_value": "0",
+      "s4_label": "Rủi ro pháp lý từ chữ ký không hợp lệ"
+    },
+    "features": {
+      "title": "Mọi thứ phòng khám của bạn cần",
+      "subtitle": "Một nền tảng toàn diện được thiết kế cho các phòng khám y học thẩm mỹ",
+      "items": {
+        "signature": {
+          "title": "Chữ ký sinh trắc học + Magic Link",
+          "desc": "Các bản chấp thuận có đầy đủ hiệu lực pháp lý, được bệnh nhân ký từ bất kỳ thiết bị nào."
+        },
+        "multilang": {
+          "title": "Chấp thuận không giới hạn bằng 31 ngôn ngữ",
+          "desc": "Các mẫu có thể tùy chỉnh, được dịch tự động cho bệnh nhân thuộc bất kỳ quốc tịch nào."
+        },
+        "records": {
+          "title": "Hồ sơ bệnh án kỹ thuật số",
+          "desc": "Toàn bộ thông tin bệnh nhân được tập trung, bảo mật và truy cập tức thì."
+        },
+        "agenda": {
+          "title": "Lịch hẹn thông minh",
+          "desc": "Quản lý lịch trình, liệu trình và tình trạng sẵn có mà không gặp trở ngại."
+        },
+        "toxin": {
+          "title": "Kiểm soát độc tố botulinum",
+          "desc": "Truy xuất nguồn gốc đầy đủ lô hàng và đơn vị được áp dụng theo từng bệnh nhân và buổi điều trị."
+        },
+        "gallery": {
+          "title": "Thư viện ảnh trước / sau",
+          "desc": "Ảnh lâm sàng được sắp xếp theo buổi điều trị, với so sánh trực quan cho bệnh nhân."
+        },
+        "portal": {
+          "title": "Cổng thông tin bệnh nhân 24/7",
+          "desc": "Bệnh nhân của bạn có thể truy cập các bản chấp thuận, ảnh và hồ sơ bệnh án bất cứ lúc nào."
+        },
+        "whatsapp": {
+          "title": "Tác nhân WhatsApp có AI",
+          "desc": "Tự động thu hút và xác nhận lịch hẹn, đồng thời giao tiếp với bệnh nhân của bạn suốt 24 giờ."
+        },
+        "voice": {
+          "title": "Tác nhân giọng nói có AI",
+          "desc": "Tự động trả lời cuộc gọi và đặt lịch hẹn qua điện thoại, nhân bản giọng nói của lễ tân của bạn."
+        }
+      }
+    },
+    "how": {
+      "title": "Đơn giản như vậy",
+      "subtitle": "Phòng khám của bạn hoạt động chỉ trong ba bước",
+      "step1_title": "Đăng ký phòng khám của bạn",
+      "step1_desc": "Thiết lập đội ngũ, liệu trình và mẫu chấp thuận của bạn trong vài phút.",
+      "step2_title": "Mời bệnh nhân của bạn",
+      "step2_desc": "Gửi liên kết ký qua email hoặc WhatsApp — họ ký từ điện thoại di động bằng Magic Link.",
+      "step3_title": "Mọi thứ đều được ghi lại",
+      "step3_desc": "Các bản chấp thuận, ảnh và hồ sơ bệnh án được lưu trữ an toàn và có hiệu lực pháp lý."
+    },
+    "pricing": {
+      "title": "Các gói đăng ký",
+      "subtitle": "Chọn gói phù hợp nhất với phòng khám của bạn — thay đổi hoặc nâng cấp bất cứ khi nào bạn muốn"
+    },
+    "final_cta": {
+      "title": "Số hóa phòng khám của bạn ngay hôm nay",
+      "subtitle": "Tham gia cùng các phòng khám đã loại bỏ giấy tờ khỏi các bản chấp thuận có thông tin của họ.",
+      "button": "Truy cập nền tảng"
+    },
+    "footer": {
+      "tagline": "Chấp thuận kỹ thuật số hợp lệ · Luật Khám bệnh, chữa bệnh · GDPR",
+      "rights": "Bảo lưu mọi quyền."
+    }
   }
 }

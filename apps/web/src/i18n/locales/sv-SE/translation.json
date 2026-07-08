@@ -1256,5 +1256,96 @@
     "save": "Spara",
     "saving": "Sparar…",
     "saved": "Sparat"
+  },
+  "landing": {
+    "nav": {
+      "access": "Logga in"
+    },
+    "hero": {
+      "badge": "Programvara för kliniker inom estetisk medicin",
+      "title_line1": "Informerade samtycken",
+      "title_highlight": "100 % digitala",
+      "subtitle": "Biometrisk signatur, patientjournal, bokningskalender och AI-agenter på en plattform. Garanterad regelefterlevnad — patientdatalagen, eIDAS och GDPR.",
+      "cta_primary": "Gå till plattformen",
+      "cta_secondary": "Se planer",
+      "trust_1": "Patientdatalagen",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Tillgängliga språk",
+      "s2_value": "100 %",
+      "s2_label": "Digitalt och papperslöst",
+      "s3_value": "24/7",
+      "s3_label": "Patientportal",
+      "s4_value": "0",
+      "s4_label": "Juridisk risk från ogiltiga signaturer"
+    },
+    "features": {
+      "title": "Allt din klinik behöver",
+      "subtitle": "En komplett plattform byggd för kliniker inom estetisk medicin",
+      "items": {
+        "signature": {
+          "title": "Biometrisk signatur + Magic Link",
+          "desc": "Samtycken med full juridisk giltighet, signerade av patienten från vilken enhet som helst."
+        },
+        "multilang": {
+          "title": "Obegränsade samtycken på 31 språk",
+          "desc": "Anpassningsbara mallar automatiskt översatta för patienter av alla nationaliteter."
+        },
+        "records": {
+          "title": "Digital patientjournal",
+          "desc": "All patientinformation centraliserad, säker och direkt tillgänglig."
+        },
+        "agenda": {
+          "title": "Smart bokningskalender",
+          "desc": "Hantera scheman, behandlingar och tillgänglighet utan friktion."
+        },
+        "toxin": {
+          "title": "Spårning av botulinumtoxin",
+          "desc": "Full spårbarhet av batcher och enheter som använts per patient och session."
+        },
+        "gallery": {
+          "title": "Galleri före / efter",
+          "desc": "Kliniska foton organiserade per session, med visuella jämförelser för patienten."
+        },
+        "portal": {
+          "title": "Patientportal dygnet runt",
+          "desc": "Dina patienter har tillgång till sina samtycken, foton och journal när som helst."
+        },
+        "whatsapp": {
+          "title": "WhatsApp-agent med AI",
+          "desc": "Skaffar och bekräftar bokningar automatiskt, och kommunicerar med dina patienter dygnet runt."
+        },
+        "voice": {
+          "title": "Röstagent med AI",
+          "desc": "Besvarar samtal och bokar tider per telefon automatiskt, med en klonad röst från din reception."
+        }
+      }
+    },
+    "how": {
+      "title": "Så enkelt är det",
+      "subtitle": "Din klinik i drift på tre steg",
+      "step1_title": "Registrera din klinik",
+      "step1_desc": "Konfigurera ditt team, behandlingar och samtyckesmallar på några minuter.",
+      "step2_title": "Bjud in dina patienter",
+      "step2_desc": "Skicka signeringslänken via e-post eller WhatsApp — de signerar från mobilen med Magic Link.",
+      "step3_title": "Allt registreras",
+      "step3_desc": "Samtycken, foton och journal arkiveras säkert med full juridisk giltighet."
+    },
+    "pricing": {
+      "title": "Abonnemangsplaner",
+      "subtitle": "Välj den plan som passar din klinik bäst — byt eller uppgradera när du vill"
+    },
+    "final_cta": {
+      "title": "Digitalisera din klinik idag",
+      "subtitle": "Gå med i klinikerna som redan har blivit papperslösa med sina informerade samtycken.",
+      "button": "Gå till plattformen"
+    },
+    "footer": {
+      "tagline": "Giltiga digitala samtycken · Patientdatalagen · GDPR",
+      "rights": "Alla rättigheter förbehållna."
+    }
   }
 }

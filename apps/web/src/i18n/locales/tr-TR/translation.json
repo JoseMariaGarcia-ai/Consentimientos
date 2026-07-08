@@ -1256,5 +1256,96 @@
     "save": "Kaydet",
     "saving": "Kaydediliyor…",
     "saved": "Kaydedildi"
+  },
+  "landing": {
+    "nav": {
+      "access": "Giriş yap"
+    },
+    "hero": {
+      "badge": "Estetik tıp klinikleri için yazılım",
+      "title_line1": "Aydınlatılmış onam formları",
+      "title_highlight": "%100 dijital",
+      "subtitle": "Biyometrik imza, hasta dosyası, randevu takvimi ve yapay zeka ajanları tek bir platformda. Garantili yasal uyumluluk — Hasta Hakları Yönetmeliği, eIDAS ve KVKK.",
+      "cta_primary": "Platforma eriş",
+      "cta_secondary": "Planları görüntüle",
+      "trust_1": "Hasta Hakları Yönetmeliği",
+      "trust_2": "eIDAS",
+      "trust_3": "KVKK"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Mevcut diller",
+      "s2_value": "100 %",
+      "s2_label": "%100 dijital ve kağıtsız",
+      "s3_value": "24/7",
+      "s3_label": "Hasta portalı",
+      "s4_value": "0",
+      "s4_label": "Geçersiz imzalardan kaynaklanan yasal risk"
+    },
+    "features": {
+      "title": "Kliniğinizin ihtiyaç duyduğu her şey",
+      "subtitle": "Estetik tıp klinikleri için tasarlanmış eksiksiz bir platform",
+      "items": {
+        "signature": {
+          "title": "Biyometrik imza + Magic Link",
+          "desc": "Hasta tarafından herhangi bir cihazdan imzalanan, tam yasal geçerliliğe sahip onam formları."
+        },
+        "multilang": {
+          "title": "31 dilde sınırsız onam formu",
+          "desc": "Herhangi bir uyruktan hastalar için otomatik çevrilen özelleştirilebilir şablonlar."
+        },
+        "records": {
+          "title": "Dijital hasta dosyası",
+          "desc": "Tüm hasta bilgileri tek merkezde, güvenli ve anında erişilebilir."
+        },
+        "agenda": {
+          "title": "Akıllı randevu takvimi",
+          "desc": "Programların, tedavilerin ve uygunluğun sorunsuz yönetimi."
+        },
+        "toxin": {
+          "title": "Botulinum toksini takibi",
+          "desc": "Hasta ve seans başına uygulanan parti ve ünitelerin tam izlenebilirliği."
+        },
+        "gallery": {
+          "title": "Önce / sonra galerisi",
+          "desc": "Seansa göre düzenlenmiş klinik fotoğraflar, hasta için görsel karşılaştırmalarla."
+        },
+        "portal": {
+          "title": "7/24 hasta portalı",
+          "desc": "Hastalarınız onam formlarına, fotoğraflarına ve hasta dosyalarına her an erişebilir."
+        },
+        "whatsapp": {
+          "title": "Yapay zekalı WhatsApp ajanı",
+          "desc": "Randevuları otomatik olarak elde eder ve onaylar, hastalarınızla 7/24 iletişim kurar."
+        },
+        "voice": {
+          "title": "Yapay zekalı sesli ajan",
+          "desc": "Resepsiyonunuzun sesini klonlayarak çağrıları otomatik yanıtlar ve telefonla randevu alır."
+        }
+      }
+    },
+    "how": {
+      "title": "Bu kadar kolay",
+      "subtitle": "Kliniğiniz üç adımda faaliyete geçiyor",
+      "step1_title": "Kliniğinizi kaydedin",
+      "step1_desc": "Ekibinizi, tedavilerinizi ve onam şablonlarınızı dakikalar içinde yapılandırın.",
+      "step2_title": "Hastalarınızı davet edin",
+      "step2_desc": "İmza bağlantısını e-posta veya WhatsApp ile gönderin — Magic Link ile telefonlarından imzalarlar.",
+      "step3_title": "Her şey kaydedilir",
+      "step3_desc": "Onam formları, fotoğraflar ve hasta dosyaları yasal geçerlilikle güvenli şekilde arşivlenir."
+    },
+    "pricing": {
+      "title": "Abonelik planları",
+      "subtitle": "Kliniğinize en uygun planı seçin — istediğiniz zaman değiştirin veya yükseltin"
+    },
+    "final_cta": {
+      "title": "Kliniğinizi bugün dijitalleştirin",
+      "subtitle": "Aydınlatılmış onam formlarında kağıdı çoktan ortadan kaldırmış kliniklere katılın.",
+      "button": "Platforma eriş"
+    },
+    "footer": {
+      "tagline": "Geçerli dijital onaylar · Hasta Hakları Yönetmeliği · KVKK",
+      "rights": "Tüm hakları saklıdır."
+    }
   }
 }
