@@ -1384,6 +1384,48 @@
           "desc": "Az egészségügyi szakember a beteggel együtt írja alá, így mindkét fél részvétele ugyanazon dokumentumon kerül rögzítésre."
         }
       }
+    },
+    "faq": {
+      "title": "Gyakran ismételt kérdések",
+      "subtitle": "Minden, amit tudnia kell, mielőtt elkezdi",
+      "items": {
+        "q1": {
+          "q": "Jogilag érvényes az elektronikus aláírás?",
+          "a": "Igen. Minden aláírt beleegyezés megfelel az eIDAS-rendeletnek (EU) 910/2014 és a hatályos jogszabályoknak, az aláírás vonalvezetésének biometrikus rögzítésével, hitelesített időbélyeggel, az eszköz digitális ujjlenyomatával és a dokumentum hashével."
+        },
+        "q2": {
+          "q": "Érvényes marad egy papíralapú beleegyezés, vagy egy, amelyik nem rendelkezik ezzel a teljes eIDAS-tanúsítvánnyal?",
+          "a": "Igen, a kézzel aláírt papíralapú beleegyezés szintén jogilag érvényes, mivel a törvény nem írja elő, hogy az aláírásnak elektronikusnak kell lennie. A ConsentsPro előnye, hogy egy panasz vagy ellenőrzés esetén sokkal nehezebb megkérdőjelezni: az aláírás mellett automatikusan rögzítésre kerül a hitelesített dátum és időpont, a használt eszköz, valamint egy hash, amely bizonyítja, hogy a dokumentumot nem módosították — ezt papír, vagy ezen garanciák nélküli egyszerű elektronikus aláírás nem tudja nyújtani."
+        },
+        "q3": {
+          "q": "Kell valamit telepítenem?",
+          "a": "Nem. A ConsentsPro 100%-ban felhőalapú, bármely böngészőből és eszközről — számítógépről, táblagépről vagy mobilról — telepítés nélkül működik."
+        },
+        "q4": {
+          "q": "Válthatok később csomagot?",
+          "a": "Igen, bármikor válthat vagy bővítheti csomagját közvetlenül a platformról, elkötelezettség nélkül."
+        },
+        "q5": {
+          "q": "Megfelel a GDPR-nak?",
+          "a": "Igen. A betegadatok teljes feldolgozása megfelel a GDPR-nak, beleértve a fényképek felhasználásához szükséges képfelhasználási engedély nyilvántartását."
+        },
+        "q6": {
+          "q": "Használhatom külföldi betegekkel?",
+          "a": "Igen, a beleegyezések 31 nyelven elérhetők, a sablonok automatikus fordításával."
+        },
+        "q7": {
+          "q": "Mit tartalmaz a támogatás?",
+          "a": "Minden csomag tartalmaz technikai támogatást, amely segít bármilyen, a platformmal kapcsolatos kérdésben."
+        },
+        "q8": {
+          "q": "Mennyi ideig tart a klinika beindítása?",
+          "a": "A kezdeti beállítás — csapat, kezelések és beleegyezési sablonok — néhány perc alatt elvégezhető az adminisztrációs panelen."
+        },
+        "q9": {
+          "q": "Be kell állítaniuk a betegeimnek egy jelszót?",
+          "a": "Nem. A portáljukhoz Magic Linken keresztül férnek hozzá, egy biztonságos hozzáférési linken, amelyet e-mailben kapnak meg, jelszó megjegyzése nélkül."
+        }
+      }
     }
   }
 }

@@ -1438,6 +1438,48 @@
           "desc": "Il professionista sanitario firma insieme al paziente, documentando la partecipazione di entrambe le parti sullo stesso documento."
         }
       }
+    },
+    "faq": {
+      "title": "Domande frequenti",
+      "subtitle": "Tutto quello che devi sapere prima di iniziare",
+      "items": {
+        "q1": {
+          "q": "La firma elettronica ha validità legale?",
+          "a": "Sì. Ogni consenso firmato è conforme al Regolamento eIDAS (UE) 910/2014 e alla normativa applicabile, con firma biometrica del tratto, marca temporale certificata, impronta digitale del dispositivo e hash del documento."
+        },
+        "q2": {
+          "q": "Un consenso su carta, o uno senza tutta questa certificazione eIDAS, resta valido?",
+          "a": "Sì, un consenso cartaceo firmato a mano è anch'esso legalmente valido, poiché la legge non richiede che la firma sia elettronica. Il vantaggio di ConsentsPro è che, in caso di reclamo o ispezione, è molto più difficile da contestare: oltre alla firma, vengono registrati automaticamente la data e l'ora certificate, il dispositivo utilizzato e un hash che dimostra che il documento non è stato alterato — cosa che la carta, o una semplice firma elettronica senza queste garanzie, non può offrire."
+        },
+        "q3": {
+          "q": "Devo installare qualcosa?",
+          "a": "No. ConsentsPro funziona al 100% nel cloud, da qualsiasi browser e dispositivo — computer, tablet o cellulare — senza installazioni."
+        },
+        "q4": {
+          "q": "Posso cambiare piano in seguito?",
+          "a": "Sì, puoi cambiare o passare a un piano superiore quando vuoi direttamente dalla piattaforma, senza vincoli."
+        },
+        "q5": {
+          "q": "È conforme al GDPR?",
+          "a": "Sì. Tutto il trattamento dei dati dei pazienti è conforme al GDPR, incluso il registro di autorizzazione delle immagini per l'uso delle fotografie."
+        },
+        "q6": {
+          "q": "Posso usarlo con pazienti stranieri?",
+          "a": "Sì, i consensi sono disponibili in 31 lingue, con traduzione automatica dei modelli."
+        },
+        "q7": {
+          "q": "Cosa include l'assistenza?",
+          "a": "Tutti i piani includono assistenza tecnica per aiutarti con qualsiasi dubbio sulla piattaforma."
+        },
+        "q8": {
+          "q": "Quanto tempo occorre per avviare la clinica?",
+          "a": "La configurazione iniziale — team, trattamenti e modelli di consenso — si effettua in pochi minuti dal pannello di amministrazione."
+        },
+        "q9": {
+          "q": "I miei pazienti devono creare una password?",
+          "a": "No. Accedono al loro portale tramite Magic Link, un link di accesso sicuro che ricevono via email, senza password da ricordare."
+        }
+      }
     }
   }
 }

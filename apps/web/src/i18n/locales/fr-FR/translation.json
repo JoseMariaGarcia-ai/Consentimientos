@@ -1384,6 +1384,48 @@
           "desc": "Le professionnel de santé signe aux côtés du patient, ce qui atteste de la participation des deux parties sur le même document."
         }
       }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "subtitle": "Tout ce que vous devez savoir avant de commencer",
+      "items": {
+        "q1": {
+          "q": "La signature électronique a-t-elle une valeur juridique ?",
+          "a": "Oui. Chaque consentement signé respecte le règlement eIDAS (UE) 910/2014 et la législation applicable, avec signature biométrique du tracé, horodatage certifié, empreinte numérique de l'appareil et hash du document."
+        },
+        "q2": {
+          "q": "Un consentement papier, ou sans toute cette certification eIDAS, reste-t-il valide ?",
+          "a": "Oui, un consentement papier signé à la main est également valable juridiquement, car la loi n'exige pas que la signature soit électronique. L'avantage de ConsentsPro est qu'en cas de réclamation ou de contrôle, il est bien plus difficile à contester : outre la signature, la date et l'heure certifiées, l'appareil utilisé et un hash prouvant que le document n'a pas été modifié sont enregistrés automatiquement — ce que le papier, ou une simple signature électronique sans ces garanties, ne peut pas offrir."
+        },
+        "q3": {
+          "q": "Dois-je installer quelque chose ?",
+          "a": "Non. ConsentsPro fonctionne à 100 % dans le cloud, depuis n'importe quel navigateur et appareil — ordinateur, tablette ou mobile — sans installation."
+        },
+        "q4": {
+          "q": "Puis-je changer de forfait plus tard ?",
+          "a": "Oui, vous pouvez changer ou faire évoluer votre forfait quand vous le souhaitez directement depuis la plateforme, sans engagement."
+        },
+        "q5": {
+          "q": "Est-ce conforme au RGPD ?",
+          "a": "Oui. Tout traitement des données patients respecte le RGPD, y compris le registre d'autorisation d'image pour l'utilisation des photos."
+        },
+        "q6": {
+          "q": "Puis-je l'utiliser avec des patients étrangers ?",
+          "a": "Oui, les consentements sont disponibles en 31 langues, avec traduction automatique des modèles."
+        },
+        "q7": {
+          "q": "Que comprend le support ?",
+          "a": "Tous les forfaits incluent un support technique pour vous aider avec toute question sur la plateforme."
+        },
+        "q8": {
+          "q": "Combien de temps faut-il pour mettre la clinique en service ?",
+          "a": "La configuration initiale — équipe, traitements et modèles de consentement — se fait en quelques minutes depuis le panneau d'administration."
+        },
+        "q9": {
+          "q": "Mes patients doivent-ils créer un mot de passe ?",
+          "a": "Non. Ils accèdent à leur portail via Magic Link, un lien d'accès sécurisé qu'ils reçoivent par email, sans mot de passe à retenir."
+        }
+      }
     }
   }
 }

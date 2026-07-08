@@ -1384,6 +1384,48 @@
           "desc": "De zorgverlener ondertekent samen met de patiënt, waardoor de betrokkenheid van beide partijen op hetzelfde document wordt vastgelegd."
         }
       }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "subtitle": "Alles wat u moet weten voordat u begint",
+      "items": {
+        "q1": {
+          "q": "Is de elektronische handtekening juridisch geldig?",
+          "a": "Ja. Elke ondertekende toestemming voldoet aan de eIDAS-verordening (EU) 910/2014 en de toepasselijke wetgeving, met biometrische handtekening van de streek, gecertificeerd tijdstempel, digitale vingerafdruk van het apparaat en documenthash."
+        },
+        "q2": {
+          "q": "Blijft een toestemming op papier, of een zonder deze volledige eIDAS-certificering, geldig?",
+          "a": "Ja, een handgeschreven toestemming op papier is ook juridisch geldig, aangezien de wet niet vereist dat de handtekening elektronisch is. Het voordeel van ConsentsPro is dat het bij een klacht of inspectie veel moeilijker te betwisten is: naast de handtekening worden automatisch de gecertificeerde datum en tijd, het gebruikte apparaat en een hash geregistreerd die aantoont dat het document niet is gewijzigd — iets wat papier, of een eenvoudige elektronische handtekening zonder deze waarborgen, niet kan bieden."
+        },
+        "q3": {
+          "q": "Moet ik iets installeren?",
+          "a": "Nee. ConsentsPro werkt 100% in de cloud, vanaf elke browser en elk apparaat — computer, tablet of mobiel — zonder installatie."
+        },
+        "q4": {
+          "q": "Kan ik later van abonnement wisselen?",
+          "a": "Ja, u kunt uw abonnement altijd rechtstreeks vanuit het platform wijzigen of upgraden, zonder verplichting."
+        },
+        "q5": {
+          "q": "Is het AVG-conform?",
+          "a": "Ja. Alle verwerking van patiëntgegevens voldoet aan de AVG, inclusief de registratie van beeldtoestemming voor het gebruik van foto's."
+        },
+        "q6": {
+          "q": "Kan ik het gebruiken met buitenlandse patiënten?",
+          "a": "Ja, de toestemmingen zijn beschikbaar in 31 talen, met automatische vertaling van de sjablonen."
+        },
+        "q7": {
+          "q": "Wat houdt de ondersteuning in?",
+          "a": "Elk abonnement omvat technische ondersteuning om u te helpen met elke vraag over het platform."
+        },
+        "q8": {
+          "q": "Hoe lang duurt het om de kliniek operationeel te krijgen?",
+          "a": "De eerste configuratie — team, behandelingen en toestemmingssjablonen — wordt in enkele minuten gedaan vanuit het beheerpaneel."
+        },
+        "q9": {
+          "q": "Moeten mijn patiënten een wachtwoord aanmaken?",
+          "a": "Nee. Zij krijgen toegang tot hun portaal via Magic Link, een veilige toegangslink die zij per e-mail ontvangen, zonder wachtwoorden te hoeven onthouden."
+        }
+      }
     }
   }
 }

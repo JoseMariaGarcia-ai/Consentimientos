@@ -1384,6 +1384,48 @@
           "desc": "Terveydenhuollon ammattilainen allekirjoittaa yhdessä potilaan kanssa, jolloin molempien osapuolten osallistuminen kirjataan samaan asiakirjaan."
         }
       }
+    },
+    "faq": {
+      "title": "Usein kysytyt kysymykset",
+      "subtitle": "Kaikki mitä sinun tarvitsee tietää ennen aloittamista",
+      "items": {
+        "q1": {
+          "q": "Onko sähköinen allekirjoitus oikeudellisesti pätevä?",
+          "a": "Kyllä. Jokainen allekirjoitettu suostumus täyttää eIDAS-asetuksen (EU) 910/2014 ja sovellettavan lainsäädännön vaatimukset, sisältäen allekirjoituksen biometrisen jäljen, sertifioidun aikaleiman, laitteen digitaalisen sormenjäljen ja asiakirjan tarkisteen."
+        },
+        "q2": {
+          "q": "Onko paperinen suostumus, tai sellainen ilman tätä koko eIDAS-sertifiointia, edelleen pätevä?",
+          "a": "Kyllä, käsin allekirjoitettu paperinen suostumus on myös oikeudellisesti pätevä, sillä laki ei edellytä sähköistä allekirjoitusta. ConsentsPron etu on, että reklamaation tai tarkastuksen yhteydessä sitä on paljon vaikeampi kiistää: allekirjoituksen lisäksi tallennetaan automaattisesti sertifioitu päivämäärä ja kellonaika, käytetty laite sekä tarkiste, joka todistaa, ettei asiakirjaa ole muutettu — jotain, mitä paperi tai yksinkertainen sähköinen allekirjoitus ilman näitä takeita ei voi tarjota."
+        },
+        "q3": {
+          "q": "Tarvitseeko minun asentaa jotain?",
+          "a": "Ei. ConsentsPro toimii 100-prosenttisesti pilvessä, mistä tahansa selaimesta ja laitteesta — tietokoneesta, tabletista tai puhelimesta — ilman asennuksia."
+        },
+        "q4": {
+          "q": "Voinko vaihtaa suunnitelmaa myöhemmin?",
+          "a": "Kyllä, voit vaihtaa tai päivittää suunnitelmaasi milloin tahansa suoraan alustalta, ilman sitoutumisaikaa."
+        },
+        "q5": {
+          "q": "Onko se GDPR-yhteensopiva?",
+          "a": "Kyllä. Kaikki potilastietojen käsittely täyttää GDPR:n vaatimukset, mukaan lukien kuvien käyttöluvan rekisteri valokuvien käyttöä varten."
+        },
+        "q6": {
+          "q": "Voinko käyttää sitä ulkomaalaisten potilaiden kanssa?",
+          "a": "Kyllä, suostumukset ovat saatavilla 31 kielellä, mallipohjien automaattisella käännöksellä."
+        },
+        "q7": {
+          "q": "Mitä tuki sisältää?",
+          "a": "Jokainen suunnitelma sisältää teknisen tuen, joka auttaa sinua kaikissa alustaan liittyvissä kysymyksissä."
+        },
+        "q8": {
+          "q": "Kuinka kauan klinikan käyttöönotto kestää?",
+          "a": "Alkuasetukset — tiimi, hoidot ja suostumusmallit — tehdään muutamassa minuutissa hallintapaneelista."
+        },
+        "q9": {
+          "q": "Tarvitsevatko potilaani luoda salasanan?",
+          "a": "Ei. He pääsevät portaaliinsa Magic Linkin kautta, turvallisen pääsylinkin, jonka he saavat sähköpostitse, ilman muistettavia salasanoja."
+        }
+      }
     }
   }
 }

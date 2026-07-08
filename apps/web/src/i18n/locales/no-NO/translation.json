@@ -1384,6 +1384,48 @@
           "desc": "Helsepersonellet signerer sammen med pasienten, noe som dokumenterer begge parters deltakelse i det samme dokumentet."
         }
       }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "subtitle": "Alt du trenger å vite før du begynner",
+      "items": {
+        "q1": {
+          "q": "Har den elektroniske signaturen juridisk gyldighet?",
+          "a": "Ja. Hvert signerte samtykke oppfyller eIDAS-forordningen (EU) 910/2014 og gjeldende lovgivning, med biometrisk signatur av pennestrøket, sertifisert tidsstempel, digitalt enhetsavtrykk og dokumenthash."
+        },
+        "q2": {
+          "q": "Er et samtykke på papir, eller ett uten hele denne eIDAS-sertifiseringen, fortsatt gyldig?",
+          "a": "Ja, et håndskrevet samtykke på papir er også juridisk gyldig, ettersom loven ikke krever at signaturen er elektronisk. Fordelen med ConsentsPro er at det er langt vanskeligere å bestride ved en klage eller kontroll: i tillegg til signaturen registreres automatisk den sertifiserte datoen og tidspunktet, enheten som ble brukt, og en hash som beviser at dokumentet ikke er endret — noe papir, eller en enkel elektronisk signatur uten disse garantiene, ikke kan tilby."
+        },
+        "q3": {
+          "q": "Må jeg installere noe?",
+          "a": "Nei. ConsentsPro fungerer 100 % i skyen, fra hvilken som helst nettleser og enhet — datamaskin, nettbrett eller mobil — uten installasjon."
+        },
+        "q4": {
+          "q": "Kan jeg bytte plan senere?",
+          "a": "Ja, du kan bytte eller oppgradere planen din når du vil direkte fra plattformen, uten binding."
+        },
+        "q5": {
+          "q": "Er det GDPR-kompatibelt?",
+          "a": "Ja. All behandling av pasientdata overholder GDPR, inkludert registrering av bildetillatelse for bruk av bilder."
+        },
+        "q6": {
+          "q": "Kan jeg bruke det med utenlandske pasienter?",
+          "a": "Ja, samtykkene er tilgjengelige på 31 språk, med automatisk oversettelse av malene."
+        },
+        "q7": {
+          "q": "Hva inkluderer support?",
+          "a": "Alle planer inkluderer teknisk support som hjelper deg med ethvert spørsmål om plattformen."
+        },
+        "q8": {
+          "q": "Hvor lang tid tar det å få klinikken i gang?",
+          "a": "Den innledende konfigurasjonen — team, behandlinger og samtykkemaler — gjøres på få minutter fra administrasjonspanelet."
+        },
+        "q9": {
+          "q": "Må pasientene mine opprette et passord?",
+          "a": "Nei. De får tilgang til portalen sin via Magic Link, en sikker tilgangslenke de mottar på e-post, uten passord å huske."
+        }
+      }
     }
   }
 }
