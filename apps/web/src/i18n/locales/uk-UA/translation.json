@@ -525,7 +525,8 @@
     "toxin": "Контроль токсину",
     "labPartners": "Лабораторії",
     "menu": "Меню",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Кошториси"
   },
   "topbar": {
     "tagline": "Цифрові Згоди · Цифровий Підпис",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Кошториси",
+    "subtitle": "Створюйте та керуйте кошторисами для своїх пацієнтів",
+    "new_budget": "Новий кошторис",
+    "from": "Від",
+    "to": "До",
+    "patient": "Пацієнт",
+    "all": "Усі",
+    "search": "Пошук",
+    "search_placeholder": "№ кошторису або пацієнт",
+    "clear_filters": "Очистити фільтри",
+    "no_results": "Немає кошторисів, що відповідають фільтрам",
+    "col_number": "№",
+    "col_date": "Дата",
+    "col_patient": "Пацієнт",
+    "col_total": "Разом",
+    "col_actions": "Дії",
+    "confirm_delete": "Видалити цей кошторис?"
+  },
+  "budgetModal": {
+    "title_new": "Новий кошторис",
+    "title_edit": "Редагувати кошторис",
+    "form": {
+      "patient": "Пацієнт",
+      "select_patient": "Оберіть пацієнта",
+      "treatments": "Процедури",
+      "select_treatment": "Оберіть процедуру",
+      "manual_treatment": "Додати процедуру вручну…",
+      "treatment_name_placeholder": "Назва процедури",
+      "add_treatment": "Додати процедуру",
+      "total": "Разом",
+      "valid_until": "Дійсний до",
+      "notes": "Примітки"
+    },
+    "errors": {
+      "no_items": "Додайте принаймні одну названу процедуру",
+      "save_failed": "Не вдалося зберегти кошторис"
+    },
+    "confirm_delete": "Видалити цей кошторис?"
+  },
+  "budgetView": {
+    "patient": "Пацієнт",
+    "treatments": "Процедури",
+    "valid_until": "Дійсний до {{date}}",
+    "no_email": "У пацієнта не вказано електронну пошту",
+    "send_email": "Надіслати електронною поштою",
+    "sending": "Надсилання…",
+    "sent": "Надіслано",
+    "send_failed": "Не вдалося надіслати електронний лист"
+  },
+  "budgetPdfButton": {
+    "export": "Завантажити PDF"
   }
 }

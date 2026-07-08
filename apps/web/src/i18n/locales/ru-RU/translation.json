@@ -525,7 +525,8 @@
     "toxin": "Контроль токсина",
     "labPartners": "Лаборатории",
     "menu": "Меню",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Сметы"
   },
   "topbar": {
     "tagline": "Цифровые согласия · Биометрическая подпись",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Сметы",
+    "subtitle": "Создавайте и управляйте сметами для своих пациентов",
+    "new_budget": "Новая смета",
+    "from": "С",
+    "to": "По",
+    "patient": "Пациент",
+    "all": "Все",
+    "search": "Поиск",
+    "search_placeholder": "№ сметы или пациент",
+    "clear_filters": "Сбросить фильтры",
+    "no_results": "Нет смет, соответствующих фильтрам",
+    "col_number": "№",
+    "col_date": "Дата",
+    "col_patient": "Пациент",
+    "col_total": "Итого",
+    "col_actions": "Действия",
+    "confirm_delete": "Удалить эту смету?"
+  },
+  "budgetModal": {
+    "title_new": "Новая смета",
+    "title_edit": "Редактировать смету",
+    "form": {
+      "patient": "Пациент",
+      "select_patient": "Выберите пациента",
+      "treatments": "Процедуры",
+      "select_treatment": "Выберите процедуру",
+      "manual_treatment": "Добавить процедуру вручную…",
+      "treatment_name_placeholder": "Название процедуры",
+      "add_treatment": "Добавить процедуру",
+      "total": "Итого",
+      "valid_until": "Действительна до",
+      "notes": "Примечания"
+    },
+    "errors": {
+      "no_items": "Добавьте хотя бы одну названную процедуру",
+      "save_failed": "Не удалось сохранить смету"
+    },
+    "confirm_delete": "Удалить эту смету?"
+  },
+  "budgetView": {
+    "patient": "Пациент",
+    "treatments": "Процедуры",
+    "valid_until": "Действительна до {{date}}",
+    "no_email": "У пациента не указан email",
+    "send_email": "Отправить по email",
+    "sending": "Отправка…",
+    "sent": "Отправлено",
+    "send_failed": "Не удалось отправить email"
+  },
+  "budgetPdfButton": {
+    "export": "Скачать PDF"
   }
 }

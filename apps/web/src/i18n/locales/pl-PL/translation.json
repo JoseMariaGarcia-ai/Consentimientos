@@ -525,7 +525,8 @@
     "toxin": "Kontrola Toksyny",
     "labPartners": "Laboratoria",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Wyceny"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Wyceny",
+    "subtitle": "Twórz i zarządzaj wycenami dla swoich pacjentów",
+    "new_budget": "Nowa wycena",
+    "from": "Od",
+    "to": "Do",
+    "patient": "Pacjent",
+    "all": "Wszyscy",
+    "search": "Szukaj",
+    "search_placeholder": "Nr wyceny lub pacjent",
+    "clear_filters": "Wyczyść filtry",
+    "no_results": "Brak wycen pasujących do filtrów",
+    "col_number": "Nr",
+    "col_date": "Data",
+    "col_patient": "Pacjent",
+    "col_total": "Suma",
+    "col_actions": "Akcje",
+    "confirm_delete": "Usunąć tę wycenę?"
+  },
+  "budgetModal": {
+    "title_new": "Nowa wycena",
+    "title_edit": "Edytuj wycenę",
+    "form": {
+      "patient": "Pacjent",
+      "select_patient": "Wybierz pacjenta",
+      "treatments": "Zabiegi",
+      "select_treatment": "Wybierz zabieg",
+      "manual_treatment": "Dodaj zabieg ręcznie…",
+      "treatment_name_placeholder": "Nazwa zabiegu",
+      "add_treatment": "Dodaj zabieg",
+      "total": "Suma",
+      "valid_until": "Ważna do",
+      "notes": "Notatki"
+    },
+    "errors": {
+      "no_items": "Dodaj co najmniej jeden nazwany zabieg",
+      "save_failed": "Nie udało się zapisać wyceny"
+    },
+    "confirm_delete": "Usunąć tę wycenę?"
+  },
+  "budgetView": {
+    "patient": "Pacjent",
+    "treatments": "Zabiegi",
+    "valid_until": "Ważna do {{date}}",
+    "no_email": "Pacjent nie ma zarejestrowanego adresu e-mail",
+    "send_email": "Wyślij e-mailem",
+    "sending": "Wysyłanie…",
+    "sent": "Wysłano",
+    "send_failed": "Nie udało się wysłać e-maila"
+  },
+  "budgetPdfButton": {
+    "export": "Pobierz PDF"
   }
 }

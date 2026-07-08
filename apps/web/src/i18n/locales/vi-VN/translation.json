@@ -525,7 +525,8 @@
     "toxin": "Kiểm Soát Độc Tố",
     "labPartners": "Phòng Thí Nghiệm",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Báo giá"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Báo giá",
+    "subtitle": "Tạo và quản lý báo giá cho bệnh nhân của bạn",
+    "new_budget": "Báo giá mới",
+    "from": "Từ",
+    "to": "Đến",
+    "patient": "Bệnh nhân",
+    "all": "Tất cả",
+    "search": "Tìm kiếm",
+    "search_placeholder": "Số báo giá hoặc bệnh nhân",
+    "clear_filters": "Xóa bộ lọc",
+    "no_results": "Không có báo giá nào khớp với bộ lọc",
+    "col_number": "Số",
+    "col_date": "Ngày",
+    "col_patient": "Bệnh nhân",
+    "col_total": "Tổng cộng",
+    "col_actions": "Hành động",
+    "confirm_delete": "Xóa báo giá này?"
+  },
+  "budgetModal": {
+    "title_new": "Báo giá mới",
+    "title_edit": "Chỉnh sửa báo giá",
+    "form": {
+      "patient": "Bệnh nhân",
+      "select_patient": "Chọn một bệnh nhân",
+      "treatments": "Liệu trình",
+      "select_treatment": "Chọn một liệu trình",
+      "manual_treatment": "Thêm liệu trình thủ công…",
+      "treatment_name_placeholder": "Tên liệu trình",
+      "add_treatment": "Thêm liệu trình",
+      "total": "Tổng cộng",
+      "valid_until": "Có hiệu lực đến",
+      "notes": "Ghi chú"
+    },
+    "errors": {
+      "no_items": "Thêm ít nhất một liệu trình có tên",
+      "save_failed": "Không thể lưu báo giá"
+    },
+    "confirm_delete": "Xóa báo giá này?"
+  },
+  "budgetView": {
+    "patient": "Bệnh nhân",
+    "treatments": "Liệu trình",
+    "valid_until": "Có hiệu lực đến {{date}}",
+    "no_email": "Bệnh nhân chưa có email đăng ký",
+    "send_email": "Gửi qua email",
+    "sending": "Đang gửi…",
+    "sent": "Đã gửi",
+    "send_failed": "Không thể gửi email"
+  },
+  "budgetPdfButton": {
+    "export": "Tải xuống PDF"
   }
 }

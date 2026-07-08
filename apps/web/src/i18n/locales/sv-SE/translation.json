@@ -525,7 +525,8 @@
     "toxin": "Toxinkontroll",
     "labPartners": "Laboratorier",
     "menu": "Meny",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Offerter"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Offerter",
+    "subtitle": "Skapa och hantera offerter för dina patienter",
+    "new_budget": "Ny offert",
+    "from": "Från",
+    "to": "Till",
+    "patient": "Patient",
+    "all": "Alla",
+    "search": "Sök",
+    "search_placeholder": "Offertnr eller patient",
+    "clear_filters": "Rensa filter",
+    "no_results": "Inga offerter matchar filtren",
+    "col_number": "Nr",
+    "col_date": "Datum",
+    "col_patient": "Patient",
+    "col_total": "Totalt",
+    "col_actions": "Åtgärder",
+    "confirm_delete": "Ta bort denna offert?"
+  },
+  "budgetModal": {
+    "title_new": "Ny offert",
+    "title_edit": "Redigera offert",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Välj en patient",
+      "treatments": "Behandlingar",
+      "select_treatment": "Välj en behandling",
+      "manual_treatment": "Lägg till behandling manuellt…",
+      "treatment_name_placeholder": "Behandlingens namn",
+      "add_treatment": "Lägg till behandling",
+      "total": "Totalt",
+      "valid_until": "Giltig till",
+      "notes": "Anteckningar"
+    },
+    "errors": {
+      "no_items": "Lägg till minst en namngiven behandling",
+      "save_failed": "Offerten kunde inte sparas"
+    },
+    "confirm_delete": "Ta bort denna offert?"
+  },
+  "budgetView": {
+    "patient": "Patient",
+    "treatments": "Behandlingar",
+    "valid_until": "Giltig till {{date}}",
+    "no_email": "Patienten har ingen registrerad e-post",
+    "send_email": "Skicka via e-post",
+    "sending": "Skickar…",
+    "sent": "Skickat",
+    "send_failed": "E-posten kunde inte skickas"
+  },
+  "budgetPdfButton": {
+    "export": "Ladda ner PDF"
   }
 }

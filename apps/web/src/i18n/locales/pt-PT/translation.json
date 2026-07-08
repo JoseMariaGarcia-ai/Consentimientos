@@ -525,7 +525,8 @@
     "toxin": "Controlo de Toxina",
     "labPartners": "Laboratórios",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Orçamentos"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Orçamentos",
+    "subtitle": "Crie e giera orçamentos para os seus doentes",
+    "new_budget": "Novo orçamento",
+    "from": "De",
+    "to": "Até",
+    "patient": "Doente",
+    "all": "Todos",
+    "search": "Pesquisar",
+    "search_placeholder": "Nº orçamento ou doente",
+    "clear_filters": "Limpar filtros",
+    "no_results": "Nenhum orçamento corresponde aos filtros",
+    "col_number": "Nº",
+    "col_date": "Data",
+    "col_patient": "Doente",
+    "col_total": "Total",
+    "col_actions": "Ações",
+    "confirm_delete": "Eliminar este orçamento?"
+  },
+  "budgetModal": {
+    "title_new": "Novo orçamento",
+    "title_edit": "Editar orçamento",
+    "form": {
+      "patient": "Doente",
+      "select_patient": "Selecione um doente",
+      "treatments": "Tratamentos",
+      "select_treatment": "Selecione um tratamento",
+      "manual_treatment": "Adicionar tratamento manualmente…",
+      "treatment_name_placeholder": "Nome do tratamento",
+      "add_treatment": "Adicionar tratamento",
+      "total": "Total",
+      "valid_until": "Válido até",
+      "notes": "Notas"
+    },
+    "errors": {
+      "no_items": "Adicione pelo menos um tratamento com nome",
+      "save_failed": "Não foi possível guardar o orçamento"
+    },
+    "confirm_delete": "Eliminar este orçamento?"
+  },
+  "budgetView": {
+    "patient": "Doente",
+    "treatments": "Tratamentos",
+    "valid_until": "Válido até {{date}}",
+    "no_email": "O doente não tem um email registado",
+    "send_email": "Enviar por email",
+    "sending": "A enviar…",
+    "sent": "Enviado",
+    "send_failed": "Não foi possível enviar o email"
+  },
+  "budgetPdfButton": {
+    "export": "Descarregar PDF"
   }
 }

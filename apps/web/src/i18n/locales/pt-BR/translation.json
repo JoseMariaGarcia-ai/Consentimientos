@@ -525,7 +525,8 @@
     "toxin": "Controle de Toxina",
     "labPartners": "Laboratórios",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Orçamentos"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Orçamentos",
+    "subtitle": "Crie e gerencie orçamentos para seus pacientes",
+    "new_budget": "Novo orçamento",
+    "from": "De",
+    "to": "Até",
+    "patient": "Paciente",
+    "all": "Todos",
+    "search": "Buscar",
+    "search_placeholder": "Nº orçamento ou paciente",
+    "clear_filters": "Limpar filtros",
+    "no_results": "Nenhum orçamento corresponde aos filtros",
+    "col_number": "Nº",
+    "col_date": "Data",
+    "col_patient": "Paciente",
+    "col_total": "Total",
+    "col_actions": "Ações",
+    "confirm_delete": "Excluir este orçamento?"
+  },
+  "budgetModal": {
+    "title_new": "Novo orçamento",
+    "title_edit": "Editar orçamento",
+    "form": {
+      "patient": "Paciente",
+      "select_patient": "Selecione um paciente",
+      "treatments": "Tratamentos",
+      "select_treatment": "Selecione um tratamento",
+      "manual_treatment": "Adicionar tratamento manualmente…",
+      "treatment_name_placeholder": "Nome do tratamento",
+      "add_treatment": "Adicionar tratamento",
+      "total": "Total",
+      "valid_until": "Válido até",
+      "notes": "Notas"
+    },
+    "errors": {
+      "no_items": "Adicione pelo menos um tratamento com nome",
+      "save_failed": "Não foi possível salvar o orçamento"
+    },
+    "confirm_delete": "Excluir este orçamento?"
+  },
+  "budgetView": {
+    "patient": "Paciente",
+    "treatments": "Tratamentos",
+    "valid_until": "Válido até {{date}}",
+    "no_email": "O paciente não tem um e-mail registrado",
+    "send_email": "Enviar por e-mail",
+    "sending": "Enviando…",
+    "sent": "Enviado",
+    "send_failed": "Não foi possível enviar o e-mail"
+  },
+  "budgetPdfButton": {
+    "export": "Baixar PDF"
   }
 }

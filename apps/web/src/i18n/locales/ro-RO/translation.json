@@ -525,7 +525,8 @@
     "toxin": "Control Toxină",
     "labPartners": "Laboratoare",
     "menu": "Meniu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Oferte"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Oferte",
+    "subtitle": "Creați și gestionați oferte pentru pacienții dumneavoastră",
+    "new_budget": "Ofertă nouă",
+    "from": "De la",
+    "to": "Până la",
+    "patient": "Pacient",
+    "all": "Toate",
+    "search": "Căutare",
+    "search_placeholder": "Nr. ofertă sau pacient",
+    "clear_filters": "Șterge filtrele",
+    "no_results": "Nicio ofertă nu corespunde filtrelor",
+    "col_number": "Nr.",
+    "col_date": "Data",
+    "col_patient": "Pacient",
+    "col_total": "Total",
+    "col_actions": "Acțiuni",
+    "confirm_delete": "Ștergeți această ofertă?"
+  },
+  "budgetModal": {
+    "title_new": "Ofertă nouă",
+    "title_edit": "Editare ofertă",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Selectați un pacient",
+      "treatments": "Tratamente",
+      "select_treatment": "Selectați un tratament",
+      "manual_treatment": "Adăugați tratament manual…",
+      "treatment_name_placeholder": "Numele tratamentului",
+      "add_treatment": "Adăugați tratament",
+      "total": "Total",
+      "valid_until": "Valabilă până la",
+      "notes": "Note"
+    },
+    "errors": {
+      "no_items": "Adăugați cel puțin un tratament cu nume",
+      "save_failed": "Oferta nu a putut fi salvată"
+    },
+    "confirm_delete": "Ștergeți această ofertă?"
+  },
+  "budgetView": {
+    "patient": "Pacient",
+    "treatments": "Tratamente",
+    "valid_until": "Valabilă până la {{date}}",
+    "no_email": "Pacientul nu are un email înregistrat",
+    "send_email": "Trimite prin email",
+    "sending": "Se trimite…",
+    "sent": "Trimis",
+    "send_failed": "Emailul nu a putut fi trimis"
+  },
+  "budgetPdfButton": {
+    "export": "Descarcă PDF"
   }
 }

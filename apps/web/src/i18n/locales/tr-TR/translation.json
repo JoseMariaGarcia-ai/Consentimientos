@@ -525,7 +525,8 @@
     "toxin": "Toksin Kontrolü",
     "labPartners": "Laboratuvarlar",
     "menu": "Menü",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Fiyat Teklifleri"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Fiyat Teklifleri",
+    "subtitle": "Hastalarınız için fiyat teklifleri oluşturun ve yönetin",
+    "new_budget": "Yeni fiyat teklifi",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "patient": "Hasta",
+    "all": "Tümü",
+    "search": "Ara",
+    "search_placeholder": "Teklif no. veya hasta",
+    "clear_filters": "Filtreleri temizle",
+    "no_results": "Filtrelerle eşleşen fiyat teklifi yok",
+    "col_number": "No.",
+    "col_date": "Tarih",
+    "col_patient": "Hasta",
+    "col_total": "Toplam",
+    "col_actions": "İşlemler",
+    "confirm_delete": "Bu fiyat teklifi silinsin mi?"
+  },
+  "budgetModal": {
+    "title_new": "Yeni fiyat teklifi",
+    "title_edit": "Fiyat teklifini düzenle",
+    "form": {
+      "patient": "Hasta",
+      "select_patient": "Bir hasta seçin",
+      "treatments": "Tedaviler",
+      "select_treatment": "Bir tedavi seçin",
+      "manual_treatment": "Tedaviyi manuel ekle…",
+      "treatment_name_placeholder": "Tedavi adı",
+      "add_treatment": "Tedavi ekle",
+      "total": "Toplam",
+      "valid_until": "Geçerlilik tarihi",
+      "notes": "Notlar"
+    },
+    "errors": {
+      "no_items": "En az bir adlandırılmış tedavi ekleyin",
+      "save_failed": "Fiyat teklifi kaydedilemedi"
+    },
+    "confirm_delete": "Bu fiyat teklifi silinsin mi?"
+  },
+  "budgetView": {
+    "patient": "Hasta",
+    "treatments": "Tedaviler",
+    "valid_until": "{{date}} tarihine kadar geçerli",
+    "no_email": "Hastanın kayıtlı bir e-postası yok",
+    "send_email": "E-posta ile gönder",
+    "sending": "Gönderiliyor…",
+    "sent": "Gönderildi",
+    "send_failed": "E-posta gönderilemedi"
+  },
+  "budgetPdfButton": {
+    "export": "PDF indir"
   }
 }

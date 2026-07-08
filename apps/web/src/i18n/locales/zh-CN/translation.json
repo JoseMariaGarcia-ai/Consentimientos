@@ -525,7 +525,8 @@
     "toxin": "毒素管理",
     "labPartners": "实验室",
     "menu": "菜单",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "报价单"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "报价单",
+    "subtitle": "为您的患者创建和管理报价单",
+    "new_budget": "新建报价单",
+    "from": "开始日期",
+    "to": "结束日期",
+    "patient": "患者",
+    "all": "全部",
+    "search": "搜索",
+    "search_placeholder": "报价单号或患者",
+    "clear_filters": "清除筛选",
+    "no_results": "没有符合筛选条件的报价单",
+    "col_number": "编号",
+    "col_date": "日期",
+    "col_patient": "患者",
+    "col_total": "总计",
+    "col_actions": "操作",
+    "confirm_delete": "删除此报价单？"
+  },
+  "budgetModal": {
+    "title_new": "新建报价单",
+    "title_edit": "编辑报价单",
+    "form": {
+      "patient": "患者",
+      "select_patient": "选择患者",
+      "treatments": "治疗项目",
+      "select_treatment": "选择治疗项目",
+      "manual_treatment": "手动添加治疗项目…",
+      "treatment_name_placeholder": "治疗项目名称",
+      "add_treatment": "添加治疗项目",
+      "total": "总计",
+      "valid_until": "有效期至",
+      "notes": "备注"
+    },
+    "errors": {
+      "no_items": "请至少添加一个有名称的治疗项目",
+      "save_failed": "无法保存报价单"
+    },
+    "confirm_delete": "删除此报价单？"
+  },
+  "budgetView": {
+    "patient": "患者",
+    "treatments": "治疗项目",
+    "valid_until": "有效期至 {{date}}",
+    "no_email": "该患者未登记电子邮箱",
+    "send_email": "通过邮件发送",
+    "sending": "发送中…",
+    "sent": "已发送",
+    "send_failed": "邮件发送失败"
+  },
+  "budgetPdfButton": {
+    "export": "下载 PDF"
   }
 }
