@@ -1041,9 +1041,10 @@
       "base": {
         "name": "Plano Base",
         "features": [
-          "CIs ilimitados",
+          "Consentimentos ilimitados",
           "Histórico clínico",
           "Galeria fotográfica",
+          "Consentimento de cessão de imagem",
           "Portal do paciente",
           "Magic Link + biometria",
           "Suporte incluso"

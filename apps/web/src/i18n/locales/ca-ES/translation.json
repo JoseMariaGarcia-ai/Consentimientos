@@ -1041,9 +1041,10 @@
       "base": {
         "name": "Pla Base",
         "features": [
-          "CIs il·limitats",
+          "Consentiments il·limitats",
           "Història clínica",
           "Galeria fotogràfica",
+          "Consentiment de cessió d'imatges",
           "Portal pacient",
           "Magic Link + biometria",
           "Suport inclòs"
