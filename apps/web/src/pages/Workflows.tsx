@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Workflow as WorkflowIcon } from 'lucide-react'
 import { api } from '@/lib/api'
 
-const KNOWN_WORKFLOWS = ['appointment_confirmation']
+const KNOWN_WORKFLOWS = ['appointment_confirmation', 'appointment_reminder']
 
 export default function Workflows() {
   const { t } = useTranslation()

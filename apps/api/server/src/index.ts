@@ -29,6 +29,7 @@ import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
 import workflowsRouter from './routes/workflows'
 import { runMigrations } from './lib/migrate'
+import { startReminderScheduler } from './lib/reminderScheduler'
 
 const app = express()
 
@@ -78,6 +79,7 @@ runMigrations()
   .catch(err => console.error('[migrate] migration run failed, starting server anyway:', err))
   .finally(() => {
     app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
+    startReminderScheduler()
   })
 
 export default app

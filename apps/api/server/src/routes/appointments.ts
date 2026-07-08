@@ -93,7 +93,10 @@ router.put('/:id', async (req, res) => {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
-    if (!(await belongsToClinic('appointments', req.params.id, clinicId))) return res.status(404).json({ error: 'Cita no encontrada' })
+    const existing = await queryOne<{ start_time: string }>(
+      'SELECT start_time FROM appointments WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId]
+    )
+    if (!existing) return res.status(404).json({ error: 'Cita no encontrada' })
 
     const treatment = await queryOne<{ duration_minutes: number }>(
       'SELECT duration_minutes FROM treatments WHERE id = $1 AND clinic_id = $2', [treatment_id, clinicId]
@@ -118,11 +121,26 @@ router.put('/:id', async (req, res) => {
       if (clash) return res.status(409).json({ error: 'El doctor ya tiene una cita en ese horario' })
     }
 
+    // A rescheduled appointment needs a fresh reminder window for its new
+    // time — clearing reminder_sent_at lets the 24h-before scheduler pick
+    // it up again instead of staying silent because it "already reminded".
+    const timeChanged = new Date(existing.start_time).getTime() !== start.getTime()
+
     const data = await queryOne(
-      `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, branch=$4, start_time=$5, end_time=$6, notes=$7, status=$8, updated_at=NOW()
+      `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, branch=$4, start_time=$5, end_time=$6, notes=$7, status=$8, updated_at=NOW()${timeChanged ? ', reminder_sent_at=NULL' : ''}
        WHERE id=$9 AND clinic_id=$10 RETURNING *`,
       [patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null, status ?? 'scheduled', req.params.id, clinicId]
     )
+
+    if (timeChanged) {
+      isWorkflowEnabled('appointment_confirmation').then(enabled => {
+        if (enabled) {
+          sendAppointmentConfirmationEmail({ appointmentId: req.params.id, clinicId, kind: 'rescheduled' })
+            .catch(err => console.error('[appointmentConfirmationEmail] reschedule send failed:', err.message))
+        }
+      }).catch(() => {})
+    }
+
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

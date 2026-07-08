@@ -77,7 +77,7 @@ export default function ClinicPage() {
     }).finally(() => setLoading(false))
   }, [])
 
-  const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: k === 'email' ? v : v.toUpperCase() }))
+  const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: (k === 'email' || k === 'directions_url') ? v : v.toUpperCase() }))
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -125,6 +125,7 @@ export default function ClinicPage() {
           <Field label={t('clinic.legal_name')} value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />
         </div>
         <Field label={t('clinic.address')} value={(form.address as string) ?? ''} onChange={v => set('address', v)} />
+        <Field label={t('clinic.directions_url')} value={(form as any).directions_url ?? ''} onChange={v => set('directions_url', v)} type="url" />
         <div className="grid grid-cols-2 gap-4">
           <Field label={t('clinic.phone')} value={(form.phone as string) ?? ''} onChange={v => set('phone', v)} type="tel" />
           <Field label={t('clinic.email')} value={(form.email as string) ?? ''} onChange={v => set('email', v)} type="email" />

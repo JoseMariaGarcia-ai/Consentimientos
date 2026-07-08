@@ -794,6 +794,7 @@
     "trade_name": "Nombre comercial",
     "legal_name": "Nombre fiscal / razón social",
     "nika_number": "Número NIKA",
+    "directions_url": "URL de cómo llegar",
     "save_success": "Guardado correctamente",
     "confirm_delete_branch": "¿Eliminar esta sede?"
   },
@@ -1490,7 +1491,11 @@
     "items": {
       "appointment_confirmation": {
         "name": "Confirmación de citas",
-        "description": "Envía automáticamente un email al paciente con los datos de la cita al agendarla."
+        "description": "Envía automáticamente un email al paciente con los datos de la cita al agendarla o al cambiar de fecha u hora."
+      },
+      "appointment_reminder": {
+        "name": "Recordatorio de citas",
+        "description": "Envía automáticamente un email al paciente recordándole la cita cuando queda 1 día para su celebración."
       }
     }
   }
