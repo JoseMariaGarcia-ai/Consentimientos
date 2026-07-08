@@ -238,7 +238,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
     })
   }
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: consent.patient_email,
     ...(consent.clinic_email ? { replyTo: consent.clinic_email } : {}),
@@ -246,6 +246,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
     html,
     attachments,
   })
+  if (error) console.error(`[consentEmail] send to ${consent.patient_email} failed:`, error)
 
   if (adHtml && adCreative) {
     await query(

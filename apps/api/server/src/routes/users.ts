@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { sendInviteEmail } from '../lib/inviteEmail'
 
 const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin', 'whatsapp']
 const PLANS = ['base', 'pro', 'ia', 'ia-plus']
@@ -84,6 +85,17 @@ router.post('/', async (req, res) => {
         await query('INSERT INTO user_permissions (user_id, module, can_access) VALUES ($1,$2,$3)', p)
       }
     }
+
+    if (user && email) {
+      try {
+        const clinic = clinic_id ? await queryOne<{ name: string }>('SELECT name FROM clinics WHERE id = $1', [clinic_id]) : null
+        await sendInviteEmail({ id: user.id, email, full_name, role: role ?? 'clinica' }, clinic?.name ?? null)
+      } catch (emailErr: any) {
+        console.error('Error sending invite email:', emailErr.message)
+        // Don't fail the request if email fails
+      }
+    }
+
     return res.status(201).json(user)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

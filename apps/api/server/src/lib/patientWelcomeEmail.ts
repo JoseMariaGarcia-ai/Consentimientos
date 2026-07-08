@@ -117,10 +117,11 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
 </body>
 </html>`
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: patient.email,
     subject: `Tu acceso a ConsentsPro — ${clinicName}`,
     html,
   })
+  if (error) console.error(`[patientWelcomeEmail] send to ${patient.email} failed:`, error)
 }
