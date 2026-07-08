@@ -525,7 +525,8 @@
     "toxin": "टॉक्सिन नियंत्रण",
     "labPartners": "प्रयोगशालाएं",
     "menu": "मेनू",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "कोटेशन"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "कोटेशन",
+    "subtitle": "अपने मरीज़ों के लिए कोटेशन बनाएं और प्रबंधित करें",
+    "new_budget": "नया कोटेशन",
+    "from": "से",
+    "to": "तक",
+    "patient": "मरीज़",
+    "all": "सभी",
+    "search": "खोजें",
+    "search_placeholder": "कोटेशन नं. या मरीज़",
+    "clear_filters": "फ़िल्टर साफ़ करें",
+    "no_results": "फ़िल्टर से मेल खाने वाला कोई कोटेशन नहीं है",
+    "col_number": "नं.",
+    "col_date": "तिथि",
+    "col_patient": "मरीज़",
+    "col_total": "कुल",
+    "col_actions": "कार्रवाई",
+    "confirm_delete": "इस कोटेशन को हटाएं?"
+  },
+  "budgetModal": {
+    "title_new": "नया कोटेशन",
+    "title_edit": "कोटेशन संपादित करें",
+    "form": {
+      "patient": "मरीज़",
+      "select_patient": "एक मरीज़ चुनें",
+      "treatments": "उपचार",
+      "select_treatment": "एक उपचार चुनें",
+      "manual_treatment": "उपचार मैन्युअल रूप से जोड़ें…",
+      "treatment_name_placeholder": "उपचार का नाम",
+      "add_treatment": "उपचार जोड़ें",
+      "total": "कुल",
+      "valid_until": "तक मान्य",
+      "notes": "टिप्पणियाँ"
+    },
+    "errors": {
+      "no_items": "कम से कम एक नामित उपचार जोड़ें",
+      "save_failed": "कोटेशन सहेजा नहीं जा सका"
+    },
+    "confirm_delete": "इस कोटेशन को हटाएं?"
+  },
+  "budgetView": {
+    "patient": "मरीज़",
+    "treatments": "उपचार",
+    "valid_until": "{{date}} तक मान्य",
+    "no_email": "मरीज़ का कोई ईमेल दर्ज नहीं है",
+    "send_email": "ईमेल द्वारा भेजें",
+    "sending": "भेजा जा रहा है…",
+    "sent": "भेज दिया गया",
+    "send_failed": "ईमेल नहीं भेजा जा सका"
+  },
+  "budgetPdfButton": {
+    "export": "PDF डाउनलोड करें"
   }
 }

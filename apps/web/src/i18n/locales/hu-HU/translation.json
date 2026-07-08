@@ -525,7 +525,8 @@
     "toxin": "Toxinkontroll",
     "labPartners": "Laboratóriumok",
     "menu": "Menü",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Árajánlatok"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Árajánlatok",
+    "subtitle": "Hozzon létre és kezeljen árajánlatokat betegei számára",
+    "new_budget": "Új árajánlat",
+    "from": "Ettől",
+    "to": "Eddig",
+    "patient": "Beteg",
+    "all": "Összes",
+    "search": "Keresés",
+    "search_placeholder": "Árajánlat száma vagy beteg",
+    "clear_filters": "Szűrők törlése",
+    "no_results": "Nincs a szűrőknek megfelelő árajánlat",
+    "col_number": "Szám",
+    "col_date": "Dátum",
+    "col_patient": "Beteg",
+    "col_total": "Összesen",
+    "col_actions": "Műveletek",
+    "confirm_delete": "Törli ezt az árajánlatot?"
+  },
+  "budgetModal": {
+    "title_new": "Új árajánlat",
+    "title_edit": "Árajánlat szerkesztése",
+    "form": {
+      "patient": "Beteg",
+      "select_patient": "Válasszon beteget",
+      "treatments": "Kezelések",
+      "select_treatment": "Válasszon kezelést",
+      "manual_treatment": "Kezelés hozzáadása kézzel…",
+      "treatment_name_placeholder": "Kezelés neve",
+      "add_treatment": "Kezelés hozzáadása",
+      "total": "Összesen",
+      "valid_until": "Érvényes eddig",
+      "notes": "Megjegyzések"
+    },
+    "errors": {
+      "no_items": "Adjon hozzá legalább egy megnevezett kezelést",
+      "save_failed": "Az árajánlatot nem sikerült menteni"
+    },
+    "confirm_delete": "Törli ezt az árajánlatot?"
+  },
+  "budgetView": {
+    "patient": "Beteg",
+    "treatments": "Kezelések",
+    "valid_until": "Érvényes eddig: {{date}}",
+    "no_email": "A betegnek nincs rögzített e-mail címe",
+    "send_email": "Küldés e-mailben",
+    "sending": "Küldés…",
+    "sent": "Elküldve",
+    "send_failed": "Az e-mailt nem sikerült elküldeni"
+  },
+  "budgetPdfButton": {
+    "export": "PDF letöltése"
   }
 }

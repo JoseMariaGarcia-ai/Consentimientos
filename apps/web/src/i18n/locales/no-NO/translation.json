@@ -525,7 +525,8 @@
     "toxin": "Toksinkontroll",
     "labPartners": "Laboratorier",
     "menu": "Meny",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Tilbud"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Tilbud",
+    "subtitle": "Opprett og administrer tilbud til pasientene dine",
+    "new_budget": "Nytt tilbud",
+    "from": "Fra",
+    "to": "Til",
+    "patient": "Pasient",
+    "all": "Alle",
+    "search": "Søk",
+    "search_placeholder": "Tilbudsnr. eller pasient",
+    "clear_filters": "Fjern filtre",
+    "no_results": "Ingen tilbud samsvarer med filtrene",
+    "col_number": "Nr.",
+    "col_date": "Dato",
+    "col_patient": "Pasient",
+    "col_total": "Totalt",
+    "col_actions": "Handlinger",
+    "confirm_delete": "Slette dette tilbudet?"
+  },
+  "budgetModal": {
+    "title_new": "Nytt tilbud",
+    "title_edit": "Rediger tilbud",
+    "form": {
+      "patient": "Pasient",
+      "select_patient": "Velg en pasient",
+      "treatments": "Behandlinger",
+      "select_treatment": "Velg en behandling",
+      "manual_treatment": "Legg til behandling manuelt…",
+      "treatment_name_placeholder": "Behandlingens navn",
+      "add_treatment": "Legg til behandling",
+      "total": "Totalt",
+      "valid_until": "Gyldig til",
+      "notes": "Notater"
+    },
+    "errors": {
+      "no_items": "Legg til minst én navngitt behandling",
+      "save_failed": "Tilbudet kunne ikke lagres"
+    },
+    "confirm_delete": "Slette dette tilbudet?"
+  },
+  "budgetView": {
+    "patient": "Pasient",
+    "treatments": "Behandlinger",
+    "valid_until": "Gyldig til {{date}}",
+    "no_email": "Pasienten har ingen registrert e-post",
+    "send_email": "Send på e-post",
+    "sending": "Sender…",
+    "sent": "Sendt",
+    "send_failed": "E-posten kunne ikke sendes"
+  },
+  "budgetPdfButton": {
+    "export": "Last ned PDF"
   }
 }

@@ -525,7 +525,8 @@
     "toxin": "Contrôle de Toxine",
     "labPartners": "Laboratoires",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Devis"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Devis",
+    "subtitle": "Créez et gérez des devis pour vos patients",
+    "new_budget": "Nouveau devis",
+    "from": "Du",
+    "to": "Au",
+    "patient": "Patient",
+    "all": "Tous",
+    "search": "Rechercher",
+    "search_placeholder": "N° de devis ou patient",
+    "clear_filters": "Effacer les filtres",
+    "no_results": "Aucun devis ne correspond aux filtres",
+    "col_number": "N°",
+    "col_date": "Date",
+    "col_patient": "Patient",
+    "col_total": "Total",
+    "col_actions": "Actions",
+    "confirm_delete": "Supprimer ce devis ?"
+  },
+  "budgetModal": {
+    "title_new": "Nouveau devis",
+    "title_edit": "Modifier le devis",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Sélectionnez un patient",
+      "treatments": "Traitements",
+      "select_treatment": "Sélectionnez un traitement",
+      "manual_treatment": "Ajouter un traitement manuellement…",
+      "treatment_name_placeholder": "Nom du traitement",
+      "add_treatment": "Ajouter un traitement",
+      "total": "Total",
+      "valid_until": "Valable jusqu'au",
+      "notes": "Notes"
+    },
+    "errors": {
+      "no_items": "Ajoutez au moins un traitement nommé",
+      "save_failed": "Le devis n'a pas pu être enregistré"
+    },
+    "confirm_delete": "Supprimer ce devis ?"
+  },
+  "budgetView": {
+    "patient": "Patient",
+    "treatments": "Traitements",
+    "valid_until": "Valable jusqu'au {{date}}",
+    "no_email": "Le patient n'a pas d'email enregistré",
+    "send_email": "Envoyer par email",
+    "sending": "Envoi en cours…",
+    "sent": "Envoyé",
+    "send_failed": "L'email n'a pas pu être envoyé"
+  },
+  "budgetPdfButton": {
+    "export": "Télécharger le PDF"
   }
 }

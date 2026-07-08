@@ -525,7 +525,8 @@
     "toxin": "Toksiinin seuranta",
     "labPartners": "Laboratoriot",
     "menu": "Valikko",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Tarjoukset"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Tarjoukset",
+    "subtitle": "Luo ja hallinnoi tarjouksia potilaillesi",
+    "new_budget": "Uusi tarjous",
+    "from": "Alkaen",
+    "to": "Päättyen",
+    "patient": "Potilas",
+    "all": "Kaikki",
+    "search": "Haku",
+    "search_placeholder": "Tarjousnro tai potilas",
+    "clear_filters": "Tyhjennä suodattimet",
+    "no_results": "Ei suodattimia vastaavia tarjouksia",
+    "col_number": "Nro",
+    "col_date": "Päivämäärä",
+    "col_patient": "Potilas",
+    "col_total": "Yhteensä",
+    "col_actions": "Toiminnot",
+    "confirm_delete": "Poistetaanko tämä tarjous?"
+  },
+  "budgetModal": {
+    "title_new": "Uusi tarjous",
+    "title_edit": "Muokkaa tarjousta",
+    "form": {
+      "patient": "Potilas",
+      "select_patient": "Valitse potilas",
+      "treatments": "Hoidot",
+      "select_treatment": "Valitse hoito",
+      "manual_treatment": "Lisää hoito manuaalisesti…",
+      "treatment_name_placeholder": "Hoidon nimi",
+      "add_treatment": "Lisää hoito",
+      "total": "Yhteensä",
+      "valid_until": "Voimassa asti",
+      "notes": "Muistiinpanot"
+    },
+    "errors": {
+      "no_items": "Lisää vähintään yksi nimetty hoito",
+      "save_failed": "Tarjousta ei voitu tallentaa"
+    },
+    "confirm_delete": "Poistetaanko tämä tarjous?"
+  },
+  "budgetView": {
+    "patient": "Potilas",
+    "treatments": "Hoidot",
+    "valid_until": "Voimassa {{date}} asti",
+    "no_email": "Potilaalla ei ole rekisteröityä sähköpostia",
+    "send_email": "Lähetä sähköpostitse",
+    "sending": "Lähetetään…",
+    "sent": "Lähetetty",
+    "send_failed": "Sähköpostia ei voitu lähettää"
+  },
+  "budgetPdfButton": {
+    "export": "Lataa PDF"
   }
 }

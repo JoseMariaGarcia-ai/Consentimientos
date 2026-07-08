@@ -525,7 +525,8 @@
     "toxin": "Toxinecontrole",
     "labPartners": "Laboratoria",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Offertes"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Offertes",
+    "subtitle": "Maak en beheer offertes voor uw patiënten",
+    "new_budget": "Nieuwe offerte",
+    "from": "Van",
+    "to": "Tot",
+    "patient": "Patiënt",
+    "all": "Alle",
+    "search": "Zoeken",
+    "search_placeholder": "Offertenr. of patiënt",
+    "clear_filters": "Filters wissen",
+    "no_results": "Geen offertes komen overeen met de filters",
+    "col_number": "Nr.",
+    "col_date": "Datum",
+    "col_patient": "Patiënt",
+    "col_total": "Totaal",
+    "col_actions": "Acties",
+    "confirm_delete": "Deze offerte verwijderen?"
+  },
+  "budgetModal": {
+    "title_new": "Nieuwe offerte",
+    "title_edit": "Offerte bewerken",
+    "form": {
+      "patient": "Patiënt",
+      "select_patient": "Selecteer een patiënt",
+      "treatments": "Behandelingen",
+      "select_treatment": "Selecteer een behandeling",
+      "manual_treatment": "Behandeling handmatig toevoegen…",
+      "treatment_name_placeholder": "Naam van de behandeling",
+      "add_treatment": "Behandeling toevoegen",
+      "total": "Totaal",
+      "valid_until": "Geldig tot",
+      "notes": "Notities"
+    },
+    "errors": {
+      "no_items": "Voeg minstens één benoemde behandeling toe",
+      "save_failed": "De offerte kon niet worden opgeslagen"
+    },
+    "confirm_delete": "Deze offerte verwijderen?"
+  },
+  "budgetView": {
+    "patient": "Patiënt",
+    "treatments": "Behandelingen",
+    "valid_until": "Geldig tot {{date}}",
+    "no_email": "De patiënt heeft geen geregistreerd e-mailadres",
+    "send_email": "Verzenden per e-mail",
+    "sending": "Verzenden…",
+    "sent": "Verzonden",
+    "send_failed": "De e-mail kon niet worden verzonden"
+  },
+  "budgetPdfButton": {
+    "export": "PDF downloaden"
   }
 }

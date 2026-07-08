@@ -525,7 +525,8 @@
     "toxin": "בקרת טוקסין",
     "labPartners": "מעבדות",
     "menu": "תפריט",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "הצעות מחיר"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
@@ -1384,5 +1385,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "הצעות מחיר",
+    "subtitle": "צור ונהל הצעות מחיר למטופלים שלך",
+    "new_budget": "הצעת מחיר חדשה",
+    "from": "מ-",
+    "to": "עד",
+    "patient": "מטופל",
+    "all": "הכול",
+    "search": "חיפוש",
+    "search_placeholder": "מס' הצעה או מטופל",
+    "clear_filters": "נקה מסננים",
+    "no_results": "אין הצעות מחיר התואמות את המסננים",
+    "col_number": "מס'",
+    "col_date": "תאריך",
+    "col_patient": "מטופל",
+    "col_total": "סה״כ",
+    "col_actions": "פעולות",
+    "confirm_delete": "למחוק הצעת מחיר זו?"
+  },
+  "budgetModal": {
+    "title_new": "הצעת מחיר חדשה",
+    "title_edit": "עריכת הצעת מחיר",
+    "form": {
+      "patient": "מטופל",
+      "select_patient": "בחר מטופל",
+      "treatments": "טיפולים",
+      "select_treatment": "בחר טיפול",
+      "manual_treatment": "הוסף טיפול ידנית…",
+      "treatment_name_placeholder": "שם הטיפול",
+      "add_treatment": "הוסף טיפול",
+      "total": "סה״כ",
+      "valid_until": "בתוקף עד",
+      "notes": "הערות"
+    },
+    "errors": {
+      "no_items": "הוסף לפחות טיפול אחד בעל שם",
+      "save_failed": "לא ניתן היה לשמור את הצעת המחיר"
+    },
+    "confirm_delete": "למחוק הצעת מחיר זו?"
+  },
+  "budgetView": {
+    "patient": "מטופל",
+    "treatments": "טיפולים",
+    "valid_until": "בתוקף עד {{date}}",
+    "no_email": "למטופל אין אימייל רשום",
+    "send_email": "שלח באימייל",
+    "sending": "שולח…",
+    "sent": "נשלח",
+    "send_failed": "לא ניתן היה לשלוח את האימייל"
+  },
+  "budgetPdfButton": {
+    "export": "הורד PDF"
   }
 }

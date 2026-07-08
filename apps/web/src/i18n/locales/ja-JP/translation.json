@@ -525,7 +525,8 @@
     "toxin": "トキシン管理",
     "labPartners": "ラボ",
     "menu": "メニュー",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "見積もり"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "見積もり",
+    "subtitle": "患者向けの見積もりを作成・管理します",
+    "new_budget": "新規見積もり",
+    "from": "開始日",
+    "to": "終了日",
+    "patient": "患者",
+    "all": "すべて",
+    "search": "検索",
+    "search_placeholder": "見積もり番号または患者",
+    "clear_filters": "フィルターをクリア",
+    "no_results": "フィルターに一致する見積もりがありません",
+    "col_number": "番号",
+    "col_date": "日付",
+    "col_patient": "患者",
+    "col_total": "合計",
+    "col_actions": "操作",
+    "confirm_delete": "この見積もりを削除しますか？"
+  },
+  "budgetModal": {
+    "title_new": "新規見積もり",
+    "title_edit": "見積もりを編集",
+    "form": {
+      "patient": "患者",
+      "select_patient": "患者を選択",
+      "treatments": "施術",
+      "select_treatment": "施術を選択",
+      "manual_treatment": "施術を手動で追加…",
+      "treatment_name_placeholder": "施術名",
+      "add_treatment": "施術を追加",
+      "total": "合計",
+      "valid_until": "有効期限",
+      "notes": "メモ"
+    },
+    "errors": {
+      "no_items": "名前を付けた施術を少なくとも1つ追加してください",
+      "save_failed": "見積もりを保存できませんでした"
+    },
+    "confirm_delete": "この見積もりを削除しますか？"
+  },
+  "budgetView": {
+    "patient": "患者",
+    "treatments": "施術",
+    "valid_until": "{{date}}まで有効",
+    "no_email": "患者にメールアドレスが登録されていません",
+    "send_email": "メールで送信",
+    "sending": "送信中…",
+    "sent": "送信済み",
+    "send_failed": "メールを送信できませんでした"
+  },
+  "budgetPdfButton": {
+    "export": "PDFをダウンロード"
   }
 }

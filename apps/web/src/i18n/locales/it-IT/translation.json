@@ -525,7 +525,8 @@
     "toxin": "Controllo Tossina",
     "labPartners": "Laboratori",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Preventivi"
   },
   "topbar": {
     "tagline": "Consensi Digitali · Firma Biometrica",
@@ -1482,5 +1483,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Preventivi",
+    "subtitle": "Crea e gestisci preventivi per i tuoi pazienti",
+    "new_budget": "Nuovo preventivo",
+    "from": "Da",
+    "to": "A",
+    "patient": "Paziente",
+    "all": "Tutti",
+    "search": "Cerca",
+    "search_placeholder": "N. preventivo o paziente",
+    "clear_filters": "Cancella filtri",
+    "no_results": "Nessun preventivo corrisponde ai filtri",
+    "col_number": "N.",
+    "col_date": "Data",
+    "col_patient": "Paziente",
+    "col_total": "Totale",
+    "col_actions": "Azioni",
+    "confirm_delete": "Eliminare questo preventivo?"
+  },
+  "budgetModal": {
+    "title_new": "Nuovo preventivo",
+    "title_edit": "Modifica preventivo",
+    "form": {
+      "patient": "Paziente",
+      "select_patient": "Seleziona un paziente",
+      "treatments": "Trattamenti",
+      "select_treatment": "Seleziona un trattamento",
+      "manual_treatment": "Aggiungi trattamento manualmente…",
+      "treatment_name_placeholder": "Nome del trattamento",
+      "add_treatment": "Aggiungi trattamento",
+      "total": "Totale",
+      "valid_until": "Valido fino al",
+      "notes": "Note"
+    },
+    "errors": {
+      "no_items": "Aggiungi almeno un trattamento con un nome",
+      "save_failed": "Impossibile salvare il preventivo"
+    },
+    "confirm_delete": "Eliminare questo preventivo?"
+  },
+  "budgetView": {
+    "patient": "Paziente",
+    "treatments": "Trattamenti",
+    "valid_until": "Valido fino al {{date}}",
+    "no_email": "Il paziente non ha un'email registrata",
+    "send_email": "Invia via email",
+    "sending": "Invio in corso…",
+    "sent": "Inviato",
+    "send_failed": "Impossibile inviare l'email"
+  },
+  "budgetPdfButton": {
+    "export": "Scarica PDF"
   }
 }

@@ -525,7 +525,8 @@
     "toxin": "톡신 관리",
     "labPartners": "실험실",
     "menu": "메뉴",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "견적서"
   },
   "topbar": {
     "tagline": "디지털 동의서 · 생체 인식 서명",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "견적서",
+    "subtitle": "환자를 위한 견적서를 작성하고 관리하세요",
+    "new_budget": "새 견적서",
+    "from": "시작일",
+    "to": "종료일",
+    "patient": "환자",
+    "all": "전체",
+    "search": "검색",
+    "search_placeholder": "견적서 번호 또는 환자",
+    "clear_filters": "필터 지우기",
+    "no_results": "필터와 일치하는 견적서가 없습니다",
+    "col_number": "번호",
+    "col_date": "날짜",
+    "col_patient": "환자",
+    "col_total": "합계",
+    "col_actions": "작업",
+    "confirm_delete": "이 견적서를 삭제하시겠습니까?"
+  },
+  "budgetModal": {
+    "title_new": "새 견적서",
+    "title_edit": "견적서 수정",
+    "form": {
+      "patient": "환자",
+      "select_patient": "환자 선택",
+      "treatments": "시술",
+      "select_treatment": "시술 선택",
+      "manual_treatment": "시술 수동 추가…",
+      "treatment_name_placeholder": "시술 이름",
+      "add_treatment": "시술 추가",
+      "total": "합계",
+      "valid_until": "유효 기한",
+      "notes": "메모"
+    },
+    "errors": {
+      "no_items": "이름이 지정된 시술을 최소 1개 추가하세요",
+      "save_failed": "견적서를 저장하지 못했습니다"
+    },
+    "confirm_delete": "이 견적서를 삭제하시겠습니까?"
+  },
+  "budgetView": {
+    "patient": "환자",
+    "treatments": "시술",
+    "valid_until": "{{date}}까지 유효",
+    "no_email": "환자에게 등록된 이메일이 없습니다",
+    "send_email": "이메일로 보내기",
+    "sending": "전송 중…",
+    "sent": "전송됨",
+    "send_failed": "이메일을 보내지 못했습니다"
+  },
+  "budgetPdfButton": {
+    "export": "PDF 다운로드"
   }
 }
