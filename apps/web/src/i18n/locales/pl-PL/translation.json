@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Przejdź na plan roczny i zaoszczędź 20%",
     "hire_plan": "Wybierz plan",
     "note_title": "Uwaga dot. Planu IA i Planu IA Premium:",
-    "note_text": "Początkowa konfiguracja agentów AI (usługi, zabiegi i personalizacja) oraz wdrożenie są wyceniane osobno w zależności od złożoności każdej kliniki. Koszty agenta głosowego i WhatsApp API nie są wliczone w miesięczną opłatę.",
+    "note_text": "Początkowa konfiguracja agentów AI (usługi, zabiegi i personalizacja) oraz wdrożenie są wyceniane osobno w zależności od złożoności każdej kliniki. Koszty agenta głosowego i WhatsApp API nie są wliczone w miesięczną opłatę. Koszty modelu AI są już uwzględnione.",
     "plans": {
       "base": {
         "name": "Plan Podstawowy",

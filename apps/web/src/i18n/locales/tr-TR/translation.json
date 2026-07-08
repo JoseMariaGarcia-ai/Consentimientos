@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Yıllığa geçin ve %20 tasarruf edin",
     "hire_plan": "Planı satın al",
     "note_title": "AI Planı ve AI Premium Planı Notu:",
-    "note_text": "Yapay zeka ajanlarının ilk yapılandırması (hizmetler, tedaviler ve kişiselleştirme) ve kurulum, her kliniğin karmaşıklığına göre ayrıca bütçelendirilir. Sesli ajan ve WhatsApp API maliyetleri aylık ücrete dahil değildir.",
+    "note_text": "Yapay zeka ajanlarının ilk yapılandırması (hizmetler, tedaviler ve kişiselleştirme) ve kurulum, her kliniğin karmaşıklığına göre ayrıca bütçelendirilir. Sesli ajan ve WhatsApp API maliyetleri aylık ücrete dahil değildir. Yapay zeka modeli maliyetleri zaten dahildir.",
     "plans": {
       "base": {
         "name": "Temel Plan",

@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Vaihda vuosimaksuun ja säästä 20 %",
     "hire_plan": "Tilaa suunnitelma",
     "note_title": "Huomio AI-suunnitelma ja AI Premium -suunnitelma:",
-    "note_text": "Tekoälyagenttien alkuasetukset (palvelut, hoidot ja mukautukset) sekä käyttöönotto hinnoitellaan erikseen kunkin klinikan monimutkaisuuden mukaan. Ääniagentin ja WhatsApp-API:n kustannukset eivät sisälly kuukausimaksuun.",
+    "note_text": "Tekoälyagenttien alkuasetukset (palvelut, hoidot ja mukautukset) sekä käyttöönotto hinnoitellaan erikseen kunkin klinikan monimutkaisuuden mukaan. Ääniagentin ja WhatsApp-API:n kustannukset eivät sisälly kuukausimaksuun. Tekoälymallin kustannukset sen sijaan sisältyvät hintaan.",
     "plans": {
       "base": {
         "name": "Peruspaketti",
