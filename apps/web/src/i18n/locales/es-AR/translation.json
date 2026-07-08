@@ -1228,5 +1228,96 @@
     "save": "Guardar",
     "saving": "Guardando…",
     "saved": "Guardado"
+  },
+  "landing": {
+    "nav": {
+      "access": "Ingresar"
+    },
+    "hero": {
+      "badge": "Software para clínicas de medicina estética",
+      "title_line1": "Consentimientos informados",
+      "title_highlight": "100 % digitales",
+      "subtitle": "Firma biométrica, historia clínica, agenda y agentes de IA en una sola plataforma. Cumplimiento legal garantizado — Ley 26.529, eIDAS y Ley 25.326.",
+      "cta_primary": "Ingresar a la plataforma",
+      "cta_secondary": "Ver planes",
+      "trust_1": "Ley 26.529",
+      "trust_2": "eIDAS",
+      "trust_3": "Ley 25.326"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Idiomas disponibles",
+      "s2_value": "100 %",
+      "s2_label": "Digital y sin papel",
+      "s3_value": "24/7",
+      "s3_label": "Portal del paciente",
+      "s4_value": "0",
+      "s4_label": "Riesgo legal por firmas inválidas"
+    },
+    "features": {
+      "title": "Todo lo que tu clínica necesita",
+      "subtitle": "Una plataforma completa pensada para clínicas de medicina estética",
+      "items": {
+        "signature": {
+          "title": "Firma biométrica + Magic Link",
+          "desc": "Consentimientos con plena validez legal, firmados por el paciente desde cualquier dispositivo."
+        },
+        "multilang": {
+          "title": "Consentimientos ilimitados en 31 idiomas",
+          "desc": "Plantillas personalizables traducidas automáticamente para pacientes de cualquier nacionalidad."
+        },
+        "records": {
+          "title": "Historia clínica digital",
+          "desc": "Toda la información del paciente centralizada, segura y accesible al instante."
+        },
+        "agenda": {
+          "title": "Agenda de turnos inteligente",
+          "desc": "Gestión de horarios, tratamientos y disponibilidad sin complicaciones."
+        },
+        "toxin": {
+          "title": "Control de toxina botulínica",
+          "desc": "Trazabilidad completa de lotes y unidades aplicadas por paciente y sesión."
+        },
+        "gallery": {
+          "title": "Galería antes / después",
+          "desc": "Fotos clínicas organizadas por sesión, con comparativas visuales para el paciente."
+        },
+        "portal": {
+          "title": "Portal del paciente 24/7",
+          "desc": "Tus pacientes acceden a sus consentimientos, fotos e historia clínica en cualquier momento."
+        },
+        "whatsapp": {
+          "title": "Agente de WhatsApp con IA",
+          "desc": "Capta y confirma turnos automáticamente, y se comunica con tus pacientes las 24 horas."
+        },
+        "voice": {
+          "title": "Agente de voz con IA",
+          "desc": "Atiende llamadas y agenda turnos por teléfono automáticamente, clonando la voz de tu recepción."
+        }
+      }
+    },
+    "how": {
+      "title": "Así de fácil",
+      "subtitle": "Tu clínica operativa en tres pasos",
+      "step1_title": "Dá de alta tu clínica",
+      "step1_desc": "Configurá tu equipo, tratamientos y plantillas de consentimiento en minutos.",
+      "step2_title": "Invitá a tus pacientes",
+      "step2_desc": "Enviá el enlace de firma por email o WhatsApp — firman desde el celular con Magic Link.",
+      "step3_title": "Todo queda registrado",
+      "step3_desc": "Consentimientos, fotos e historia clínica archivados de forma segura y con validez legal."
+    },
+    "pricing": {
+      "title": "Planes de suscripción",
+      "subtitle": "Elegí el plan que mejor se adapte a tu clínica — cambialo o mejoralo cuando quieras"
+    },
+    "final_cta": {
+      "title": "Digitalizá tu clínica hoy",
+      "subtitle": "Sumate a las clínicas que ya eliminaron el papel de sus consentimientos informados.",
+      "button": "Ingresar a la plataforma"
+    },
+    "footer": {
+      "tagline": "Consentimientos digitales válidos · Ley 26.529 · Ley 25.326",
+      "rights": "Todos los derechos reservados."
+    }
   }
 }

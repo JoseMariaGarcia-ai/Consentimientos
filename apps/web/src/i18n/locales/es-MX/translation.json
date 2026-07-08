@@ -1236,5 +1236,96 @@
     "save": "Guardar",
     "saving": "Guardando…",
     "saved": "Guardado"
+  },
+  "landing": {
+    "nav": {
+      "access": "Iniciar sesión"
+    },
+    "hero": {
+      "badge": "Software para clínicas de medicina estética",
+      "title_line1": "Consentimientos informados",
+      "title_highlight": "100 % digitales",
+      "subtitle": "Firma biométrica, expediente clínico, agenda y agentes de IA en una sola plataforma. Cumplimiento legal garantizado — NOM-012-SSA3, eIDAS y LFPDPPP.",
+      "cta_primary": "Entrar a la plataforma",
+      "cta_secondary": "Ver planes",
+      "trust_1": "NOM-012-SSA3",
+      "trust_2": "eIDAS",
+      "trust_3": "LFPDPPP"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Idiomas disponibles",
+      "s2_value": "100 %",
+      "s2_label": "Digital y sin papel",
+      "s3_value": "24/7",
+      "s3_label": "Portal del paciente",
+      "s4_value": "0",
+      "s4_label": "Riesgo legal por firmas inválidas"
+    },
+    "features": {
+      "title": "Todo lo que tu clínica necesita",
+      "subtitle": "Una plataforma completa pensada para clínicas de medicina estética",
+      "items": {
+        "signature": {
+          "title": "Firma biométrica + Magic Link",
+          "desc": "Consentimientos con plena validez legal, firmados por el paciente desde cualquier dispositivo."
+        },
+        "multilang": {
+          "title": "Consentimientos ilimitados en 31 idiomas",
+          "desc": "Plantillas personalizables traducidas automáticamente para pacientes de cualquier nacionalidad."
+        },
+        "records": {
+          "title": "Expediente clínico digital",
+          "desc": "Toda la información del paciente centralizada, segura y accesible al instante."
+        },
+        "agenda": {
+          "title": "Agenda de citas inteligente",
+          "desc": "Gestión de horarios, tratamientos y disponibilidad sin complicaciones."
+        },
+        "toxin": {
+          "title": "Control de toxina botulínica",
+          "desc": "Trazabilidad completa de lotes y unidades aplicadas por paciente y sesión."
+        },
+        "gallery": {
+          "title": "Galería antes / después",
+          "desc": "Fotos clínicas organizadas por sesión, con comparativas visuales para el paciente."
+        },
+        "portal": {
+          "title": "Portal del paciente 24/7",
+          "desc": "Tus pacientes acceden a sus consentimientos, fotos y expediente clínico en cualquier momento."
+        },
+        "whatsapp": {
+          "title": "Agente de WhatsApp con IA",
+          "desc": "Capta y confirma citas automáticamente, y se comunica con tus pacientes las 24 horas."
+        },
+        "voice": {
+          "title": "Agente de voz con IA",
+          "desc": "Contesta llamadas y agenda citas por teléfono automáticamente, clonando la voz de tu recepción."
+        }
+      }
+    },
+    "how": {
+      "title": "Así de fácil",
+      "subtitle": "Tu clínica operando en tres pasos",
+      "step1_title": "Da de alta tu clínica",
+      "step1_desc": "Configura tu equipo, tratamientos y plantillas de consentimiento en minutos.",
+      "step2_title": "Invita a tus pacientes",
+      "step2_desc": "Envía el enlace de firma por correo o WhatsApp — firman desde su celular con Magic Link.",
+      "step3_title": "Todo queda registrado",
+      "step3_desc": "Consentimientos, fotos y expediente clínico archivados de forma segura y con validez legal."
+    },
+    "pricing": {
+      "title": "Planes de suscripción",
+      "subtitle": "Elige el plan que mejor se adapte a tu clínica — cámbialo o mejóralo cuando quieras"
+    },
+    "final_cta": {
+      "title": "Digitaliza tu clínica hoy",
+      "subtitle": "Únete a las clínicas que ya eliminaron el papel de sus consentimientos informados.",
+      "button": "Entrar a la plataforma"
+    },
+    "footer": {
+      "tagline": "Consentimientos digitales válidos · NOM-012-SSA3 · LFPDPPP",
+      "rights": "Todos los derechos reservados."
+    }
   }
 }

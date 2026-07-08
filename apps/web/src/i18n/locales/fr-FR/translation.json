@@ -1256,5 +1256,96 @@
     "save": "Enregistrer",
     "saving": "Enregistrement…",
     "saved": "Enregistré"
+  },
+  "landing": {
+    "nav": {
+      "access": "Se connecter"
+    },
+    "hero": {
+      "badge": "Logiciel pour cliniques de médecine esthétique",
+      "title_line1": "Consentements éclairés",
+      "title_highlight": "100 % numériques",
+      "subtitle": "Signature biométrique, dossier médical, agenda et agents IA sur une seule plateforme. Conformité légale garantie — Loi n° 2002-303, eIDAS et RGPD.",
+      "cta_primary": "Accéder à la plateforme",
+      "cta_secondary": "Voir les forfaits",
+      "trust_1": "Loi n° 2002-303",
+      "trust_2": "eIDAS",
+      "trust_3": "RGPD"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Langues disponibles",
+      "s2_value": "100 %",
+      "s2_label": "100 % numérique et sans papier",
+      "s3_value": "24/7",
+      "s3_label": "Portail patient",
+      "s4_value": "0",
+      "s4_label": "Risque juridique lié aux signatures invalides"
+    },
+    "features": {
+      "title": "Tout ce dont votre clinique a besoin",
+      "subtitle": "Une plateforme complète conçue pour les cliniques de médecine esthétique",
+      "items": {
+        "signature": {
+          "title": "Signature biométrique + Magic Link",
+          "desc": "Consentements pleinement valables juridiquement, signés par le patient depuis n'importe quel appareil."
+        },
+        "multilang": {
+          "title": "Consentements illimités en 31 langues",
+          "desc": "Modèles personnalisables traduits automatiquement pour des patients de toute nationalité."
+        },
+        "records": {
+          "title": "Dossier médical numérique",
+          "desc": "Toutes les informations du patient centralisées, sécurisées et accessibles instantanément."
+        },
+        "agenda": {
+          "title": "Agenda de rendez-vous intelligent",
+          "desc": "Gestion des plannings, des traitements et des disponibilités sans friction."
+        },
+        "toxin": {
+          "title": "Traçabilité de la toxine botulique",
+          "desc": "Traçabilité complète des lots et unités appliquées par patient et par séance."
+        },
+        "gallery": {
+          "title": "Galerie avant / après",
+          "desc": "Photos cliniques organisées par séance, avec comparatifs visuels pour le patient."
+        },
+        "portal": {
+          "title": "Portail patient 24 h/24, 7 j/7",
+          "desc": "Vos patients accèdent à leurs consentements, photos et dossier médical à tout moment."
+        },
+        "whatsapp": {
+          "title": "Agent WhatsApp avec IA",
+          "desc": "Capte et confirme les rendez-vous automatiquement, et communique avec vos patients 24 h/24."
+        },
+        "voice": {
+          "title": "Agent vocal avec IA",
+          "desc": "Répond aux appels et prend des rendez-vous par téléphone automatiquement, en clonant la voix de votre accueil."
+        }
+      }
+    },
+    "how": {
+      "title": "C'est aussi simple que ça",
+      "subtitle": "Votre clinique opérationnelle en trois étapes",
+      "step1_title": "Inscrivez votre clinique",
+      "step1_desc": "Configurez votre équipe, vos traitements et vos modèles de consentement en quelques minutes.",
+      "step2_title": "Invitez vos patients",
+      "step2_desc": "Envoyez le lien de signature par email ou WhatsApp — ils signent depuis leur mobile avec Magic Link.",
+      "step3_title": "Tout est enregistré",
+      "step3_desc": "Consentements, photos et dossier médical archivés en toute sécurité et avec validité juridique."
+    },
+    "pricing": {
+      "title": "Forfaits d'abonnement",
+      "subtitle": "Choisissez le forfait le mieux adapté à votre clinique — changez ou évoluez quand vous le souhaitez"
+    },
+    "final_cta": {
+      "title": "Digitalisez votre clinique dès aujourd'hui",
+      "subtitle": "Rejoignez les cliniques qui ont déjà supprimé le papier de leurs consentements éclairés.",
+      "button": "Accéder à la plateforme"
+    },
+    "footer": {
+      "tagline": "Consentements numériques valides · Loi n° 2002-303 · RGPD",
+      "rights": "Tous droits réservés."
+    }
   }
 }

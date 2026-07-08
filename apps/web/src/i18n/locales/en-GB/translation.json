@@ -1256,5 +1256,96 @@
     "save": "Save",
     "saving": "Saving…",
     "saved": "Saved"
+  },
+  "landing": {
+    "nav": {
+      "access": "Sign in"
+    },
+    "hero": {
+      "badge": "Software for aesthetic medicine clinics",
+      "title_line1": "Informed consent forms,",
+      "title_highlight": "100% digital",
+      "subtitle": "Biometric signature, medical records, scheduling and AI agents in one platform. Guaranteed legal compliance — Mental Capacity Act 2005, eIDAS and UK GDPR.",
+      "cta_primary": "Access the platform",
+      "cta_secondary": "View plans",
+      "trust_1": "Mental Capacity Act 2005",
+      "trust_2": "eIDAS",
+      "trust_3": "UK GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Languages available",
+      "s2_value": "100 %",
+      "s2_label": "Digital and paperless",
+      "s3_value": "24/7",
+      "s3_label": "Patient portal",
+      "s4_value": "0",
+      "s4_label": "Legal risk from invalid signatures"
+    },
+    "features": {
+      "title": "Everything your clinic needs",
+      "subtitle": "A complete platform built for aesthetic medicine clinics",
+      "items": {
+        "signature": {
+          "title": "Biometric signature + Magic Link",
+          "desc": "Legally binding consent forms, signed by the patient from any device."
+        },
+        "multilang": {
+          "title": "Unlimited consent forms in 31 languages",
+          "desc": "Customisable templates automatically translated for patients of any nationality."
+        },
+        "records": {
+          "title": "Digital medical records",
+          "desc": "All patient information centralised, secure and instantly accessible."
+        },
+        "agenda": {
+          "title": "Smart appointment scheduling",
+          "desc": "Manage schedules, treatments and availability without friction."
+        },
+        "toxin": {
+          "title": "Botulinum toxin tracking",
+          "desc": "Full traceability of batches and units applied per patient and session."
+        },
+        "gallery": {
+          "title": "Before / after gallery",
+          "desc": "Clinical photos organised by session, with visual comparisons for the patient."
+        },
+        "portal": {
+          "title": "24/7 patient portal",
+          "desc": "Your patients can access their consent forms, photos and medical records at any time."
+        },
+        "whatsapp": {
+          "title": "AI WhatsApp agent",
+          "desc": "Captures and confirms appointments automatically, and communicates with your patients around the clock."
+        },
+        "voice": {
+          "title": "AI voice agent",
+          "desc": "Answers calls and books appointments over the phone automatically, cloning your receptionist's voice."
+        }
+      }
+    },
+    "how": {
+      "title": "It's this easy",
+      "subtitle": "Your clinic up and running in three steps",
+      "step1_title": "Set up your clinic",
+      "step1_desc": "Configure your team, treatments and consent templates in minutes.",
+      "step2_title": "Invite your patients",
+      "step2_desc": "Send the signing link by email or WhatsApp — they sign from their phone with Magic Link.",
+      "step3_title": "Everything is recorded",
+      "step3_desc": "Consent forms, photos and medical records securely archived with full legal validity."
+    },
+    "pricing": {
+      "title": "Subscription plans",
+      "subtitle": "Choose the plan that best fits your clinic — switch or upgrade whenever you like"
+    },
+    "final_cta": {
+      "title": "Digitise your clinic today",
+      "subtitle": "Join the clinics that have already gone paperless with their informed consent forms.",
+      "button": "Access the platform"
+    },
+    "footer": {
+      "tagline": "Valid digital consent forms · Mental Capacity Act 2005 · UK GDPR",
+      "rights": "All rights reserved."
+    }
   }
 }

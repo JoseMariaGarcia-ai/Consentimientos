@@ -1256,5 +1256,96 @@
     "save": "Tallenna",
     "saving": "Tallennetaan…",
     "saved": "Tallennettu"
+  },
+  "landing": {
+    "nav": {
+      "access": "Kirjaudu sisään"
+    },
+    "hero": {
+      "badge": "Ohjelmisto estetiikkalääketieteen klinikoille",
+      "title_line1": "Tietoon perustuvat suostumukset",
+      "title_highlight": "100 % digitaalisina",
+      "subtitle": "Biometrinen allekirjoitus, potilaskertomus, ajanvaraus ja tekoälyagentit yhdellä alustalla. Taattu lainmukaisuus — potilaslaki, eIDAS ja GDPR.",
+      "cta_primary": "Siirry alustalle",
+      "cta_secondary": "Katso hinnoittelu",
+      "trust_1": "Potilaslaki",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Saatavilla olevat kielet",
+      "s2_value": "100 %",
+      "s2_label": "Digitaalinen ja paperiton",
+      "s3_value": "24/7",
+      "s3_label": "Potilasportaali",
+      "s4_value": "0",
+      "s4_label": "Virheellisten allekirjoitusten oikeudellinen riski"
+    },
+    "features": {
+      "title": "Kaikki, mitä klinikkasi tarvitsee",
+      "subtitle": "Kattava alusta estetiikkalääketieteen klinikoille",
+      "items": {
+        "signature": {
+          "title": "Biometrinen allekirjoitus + Magic Link",
+          "desc": "Täysin oikeudellisesti pätevät suostumukset, jotka potilas allekirjoittaa millä tahansa laitteella."
+        },
+        "multilang": {
+          "title": "Rajattomat suostumukset 31 kielellä",
+          "desc": "Muokattavat mallipohjat, jotka käännetään automaattisesti kaikille kansallisuuksille."
+        },
+        "records": {
+          "title": "Digitaalinen potilaskertomus",
+          "desc": "Kaikki potilastiedot keskitetysti, turvallisesti ja välittömästi saatavilla."
+        },
+        "agenda": {
+          "title": "Älykäs ajanvarauskalenteri",
+          "desc": "Aikataulujen, hoitojen ja saatavuuden hallinta ilman kitkaa."
+        },
+        "toxin": {
+          "title": "Botuliinitoksiinin seuranta",
+          "desc": "Täysi jäljitettävyys erille ja potilaskohtaisesti käytetyille yksiköille."
+        },
+        "gallery": {
+          "title": "Ennen / jälkeen -galleria",
+          "desc": "Kliiniset valokuvat järjestettynä käynnin mukaan, visuaalisin vertailuin potilaalle."
+        },
+        "portal": {
+          "title": "Potilasportaali ympäri vuorokauden",
+          "desc": "Potilaasi pääsevät käsiksi suostumuksiinsa, kuviinsa ja potilaskertomukseensa milloin tahansa."
+        },
+        "whatsapp": {
+          "title": "Tekoälypohjainen WhatsApp-agentti",
+          "desc": "Hankkii ja vahvistaa ajanvaraukset automaattisesti sekä viestii potilaidesi kanssa ympäri vuorokauden."
+        },
+        "voice": {
+          "title": "Tekoälypohjainen puheagentti",
+          "desc": "Vastaa puheluihin ja varaa aikoja puhelimitse automaattisesti kloonaamalla vastaanottosi äänen."
+        }
+      }
+    },
+    "how": {
+      "title": "Näin helppoa se on",
+      "subtitle": "Klinikkasi käyttövalmiina kolmessa vaiheessa",
+      "step1_title": "Rekisteröi klinikkasi",
+      "step1_desc": "Määritä tiimisi, hoitosi ja suostumusmallit muutamassa minuutissa.",
+      "step2_title": "Kutsu potilaasi",
+      "step2_desc": "Lähetä allekirjoituslinkki sähköpostitse tai WhatsAppilla — he allekirjoittavat puhelimella Magic Linkin avulla.",
+      "step3_title": "Kaikki tallentuu",
+      "step3_desc": "Suostumukset, kuvat ja potilaskertomus arkistoituna turvallisesti ja oikeudellisesti pätevästi."
+    },
+    "pricing": {
+      "title": "Tilaussuunnitelmat",
+      "subtitle": "Valitse klinikallesi parhaiten sopiva suunnitelma — vaihda tai päivitä milloin tahansa"
+    },
+    "final_cta": {
+      "title": "Digitalisoi klinikkasi jo tänään",
+      "subtitle": "Liity klinikoihin, jotka ovat jo poistaneet paperin tietoon perustuvista suostumuksistaan.",
+      "button": "Siirry alustalle"
+    },
+    "footer": {
+      "tagline": "Kelvolliset digitaaliset suostumukset · Potilaslaki · GDPR",
+      "rights": "Kaikki oikeudet pidätetään."
+    }
   }
 }
