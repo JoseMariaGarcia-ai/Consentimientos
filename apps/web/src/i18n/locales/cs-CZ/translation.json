@@ -1384,6 +1384,48 @@
           "desc": "Zdravotnický pracovník podepisuje společně s pacientem, čímž je na stejném dokumentu zaznamenána účast obou stran."
         }
       }
+    },
+    "faq": {
+      "title": "Často kladené otázky",
+      "subtitle": "Vše, co potřebujete vědět, než začnete",
+      "items": {
+        "q1": {
+          "q": "Má elektronický podpis právní platnost?",
+          "a": "Ano. Každý podepsaný souhlas splňuje nařízení eIDAS (EU) 910/2014 a příslušné zákony, s biometrickým podpisem tahu, certifikovaným časovým razítkem, digitálním otiskem zařízení a hashem dokumentu."
+        },
+        "q2": {
+          "q": "Je stále platný souhlas na papíře, nebo bez celé této certifikace eIDAS?",
+          "a": "Ano, papírový souhlas podepsaný rukou je rovněž právně platný, protože zákon nevyžaduje elektronický podpis. Výhodou ConsentsPro je, že je při reklamaci nebo kontrole mnohem obtížnější jej zpochybnit: kromě podpisu se automaticky zaznamenává certifikované datum a čas, použité zařízení a hash prokazující, že dokument nebyl pozměněn — což papír ani jednoduchý elektronický podpis bez těchto záruk nabídnout nemohou."
+        },
+        "q3": {
+          "q": "Musím něco instalovat?",
+          "a": "Ne. ConsentsPro funguje ze 100 % v cloudu, z jakéhokoli prohlížeče a zařízení — počítače, tabletu nebo mobilu — bez instalace."
+        },
+        "q4": {
+          "q": "Mohu později změnit plán?",
+          "a": "Ano, plán můžete kdykoli změnit nebo vylepšit přímo z platformy, bez závazku."
+        },
+        "q5": {
+          "q": "Je v souladu s GDPR?",
+          "a": "Ano. Veškeré zpracování dat pacientů je v souladu s GDPR, včetně evidence souhlasu s použitím fotografií."
+        },
+        "q6": {
+          "q": "Mohu jej používat se zahraničními pacienty?",
+          "a": "Ano, souhlasy jsou dostupné ve 31 jazycích s automatickým překladem šablon."
+        },
+        "q7": {
+          "q": "Co zahrnuje podpora?",
+          "a": "Všechny plány zahrnují technickou podporu, která vám pomůže s jakýmkoli dotazem ohledně platformy."
+        },
+        "q8": {
+          "q": "Jak dlouho trvá spuštění kliniky?",
+          "a": "Počáteční nastavení — tým, ošetření a šablony souhlasů — trvá jen několik minut v administračním panelu."
+        },
+        "q9": {
+          "q": "Musí si moji pacienti vytvořit heslo?",
+          "a": "Ne. Do svého portálu přistupují pomocí Magic Link, bezpečného přístupového odkazu zaslaného e-mailem, bez nutnosti pamatovat si hesla."
+        }
+      }
     }
   }
 }

@@ -1384,6 +1384,48 @@
           "desc": "El professional sanitari signa juntament amb el pacient, deixant constància de totes dues parts en el mateix document."
         }
       }
+    },
+    "faq": {
+      "title": "Preguntes freqüents",
+      "subtitle": "Tot el que necessites saber abans de començar",
+      "items": {
+        "q1": {
+          "q": "La signatura electrònica té validesa legal?",
+          "a": "Sí. Cada consentiment signat compleix el Reglament eIDAS (UE) 910/2014 i la Llei 41/2002, amb signatura biomètrica del traç, segell de temps certificat, empremta digital del dispositiu i hash del document."
+        },
+        "q2": {
+          "q": "Segueix sent vàlid un consentiment en paper, o un sense tota aquesta certificació eIDAS?",
+          "a": "Sí, un consentiment en paper signat a mà també és legalment vàlid segons la Llei 41/2002, que no exigeix que la signatura sigui electrònica. L'avantatge de ConsentsPro és que, davant d'una reclamació o inspecció, resulta molt més difícil d'impugnar: a més de la signatura, queden registrats automàticament la data i l'hora certificades, el dispositiu utilitzat i un hash que demostra que el document no s'ha alterat — cosa que el paper, o una signatura electrònica simple sense aquestes garanties, no pot oferir."
+        },
+        "q3": {
+          "q": "Necessito instal·lar alguna cosa?",
+          "a": "No. ConsentsPro funciona 100% al núvol, des de qualsevol navegador i dispositiu — ordinador, tauleta o mòbil — sense instal·lacions."
+        },
+        "q4": {
+          "q": "Puc canviar de pla més endavant?",
+          "a": "Sí, pots canviar o millorar el teu pla quan vulguis des de la mateixa plataforma, sense permanència."
+        },
+        "q5": {
+          "q": "És compatible amb el RGPD?",
+          "a": "Sí. Tot el tractament de dades de pacients compleix el RGPD, incloent el registre d'autorització d'imatges per a l'ús de fotografies."
+        },
+        "q6": {
+          "q": "Puc utilitzar-lo amb pacients estrangers?",
+          "a": "Sí, els consentiments estan disponibles en 31 idiomes, amb traducció automàtica de les plantilles."
+        },
+        "q7": {
+          "q": "Què inclou el suport?",
+          "a": "Tots els plans inclouen suport tècnic per ajudar-te amb qualsevol dubte sobre la plataforma."
+        },
+        "q8": {
+          "q": "Quant de temps triga a posar-se en marxa la clínica?",
+          "a": "La configuració inicial —equip, tractaments i plantilles de consentiment— es fa en minuts des del panell d'administració."
+        },
+        "q9": {
+          "q": "Els meus pacients necessiten crear una contrasenya?",
+          "a": "No. Accedeixen al seu portal mitjançant Magic Link, un enllaç d'accés segur que reben per email, sense contrasenyes a recordar."
+        }
+      }
     }
   }
 }

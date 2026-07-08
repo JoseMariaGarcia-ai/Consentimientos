@@ -1384,6 +1384,48 @@
           "desc": "Die medizinische Fachkraft unterschreibt zusammen mit dem Patienten, wodurch die Beteiligung beider Parteien im selben Dokument dokumentiert wird."
         }
       }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "subtitle": "Alles, was Sie wissen müssen, bevor Sie starten",
+      "items": {
+        "q1": {
+          "q": "Ist die elektronische Unterschrift rechtsgültig?",
+          "a": "Ja. Jede unterschriebene Einwilligung erfüllt die eIDAS-Verordnung (EU) 910/2014 und die geltenden Gesetze, mit biometrischer Unterschrift des Schriftzugs, zertifiziertem Zeitstempel, digitalem Fingerabdruck des Geräts und Dokumenten-Hash."
+        },
+        "q2": {
+          "q": "Ist eine Einwilligung auf Papier oder ohne diese vollständige eIDAS-Zertifizierung weiterhin gültig?",
+          "a": "Ja, eine handschriftlich unterschriebene Einwilligung auf Papier ist ebenfalls rechtsgültig, da das Gesetz keine elektronische Unterschrift vorschreibt. Der Vorteil von ConsentsPro besteht darin, dass sie bei einer Reklamation oder Prüfung deutlich schwerer anzufechten ist: Neben der Unterschrift werden automatisch das zertifizierte Datum und die Uhrzeit, das verwendete Gerät und ein Hash erfasst, der belegt, dass das Dokument nicht verändert wurde — etwas, das Papier oder eine einfache elektronische Unterschrift ohne diese Garantien nicht bieten kann."
+        },
+        "q3": {
+          "q": "Muss ich etwas installieren?",
+          "a": "Nein. ConsentsPro läuft zu 100 % in der Cloud, von jedem Browser und Gerät aus — Computer, Tablet oder Handy — ohne Installation."
+        },
+        "q4": {
+          "q": "Kann ich später den Tarif wechseln?",
+          "a": "Ja, Sie können Ihren Tarif jederzeit direkt über die Plattform wechseln oder upgraden, ohne Mindestlaufzeit."
+        },
+        "q5": {
+          "q": "Ist es DSGVO-konform?",
+          "a": "Ja. Die gesamte Verarbeitung von Patientendaten erfüllt die DSGVO, einschließlich des Bildfreigabe-Protokolls für die Nutzung von Fotos."
+        },
+        "q6": {
+          "q": "Kann ich es mit ausländischen Patienten nutzen?",
+          "a": "Ja, die Einwilligungen sind in 31 Sprachen verfügbar, mit automatischer Übersetzung der Vorlagen."
+        },
+        "q7": {
+          "q": "Was beinhaltet der Support?",
+          "a": "Alle Tarife beinhalten technischen Support, der Ihnen bei jeder Frage zur Plattform hilft."
+        },
+        "q8": {
+          "q": "Wie lange dauert es, die Klinik startklar zu machen?",
+          "a": "Die Ersteinrichtung — Team, Behandlungen und Einwilligungsvorlagen — erfolgt in wenigen Minuten über das Verwaltungspanel."
+        },
+        "q9": {
+          "q": "Müssen meine Patienten ein Passwort erstellen?",
+          "a": "Nein. Sie greifen über einen Magic Link auf ihr Portal zu, einen sicheren Zugangslink, den sie per E-Mail erhalten, ohne sich Passwörter merken zu müssen."
+        }
+      }
     }
   }
 }

@@ -1364,6 +1364,48 @@
           "desc": "El profesional de la salud firma junto al paciente, dejando constancia de ambas partes en el mismo documento."
         }
       }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "subtitle": "Todo lo que necesitas saber antes de empezar",
+      "items": {
+        "q1": {
+          "q": "¿La firma electrónica tiene validez legal?",
+          "a": "Sí. Cada consentimiento firmado cumple con el Reglamento eIDAS (UE) 910/2014 y la normativa aplicable, con firma biométrica del trazo, sello de tiempo certificado, huella digital del dispositivo y hash del documento."
+        },
+        "q2": {
+          "q": "¿Sigue siendo válido un consentimiento en papel, o uno sin toda esta certificación eIDAS?",
+          "a": "Sí, un consentimiento en papel firmado a mano también es legalmente válido, ya que la ley no exige que la firma sea electrónica. La ventaja de ConsentsPro es que, ante una reclamación o inspección, resulta mucho más difícil de impugnar: además de la firma, quedan registrados automáticamente la fecha y hora certificadas, el dispositivo utilizado y un hash que demuestra que el documento no se alteró — algo que el papel, o una firma electrónica simple sin estas garantías, no puede ofrecer."
+        },
+        "q3": {
+          "q": "¿Necesito instalar algo?",
+          "a": "No. ConsentsPro funciona 100% en la nube, desde cualquier navegador y dispositivo — computadora, tablet o celular — sin instalaciones."
+        },
+        "q4": {
+          "q": "¿Puedo cambiar de plan más adelante?",
+          "a": "Sí, puedes cambiar o mejorar tu plan cuando quieras desde la propia plataforma, sin permanencia."
+        },
+        "q5": {
+          "q": "¿Es compatible con la LFPDPPP?",
+          "a": "Sí. Todo el tratamiento de datos de pacientes cumple con la normativa de protección de datos vigente, incluyendo el registro de autorización de imágenes para el uso de fotos."
+        },
+        "q6": {
+          "q": "¿Puedo usarlo con pacientes extranjeros?",
+          "a": "Sí, los consentimientos están disponibles en 31 idiomas, con traducción automática de las plantillas."
+        },
+        "q7": {
+          "q": "¿Qué incluye el soporte?",
+          "a": "Todos los planes incluyen soporte técnico para ayudarte con cualquier duda sobre la plataforma."
+        },
+        "q8": {
+          "q": "¿Cuánto tiempo lleva poner en marcha la clínica?",
+          "a": "La configuración inicial —equipo, tratamientos y plantillas de consentimiento— se hace en minutos desde el panel de administración."
+        },
+        "q9": {
+          "q": "¿Mis pacientes necesitan crear una contraseña?",
+          "a": "No. Acceden a su portal mediante Magic Link, un enlace de acceso seguro que reciben por email, sin contraseñas que recordar."
+        }
+      }
     }
   }
 }
