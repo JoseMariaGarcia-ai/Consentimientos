@@ -1065,6 +1065,7 @@
         "features": [
           "Tout ce qui est inclus dans la formule Base +",
           "Agenda de rendez-vous",
+          "Rappels et confirmation de rendez-vous par e-mail",
           "CRM patients",
           "Contrôle de toxine",
           "Devis pour les patients"
@@ -1074,12 +1075,11 @@
         "name": "Formule IA",
         "features": [
           "Tout ce qui est inclus dans la formule Pro +",
-          "Agent WhatsApp IA 24 h/24 et 7 j/7 — prise de rendez-vous",
-          "Confirmation automatisée des rendez-vous",
-          "Rappels de rendez-vous automatisés",
+          "Agent WhatsApp IA 24 h/24 et 7 j/7 — prend rendez-vous automatiquement par WhatsApp",
+          "Rappels et confirmation de rendez-vous automatisés par WhatsApp",
           "Panneau de gestion WhatsApp",
           "Communication avec les patients par WhatsApp",
-          "Envoi par WhatsApp des consentements, dossiers cliniques, photos, devis et factures"
+          "Envoi par WhatsApp des consentements, dossiers cliniques, photos et devis"
         ]
       },
       "ia_plus": {

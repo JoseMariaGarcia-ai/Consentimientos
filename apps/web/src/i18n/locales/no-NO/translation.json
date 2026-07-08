@@ -1065,6 +1065,7 @@
         "features": [
           "Alt i Grunnplan +",
           "Timeavtalekalender",
+          "Påminnelser og bekreftelse av avtaler på e-post",
           "Pasient-CRM",
           "Toksinkontroll",
           "Tilbud til pasienter"
@@ -1074,12 +1075,11 @@
         "name": "AI-plan",
         "features": [
           "Alt i Pro-plan +",
-          "AI WhatsApp-agent 24/7 — booking av timer",
-          "Automatisert bekreftelse av timer",
-          "Automatiske påminnelser om timer",
+          "AI WhatsApp-agent 24/7 — bestiller automatisk timer via WhatsApp",
+          "Automatiserte påminnelser og bekreftelse av avtaler via WhatsApp",
           "WhatsApp-administrasjonspanel",
           "Kommunikasjon med pasienter via WhatsApp",
-          "Sending via WhatsApp av samtykker, klinisk journal, bilder, tilbud og fakturaer"
+          "Sending via WhatsApp av samtykker, klinisk journal, bilder og tilbud"
         ]
       },
       "ia_plus": {

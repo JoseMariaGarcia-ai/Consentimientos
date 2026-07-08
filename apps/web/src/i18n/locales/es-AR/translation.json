@@ -1037,6 +1037,7 @@
         "features": [
           "Todo el Plan Base +",
           "Agenda de citas",
+          "Recordatorios y confirmación de turnos por email",
           "CRM pacientes",
           "Control de toxina",
           "Presupuestos a Pacientes"
@@ -1046,12 +1047,11 @@
         "name": "Plan IA",
         "features": [
           "Todo el Plan Pro +",
-          "Agente WhatsApp IA 24/7 — captación de citas",
-          "Confirmación de citas automatizada",
-          "Recordatorios de citas automatizados",
+          "Agente WhatsApp IA 24/7 — Agenda turnos automáticamente por WhatsApp",
+          "Recordatorios y confirmación de turnos automatizados por WhatsApp",
           "Panel de gestión de WhatsApp",
           "Comunicación con pacientes por WhatsApp",
-          "Envío por WhatsApp de CIs, historia clínica, fotos, presupuestos y facturas"
+          "Envío por WhatsApp de Consentimientos, historia clínica, fotos y presupuestos"
         ]
       },
       "ia_plus": {

@@ -1065,6 +1065,7 @@
         "features": [
           "Tudo do Plano Base +",
           "Agenda de consultas",
+          "Lembretes e confirmação de consultas por e-mail",
           "CRM de pacientes",
           "Controle de toxina",
           "Orçamentos para Pacientes"
@@ -1074,12 +1075,11 @@
         "name": "Plano IA",
         "features": [
           "Tudo do Plano Pro +",
-          "Agente WhatsApp IA 24/7 — captação de agendamentos",
-          "Confirmação de agendamentos automatizada",
-          "Lembretes de agendamentos automatizados",
+          "Agente WhatsApp IA 24/7 — agenda consultas automaticamente pelo WhatsApp",
+          "Lembretes e confirmação de consultas automatizados por WhatsApp",
           "Painel de gestão de WhatsApp",
           "Comunicação com pacientes por WhatsApp",
-          "Envio por WhatsApp de CIs, histórico clínico, fotos, orçamentos e faturas"
+          "Envio por WhatsApp de Consentimentos, histórico clínico, fotos e orçamentos"
         ]
       },
       "ia_plus": {

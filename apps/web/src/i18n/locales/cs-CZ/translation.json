@@ -1065,6 +1065,7 @@
         "features": [
           "Vše ze Základního plánu +",
           "Rozvrh schůzek",
+          "Připomenutí a potvrzení schůzek e-mailem",
           "CRM pacientů",
           "Kontrola toxinu",
           "Cenové nabídky pro pacienty"
@@ -1074,12 +1075,11 @@
         "name": "Plán AI",
         "features": [
           "Vše z Plánu Pro +",
-          "AI WhatsApp agent 24/7 — získávání schůzek",
-          "Automatizované potvrzování schůzek",
-          "Automatizované připomínky schůzek",
+          "AI WhatsApp agent 24/7 — automaticky sjednává schůzky přes WhatsApp",
+          "Automatizovaná připomenutí a potvrzení schůzek přes WhatsApp",
           "Panel pro správu WhatsApp",
           "Komunikace s pacienty přes WhatsApp",
-          "Odesílání souhlasů, klinických záznamů, fotografií, cenových nabídek a faktur přes WhatsApp"
+          "Odesílání souhlasů, klinických záznamů, fotografií a cenových nabídek přes WhatsApp"
         ]
       },
       "ia_plus": {

@@ -1065,6 +1065,7 @@
         "features": [
           "Temel Plan'ın tamamı +",
           "Randevu ajandası",
+          "E-posta ile randevu hatırlatmaları ve onayı",
           "Hasta CRM",
           "Toksin kontrolü",
           "Hastalara Teklif"
@@ -1074,12 +1075,11 @@
         "name": "AI Planı",
         "features": [
           "Pro Plan'ın tamamı +",
-          "7/24 WhatsApp AI Ajanı — randevu edinme",
-          "Otomatik randevu onayı",
-          "Otomatik randevu hatırlatmaları",
+          "7/24 WhatsApp AI Ajanı — WhatsApp üzerinden otomatik randevu alır",
+          "WhatsApp ile otomatik randevu hatırlatmaları ve onayı",
           "WhatsApp yönetim paneli",
           "WhatsApp ile hasta iletişimi",
-          "WhatsApp üzerinden onam, klinik kayıt, fotoğraf, teklif ve fatura gönderimi"
+          "WhatsApp üzerinden onam, klinik kayıt, fotoğraf ve teklif gönderimi"
         ]
       },
       "ia_plus": {

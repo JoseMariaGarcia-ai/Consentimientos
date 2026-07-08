@@ -1119,6 +1119,7 @@
         "features": [
           "Tutto il Piano Base +",
           "Agenda appuntamenti",
+          "Promemoria e conferma appuntamenti via email",
           "CRM pazienti",
           "Controllo tossina",
           "Preventivi per i Pazienti"
@@ -1128,12 +1129,11 @@
         "name": "Piano IA",
         "features": [
           "Tutto il Piano Pro +",
-          "Agente WhatsApp IA 24/7 — acquisizione appuntamenti",
-          "Conferma appuntamenti automatizzata",
-          "Promemoria appuntamenti automatizzati",
+          "Agente WhatsApp IA 24/7 — prenota appuntamenti automaticamente via WhatsApp",
+          "Promemoria e conferma appuntamenti automatizzati via WhatsApp",
           "Pannello di gestione WhatsApp",
           "Comunicazione con i pazienti via WhatsApp",
-          "Invio via WhatsApp di consensi, cartella clinica, foto, preventivi e fatture"
+          "Invio via WhatsApp di consensi, cartella clinica, foto e preventivi"
         ]
       },
       "ia_plus": {

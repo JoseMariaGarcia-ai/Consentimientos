@@ -1065,6 +1065,7 @@
         "features": [
           "Alles van het Basisabonnement +",
           "Afsprakenagenda",
+          "Afspraakherinneringen en -bevestiging per e-mail",
           "Patiënten-CRM",
           "Toxinecontrole",
           "Offertes voor patiënten"
@@ -1074,12 +1075,11 @@
         "name": "AI-abonnement",
         "features": [
           "Alles van het Pro-abonnement +",
-          "WhatsApp AI-agent 24/7 — afsprakenwerving",
-          "Geautomatiseerde afspraakbevestiging",
-          "Geautomatiseerde afspraakherinneringen",
+          "WhatsApp AI-agent 24/7 — plant automatisch afspraken via WhatsApp",
+          "Geautomatiseerde afspraakherinneringen en -bevestiging via WhatsApp",
           "WhatsApp-beheerpaneel",
           "Communicatie met patiënten via WhatsApp",
-          "Verzending via WhatsApp van toestemmingen, klinisch dossier, foto's, offertes en facturen"
+          "Verzending via WhatsApp van toestemmingen, klinisch dossier, foto's en offertes"
         ]
       },
       "ia_plus": {

@@ -1065,6 +1065,7 @@
         "features": [
           "Alt i Basisplanen +",
           "Aftalekalender",
+          "Påmindelser og bekræftelse af aftaler via e-mail",
           "Patient-CRM",
           "Toksinkontrol",
           "Tilbud til patienter"
@@ -1074,12 +1075,11 @@
         "name": "AI-plan",
         "features": [
           "Alt i Pro-planen +",
-          "WhatsApp AI-agent 24/7 — indfangning af aftaler",
-          "Automatiseret aftalebekræftelse",
-          "Automatiske aftalepåmindelser",
+          "WhatsApp AI-agent 24/7 — booker automatisk aftaler via WhatsApp",
+          "Automatiserede påmindelser og bekræftelse af aftaler via WhatsApp",
           "WhatsApp-administrationspanel",
           "Kommunikation med patienter via WhatsApp",
-          "Afsendelse via WhatsApp af samtykker, klinisk journal, fotos, tilbud og fakturaer"
+          "Afsendelse via WhatsApp af samtykker, klinisk journal, fotos og tilbud"
         ]
       },
       "ia_plus": {

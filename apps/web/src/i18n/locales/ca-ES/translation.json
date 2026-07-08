@@ -1065,6 +1065,7 @@
         "features": [
           "Tot el Pla Base +",
           "Agenda de cites",
+          "Recordatoris i confirmació de cites per email",
           "CRM pacients",
           "Control de toxina",
           "Pressupostos a Pacients"
@@ -1074,12 +1075,11 @@
         "name": "Pla IA",
         "features": [
           "Tot el Pla Pro +",
-          "Agent WhatsApp IA 24/7 — captació de cites",
-          "Confirmació de cites automatitzada",
-          "Recordatoris de cites automatitzats",
+          "Agent WhatsApp IA 24/7 — Agenda cites automàticament per WhatsApp",
+          "Recordatoris i confirmació de cites automatitzades per WhatsApp",
           "Panell de gestió de WhatsApp",
           "Comunicació amb pacients per WhatsApp",
-          "Enviament per WhatsApp de CIs, història clínica, fotos, pressupostos i factures"
+          "Enviament per WhatsApp de Consentiments, història clínica, fotos i pressupostos"
         ]
       },
       "ia_plus": {

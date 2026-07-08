@@ -1065,6 +1065,7 @@
         "features": [
           "Tot ce oferă Planul de Bază +",
           "Agendă de programări",
+          "Memento-uri și confirmare a programărilor prin email",
           "CRM pacienți",
           "Control de toxină",
           "Devize pentru pacienți"
@@ -1074,12 +1075,11 @@
         "name": "Plan AI",
         "features": [
           "Tot ce oferă Planul Pro +",
-          "Agent WhatsApp AI 24/7 — atragere de programări",
-          "Confirmare automată a programărilor",
-          "Remindere automate pentru programări",
+          "Agent WhatsApp AI 24/7 — programează automat prin WhatsApp",
+          "Memento-uri și confirmare automată a programărilor prin WhatsApp",
           "Panou de gestionare WhatsApp",
           "Comunicare cu pacienții prin WhatsApp",
-          "Trimitere prin WhatsApp a consimțămintelor, istoricului medical, fotografiilor, devizelor și facturilor"
+          "Trimitere prin WhatsApp a consimțămintelor, istoricului medical, fotografiilor și devizelor"
         ]
       },
       "ia_plus": {

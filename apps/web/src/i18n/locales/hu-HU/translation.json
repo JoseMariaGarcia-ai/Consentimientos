@@ -1065,6 +1065,7 @@
         "features": [
           "Minden, ami az Alap csomagban +",
           "Időpont-naptár",
+          "Időpont-emlékeztetők és -visszaigazolás e-mailben",
           "Beteg CRM",
           "Toxinkontroll",
           "Árajánlatok betegeknek"
@@ -1074,12 +1075,11 @@
         "name": "AI csomag",
         "features": [
           "Minden, ami a Pro csomagban +",
-          "WhatsApp AI-ügynök 0-24 — időpontfoglalás",
-          "Automatizált időpont-visszaigazolás",
-          "Automatizált időpont-emlékeztetők",
+          "WhatsApp AI-ügynök 0-24 — automatikusan időpontot foglal WhatsAppon",
+          "Automatizált időpont-emlékeztetők és -visszaigazolás WhatsAppon",
           "WhatsApp kezelőpanel",
           "Kommunikáció a betegekkel WhatsAppon keresztül",
-          "Beleegyezések, klinikai napló, fotók, árajánlatok és számlák küldése WhatsAppon keresztül"
+          "Beleegyezések, klinikai napló, fotók és árajánlatok küldése WhatsAppon keresztül"
         ]
       },
       "ia_plus": {

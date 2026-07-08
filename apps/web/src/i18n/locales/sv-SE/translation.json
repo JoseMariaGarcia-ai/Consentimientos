@@ -1065,6 +1065,7 @@
         "features": [
           "Allt i Grundplanen +",
           "Bokningsagenda",
+          "Bokningspåminnelser och bekräftelse via e-post",
           "Patient-CRM",
           "Toxinkontroll",
           "Kostnadsförslag till patienter"
@@ -1074,12 +1075,11 @@
         "name": "AI-plan",
         "features": [
           "Allt i Proplanen +",
-          "WhatsApp AI-agent 24/7 — bokningsgenerering",
-          "Automatiserad bokningsbekräftelse",
-          "Automatiserade bokningspåminnelser",
+          "WhatsApp AI-agent 24/7 — bokar automatiskt tider via WhatsApp",
+          "Automatiserade bokningspåminnelser och bekräftelse via WhatsApp",
           "WhatsApp-hanteringspanel",
           "Kommunikation med patienter via WhatsApp",
-          "Sändning via WhatsApp av samtycken, journal, foton, kostnadsförslag och fakturor"
+          "Sändning via WhatsApp av samtycken, journal, foton och kostnadsförslag"
         ]
       },
       "ia_plus": {

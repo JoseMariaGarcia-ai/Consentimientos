@@ -1065,6 +1065,7 @@
         "features": [
           "Wszystko z Planu Podstawowego +",
           "Grafik wizyt",
+          "Przypomnienia i potwierdzenie wizyt e-mailem",
           "CRM pacjentów",
           "Kontrola toksyny",
           "Wyceny dla pacjentów"
@@ -1074,12 +1075,11 @@
         "name": "Plan IA",
         "features": [
           "Wszystko z Planu Pro +",
-          "Agent WhatsApp AI 24/7 — pozyskiwanie wizyt",
-          "Automatyczne potwierdzanie wizyt",
-          "Automatyczne przypomnienia o wizytach",
+          "Agent WhatsApp AI 24/7 — automatycznie umawia wizyty przez WhatsApp",
+          "Zautomatyzowane przypomnienia i potwierdzenie wizyt przez WhatsApp",
           "Panel zarządzania WhatsApp",
           "Komunikacja z pacjentami przez WhatsApp",
-          "Wysyłka przez WhatsApp zgód, historii choroby, zdjęć, wycen i faktur"
+          "Wysyłka przez WhatsApp zgód, historii choroby, zdjęć i wycen"
         ]
       },
       "ia_plus": {

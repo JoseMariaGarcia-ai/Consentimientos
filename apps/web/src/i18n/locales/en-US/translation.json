@@ -1065,6 +1065,7 @@
         "features": [
           "Everything in the Base Plan +",
           "Appointment scheduling",
+          "Appointment reminders and confirmation by email",
           "Patient CRM",
           "Toxin tracking",
           "Patient quotes"
@@ -1074,12 +1075,11 @@
         "name": "AI Plan",
         "features": [
           "Everything in the Pro Plan +",
-          "24/7 AI WhatsApp agent — appointment booking",
-          "Automated appointment confirmation",
-          "Automated appointment reminders",
+          "24/7 AI WhatsApp agent — books appointments automatically via WhatsApp",
+          "Automated appointment reminders and confirmation via WhatsApp",
           "WhatsApp management panel",
           "Patient communication via WhatsApp",
-          "Send consents, clinical records, photos, quotes and invoices via WhatsApp"
+          "Send consents, clinical records, photos and quotes via WhatsApp"
         ]
       },
       "ia_plus": {

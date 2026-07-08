@@ -1065,6 +1065,7 @@
         "features": [
           "Alles aus dem Basis-Plan +",
           "Terminplanung",
+          "Terminerinnerungen und -bestätigung per E-Mail",
           "Patienten-CRM",
           "Toxin-Kontrolle",
           "Kostenvoranschläge für Patienten"
@@ -1074,12 +1075,11 @@
         "name": "KI-Plan",
         "features": [
           "Alles aus dem Pro-Plan +",
-          "24/7-KI-WhatsApp-Agent — Terminakquise",
-          "Automatisierte Terminbestätigung",
-          "Automatisierte Terminerinnerungen",
+          "24/7-KI-WhatsApp-Agent — bucht Termine automatisch per WhatsApp",
+          "Automatisierte Terminerinnerungen und -bestätigung per WhatsApp",
           "WhatsApp-Verwaltungspanel",
           "Patientenkommunikation über WhatsApp",
-          "Versand von Einwilligungen, Krankenakte, Fotos, Kostenvoranschlägen und Rechnungen per WhatsApp"
+          "Versand von Einwilligungen, Krankenakte, Fotos und Kostenvoranschlägen per WhatsApp"
         ]
       },
       "ia_plus": {

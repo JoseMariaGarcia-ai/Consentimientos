@@ -1065,6 +1065,7 @@
         "features": [
           "Kaikki Peruspaketista +",
           "Ajanvaraus",
+          "Ajanvarauksen muistutukset ja vahvistus sähköpostitse",
           "Potilas-CRM",
           "Toksiinin seuranta",
           "Kustannusarviot potilaille"
@@ -1074,12 +1075,11 @@
         "name": "AI-paketti",
         "features": [
           "Kaikki Pro-paketista +",
-          "AI WhatsApp-agentti 24/7 — ajanvarausten hankinta",
-          "Automaattinen käynnin vahvistus",
-          "Automaattiset käyntimuistutukset",
+          "AI WhatsApp-agentti 24/7 — varaa ajat automaattisesti WhatsAppin kautta",
+          "Automatisoidut ajanvarauksen muistutukset ja vahvistus WhatsAppin kautta",
           "WhatsApp-hallintapaneeli",
           "Potilasviestintä WhatsAppin kautta",
-          "Suostumusten, potilaskertomusten, kuvien, kustannusarvioiden ja laskujen lähetys WhatsAppilla"
+          "Suostumusten, potilaskertomusten, kuvien ja kustannusarvioiden lähetys WhatsAppilla"
         ]
       },
       "ia_plus": {
