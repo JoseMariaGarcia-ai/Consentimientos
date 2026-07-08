@@ -525,7 +525,8 @@
     "toxin": "Έλεγχος Τοξίνης",
     "labPartners": "Εργαστήρια",
     "menu": "Μενού",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Προσφορές"
   },
   "topbar": {
     "tagline": "Ψηφιακές Συναινέσεις · Ψηφιακή Υπογραφή",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Προσφορές",
+    "subtitle": "Δημιουργήστε και διαχειριστείτε προσφορές για τους ασθενείς σας",
+    "new_budget": "Νέα προσφορά",
+    "from": "Από",
+    "to": "Έως",
+    "patient": "Ασθενής",
+    "all": "Όλοι",
+    "search": "Αναζήτηση",
+    "search_placeholder": "Αρ. προσφοράς ή ασθενής",
+    "clear_filters": "Καθαρισμός φίλτρων",
+    "no_results": "Δεν υπάρχουν προσφορές που να ταιριάζουν με τα φίλτρα",
+    "col_number": "Αρ.",
+    "col_date": "Ημερομηνία",
+    "col_patient": "Ασθενής",
+    "col_total": "Σύνολο",
+    "col_actions": "Ενέργειες",
+    "confirm_delete": "Διαγραφή αυτής της προσφοράς;"
+  },
+  "budgetModal": {
+    "title_new": "Νέα προσφορά",
+    "title_edit": "Επεξεργασία προσφοράς",
+    "form": {
+      "patient": "Ασθενής",
+      "select_patient": "Επιλέξτε έναν ασθενή",
+      "treatments": "Θεραπείες",
+      "select_treatment": "Επιλέξτε μια θεραπεία",
+      "manual_treatment": "Προσθήκη θεραπείας χειροκίνητα…",
+      "treatment_name_placeholder": "Όνομα θεραπείας",
+      "add_treatment": "Προσθήκη θεραπείας",
+      "total": "Σύνολο",
+      "valid_until": "Ισχύει έως",
+      "notes": "Σημειώσεις"
+    },
+    "errors": {
+      "no_items": "Προσθέστε τουλάχιστον μία θεραπεία με όνομα",
+      "save_failed": "Δεν ήταν δυνατή η αποθήκευση της προσφοράς"
+    },
+    "confirm_delete": "Διαγραφή αυτής της προσφοράς;"
+  },
+  "budgetView": {
+    "patient": "Ασθενής",
+    "treatments": "Θεραπείες",
+    "valid_until": "Ισχύει έως {{date}}",
+    "no_email": "Ο ασθενής δεν έχει καταχωρισμένο email",
+    "send_email": "Αποστολή μέσω email",
+    "sending": "Αποστολή…",
+    "sent": "Στάλθηκε",
+    "send_failed": "Δεν ήταν δυνατή η αποστολή του email"
+  },
+  "budgetPdfButton": {
+    "export": "Λήψη PDF"
   }
 }

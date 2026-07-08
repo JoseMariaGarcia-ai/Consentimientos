@@ -525,7 +525,8 @@
     "toxin": "Control de Toxina",
     "labPartners": "Laboratoris",
     "menu": "Menú",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Pressupostos"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Pressupostos",
+    "subtitle": "Crea i gestiona pressupostos per als teus pacients",
+    "new_budget": "Nou pressupost",
+    "from": "Des de",
+    "to": "Fins a",
+    "patient": "Pacient",
+    "all": "Tots",
+    "search": "Cerca",
+    "search_placeholder": "Núm. pressupost o pacient",
+    "clear_filters": "Netejar filtres",
+    "no_results": "No hi ha pressupostos que coincideixin amb els filtres",
+    "col_number": "Núm.",
+    "col_date": "Data",
+    "col_patient": "Pacient",
+    "col_total": "Total",
+    "col_actions": "Accions",
+    "confirm_delete": "Vols eliminar aquest pressupost?"
+  },
+  "budgetModal": {
+    "title_new": "Nou pressupost",
+    "title_edit": "Editar pressupost",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Selecciona un pacient",
+      "treatments": "Tractaments",
+      "select_treatment": "Selecciona un tractament",
+      "manual_treatment": "Afegir tractament manual…",
+      "treatment_name_placeholder": "Nom del tractament",
+      "add_treatment": "Afegir tractament",
+      "total": "Total",
+      "valid_until": "Vàlid fins",
+      "notes": "Notes"
+    },
+    "errors": {
+      "no_items": "Afegeix almenys un tractament amb nom",
+      "save_failed": "No s'ha pogut desar el pressupost"
+    },
+    "confirm_delete": "Vols eliminar aquest pressupost?"
+  },
+  "budgetView": {
+    "patient": "Pacient",
+    "treatments": "Tractaments",
+    "valid_until": "Vàlid fins al {{date}}",
+    "no_email": "El pacient no té un email registrat",
+    "send_email": "Enviar per email",
+    "sending": "Enviant…",
+    "sent": "Enviat",
+    "send_failed": "No s'ha pogut enviar l'email"
+  },
+  "budgetPdfButton": {
+    "export": "Descarregar PDF"
   }
 }

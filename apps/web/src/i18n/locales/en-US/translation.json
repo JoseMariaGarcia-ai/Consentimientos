@@ -525,7 +525,8 @@
     "toxin": "Toxin Tracking",
     "labPartners": "Labs",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Quotes"
   },
   "topbar": {
     "tagline": "Digital Consents · Biometric Signature",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Quotes",
+    "subtitle": "Create and manage quotes for your patients",
+    "new_budget": "New quote",
+    "from": "From",
+    "to": "To",
+    "patient": "Patient",
+    "all": "All",
+    "search": "Search",
+    "search_placeholder": "Quote # or patient",
+    "clear_filters": "Clear filters",
+    "no_results": "No quotes match the filters",
+    "col_number": "No.",
+    "col_date": "Date",
+    "col_patient": "Patient",
+    "col_total": "Total",
+    "col_actions": "Actions",
+    "confirm_delete": "Delete this quote?"
+  },
+  "budgetModal": {
+    "title_new": "New quote",
+    "title_edit": "Edit quote",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Select a patient",
+      "treatments": "Treatments",
+      "select_treatment": "Select a treatment",
+      "manual_treatment": "Add treatment manually…",
+      "treatment_name_placeholder": "Treatment name",
+      "add_treatment": "Add treatment",
+      "total": "Total",
+      "valid_until": "Valid until",
+      "notes": "Notes"
+    },
+    "errors": {
+      "no_items": "Add at least one named treatment",
+      "save_failed": "The quote could not be saved"
+    },
+    "confirm_delete": "Delete this quote?"
+  },
+  "budgetView": {
+    "patient": "Patient",
+    "treatments": "Treatments",
+    "valid_until": "Valid until {{date}}",
+    "no_email": "The patient has no email on file",
+    "send_email": "Send by email",
+    "sending": "Sending…",
+    "sent": "Sent",
+    "send_failed": "The email could not be sent"
+  },
+  "budgetPdfButton": {
+    "export": "Download PDF"
   }
 }

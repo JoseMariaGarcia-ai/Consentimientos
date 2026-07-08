@@ -525,7 +525,8 @@
     "toxin": "Toxin-Kontrolle",
     "labPartners": "Labore",
     "menu": "Menü",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Kostenvoranschläge"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Kostenvoranschläge",
+    "subtitle": "Erstellen und verwalten Sie Kostenvoranschläge für Ihre Patienten",
+    "new_budget": "Neuer Kostenvoranschlag",
+    "from": "Von",
+    "to": "Bis",
+    "patient": "Patient",
+    "all": "Alle",
+    "search": "Suchen",
+    "search_placeholder": "Nr. oder Patient",
+    "clear_filters": "Filter zurücksetzen",
+    "no_results": "Keine Kostenvoranschläge entsprechen den Filtern",
+    "col_number": "Nr.",
+    "col_date": "Datum",
+    "col_patient": "Patient",
+    "col_total": "Gesamt",
+    "col_actions": "Aktionen",
+    "confirm_delete": "Diesen Kostenvoranschlag löschen?"
+  },
+  "budgetModal": {
+    "title_new": "Neuer Kostenvoranschlag",
+    "title_edit": "Kostenvoranschlag bearbeiten",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Patient auswählen",
+      "treatments": "Behandlungen",
+      "select_treatment": "Behandlung auswählen",
+      "manual_treatment": "Behandlung manuell hinzufügen…",
+      "treatment_name_placeholder": "Name der Behandlung",
+      "add_treatment": "Behandlung hinzufügen",
+      "total": "Gesamt",
+      "valid_until": "Gültig bis",
+      "notes": "Notizen"
+    },
+    "errors": {
+      "no_items": "Fügen Sie mindestens eine benannte Behandlung hinzu",
+      "save_failed": "Der Kostenvoranschlag konnte nicht gespeichert werden"
+    },
+    "confirm_delete": "Diesen Kostenvoranschlag löschen?"
+  },
+  "budgetView": {
+    "patient": "Patient",
+    "treatments": "Behandlungen",
+    "valid_until": "Gültig bis {{date}}",
+    "no_email": "Für den Patienten ist keine E-Mail-Adresse hinterlegt",
+    "send_email": "Per E-Mail senden",
+    "sending": "Wird gesendet…",
+    "sent": "Gesendet",
+    "send_failed": "Die E-Mail konnte nicht gesendet werden"
+  },
+  "budgetPdfButton": {
+    "export": "PDF herunterladen"
   }
 }

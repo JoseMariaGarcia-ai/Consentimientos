@@ -525,7 +525,8 @@
     "toxin": "Toksinkontrol",
     "labPartners": "Laboratorier",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Tilbud"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digital Signatur",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Tilbud",
+    "subtitle": "Opret og administrer tilbud til dine patienter",
+    "new_budget": "Nyt tilbud",
+    "from": "Fra",
+    "to": "Til",
+    "patient": "Patient",
+    "all": "Alle",
+    "search": "Søg",
+    "search_placeholder": "Tilbudsnr. eller patient",
+    "clear_filters": "Ryd filtre",
+    "no_results": "Ingen tilbud matcher filtrene",
+    "col_number": "Nr.",
+    "col_date": "Dato",
+    "col_patient": "Patient",
+    "col_total": "Total",
+    "col_actions": "Handlinger",
+    "confirm_delete": "Slette dette tilbud?"
+  },
+  "budgetModal": {
+    "title_new": "Nyt tilbud",
+    "title_edit": "Rediger tilbud",
+    "form": {
+      "patient": "Patient",
+      "select_patient": "Vælg en patient",
+      "treatments": "Behandlinger",
+      "select_treatment": "Vælg en behandling",
+      "manual_treatment": "Tilføj behandling manuelt…",
+      "treatment_name_placeholder": "Behandlingens navn",
+      "add_treatment": "Tilføj behandling",
+      "total": "Total",
+      "valid_until": "Gyldig til",
+      "notes": "Noter"
+    },
+    "errors": {
+      "no_items": "Tilføj mindst én behandling med et navn",
+      "save_failed": "Tilbuddet kunne ikke gemmes"
+    },
+    "confirm_delete": "Slette dette tilbud?"
+  },
+  "budgetView": {
+    "patient": "Patient",
+    "treatments": "Behandlinger",
+    "valid_until": "Gyldig til {{date}}",
+    "no_email": "Patienten har ingen registreret e-mail",
+    "send_email": "Send via e-mail",
+    "sending": "Sender…",
+    "sent": "Sendt",
+    "send_failed": "E-mailen kunne ikke sendes"
+  },
+  "budgetPdfButton": {
+    "export": "Download PDF"
   }
 }

@@ -525,7 +525,8 @@
     "toxin": "متابعة التوكسين",
     "labPartners": "المختبرات",
     "menu": "القائمة",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "عروض الأسعار"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
@@ -1390,5 +1391,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "عروض الأسعار",
+    "subtitle": "أنشئ وأدر عروض الأسعار لمرضاك",
+    "new_budget": "عرض سعر جديد",
+    "from": "من",
+    "to": "إلى",
+    "patient": "المريض",
+    "all": "الكل",
+    "search": "بحث",
+    "search_placeholder": "رقم العرض أو اسم المريض",
+    "clear_filters": "مسح الفلاتر",
+    "no_results": "لا توجد عروض أسعار تطابق الفلاتر",
+    "col_number": "الرقم",
+    "col_date": "التاريخ",
+    "col_patient": "المريض",
+    "col_total": "الإجمالي",
+    "col_actions": "الإجراءات",
+    "confirm_delete": "هل تريد حذف عرض السعر هذا؟"
+  },
+  "budgetModal": {
+    "title_new": "عرض سعر جديد",
+    "title_edit": "تعديل عرض السعر",
+    "form": {
+      "patient": "المريض",
+      "select_patient": "اختر مريضًا",
+      "treatments": "العلاجات",
+      "select_treatment": "اختر علاجًا",
+      "manual_treatment": "إضافة علاج يدويًا…",
+      "treatment_name_placeholder": "اسم العلاج",
+      "add_treatment": "إضافة علاج",
+      "total": "الإجمالي",
+      "valid_until": "صالح حتى",
+      "notes": "ملاحظات"
+    },
+    "errors": {
+      "no_items": "أضف علاجًا واحدًا على الأقل باسم محدد",
+      "save_failed": "تعذر حفظ عرض السعر"
+    },
+    "confirm_delete": "هل تريد حذف عرض السعر هذا؟"
+  },
+  "budgetView": {
+    "patient": "المريض",
+    "treatments": "العلاجات",
+    "valid_until": "صالح حتى {{date}}",
+    "no_email": "لا يوجد بريد إلكتروني مسجل للمريض",
+    "send_email": "إرسال بالبريد الإلكتروني",
+    "sending": "جارٍ الإرسال…",
+    "sent": "تم الإرسال",
+    "send_failed": "تعذر إرسال البريد الإلكتروني"
+  },
+  "budgetPdfButton": {
+    "export": "تنزيل PDF"
   }
 }

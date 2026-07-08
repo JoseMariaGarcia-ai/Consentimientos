@@ -525,7 +525,8 @@
     "toxin": "Kontrola Toxinu",
     "labPartners": "Laboratoře",
     "menu": "Menu",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Cenové nabídky"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Cenové nabídky",
+    "subtitle": "Vytvářejte a spravujte cenové nabídky pro své pacienty",
+    "new_budget": "Nová cenová nabídka",
+    "from": "Od",
+    "to": "Do",
+    "patient": "Pacient",
+    "all": "Všichni",
+    "search": "Hledat",
+    "search_placeholder": "Č. nabídky nebo pacient",
+    "clear_filters": "Vymazat filtry",
+    "no_results": "Žádné cenové nabídky neodpovídají filtrům",
+    "col_number": "Č.",
+    "col_date": "Datum",
+    "col_patient": "Pacient",
+    "col_total": "Celkem",
+    "col_actions": "Akce",
+    "confirm_delete": "Smazat tuto cenovou nabídku?"
+  },
+  "budgetModal": {
+    "title_new": "Nová cenová nabídka",
+    "title_edit": "Upravit cenovou nabídku",
+    "form": {
+      "patient": "Pacient",
+      "select_patient": "Vyberte pacienta",
+      "treatments": "Ošetření",
+      "select_treatment": "Vyberte ošetření",
+      "manual_treatment": "Přidat ošetření ručně…",
+      "treatment_name_placeholder": "Název ošetření",
+      "add_treatment": "Přidat ošetření",
+      "total": "Celkem",
+      "valid_until": "Platné do",
+      "notes": "Poznámky"
+    },
+    "errors": {
+      "no_items": "Přidejte alespoň jedno pojmenované ošetření",
+      "save_failed": "Cenovou nabídku se nepodařilo uložit"
+    },
+    "confirm_delete": "Smazat tuto cenovou nabídku?"
+  },
+  "budgetView": {
+    "patient": "Pacient",
+    "treatments": "Ošetření",
+    "valid_until": "Platné do {{date}}",
+    "no_email": "Pacient nemá registrovaný e-mail",
+    "send_email": "Odeslat e-mailem",
+    "sending": "Odesílání…",
+    "sent": "Odesláno",
+    "send_failed": "E-mail se nepodařilo odeslat"
+  },
+  "budgetPdfButton": {
+    "export": "Stáhnout PDF"
   }
 }
