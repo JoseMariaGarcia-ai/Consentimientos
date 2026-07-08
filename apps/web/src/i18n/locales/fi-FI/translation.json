@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Mitä laitteita tarvitsen ConsentsPron käyttöön?",
           "a": "Vain internet-yhteydellä varustetun tietokoneen. Siinä voi olla kosketusnäyttö, jolloin voit allekirjoittaa suoraan siinä, tai se voi olla tavallinen pöytä- tai kannettava tietokone ilman kosketusta, yhdistettynä klinikan puhelimeen tai tablettiin allekirjoitusta varten. Tässä toisessa tapauksessa suostumus siirtyy automaattisesti tietokoneelta kosketuslaitteeseen skannaamalla QR-koodin kerran: lääkäri ja potilas lukevat ja allekirjoittavat sen siellä sormella, ja kaikki tallentuu aivan kuten jos se olisi allekirjoitettu itse tietokoneella."
+        },
+        "q11": {
+          "q": "Mitä kustannuksia ei sisälly pakettien hintaan?",
+          "a": "Kuukausimaksun lisäksi eräät tekoälyagenttien ja mainoskampanjoiden toiminnan kannalta välttämättömät kolmannen osapuolen palvelut laskutetaan erikseen suoraan niiden tarjoajien toimesta:\n\n• Tekoälyagenttien alkuasetukset: kertaluonteinen maksu, jonka määrä vaihtelee klinikan monimutkaisuuden mukaan, 200–600 €.\n• WhatsApp API: WhatsApp veloittaa suoraan jokaisesta lähetetystä viestistä, noin 0,05 € per viesti.\n• Tekoälyagentin käsittelemät saapuvat puheluihin: noin 0,30 € per puhelu.\n• Tekoälymalli: kustannus vaihtelee käsiteltävien viestien, varausten ja kyselyjen määrän sekä valitun mallin mukaan; 20–60 € kuukaudessa klinikalle, jolla on normaali toiminta.\n• Meta Ads -kampanjat (Verkostot-paketti): investointi vaihtelee tavoitteiden ja halutun maantieteellisen kattavuuden mukaan; noin 5–20 € päivässä tavalliselle klinikalle.\n\nKaikki nämä palvelut tarjoavat ulkopuoliset palveluntarjoajat (WhatsApp, Meta sekä puhelin- ja tekoälypalveluntarjoajat). Me määritämme vastaavat tilit, mutta maksu suoritetaan suoraan klinikaltasi kullekin palveluntarjoajalle — ConsentsPro ei laskuta eikä saa mitään provisiota näistä eristä."
         }
       }
     }

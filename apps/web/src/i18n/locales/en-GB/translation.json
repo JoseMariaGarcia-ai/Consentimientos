@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "What equipment do I need to use ConsentsPro?",
           "a": "Just a computer with an internet connection. It can have a touchscreen, to sign directly there, or it can be a regular desktop or laptop without touch, paired with a clinic mobile or tablet for signing. In this second case, the consent form is automatically handed off from the computer to the touch device just by scanning a QR code once: the doctor and patient read and sign it there with a finger, and everything is recorded exactly as if it had been signed on the computer itself."
+        },
+        "q11": {
+          "q": "What costs are not included in the plan fee?",
+          "a": "In addition to the monthly fee, some third-party services required for the AI agents and advertising campaigns to work are billed separately, directly by their providers:\n\n• Initial setup of the AI agents: a one-off payment that varies depending on the complexity of the clinic, between €200 and €600.\n• WhatsApp API: WhatsApp charges directly for every message sent, approximately €0.05 per message.\n• Inbound voice calls handled by the AI agent: approximately €0.30 per call.\n• AI model: its cost varies depending on the volume of messages, appointments and queries it has to handle and on the model selected; between €20 and €60 per month for a clinic with normal activity.\n• Meta Ads campaigns (Social Plan): the investment varies depending on the goals and geographic scope you want to cover; approximately between €5 and €20 per day for a typical clinic.\n\nAll of these services are provided by external providers (WhatsApp, Meta, and telephony and AI providers). We set up the corresponding accounts, but payment is made directly from your clinic to each provider — ConsentsPro does not invoice or receive any commission for these items."
         }
       }
     }

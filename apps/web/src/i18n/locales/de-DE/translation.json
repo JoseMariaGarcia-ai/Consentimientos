@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Welche Ausstattung brauche ich für ConsentsPro?",
           "a": "Nur einen Computer mit Internetverbindung. Er kann einen Touchscreen haben, um direkt dort zu unterschreiben, oder es kann ein normaler Desktop- oder Laptop-Computer ohne Touch sein, kombiniert mit einem Handy oder Tablet der Praxis zum Unterschreiben. In diesem zweiten Fall wird die Einwilligung automatisch vom Computer an das Touch-Gerät weitergeleitet, indem man einmal einen QR-Code scannt: Arzt und Patient lesen und unterschreiben sie dort mit dem Finger, und alles wird genauso erfasst, als wäre am Computer selbst unterschrieben worden."
+        },
+        "q11": {
+          "q": "Welche Kosten sind nicht in der Plangebühr enthalten?",
+          "a": "Zusätzlich zur monatlichen Gebühr werden einige Drittanbieterdienste, die für den Betrieb der KI-Agenten und Werbekampagnen erforderlich sind, separat direkt von deren Anbietern in Rechnung gestellt:\n\n• Ersteinrichtung der KI-Agenten: einmalige Zahlung, deren Höhe je nach Komplexität der Klinik variiert, zwischen 200 € und 600 €.\n• WhatsApp API: WhatsApp berechnet direkt für jede gesendete Nachricht, ungefähr 0,05 € pro Nachricht.\n• Eingehende Sprachanrufe, die vom KI-Agenten bearbeitet werden: ungefähr 0,30 € pro Anruf.\n• KI-Modell: die Kosten variieren je nach Volumen der zu bearbeitenden Nachrichten, Termine und Anfragen sowie je nach gewähltem Modell; zwischen 20 € und 60 € pro Monat für eine Klinik mit normaler Aktivität.\n• Meta-Ads-Kampagnen (Netzwerke-Plan): die Investition variiert je nach Zielen und geografischer Reichweite; ungefähr zwischen 5 € und 20 € pro Tag für eine normale Klinik.\n\nAll diese Dienste werden von externen Anbietern erbracht (WhatsApp, Meta sowie Telefonie- und KI-Anbieter). Wir richten die entsprechenden Konten ein, die Zahlung erfolgt jedoch direkt von Ihrer Klinik an jeden Anbieter — ConsentsPro stellt keine Rechnung und erhält keine Provision für diese Posten."
         }
       }
     }

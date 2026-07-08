@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Vilken utrustning behöver jag för att använda ConsentsPro?",
           "a": "Bara en dator med internetanslutning. Den kan ha pekskärm, för att signera direkt där, eller vara en vanlig stationär eller bärbar dator utan pekskärm, kombinerad med en mobil eller surfplatta från kliniken för signering. I det andra fallet överförs samtycket automatiskt från datorn till pekenheten genom att bara skanna en QR-kod en gång: läkare och patient läser och signerar det där med fingret, och allt registreras precis som om det hade signerats på själva datorn."
+        },
+        "q11": {
+          "q": "Vilka kostnader ingår inte i planens avgift?",
+          "a": "Utöver månadsavgiften faktureras vissa tredjepartstjänster som krävs för att AI-agenterna och annonskampanjerna ska fungera separat, direkt av deras leverantörer:\n\n• Inledande konfiguration av AI-agenterna: engångsbetalning vars belopp varierar beroende på klinikens komplexitet, mellan 200 € och 600 €.\n• WhatsApp API: WhatsApp tar betalt direkt för varje skickat meddelande, cirka 0,05 € per meddelande.\n• Inkommande röstsamtal som hanteras av AI-agenten: cirka 0,30 € per samtal.\n• AI-modell: kostnaden varierar beroende på volymen av meddelanden, bokningar och förfrågningar som ska hanteras och på vald modell; mellan 20 € och 60 € per månad för en klinik med normal aktivitet.\n• Meta Ads-kampanjer (Nätverk-planen): investeringen varierar beroende på mål och önskad geografisk täckning; cirka mellan 5 € och 20 € per dag för en vanlig klinik.\n\nAlla dessa tjänster tillhandahålls av externa leverantörer (WhatsApp, Meta samt telefoni- och AI-leverantörer). Vi konfigurerar tillhörande konton, men betalningen sker direkt från din klinik till varje leverantör — ConsentsPro fakturerar inte och tar inte emot någon provision för dessa poster."
         }
       }
     }

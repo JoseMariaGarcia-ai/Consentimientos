@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Quin equip necessito per fer servir ConsentsPro?",
           "a": "Només un ordinador amb connexió a internet. Pot tenir pantalla tàctil, per signar directament allà, o pot ser un ordinador de sobretaula o portàtil normal, sense tàctil, combinat amb un mòbil o una tablet de la clínica per signar. En aquest segon cas, el consentiment es trasllada automàticament de l'ordinador al dispositiu tàctil només escanejant un codi QR una vegada: metge i pacient el llegeixen i el signen allà amb el dit, i tot queda registrat igual que si s'hagués signat al mateix ordinador."
+        },
+        "q11": {
+          "q": "Quins costos no estan inclosos en la quota dels plans?",
+          "a": "A més de la quota mensual, alguns serveis de tercers necessaris per al funcionament dels agents d’IA i les campanyes de publicitat es facturen a part, directament pels seus proveïdors:\n\n• Configuració inicial dels agents d’IA: pagament únic l’import del qual varia segons la complexitat de la clínica, entre 200 € i 600 €.\n• WhatsApp API: WhatsApp cobra directament per cada missatge enviat, aproximadament 0,05 € per missatge.\n• Trucades de veu entrants gestionades per l’agent d’IA: aproximadament 0,30 € per trucada.\n• Model d’IA: el seu cost varia segons el volum de missatges, cites i consultes que hagi de gestionar i segons el model seleccionat; entre 20 € i 60 € al mes per a una clínica amb activitat normal.\n• Campanyes de Meta Ads (Pla Xarxes): la inversió és variable segons els objectius i l’àmbit geogràfic que es vulgui abastar; aproximadament entre 5 € i 20 € al dia per a una clínica normal.\n\nTots aquests serveis els presten proveïdors externs (WhatsApp, Meta i els proveïdors de telefonia i IA). Nosaltres configurem els comptes corresponents, però el pagament es fa directament de la teva clínica a cada proveïdor — ConsentsPro no factura ni rep cap comissió per aquests conceptes."
         }
       }
     }

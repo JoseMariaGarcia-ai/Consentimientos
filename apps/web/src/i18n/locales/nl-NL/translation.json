@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Welke apparatuur heb ik nodig om ConsentsPro te gebruiken?",
           "a": "Alleen een computer met internetverbinding. Deze kan een touchscreen hebben om er direct op te ondertekenen, of het kan een gewone desktop of laptop zonder touch zijn, gecombineerd met een mobiel of tablet van de kliniek om te ondertekenen. In dit tweede geval wordt het toestemmingsformulier automatisch doorgestuurd van de computer naar het touch-apparaat door slechts één keer een QR-code te scannen: arts en patiënt lezen en ondertekenen het daar met de vinger, en alles wordt precies zo geregistreerd alsof het op de computer zelf was ondertekend."
+        },
+        "q11": {
+          "q": "Welke kosten zijn niet inbegrepen in het tarief van de abonnementen?",
+          "a": "Naast het maandelijkse tarief worden bepaalde diensten van derden die nodig zijn voor de werking van de AI-agenten en advertentiecampagnes apart gefactureerd, rechtstreeks door hun aanbieders:\n\n• Initiële configuratie van de AI-agenten: eenmalige betaling waarvan het bedrag varieert afhankelijk van de complexiteit van de kliniek, tussen € 200 en € 600.\n• WhatsApp API: WhatsApp rekent rechtstreeks per verzonden bericht, ongeveer € 0,05 per bericht.\n• Inkomende spraakoproepen afgehandeld door de AI-agent: ongeveer € 0,30 per gesprek.\n• AI-model: de kosten variëren afhankelijk van het volume aan berichten, afspraken en vragen dat moet worden afgehandeld en van het gekozen model; tussen € 20 en € 60 per maand voor een kliniek met normale activiteit.\n• Meta Ads-campagnes (Netwerken-plan): de investering is variabel afhankelijk van de doelen en het gewenste geografische bereik; ongeveer tussen € 5 en € 20 per dag voor een normale kliniek.\n\nAl deze diensten worden geleverd door externe aanbieders (WhatsApp, Meta en telefonie- en AI-aanbieders). Wij configureren de bijbehorende accounts, maar de betaling gebeurt rechtstreeks vanuit uw kliniek aan elke aanbieder — ConsentsPro factureert niet en ontvangt geen enkele commissie voor deze posten."
         }
       }
     }

@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Jaké vybavení potřebuji k používání ConsentsPro?",
           "a": "Stačí počítač s připojením k internetu. Může mít dotykovou obrazovku pro podepisování přímo na něm, nebo to může být běžný stolní či přenosný počítač bez dotyku spolu s mobilem nebo tabletem ordinace k podepisování. V druhém případě se souhlas automaticky předá z počítače na dotykové zařízení pouhým jednorázovým naskenováním QR kódu: lékař a pacient si ho tam přečtou a podepíší prstem, a vše se zaznamená stejně, jako by bylo podepsáno přímo na počítači."
+        },
+        "q11": {
+          "q": "Jaké náklady nejsou zahrnuty v poplatku za plány?",
+          "a": "Kromě měsíčního poplatku jsou některé služby třetích stran nezbytné pro fungování AI agentů a reklamních kampaní účtovány zvlášť, přímo jejich poskytovateli:\n\n• Počáteční nastavení AI agentů: jednorázová platba, jejíž výše se liší podle složitosti kliniky, mezi 200 € a 600 €.\n• WhatsApp API: WhatsApp účtuje přímo za každou odeslanou zprávu, přibližně 0,05 € za zprávu.\n• Příchozí hlasové hovory zpracovávané AI agentem: přibližně 0,30 € za hovor.\n• AI model: jeho náklady se liší podle objemu zpráv, rezervací a dotazů, které musí zpracovat, a podle zvoleného modelu; mezi 20 € a 60 € měsíčně pro kliniku s běžnou aktivitou.\n• Kampaně Meta Ads (Plán Sítě): investice se liší podle cílů a geografického rozsahu; přibližně mezi 5 € a 20 € denně pro běžnou kliniku.\n\nVšechny tyto služby poskytují externí dodavatelé (WhatsApp, Meta a poskytovatelé telefonie a AI). My nastavíme příslušné účty, ale platba probíhá přímo z vaší kliniky každému poskytovateli — ConsentsPro nefakturuje ani nedostává žádnou provizi za tyto položky."
         }
       }
     }

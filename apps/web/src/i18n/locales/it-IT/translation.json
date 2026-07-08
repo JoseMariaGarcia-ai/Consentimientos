@@ -1524,6 +1524,10 @@
         "q10": {
           "q": "Di quale attrezzatura ho bisogno per usare ConsentsPro?",
           "a": "Solo un computer con connessione a internet. Può avere uno schermo touch, per firmare direttamente lì, oppure può essere un normale computer desktop o portatile senza touch, abbinato a un cellulare o tablet dello studio per firmare. In questo secondo caso, il consenso viene trasferito automaticamente dal computer al dispositivo touch scansionando una sola volta un codice QR: il medico e il paziente lo leggono e lo firmano lì con il dito, e tutto viene registrato esattamente come se fosse stato firmato sul computer stesso."
+        },
+        "q11": {
+          "q": "Quali costi non sono inclusi nella quota dei piani?",
+          "a": "Oltre alla quota mensile, alcuni servizi di terze parti necessari per il funzionamento degli agenti IA e delle campagne pubblicitarie vengono fatturati separatamente, direttamente dai rispettivi fornitori:\n\n• Configurazione iniziale degli agenti IA: pagamento una tantum il cui importo varia in base alla complessità della clinica, tra 200 € e 600 €.\n• WhatsApp API: WhatsApp addebita direttamente ogni messaggio inviato, circa 0,05 € a messaggio.\n• Chiamate vocali in entrata gestite dall'agente IA: circa 0,30 € a chiamata.\n• Modello IA: il suo costo varia in base al volume di messaggi, appuntamenti e richieste da gestire e al modello selezionato; tra 20 € e 60 € al mese per una clinica con attività normale.\n• Campagne Meta Ads (Piano Social): l'investimento è variabile in base agli obiettivi e all'ambito geografico da coprire; circa tra 5 € e 20 € al giorno per una clinica normale.\n\nTutti questi servizi sono forniti da fornitori esterni (WhatsApp, Meta e i fornitori di telefonia e IA). Noi configuriamo gli account corrispondenti, ma il pagamento viene effettuato direttamente dalla tua clinica a ciascun fornitore — ConsentsPro non fattura né riceve alcuna commissione per queste voci."
         }
       }
     }

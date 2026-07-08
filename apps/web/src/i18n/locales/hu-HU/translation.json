@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Milyen eszközre van szükségem a ConsentsPro használatához?",
           "a": "Csak egy internetkapcsolattal rendelkező számítógépre. Lehet érintőképernyős, hogy közvetlenül azon írjanak alá, vagy lehet egy hagyományos asztali vagy hordozható számítógép érintés nélkül, egy rendelői telefonnal vagy tablettel párosítva az aláíráshoz. Ebben a második esetben a beleegyezés automatikusan átkerül a számítógépről az érintőképernyős eszközre, mindössze egyetlen QR-kód beolvasásával: az orvos és a páciens ott olvassa el és írja alá ujjal, és minden pontosan úgy rögzül, mintha magán a számítógépen írták volna alá."
+        },
+        "q11": {
+          "q": "Milyen költségek nincsenek benne a csomagok díjában?",
+          "a": "A havi díjon felül egyes, az AI-ügynökök és a hirdetési kampányok működéséhez szükséges harmadik féltől származó szolgáltatásokat külön, közvetlenül a szolgáltatóik számláznak:\n\n• Az AI-ügynökök kezdeti beállítása: egyszeri díj, amelynek összege a klinika összetettségétől függően változik, 200 € és 600 € között.\n• WhatsApp API: a WhatsApp közvetlenül számláz minden elküldött üzenetért, üzenetenként kb. 0,05 €.\n• Az AI-ügynök által kezelt bejövő hanghívások: hívásonként kb. 0,30 €.\n• AI-modell: a költsége a kezelendő üzenetek, foglalások és megkeresések mennyiségétől és a kiválasztott modelltől függően változik; havi 20 € és 60 € között egy normál forgalmú klinika esetén.\n• Meta Ads kampányok (Hálózatok csomag): a befektetés a célkitűzésektől és a lefedni kívánt földrajzi kiterjedéstől függően változó; napi kb. 5 € és 20 € között egy átlagos klinika esetén.\n\nEzeket a szolgáltatásokat külső szolgáltatók nyújtják (WhatsApp, Meta, valamint telefónia- és AI-szolgáltatók). Mi beállítjuk a megfelelő fiókokat, de a fizetés közvetlenül az Ön klinikájától történik az egyes szolgáltatók felé — a ConsentsPro nem számláz és semmilyen jutalékot nem kap ezekért a tételekért."
         }
       }
     }

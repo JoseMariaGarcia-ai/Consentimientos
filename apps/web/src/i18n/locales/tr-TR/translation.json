@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "ConsentsPro'yu kullanmak için hangi ekipmana ihtiyacım var?",
           "a": "Sadece internet bağlantısı olan bir bilgisayar. Doğrudan orada imzalamak için dokunmatik ekranlı olabilir veya imzalamak için klinik telefonu ya da tableti ile birlikte kullanılan dokunmatik olmayan normal bir masaüstü ya da dizüstü bilgisayar olabilir. Bu ikinci durumda, onay formu bir QR kodunu bir kez taramanız yeterli olacak şekilde bilgisayardan dokunmatik cihaza otomatik olarak aktarılır: doktor ve hasta orada okuyup parmakla imzalar ve her şey tıpkı bilgisayarın kendisinde imzalanmış gibi kaydedilir."
+        },
+        "q11": {
+          "q": "Paket ücretine dahil olmayan maliyetler nelerdir?",
+          "a": "Aylık ücrete ek olarak, yapay zeka ajanlarının ve reklam kampanyalarının çalışması için gerekli bazı üçüncü taraf hizmetleri, doğrudan sağlayıcıları tarafından ayrıca faturalandırılır:\n\n• Yapay zeka ajanlarının ilk kurulumu: kliniğin karmaşıklığına göre değişen tek seferlik ödeme, 200 € ile 600 € arasında.\n• WhatsApp API: WhatsApp gönderilen her mesaj için doğrudan ücret alır, mesaj başına yaklaşık 0,05 €.\n• Yapay zeka ajanı tarafından yönetilen gelen sesli aramalar: arama başına yaklaşık 0,30 €.\n• Yapay zeka modeli: maliyeti, yönetmesi gereken mesaj, randevu ve sorgu hacmine ve seçilen modele göre değişir; normal faaliyet gösteren bir klinik için aylık 20 € ile 60 € arasında.\n• Meta Ads kampanyaları (Ağlar Planı): yatırım, hedeflere ve kapsanmak istenen coğrafi alana göre değişkendir; normal bir klinik için günlük yaklaşık 5 € ile 20 € arasında.\n\nBu hizmetlerin tümü harici sağlayıcılar (WhatsApp, Meta ve telefon/yapay zeka sağlayıcıları) tarafından sunulur. Biz ilgili hesapları kurarız, ancak ödeme doğrudan kliniğinizden her sağlayıcıya yapılır — ConsentsPro bu kalemler için fatura kesmez ve herhangi bir komisyon almaz."
         }
       }
     }

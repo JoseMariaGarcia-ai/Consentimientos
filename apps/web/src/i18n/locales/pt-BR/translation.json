@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Que equipamento eu preciso para usar o ConsentsPro?",
           "a": "Apenas um computador com conexão à internet. Pode ter tela sensível ao toque, para assinar diretamente ali, ou pode ser um computador de mesa ou notebook comum, sem touch, combinado com um celular ou tablet da clínica para assinatura. Nesse segundo caso, o consentimento é transferido automaticamente do computador para o dispositivo touch apenas escaneando um código QR uma vez: o médico e o paciente o leem e assinam ali com o dedo, e tudo fica registrado exatamente como se tivesse sido assinado no próprio computador."
+        },
+        "q11": {
+          "q": "Quais custos não estão incluídos na mensalidade dos planos?",
+          "a": "Além da mensalidade, alguns serviços de terceiros necessários para o funcionamento dos agentes de IA e das campanhas publicitárias são cobrados à parte, diretamente por seus fornecedores:\n\n• Configuração inicial dos agentes de IA: pagamento único cujo valor varia conforme a complexidade da clínica, entre 200 € e 600 €.\n• WhatsApp API: o WhatsApp cobra diretamente por cada mensagem enviada, aproximadamente 0,05 € por mensagem.\n• Chamadas de voz recebidas gerenciadas pelo agente de IA: aproximadamente 0,30 € por chamada.\n• Modelo de IA: seu custo varia conforme o volume de mensagens, agendamentos e consultas que precisa gerenciar e conforme o modelo selecionado; entre 20 € e 60 € por mês para uma clínica com atividade normal.\n• Campanhas de Meta Ads (Plano Redes): o investimento é variável conforme os objetivos e a área geográfica que se deseja abranger; aproximadamente entre 5 € e 20 € por dia para uma clínica normal.\n\nTodos esses serviços são prestados por fornecedores externos (WhatsApp, Meta e os fornecedores de telefonia e IA). Nós configuramos as contas correspondentes, mas o pagamento é feito diretamente da sua clínica para cada fornecedor — a ConsentsPro não fatura nem recebe nenhuma comissão sobre esses itens."
         }
       }
     }

@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "De quel équipement ai-je besoin pour utiliser ConsentsPro ?",
           "a": "Juste un ordinateur connecté à Internet. Il peut avoir un écran tactile, pour signer directement dessus, ou être un ordinateur de bureau ou portable classique, sans tactile, associé à un mobile ou une tablette du cabinet pour signer. Dans ce second cas, le consentement est transféré automatiquement de l'ordinateur vers l'appareil tactile en scannant simplement un code QR une fois : le médecin et le patient le lisent et le signent là avec le doigt, et tout est enregistré exactement comme s'il avait été signé sur l'ordinateur lui-même."
+        },
+        "q11": {
+          "q": "Quels coûts ne sont pas inclus dans l'abonnement des formules ?",
+          "a": "En plus de l'abonnement mensuel, certains services tiers nécessaires au fonctionnement des agents IA et des campagnes publicitaires sont facturés séparément, directement par leurs fournisseurs :\n\n• Configuration initiale des agents IA : paiement unique dont le montant varie selon la complexité de la clinique, entre 200 € et 600 €.\n• API WhatsApp : WhatsApp facture directement chaque message envoyé, environ 0,05 € par message.\n• Appels vocaux entrants gérés par l'agent IA : environ 0,30 € par appel.\n• Modèle d'IA : son coût varie selon le volume de messages, rendez-vous et demandes à gérer et selon le modèle sélectionné ; entre 20 € et 60 € par mois pour une clinique à activité normale.\n• Campagnes Meta Ads (Formule Réseaux) : l'investissement varie selon les objectifs et la zone géographique visée ; environ entre 5 € et 20 € par jour pour une clinique classique.\n\nTous ces services sont fournis par des prestataires externes (WhatsApp, Meta, ainsi que les fournisseurs de téléphonie et d'IA). Nous configurons les comptes correspondants, mais le paiement est effectué directement par votre clinique auprès de chaque prestataire — ConsentsPro ne facture ni ne perçoit aucune commission sur ces postes."
         }
       }
     }

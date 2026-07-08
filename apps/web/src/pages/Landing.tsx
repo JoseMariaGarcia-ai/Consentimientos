@@ -16,7 +16,7 @@ const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'g
 const COMPLIANCE_ICONS = [Fingerprint, Clock, MonitorSmartphone, Hash, ListChecks, UserCheck]
 const COMPLIANCE_KEYS = ['biometric', 'timestamp', 'device', 'hash', 'audit', 'doctor']
 
-const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
+const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11']
 
 const ANNUAL_DISCOUNT = 0.2
 
@@ -319,7 +319,7 @@ function FaqItem({ itemKey }: { itemKey: string }) {
         <ChevronDown className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <p className="text-sm text-slate-500 mt-3 leading-relaxed">{t(`landing.faq.items.${itemKey}.a`)}</p>
+        <p className="text-sm text-slate-500 mt-3 leading-relaxed whitespace-pre-line">{t(`landing.faq.items.${itemKey}.a`)}</p>
       )}
     </div>
   )

@@ -1470,6 +1470,10 @@
         "q10": {
           "q": "Tôi cần thiết bị gì để sử dụng ConsentsPro?",
           "a": "Chỉ cần một máy tính có kết nối internet. Nó có thể có màn hình cảm ứng để ký trực tiếp ở đó, hoặc có thể là máy tính để bàn hoặc máy tính xách tay thông thường không cảm ứng, kết hợp với điện thoại hoặc máy tính bảng của phòng khám để ký. Trong trường hợp thứ hai này, mẫu đồng ý được tự động chuyển từ máy tính sang thiết bị cảm ứng chỉ bằng cách quét mã QR một lần: bác sĩ và bệnh nhân đọc và ký ở đó bằng ngón tay, và mọi thứ được ghi lại chính xác như thể đã được ký trên chính máy tính đó."
+        },
+        "q11": {
+          "q": "Những chi phí nào không được bao gồm trong phí gói dịch vụ?",
+          "a": "Ngoài phí hàng tháng, một số dịch vụ của bên thứ ba cần thiết cho hoạt động của các trợ lý AI và các chiến dịch quảng cáo sẽ được tính phí riêng, trực tiếp bởi nhà cung cấp của họ:\n\n• Thiết lập ban đầu cho các trợ lý AI: khoản thanh toán một lần có giá trị thay đổi tùy theo mức độ phức tạp của phòng khám, từ 200 € đến 600 €.\n• WhatsApp API: WhatsApp tính phí trực tiếp cho mỗi tin nhắn được gửi, khoảng 0,05 € mỗi tin nhắn.\n• Cuộc gọi thoại đến do trợ lý AI xử lý: khoảng 0,30 € mỗi cuộc gọi.\n• Mô hình AI: chi phí thay đổi tùy theo khối lượng tin nhắn, lịch hẹn và câu hỏi cần xử lý cũng như mô hình được chọn; từ 20 € đến 60 € mỗi tháng cho một phòng khám có hoạt động bình thường.\n• Chiến dịch Meta Ads (Gói Mạng Xã Hội): mức đầu tư thay đổi tùy theo mục tiêu và phạm vi địa lý muốn tiếp cận; khoảng từ 5 € đến 20 € mỗi ngày cho một phòng khám thông thường.\n\nTất cả các dịch vụ này đều do các nhà cung cấp bên ngoài (WhatsApp, Meta và các nhà cung cấp dịch vụ điện thoại và AI) cung cấp. Chúng tôi thiết lập các tài khoản tương ứng, nhưng việc thanh toán được thực hiện trực tiếp từ phòng khám của bạn tới từng nhà cung cấp — ConsentsPro không xuất hóa đơn cũng như không nhận bất kỳ khoản hoa hồng nào cho các mục này."
         }
       }
     }
