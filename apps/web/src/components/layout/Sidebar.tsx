@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 
@@ -29,9 +29,11 @@ interface SidebarProps {
   onClose: () => void
   /** When set, only nav items whose moduleKey is in this list are shown (used for role preview / permission-restricted views). */
   allowedModules?: string[]
+  /** Workflows is a role-based section (superadmin only) — it's never part of the plan/module permission model. */
+  isSuperAdmin?: boolean
 }
 
-export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
+export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: SidebarProps) {
   const { t } = useTranslation()
   const { low } = useCredits()
   const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
@@ -90,6 +92,24 @@ export function Sidebar({ open, onClose, allowedModules }: SidebarProps) {
             {low && <span className="ml-auto w-2 h-2 rounded-full bg-amber-500 animate-pulse" />}
           </NavLink>
         </nav>
+
+        {/* Workflows — superadmin-only, independent of plan/module permissions */}
+        {isSuperAdmin && (
+          <div className="mx-2 pt-2 border-t border-slate-100">
+            <NavLink
+              to="/workflows"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                }`
+              }
+            >
+              <Workflow className="w-4 h-4" />
+              {t('nav.workflows')}
+            </NavLink>
+          </div>
+        )}
 
         {/* Settings — above language selector */}
         <div className="mx-2 pt-2 border-t border-slate-100">

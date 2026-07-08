@@ -526,7 +526,8 @@
     "labPartners": "Laboratorios",
     "menu": "Menú",
     "whatsapp": "WhatsApp",
-    "budgets": "Presupuestos"
+    "budgets": "Presupuestos",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -1482,5 +1483,15 @@
   },
   "budgetPdfButton": {
     "export": "Descargar PDF"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatizaciones activables o desactivables para toda la plataforma",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmación de citas",
+        "description": "Envía automáticamente un email al paciente con los datos de la cita al agendarla."
+      }
+    }
   }
 }

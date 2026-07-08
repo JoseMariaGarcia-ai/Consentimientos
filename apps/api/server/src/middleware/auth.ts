@@ -35,3 +35,20 @@ export async function requireAdmin(req: Request, res: Response, next: NextFuncti
     return res.status(500).json({ error: err.message })
   }
 }
+
+// Workflows (automatizaciones globales) son exclusivos de superadmin —
+// a diferencia de requireAdmin, un "admin" normal no debe poder verlos ni
+// activarlos/desactivarlos.
+export async function requireSuperAdmin(req: Request, res: Response, next: NextFunction) {
+  const userId = (req as any).user?.userId
+  if (!userId) return res.status(403).json({ error: 'Solo un superadministrador puede acceder' })
+  try {
+    const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+    if (me?.role !== 'superadmin') {
+      return res.status(403).json({ error: 'Solo un superadministrador puede acceder' })
+    }
+    next()
+  } catch (err: any) {
+    return res.status(500).json({ error: err.message })
+  }
+}

@@ -1,6 +1,8 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { isSlotAvailable } from '../lib/availability'
+import { isWorkflowEnabled } from './workflows'
+import { sendAppointmentConfirmationEmail } from '../lib/appointmentConfirmationEmail'
 
 const router = Router()
 
@@ -71,6 +73,15 @@ router.post('/', async (req, res) => {
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *`,
       [clinicId, patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null]
     )
+
+    // Fire-and-forget — never block the response on the workflow/email send.
+    isWorkflowEnabled('appointment_confirmation').then(enabled => {
+      if (enabled) {
+        sendAppointmentConfirmationEmail({ appointmentId: (data as any).id, clinicId })
+          .catch(err => console.error('[appointmentConfirmationEmail] failed:', err.message))
+      }
+    }).catch(() => {})
+
     return res.status(201).json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

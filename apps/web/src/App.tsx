@@ -26,6 +26,7 @@ import WhatsApp from './pages/WhatsApp'
 import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
 import Budgets from './pages/Budgets'
+import Workflows from './pages/Workflows'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -137,7 +138,7 @@ function AppShell() {
         {isClinicaPreview && <PreviewBanner role="clinica" onExit={exitPreview} />}
         <Topbar onMenuClick={() => setSidebarOpen(o => !o)} />
         <div className="flex flex-1 overflow-hidden">
-          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} allowedModules={allowedModules} />
+          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} allowedModules={allowedModules} isSuperAdmin={isSuperAdmin} />
           <WelcomeMediaModal />
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
@@ -155,6 +156,7 @@ function AppShell() {
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
               <Route path="/budgets" element={guard('budgets', <Budgets />)} />
+              <Route path="/workflows" element={isSuperAdmin ? <Workflows /> : <Navigate to="/" />} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />
               <Route path="/recharge" element={<Recharge />} />
               <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />

@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { authMiddleware, requireAdmin } from './middleware/auth'
+import { authMiddleware, requireAdmin, requireSuperAdmin } from './middleware/auth'
 import authRouter from './routes/auth'
 import patientsRouter from './routes/patients'
 import doctorsRouter from './routes/doctors'
@@ -27,6 +27,7 @@ import clinicConfigRouter from './routes/clinicConfig'
 import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes/whatsapp'
 import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
+import workflowsRouter from './routes/workflows'
 import { runMigrations } from './lib/migrate'
 
 const app = express()
@@ -69,6 +70,7 @@ app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
+app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 
 const PORT = process.env.PORT ?? 3001
 
