@@ -1384,6 +1384,48 @@
           "desc": "O profissional de saúde assina juntamente com o doente, ficando registada a participação de ambas as partes no mesmo documento."
         }
       }
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "subtitle": "Tudo o que precisa de saber antes de começar",
+      "items": {
+        "q1": {
+          "q": "A assinatura eletrónica tem validade legal?",
+          "a": "Sim. Cada consentimento assinado cumpre o Regulamento eIDAS (UE) 910/2014 e a legislação aplicável, com assinatura biométrica do traço, carimbo de tempo certificado, impressão digital do dispositivo e hash do documento."
+        },
+        "q2": {
+          "q": "Um consentimento em papel, ou um sem toda esta certificação eIDAS, continua válido?",
+          "a": "Sim, um consentimento em papel assinado à mão também é legalmente válido, uma vez que a lei não exige que a assinatura seja eletrónica. A vantagem do ConsentsPro é que, perante uma reclamação ou inspeção, é muito mais difícil de contestar: além da assinatura, ficam registados automaticamente a data e hora certificadas, o dispositivo utilizado e um hash que comprova que o documento não foi alterado — algo que o papel, ou uma assinatura eletrónica simples sem estas garantias, não pode oferecer."
+        },
+        "q3": {
+          "q": "Preciso de instalar alguma coisa?",
+          "a": "Não. O ConsentsPro funciona a 100% na nuvem, a partir de qualquer navegador e dispositivo — computador, tablet ou telemóvel — sem instalações."
+        },
+        "q4": {
+          "q": "Posso mudar de plano mais tarde?",
+          "a": "Sim, pode mudar ou atualizar o seu plano quando quiser diretamente na plataforma, sem fidelização."
+        },
+        "q5": {
+          "q": "É compatível com o RGPD?",
+          "a": "Sim. Todo o tratamento de dados dos doentes cumpre o RGPD, incluindo o registo de autorização de imagem para utilização de fotografias."
+        },
+        "q6": {
+          "q": "Posso utilizá-lo com doentes estrangeiros?",
+          "a": "Sim, os consentimentos estão disponíveis em 31 idiomas, com tradução automática dos modelos."
+        },
+        "q7": {
+          "q": "O que inclui o suporte?",
+          "a": "Todos os planos incluem suporte técnico para o ajudar com qualquer dúvida sobre a plataforma."
+        },
+        "q8": {
+          "q": "Quanto tempo demora a colocar a clínica em funcionamento?",
+          "a": "A configuração inicial — equipa, tratamentos e modelos de consentimento — é feita em minutos a partir do painel de administração."
+        },
+        "q9": {
+          "q": "Os meus doentes precisam de criar uma palavra-passe?",
+          "a": "Não. Acedem ao seu portal através de Magic Link, uma ligação de acesso segura que recebem por email, sem palavras-passe a memorizar."
+        }
+      }
     }
   }
 }

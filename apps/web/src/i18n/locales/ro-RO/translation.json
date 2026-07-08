@@ -1384,6 +1384,48 @@
           "desc": "Profesionistul din domeniul sănătății semnează alături de pacient, consemnând participarea ambelor părți în același document."
         }
       }
+    },
+    "faq": {
+      "title": "Întrebări frecvente",
+      "subtitle": "Tot ce trebuie să știți înainte de a începe",
+      "items": {
+        "q1": {
+          "q": "Semnătura electronică are valabilitate legală?",
+          "a": "Da. Fiecare consimțământ semnat respectă Regulamentul eIDAS (UE) 910/2014 și legislația aplicabilă, cu semnătură biometrică a traseului, marcă temporală certificată, amprentă digitală a dispozitivului și hash al documentului."
+        },
+        "q2": {
+          "q": "Rămâne valabil un consimțământ pe hârtie, sau unul fără toată această certificare eIDAS?",
+          "a": "Da, un consimțământ pe hârtie semnat de mână este de asemenea valabil din punct de vedere legal, deoarece legea nu impune ca semnătura să fie electronică. Avantajul ConsentsPro este că, în caz de reclamație sau inspecție, este mult mai greu de contestat: pe lângă semnătură, se înregistrează automat data și ora certificate, dispozitivul utilizat și un hash care demonstrează că documentul nu a fost modificat — ceva ce hârtia, sau o simplă semnătură electronică fără aceste garanții, nu poate oferi."
+        },
+        "q3": {
+          "q": "Trebuie să instalez ceva?",
+          "a": "Nu. ConsentsPro funcționează 100% în cloud, de pe orice browser și dispozitiv — computer, tabletă sau telefon mobil — fără instalări."
+        },
+        "q4": {
+          "q": "Pot schimba planul mai târziu?",
+          "a": "Da, puteți schimba sau face upgrade la planul dumneavoastră oricând direct din platformă, fără obligații contractuale."
+        },
+        "q5": {
+          "q": "Este conform cu RGPD?",
+          "a": "Da. Toată prelucrarea datelor pacienților respectă RGPD, inclusiv registrul de autorizare a imaginilor pentru utilizarea fotografiilor."
+        },
+        "q6": {
+          "q": "Îl pot folosi cu pacienți străini?",
+          "a": "Da, consimțămintele sunt disponibile în 31 de limbi, cu traducere automată a șabloanelor."
+        },
+        "q7": {
+          "q": "Ce include asistența?",
+          "a": "Toate planurile includ asistență tehnică pentru a vă ajuta cu orice întrebare despre platformă."
+        },
+        "q8": {
+          "q": "Cât timp durează punerea în funcțiune a clinicii?",
+          "a": "Configurarea inițială — echipă, tratamente și șabloane de consimțământ — se face în câteva minute din panoul de administrare."
+        },
+        "q9": {
+          "q": "Pacienții mei trebuie să își creeze o parolă?",
+          "a": "Nu. Aceștia accesează portalul lor prin Magic Link, un link de acces securizat pe care îl primesc prin email, fără parole de reținut."
+        }
+      }
     }
   }
 }

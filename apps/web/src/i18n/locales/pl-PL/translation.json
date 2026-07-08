@@ -1384,6 +1384,48 @@
           "desc": "Pracownik służby zdrowia podpisuje razem z pacjentem, dokumentując udział obu stron w tym samym dokumencie."
         }
       }
+    },
+    "faq": {
+      "title": "Najczęściej zadawane pytania",
+      "subtitle": "Wszystko, co musisz wiedzieć, zanim zaczniesz",
+      "items": {
+        "q1": {
+          "q": "Czy podpis elektroniczny ma moc prawną?",
+          "a": "Tak. Każda podpisana zgoda jest zgodna z rozporządzeniem eIDAS (UE) 910/2014 oraz obowiązującymi przepisami, z biometrycznym zapisem podpisu, certyfikowanym znacznikiem czasu, cyfrowym odciskiem urządzenia i hashem dokumentu."
+        },
+        "q2": {
+          "q": "Czy zgoda na papierze, lub bez tej pełnej certyfikacji eIDAS, nadal jest ważna?",
+          "a": "Tak, zgoda podpisana odręcznie na papierze również jest ważna prawnie, ponieważ prawo nie wymaga, aby podpis był elektroniczny. Zaletą ConsentsPro jest to, że w przypadku reklamacji lub kontroli jest znacznie trudniejsza do podważenia: oprócz podpisu automatycznie rejestrowane są certyfikowana data i godzina, użyte urządzenie oraz hash potwierdzający, że dokument nie został zmieniony — czego papier, lub prosty podpis elektroniczny bez tych zabezpieczeń, nie może zapewnić."
+        },
+        "q3": {
+          "q": "Czy muszę coś instalować?",
+          "a": "Nie. ConsentsPro działa w 100% w chmurze, z dowolnej przeglądarki i urządzenia — komputera, tabletu lub telefonu — bez instalacji."
+        },
+        "q4": {
+          "q": "Czy mogę później zmienić plan?",
+          "a": "Tak, możesz zmienić lub ulepszyć swój plan w dowolnym momencie bezpośrednio z platformy, bez zobowiązań."
+        },
+        "q5": {
+          "q": "Czy jest zgodny z RODO?",
+          "a": "Tak. Całe przetwarzanie danych pacjentów jest zgodne z RODO, w tym rejestr zgody na wykorzystanie wizerunku do użycia zdjęć."
+        },
+        "q6": {
+          "q": "Czy mogę go używać z pacjentami zagranicznymi?",
+          "a": "Tak, zgody są dostępne w 31 językach, z automatycznym tłumaczeniem szablonów."
+        },
+        "q7": {
+          "q": "Co obejmuje wsparcie?",
+          "a": "Każdy plan obejmuje wsparcie techniczne, które pomoże Ci w każdej kwestii związanej z platformą."
+        },
+        "q8": {
+          "q": "Ile czasu zajmuje uruchomienie kliniki?",
+          "a": "Wstępna konfiguracja — zespół, zabiegi i szablony zgód — trwa kilka minut w panelu administracyjnym."
+        },
+        "q9": {
+          "q": "Czy moi pacjenci muszą tworzyć hasło?",
+          "a": "Nie. Uzyskują dostęp do swojego portalu za pomocą Magic Link, bezpiecznego linku dostępu, który otrzymują e-mailem, bez konieczności zapamiętywania haseł."
+        }
+      }
     }
   }
 }

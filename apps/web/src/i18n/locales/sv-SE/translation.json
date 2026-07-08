@@ -1384,6 +1384,48 @@
           "desc": "Vårdpersonalen signerar tillsammans med patienten, vilket dokumenterar bägge parters medverkan i samma dokument."
         }
       }
+    },
+    "faq": {
+      "title": "Vanliga frågor",
+      "subtitle": "Allt du behöver veta innan du börjar",
+      "items": {
+        "q1": {
+          "q": "Har den elektroniska signaturen juridisk giltighet?",
+          "a": "Ja. Varje signerat samtycke uppfyller eIDAS-förordningen (EU) 910/2014 och tillämplig lagstiftning, med biometrisk signatur av penndraget, certifierad tidsstämpel, digitalt enhetsavtryck och dokumenthash."
+        },
+        "q2": {
+          "q": "Är ett samtycke på papper, eller ett utan hela denna eIDAS-certifiering, fortfarande giltigt?",
+          "a": "Ja, ett handskrivet samtycke på papper är också juridiskt giltigt, eftersom lagen inte kräver att signaturen är elektronisk. Fördelen med ConsentsPro är att det är mycket svårare att bestrida vid ett klagomål eller en granskning: förutom signaturen registreras automatiskt det certifierade datumet och tiden, den använda enheten och en hash som bevisar att dokumentet inte har ändrats — något som papper, eller en enkel elektronisk signatur utan dessa skydd, inte kan erbjuda."
+        },
+        "q3": {
+          "q": "Behöver jag installera något?",
+          "a": "Nej. ConsentsPro fungerar till 100 % i molnet, från vilken webbläsare och enhet som helst — dator, surfplatta eller mobil — utan installation."
+        },
+        "q4": {
+          "q": "Kan jag byta plan senare?",
+          "a": "Ja, du kan byta eller uppgradera din plan när du vill direkt från plattformen, utan bindningstid."
+        },
+        "q5": {
+          "q": "Är det GDPR-kompatibelt?",
+          "a": "Ja. All behandling av patientdata följer GDPR, inklusive registret för bildtillstånd för användning av foton."
+        },
+        "q6": {
+          "q": "Kan jag använda det med utländska patienter?",
+          "a": "Ja, samtyckena finns tillgängliga på 31 språk, med automatisk översättning av mallarna."
+        },
+        "q7": {
+          "q": "Vad ingår i supporten?",
+          "a": "Alla planer inkluderar teknisk support som hjälper dig med alla frågor om plattformen."
+        },
+        "q8": {
+          "q": "Hur lång tid tar det att komma igång med kliniken?",
+          "a": "Den inledande konfigurationen — team, behandlingar och samtyckesmallar — görs på några minuter från administrationspanelen."
+        },
+        "q9": {
+          "q": "Behöver mina patienter skapa ett lösenord?",
+          "a": "Nej. De får tillgång till sin portal via Magic Link, en säker åtkomstlänk de får via e-post, utan lösenord att komma ihåg."
+        }
+      }
     }
   }
 }

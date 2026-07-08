@@ -1384,6 +1384,48 @@
           "desc": "Sağlık uzmanı, hastayla birlikte imzalayarak her iki tarafın katılımını aynı belgede kayıt altına alır."
         }
       }
+    },
+    "faq": {
+      "title": "Sıkça sorulan sorular",
+      "subtitle": "Başlamadan önce bilmeniz gereken her şey",
+      "items": {
+        "q1": {
+          "q": "Elektronik imzanın yasal geçerliliği var mı?",
+          "a": "Evet. İmzalanan her onam, elektronik kimlik doğrulama ve güven hizmetlerine ilişkin eIDAS Yönetmeliği'ne (AB) 910/2014 ve yürürlükteki mevzuata uygundur; imza çizgisinin biyometrik kaydı, onaylı zaman damgası, cihaz dijital parmak izi ve belge hash'i içerir."
+        },
+        "q2": {
+          "q": "Kağıt üzerindeki bir onam, veya bu eIDAS sertifikasyonunun tamamına sahip olmayan bir onam, hâlâ geçerli mi?",
+          "a": "Evet, elle imzalanmış kağıt bir onam da yasal olarak geçerlidir, çünkü kanun imzanın elektronik olmasını zorunlu kılmaz. ConsentsPro'nun avantajı, bir şikayet veya denetim durumunda itiraz edilmesinin çok daha zor olmasıdır: imzanın yanı sıra, onaylı tarih ve saat, kullanılan cihaz ve belgenin değiştirilmediğini kanıtlayan bir hash otomatik olarak kaydedilir — kağıdın veya bu güvencelere sahip olmayan basit bir elektronik imzanın sunamayacağı bir şey."
+        },
+        "q3": {
+          "q": "Bir şey yüklemem gerekiyor mu?",
+          "a": "Hayır. ConsentsPro %100 bulutta çalışır; bilgisayar, tablet veya mobil gibi herhangi bir tarayıcı ve cihazdan, herhangi bir kurulum yapmadan kullanılabilir."
+        },
+        "q4": {
+          "q": "Daha sonra planımı değiştirebilir miyim?",
+          "a": "Evet, planınızı istediğiniz zaman doğrudan platform üzerinden değiştirebilir veya yükseltebilirsiniz, herhangi bir taahhüt olmadan."
+        },
+        "q5": {
+          "q": "KVKK ile uyumlu mu?",
+          "a": "Evet. Hasta verilerinin tüm işlenmesi, fotoğrafların kullanımı için görsel kullanım izni kaydı da dahil olmak üzere KVKK'ya uygundur."
+        },
+        "q6": {
+          "q": "Yabancı hastalarla kullanabilir miyim?",
+          "a": "Evet, onam formları şablonların otomatik çevirisiyle birlikte 31 dilde mevcuttur."
+        },
+        "q7": {
+          "q": "Destek neleri kapsıyor?",
+          "a": "Tüm planlar, platformla ilgili herhangi bir sorunuzda size yardımcı olacak teknik destek içerir."
+        },
+        "q8": {
+          "q": "Kliniği faaliyete geçirmek ne kadar sürer?",
+          "a": "İlk kurulum — ekip, tedaviler ve onam şablonları — yönetim panelinden dakikalar içinde yapılır."
+        },
+        "q9": {
+          "q": "Hastalarımın bir şifre oluşturması gerekiyor mu?",
+          "a": "Hayır. E-posta yoluyla aldıkları güvenli bir erişim bağlantısı olan Magic Link ile portallarına erişirler, hatırlamaları gereken bir şifre yoktur."
+        }
+      }
     }
   }
 }

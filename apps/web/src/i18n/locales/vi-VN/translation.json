@@ -1384,6 +1384,48 @@
           "desc": "Chuyên gia y tế ký cùng với bệnh nhân, ghi lại sự tham gia của cả hai bên trong cùng một tài liệu."
         }
       }
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "subtitle": "Mọi thứ bạn cần biết trước khi bắt đầu",
+      "items": {
+        "q1": {
+          "q": "Chữ ký điện tử có hiệu lực pháp lý không?",
+          "a": "Có. Mọi bản chấp thuận đã ký đều tuân thủ Quy định eIDAS (EU) 910/2014 và pháp luật hiện hành, với chữ ký sinh trắc học của nét bút, dấu thời gian được chứng thực, dấu vân tay kỹ thuật số của thiết bị và mã băm tài liệu."
+        },
+        "q2": {
+          "q": "Một bản chấp thuận trên giấy, hoặc không có đầy đủ chứng nhận eIDAS này, có còn hợp lệ không?",
+          "a": "Có, một bản chấp thuận trên giấy được ký tay cũng có hiệu lực pháp lý, vì pháp luật không yêu cầu chữ ký phải là điện tử. Ưu điểm của ConsentsPro là trong trường hợp có khiếu nại hoặc thanh tra, nó khó bị phản đối hơn nhiều: ngoài chữ ký, ngày giờ được chứng thực, thiết bị được sử dụng và mã băm chứng minh tài liệu chưa bị thay đổi đều được ghi lại tự động — điều mà giấy, hoặc một chữ ký điện tử đơn giản không có các biện pháp bảo vệ này, không thể cung cấp."
+        },
+        "q3": {
+          "q": "Tôi có cần cài đặt gì không?",
+          "a": "Không. ConsentsPro hoạt động 100% trên nền tảng đám mây, từ bất kỳ trình duyệt và thiết bị nào — máy tính, máy tính bảng hoặc điện thoại di động — mà không cần cài đặt."
+        },
+        "q4": {
+          "q": "Tôi có thể đổi gói sau này không?",
+          "a": "Có, bạn có thể đổi hoặc nâng cấp gói của mình bất cứ khi nào bạn muốn trực tiếp từ nền tảng, không cần cam kết."
+        },
+        "q5": {
+          "q": "Nó có tuân thủ GDPR không?",
+          "a": "Có. Toàn bộ việc xử lý dữ liệu bệnh nhân đều tuân thủ GDPR, bao gồm cả hồ sơ cấp phép sử dụng hình ảnh cho việc sử dụng ảnh."
+        },
+        "q6": {
+          "q": "Tôi có thể sử dụng nó với bệnh nhân nước ngoài không?",
+          "a": "Có, các bản chấp thuận có sẵn bằng 31 ngôn ngữ, với bản dịch tự động của các mẫu."
+        },
+        "q7": {
+          "q": "Hỗ trợ bao gồm những gì?",
+          "a": "Mọi gói đều bao gồm hỗ trợ kỹ thuật để giúp bạn với bất kỳ câu hỏi nào về nền tảng."
+        },
+        "q8": {
+          "q": "Mất bao lâu để phòng khám đi vào hoạt động?",
+          "a": "Việc thiết lập ban đầu — đội ngũ, liệu trình và mẫu chấp thuận — được thực hiện trong vài phút từ bảng quản trị."
+        },
+        "q9": {
+          "q": "Bệnh nhân của tôi có cần tạo mật khẩu không?",
+          "a": "Không. Họ truy cập cổng thông tin của mình qua Magic Link, một liên kết truy cập an toàn mà họ nhận được qua email, không cần nhớ mật khẩu."
+        }
+      }
     }
   }
 }

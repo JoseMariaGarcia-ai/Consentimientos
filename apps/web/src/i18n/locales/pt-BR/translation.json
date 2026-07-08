@@ -1384,6 +1384,48 @@
           "desc": "O profissional de saúde assina junto com o paciente, registrando a participação de ambas as partes no mesmo documento."
         }
       }
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "subtitle": "Tudo o que você precisa saber antes de começar",
+      "items": {
+        "q1": {
+          "q": "A assinatura eletrônica tem validade legal?",
+          "a": "Sim. Todo termo assinado está em conformidade com o Regulamento eIDAS (UE) 910/2014 e a legislação aplicável, com assinatura biométrica do traço, carimbo de tempo certificado, impressão digital do dispositivo e hash do documento."
+        },
+        "q2": {
+          "q": "Um termo em papel, ou um sem toda essa certificação eIDAS, ainda é válido?",
+          "a": "Sim, um termo em papel assinado à mão também é legalmente válido, já que a lei não exige que a assinatura seja eletrônica. A vantagem do ConsentsPro é que, diante de uma reclamação ou fiscalização, fica muito mais difícil de contestar: além da assinatura, ficam registrados automaticamente a data e hora certificadas, o dispositivo utilizado e um hash que comprova que o documento não foi alterado — algo que o papel, ou uma assinatura eletrônica simples sem essas garantias, não pode oferecer."
+        },
+        "q3": {
+          "q": "Preciso instalar algo?",
+          "a": "Não. O ConsentsPro funciona 100% na nuvem, a partir de qualquer navegador e dispositivo — computador, tablet ou celular — sem instalações."
+        },
+        "q4": {
+          "q": "Posso trocar de plano mais tarde?",
+          "a": "Sim, você pode trocar ou fazer upgrade do seu plano quando quiser diretamente pela plataforma, sem fidelidade."
+        },
+        "q5": {
+          "q": "É compatível com a LGPD?",
+          "a": "Sim. Todo o tratamento de dados dos pacientes está em conformidade com a LGPD, incluindo o registro de autorização de imagem para uso de fotos."
+        },
+        "q6": {
+          "q": "Posso usá-lo com pacientes estrangeiros?",
+          "a": "Sim, os termos estão disponíveis em 31 idiomas, com tradução automática dos modelos."
+        },
+        "q7": {
+          "q": "O que inclui o suporte?",
+          "a": "Todos os planos incluem suporte técnico para te ajudar com qualquer dúvida sobre a plataforma."
+        },
+        "q8": {
+          "q": "Quanto tempo leva para colocar a clínica em funcionamento?",
+          "a": "A configuração inicial — equipe, tratamentos e modelos de consentimento — é feita em minutos pelo painel administrativo."
+        },
+        "q9": {
+          "q": "Meus pacientes precisam criar uma senha?",
+          "a": "Não. Eles acessam o portal por meio do Magic Link, um link de acesso seguro que recebem por e-mail, sem senhas para lembrar."
+        }
+      }
     }
   }
 }
