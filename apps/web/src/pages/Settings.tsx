@@ -285,6 +285,7 @@ function ClinicKeysPanel() {
     ycloud_api_key:    '',
     anthropic_api_key: '',
     retell_api_key:    '',
+    make_api_key:      '',
     knowledge_base:    '',
     prompt:            '',
   })
@@ -310,6 +311,7 @@ function ClinicKeysPanel() {
           ycloud_api_key:    data.ycloud_api_key    ?? '',
           anthropic_api_key: data.anthropic_api_key ?? '',
           retell_api_key:    data.retell_api_key    ?? '',
+          make_api_key:      data.make_api_key      ?? '',
           knowledge_base:    data.knowledge_base    ?? '',
           prompt:            data.prompt            ?? '',
         })
@@ -439,6 +441,7 @@ function ClinicKeysPanel() {
                 <Field label="YCloud API Key" value={form.ycloud_api_key} onChange={v => setForm(f => ({ ...f, ycloud_api_key: v }))} hint="yc_live_..." />
                 <Field label="Anthropic API Key" value={form.anthropic_api_key} onChange={v => setForm(f => ({ ...f, anthropic_api_key: v }))} hint="sk-ant-..." />
                 <Field label="Retell API Key" value={form.retell_api_key} onChange={v => setForm(f => ({ ...f, retell_api_key: v }))} hint="key_..." />
+                <Field label="Make API Key" value={form.make_api_key} onChange={v => setForm(f => ({ ...f, make_api_key: v }))} hint="Para enlazar leads con Make.com" />
               </div>
 
               <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">

@@ -66,18 +66,18 @@ router.post('/extract-pdf', async (req, res) => {
 // PUT /api/clinic-config — superadmin only
 router.put('/', async (req, res) => {
   try {
-    const { targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, knowledge_base, prompt } = req.body
+    const { targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt } = req.body
     const clinicId = await requireSuperAdminClinicId(req, targetClinicId)
     if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne(
-      `INSERT INTO clinic_api_config (clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, knowledge_base, prompt, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,NOW())
+      `INSERT INTO clinic_api_config (clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,NOW())
        ON CONFLICT (clinic_id) DO UPDATE SET
-         ycloud_api_key=$2, anthropic_api_key=$3, retell_api_key=$4,
-         knowledge_base=$5, prompt=$6, updated_at=NOW()
+         ycloud_api_key=$2, anthropic_api_key=$3, retell_api_key=$4, make_api_key=$5,
+         knowledge_base=$6, prompt=$7, updated_at=NOW()
        RETURNING *`,
       [clinicId, ycloud_api_key ?? null, anthropic_api_key ?? null, retell_api_key ?? null,
-       knowledge_base ?? null, prompt ?? null]
+       make_api_key ?? null, knowledge_base ?? null, prompt ?? null]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
