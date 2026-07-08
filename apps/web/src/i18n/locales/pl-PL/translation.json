@@ -1256,5 +1256,96 @@
     "save": "Zapisz",
     "saving": "Zapisywanie…",
     "saved": "Zapisano"
+  },
+  "landing": {
+    "nav": {
+      "access": "Zaloguj się"
+    },
+    "hero": {
+      "badge": "Oprogramowanie dla klinik medycyny estetycznej",
+      "title_line1": "Świadome zgody",
+      "title_highlight": "w 100% cyfrowe",
+      "subtitle": "Podpis biometryczny, dokumentacja medyczna, harmonogram wizyt i agenci AI na jednej platformie. Gwarantowana zgodność z prawem — ustawa o prawach pacjenta, eIDAS i RODO.",
+      "cta_primary": "Przejdź do platformy",
+      "cta_secondary": "Zobacz plany",
+      "trust_1": "Ustawa o prawach pacjenta",
+      "trust_2": "eIDAS",
+      "trust_3": "RODO"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Dostępne języki",
+      "s2_value": "100 %",
+      "s2_label": "W 100% cyfrowe i bez papieru",
+      "s3_value": "24/7",
+      "s3_label": "Portal pacjenta",
+      "s4_value": "0",
+      "s4_label": "Ryzyko prawne wynikające z nieważnych podpisów"
+    },
+    "features": {
+      "title": "Wszystko, czego potrzebuje Twoja klinika",
+      "subtitle": "Kompletna platforma stworzona dla klinik medycyny estetycznej",
+      "items": {
+        "signature": {
+          "title": "Podpis biometryczny + Magic Link",
+          "desc": "Zgody o pełnej mocy prawnej, podpisywane przez pacjenta z dowolnego urządzenia."
+        },
+        "multilang": {
+          "title": "Nieograniczone zgody w 31 językach",
+          "desc": "Konfigurowalne szablony automatycznie tłumaczone dla pacjentów dowolnej narodowości."
+        },
+        "records": {
+          "title": "Cyfrowa dokumentacja medyczna",
+          "desc": "Wszystkie informacje o pacjencie scentralizowane, bezpieczne i natychmiast dostępne."
+        },
+        "agenda": {
+          "title": "Inteligentny harmonogram wizyt",
+          "desc": "Zarządzanie grafikami, zabiegami i dostępnością bez tarć."
+        },
+        "toxin": {
+          "title": "Kontrola toksyny botulinowej",
+          "desc": "Pełna identyfikowalność partii i jednostek zastosowanych na pacjenta i sesję."
+        },
+        "gallery": {
+          "title": "Galeria przed / po",
+          "desc": "Zdjęcia kliniczne uporządkowane według sesji, z wizualnymi porównaniami dla pacjenta."
+        },
+        "portal": {
+          "title": "Portal pacjenta 24/7",
+          "desc": "Twoi pacjenci mają dostęp do swoich zgód, zdjęć i dokumentacji medycznej o każdej porze."
+        },
+        "whatsapp": {
+          "title": "Agent WhatsApp z AI",
+          "desc": "Automatycznie pozyskuje i potwierdza wizyty oraz komunikuje się z pacjentami przez całą dobę."
+        },
+        "voice": {
+          "title": "Agent głosowy z AI",
+          "desc": "Automatycznie odbiera połączenia i umawia wizyty telefonicznie, klonując głos Twojej recepcji."
+        }
+      }
+    },
+    "how": {
+      "title": "To takie proste",
+      "subtitle": "Twoja klinika gotowa do działania w trzech krokach",
+      "step1_title": "Zarejestruj swoją klinikę",
+      "step1_desc": "Skonfiguruj zespół, zabiegi i szablony zgód w kilka minut.",
+      "step2_title": "Zaproś swoich pacjentów",
+      "step2_desc": "Wyślij link do podpisu e-mailem lub przez WhatsApp — podpisują się z telefonu za pomocą Magic Link.",
+      "step3_title": "Wszystko zostaje zarejestrowane",
+      "step3_desc": "Zgody, zdjęcia i dokumentacja medyczna bezpiecznie zarchiwizowane z pełną mocą prawną."
+    },
+    "pricing": {
+      "title": "Plany subskrypcji",
+      "subtitle": "Wybierz plan najlepiej dopasowany do Twojej kliniki — zmieniaj lub ulepszaj, kiedy chcesz"
+    },
+    "final_cta": {
+      "title": "Zdigitalizuj swoją klinikę już dziś",
+      "subtitle": "Dołącz do klinik, które już wyeliminowały papier ze swoich świadomych zgód.",
+      "button": "Przejdź do platformy"
+    },
+    "footer": {
+      "tagline": "Ważne zgody cyfrowe · Ustawa o prawach pacjenta · RODO",
+      "rights": "Wszelkie prawa zastrzeżone."
+    }
   }
 }

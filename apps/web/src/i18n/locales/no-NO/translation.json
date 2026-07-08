@@ -1256,5 +1256,96 @@
     "save": "Lagre",
     "saving": "Lagrer…",
     "saved": "Lagret"
+  },
+  "landing": {
+    "nav": {
+      "access": "Logg inn"
+    },
+    "hero": {
+      "badge": "Programvare for klinikker for estetisk medisin",
+      "title_line1": "Informerte samtykker",
+      "title_highlight": "100 % digitale",
+      "subtitle": "Biometrisk signatur, pasientjournal, timebok og AI-agenter på én plattform. Garantert lovlig etterlevelse — pasientrettighetsloven, eIDAS og GDPR.",
+      "cta_primary": "Gå til plattformen",
+      "cta_secondary": "Se planer",
+      "trust_1": "Pasientrettighetsloven",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Tilgjengelige språk",
+      "s2_value": "100 %",
+      "s2_label": "Digitalt og papirløst",
+      "s3_value": "24/7",
+      "s3_label": "Pasientportal",
+      "s4_value": "0",
+      "s4_label": "Juridisk risiko fra ugyldige signaturer"
+    },
+    "features": {
+      "title": "Alt klinikken din trenger",
+      "subtitle": "En komplett plattform bygget for klinikker for estetisk medisin",
+      "items": {
+        "signature": {
+          "title": "Biometrisk signatur + Magic Link",
+          "desc": "Samtykker med full juridisk gyldighet, signert av pasienten fra hvilken som helst enhet."
+        },
+        "multilang": {
+          "title": "Ubegrensede samtykker på 31 språk",
+          "desc": "Tilpassbare maler automatisk oversatt for pasienter av enhver nasjonalitet."
+        },
+        "records": {
+          "title": "Digital pasientjournal",
+          "desc": "All pasientinformasjon sentralisert, sikker og umiddelbart tilgjengelig."
+        },
+        "agenda": {
+          "title": "Smart timebestilling",
+          "desc": "Håndtering av timeplaner, behandlinger og tilgjengelighet uten friksjon."
+        },
+        "toxin": {
+          "title": "Sporing av botulinumtoksin",
+          "desc": "Full sporbarhet av batcher og enheter brukt per pasient og økt."
+        },
+        "gallery": {
+          "title": "Galleri før / etter",
+          "desc": "Kliniske bilder organisert etter økt, med visuelle sammenligninger for pasienten."
+        },
+        "portal": {
+          "title": "Pasientportal døgnet rundt",
+          "desc": "Pasientene dine har tilgang til sine samtykker, bilder og journal når som helst."
+        },
+        "whatsapp": {
+          "title": "WhatsApp-agent med AI",
+          "desc": "Skaffer og bekrefter avtaler automatisk, og kommuniserer med pasientene dine døgnet rundt."
+        },
+        "voice": {
+          "title": "Taleagent med AI",
+          "desc": "Svarer på anrop og bestiller timer per telefon automatisk, med en klonet stemme fra resepsjonen din."
+        }
+      }
+    },
+    "how": {
+      "title": "Så enkelt er det",
+      "subtitle": "Klinikken din i drift på tre trinn",
+      "step1_title": "Registrer klinikken din",
+      "step1_desc": "Sett opp teamet, behandlingene og samtykkemalene dine på få minutter.",
+      "step2_title": "Inviter pasientene dine",
+      "step2_desc": "Send signeringslenken på e-post eller WhatsApp — de signerer fra mobilen med Magic Link.",
+      "step3_title": "Alt blir registrert",
+      "step3_desc": "Samtykker, bilder og journal arkivert sikkert med full juridisk gyldighet."
+    },
+    "pricing": {
+      "title": "Abonnementsplaner",
+      "subtitle": "Velg planen som passer best for klinikken din — bytt eller oppgrader når du vil"
+    },
+    "final_cta": {
+      "title": "Digitaliser klinikken din i dag",
+      "subtitle": "Bli med klinikkene som allerede har fjernet papiret fra sine informerte samtykker.",
+      "button": "Gå til plattformen"
+    },
+    "footer": {
+      "tagline": "Gyldige digitale samtykker · Pasientrettighetsloven · GDPR",
+      "rights": "Alle rettigheter forbeholdt."
+    }
   }
 }

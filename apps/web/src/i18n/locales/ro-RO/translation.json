@@ -1256,5 +1256,96 @@
     "save": "Salvează",
     "saving": "Se salvează…",
     "saved": "Salvat"
+  },
+  "landing": {
+    "nav": {
+      "access": "Autentificare"
+    },
+    "hero": {
+      "badge": "Software pentru clinici de medicină estetică",
+      "title_line1": "Consimțăminte informate",
+      "title_highlight": "100% digitale",
+      "subtitle": "Semnătură biometrică, fișă medicală, programări și agenți de inteligență artificială într-o singură platformă. Conformitate legală garantată — Legea 95/2006, eIDAS și RGPD.",
+      "cta_primary": "Accesează platforma",
+      "cta_secondary": "Vezi planurile",
+      "trust_1": "Legea 95/2006",
+      "trust_2": "eIDAS",
+      "trust_3": "RGPD"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Limbi disponibile",
+      "s2_value": "100 %",
+      "s2_label": "100% digital și fără hârtie",
+      "s3_value": "24/7",
+      "s3_label": "Portal pacient",
+      "s4_value": "0",
+      "s4_label": "Risc legal din semnături nevalide"
+    },
+    "features": {
+      "title": "Tot ce are nevoie clinica dumneavoastră",
+      "subtitle": "O platformă completă concepută pentru clinici de medicină estetică",
+      "items": {
+        "signature": {
+          "title": "Semnătură biometrică + Magic Link",
+          "desc": "Consimțăminte cu deplină valabilitate legală, semnate de pacient de pe orice dispozitiv."
+        },
+        "multilang": {
+          "title": "Consimțăminte nelimitate în 31 de limbi",
+          "desc": "Șabloane personalizabile, traduse automat pentru pacienți de orice naționalitate."
+        },
+        "records": {
+          "title": "Fișă medicală digitală",
+          "desc": "Toate informațiile despre pacient centralizate, securizate și accesibile instantaneu."
+        },
+        "agenda": {
+          "title": "Programări inteligente",
+          "desc": "Gestionarea programului, tratamentelor și disponibilității fără dificultăți."
+        },
+        "toxin": {
+          "title": "Trasabilitatea toxinei botulinice",
+          "desc": "Trasabilitate completă a loturilor și unităților aplicate pe pacient și ședință."
+        },
+        "gallery": {
+          "title": "Galerie înainte / după",
+          "desc": "Fotografii clinice organizate pe ședințe, cu comparații vizuale pentru pacient."
+        },
+        "portal": {
+          "title": "Portal pacient 24/7",
+          "desc": "Pacienții dumneavoastră accesează consimțămintele, fotografiile și fișa medicală în orice moment."
+        },
+        "whatsapp": {
+          "title": "Agent WhatsApp cu inteligență artificială",
+          "desc": "Captează și confirmă programările automat și comunică cu pacienții dumneavoastră non-stop."
+        },
+        "voice": {
+          "title": "Agent vocal cu inteligență artificială",
+          "desc": "Răspunde la apeluri și programează întâlniri telefonic automat, clonând vocea recepției dumneavoastră."
+        }
+      }
+    },
+    "how": {
+      "title": "Este atât de simplu",
+      "subtitle": "Clinica dumneavoastră operațională în trei pași",
+      "step1_title": "Înregistrați-vă clinica",
+      "step1_desc": "Configurați echipa, tratamentele și șabloanele de consimțământ în câteva minute.",
+      "step2_title": "Invitați-vă pacienții",
+      "step2_desc": "Trimiteți linkul de semnare prin email sau WhatsApp — semnează de pe mobil cu Magic Link.",
+      "step3_title": "Totul este înregistrat",
+      "step3_desc": "Consimțăminte, fotografii și fișă medicală arhivate în siguranță și cu valabilitate legală."
+    },
+    "pricing": {
+      "title": "Planuri de abonament",
+      "subtitle": "Alegeți planul potrivit clinicii dumneavoastră — schimbați sau faceți upgrade oricând"
+    },
+    "final_cta": {
+      "title": "Digitalizați-vă clinica astăzi",
+      "subtitle": "Alăturați-vă clinicilor care au eliminat deja hârtia din consimțămintele lor informate.",
+      "button": "Accesează platforma"
+    },
+    "footer": {
+      "tagline": "Consimțăminte digitale valide · Legea 95/2006 · RGPD",
+      "rights": "Toate drepturile rezervate."
+    }
   }
 }

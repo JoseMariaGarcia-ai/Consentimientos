@@ -1256,5 +1256,96 @@
     "save": "Opslaan",
     "saving": "Opslaan…",
     "saved": "Opgeslagen"
+  },
+  "landing": {
+    "nav": {
+      "access": "Inloggen"
+    },
+    "hero": {
+      "badge": "Software voor klinieken voor esthetische geneeskunde",
+      "title_line1": "Geïnformeerde toestemmingen",
+      "title_highlight": "100% digitaal",
+      "subtitle": "Biometrische handtekening, medisch dossier, agenda en AI-agenten op één platform. Gegarandeerde wettelijke naleving — WGBO, eIDAS en AVG.",
+      "cta_primary": "Naar het platform",
+      "cta_secondary": "Bekijk abonnementen",
+      "trust_1": "WGBO",
+      "trust_2": "eIDAS",
+      "trust_3": "AVG"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Beschikbare talen",
+      "s2_value": "100 %",
+      "s2_label": "Volledig digitaal en papierloos",
+      "s3_value": "24/7",
+      "s3_label": "Patiëntenportaal",
+      "s4_value": "0",
+      "s4_label": "Juridisch risico door ongeldige handtekeningen"
+    },
+    "features": {
+      "title": "Alles wat uw kliniek nodig heeft",
+      "subtitle": "Een compleet platform ontworpen voor klinieken voor esthetische geneeskunde",
+      "items": {
+        "signature": {
+          "title": "Biometrische handtekening + Magic Link",
+          "desc": "Juridisch volledig geldige toestemmingen, door de patiënt te ondertekenen vanaf elk apparaat."
+        },
+        "multilang": {
+          "title": "Onbeperkte toestemmingen in 31 talen",
+          "desc": "Aanpasbare sjablonen automatisch vertaald voor patiënten van elke nationaliteit."
+        },
+        "records": {
+          "title": "Digitaal medisch dossier",
+          "desc": "Alle patiëntinformatie gecentraliseerd, veilig en direct toegankelijk."
+        },
+        "agenda": {
+          "title": "Slimme afsprakenagenda",
+          "desc": "Beheer van roosters, behandelingen en beschikbaarheid zonder wrijving."
+        },
+        "toxin": {
+          "title": "Botulinetoxine-tracking",
+          "desc": "Volledige traceerbaarheid van batches en eenheden toegepast per patiënt en sessie."
+        },
+        "gallery": {
+          "title": "Galerij voor / na",
+          "desc": "Klinische foto's georganiseerd per sessie, met visuele vergelijkingen voor de patiënt."
+        },
+        "portal": {
+          "title": "Patiëntenportaal 24/7",
+          "desc": "Uw patiënten hebben altijd toegang tot hun toestemmingen, foto's en medisch dossier."
+        },
+        "whatsapp": {
+          "title": "WhatsApp-agent met AI",
+          "desc": "Werft en bevestigt afspraken automatisch, en communiceert dag en nacht met uw patiënten."
+        },
+        "voice": {
+          "title": "Spraakagent met AI",
+          "desc": "Beantwoordt oproepen en boekt telefonisch automatisch afspraken, met een gekloonde stem van uw receptie."
+        }
+      }
+    },
+    "how": {
+      "title": "Zo eenvoudig is het",
+      "subtitle": "Uw kliniek operationeel in drie stappen",
+      "step1_title": "Registreer uw kliniek",
+      "step1_desc": "Stel uw team, behandelingen en toestemmingssjablonen in enkele minuten in.",
+      "step2_title": "Nodig uw patiënten uit",
+      "step2_desc": "Stuur de ondertekenlink per e-mail of WhatsApp — zij ondertekenen vanaf hun mobiel met Magic Link.",
+      "step3_title": "Alles wordt vastgelegd",
+      "step3_desc": "Toestemmingen, foto's en medisch dossier veilig gearchiveerd met volledige juridische geldigheid."
+    },
+    "pricing": {
+      "title": "Abonnementen",
+      "subtitle": "Kies het abonnement dat het beste bij uw kliniek past — wissel of upgrade wanneer u wilt"
+    },
+    "final_cta": {
+      "title": "Digitaliseer uw kliniek vandaag nog",
+      "subtitle": "Sluit u aan bij de klinieken die al papiervrij zijn met hun geïnformeerde toestemmingen.",
+      "button": "Naar het platform"
+    },
+    "footer": {
+      "tagline": "Geldige digitale toestemmingen · WGBO · AVG",
+      "rights": "Alle rechten voorbehouden."
+    }
   }
 }

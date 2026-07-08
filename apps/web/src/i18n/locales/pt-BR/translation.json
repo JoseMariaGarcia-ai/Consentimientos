@@ -1256,5 +1256,96 @@
     "save": "Salvar",
     "saving": "Salvando…",
     "saved": "Salvo"
+  },
+  "landing": {
+    "nav": {
+      "access": "Entrar"
+    },
+    "hero": {
+      "badge": "Software para clínicas de medicina estética",
+      "title_line1": "Termos de consentimento",
+      "title_highlight": "100% digitais",
+      "subtitle": "Assinatura biométrica, prontuário eletrônico, agenda e agentes de IA em uma única plataforma. Conformidade legal garantida — CFM 1.931/2009, eIDAS e LGPD.",
+      "cta_primary": "Acessar a plataforma",
+      "cta_secondary": "Ver planos",
+      "trust_1": "CFM 1.931/2009",
+      "trust_2": "eIDAS",
+      "trust_3": "LGPD"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Idiomas disponíveis",
+      "s2_value": "100 %",
+      "s2_label": "100% digital e sem papel",
+      "s3_value": "24/7",
+      "s3_label": "Portal do paciente",
+      "s4_value": "0",
+      "s4_label": "Risco legal por assinaturas inválidas"
+    },
+    "features": {
+      "title": "Tudo o que a sua clínica precisa",
+      "subtitle": "Uma plataforma completa pensada para clínicas de medicina estética",
+      "items": {
+        "signature": {
+          "title": "Assinatura biométrica + Magic Link",
+          "desc": "Termos com plena validade legal, assinados pelo paciente em qualquer dispositivo."
+        },
+        "multilang": {
+          "title": "Termos ilimitados em 31 idiomas",
+          "desc": "Modelos personalizáveis traduzidos automaticamente para pacientes de qualquer nacionalidade."
+        },
+        "records": {
+          "title": "Prontuário eletrônico",
+          "desc": "Todas as informações do paciente centralizadas, seguras e acessíveis instantaneamente."
+        },
+        "agenda": {
+          "title": "Agenda de consultas inteligente",
+          "desc": "Gestão de horários, tratamentos e disponibilidade sem complicações."
+        },
+        "toxin": {
+          "title": "Controle de toxina botulínica",
+          "desc": "Rastreabilidade completa de lotes e unidades aplicadas por paciente e sessão."
+        },
+        "gallery": {
+          "title": "Galeria antes / depois",
+          "desc": "Fotos clínicas organizadas por sessão, com comparativos visuais para o paciente."
+        },
+        "portal": {
+          "title": "Portal do paciente 24/7",
+          "desc": "Seus pacientes acessam seus termos, fotos e prontuário a qualquer momento."
+        },
+        "whatsapp": {
+          "title": "Agente de WhatsApp com IA",
+          "desc": "Capta e confirma consultas automaticamente, e se comunica com seus pacientes 24 horas por dia."
+        },
+        "voice": {
+          "title": "Agente de voz com IA",
+          "desc": "Atende ligações e agenda consultas por telefone automaticamente, clonando a voz da sua recepção."
+        }
+      }
+    },
+    "how": {
+      "title": "É simples assim",
+      "subtitle": "Sua clínica operando em três passos",
+      "step1_title": "Cadastre sua clínica",
+      "step1_desc": "Configure sua equipe, tratamentos e modelos de consentimento em minutos.",
+      "step2_title": "Convide seus pacientes",
+      "step2_desc": "Envie o link de assinatura por e-mail ou WhatsApp — eles assinam pelo celular com Magic Link.",
+      "step3_title": "Tudo fica registrado",
+      "step3_desc": "Termos, fotos e prontuário arquivados com segurança e validade legal."
+    },
+    "pricing": {
+      "title": "Planos de assinatura",
+      "subtitle": "Escolha o plano que melhor se adapta à sua clínica — mude ou faça upgrade quando quiser"
+    },
+    "final_cta": {
+      "title": "Digitalize sua clínica hoje",
+      "subtitle": "Junte-se às clínicas que já eliminaram o papel dos seus termos de consentimento.",
+      "button": "Acessar a plataforma"
+    },
+    "footer": {
+      "tagline": "Consentimentos digitais válidos · CFM 1.931/2009 · LGPD",
+      "rights": "Todos os direitos reservados."
+    }
   }
 }
