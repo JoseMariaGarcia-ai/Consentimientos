@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Registre d'autorisation d'image",
           "desc": "Enregistrez le consentement du patient pour l'utilisation de ses photos, avec la même validité juridique et la même traçabilité que les autres consentements."
+        },
+        "tablet_handoff": {
+          "title": "Transfert des consentements vers un appareil tactile",
+          "desc": "Votre ordinateur n'a pas d'écran tactile ? Envoyez le consentement vers une tablette ou un mobile du cabinet pour le signer là avec le doigt, médecin et patient, sans perdre une seconde."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Mes patients doivent-ils créer un mot de passe ?",
           "a": "Non. Ils accèdent à leur portail via Magic Link, un lien d'accès sécurisé qu'ils reçoivent par email, sans mot de passe à retenir."
+        },
+        "q10": {
+          "q": "De quel équipement ai-je besoin pour utiliser ConsentsPro ?",
+          "a": "Juste un ordinateur connecté à Internet. Il peut avoir un écran tactile, pour signer directement dessus, ou être un ordinateur de bureau ou portable classique, sans tactile, associé à un mobile ou une tablette du cabinet pour signer. Dans ce second cas, le consentement est transféré automatiquement de l'ordinateur vers l'appareil tactile en scannant simplement un code QR une fois : le médecin et le patient le lisent et le signent là avec le doigt, et tout est enregistré exactement comme s'il avait été signé sur l'ordinateur lui-même."
         }
       }
     }

@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Képfelhasználási engedély nyilvántartása",
           "desc": "Rögzítse a beteg hozzájárulását fotóinak felhasználásához, ugyanolyan jogi érvényességgel és nyomon követhetőséggel, mint a többi beleegyezést."
+        },
+        "tablet_handoff": {
+          "title": "Beleegyezések átadása érintőképernyős eszközre",
+          "desc": "Nincs érintőképernyője a számítógépednek? Küldd el a beleegyezést a rendelő tabletjére vagy telefonjára, hogy ott ujjal aláírják, orvos és páciens, egy másodperc kihagyása nélkül."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Be kell állítaniuk a betegeimnek egy jelszót?",
           "a": "Nem. A portáljukhoz Magic Linken keresztül férnek hozzá, egy biztonságos hozzáférési linken, amelyet e-mailben kapnak meg, jelszó megjegyzése nélkül."
+        },
+        "q10": {
+          "q": "Milyen eszközre van szükségem a ConsentsPro használatához?",
+          "a": "Csak egy internetkapcsolattal rendelkező számítógépre. Lehet érintőképernyős, hogy közvetlenül azon írjanak alá, vagy lehet egy hagyományos asztali vagy hordozható számítógép érintés nélkül, egy rendelői telefonnal vagy tablettel párosítva az aláíráshoz. Ebben a második esetben a beleegyezés automatikusan átkerül a számítógépről az érintőképernyős eszközre, mindössze egyetlen QR-kód beolvasásával: az orvos és a páciens ott olvassa el és írja alá ujjal, és minden pontosan úgy rögzül, mintha magán a számítógépen írták volna alá."
         }
       }
     }

@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Rejestr zgody na wykorzystanie wizerunku",
           "desc": "Zarejestruj zgodę pacjenta na wykorzystanie jego zdjęć, z taką samą mocą prawną i identyfikowalnością jak pozostałe zgody."
+        },
+        "tablet_handoff": {
+          "title": "Przekazywanie zgód na urządzenie dotykowe",
+          "desc": "Twój komputer nie ma ekranu dotykowego? Wyślij zgodę na tablet lub telefon kliniki, aby podpisać ją tam palcem, lekarz i pacjent, bez straty ani sekundy."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Czy moi pacjenci muszą tworzyć hasło?",
           "a": "Nie. Uzyskują dostęp do swojego portalu za pomocą Magic Link, bezpiecznego linku dostępu, który otrzymują e-mailem, bez konieczności zapamiętywania haseł."
+        },
+        "q10": {
+          "q": "Jakiego sprzętu potrzebuję do korzystania z ConsentsPro?",
+          "a": "Wystarczy komputer z dostępem do internetu. Może mieć ekran dotykowy, aby podpisywać bezpośrednio na nim, albo może to być zwykły komputer stacjonarny lub laptop bez dotyku, w połączeniu z telefonem lub tabletem kliniki do podpisu. W tym drugim przypadku zgoda jest automatycznie przekazywana z komputera na urządzenie dotykowe po jednorazowym zeskanowaniu kodu QR: lekarz i pacjent czytają ją i podpisują tam palcem, a wszystko jest rejestrowane dokładnie tak, jakby zostało podpisane na samym komputerze."
         }
       }
     }

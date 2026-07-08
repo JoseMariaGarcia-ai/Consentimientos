@@ -1395,6 +1395,10 @@
         "image_auth": {
           "title": "Registro di autorizzazione delle immagini",
           "desc": "Registra il consenso del paziente per l'uso delle sue fotografie, con la stessa validità legale e tracciabilità degli altri consensi."
+        },
+        "tablet_handoff": {
+          "title": "Trasferimento dei consensi a un dispositivo touch",
+          "desc": "Il tuo computer non ha lo schermo touch? Invia il consenso a un tablet o cellulare dello studio per firmarlo lì con il dito, medico e paziente, senza perdere un secondo."
         }
       }
     },
@@ -1490,6 +1494,10 @@
         "q9": {
           "q": "I miei pazienti devono creare una password?",
           "a": "No. Accedono al loro portale tramite Magic Link, un link di accesso sicuro che ricevono via email, senza password da ricordare."
+        },
+        "q10": {
+          "q": "Di quale attrezzatura ho bisogno per usare ConsentsPro?",
+          "a": "Solo un computer con connessione a internet. Può avere uno schermo touch, per firmare direttamente lì, oppure può essere un normale computer desktop o portatile senza touch, abbinato a un cellulare o tablet dello studio per firmare. In questo secondo caso, il consenso viene trasferito automaticamente dal computer al dispositivo touch scansionando una sola volta un codice QR: il medico e il paziente lo leggono e lo firmano lì con il dito, e tutto viene registrato esattamente come se fosse stato firmato sul computer stesso."
         }
       }
     }

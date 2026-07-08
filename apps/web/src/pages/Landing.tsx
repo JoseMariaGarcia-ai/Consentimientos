@@ -3,20 +3,20 @@ import { useTranslation } from 'react-i18next'
 import {
   Fingerprint, Globe, FileText, Calendar, Syringe, Images,
   Smartphone, MessageCircle, Mic, ShieldCheck, ArrowRight,
-  Menu, X, Check, Receipt, ImageOff,
+  Menu, X, Check, Receipt, ImageOff, Tablet,
   Clock, MonitorSmartphone, Hash, ListChecks, UserCheck,
   ChevronDown,
 } from 'lucide-react'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { PLANS, PLAN_KEY } from './Recharge'
 
-const FEATURE_ICONS = [Fingerprint, Globe, FileText, Calendar, Syringe, Images, Smartphone, MessageCircle, Mic, Receipt, ImageOff]
-const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'gallery', 'portal', 'whatsapp', 'voice', 'budget', 'image_auth']
+const FEATURE_ICONS = [Fingerprint, Globe, FileText, Calendar, Syringe, Images, Smartphone, MessageCircle, Mic, Receipt, ImageOff, Tablet]
+const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'gallery', 'portal', 'whatsapp', 'voice', 'budget', 'image_auth', 'tablet_handoff']
 
 const COMPLIANCE_ICONS = [Fingerprint, Clock, MonitorSmartphone, Hash, ListChecks, UserCheck]
 const COMPLIANCE_KEYS = ['biometric', 'timestamp', 'device', 'hash', 'audit', 'doctor']
 
-const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9']
+const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
 
 const ANNUAL_DISCOUNT = 0.2
 

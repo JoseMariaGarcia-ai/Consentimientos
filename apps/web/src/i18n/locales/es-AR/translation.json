@@ -1313,6 +1313,10 @@
         "image_auth": {
           "title": "Registro de autorización de imágenes",
           "desc": "Registrá el consentimiento del paciente para el uso de sus fotos, con la misma validez legal y trazabilidad que el resto de los consentimientos."
+        },
+        "tablet_handoff": {
+          "title": "Traspaso de consentimientos a dispositivo táctil",
+          "desc": "¿Tu computadora no tiene pantalla táctil? Enviá el consentimiento a una tablet o celular de la clínica para firmarlo ahí con el dedo, médico y paciente, sin perder ni un segundo."
         }
       }
     },
@@ -1408,6 +1412,10 @@
         "q9": {
           "q": "¿Mis pacientes necesitan crear una contraseña?",
           "a": "No. Acceden a su portal mediante Magic Link, un enlace de acceso seguro que reciben por email, sin contraseñas que recordar."
+        },
+        "q10": {
+          "q": "¿Qué equipo necesito para usar ConsentsPro?",
+          "a": "Solo una computadora con conexión a internet. Puede tener pantalla táctil, para firmar directamente ahí, o puede ser una computadora de escritorio o notebook normal, sin táctil, combinada con un celular o una tablet de la clínica para firmar. En este segundo caso, el consentimiento se traspasa automáticamente de la computadora al dispositivo táctil con solo escanear un código QR una vez: el médico y el paciente lo leen y lo firman ahí con el dedo, y todo queda registrado igual que si se hubiera firmado en la propia computadora."
         }
       }
     }

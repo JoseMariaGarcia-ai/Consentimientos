@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Registratie van beeldtoestemming",
           "desc": "Registreer de toestemming van de patiënt voor het gebruik van diens foto's, met dezelfde juridische geldigheid en traceerbaarheid als de overige toestemmingen."
+        },
+        "tablet_handoff": {
+          "title": "Toestemmingsformulieren doorsturen naar een touch-apparaat",
+          "desc": "Heeft jouw computer geen touchscreen? Stuur het toestemmingsformulier naar een tablet of mobiel van de kliniek om het daar met de vinger te ondertekenen, arts en patiënt, zonder een seconde te verliezen."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Moeten mijn patiënten een wachtwoord aanmaken?",
           "a": "Nee. Zij krijgen toegang tot hun portaal via Magic Link, een veilige toegangslink die zij per e-mail ontvangen, zonder wachtwoorden te hoeven onthouden."
+        },
+        "q10": {
+          "q": "Welke apparatuur heb ik nodig om ConsentsPro te gebruiken?",
+          "a": "Alleen een computer met internetverbinding. Deze kan een touchscreen hebben om er direct op te ondertekenen, of het kan een gewone desktop of laptop zonder touch zijn, gecombineerd met een mobiel of tablet van de kliniek om te ondertekenen. In dit tweede geval wordt het toestemmingsformulier automatisch doorgestuurd van de computer naar het touch-apparaat door slechts één keer een QR-code te scannen: arts en patiënt lezen en ondertekenen het daar met de vinger, en alles wordt precies zo geregistreerd alsof het op de computer zelf was ondertekend."
         }
       }
     }

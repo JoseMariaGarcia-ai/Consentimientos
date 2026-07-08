@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Registrering af billedtilladelse",
           "desc": "Registrer patientens samtykke til brug af deres fotos, med samme juridiske gyldighed og sporbarhed som øvrige samtykker."
+        },
+        "tablet_handoff": {
+          "title": "Overførsel af samtykker til touch-enhed",
+          "desc": "Har din computer ikke touchskærm? Send samtykket til en tablet eller mobil på klinikken for at underskrive det der med fingeren, læge og patient, uden at spilde et sekund."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Skal mine patienter oprette et kodeord?",
           "a": "Nej. De får adgang til deres portal via Magic Link, et sikkert adgangslink, de modtager på e-mail, uden kodeord at huske."
+        },
+        "q10": {
+          "q": "Hvilket udstyr har jeg brug for til ConsentsPro?",
+          "a": "Kun en computer med internetforbindelse. Den kan have touchskærm til at underskrive direkte der, eller det kan være en almindelig stationær eller bærbar computer uden touch, kombineret med en mobil eller tablet fra klinikken til underskrift. I dette andet tilfælde overføres samtykket automatisk fra computeren til touch-enheden ved blot at scanne en QR-kode én gang: læge og patient læser og underskriver det der med fingeren, og alt registreres på samme måde, som hvis det var underskrevet på selve computeren."
         }
       }
     }

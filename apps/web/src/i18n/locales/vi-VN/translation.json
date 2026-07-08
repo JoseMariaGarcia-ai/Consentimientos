@@ -1341,6 +1341,10 @@
         "image_auth": {
           "title": "Hồ sơ cấp phép sử dụng hình ảnh",
           "desc": "Ghi lại sự đồng ý của bệnh nhân đối với việc sử dụng hình ảnh của họ, với hiệu lực pháp lý và khả năng truy xuất nguồn gốc tương tự như các bản chấp thuận khác."
+        },
+        "tablet_handoff": {
+          "title": "Chuyển mẫu đồng ý sang thiết bị cảm ứng",
+          "desc": "Máy tính của bạn không có màn hình cảm ứng? Gửi mẫu đồng ý đến máy tính bảng hoặc điện thoại của phòng khám để ký ở đó bằng ngón tay, bác sĩ và bệnh nhân, không mất một giây nào."
         }
       }
     },
@@ -1436,6 +1440,10 @@
         "q9": {
           "q": "Bệnh nhân của tôi có cần tạo mật khẩu không?",
           "a": "Không. Họ truy cập cổng thông tin của mình qua Magic Link, một liên kết truy cập an toàn mà họ nhận được qua email, không cần nhớ mật khẩu."
+        },
+        "q10": {
+          "q": "Tôi cần thiết bị gì để sử dụng ConsentsPro?",
+          "a": "Chỉ cần một máy tính có kết nối internet. Nó có thể có màn hình cảm ứng để ký trực tiếp ở đó, hoặc có thể là máy tính để bàn hoặc máy tính xách tay thông thường không cảm ứng, kết hợp với điện thoại hoặc máy tính bảng của phòng khám để ký. Trong trường hợp thứ hai này, mẫu đồng ý được tự động chuyển từ máy tính sang thiết bị cảm ứng chỉ bằng cách quét mã QR một lần: bác sĩ và bệnh nhân đọc và ký ở đó bằng ngón tay, và mọi thứ được ghi lại chính xác như thể đã được ký trên chính máy tính đó."
         }
       }
     }
