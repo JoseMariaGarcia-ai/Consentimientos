@@ -763,7 +763,12 @@
     "branch": "지점",
     "created_at": "생성 날짜",
     "status_header": "상태",
-    "continue_signature": "서명 계속"
+    "continue_signature": "서명 계속",
+    "or": "또는",
+    "send_to_tablet": "진료실 태블릿에서 서명",
+    "waiting_tablet_title": "태블릿에서 서명 중…",
+    "waiting_tablet_description": "의사와 환자가 태블릿에서 서명하면 이 화면은 자동으로 진행됩니다.",
+    "sign_here_instead": "대신 여기서 서명"
   },
   "signature": {
     "title": "환자 서명",
@@ -1205,7 +1210,8 @@
       "users": "사용자",
       "media": "광고",
       "preview": "미리보기",
-      "analytics": "분석"
+      "analytics": "분석",
+      "devices": "서명 기기"
     },
     "users": {
       "title": "사용자",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "해결됨으로 표시",
     "mark_open": "다시 열기",
     "reported_by": "신고자"
+  },
+  "signingDevices": {
+    "title": "서명 기기",
+    "description": "서명용으로 클리닉의 태블릿이나 휴대폰을 연결하세요. QR 코드를 한 번 스캔하면 서명 스테이션으로 바로 사용할 수 있습니다.",
+    "device_name": "기기 이름",
+    "device_name_placeholder": "예: 진료실 1 태블릿",
+    "generate_qr": "QR 코드 생성",
+    "scan_hint": "태블릿의 카메라로 이 코드를 스캔하세요",
+    "expires_in": "{{seconds}}초 후 만료",
+    "paired_devices": "연결된 기기",
+    "no_devices": "아직 연결된 태블릿이 없습니다",
+    "confirm_revoke": "이 기기의 연결을 해제하시겠습니까? 더 이상 동의서에 서명할 수 없게 됩니다.",
+    "never_seen": "연결된 적 없음",
+    "just_now": "방금 전",
+    "minutes_ago": "{{count}}분 전",
+    "hours_ago": "{{count}}시간 전"
+  },
+  "tabletSigning": {
+    "pair_title": "서명 태블릿 연결",
+    "pair_intro": "설정 → 서명 기기에 표시된 QR 코드를 스캔하세요.",
+    "scan_button": "QR 코드 스캔",
+    "scanning_hint": "카메라를 QR 코드에 향하게 하세요",
+    "pairing": "기기 연결 중…",
+    "paired_with": "{{clinic}}와(과) 연결됨",
+    "try_again": "다시 시도",
+    "pair_error": "기기를 연결할 수 없습니다",
+    "camera_error": "카메라에 접근할 수 없습니다",
+    "waiting": "동의서를 기다리는 중…",
+    "waiting_hint": "컴퓨터에서 동의서가 전송되면 여기에 표시되어 서명할 수 있습니다",
+    "revoked": "이 기기는 더 이상 승인되지 않았습니다",
+    "redirecting": "다시 연결하기 위해 리디렉션 중…"
   }
 }

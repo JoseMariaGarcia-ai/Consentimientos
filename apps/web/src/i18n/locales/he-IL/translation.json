@@ -719,7 +719,12 @@
     "branch": "סניף",
     "created_at": "תאריך יצירה",
     "status_header": "סטטוס",
-    "continue_signature": "המשך חתימה"
+    "continue_signature": "המשך חתימה",
+    "or": "או",
+    "send_to_tablet": "לחתום על הטאבלט של המרפאה",
+    "waiting_tablet_title": "חותם על הטאבלט…",
+    "waiting_tablet_description": "ברגע שהרופא והמטופל יחתמו על הטאבלט, מסך זה יתקדם אוטומטית.",
+    "sign_here_instead": "לחתום כאן במקום"
   },
   "signature": {
     "title": "חתימת המטופל",
@@ -1161,7 +1166,8 @@
       "users": "משתמשים",
       "media": "פרסום",
       "preview": "תצוגה מקדימה",
-      "analytics": "ניתוח נתונים"
+      "analytics": "ניתוח נתונים",
+      "devices": "מכשירי חתימה"
     },
     "users": {
       "title": "משתמשים",
@@ -1511,5 +1517,36 @@
     "mark_resolved": "סמן כפתור",
     "mark_open": "פתח מחדש",
     "reported_by": "דווח על ידי"
+  },
+  "signingDevices": {
+    "title": "מכשירי חתימה",
+    "description": "שייך טאבלט או נייד של המרפאה לחתימה: סרוק את קוד ה-QR פעם אחת והוא יהיה מוכן כתחנת חתימה.",
+    "device_name": "שם המכשיר",
+    "device_name_placeholder": "לדוגמה: טאבלט חדר 1",
+    "generate_qr": "צור קוד QR",
+    "scan_hint": "סרוק קוד זה במצלמת הטאבלט",
+    "expires_in": "פג תוקף בעוד {{seconds}} שנ׳",
+    "paired_devices": "מכשירים משויכים",
+    "no_devices": "עדיין אין טאבלט משויך",
+    "confirm_revoke": "לבטל את שיוך המכשיר? לא יוכל עוד לחתום על טפסי הסכמה.",
+    "never_seen": "מעולם לא התחבר",
+    "just_now": "הרגע",
+    "minutes_ago": "לפני {{count}} דק׳",
+    "hours_ago": "לפני {{count}} שע׳"
+  },
+  "tabletSigning": {
+    "pair_title": "שיוך טאבלט חתימה",
+    "pair_intro": "סרוק את קוד ה-QR המוצג בהגדרות ← מכשירי חתימה.",
+    "scan_button": "סרוק קוד QR",
+    "scanning_hint": "כוון את המצלמה אל קוד ה-QR",
+    "pairing": "משייך מכשיר…",
+    "paired_with": "משויך עם {{clinic}}",
+    "try_again": "נסה שוב",
+    "pair_error": "לא ניתן היה לשייך את המכשיר",
+    "camera_error": "לא ניתן היה לגשת למצלמה",
+    "waiting": "ממתין להסכמה…",
+    "waiting_hint": "ברגע שתישלח הסכמה מהמחשב, היא תופיע כאן לחתימה",
+    "revoked": "מכשיר זה כבר אינו מורשה",
+    "redirecting": "מפנה מחדש לשיוך…"
   }
 }

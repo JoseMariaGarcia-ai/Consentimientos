@@ -763,7 +763,12 @@
     "branch": "Şube",
     "created_at": "Oluşturulma tarihi",
     "status_header": "Durum",
-    "continue_signature": "İmzaya devam et"
+    "continue_signature": "İmzaya devam et",
+    "or": "veya",
+    "send_to_tablet": "Klinik tabletinde imzala",
+    "waiting_tablet_title": "Tablette imzalanıyor…",
+    "waiting_tablet_description": "Doktor ve hasta tablette imzaladığında bu ekran otomatik olarak devam edecek.",
+    "sign_here_instead": "Bunun yerine burada imzala"
   },
   "signature": {
     "title": "Hasta imzası",
@@ -1205,7 +1210,8 @@
       "users": "Kullanıcılar",
       "media": "Reklam",
       "preview": "Önizleme",
-      "analytics": "Analitik"
+      "analytics": "Analitik",
+      "devices": "İmza cihazları"
     },
     "users": {
       "title": "Kullanıcılar",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Çözüldü olarak işaretle",
     "mark_open": "Yeniden aç",
     "reported_by": "Bildiren"
+  },
+  "signingDevices": {
+    "title": "İmza cihazları",
+    "description": "İmzalamak için klinik tableti veya telefonunu eşleştirin: QR kodunu bir kez tarayın, imza istasyonu olarak hazır olacaktır.",
+    "device_name": "Cihaz adı",
+    "device_name_placeholder": "Örn: Muayene odası 1 tableti",
+    "generate_qr": "QR kodu oluştur",
+    "scan_hint": "Bu kodu tabletin kamerasıyla tarayın",
+    "expires_in": "{{seconds}} sn içinde sona erer",
+    "paired_devices": "Eşleştirilmiş cihazlar",
+    "no_devices": "Henüz eşleştirilmiş tablet yok",
+    "confirm_revoke": "Bu cihazın eşleşmesi kaldırılsın mı? Artık onay formlarını imzalayamayacak.",
+    "never_seen": "Hiç bağlanmadı",
+    "just_now": "Az önce",
+    "minutes_ago": "{{count}} dk önce",
+    "hours_ago": "{{count}} sa önce"
+  },
+  "tabletSigning": {
+    "pair_title": "İmza tabletini eşleştir",
+    "pair_intro": "Ayarlar → İmza cihazları bölümünde gösterilen QR kodunu tarayın.",
+    "scan_button": "QR kodu tara",
+    "scanning_hint": "Kamerayı QR koduna doğrultun",
+    "pairing": "Cihaz eşleştiriliyor…",
+    "paired_with": "{{clinic}} ile eşleştirildi",
+    "try_again": "Tekrar dene",
+    "pair_error": "Cihaz eşleştirilemedi",
+    "camera_error": "Kameraya erişilemedi",
+    "waiting": "Onay bekleniyor…",
+    "waiting_hint": "Bilgisayardan bir onay gönderildiğinde imzalanmak üzere burada görünecek",
+    "revoked": "Bu cihazın artık yetkisi yok",
+    "redirecting": "Yeniden eşleştirmek için yönlendiriliyor…"
   }
 }

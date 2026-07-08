@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { authMiddleware, requireAdmin, requireSuperAdmin } from './middleware/auth'
+import { deviceAuthMiddleware } from './middleware/deviceAuth'
 import authRouter from './routes/auth'
 import patientsRouter from './routes/patients'
 import doctorsRouter from './routes/doctors'
@@ -30,6 +31,9 @@ import budgetsRouter from './routes/budgets'
 import workflowsRouter from './routes/workflows'
 import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
 import ticketsRouter from './routes/tickets'
+import signingDevicesRouter, { publicRouter as signingDevicesPublicRouter } from './routes/signingDevices'
+import signingKioskRouter from './routes/signingKiosk'
+import consentHandoffRouter from './routes/consentHandoff'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 
@@ -48,6 +52,8 @@ app.use('/api/auth', authRouter)
 app.use('/api/verify', verifyRouter)
 app.use('/api/whatsapp-webhook', whatsappWebhookRouter)
 app.use('/api/analytics', analyticsPublicRouter)
+app.use('/api/signing-devices', signingDevicesPublicRouter)
+app.use('/api/signing-kiosk', deviceAuthMiddleware, signingKioskRouter)
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -77,6 +83,8 @@ app.use('/api/budgets',         authMiddleware, budgetsRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
 app.use('/api/tickets',         authMiddleware, ticketsRouter)
+app.use('/api/signing-devices', authMiddleware, requireAdmin, signingDevicesRouter)
+app.use('/api/consent-handoff', authMiddleware, consentHandoffRouter)
 
 const PORT = process.env.PORT ?? 3001
 

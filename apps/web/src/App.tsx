@@ -28,6 +28,8 @@ import ToxinDetail from './pages/ToxinDetail'
 import Budgets from './pages/Budgets'
 import Workflows from './pages/Workflows'
 import Tickets from './pages/Tickets'
+import TabletPair from './pages/TabletPair'
+import TabletKiosk from './pages/TabletKiosk'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -93,6 +95,8 @@ function AppShell() {
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
   if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
   if (window.location.pathname.startsWith('/auth/verify')) return <AuthVerify />
+  if (window.location.pathname === '/tablet-pair') return <TabletPair />
+  if (window.location.pathname === '/tablet-kiosk') return <TabletKiosk />
   if (window.location.pathname === '/' && !isAuthenticated) return <Landing />
 
   if (!isAuthenticated) return <Login />

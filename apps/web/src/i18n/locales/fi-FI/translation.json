@@ -763,7 +763,12 @@
     "branch": "Toimipiste",
     "created_at": "Luontipäivä",
     "status_header": "Tila",
-    "continue_signature": "Jatka allekirjoitusta"
+    "continue_signature": "Jatka allekirjoitusta",
+    "or": "tai",
+    "send_to_tablet": "Allekirjoita klinikan tabletilla",
+    "waiting_tablet_title": "Allekirjoitetaan tabletilla…",
+    "waiting_tablet_description": "Heti kun lääkäri ja potilas ovat allekirjoittaneet tabletilla, tämä näyttö jatkuu automaattisesti.",
+    "sign_here_instead": "Allekirjoita tässä sen sijaan"
   },
   "signature": {
     "title": "Potilaan allekirjoitus",
@@ -1205,7 +1210,8 @@
       "users": "Käyttäjät",
       "media": "Mainonta",
       "preview": "Esikatselu",
-      "analytics": "Analytiikka"
+      "analytics": "Analytiikka",
+      "devices": "Allekirjoituslaitteet"
     },
     "users": {
       "title": "Käyttäjät",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Merkitse ratkaistuksi",
     "mark_open": "Avaa uudelleen",
     "reported_by": "Ilmoittaja"
+  },
+  "signingDevices": {
+    "title": "Allekirjoituslaitteet",
+    "description": "Yhdistä klinikan tabletti tai puhelin allekirjoitusta varten: skannaa QR-koodi kerran, niin se on valmiina allekirjoitusasemana.",
+    "device_name": "Laitteen nimi",
+    "device_name_placeholder": "Esim. Vastaanottohuone 1 tabletti",
+    "generate_qr": "Luo QR-koodi",
+    "scan_hint": "Skannaa tämä koodi tabletin kameralla",
+    "expires_in": "Vanhenee {{seconds}} s kuluttua",
+    "paired_devices": "Yhdistetyt laitteet",
+    "no_devices": "Ei vielä yhdistettyä tablettia",
+    "confirm_revoke": "Poistetaanko tämän laitteen yhdistäminen? Se ei voi enää allekirjoittaa suostumuksia.",
+    "never_seen": "Ei koskaan yhdistetty",
+    "just_now": "Juuri nyt",
+    "minutes_ago": "{{count}} min sitten",
+    "hours_ago": "{{count}} t sitten"
+  },
+  "tabletSigning": {
+    "pair_title": "Yhdistä allekirjoitustabletti",
+    "pair_intro": "Skannaa QR-koodi, joka näkyy kohdassa Asetukset → Allekirjoituslaitteet.",
+    "scan_button": "Skannaa QR-koodi",
+    "scanning_hint": "Kohdista kamera QR-koodiin",
+    "pairing": "Yhdistetään laitetta…",
+    "paired_with": "Yhdistetty klinikkaan {{clinic}}",
+    "try_again": "Yritä uudelleen",
+    "pair_error": "Laitteen yhdistäminen epäonnistui",
+    "camera_error": "Kameraa ei voitu käyttää",
+    "waiting": "Odotetaan suostumusta…",
+    "waiting_hint": "Heti kun tietokoneelta lähetetään suostumus, se näkyy täällä allekirjoitettavaksi",
+    "revoked": "Tätä laitetta ei enää valtuuteta",
+    "redirecting": "Ohjataan uudelleenyhdistämiseen…"
   }
 }

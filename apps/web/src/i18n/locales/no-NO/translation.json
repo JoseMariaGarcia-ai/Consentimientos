@@ -763,7 +763,12 @@
     "branch": "Klinikk",
     "created_at": "Opprettelsesdato",
     "status_header": "Status",
-    "continue_signature": "Fortsett signering"
+    "continue_signature": "Fortsett signering",
+    "or": "eller",
+    "send_to_tablet": "Signer på klinikkens nettbrett",
+    "waiting_tablet_title": "Signerer på nettbrettet…",
+    "waiting_tablet_description": "Så snart legen og pasienten har signert på nettbrettet, fortsetter denne skjermen automatisk.",
+    "sign_here_instead": "Signer her i stedet"
   },
   "signature": {
     "title": "Pasientens signatur",
@@ -1205,7 +1210,8 @@
       "users": "Brukere",
       "media": "Reklame",
       "preview": "Forhåndsvisning",
-      "analytics": "Analyse"
+      "analytics": "Analyse",
+      "devices": "Signeringsenheter"
     },
     "users": {
       "title": "Brukere",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Merk som løst",
     "mark_open": "Gjenåpne",
     "reported_by": "Rapportert av"
+  },
+  "signingDevices": {
+    "title": "Signeringsenheter",
+    "description": "Koble til et nettbrett eller mobil fra klinikken for signering: skann QR-koden én gang, så er den klar som signeringsstasjon.",
+    "device_name": "Enhetsnavn",
+    "device_name_placeholder": "F.eks. Nettbrett behandlingsrom 1",
+    "generate_qr": "Generer QR-kode",
+    "scan_hint": "Skann denne koden med nettbrettets kamera",
+    "expires_in": "Utløper om {{seconds}} s",
+    "paired_devices": "Tilkoblede enheter",
+    "no_devices": "Ingen nettbrett tilkoblet ennå",
+    "confirm_revoke": "Koble fra denne enheten? Den kan da ikke lenger signere samtykker.",
+    "never_seen": "Aldri tilkoblet",
+    "just_now": "Akkurat nå",
+    "minutes_ago": "{{count}} min siden",
+    "hours_ago": "{{count}} t siden"
+  },
+  "tabletSigning": {
+    "pair_title": "Koble til signerings-nettbrett",
+    "pair_intro": "Skann QR-koden som vises under Innstillinger → Signeringsenheter.",
+    "scan_button": "Skann QR-kode",
+    "scanning_hint": "Rett kameraet mot QR-koden",
+    "pairing": "Kobler til enhet…",
+    "paired_with": "Koblet til {{clinic}}",
+    "try_again": "Prøv igjen",
+    "pair_error": "Kunne ikke koble til enheten",
+    "camera_error": "Fikk ikke tilgang til kameraet",
+    "waiting": "Venter på samtykke…",
+    "waiting_hint": "Så snart et samtykke sendes fra datamaskinen, vises det her for signering",
+    "revoked": "Denne enheten er ikke lenger autorisert",
+    "redirecting": "Omdirigerer for å koble til på nytt…"
   }
 }

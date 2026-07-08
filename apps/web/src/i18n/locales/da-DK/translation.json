@@ -763,7 +763,12 @@
     "branch": "Lokation",
     "created_at": "Oprettelsesdato",
     "status_header": "Status",
-    "continue_signature": "Fortsæt underskrift"
+    "continue_signature": "Fortsæt underskrift",
+    "or": "eller",
+    "send_to_tablet": "Underskriv på klinikkens tablet",
+    "waiting_tablet_title": "Underskriver på tablet…",
+    "waiting_tablet_description": "Så snart lægen og patienten har underskrevet på tablet'en, fortsætter denne skærm automatisk.",
+    "sign_here_instead": "Underskriv her i stedet"
   },
   "signature": {
     "title": "Patientunderskrift",
@@ -1205,7 +1210,8 @@
       "users": "Brugere",
       "media": "Reklame",
       "preview": "Forhåndsvisning",
-      "analytics": "Analyse"
+      "analytics": "Analyse",
+      "devices": "Signeringsenheder"
     },
     "users": {
       "title": "Brugere",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Markér som løst",
     "mark_open": "Genåbn",
     "reported_by": "Rapporteret af"
+  },
+  "signingDevices": {
+    "title": "Signeringsenheder",
+    "description": "Tilknyt en tablet eller mobil fra klinikken til underskrift: scan QR-koden én gang, så er den klar som signeringsstation.",
+    "device_name": "Enhedsnavn",
+    "device_name_placeholder": "F.eks. Tablet konsultation 1",
+    "generate_qr": "Generer QR-kode",
+    "scan_hint": "Scan denne kode med tablet'ens kamera",
+    "expires_in": "Udløber om {{seconds}} s",
+    "paired_devices": "Tilknyttede enheder",
+    "no_devices": "Der er endnu ingen tilknyttet tablet",
+    "confirm_revoke": "Frakobl denne enhed? Den kan derefter ikke længere underskrive samtykker.",
+    "never_seen": "Aldrig forbundet",
+    "just_now": "Lige nu",
+    "minutes_ago": "for {{count}} min. siden",
+    "hours_ago": "for {{count}} t siden"
+  },
+  "tabletSigning": {
+    "pair_title": "Tilknyt signerings-tablet",
+    "pair_intro": "Scan QR-koden, der vises i Indstillinger → Signeringsenheder.",
+    "scan_button": "Scan QR-kode",
+    "scanning_hint": "Ret kameraet mod QR-koden",
+    "pairing": "Tilknytter enhed…",
+    "paired_with": "Tilknyttet {{clinic}}",
+    "try_again": "Prøv igen",
+    "pair_error": "Enheden kunne ikke tilknyttes",
+    "camera_error": "Kunne ikke få adgang til kameraet",
+    "waiting": "Venter på samtykke…",
+    "waiting_hint": "Så snart et samtykke sendes fra computeren, vises det her til underskrift",
+    "revoked": "Denne enhed er ikke længere godkendt",
+    "redirecting": "Omdirigerer for at tilknytte igen…"
   }
 }

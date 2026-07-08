@@ -763,7 +763,12 @@
     "branch": "Sediu",
     "created_at": "Data creării",
     "status_header": "Stare",
-    "continue_signature": "Continuă semnătura"
+    "continue_signature": "Continuă semnătura",
+    "or": "sau",
+    "send_to_tablet": "Semnează pe tableta clinicii",
+    "waiting_tablet_title": "Se semnează pe tabletă…",
+    "waiting_tablet_description": "De îndată ce medicul și pacientul semnează pe tabletă, acest ecran va continua automat.",
+    "sign_here_instead": "Semnează aici în schimb"
   },
   "signature": {
     "title": "Semnătura pacientului",
@@ -1205,7 +1210,8 @@
       "users": "Utilizatori",
       "media": "Publicitate",
       "preview": "Previzualizare",
-      "analytics": "Analitice"
+      "analytics": "Analitice",
+      "devices": "Dispozitive de semnare"
     },
     "users": {
       "title": "Utilizatori",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Marchează ca rezolvat",
     "mark_open": "Redeschide",
     "reported_by": "Raportat de"
+  },
+  "signingDevices": {
+    "title": "Dispozitive de semnare",
+    "description": "Asociază o tabletă sau un telefon al clinicii pentru semnare: scanează codul QR o dată și va fi gata ca stație de semnare.",
+    "device_name": "Numele dispozitivului",
+    "device_name_placeholder": "Ex: Tabletă cabinet 1",
+    "generate_qr": "Generează cod QR",
+    "scan_hint": "Scanează acest cod cu camera tabletei",
+    "expires_in": "Expiră în {{seconds}} s",
+    "paired_devices": "Dispozitive asociate",
+    "no_devices": "Nicio tabletă asociată încă",
+    "confirm_revoke": "Dezasociezi acest dispozitiv? Nu va mai putea semna consimțăminte.",
+    "never_seen": "Niciodată conectat",
+    "just_now": "Chiar acum",
+    "minutes_ago": "acum {{count}} min",
+    "hours_ago": "acum {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Asociază tableta de semnare",
+    "pair_intro": "Scanează codul QR afișat în Setări → Dispozitive de semnare.",
+    "scan_button": "Scanează codul QR",
+    "scanning_hint": "Îndreaptă camera spre codul QR",
+    "pairing": "Se asociază dispozitivul…",
+    "paired_with": "Asociat cu {{clinic}}",
+    "try_again": "Încearcă din nou",
+    "pair_error": "Dispozitivul nu a putut fi asociat",
+    "camera_error": "Nu s-a putut accesa camera",
+    "waiting": "Se așteaptă un consimțământ…",
+    "waiting_hint": "De îndată ce se trimite un consimțământ de la computer, va apărea aici pentru semnare",
+    "revoked": "Acest dispozitiv nu mai este autorizat",
+    "redirecting": "Se redirecționează pentru reasociere…"
   }
 }

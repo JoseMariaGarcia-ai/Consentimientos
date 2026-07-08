@@ -763,7 +763,12 @@
     "branch": "Seu",
     "created_at": "Data de creació",
     "status_header": "Estat",
-    "continue_signature": "Continuar signatura"
+    "continue_signature": "Continuar signatura",
+    "or": "o",
+    "send_to_tablet": "Signar en tablet de la consulta",
+    "waiting_tablet_title": "Signant a la tablet…",
+    "waiting_tablet_description": "En quant el metge i el pacient signin a la tablet, aquesta pantalla continuarà sola automàticament.",
+    "sign_here_instead": "Signar aquí en el seu lloc"
   },
   "signature": {
     "title": "Signatura del pacient",
@@ -1205,7 +1210,8 @@
       "users": "Usuaris",
       "media": "Publicitat",
       "preview": "Vista prèvia",
-      "analytics": "Analítica"
+      "analytics": "Analítica",
+      "devices": "Dispositius de signatura"
     },
     "users": {
       "title": "Usuaris",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Marcar com a resolta",
     "mark_open": "Reobrir",
     "reported_by": "Reportat per"
+  },
+  "signingDevices": {
+    "title": "Dispositius de signatura",
+    "description": "Vincula una tablet o mòbil de la clínica per signar-hi: escaneja el QR una vegada i quedarà llesta com a estació de signatura.",
+    "device_name": "Nom del dispositiu",
+    "device_name_placeholder": "Ex: Tablet consulta 1",
+    "generate_qr": "Generar codi QR",
+    "scan_hint": "Escaneja aquest codi amb la càmera de la tablet",
+    "expires_in": "Caduca en {{seconds}} s",
+    "paired_devices": "Dispositius vinculats",
+    "no_devices": "Encara no hi ha cap tablet vinculada",
+    "confirm_revoke": "Vols desvincular aquest dispositiu? Deixarà de poder signar consentiments.",
+    "never_seen": "Mai connectat",
+    "just_now": "Ara mateix",
+    "minutes_ago": "fa {{count}} min",
+    "hours_ago": "fa {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Vincular tablet de signatura",
+    "pair_intro": "Escaneja el codi QR que apareix a Configuració → Dispositius de signatura.",
+    "scan_button": "Escanejar codi QR",
+    "scanning_hint": "Apunta la càmera al codi QR",
+    "pairing": "Vinculant dispositiu…",
+    "paired_with": "Vinculat amb {{clinic}}",
+    "try_again": "Torna-ho a provar",
+    "pair_error": "No s'ha pogut vincular el dispositiu",
+    "camera_error": "No s'ha pogut accedir a la càmera",
+    "waiting": "Esperant consentiment…",
+    "waiting_hint": "En quant s'enviï un consentiment des de l'ordinador, apareixerà aquí per signar-lo",
+    "revoked": "Aquest dispositiu ja no està autoritzat",
+    "redirecting": "Redirigint per tornar a vincular…"
   }
 }

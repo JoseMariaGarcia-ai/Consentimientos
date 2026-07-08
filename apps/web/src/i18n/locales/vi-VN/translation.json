@@ -763,7 +763,12 @@
     "branch": "Chi nhánh",
     "created_at": "Ngày tạo",
     "status_header": "Trạng thái",
-    "continue_signature": "Tiếp tục ký"
+    "continue_signature": "Tiếp tục ký",
+    "or": "hoặc",
+    "send_to_tablet": "Ký trên máy tính bảng của phòng khám",
+    "waiting_tablet_title": "Đang ký trên máy tính bảng…",
+    "waiting_tablet_description": "Ngay khi bác sĩ và bệnh nhân ký trên máy tính bảng, màn hình này sẽ tự động tiếp tục.",
+    "sign_here_instead": "Ký ở đây thay thế"
   },
   "signature": {
     "title": "Chữ ký bệnh nhân",
@@ -1205,7 +1210,8 @@
       "users": "Người dùng",
       "media": "Quảng cáo",
       "preview": "Xem trước",
-      "analytics": "Phân tích"
+      "analytics": "Phân tích",
+      "devices": "Thiết bị ký"
     },
     "users": {
       "title": "Người dùng",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Đánh dấu đã xử lý",
     "mark_open": "Mở lại",
     "reported_by": "Người báo cáo"
+  },
+  "signingDevices": {
+    "title": "Thiết bị ký",
+    "description": "Ghép nối máy tính bảng hoặc điện thoại của phòng khám để ký: quét mã QR một lần và nó sẽ sẵn sàng làm trạm ký.",
+    "device_name": "Tên thiết bị",
+    "device_name_placeholder": "VD: Máy tính bảng phòng khám 1",
+    "generate_qr": "Tạo mã QR",
+    "scan_hint": "Quét mã này bằng camera của máy tính bảng",
+    "expires_in": "Hết hạn sau {{seconds}} giây",
+    "paired_devices": "Thiết bị đã ghép nối",
+    "no_devices": "Chưa có máy tính bảng nào được ghép nối",
+    "confirm_revoke": "Hủy ghép nối thiết bị này? Nó sẽ không thể ký các mẫu đồng ý nữa.",
+    "never_seen": "Chưa từng kết nối",
+    "just_now": "Vừa xong",
+    "minutes_ago": "{{count}} phút trước",
+    "hours_ago": "{{count}} giờ trước"
+  },
+  "tabletSigning": {
+    "pair_title": "Ghép nối máy tính bảng ký",
+    "pair_intro": "Quét mã QR hiển thị trong Cài đặt → Thiết bị ký.",
+    "scan_button": "Quét mã QR",
+    "scanning_hint": "Hướng camera vào mã QR",
+    "pairing": "Đang ghép nối thiết bị…",
+    "paired_with": "Đã ghép nối với {{clinic}}",
+    "try_again": "Thử lại",
+    "pair_error": "Không thể ghép nối thiết bị",
+    "camera_error": "Không thể truy cập camera",
+    "waiting": "Đang chờ đồng ý…",
+    "waiting_hint": "Ngay khi một mẫu đồng ý được gửi từ máy tính, nó sẽ xuất hiện ở đây để ký",
+    "revoked": "Thiết bị này không còn được ủy quyền",
+    "redirecting": "Đang chuyển hướng để ghép nối lại…"
   }
 }

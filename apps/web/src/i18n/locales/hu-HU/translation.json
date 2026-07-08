@@ -763,7 +763,12 @@
     "branch": "Telephely",
     "created_at": "Létrehozás dátuma",
     "status_header": "Állapot",
-    "continue_signature": "Aláírás folytatása"
+    "continue_signature": "Aláírás folytatása",
+    "or": "vagy",
+    "send_to_tablet": "Aláírás a rendelő tabletjén",
+    "waiting_tablet_title": "Aláírás a tableten…",
+    "waiting_tablet_description": "Amint az orvos és a páciens aláírt a tableten, ez a képernyő automatikusan folytatódik.",
+    "sign_here_instead": "Inkább itt írom alá"
   },
   "signature": {
     "title": "Beteg aláírása",
@@ -1205,7 +1210,8 @@
       "users": "Felhasználók",
       "media": "Hirdetés",
       "preview": "Előnézet",
-      "analytics": "Analitika"
+      "analytics": "Analitika",
+      "devices": "Aláíró eszközök"
     },
     "users": {
       "title": "Felhasználók",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Megjelölés megoldottként",
     "mark_open": "Újranyitás",
     "reported_by": "Jelentette"
+  },
+  "signingDevices": {
+    "title": "Aláíró eszközök",
+    "description": "Párosíts egy rendelői tabletet vagy telefont aláíráshoz: szkenneld be egyszer a QR-kódot, és aláíróállomásként lesz készen.",
+    "device_name": "Eszköz neve",
+    "device_name_placeholder": "Pl. 1. rendelő tablet",
+    "generate_qr": "QR-kód generálása",
+    "scan_hint": "Szkenneld be ezt a kódot a tablet kamerájával",
+    "expires_in": "Lejár {{seconds}} mp múlva",
+    "paired_devices": "Párosított eszközök",
+    "no_devices": "Még nincs párosított tablet",
+    "confirm_revoke": "Leválasztod ezt az eszközt? Többé nem tud beleegyezéseket aláírni.",
+    "never_seen": "Soha nem csatlakozott",
+    "just_now": "Éppen most",
+    "minutes_ago": "{{count}} perce",
+    "hours_ago": "{{count}} órája"
+  },
+  "tabletSigning": {
+    "pair_title": "Aláíró tablet párosítása",
+    "pair_intro": "Szkenneld be a Beállítások → Aláíró eszközök alatt megjelenő QR-kódot.",
+    "scan_button": "QR-kód beolvasása",
+    "scanning_hint": "Irányítsd a kamerát a QR-kódra",
+    "pairing": "Eszköz párosítása…",
+    "paired_with": "Párosítva ezzel: {{clinic}}",
+    "try_again": "Próbáld újra",
+    "pair_error": "Az eszköz párosítása nem sikerült",
+    "camera_error": "A kamera nem érhető el",
+    "waiting": "Beleegyezésre várakozás…",
+    "waiting_hint": "Amint a számítógépről elküldenek egy beleegyezést, itt jelenik meg aláírásra",
+    "revoked": "Ez az eszköz már nincs felhatalmazva",
+    "redirecting": "Átirányítás az újbóli párosításhoz…"
   }
 }

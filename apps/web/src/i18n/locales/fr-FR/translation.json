@@ -763,7 +763,12 @@
     "branch": "Site",
     "created_at": "Date de création",
     "status_header": "Statut",
-    "continue_signature": "Continuer la signature"
+    "continue_signature": "Continuer la signature",
+    "or": "ou",
+    "send_to_tablet": "Signer sur la tablette du cabinet",
+    "waiting_tablet_title": "Signature sur la tablette…",
+    "waiting_tablet_description": "Dès que le médecin et le patient auront signé sur la tablette, cet écran continuera automatiquement.",
+    "sign_here_instead": "Signer ici à la place"
   },
   "signature": {
     "title": "Signature du patient",
@@ -1205,7 +1210,8 @@
       "users": "Utilisateurs",
       "media": "Publicité",
       "preview": "Aperçu",
-      "analytics": "Analytique"
+      "analytics": "Analytique",
+      "devices": "Appareils de signature"
     },
     "users": {
       "title": "Utilisateurs",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Marquer comme résolu",
     "mark_open": "Rouvrir",
     "reported_by": "Signalé par"
+  },
+  "signingDevices": {
+    "title": "Appareils de signature",
+    "description": "Associez une tablette ou un mobile du cabinet pour y signer : scannez le QR code une fois et il sera prêt comme poste de signature.",
+    "device_name": "Nom de l'appareil",
+    "device_name_placeholder": "Ex : Tablette salle 1",
+    "generate_qr": "Générer un code QR",
+    "scan_hint": "Scannez ce code avec l'appareil photo de la tablette",
+    "expires_in": "Expire dans {{seconds}} s",
+    "paired_devices": "Appareils associés",
+    "no_devices": "Aucune tablette associée pour l'instant",
+    "confirm_revoke": "Dissocier cet appareil ? Il ne pourra plus signer de consentements.",
+    "never_seen": "Jamais connecté",
+    "just_now": "À l'instant",
+    "minutes_ago": "il y a {{count}} min",
+    "hours_ago": "il y a {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Associer une tablette de signature",
+    "pair_intro": "Scannez le code QR affiché dans Paramètres → Appareils de signature.",
+    "scan_button": "Scanner le code QR",
+    "scanning_hint": "Pointez l'appareil photo vers le code QR",
+    "pairing": "Association de l'appareil…",
+    "paired_with": "Associé à {{clinic}}",
+    "try_again": "Réessayer",
+    "pair_error": "Impossible d'associer l'appareil",
+    "camera_error": "Impossible d'accéder à la caméra",
+    "waiting": "En attente d'un consentement…",
+    "waiting_hint": "Dès qu'un consentement sera envoyé depuis l'ordinateur, il apparaîtra ici pour être signé",
+    "revoked": "Cet appareil n'est plus autorisé",
+    "redirecting": "Redirection pour se réassocier…"
   }
 }

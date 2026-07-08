@@ -763,7 +763,12 @@
     "branch": "院",
     "created_at": "作成日",
     "status_header": "ステータス",
-    "continue_signature": "署名を続ける"
+    "continue_signature": "署名を続ける",
+    "or": "または",
+    "send_to_tablet": "クリニックのタブレットで署名",
+    "waiting_tablet_title": "タブレットで署名中…",
+    "waiting_tablet_description": "医師と患者がタブレットで署名すると、この画面は自動的に進みます。",
+    "sign_here_instead": "代わりにここで署名する"
   },
   "signature": {
     "title": "患者の署名",
@@ -1205,7 +1210,8 @@
       "users": "ユーザー",
       "media": "広告",
       "preview": "プレビュー",
-      "analytics": "アナリティクス"
+      "analytics": "アナリティクス",
+      "devices": "署名デバイス"
     },
     "users": {
       "title": "ユーザー",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "解決済みにする",
     "mark_open": "再オープン",
     "reported_by": "報告者"
+  },
+  "signingDevices": {
+    "title": "署名デバイス",
+    "description": "クリニックのタブレットまたはスマートフォンを署名用にペアリングします。QRコードを一度スキャンすれば署名ステーションとして使えます。",
+    "device_name": "デバイス名",
+    "device_name_placeholder": "例：診察室1のタブレット",
+    "generate_qr": "QRコードを生成",
+    "scan_hint": "タブレットのカメラでこのコードをスキャンしてください",
+    "expires_in": "{{seconds}}秒で失効します",
+    "paired_devices": "ペアリング済みデバイス",
+    "no_devices": "まだペアリングされたタブレットはありません",
+    "confirm_revoke": "このデバイスのペアリングを解除しますか？以後、同意書に署名できなくなります。",
+    "never_seen": "接続履歴なし",
+    "just_now": "たった今",
+    "minutes_ago": "{{count}}分前",
+    "hours_ago": "{{count}}時間前"
+  },
+  "tabletSigning": {
+    "pair_title": "署名用タブレットをペアリング",
+    "pair_intro": "設定 → 署名デバイスに表示されるQRコードをスキャンしてください。",
+    "scan_button": "QRコードをスキャン",
+    "scanning_hint": "カメラをQRコードに向けてください",
+    "pairing": "デバイスをペアリング中…",
+    "paired_with": "{{clinic}}とペアリングしました",
+    "try_again": "もう一度試す",
+    "pair_error": "デバイスのペアリングに失敗しました",
+    "camera_error": "カメラにアクセスできませんでした",
+    "waiting": "同意書を待っています…",
+    "waiting_hint": "コンピューターから同意書が送信されると、ここに表示され署名できます",
+    "revoked": "このデバイスは認証されていません",
+    "redirecting": "再ペアリングのためリダイレクトしています…"
   }
 }

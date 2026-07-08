@@ -763,7 +763,12 @@
     "branch": "Branch",
     "created_at": "Created at",
     "status_header": "Status",
-    "continue_signature": "Continue signature"
+    "continue_signature": "Continue signature",
+    "or": "or",
+    "send_to_tablet": "Sign on the clinic tablet",
+    "waiting_tablet_title": "Signing on the tablet…",
+    "waiting_tablet_description": "As soon as the doctor and patient sign on the tablet, this screen will move on automatically.",
+    "sign_here_instead": "Sign here instead"
   },
   "signature": {
     "title": "Patient signature",
@@ -1205,7 +1210,8 @@
       "users": "Users",
       "media": "Advertising",
       "preview": "Preview",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "devices": "Signing devices"
     },
     "users": {
       "title": "Users",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Mark as resolved",
     "mark_open": "Reopen",
     "reported_by": "Reported by"
+  },
+  "signingDevices": {
+    "title": "Signing devices",
+    "description": "Pair a clinic tablet or phone for signing: scan the QR code once and it will be ready as a signing station.",
+    "device_name": "Device name",
+    "device_name_placeholder": "E.g. Consulting room 1 tablet",
+    "generate_qr": "Generate QR code",
+    "scan_hint": "Scan this code with the tablet's camera",
+    "expires_in": "Expires in {{seconds}}s",
+    "paired_devices": "Paired devices",
+    "no_devices": "No tablet paired yet",
+    "confirm_revoke": "Unpair this device? It will no longer be able to sign consent forms.",
+    "never_seen": "Never connected",
+    "just_now": "Just now",
+    "minutes_ago": "{{count}} min ago",
+    "hours_ago": "{{count}}h ago"
+  },
+  "tabletSigning": {
+    "pair_title": "Pair signing tablet",
+    "pair_intro": "Scan the QR code shown in Settings → Signing devices.",
+    "scan_button": "Scan QR code",
+    "scanning_hint": "Point the camera at the QR code",
+    "pairing": "Pairing device…",
+    "paired_with": "Paired with {{clinic}}",
+    "try_again": "Try again",
+    "pair_error": "Could not pair the device",
+    "camera_error": "Could not access the camera",
+    "waiting": "Waiting for consent form…",
+    "waiting_hint": "As soon as a consent form is sent from the computer, it will appear here to sign",
+    "revoked": "This device is no longer authorised",
+    "redirecting": "Redirecting to pair again…"
   }
 }

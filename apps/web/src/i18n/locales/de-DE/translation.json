@@ -763,7 +763,12 @@
     "branch": "Standort",
     "created_at": "Erstellt am",
     "status_header": "Status",
-    "continue_signature": "Unterschrift fortsetzen"
+    "continue_signature": "Unterschrift fortsetzen",
+    "or": "oder",
+    "send_to_tablet": "Auf Praxis-Tablet unterschreiben",
+    "waiting_tablet_title": "Wird auf dem Tablet unterschrieben…",
+    "waiting_tablet_description": "Sobald Arzt und Patient auf dem Tablet unterschrieben haben, geht dieser Bildschirm automatisch weiter.",
+    "sign_here_instead": "Stattdessen hier unterschreiben"
   },
   "signature": {
     "title": "Patientenunterschrift",
@@ -1205,7 +1210,8 @@
       "users": "Benutzer",
       "media": "Werbung",
       "preview": "Vorschau",
-      "analytics": "Analytik"
+      "analytics": "Analytik",
+      "devices": "Unterschriftsgeräte"
     },
     "users": {
       "title": "Benutzer",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Als gelöst markieren",
     "mark_open": "Wieder öffnen",
     "reported_by": "Gemeldet von"
+  },
+  "signingDevices": {
+    "title": "Unterschriftsgeräte",
+    "description": "Verbinde ein Tablet oder Handy der Praxis zum Unterschreiben: einmal den QR-Code scannen, und es ist als Unterschriftsstation bereit.",
+    "device_name": "Gerätename",
+    "device_name_placeholder": "Z. B. Tablet Behandlungsraum 1",
+    "generate_qr": "QR-Code erzeugen",
+    "scan_hint": "Diesen Code mit der Kamera des Tablets scannen",
+    "expires_in": "Läuft ab in {{seconds}} s",
+    "paired_devices": "Verbundene Geräte",
+    "no_devices": "Noch kein Tablet verbunden",
+    "confirm_revoke": "Dieses Gerät trennen? Es kann dann keine Einwilligungen mehr unterschreiben.",
+    "never_seen": "Nie verbunden",
+    "just_now": "Gerade eben",
+    "minutes_ago": "vor {{count}} Min.",
+    "hours_ago": "vor {{count}} Std."
+  },
+  "tabletSigning": {
+    "pair_title": "Unterschrifts-Tablet verbinden",
+    "pair_intro": "Scanne den QR-Code, der unter Einstellungen → Unterschriftsgeräte angezeigt wird.",
+    "scan_button": "QR-Code scannen",
+    "scanning_hint": "Kamera auf den QR-Code richten",
+    "pairing": "Gerät wird verbunden…",
+    "paired_with": "Verbunden mit {{clinic}}",
+    "try_again": "Erneut versuchen",
+    "pair_error": "Gerät konnte nicht verbunden werden",
+    "camera_error": "Kein Zugriff auf die Kamera möglich",
+    "waiting": "Warten auf Einwilligung…",
+    "waiting_hint": "Sobald vom Computer eine Einwilligung gesendet wird, erscheint sie hier zum Unterschreiben",
+    "revoked": "Dieses Gerät ist nicht mehr autorisiert",
+    "redirecting": "Weiterleitung zum erneuten Verbinden…"
   }
 }

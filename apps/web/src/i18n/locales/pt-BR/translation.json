@@ -763,7 +763,12 @@
     "branch": "Sede",
     "created_at": "Data de criação",
     "status_header": "Status",
-    "continue_signature": "Continuar assinatura"
+    "continue_signature": "Continuar assinatura",
+    "or": "ou",
+    "send_to_tablet": "Assinar no tablet da clínica",
+    "waiting_tablet_title": "Assinando no tablet…",
+    "waiting_tablet_description": "Assim que o médico e o paciente assinarem no tablet, esta tela continuará sozinha automaticamente.",
+    "sign_here_instead": "Assinar aqui em vez disso"
   },
   "signature": {
     "title": "Assinatura do paciente",
@@ -1205,7 +1210,8 @@
       "users": "Usuários",
       "media": "Publicidade",
       "preview": "Pré-visualização",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "devices": "Dispositivos de assinatura"
     },
     "users": {
       "title": "Usuários",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Marcar como resolvido",
     "mark_open": "Reabrir",
     "reported_by": "Reportado por"
+  },
+  "signingDevices": {
+    "title": "Dispositivos de assinatura",
+    "description": "Vincule um tablet ou celular da clínica para assinar ali: escaneie o QR uma vez e ele ficará pronto como estação de assinatura.",
+    "device_name": "Nome do dispositivo",
+    "device_name_placeholder": "Ex: Tablet consultório 1",
+    "generate_qr": "Gerar código QR",
+    "scan_hint": "Escaneie este código com a câmera do tablet",
+    "expires_in": "Expira em {{seconds}} s",
+    "paired_devices": "Dispositivos vinculados",
+    "no_devices": "Ainda não há nenhum tablet vinculado",
+    "confirm_revoke": "Desvincular este dispositivo? Ele não poderá mais assinar consentimentos.",
+    "never_seen": "Nunca conectado",
+    "just_now": "Agora mesmo",
+    "minutes_ago": "há {{count}} min",
+    "hours_ago": "há {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Vincular tablet de assinatura",
+    "pair_intro": "Escaneie o código QR exibido em Configurações → Dispositivos de assinatura.",
+    "scan_button": "Escanear código QR",
+    "scanning_hint": "Aponte a câmera para o código QR",
+    "pairing": "Vinculando dispositivo…",
+    "paired_with": "Vinculado com {{clinic}}",
+    "try_again": "Tentar novamente",
+    "pair_error": "Não foi possível vincular o dispositivo",
+    "camera_error": "Não foi possível acessar a câmera",
+    "waiting": "Aguardando consentimento…",
+    "waiting_hint": "Assim que um consentimento for enviado do computador, aparecerá aqui para ser assinado",
+    "revoked": "Este dispositivo não está mais autorizado",
+    "redirecting": "Redirecionando para vincular novamente…"
   }
 }

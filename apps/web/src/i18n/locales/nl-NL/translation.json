@@ -763,7 +763,12 @@
     "branch": "Vestiging",
     "created_at": "Aanmaakdatum",
     "status_header": "Status",
-    "continue_signature": "Ondertekening voortzetten"
+    "continue_signature": "Ondertekening voortzetten",
+    "or": "of",
+    "send_to_tablet": "Ondertekenen op de kliniektablet",
+    "waiting_tablet_title": "Bezig met ondertekenen op de tablet…",
+    "waiting_tablet_description": "Zodra de arts en de patiënt op de tablet hebben getekend, gaat dit scherm automatisch verder.",
+    "sign_here_instead": "Hier in plaats daarvan ondertekenen"
   },
   "signature": {
     "title": "Handtekening patiënt",
@@ -1205,7 +1210,8 @@
       "users": "Gebruikers",
       "media": "Reclame",
       "preview": "Voorbeeld",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "devices": "Ondertekenapparaten"
     },
     "users": {
       "title": "Gebruikers",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Markeren als opgelost",
     "mark_open": "Heropenen",
     "reported_by": "Gemeld door"
+  },
+  "signingDevices": {
+    "title": "Ondertekenapparaten",
+    "description": "Koppel een tablet of mobiel van de kliniek om daarop te ondertekenen: scan de QR-code één keer en hij staat klaar als ondertekenstation.",
+    "device_name": "Apparaatnaam",
+    "device_name_placeholder": "Bijv. Tablet spreekkamer 1",
+    "generate_qr": "QR-code genereren",
+    "scan_hint": "Scan deze code met de camera van de tablet",
+    "expires_in": "Verloopt over {{seconds}} s",
+    "paired_devices": "Gekoppelde apparaten",
+    "no_devices": "Nog geen tablet gekoppeld",
+    "confirm_revoke": "Dit apparaat ontkoppelen? Het kan dan geen toestemmingsformulieren meer ondertekenen.",
+    "never_seen": "Nooit verbonden",
+    "just_now": "Zojuist",
+    "minutes_ago": "{{count}} min geleden",
+    "hours_ago": "{{count}} u geleden"
+  },
+  "tabletSigning": {
+    "pair_title": "Ondertekentablet koppelen",
+    "pair_intro": "Scan de QR-code die wordt weergegeven bij Instellingen → Ondertekenapparaten.",
+    "scan_button": "QR-code scannen",
+    "scanning_hint": "Richt de camera op de QR-code",
+    "pairing": "Apparaat koppelen…",
+    "paired_with": "Gekoppeld met {{clinic}}",
+    "try_again": "Opnieuw proberen",
+    "pair_error": "Apparaat kon niet worden gekoppeld",
+    "camera_error": "Geen toegang tot de camera",
+    "waiting": "Wachten op toestemmingsformulier…",
+    "waiting_hint": "Zodra er een toestemmingsformulier vanaf de computer wordt verzonden, verschijnt het hier om te ondertekenen",
+    "revoked": "Dit apparaat is niet meer geautoriseerd",
+    "redirecting": "Doorverwijzen om opnieuw te koppelen…"
   }
 }

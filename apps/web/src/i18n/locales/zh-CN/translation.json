@@ -763,7 +763,12 @@
     "branch": "分院",
     "created_at": "创建日期",
     "status_header": "状态",
-    "continue_signature": "继续签署"
+    "continue_signature": "继续签署",
+    "or": "或",
+    "send_to_tablet": "在诊所平板电脑上签署",
+    "waiting_tablet_title": "正在平板电脑上签署…",
+    "waiting_tablet_description": "医生和患者在平板电脑上签署后，该屏幕将自动继续。",
+    "sign_here_instead": "改为在此处签署"
   },
   "signature": {
     "title": "患者签名",
@@ -1205,7 +1210,8 @@
       "users": "用户",
       "media": "推广内容",
       "preview": "预览",
-      "analytics": "分析"
+      "analytics": "分析",
+      "devices": "签署设备"
     },
     "users": {
       "title": "用户",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "标记为已处理",
     "mark_open": "重新打开",
     "reported_by": "反馈人"
+  },
+  "signingDevices": {
+    "title": "签署设备",
+    "description": "配对诊所的平板电脑或手机用于签署：扫描一次二维码即可将其设置为签署站。",
+    "device_name": "设备名称",
+    "device_name_placeholder": "例如：诊室1平板电脑",
+    "generate_qr": "生成二维码",
+    "scan_hint": "用平板电脑的摄像头扫描此二维码",
+    "expires_in": "{{seconds}} 秒后过期",
+    "paired_devices": "已配对设备",
+    "no_devices": "尚未配对任何平板电脑",
+    "confirm_revoke": "取消配对此设备？之后将无法再签署知情同意书。",
+    "never_seen": "从未连接",
+    "just_now": "刚刚",
+    "minutes_ago": "{{count}} 分钟前",
+    "hours_ago": "{{count}} 小时前"
+  },
+  "tabletSigning": {
+    "pair_title": "配对签署平板电脑",
+    "pair_intro": "扫描\"设置 → 签署设备\"中显示的二维码。",
+    "scan_button": "扫描二维码",
+    "scanning_hint": "将摄像头对准二维码",
+    "pairing": "正在配对设备…",
+    "paired_with": "已与 {{clinic}} 配对",
+    "try_again": "重试",
+    "pair_error": "设备配对失败",
+    "camera_error": "无法访问摄像头",
+    "waiting": "正在等待知情同意书…",
+    "waiting_hint": "一旦从电脑发送知情同意书，它将显示在此处以供签署",
+    "revoked": "此设备已不再获得授权",
+    "redirecting": "正在重定向以重新配对…"
   }
 }

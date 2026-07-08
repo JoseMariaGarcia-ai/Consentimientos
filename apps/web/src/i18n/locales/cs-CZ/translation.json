@@ -763,7 +763,12 @@
     "branch": "Pobočka",
     "created_at": "Datum vytvoření",
     "status_header": "Stav",
-    "continue_signature": "Pokračovat v podpisu"
+    "continue_signature": "Pokračovat v podpisu",
+    "or": "nebo",
+    "send_to_tablet": "Podepsat na tabletu ordinace",
+    "waiting_tablet_title": "Podepisuje se na tabletu…",
+    "waiting_tablet_description": "Jakmile lékař a pacient podepíší na tabletu, tato obrazovka bude automaticky pokračovat.",
+    "sign_here_instead": "Podepsat zde místo toho"
   },
   "signature": {
     "title": "Podpis pacienta",
@@ -1205,7 +1210,8 @@
       "users": "Uživatelé",
       "media": "Reklama",
       "preview": "Náhled",
-      "analytics": "Analytika"
+      "analytics": "Analytika",
+      "devices": "Podepisovací zařízení"
     },
     "users": {
       "title": "Uživatelé",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Označit jako vyřešené",
     "mark_open": "Znovu otevřít",
     "reported_by": "Nahlásil"
+  },
+  "signingDevices": {
+    "title": "Podepisovací zařízení",
+    "description": "Připojte tablet nebo mobil kliniky k podepisování: naskenujte QR kód jednou a bude připraven jako podepisovací stanice.",
+    "device_name": "Název zařízení",
+    "device_name_placeholder": "Např. Tablet ordinace 1",
+    "generate_qr": "Vygenerovat QR kód",
+    "scan_hint": "Naskenujte tento kód fotoaparátem tabletu",
+    "expires_in": "Vyprší za {{seconds}} s",
+    "paired_devices": "Připojená zařízení",
+    "no_devices": "Zatím není připojen žádný tablet",
+    "confirm_revoke": "Odpojit toto zařízení? Nebude již moci podepisovat souhlasy.",
+    "never_seen": "Nikdy nepřipojeno",
+    "just_now": "Právě teď",
+    "minutes_ago": "před {{count}} min",
+    "hours_ago": "před {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Připojit podepisovací tablet",
+    "pair_intro": "Naskenujte QR kód, který se zobrazí v Nastavení → Podepisovací zařízení.",
+    "scan_button": "Naskenovat QR kód",
+    "scanning_hint": "Namiřte kameru na QR kód",
+    "pairing": "Připojuje se zařízení…",
+    "paired_with": "Připojeno s {{clinic}}",
+    "try_again": "Zkusit znovu",
+    "pair_error": "Zařízení se nepodařilo připojit",
+    "camera_error": "Nepodařilo se získat přístup ke kameře",
+    "waiting": "Čeká se na souhlas…",
+    "waiting_hint": "Jakmile bude z počítače odeslán souhlas, zobrazí se zde k podpisu",
+    "revoked": "Toto zařízení již není autorizováno",
+    "redirecting": "Přesměrování pro opětovné připojení…"
   }
 }

@@ -737,6 +737,11 @@
     "doctor_signature_title": "Firma del doctor",
     "doctor_signature_notice": "El doctor debe firmar primero para validar el consentimiento",
     "back_to_preview": "← Volver",
+    "or": "o",
+    "send_to_tablet": "Firmar en tablet de la consulta",
+    "waiting_tablet_title": "Firmando en la tablet…",
+    "waiting_tablet_description": "En cuanto el doctor y el paciente firmen en la tablet, esta pantalla continuará sola automáticamente.",
+    "sign_here_instead": "Firmar aquí en su lugar",
     "patient_signature_title": "Firma del paciente",
     "patient_signature_notice": "El paciente debe firmar para confirmar que ha leído y acepta el consentimiento",
     "signed_title": "Consentimiento firmado",
@@ -1205,7 +1210,8 @@
       "users": "Usuarios",
       "media": "Publicidad",
       "preview": "Vista previa",
-      "analytics": "Analítica"
+      "analytics": "Analítica",
+      "devices": "Dispositivos de firma"
     },
     "users": {
       "title": "Usuarios",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Marcar como resuelta",
     "mark_open": "Reabrir",
     "reported_by": "Reportado por"
+  },
+  "signingDevices": {
+    "title": "Dispositivos de firma",
+    "description": "Vincula una tablet o móvil de la clínica para firmar consentimientos allí: escanea el QR una vez y quedará lista como estación de firma.",
+    "device_name": "Nombre del dispositivo",
+    "device_name_placeholder": "Ej: Tablet consulta 1",
+    "generate_qr": "Generar código QR",
+    "scan_hint": "Escanea este código con la cámara de la tablet",
+    "expires_in": "Caduca en {{seconds}} s",
+    "paired_devices": "Dispositivos vinculados",
+    "no_devices": "Todavía no hay ninguna tablet vinculada",
+    "confirm_revoke": "¿Desvincular este dispositivo? Dejará de poder firmar consentimientos.",
+    "never_seen": "Nunca conectado",
+    "just_now": "Ahora mismo",
+    "minutes_ago": "hace {{count}} min",
+    "hours_ago": "hace {{count}} h"
+  },
+  "tabletSigning": {
+    "pair_title": "Vincular tablet de firma",
+    "pair_intro": "Escanea el código QR que aparece en Configuración → Dispositivos de firma.",
+    "scan_button": "Escanear código QR",
+    "scanning_hint": "Apunta la cámara al código QR",
+    "pairing": "Vinculando dispositivo…",
+    "paired_with": "Vinculado con {{clinic}}",
+    "try_again": "Intentar de nuevo",
+    "pair_error": "No se pudo vincular el dispositivo",
+    "camera_error": "No se pudo acceder a la cámara",
+    "waiting": "Esperando consentimiento…",
+    "waiting_hint": "En cuanto se envíe un consentimiento desde el ordenador, aparecerá aquí para firmarlo",
+    "revoked": "Este dispositivo ya no está autorizado",
+    "redirecting": "Redirigiendo para volver a vincular…"
   }
 }

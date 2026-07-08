@@ -763,7 +763,12 @@
     "branch": "Filial",
     "created_at": "Skapandedatum",
     "status_header": "Status",
-    "continue_signature": "Fortsätt signering"
+    "continue_signature": "Fortsätt signering",
+    "or": "eller",
+    "send_to_tablet": "Signera på klinikens surfplatta",
+    "waiting_tablet_title": "Signerar på surfplattan…",
+    "waiting_tablet_description": "Så snart läkaren och patienten har signerat på surfplattan fortsätter denna skärm automatiskt.",
+    "sign_here_instead": "Signera här istället"
   },
   "signature": {
     "title": "Patientens signatur",
@@ -1205,7 +1210,8 @@
       "users": "Användare",
       "media": "Reklam",
       "preview": "Förhandsgranskning",
-      "analytics": "Analys"
+      "analytics": "Analys",
+      "devices": "Signeringsenheter"
     },
     "users": {
       "title": "Användare",
@@ -1555,5 +1561,36 @@
     "mark_resolved": "Markera som löst",
     "mark_open": "Återöppna",
     "reported_by": "Rapporterat av"
+  },
+  "signingDevices": {
+    "title": "Signeringsenheter",
+    "description": "Anslut en surfplatta eller mobil från kliniken för signering: skanna QR-koden en gång så är den redo som signeringsstation.",
+    "device_name": "Enhetsnamn",
+    "device_name_placeholder": "T.ex. Surfplatta mottagningsrum 1",
+    "generate_qr": "Skapa QR-kod",
+    "scan_hint": "Skanna denna kod med surfplattans kamera",
+    "expires_in": "Går ut om {{seconds}} s",
+    "paired_devices": "Anslutna enheter",
+    "no_devices": "Ingen surfplatta ansluten ännu",
+    "confirm_revoke": "Koppla bort denna enhet? Den kan då inte längre signera samtycken.",
+    "never_seen": "Aldrig ansluten",
+    "just_now": "Just nu",
+    "minutes_ago": "{{count}} min sedan",
+    "hours_ago": "{{count}} tim sedan"
+  },
+  "tabletSigning": {
+    "pair_title": "Anslut signerings-surfplatta",
+    "pair_intro": "Skanna QR-koden som visas under Inställningar → Signeringsenheter.",
+    "scan_button": "Skanna QR-kod",
+    "scanning_hint": "Rikta kameran mot QR-koden",
+    "pairing": "Ansluter enhet…",
+    "paired_with": "Ansluten till {{clinic}}",
+    "try_again": "Försök igen",
+    "pair_error": "Det gick inte att ansluta enheten",
+    "camera_error": "Det gick inte att komma åt kameran",
+    "waiting": "Väntar på samtycke…",
+    "waiting_hint": "Så snart ett samtycke skickas från datorn visas det här för signering",
+    "revoked": "Denna enhet är inte längre auktoriserad",
+    "redirecting": "Omdirigerar för att ansluta igen…"
   }
 }

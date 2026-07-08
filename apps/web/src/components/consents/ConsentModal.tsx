@@ -14,7 +14,7 @@ interface ConsentModalProps {
   onSaved: () => void
 }
 
-type Step = 'form' | 'preview' | 'sign_doctor' | 'sign_patient' | 'done'
+type Step = 'form' | 'preview' | 'sign_doctor' | 'sign_patient' | 'sent_to_tablet' | 'done'
 
 export function ConsentModal({ initialPatientId, continueRecord, onClose, onSaved }: ConsentModalProps) {
   const { trigger: triggerWelcome } = useWelcomeMedia()
@@ -35,6 +35,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [consentId, setConsentId] = useState(continueRecord?.id ?? '')
   const [saving, setSaving] = useState(false)
   const [translating, setTranslating] = useState(false)
+  const [handoffError, setHandoffError] = useState('')
 
   const selectedTemplate = templates.find(t => t.id === templateId)
   const legalData = useConsentWithLegal(
@@ -97,6 +98,39 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
     }
   }
 
+  const handleSendToTablet = async () => {
+    setSaving(true)
+    setHandoffError('')
+    try {
+      await api.post('/consent-handoff', { consent_id: consentId })
+      setStep('sent_to_tablet')
+    } catch (e: any) {
+      setHandoffError(e.message)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  // While waiting on the tablet, poll for completion instead of the doctor
+  // touching this screen again — the desktop just watches and auto-advances.
+  useEffect(() => {
+    if (step !== 'sent_to_tablet' || !consentId) return
+    const interval = setInterval(async () => {
+      try {
+        const data = await api.get(`/consent-handoff/${consentId}`)
+        if (data?.consentStatus === 'signed') {
+          clearInterval(interval)
+          setStep('done')
+          triggerWelcome('consent')
+          onSaved()
+        }
+      } catch {
+        // keep polling — a transient network error shouldn't abort the wait
+      }
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [step, consentId])
+
   const handleDoctorSign = async (dataUrl: string) => {
     setSaving(true)
     try {
@@ -137,7 +171,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           {(() => {
             const steps: Step[] = ['form', 'preview', 'sign_doctor', 'sign_patient', 'done']
             const labels = t('consents.step_labels', { returnObjects: true }) as string[]
-            const cur = steps.indexOf(step)
+            const cur = steps.indexOf(step === 'sent_to_tablet' ? 'sign_doctor' : step)
             return (
               <div className="flex items-center gap-1 mb-6">
                 {steps.map((s, i) => (
@@ -314,7 +348,34 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
               </div>
               <p className="text-sm text-slate-600">{t('signature.instructions')}</p>
               <SignatureCanvas onSave={(dataUrl) => handleDoctorSign(dataUrl)} />
+
+              <div className="flex items-center gap-3">
+                <div className="flex-1 h-px bg-slate-100" />
+                <span className="text-xs text-slate-400">{t('consents.or')}</span>
+                <div className="flex-1 h-px bg-slate-100" />
+              </div>
+              <button
+                onClick={handleSendToTablet}
+                disabled={saving}
+                className="flex items-center justify-center gap-2 py-2.5 border border-blue-200 text-blue-700 rounded-xl text-sm font-medium hover:bg-blue-50 disabled:opacity-50"
+              >
+                {t('consents.send_to_tablet')}
+              </button>
+              {handoffError && <p className="text-sm text-red-500">{handoffError}</p>}
+
               <button onClick={() => setStep('preview')} className="self-start text-xs text-slate-500 hover:text-slate-700">{t('consents.back_to_preview')}</button>
+            </div>
+          )}
+
+          {/* STEP 3b: Waiting for the paired tablet to finish both signatures */}
+          {step === 'sent_to_tablet' && (
+            <div className="text-center py-10 flex flex-col items-center gap-4">
+              <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+              <h3 className="text-base font-semibold text-slate-800">{t('consents.waiting_tablet_title')}</h3>
+              <p className="text-sm text-slate-500 max-w-sm">{t('consents.waiting_tablet_description')}</p>
+              <button onClick={() => setStep('sign_doctor')} className="text-xs text-slate-400 hover:text-slate-600">
+                {t('consents.sign_here_instead')}
+              </button>
             </div>
           )}
 
