@@ -1310,5 +1310,96 @@
     "save": "Salva",
     "saving": "Salvataggio…",
     "saved": "Salvato"
+  },
+  "landing": {
+    "nav": {
+      "access": "Accedi"
+    },
+    "hero": {
+      "badge": "Software per cliniche di medicina estetica",
+      "title_line1": "Consensi informati",
+      "title_highlight": "100% digitali",
+      "subtitle": "Firma biometrica, cartella clinica, agenda e agenti IA in un'unica piattaforma. Conformità legale garantita — L. 219/2017, eIDAS e GDPR.",
+      "cta_primary": "Accedi alla piattaforma",
+      "cta_secondary": "Vedi i piani",
+      "trust_1": "L. 219/2017",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Lingue disponibili",
+      "s2_value": "100 %",
+      "s2_label": "100% digitale e senza carta",
+      "s3_value": "24/7",
+      "s3_label": "Portale del paziente",
+      "s4_value": "0",
+      "s4_label": "Rischio legale da firme non valide"
+    },
+    "features": {
+      "title": "Tutto ciò di cui la tua clinica ha bisogno",
+      "subtitle": "Una piattaforma completa pensata per cliniche di medicina estetica",
+      "items": {
+        "signature": {
+          "title": "Firma biometrica + Magic Link",
+          "desc": "Consensi con piena validità legale, firmati dal paziente da qualsiasi dispositivo."
+        },
+        "multilang": {
+          "title": "Consensi illimitati in 31 lingue",
+          "desc": "Modelli personalizzabili tradotti automaticamente per pazienti di qualsiasi nazionalità."
+        },
+        "records": {
+          "title": "Cartella clinica digitale",
+          "desc": "Tutte le informazioni del paziente centralizzate, sicure e accessibili all'istante."
+        },
+        "agenda": {
+          "title": "Agenda appuntamenti intelligente",
+          "desc": "Gestione di orari, trattamenti e disponibilità senza attriti."
+        },
+        "toxin": {
+          "title": "Controllo della tossina botulinica",
+          "desc": "Tracciabilità completa di lotti e unità applicate per paziente e sessione."
+        },
+        "gallery": {
+          "title": "Galleria prima / dopo",
+          "desc": "Foto cliniche organizzate per sessione, con confronti visivi per il paziente."
+        },
+        "portal": {
+          "title": "Portale del paziente 24/7",
+          "desc": "I tuoi pazienti accedono ai loro consensi, foto e cartella clinica in qualsiasi momento."
+        },
+        "whatsapp": {
+          "title": "Agente WhatsApp con IA",
+          "desc": "Acquisisce e conferma appuntamenti automaticamente, e comunica con i tuoi pazienti 24 ore su 24."
+        },
+        "voice": {
+          "title": "Agente vocale con IA",
+          "desc": "Risponde alle chiamate e fissa appuntamenti telefonicamente in automatico, clonando la voce della tua reception."
+        }
+      }
+    },
+    "how": {
+      "title": "Così semplice",
+      "subtitle": "La tua clinica operativa in tre passaggi",
+      "step1_title": "Registra la tua clinica",
+      "step1_desc": "Configura il tuo team, i trattamenti e i modelli di consenso in pochi minuti.",
+      "step2_title": "Invita i tuoi pazienti",
+      "step2_desc": "Invia il link di firma via email o WhatsApp — firmano dal cellulare con Magic Link.",
+      "step3_title": "Tutto viene registrato",
+      "step3_desc": "Consensi, foto e cartella clinica archiviati in modo sicuro e con validità legale."
+    },
+    "pricing": {
+      "title": "Piani di abbonamento",
+      "subtitle": "Scegli il piano più adatto alla tua clinica — cambia o passa a un piano superiore quando vuoi"
+    },
+    "final_cta": {
+      "title": "Digitalizza la tua clinica oggi",
+      "subtitle": "Unisciti alle cliniche che hanno già eliminato la carta dai loro consensi informati.",
+      "button": "Accedi alla piattaforma"
+    },
+    "footer": {
+      "tagline": "Consensi digitali validi · L. 219/2017 · GDPR",
+      "rights": "Tutti i diritti riservati."
+    }
   }
 }

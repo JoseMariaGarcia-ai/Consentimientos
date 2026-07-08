@@ -1256,5 +1256,96 @@
     "save": "Mentés",
     "saving": "Mentés…",
     "saved": "Mentve"
+  },
+  "landing": {
+    "nav": {
+      "access": "Bejelentkezés"
+    },
+    "hero": {
+      "badge": "Szoftver esztétikai orvosi klinikák számára",
+      "title_line1": "Tájékozott beleegyezések",
+      "title_highlight": "100%-ban digitálisan",
+      "subtitle": "Biometrikus aláírás, betegdokumentáció, időpontfoglalás és AI ügynökök egyetlen platformon. Garantált jogi megfelelés — 1997. évi CLIV. törvény, eIDAS és GDPR.",
+      "cta_primary": "Belépés a platformra",
+      "cta_secondary": "Csomagok megtekintése",
+      "trust_1": "1997. évi CLIV. törvény",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Elérhető nyelvek",
+      "s2_value": "100 %",
+      "s2_label": "100%-ban digitális és papírmentes",
+      "s3_value": "24/7",
+      "s3_label": "Betegportál",
+      "s4_value": "0",
+      "s4_label": "Érvénytelen aláírásokból eredő jogi kockázat"
+    },
+    "features": {
+      "title": "Minden, amire klinikájának szüksége van",
+      "subtitle": "Teljes körű platform esztétikai orvosi klinikák számára",
+      "items": {
+        "signature": {
+          "title": "Biometrikus aláírás + Magic Link",
+          "desc": "Teljes jogi érvényű beleegyezések, amelyeket a beteg bármely eszközről aláírhat."
+        },
+        "multilang": {
+          "title": "Korlátlan beleegyezés 31 nyelven",
+          "desc": "Testreszabható sablonok, amelyek automatikusan lefordíthatók bármely nemzetiségű beteg számára."
+        },
+        "records": {
+          "title": "Digitális betegdokumentáció",
+          "desc": "Minden betegadat központosítva, biztonságosan és azonnal elérhetően."
+        },
+        "agenda": {
+          "title": "Intelligens időpontfoglalás",
+          "desc": "Ütemtervek, kezelések és elérhetőség kezelése zökkenőmentesen."
+        },
+        "toxin": {
+          "title": "Botulinum-toxin nyomon követése",
+          "desc": "Tételek és betegenként, kezelésenként alkalmazott egységek teljes nyomon követhetősége."
+        },
+        "gallery": {
+          "title": "Előtte / utána galéria",
+          "desc": "Kezelésenként rendszerezett klinikai fotók, vizuális összehasonlítással a beteg számára."
+        },
+        "portal": {
+          "title": "Betegportál éjjel-nappal",
+          "desc": "Betegei bármikor hozzáférhetnek beleegyezéseikhez, fotóikhoz és betegdokumentációjukhoz."
+        },
+        "whatsapp": {
+          "title": "AI-alapú WhatsApp ügynök",
+          "desc": "Automatikusan megszerzi és megerősíti az időpontokat, és éjjel-nappal kommunikál betegeivel."
+        },
+        "voice": {
+          "title": "AI-alapú hangügynök",
+          "desc": "Automatikusan fogadja a hívásokat és telefonon foglal időpontokat, klónozva recepciósa hangját."
+        }
+      }
+    },
+    "how": {
+      "title": "Ilyen egyszerű",
+      "subtitle": "Klinikája három lépésben működőképes",
+      "step1_title": "Regisztrálja klinikáját",
+      "step1_desc": "Állítsa be csapatát, kezeléseit és beleegyezési sablonjait percek alatt.",
+      "step2_title": "Hívja meg betegeit",
+      "step2_desc": "Küldje el az aláírási linket e-mailben vagy WhatsAppon — a betegek mobilról írják alá Magic Linkkel.",
+      "step3_title": "Minden rögzítve van",
+      "step3_desc": "Beleegyezések, fotók és betegdokumentáció biztonságosan archiválva, teljes jogi érvényességgel."
+    },
+    "pricing": {
+      "title": "Előfizetési csomagok",
+      "subtitle": "Válassza ki a klinikájához legjobban illő csomagot — bármikor válthat vagy bővíthet"
+    },
+    "final_cta": {
+      "title": "Digitalizálja klinikáját még ma",
+      "subtitle": "Csatlakozzon azokhoz a klinikákhoz, amelyek már megszabadultak a papíralapú tájékozott beleegyezésektől.",
+      "button": "Belépés a platformra"
+    },
+    "footer": {
+      "tagline": "Érvényes digitális beleegyezések · 1997. évi CLIV. törvény · GDPR",
+      "rights": "Minden jog fenntartva."
+    }
   }
 }
