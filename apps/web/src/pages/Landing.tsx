@@ -3,13 +3,17 @@ import { useTranslation } from 'react-i18next'
 import {
   Fingerprint, Globe, FileText, Calendar, Syringe, Images,
   Smartphone, MessageCircle, Mic, ShieldCheck, ArrowRight,
-  Menu, X, Check,
+  Menu, X, Check, Receipt, ImageOff,
+  Clock, MonitorSmartphone, Hash, ListChecks, UserCheck,
 } from 'lucide-react'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { PLANS, PLAN_KEY } from './Recharge'
 
-const FEATURE_ICONS = [Fingerprint, Globe, FileText, Calendar, Syringe, Images, Smartphone, MessageCircle, Mic]
-const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'gallery', 'portal', 'whatsapp', 'voice']
+const FEATURE_ICONS = [Fingerprint, Globe, FileText, Calendar, Syringe, Images, Smartphone, MessageCircle, Mic, Receipt, ImageOff]
+const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'gallery', 'portal', 'whatsapp', 'voice', 'budget', 'image_auth']
+
+const COMPLIANCE_ICONS = [Fingerprint, Clock, MonitorSmartphone, Hash, ListChecks, UserCheck]
+const COMPLIANCE_KEYS = ['biometric', 'timestamp', 'device', 'hash', 'audit', 'doctor']
 
 const ANNUAL_DISCOUNT = 0.2
 
@@ -176,6 +180,38 @@ function HowItWorks() {
   )
 }
 
+function Compliance() {
+  const { t } = useTranslation()
+  return (
+    <section className="bg-[#0a2342] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(201,162,39,0.1),transparent_45%)]" />
+      <div className="relative max-w-6xl mx-auto px-5 py-20">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block bg-white/10 text-brand-gold text-xs font-semibold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-white/10 mb-4">
+            eIDAS
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">{t('landing.compliance.title')}</h2>
+          <p className="text-white/70 mt-3">{t('landing.compliance.subtitle')}</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {COMPLIANCE_KEYS.map((key, i) => {
+            const Icon = COMPLIANCE_ICONS[i]
+            return (
+              <div key={key} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-brand-gold" />
+                </div>
+                <h3 className="font-bold text-white">{t(`landing.compliance.items.${key}.title`)}</h3>
+                <p className="text-sm text-white/60 mt-2 leading-relaxed">{t(`landing.compliance.items.${key}.desc`)}</p>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
   const { t } = useTranslation()
   const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly')
@@ -301,6 +337,7 @@ export default function Landing() {
       <Stats />
       <Features />
       <HowItWorks />
+      <Compliance />
       <Pricing />
       <FinalCta />
       <Footer />

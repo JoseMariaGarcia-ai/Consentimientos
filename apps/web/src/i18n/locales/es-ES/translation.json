@@ -1303,8 +1303,8 @@
           "desc": "Gestión de horarios, tratamientos y disponibilidad sin fricciones."
         },
         "toxin": {
-          "title": "Control de toxina botulínica",
-          "desc": "Trazabilidad completa de lotes y unidades aplicadas por paciente y sesión."
+          "title": "Control de toxina botulínica 100% legal",
+          "desc": "Trazabilidad completa de lotes y unidades aplicadas por paciente y sesión, conforme a la normativa vigente."
         },
         "gallery": {
           "title": "Galería antes / después",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portal del paciente 24/7",
-          "desc": "Tus pacientes acceden a sus consentimientos, fotos e historia clínica en cualquier momento."
+          "desc": "Tus pacientes acceden a sus consentimientos, fotos e historia clínica en cualquier momento y desde cualquier lugar."
         },
         "whatsapp": {
           "title": "Agente WhatsApp con IA",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agente de voz con IA",
           "desc": "Contesta llamadas y agenda citas por teléfono automáticamente, clonando la voz de tu recepción."
+        },
+        "budget": {
+          "title": "Presupuestos para pacientes",
+          "desc": "Crea y envía presupuestos personalizados a tus pacientes de forma rápida y profesional."
+        },
+        "image_auth": {
+          "title": "Registro de autorización de imágenes",
+          "desc": "Registra el consentimiento del paciente para el uso de sus fotografías, con la misma validez legal y trazabilidad que el resto de consentimientos."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Da de alta tu clínica",
       "step1_desc": "Configura tu equipo, tratamientos y plantillas de consentimiento en minutos.",
       "step2_title": "Invita a tus pacientes",
-      "step2_desc": "Envía el enlace de firma por email o WhatsApp — firman desde su móvil con Magic Link.",
+      "step2_desc": "Firman los consentimientos en la clínica y reciben por email su consentimiento firmado junto con el acceso a su portal mediante Magic Link.",
       "step3_title": "Todo queda registrado",
       "step3_desc": "Consentimientos, fotos e historia clínica archivados de forma segura y con validez legal."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Consentimientos digitales válidos · Ley 41/2002 · RGPD",
       "rights": "Todos los derechos reservados."
+    },
+    "compliance": {
+      "title": "Firma electrónica con validez legal",
+      "subtitle": "Cada consentimiento firmado en ConsentsPro cumple el Reglamento eIDAS (UE) 910/2014 sobre identificación electrónica y servicios de confianza.",
+      "items": {
+        "biometric": {
+          "title": "Firma biométrica del trazo",
+          "desc": "Capturamos cada punto del trazo al firmar: coordenadas, tiempo exacto y presión del dedo o lápiz, para verificar que la firma es auténtica."
+        },
+        "timestamp": {
+          "title": "Sello de tiempo certificado",
+          "desc": "Cada firma queda vinculada a la fecha y hora exactas certificadas por nuestro servidor, no por el dispositivo del firmante."
+        },
+        "device": {
+          "title": "Huella digital del dispositivo",
+          "desc": "Registramos la dirección IP y el dispositivo o navegador utilizado para firmar, como prueba adicional de identidad."
+        },
+        "hash": {
+          "title": "Huella digital del documento",
+          "desc": "Generamos un hash criptográfico único de cada firma que permite detectar cualquier alteración posterior del documento."
+        },
+        "audit": {
+          "title": "Registro de auditoría",
+          "desc": "Cada firma queda guardada en un registro de auditoría inalterable, con el historial completo del proceso."
+        },
+        "doctor": {
+          "title": "Firma conjunta médico-paciente",
+          "desc": "El profesional sanitario firma junto al paciente, dejando constancia de ambas partes en el mismo documento."
+        }
+      }
     }
   }
 }
