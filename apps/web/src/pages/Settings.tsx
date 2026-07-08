@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3 } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3, FileUp } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
@@ -292,6 +292,7 @@ function ClinicKeysPanel() {
   const [saving, setSaving]     = useState(false)
   const [saved, setSaved]       = useState(false)
   const [error, setError]       = useState('')
+  const [uploadingField, setUploadingField] = useState<'knowledge_base' | 'prompt' | null>(null)
 
   useEffect(() => {
     api.get('/clinic-config/clinics')
@@ -328,11 +329,53 @@ function ClinicKeysPanel() {
     finally { setSaving(false) }
   }
 
-  const Field = ({ label, value, onChange, type = 'text', hint }: {
+  // Lets the admin upload a PDF instead of retyping the prompt / knowledge
+  // base by hand — the extracted text lands in the memo field, still fully
+  // editable afterwards, it doesn't replace the textarea.
+  const handlePdfUpload = async (field: 'knowledge_base' | 'prompt', file: File) => {
+    setUploadingField(field)
+    setError('')
+    try {
+      const fileBase64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve((reader.result as string).split(',')[1] ?? '')
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+      })
+      const { text } = await api.post('/clinic-config/extract-pdf', { fileBase64 })
+      setForm(f => ({ ...f, [field]: text }))
+    } catch (e: any) {
+      setError(e.message || 'No se pudo extraer el texto del PDF')
+    } finally {
+      setUploadingField(null)
+    }
+  }
+
+  const Field = ({ label, value, onChange, type = 'text', hint, onPdfUpload, uploading }: {
     label: string; value: string; onChange: (v: string) => void; type?: string; hint?: string
+    onPdfUpload?: (file: File) => void; uploading?: boolean
   }) => (
     <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{label}</label>
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{label}</label>
+        {onPdfUpload && (
+          <label className={`flex items-center gap-1.5 text-xs font-medium cursor-pointer ${uploading ? 'text-slate-300' : 'text-purple-600 hover:text-purple-700'}`}>
+            <FileUp className="w-3.5 h-3.5" />
+            {uploading ? 'Leyendo PDF…' : 'Subir PDF'}
+            <input
+              type="file"
+              accept="application/pdf"
+              disabled={uploading}
+              className="hidden"
+              onChange={e => {
+                const file = e.target.files?.[0]
+                if (file) onPdfUpload(file)
+                e.target.value = ''
+              }}
+            />
+          </label>
+        )}
+      </div>
       {type === 'textarea' ? (
         <textarea
           value={value}
@@ -404,14 +447,18 @@ function ClinicKeysPanel() {
                   value={form.knowledge_base}
                   onChange={v => setForm(f => ({ ...f, knowledge_base: v }))}
                   type="textarea"
-                  hint="Pega aquí la base de conocimientos de la clínica: servicios, tratamientos, precios, FAQs…"
+                  hint="Pega aquí la base de conocimientos de la clínica, o sube un PDF: servicios, tratamientos, precios, FAQs…"
+                  onPdfUpload={file => handlePdfUpload('knowledge_base', file)}
+                  uploading={uploadingField === 'knowledge_base'}
                 />
                 <Field
                   label="Prompt del agente IA"
                   value={form.prompt}
                   onChange={v => setForm(f => ({ ...f, prompt: v }))}
                   type="textarea"
-                  hint="Instrucciones de comportamiento para el agente IA de esta clínica…"
+                  hint="Instrucciones de comportamiento para el agente IA de esta clínica, o sube un PDF…"
+                  onPdfUpload={file => handlePdfUpload('prompt', file)}
+                  uploading={uploadingField === 'prompt'}
                 />
               </div>
 

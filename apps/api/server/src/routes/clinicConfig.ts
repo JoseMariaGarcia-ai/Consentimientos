@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { PDFParse } from 'pdf-parse'
 import { query, queryOne } from '../lib/db'
 
 const router = Router()
@@ -12,6 +13,12 @@ async function requireSuperAdminClinicId(req: any, targetClinicId?: string): Pro
   )
   if (!me || me.role !== 'superadmin') return null
   return targetClinicId ?? me.clinic_id ?? null
+}
+
+async function isSuperAdmin(req: any): Promise<boolean> {
+  const { userId } = req.user
+  const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+  return me?.role === 'superadmin'
 }
 
 // GET /api/clinic-config/clinics — list all clinics (superadmin only)
@@ -33,6 +40,27 @@ router.get('/', async (req, res) => {
     const data = await queryOne('SELECT * FROM clinic_api_config WHERE clinic_id = $1', [clinicId])
     return res.json(data ?? { clinic_id: clinicId })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// POST /api/clinic-config/extract-pdf — superadmin only. Extracts plain text
+// from an uploaded PDF so it can prefill the prompt / knowledge base memo
+// fields instead of the admin having to retype the document by hand.
+router.post('/extract-pdf', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+
+    const { fileBase64 } = req.body
+    if (!fileBase64) return res.status(400).json({ error: 'fileBase64 requerido' })
+
+    const buffer = Buffer.from(fileBase64, 'base64')
+    const parser = new PDFParse({ data: buffer })
+    try {
+      const result = await parser.getText()
+      return res.json({ text: result.text.trim() })
+    } finally {
+      await parser.destroy()
+    }
+  } catch (err: any) { return res.status(500).json({ error: 'No se pudo leer el PDF: ' + err.message }) }
 })
 
 // PUT /api/clinic-config — superadmin only
