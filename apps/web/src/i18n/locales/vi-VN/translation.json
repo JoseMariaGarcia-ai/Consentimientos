@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Chuyển sang gói năm và tiết kiệm 20%",
     "hire_plan": "Đăng ký gói",
     "note_title": "Ghi chú về Gói AI và Gói AI Premium:",
-    "note_text": "Việc thiết lập ban đầu cho các trợ lý AI (dịch vụ, liệu trình và cá nhân hóa) cũng như triển khai sẽ được báo giá riêng tùy theo mức độ phức tạp của từng phòng khám. Chi phí trợ lý giọng nói, WhatsApp API và mô hình AI không bao gồm trong phí hàng tháng.",
+    "note_text": "Việc thiết lập ban đầu cho các trợ lý AI (dịch vụ, liệu trình và cá nhân hóa) cũng như triển khai sẽ được báo giá riêng tùy theo mức độ phức tạp của từng phòng khám. Chi phí trợ lý giọng nói, mô hình AI và WhatsApp API không bao gồm trong phí hàng tháng.",
     "plans": {
       "base": {
         "name": "Gói Cơ Bản",

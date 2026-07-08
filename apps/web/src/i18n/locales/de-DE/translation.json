@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Wechseln Sie zu jährlich und sparen Sie 20 %",
     "hire_plan": "Plan wählen",
     "note_title": "Hinweis zum KI-Plan und KI-Premium-Plan:",
-    "note_text": "Die Ersteinrichtung der KI-Agenten (Leistungen, Behandlungen und Anpassung) sowie die Implementierung werden je nach Komplexität der Klinik gesondert kalkuliert. Die Kosten für Sprachassistent, WhatsApp-API und KI-Modell sind nicht in der monatlichen Gebühr enthalten.",
+    "note_text": "Die Ersteinrichtung der KI-Agenten (Leistungen, Behandlungen und Anpassung) sowie die Implementierung werden je nach Komplexität der Klinik gesondert kalkuliert. Die Kosten für Sprachassistent, KI-Modell und WhatsApp-API sind nicht in der monatlichen Gebühr enthalten.",
     "plans": {
       "base": {
         "name": "Basis-Plan",

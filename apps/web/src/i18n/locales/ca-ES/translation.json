@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Canvia a anual i estalvia un 20 %",
     "hire_plan": "Contractar pla",
     "note_title": "Nota Pla IA i Pla IA Premium:",
-    "note_text": "La configuració inicial dels agents IA (serveis, tractaments i personalització) i la implantació es pressuposten a part segons la complexitat de cada clínica. Els costos d’agent de veu, WhatsApp API i model d’IA no estan inclosos en la quota mensual.",
+    "note_text": "La configuració inicial dels agents IA (serveis, tractaments i personalització) i la implantació es pressuposten a part segons la complexitat de cada clínica. Els costos d’agent de veu, model d’IA i WhatsApp API no estan inclosos en la quota mensual.",
     "plans": {
       "base": {
         "name": "Pla Base",

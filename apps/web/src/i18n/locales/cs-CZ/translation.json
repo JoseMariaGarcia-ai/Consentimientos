@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Přejděte na roční platbu a ušetřete 20 %",
     "hire_plan": "Objednat plán",
     "note_title": "Poznámka k Plánu AI a Plánu AI Premium:",
-    "note_text": "Počáteční nastavení AI agentů (služby, ošetření a personalizace) a implementace se rozpočtují zvlášť podle složitosti dané kliniky. Náklady na hlasového agenta, WhatsApp API a AI model nejsou zahrnuty v měsíčním poplatku.",
+    "note_text": "Počáteční nastavení AI agentů (služby, ošetření a personalizace) a implementace se rozpočtují zvlášť podle složitosti dané kliniky. Náklady na hlasového agenta, AI model a WhatsApp API nejsou zahrnuty v měsíčním poplatku.",
     "plans": {
       "base": {
         "name": "Základní plán",

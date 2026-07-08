@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Treceți la plan anual și economisiți 20%",
     "hire_plan": "Alege planul",
     "note_title": "Notă Plan AI și Plan AI Premium:",
-    "note_text": "Configurarea inițială a agenților IA (servicii, tratamente și personalizare) și implementarea se bugetează separat, în funcție de complexitatea fiecărei clinici. Costurile agentului vocal, API-ului WhatsApp și modelului de IA nu sunt incluse în abonamentul lunar.",
+    "note_text": "Configurarea inițială a agenților IA (servicii, tratamente și personalizare) și implementarea se bugetează separat, în funcție de complexitatea fiecărei clinici. Costurile agentului vocal, modelului de IA și API-ului WhatsApp nu sunt incluse în abonamentul lunar.",
     "plans": {
       "base": {
         "name": "Plan de Bază",

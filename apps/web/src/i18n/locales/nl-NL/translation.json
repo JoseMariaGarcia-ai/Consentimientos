@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Schakel over naar jaarlijks en bespaar 20%",
     "hire_plan": "Abonnement afsluiten",
     "note_title": "Let op AI-abonnement en AI Premium-abonnement:",
-    "note_text": "De initiële configuratie van de AI-agenten (diensten, behandelingen en personalisatie) en de implementatie worden apart begroot afhankelijk van de complexiteit van elke kliniek. Kosten voor spraakagent, WhatsApp API en AI-model zijn niet inbegrepen in het maandelijkse tarief.",
+    "note_text": "De initiële configuratie van de AI-agenten (diensten, behandelingen en personalisatie) en de implementatie worden apart begroot afhankelijk van de complexiteit van elke kliniek. Kosten voor spraakagent, AI-model en WhatsApp API zijn niet inbegrepen in het maandelijkse tarief.",
     "plans": {
       "base": {
         "name": "Basisabonnement",

@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Switch to annual and save 20%",
     "hire_plan": "Choose plan",
     "note_title": "Note on the AI Plan and AI Premium Plan:",
-    "note_text": "The initial setup of the AI agents (services, treatments and personalisation) and rollout are quoted separately depending on the complexity of each clinic. Voice agent, WhatsApp API and AI model costs are not included in the monthly fee.",
+    "note_text": "The initial setup of the AI agents (services, treatments and personalisation) and rollout are quoted separately depending on the complexity of each clinic. Voice agent, AI model and WhatsApp API costs are not included in the monthly fee.",
     "plans": {
       "base": {
         "name": "Base Plan",

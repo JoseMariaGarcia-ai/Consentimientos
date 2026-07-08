@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Passez à l'annuel et économisez 20 %",
     "hire_plan": "Choisir cette formule",
     "note_title": "Remarque sur les formules IA et IA Premium :",
-    "note_text": "La configuration initiale des agents IA (services, traitements et personnalisation) ainsi que la mise en place font l'objet d'un devis séparé selon la complexité de chaque clinique. Les coûts de l'agent vocal, de l'API WhatsApp et du modèle d'IA ne sont pas inclus dans l'abonnement mensuel.",
+    "note_text": "La configuration initiale des agents IA (services, traitements et personnalisation) ainsi que la mise en place font l'objet d'un devis séparé selon la complexité de chaque clinique. Les coûts de l'agent vocal, du modèle d'IA et de l'API WhatsApp ne sont pas inclus dans l'abonnement mensuel.",
     "plans": {
       "base": {
         "name": "Formule Base",
