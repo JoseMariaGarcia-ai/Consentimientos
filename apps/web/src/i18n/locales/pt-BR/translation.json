@@ -1075,8 +1075,9 @@
         "name": "Plano IA",
         "features": [
           "Tudo do Plano Pro +",
-          "Agente WhatsApp IA 24/7 — agenda consultas automaticamente pelo WhatsApp",
-          "Lembretes e confirmação de consultas automatizados por WhatsApp",
+          "Agente WhatsApp IA 24/7",
+          "Agenda consultas automaticamente pelo WhatsApp",
+          "Lembretes e confirmação de consultas por WhatsApp",
           "Painel de gestão de WhatsApp",
           "Comunicação com pacientes por WhatsApp",
           "Envio por WhatsApp de Consentimentos, histórico clínico, fotos e orçamentos"

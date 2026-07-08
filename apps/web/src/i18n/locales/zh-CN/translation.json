@@ -1075,8 +1075,9 @@
         "name": "AI套餐",
         "features": [
           "包含专业套餐全部功能 +",
-          "24/7 AI WhatsApp智能体 — 通过WhatsApp自动预约",
-          "通过 WhatsApp 自动发送预约提醒和确认",
+          "24/7 AI WhatsApp智能体",
+          "通过WhatsApp自动预约",
+          "通过 WhatsApp 发送预约提醒和确认",
           "WhatsApp管理面板",
           "通过WhatsApp与患者沟通",
           "通过WhatsApp发送知情同意书、病历、照片和预算单"

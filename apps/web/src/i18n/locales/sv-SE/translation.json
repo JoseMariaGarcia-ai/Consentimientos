@@ -1075,8 +1075,9 @@
         "name": "AI-plan",
         "features": [
           "Allt i Proplanen +",
-          "WhatsApp AI-agent 24/7 — bokar automatiskt tider via WhatsApp",
-          "Automatiserade bokningspåminnelser och bekräftelse via WhatsApp",
+          "WhatsApp AI-agent 24/7",
+          "Bokar automatiskt tider via WhatsApp",
+          "Bokningspåminnelser och bekräftelse via WhatsApp",
           "WhatsApp-hanteringspanel",
           "Kommunikation med patienter via WhatsApp",
           "Sändning via WhatsApp av samtycken, journal, foton och kostnadsförslag"

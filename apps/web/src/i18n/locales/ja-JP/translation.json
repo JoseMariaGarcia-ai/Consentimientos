@@ -1075,8 +1075,9 @@
         "name": "AIプラン",
         "features": [
           "プロプランのすべて＋",
-          "AI WhatsAppエージェント24時間対応 — WhatsAppで自動的に予約を取得",
-          "WhatsAppによる自動予約リマインダーと確認",
+          "AI WhatsAppエージェント24時間対応",
+          "WhatsAppで自動的に予約を取得",
+          "WhatsAppによる予約リマインダーと確認",
           "WhatsApp管理パネル",
           "WhatsAppでの患者とのコミュニケーション",
           "WhatsAppでの同意書・カルテ・写真・見積書の送信"

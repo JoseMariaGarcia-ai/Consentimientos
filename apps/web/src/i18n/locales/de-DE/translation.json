@@ -1075,8 +1075,9 @@
         "name": "KI-Plan",
         "features": [
           "Alles aus dem Pro-Plan +",
-          "24/7-KI-WhatsApp-Agent — bucht Termine automatisch per WhatsApp",
-          "Automatisierte Terminerinnerungen und -bestätigung per WhatsApp",
+          "24/7-KI-WhatsApp-Agent",
+          "Bucht Termine automatisch per WhatsApp",
+          "Terminerinnerungen und -bestätigung per WhatsApp",
           "WhatsApp-Verwaltungspanel",
           "Patientenkommunikation über WhatsApp",
           "Versand von Einwilligungen, Krankenakte, Fotos und Kostenvoranschlägen per WhatsApp"

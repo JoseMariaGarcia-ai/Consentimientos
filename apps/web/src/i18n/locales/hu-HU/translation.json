@@ -1075,8 +1075,9 @@
         "name": "AI csomag",
         "features": [
           "Minden, ami a Pro csomagban +",
-          "WhatsApp AI-ügynök 0-24 — automatikusan időpontot foglal WhatsAppon",
-          "Automatizált időpont-emlékeztetők és -visszaigazolás WhatsAppon",
+          "WhatsApp AI-ügynök 0-24",
+          "Automatikusan időpontot foglal WhatsAppon",
+          "Időpont-emlékeztetők és -visszaigazolás WhatsAppon",
           "WhatsApp kezelőpanel",
           "Kommunikáció a betegekkel WhatsAppon keresztül",
           "Beleegyezések, klinikai napló, fotók és árajánlatok küldése WhatsAppon keresztül"

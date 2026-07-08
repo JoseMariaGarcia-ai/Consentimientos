@@ -1075,8 +1075,9 @@
         "name": "AI-paketti",
         "features": [
           "Kaikki Pro-paketista +",
-          "AI WhatsApp-agentti 24/7 — varaa ajat automaattisesti WhatsAppin kautta",
-          "Automatisoidut ajanvarauksen muistutukset ja vahvistus WhatsAppin kautta",
+          "AI WhatsApp-agentti 24/7",
+          "Varaa ajat automaattisesti WhatsAppin kautta",
+          "Ajanvarauksen muistutukset ja vahvistus WhatsAppin kautta",
           "WhatsApp-hallintapaneeli",
           "Potilasviestintä WhatsAppin kautta",
           "Suostumusten, potilaskertomusten, kuvien ja kustannusarvioiden lähetys WhatsAppilla"

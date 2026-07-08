@@ -1075,8 +1075,9 @@
         "name": "IA 플랜",
         "features": [
           "프로 플랜의 모든 기능 +",
-          "AI WhatsApp 에이전트 24/7 — WhatsApp을 통해 자동으로 예약",
-          "WhatsApp을 통한 자동 예약 알림 및 확인",
+          "AI WhatsApp 에이전트 24/7",
+          "WhatsApp을 통해 자동으로 예약",
+          "WhatsApp을 통한 예약 알림 및 확인",
           "WhatsApp 관리 패널",
           "WhatsApp을 통한 환자 소통",
           "WhatsApp으로 동의서, 진료 기록, 사진 및 견적서 전송"

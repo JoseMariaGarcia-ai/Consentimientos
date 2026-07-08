@@ -1075,8 +1075,9 @@
         "name": "AI-plan",
         "features": [
           "Alt i Pro-planen +",
-          "WhatsApp AI-agent 24/7 — booker automatisk aftaler via WhatsApp",
-          "Automatiserede påmindelser og bekræftelse af aftaler via WhatsApp",
+          "WhatsApp AI-agent 24/7",
+          "Booker automatisk aftaler via WhatsApp",
+          "Påmindelser og bekræftelse af aftaler via WhatsApp",
           "WhatsApp-administrationspanel",
           "Kommunikation med patienter via WhatsApp",
           "Afsendelse via WhatsApp af samtykker, klinisk journal, fotos og tilbud"
