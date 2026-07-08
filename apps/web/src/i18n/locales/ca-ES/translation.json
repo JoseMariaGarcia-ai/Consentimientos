@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Quant de temps triga a posar-se en marxa la clínica?",
-          "a": "La configuració inicial —equip, tractaments i plantilles de consentiment— es fa en minuts des del panell d'administració."
+          "a": "La configuració inicial —equip, tractaments i plantilles de consentiment— es fa en minuts des del panell d'administració. La configuració dels agents d'IA depèn de la complexitat de cada clínica, amb un termini mitjà d'uns 15 dies."
         },
         "q9": {
           "q": "Els meus pacients necessiten crear una contrasenya?",

@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Mennyi ideig tart a klinika beindítása?",
-          "a": "A kezdeti beállítás — csapat, kezelések és beleegyezési sablonok — néhány perc alatt elvégezhető az adminisztrációs panelen."
+          "a": "A kezdeti beállítás — csapat, kezelések és beleegyezési sablonok — néhány perc alatt elvégezhető az adminisztrációs panelen. Az AI-ügynökök beállítása az egyes klinikák összetettségétől függ, átlagosan körülbelül 15 napos időtartammal."
         },
         "q9": {
           "q": "Be kell állítaniuk a betegeimnek egy jelszót?",

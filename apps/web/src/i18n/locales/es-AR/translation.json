@@ -1392,7 +1392,7 @@
         },
         "q8": {
           "q": "¿Cuánto tiempo lleva poner en marcha la clínica?",
-          "a": "La configuración inicial —equipo, tratamientos y plantillas de consentimiento— se hace en minutos desde el panel de administración."
+          "a": "La configuración inicial —equipo, tratamientos y plantillas de consentimiento— se hace en minutos desde el panel de administración. La configuración de los agentes de IA depende de la complejidad de cada clínica, con un plazo medio de unos 15 días."
         },
         "q9": {
           "q": "¿Mis pacientes necesitan crear una contraseña?",

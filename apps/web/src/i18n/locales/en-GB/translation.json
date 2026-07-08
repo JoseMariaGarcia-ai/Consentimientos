@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "How long does it take to get the clinic up and running?",
-          "a": "The initial setup — team, treatments and consent templates — is done in minutes from the admin panel."
+          "a": "The initial setup — team, treatments and consent templates — is done in minutes from the admin panel. Configuring the AI agents depends on the complexity of each clinic, with an average timeframe of around 15 days."
         },
         "q9": {
           "q": "Do my patients need to create a password?",

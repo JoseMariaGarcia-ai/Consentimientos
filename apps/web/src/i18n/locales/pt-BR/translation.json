@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Quanto tempo leva para colocar a clínica em funcionamento?",
-          "a": "A configuração inicial — equipe, tratamentos e modelos de consentimento — é feita em minutos pelo painel administrativo."
+          "a": "A configuração inicial — equipe, tratamentos e modelos de consentimento — é feita em minutos pelo painel administrativo. A configuração dos agentes de IA depende da complexidade de cada clínica, com prazo médio de cerca de 15 dias."
         },
         "q9": {
           "q": "Meus pacientes precisam criar uma senha?",

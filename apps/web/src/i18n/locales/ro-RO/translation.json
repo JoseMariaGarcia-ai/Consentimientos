@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Cât timp durează punerea în funcțiune a clinicii?",
-          "a": "Configurarea inițială — echipă, tratamente și șabloane de consimțământ — se face în câteva minute din panoul de administrare."
+          "a": "Configurarea inițială — echipă, tratamente și șabloane de consimțământ — se face în câteva minute din panoul de administrare. Configurarea agenților AI depinde de complexitatea fiecărei clinici, cu un termen mediu de aproximativ 15 zile."
         },
         "q9": {
           "q": "Pacienții mei trebuie să își creeze o parolă?",

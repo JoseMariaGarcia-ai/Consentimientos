@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Hoe lang duurt het om de kliniek operationeel te krijgen?",
-          "a": "De eerste configuratie — team, behandelingen en toestemmingssjablonen — wordt in enkele minuten gedaan vanuit het beheerpaneel."
+          "a": "De eerste configuratie — team, behandelingen en toestemmingssjablonen — wordt in enkele minuten gedaan vanuit het beheerpaneel. De configuratie van de AI-agenten hangt af van de complexiteit van elke kliniek, met een gemiddelde doorlooptijd van ongeveer 15 dagen."
         },
         "q9": {
           "q": "Moeten mijn patiënten een wachtwoord aanmaken?",

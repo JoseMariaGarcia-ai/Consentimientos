@@ -1474,7 +1474,7 @@
         },
         "q8": {
           "q": "Quanto tempo occorre per avviare la clinica?",
-          "a": "La configurazione iniziale — team, trattamenti e modelli di consenso — si effettua in pochi minuti dal pannello di amministrazione."
+          "a": "La configurazione iniziale — team, trattamenti e modelli di consenso — si effettua in pochi minuti dal pannello di amministrazione. La configurazione degli agenti IA dipende dalla complessità di ciascuna clinica, con un tempo medio di circa 15 giorni."
         },
         "q9": {
           "q": "I miei pazienti devono creare una password?",

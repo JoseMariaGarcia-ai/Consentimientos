@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Hvor lang tid tar det å få klinikken i gang?",
-          "a": "Den innledende konfigurasjonen — team, behandlinger og samtykkemaler — gjøres på få minutter fra administrasjonspanelet."
+          "a": "Den innledende konfigurasjonen — team, behandlinger og samtykkemaler — gjøres på få minutter fra administrasjonspanelet. Konfigurasjonen av AI-agentene avhenger av kompleksiteten til hver klinikk, med en gjennomsnittlig tidsramme på rundt 15 dager."
         },
         "q9": {
           "q": "Må pasientene mine opprette et passord?",

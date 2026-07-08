@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Wie lange dauert es, die Klinik startklar zu machen?",
-          "a": "Die Ersteinrichtung — Team, Behandlungen und Einwilligungsvorlagen — erfolgt in wenigen Minuten über das Verwaltungspanel."
+          "a": "Die Ersteinrichtung — Team, Behandlungen und Einwilligungsvorlagen — erfolgt in wenigen Minuten über das Verwaltungspanel. Die Konfiguration der KI-Agenten hängt von der Komplexität der jeweiligen Klinik ab, mit einer durchschnittlichen Dauer von etwa 15 Tagen."
         },
         "q9": {
           "q": "Müssen meine Patienten ein Passwort erstellen?",

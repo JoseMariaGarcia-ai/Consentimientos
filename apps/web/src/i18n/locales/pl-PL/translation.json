@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Ile czasu zajmuje uruchomienie kliniki?",
-          "a": "Wstępna konfiguracja — zespół, zabiegi i szablony zgód — trwa kilka minut w panelu administracyjnym."
+          "a": "Wstępna konfiguracja — zespół, zabiegi i szablony zgód — trwa kilka minut w panelu administracyjnym. Konfiguracja agentów AI zależy od złożoności danej kliniki, ze średnim czasem wynoszącym około 15 dni."
         },
         "q9": {
           "q": "Czy moi pacjenci muszą tworzyć hasło?",

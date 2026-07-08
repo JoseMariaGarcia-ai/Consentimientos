@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Hur lång tid tar det att komma igång med kliniken?",
-          "a": "Den inledande konfigurationen — team, behandlingar och samtyckesmallar — görs på några minuter från administrationspanelen."
+          "a": "Den inledande konfigurationen — team, behandlingar och samtyckesmallar — görs på några minuter från administrationspanelen. Konfigurationen av AI-agenterna beror på komplexiteten hos varje klinik, med en genomsnittlig tidsram på cirka 15 dagar."
         },
         "q9": {
           "q": "Behöver mina patienter skapa ett lösenord?",

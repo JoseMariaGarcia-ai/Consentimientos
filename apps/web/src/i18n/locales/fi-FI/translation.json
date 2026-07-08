@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Kuinka kauan klinikan käyttöönotto kestää?",
-          "a": "Alkuasetukset — tiimi, hoidot ja suostumusmallit — tehdään muutamassa minuutissa hallintapaneelista."
+          "a": "Alkuasetukset — tiimi, hoidot ja suostumusmallit — tehdään muutamassa minuutissa hallintapaneelista. Tekoälyagenttien käyttöönotto riippuu kunkin klinikan monimutkaisuudesta, ja keskimääräinen aika on noin 15 päivää."
         },
         "q9": {
           "q": "Tarvitsevatko potilaani luoda salasanan?",

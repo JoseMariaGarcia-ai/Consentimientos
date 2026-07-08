@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Hvor lang tid tager det at få klinikken i gang?",
-          "a": "Den indledende opsætning — team, behandlinger og samtykkeskabeloner — foretages på få minutter fra administrationspanelet."
+          "a": "Den indledende opsætning — team, behandlinger og samtykkeskabeloner — foretages på få minutter fra administrationspanelet. Konfigurationen af AI-agenterne afhænger af kompleksiteten af den enkelte klinik, med en gennemsnitlig tidsramme på omkring 15 dage."
         },
         "q9": {
           "q": "Skal mine patienter oprette et kodeord?",

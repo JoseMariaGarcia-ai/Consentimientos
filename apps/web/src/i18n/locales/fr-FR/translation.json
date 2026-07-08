@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Combien de temps faut-il pour mettre la clinique en service ?",
-          "a": "La configuration initiale — équipe, traitements et modèles de consentement — se fait en quelques minutes depuis le panneau d'administration."
+          "a": "La configuration initiale — équipe, traitements et modèles de consentement — se fait en quelques minutes depuis le panneau d'administration. La configuration des agents IA dépend de la complexité de chaque clinique, avec un délai moyen d'environ 15 jours."
         },
         "q9": {
           "q": "Mes patients doivent-ils créer un mot de passe ?",

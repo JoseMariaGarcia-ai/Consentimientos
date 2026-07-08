@@ -1420,7 +1420,7 @@
         },
         "q8": {
           "q": "Kliniği faaliyete geçirmek ne kadar sürer?",
-          "a": "İlk kurulum — ekip, tedaviler ve onam şablonları — yönetim panelinden dakikalar içinde yapılır."
+          "a": "İlk kurulum — ekip, tedaviler ve onam şablonları — yönetim panelinden dakikalar içinde yapılır. Yapay zeka ajanlarının yapılandırması, her kliniğin karmaşıklığına bağlıdır ve ortalama süre yaklaşık 15 gündür."
         },
         "q9": {
           "q": "Hastalarımın bir şifre oluşturması gerekiyor mu?",
