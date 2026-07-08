@@ -1036,7 +1036,8 @@
           "Consentimiento de cesión de imágenes",
           "Portal paciente",
           "Magic Link + biometría",
-          "Soporte incluido"
+          "Soporte incluido",
+          "Envío por email de consentimientos"
         ]
       },
       "pro": {
