@@ -5,6 +5,7 @@ import {
   Smartphone, MessageCircle, Mic, ShieldCheck, ArrowRight,
   Menu, X, Check, Receipt, ImageOff,
   Clock, MonitorSmartphone, Hash, ListChecks, UserCheck,
+  ChevronDown,
 } from 'lucide-react'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { PLANS, PLAN_KEY } from './Recharge'
@@ -14,6 +15,8 @@ const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'g
 
 const COMPLIANCE_ICONS = [Fingerprint, Clock, MonitorSmartphone, Hash, ListChecks, UserCheck]
 const COMPLIANCE_KEYS = ['biometric', 'timestamp', 'device', 'hash', 'audit', 'doctor']
+
+const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9']
 
 const ANNUAL_DISCOUNT = 0.2
 
@@ -297,6 +300,41 @@ function Pricing() {
   )
 }
 
+function FaqItem({ itemKey }: { itemKey: string }) {
+  const { t } = useTranslation()
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="border-b border-slate-200 py-5">
+      <button
+        type="button"
+        onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between gap-4 text-left"
+      >
+        <span className="font-semibold text-slate-800">{t(`landing.faq.items.${itemKey}.q`)}</span>
+        <ChevronDown className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <p className="text-sm text-slate-500 mt-3 leading-relaxed">{t(`landing.faq.items.${itemKey}.a`)}</p>
+      )}
+    </div>
+  )
+}
+
+function Faq() {
+  const { t } = useTranslation()
+  return (
+    <section className="max-w-3xl mx-auto px-5 py-20">
+      <div className="text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800">{t('landing.faq.title')}</h2>
+        <p className="text-slate-500 mt-3">{t('landing.faq.subtitle')}</p>
+      </div>
+      <div>
+        {FAQ_KEYS.map(key => <FaqItem key={key} itemKey={key} />)}
+      </div>
+    </section>
+  )
+}
+
 function FinalCta() {
   const { t } = useTranslation()
   return (
@@ -339,6 +377,7 @@ export default function Landing() {
       <HowItWorks />
       <Compliance />
       <Pricing />
+      <Faq />
       <FinalCta />
       <Footer />
     </div>
