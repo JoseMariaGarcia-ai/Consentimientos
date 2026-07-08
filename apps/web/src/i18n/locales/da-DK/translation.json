@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Skift til årlig og spar 20 %",
     "hire_plan": "Vælg plan",
     "note_title": "Bemærkning til AI-plan og AI Premium-plan:",
-    "note_text": "Den indledende konfiguration af AI-agenterne (tjenester, behandlinger og tilpasning) samt implementeringen prissættes separat afhængigt af hver kliniks kompleksitet. Omkostningerne til taleagent og WhatsApp API er ikke inkluderet i den månedlige afgift. Omkostningerne til AI-modellen er inkluderet.",
+    "note_text": "Den indledende opsætning af AI-agenterne (ydelser, behandlinger og tilpasning) og implementeringen budgetteres separat afhængigt af kompleksiteten på hver klinik. Omkostninger til stemmeagent, WhatsApp API og AI-model er ikke inkluderet i det månedlige gebyr.",
     "plans": {
       "base": {
         "name": "Basisplan",

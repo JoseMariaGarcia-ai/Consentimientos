@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Mude para anual e poupe 20%",
     "hire_plan": "Contratar plano",
     "note_title": "Nota Plano IA e Plano IA Premium:",
-    "note_text": "A configuração inicial dos agentes de IA (serviços, tratamentos e personalização) e a implementação são orçamentadas à parte, conforme a complexidade de cada clínica. Os custos de agente de voz e WhatsApp API não estão incluídos na mensalidade. Os custos do modelo de IA já estão incluídos.",
+    "note_text": "A configuração inicial dos agentes de IA (serviços, tratamentos e personalização) e a implementação são orçamentadas à parte, consoante a complexidade de cada clínica. Os custos do agente de voz, da API do WhatsApp e do modelo de IA não estão incluídos na mensalidade.",
     "plans": {
       "base": {
         "name": "Plano Base",

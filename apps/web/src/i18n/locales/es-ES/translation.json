@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Cambia a anual y ahorra un 20 %",
     "hire_plan": "Contratar plan",
     "note_title": "Nota Plan IA y Plan IA Premium:",
-    "note_text": "La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz y WhatsApp API no están incluidos en la cuota mensual. Los costes del modelo de IA sí están incluidos.",
+    "note_text": "La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz, WhatsApp API y modelo de IA no están incluidos en la cuota mensual.",
     "note_redes_title": "Nota Plan Redes:",
     "note_redes_text": "El presupuesto destinado a publicidad (Meta Ads) no está incluido en la cuota mensual. En una primera videollamada definiremos juntos los objetivos, el área de actuación y el resto de factores clave; tras un breve estudio de mercado, te recomendaremos el importe de inversión más adecuado para tus campañas.",
     "plans": {

@@ -1045,7 +1045,7 @@
     "switch_annual_save": "Váltson évesre, és takarítson meg 20%-ot",
     "hire_plan": "Csomag választása",
     "note_title": "Megjegyzés az AI csomaghoz és az AI Premium csomaghoz:",
-    "note_text": "Az AI-ügynökök kezdeti beállítása (szolgáltatások, kezelések és testreszabás) és a bevezetés díja külön kerül meghatározásra az egyes klinikák összetettsége alapján. A hangügynök és a WhatsApp API költségei nincsenek benne a havi díjban. Az AI-modell költségei viszont már benne vannak.",
+    "note_text": "Az AI-ügynökök kezdeti beállítása (szolgáltatások, kezelések és személyre szabás) és a bevezetés a klinika összetettségétől függően külön kerül kalkulálásra. A hangalapú ügynök, a WhatsApp API és az AI-modell költségei nem szerepelnek a havi díjban.",
     "plans": {
       "base": {
         "name": "Alap csomag",
