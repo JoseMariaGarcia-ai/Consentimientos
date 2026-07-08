@@ -526,7 +526,8 @@
     "labPartners": "מעבדות",
     "menu": "תפריט",
     "whatsapp": "WhatsApp",
-    "budgets": "הצעות מחיר"
+    "budgets": "הצעות מחיר",
+    "workflows": "תהליכי עבודה"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
@@ -750,7 +751,8 @@
     "legal_name": "שם משפטי / רשום",
     "nika_number": "מספר עוסק מורשה",
     "save_success": "נשמר בהצלחה",
-    "confirm_delete_branch": "למחוק סניף זה?"
+    "confirm_delete_branch": "למחוק סניף זה?",
+    "directions_url": "כתובת URL להגעה"
   },
   "language": {
     "select": "שפה",
@@ -1438,5 +1440,19 @@
   },
   "budgetPdfButton": {
     "export": "הורד PDF"
+  },
+  "workflows": {
+    "title": "תהליכי עבודה",
+    "subtitle": "אוטומציות שניתן להפעיל או להשבית עבור כל הפלטפורמה",
+    "items": {
+      "appointment_confirmation": {
+        "name": "אישור תור",
+        "description": "שולח אוטומטית למטופל אימייל עם פרטי התור בעת קביעתו או בעת שינוי תאריך או שעה."
+      },
+      "appointment_reminder": {
+        "name": "תזכורת לתור",
+        "description": "שולח אוטומטית למטופל אימייל המזכיר לו את התור כאשר נותר יום אחד."
+      }
+    }
   }
 }

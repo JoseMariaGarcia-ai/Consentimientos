@@ -526,7 +526,8 @@
     "labPartners": "Laboratoria",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Offertes"
+    "budgets": "Offertes",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
@@ -794,7 +795,8 @@
     "legal_name": "Fiscale naam / bedrijfsnaam",
     "nika_number": "NIKA-nummer",
     "save_success": "Succesvol opgeslagen",
-    "confirm_delete_branch": "Deze vestiging verwijderen?"
+    "confirm_delete_branch": "Deze vestiging verwijderen?",
+    "directions_url": "URL routebeschrijving"
   },
   "language": {
     "select": "Taal",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF downloaden"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatiseringen die platformbreed in- of uitgeschakeld kunnen worden",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Afspraakbevestiging",
+        "description": "Stuurt de patiënt automatisch een e-mail met de afspraakgegevens zodra deze geboekt wordt of van datum of tijd verandert."
+      },
+      "appointment_reminder": {
+        "name": "Afspraakherinnering",
+        "description": "Stuurt de patiënt automatisch een herinneringsmail wanneer er nog 1 dag tot de afspraak is."
+      }
+    }
   }
 }

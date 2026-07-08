@@ -526,7 +526,8 @@
     "labPartners": "Laboratóriumok",
     "menu": "Menü",
     "whatsapp": "WhatsApp",
-    "budgets": "Árajánlatok"
+    "budgets": "Árajánlatok",
+    "workflows": "Munkafolyamatok"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",
@@ -794,7 +795,8 @@
     "legal_name": "Cégnév / jogi név",
     "nika_number": "NIKA-szám",
     "save_success": "Sikeresen mentve",
-    "confirm_delete_branch": "Törli ezt a telephelyet?"
+    "confirm_delete_branch": "Törli ezt a telephelyet?",
+    "directions_url": "Útvonal URL"
   },
   "language": {
     "select": "Nyelv",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF letöltése"
+  },
+  "workflows": {
+    "title": "Munkafolyamatok",
+    "subtitle": "A teljes platformon be- vagy kikapcsolható automatizálások",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Időpont-visszaigazolás",
+        "description": "Automatikusan e-mailt küld a páciensnek az időpont adataival, amikor lefoglalják, vagy amikor a dátum vagy időpont megváltozik."
+      },
+      "appointment_reminder": {
+        "name": "Időpont-emlékeztető",
+        "description": "Automatikusan emlékeztető e-mailt küld a páciensnek, amikor már csak 1 nap van hátra az időpontig."
+      }
+    }
   }
 }

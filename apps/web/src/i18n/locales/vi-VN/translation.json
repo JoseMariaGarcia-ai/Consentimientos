@@ -526,7 +526,8 @@
     "labPartners": "Phòng Thí Nghiệm",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Báo giá"
+    "budgets": "Báo giá",
+    "workflows": "Quy trình tự động"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
@@ -794,7 +795,8 @@
     "legal_name": "Tên pháp lý",
     "nika_number": "Số NIKA",
     "save_success": "Đã lưu thành công",
-    "confirm_delete_branch": "Xóa chi nhánh này?"
+    "confirm_delete_branch": "Xóa chi nhánh này?",
+    "directions_url": "URL chỉ đường"
   },
   "language": {
     "select": "Ngôn ngữ",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Tải xuống PDF"
+  },
+  "workflows": {
+    "title": "Quy trình tự động",
+    "subtitle": "Các tự động hóa có thể bật hoặc tắt cho toàn bộ nền tảng",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Xác nhận lịch hẹn",
+        "description": "Tự động gửi email cho bệnh nhân với thông tin lịch hẹn khi đặt lịch hoặc khi thay đổi ngày giờ."
+      },
+      "appointment_reminder": {
+        "name": "Nhắc nhở lịch hẹn",
+        "description": "Tự động gửi email nhắc nhở bệnh nhân về lịch hẹn khi còn 1 ngày nữa."
+      }
+    }
   }
 }

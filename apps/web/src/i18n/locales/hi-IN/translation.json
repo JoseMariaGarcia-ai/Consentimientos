@@ -526,7 +526,8 @@
     "labPartners": "प्रयोगशालाएं",
     "menu": "मेनू",
     "whatsapp": "WhatsApp",
-    "budgets": "कोटेशन"
+    "budgets": "कोटेशन",
+    "workflows": "वर्कफ़्लो"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
@@ -794,7 +795,8 @@
     "legal_name": "कानूनी नाम / फर्म का नाम",
     "nika_number": "NIKA नंबर",
     "save_success": "सफलतापूर्वक सहेजा गया",
-    "confirm_delete_branch": "क्या इस शाखा को हटाना है?"
+    "confirm_delete_branch": "क्या इस शाखा को हटाना है?",
+    "directions_url": "दिशा-निर्देश URL"
   },
   "language": {
     "select": "भाषा",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF डाउनलोड करें"
+  },
+  "workflows": {
+    "title": "वर्कफ़्लो",
+    "subtitle": "पूरे प्लेटफ़ॉर्म के लिए सक्षम या अक्षम किए जा सकने वाले ऑटोमेशन",
+    "items": {
+      "appointment_confirmation": {
+        "name": "अपॉइंटमेंट की पुष्टि",
+        "description": "अपॉइंटमेंट बुक होने पर या तारीख या समय बदलने पर मरीज़ को स्वचालित रूप से विवरण सहित ईमेल भेजता है।"
+      },
+      "appointment_reminder": {
+        "name": "अपॉइंटमेंट रिमाइंडर",
+        "description": "अपॉइंटमेंट में 1 दिन शेष रहने पर मरीज़ को स्वचालित रूप से याद दिलाने वाला ईमेल भेजता है।"
+      }
+    }
   }
 }

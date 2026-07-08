@@ -526,7 +526,8 @@
     "labPartners": "Laboratoria",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Wyceny"
+    "budgets": "Wyceny",
+    "workflows": "Przepływy pracy"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",
@@ -794,7 +795,8 @@
     "legal_name": "Nazwa prawna / firma",
     "nika_number": "Numer NIKA",
     "save_success": "Zapisano pomyślnie",
-    "confirm_delete_branch": "Usunąć ten oddział?"
+    "confirm_delete_branch": "Usunąć ten oddział?",
+    "directions_url": "URL dojazdu"
   },
   "language": {
     "select": "Język",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Pobierz PDF"
+  },
+  "workflows": {
+    "title": "Przepływy pracy",
+    "subtitle": "Automatyzacje, które można włączać lub wyłączać dla całej platformy",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Potwierdzenie wizyty",
+        "description": "Automatycznie wysyła pacjentowi e-mail ze szczegółami wizyty w momencie jej umówienia lub przy zmianie daty czy godziny."
+      },
+      "appointment_reminder": {
+        "name": "Przypomnienie o wizycie",
+        "description": "Automatycznie wysyła pacjentowi e-mail przypominający o wizycie, gdy pozostaje 1 dzień."
+      }
+    }
   }
 }

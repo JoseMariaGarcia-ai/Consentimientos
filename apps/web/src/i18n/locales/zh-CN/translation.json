@@ -526,7 +526,8 @@
     "labPartners": "实验室",
     "menu": "菜单",
     "whatsapp": "WhatsApp",
-    "budgets": "报价单"
+    "budgets": "报价单",
+    "workflows": "工作流"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",
@@ -794,7 +795,8 @@
     "legal_name": "法定名称 / 公司名称",
     "nika_number": "NIKA 编号",
     "save_success": "保存成功",
-    "confirm_delete_branch": "确定要删除此分院吗？"
+    "confirm_delete_branch": "确定要删除此分院吗？",
+    "directions_url": "到达路线 URL"
   },
   "language": {
     "select": "语言",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "下载 PDF"
+  },
+  "workflows": {
+    "title": "工作流",
+    "subtitle": "可在整个平台范围内启用或停用的自动化功能",
+    "items": {
+      "appointment_confirmation": {
+        "name": "预约确认",
+        "description": "预约成功或日期/时间变更时，自动向患者发送包含预约详情的邮件。"
+      },
+      "appointment_reminder": {
+        "name": "预约提醒",
+        "description": "预约前 1 天，自动向患者发送提醒邮件。"
+      }
+    }
   }
 }

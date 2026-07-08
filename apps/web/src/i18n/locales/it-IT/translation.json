@@ -526,7 +526,8 @@
     "labPartners": "Laboratori",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Preventivi"
+    "budgets": "Preventivi",
+    "workflows": "Workflow"
   },
   "topbar": {
     "tagline": "Consensi Digitali · Firma Biometrica",
@@ -848,7 +849,8 @@
     "legal_name": "Ragione sociale",
     "nika_number": "Numero NIKA",
     "save_success": "Salvato correttamente",
-    "confirm_delete_branch": "Eliminare questa sede?"
+    "confirm_delete_branch": "Eliminare questa sede?",
+    "directions_url": "URL indicazioni stradali"
   },
   "language": {
     "select": "Lingua",
@@ -1536,5 +1538,19 @@
   },
   "budgetPdfButton": {
     "export": "Scarica PDF"
+  },
+  "workflows": {
+    "title": "Workflow",
+    "subtitle": "Automazioni attivabili o disattivabili per l'intera piattaforma",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Conferma appuntamento",
+        "description": "Invia automaticamente un'email al paziente con i dettagli dell'appuntamento al momento della prenotazione o in caso di modifica di data o ora."
+      },
+      "appointment_reminder": {
+        "name": "Promemoria appuntamento",
+        "description": "Invia automaticamente un'email al paziente per ricordargli l'appuntamento quando manca 1 giorno."
+      }
+    }
   }
 }

@@ -526,7 +526,8 @@
     "labPartners": "Laboratorier",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Tilbud"
+    "budgets": "Tilbud",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digital Signatur",
@@ -794,7 +795,8 @@
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Gemt korrekt",
-    "confirm_delete_branch": "Slet denne lokation?"
+    "confirm_delete_branch": "Slet denne lokation?",
+    "directions_url": "URL til vejbeskrivelse"
   },
   "language": {
     "select": "Sprog",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Download PDF"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatiseringer, der kan aktiveres eller deaktiveres for hele platformen",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Bekræftelse af aftaler",
+        "description": "Sender automatisk en e-mail til patienten med aftalens detaljer, når den bookes, eller når dato eller tidspunkt ændres."
+      },
+      "appointment_reminder": {
+        "name": "Påmindelse om aftaler",
+        "description": "Sender automatisk en e-mail til patienten som påmindelse om aftalen, når der er 1 dag tilbage."
+      }
+    }
   }
 }

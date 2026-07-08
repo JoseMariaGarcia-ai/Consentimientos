@@ -526,7 +526,8 @@
     "labPartners": "المختبرات",
     "menu": "القائمة",
     "whatsapp": "WhatsApp",
-    "budgets": "عروض الأسعار"
+    "budgets": "عروض الأسعار",
+    "workflows": "سير العمل"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
@@ -756,7 +757,8 @@
     "legal_name": "الاسم القانوني / التجاري المسجل",
     "nika_number": "رقم NIKA",
     "save_success": "تم الحفظ بنجاح",
-    "confirm_delete_branch": "هل تريد حذف هذا الفرع؟"
+    "confirm_delete_branch": "هل تريد حذف هذا الفرع؟",
+    "directions_url": "رابط كيفية الوصول"
   },
   "language": {
     "select": "اللغة",
@@ -1444,5 +1446,19 @@
   },
   "budgetPdfButton": {
     "export": "تنزيل PDF"
+  },
+  "workflows": {
+    "title": "سير العمل",
+    "subtitle": "أتمتة يمكن تفعيلها أو تعطيلها لجميع أنحاء المنصة",
+    "items": {
+      "appointment_confirmation": {
+        "name": "تأكيد المواعيد",
+        "description": "يرسل تلقائيًا بريدًا إلكترونيًا إلى المريض ببيانات الموعد عند حجزه أو عند تغيير التاريخ أو الوقت."
+      },
+      "appointment_reminder": {
+        "name": "تذكير بالمواعيد",
+        "description": "يرسل تلقائيًا بريدًا إلكترونيًا إلى المريض لتذكيره بالموعد عندما يتبقى يوم واحد على الموعد."
+      }
+    }
   }
 }

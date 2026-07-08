@@ -526,7 +526,8 @@
     "labPartners": "Laboratorier",
     "menu": "Meny",
     "whatsapp": "WhatsApp",
-    "budgets": "Tilbud"
+    "budgets": "Tilbud",
+    "workflows": "Arbeidsflyter"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",
@@ -794,7 +795,8 @@
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Lagret",
-    "confirm_delete_branch": "Slette denne avdelingen?"
+    "confirm_delete_branch": "Slette denne avdelingen?",
+    "directions_url": "URL for veibeskrivelse"
   },
   "language": {
     "select": "Språk",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Last ned PDF"
+  },
+  "workflows": {
+    "title": "Arbeidsflyter",
+    "subtitle": "Automatiseringer som kan aktiveres eller deaktiveres for hele plattformen",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Bekreftelse av avtale",
+        "description": "Sender automatisk en e-post til pasienten med avtaledetaljer når den bestilles eller når dato eller klokkeslett endres."
+      },
+      "appointment_reminder": {
+        "name": "Påminnelse om avtale",
+        "description": "Sender automatisk en påminnelses-e-post til pasienten når det er 1 dag igjen til avtalen."
+      }
+    }
   }
 }

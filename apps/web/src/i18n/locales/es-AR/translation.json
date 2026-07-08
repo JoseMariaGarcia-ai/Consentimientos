@@ -526,7 +526,8 @@
     "labPartners": "Laboratorios",
     "menu": "Menú",
     "whatsapp": "WhatsApp",
-    "budgets": "Presupuestos"
+    "budgets": "Presupuestos",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -766,7 +767,8 @@
     "legal_name": "Razón social",
     "nika_number": "Número de habilitación",
     "save_success": "Guardado correctamente",
-    "confirm_delete_branch": "¿Eliminar esta sede?"
+    "confirm_delete_branch": "¿Eliminar esta sede?",
+    "directions_url": "URL de cómo llegar"
   },
   "language": {
     "select": "Idioma",
@@ -1454,5 +1456,19 @@
   },
   "budgetPdfButton": {
     "export": "Descargar PDF"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatizaciones activables o desactivables para toda la plataforma",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmación de turnos",
+        "description": "Envía automáticamente un email al paciente con los datos del turno al agendarlo o al cambiar de fecha u horario."
+      },
+      "appointment_reminder": {
+        "name": "Recordatorio de turnos",
+        "description": "Envía automáticamente un email al paciente recordándole el turno cuando falta 1 día para su realización."
+      }
+    }
   }
 }

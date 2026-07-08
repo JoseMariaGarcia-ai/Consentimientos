@@ -526,7 +526,8 @@
     "labPartners": "Laboratoare",
     "menu": "Meniu",
     "whatsapp": "WhatsApp",
-    "budgets": "Oferte"
+    "budgets": "Oferte",
+    "workflows": "Fluxuri de lucru"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",
@@ -794,7 +795,8 @@
     "legal_name": "Denumire fiscală / rațiune socială",
     "nika_number": "Număr NIKA",
     "save_success": "Salvat cu succes",
-    "confirm_delete_branch": "Ștergeți acest sediu?"
+    "confirm_delete_branch": "Ștergeți acest sediu?",
+    "directions_url": "URL indicații de acces"
   },
   "language": {
     "select": "Limbă",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Descarcă PDF"
+  },
+  "workflows": {
+    "title": "Fluxuri de lucru",
+    "subtitle": "Automatizări care pot fi activate sau dezactivate pentru întreaga platformă",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmarea programării",
+        "description": "Trimite automat un e-mail pacientului cu detaliile programării la momentul programării sau la schimbarea datei ori a orei."
+      },
+      "appointment_reminder": {
+        "name": "Memento de programare",
+        "description": "Trimite automat un e-mail de reamintire pacientului atunci când mai rămâne 1 zi până la programare."
+      }
+    }
   }
 }

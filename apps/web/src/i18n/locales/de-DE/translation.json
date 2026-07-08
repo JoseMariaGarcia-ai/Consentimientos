@@ -526,7 +526,8 @@
     "labPartners": "Labore",
     "menu": "Menü",
     "whatsapp": "WhatsApp",
-    "budgets": "Kostenvoranschläge"
+    "budgets": "Kostenvoranschläge",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",
@@ -794,7 +795,8 @@
     "legal_name": "Rechtlicher Name / Firmenname",
     "nika_number": "NIKA-Nummer",
     "save_success": "Erfolgreich gespeichert",
-    "confirm_delete_branch": "Diesen Standort löschen?"
+    "confirm_delete_branch": "Diesen Standort löschen?",
+    "directions_url": "URL für Anfahrt"
   },
   "language": {
     "select": "Sprache",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF herunterladen"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatisierungen, die für die gesamte Plattform aktiviert oder deaktiviert werden können",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Terminbestätigung",
+        "description": "Sendet dem Patienten automatisch eine E-Mail mit den Termindetails bei der Buchung oder bei Änderung von Datum oder Uhrzeit."
+      },
+      "appointment_reminder": {
+        "name": "Terminerinnerung",
+        "description": "Sendet dem Patienten automatisch eine E-Mail zur Erinnerung an den Termin, wenn nur noch 1 Tag verbleibt."
+      }
+    }
   }
 }

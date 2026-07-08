@@ -526,7 +526,8 @@
     "labPartners": "ラボ",
     "menu": "メニュー",
     "whatsapp": "WhatsApp",
-    "budgets": "見積もり"
+    "budgets": "見積もり",
+    "workflows": "ワークフロー"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",
@@ -794,7 +795,8 @@
     "legal_name": "法人名／正式名称",
     "nika_number": "NIKA番号",
     "save_success": "正常に保存されました",
-    "confirm_delete_branch": "この院を削除しますか？"
+    "confirm_delete_branch": "この院を削除しますか？",
+    "directions_url": "アクセス案内URL"
   },
   "language": {
     "select": "言語",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDFをダウンロード"
+  },
+  "workflows": {
+    "title": "ワークフロー",
+    "subtitle": "プラットフォーム全体で有効・無効を切り替えられる自動化",
+    "items": {
+      "appointment_confirmation": {
+        "name": "予約確認",
+        "description": "予約時、または日時が変更された際に、予約の詳細を記載したメールを患者に自動送信します。"
+      },
+      "appointment_reminder": {
+        "name": "予約リマインダー",
+        "description": "予約日の1日前になると、患者にリマインダーメールを自動送信します。"
+      }
+    }
   }
 }

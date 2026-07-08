@@ -526,7 +526,8 @@
     "labPartners": "실험실",
     "menu": "메뉴",
     "whatsapp": "WhatsApp",
-    "budgets": "견적서"
+    "budgets": "견적서",
+    "workflows": "워크플로우"
   },
   "topbar": {
     "tagline": "디지털 동의서 · 생체 인식 서명",
@@ -794,7 +795,8 @@
     "legal_name": "법인명 / 상호",
     "nika_number": "NIKA 번호",
     "save_success": "성공적으로 저장되었습니다",
-    "confirm_delete_branch": "이 지점을 삭제하시겠습니까?"
+    "confirm_delete_branch": "이 지점을 삭제하시겠습니까?",
+    "directions_url": "오시는 길 URL"
   },
   "language": {
     "select": "언어",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF 다운로드"
+  },
+  "workflows": {
+    "title": "워크플로우",
+    "subtitle": "플랫폼 전체에서 활성화하거나 비활성화할 수 있는 자동화",
+    "items": {
+      "appointment_confirmation": {
+        "name": "예약 확인",
+        "description": "예약이 등록되거나 날짜/시간이 변경될 때 예약 세부 정보가 담긴 이메일을 환자에게 자동으로 보냅니다."
+      },
+      "appointment_reminder": {
+        "name": "예약 알림",
+        "description": "예약이 하루 남았을 때 환자에게 알림 이메일을 자동으로 보냅니다."
+      }
+    }
   }
 }

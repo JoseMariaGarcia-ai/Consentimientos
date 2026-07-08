@@ -526,7 +526,8 @@
     "labPartners": "Laboratoires",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Devis"
+    "budgets": "Devis",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",
@@ -794,7 +795,8 @@
     "legal_name": "Raison sociale",
     "nika_number": "Numéro NIKA",
     "save_success": "Enregistré avec succès",
-    "confirm_delete_branch": "Supprimer ce site ?"
+    "confirm_delete_branch": "Supprimer ce site ?",
+    "directions_url": "URL de l'itinéraire"
   },
   "language": {
     "select": "Langue",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Télécharger le PDF"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatisations activables ou désactivables pour toute la plateforme",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmation de rendez-vous",
+        "description": "Envoie automatiquement un e-mail au patient avec les détails du rendez-vous lors de sa prise ou en cas de changement de date ou d'heure."
+      },
+      "appointment_reminder": {
+        "name": "Rappel de rendez-vous",
+        "description": "Envoie automatiquement un e-mail au patient pour lui rappeler son rendez-vous lorsqu'il reste 1 jour."
+      }
+    }
   }
 }

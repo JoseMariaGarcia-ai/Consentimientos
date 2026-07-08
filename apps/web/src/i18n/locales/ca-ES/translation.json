@@ -526,7 +526,8 @@
     "labPartners": "Laboratoris",
     "menu": "Menú",
     "whatsapp": "WhatsApp",
-    "budgets": "Pressupostos"
+    "budgets": "Pressupostos",
+    "workflows": "Fluxos de treball"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",
@@ -794,7 +795,8 @@
     "legal_name": "Nom fiscal / raó social",
     "nika_number": "Número NIKA",
     "save_success": "Desat correctament",
-    "confirm_delete_branch": "Vols eliminar aquesta seu?"
+    "confirm_delete_branch": "Vols eliminar aquesta seu?",
+    "directions_url": "URL de com arribar-hi"
   },
   "language": {
     "select": "Idioma",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Descarregar PDF"
+  },
+  "workflows": {
+    "title": "Fluxos de treball",
+    "subtitle": "Automatitzacions activables o desactivables per a tota la plataforma",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmació de cites",
+        "description": "Envia automàticament un email al pacient amb les dades de la cita en programar-la o en canviar-ne la data o l'hora."
+      },
+      "appointment_reminder": {
+        "name": "Recordatori de cites",
+        "description": "Envia automàticament un email al pacient recordant-li la cita quan falta 1 dia per a la seva celebració."
+      }
+    }
   }
 }

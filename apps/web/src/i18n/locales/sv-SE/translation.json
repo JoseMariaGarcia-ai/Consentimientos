@@ -526,7 +526,8 @@
     "labPartners": "Laboratorier",
     "menu": "Meny",
     "whatsapp": "WhatsApp",
-    "budgets": "Offerter"
+    "budgets": "Offerter",
+    "workflows": "Arbetsflöden"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",
@@ -794,7 +795,8 @@
     "legal_name": "Juridiskt namn / firmanamn",
     "nika_number": "NIKA-nummer",
     "save_success": "Sparat",
-    "confirm_delete_branch": "Ta bort denna filial?"
+    "confirm_delete_branch": "Ta bort denna filial?",
+    "directions_url": "URL för vägbeskrivning"
   },
   "language": {
     "select": "Språk",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Ladda ner PDF"
+  },
+  "workflows": {
+    "title": "Arbetsflöden",
+    "subtitle": "Automatiseringar som kan aktiveras eller inaktiveras för hela plattformen",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Bekräftelse av bokning",
+        "description": "Skickar automatiskt ett e-postmeddelande till patienten med bokningsuppgifter när den bokas eller när datum eller tid ändras."
+      },
+      "appointment_reminder": {
+        "name": "Påminnelse om bokning",
+        "description": "Skickar automatiskt ett påminnelsemejl till patienten när det är 1 dag kvar till bokningen."
+      }
+    }
   }
 }

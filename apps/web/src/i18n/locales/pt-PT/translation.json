@@ -526,7 +526,8 @@
     "labPartners": "Laboratórios",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Orçamentos"
+    "budgets": "Orçamentos",
+    "workflows": "Workflows"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",
@@ -794,7 +795,8 @@
     "legal_name": "Nome fiscal / razão social",
     "nika_number": "Número NIKA",
     "save_success": "Guardado com sucesso",
-    "confirm_delete_branch": "Eliminar esta sede?"
+    "confirm_delete_branch": "Eliminar esta sede?",
+    "directions_url": "URL de como chegar"
   },
   "language": {
     "select": "Idioma",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Descarregar PDF"
+  },
+  "workflows": {
+    "title": "Workflows",
+    "subtitle": "Automatizações ativáveis ou desativáveis para toda a plataforma",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Confirmação de consultas",
+        "description": "Envia automaticamente um e-mail ao paciente com os dados da consulta ao ser marcada ou quando a data ou hora mudam."
+      },
+      "appointment_reminder": {
+        "name": "Lembrete de consultas",
+        "description": "Envia automaticamente um e-mail ao paciente a lembrar a consulta quando falta 1 dia."
+      }
+    }
   }
 }

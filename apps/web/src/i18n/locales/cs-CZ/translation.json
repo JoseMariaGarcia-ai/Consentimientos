@@ -526,7 +526,8 @@
     "labPartners": "Laboratoře",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
-    "budgets": "Cenové nabídky"
+    "budgets": "Cenové nabídky",
+    "workflows": "Automatizace"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",
@@ -794,7 +795,8 @@
     "legal_name": "Právní název / obchodní firma",
     "nika_number": "Číslo NIKA",
     "save_success": "Úspěšně uloženo",
-    "confirm_delete_branch": "Smazat tuto pobočku?"
+    "confirm_delete_branch": "Smazat tuto pobočku?",
+    "directions_url": "URL trasy"
   },
   "language": {
     "select": "Jazyk",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Stáhnout PDF"
+  },
+  "workflows": {
+    "title": "Automatizace",
+    "subtitle": "Automatizace, které lze zapnout nebo vypnout pro celou platformu",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Potvrzení schůzek",
+        "description": "Automaticky odešle pacientovi e-mail s údaji o schůzce při jejím naplánování nebo při změně data či času."
+      },
+      "appointment_reminder": {
+        "name": "Připomenutí schůzek",
+        "description": "Automaticky odešle pacientovi e-mail s připomenutím schůzky, když do ní zbývá 1 den."
+      }
+    }
   }
 }

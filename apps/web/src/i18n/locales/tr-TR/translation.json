@@ -526,7 +526,8 @@
     "labPartners": "Laboratuvarlar",
     "menu": "Menü",
     "whatsapp": "WhatsApp",
-    "budgets": "Fiyat Teklifleri"
+    "budgets": "Fiyat Teklifleri",
+    "workflows": "İş Akışları"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",
@@ -794,7 +795,8 @@
     "legal_name": "Vergi unvanı / tüzel kişilik adı",
     "nika_number": "NIKA numarası",
     "save_success": "Başarıyla kaydedildi",
-    "confirm_delete_branch": "Bu şube silinsin mi?"
+    "confirm_delete_branch": "Bu şube silinsin mi?",
+    "directions_url": "Yol tarifi URL'si"
   },
   "language": {
     "select": "Dil",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "PDF indir"
+  },
+  "workflows": {
+    "title": "İş Akışları",
+    "subtitle": "Tüm platform için etkinleştirilebilen veya devre dışı bırakılabilen otomasyonlar",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Randevu onayı",
+        "description": "Randevu alındığında veya tarih ya da saat değiştiğinde hastaya otomatik olarak randevu bilgilerini içeren bir e-posta gönderir."
+      },
+      "appointment_reminder": {
+        "name": "Randevu hatırlatması",
+        "description": "Randevuya 1 gün kala hastaya otomatik olarak hatırlatma e-postası gönderir."
+      }
+    }
   }
 }

@@ -526,7 +526,8 @@
     "labPartners": "Laboratoriot",
     "menu": "Valikko",
     "whatsapp": "WhatsApp",
-    "budgets": "Tarjoukset"
+    "budgets": "Tarjoukset",
+    "workflows": "Työnkulut"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
@@ -794,7 +795,8 @@
     "legal_name": "Virallinen nimi / y-tunnus",
     "nika_number": "NIKA-numero",
     "save_success": "Tallennettu onnistuneesti",
-    "confirm_delete_branch": "Poistetaanko tämä toimipiste?"
+    "confirm_delete_branch": "Poistetaanko tämä toimipiste?",
+    "directions_url": "Reittiohjeiden URL"
   },
   "language": {
     "select": "Kieli",
@@ -1482,5 +1484,19 @@
   },
   "budgetPdfButton": {
     "export": "Lataa PDF"
+  },
+  "workflows": {
+    "title": "Työnkulut",
+    "subtitle": "Automaatiot, jotka voidaan ottaa käyttöön tai poistaa käytöstä koko alustalla",
+    "items": {
+      "appointment_confirmation": {
+        "name": "Ajanvarauksen vahvistus",
+        "description": "Lähettää potilaalle automaattisesti sähköpostin ajan tiedoilla, kun aika varataan tai kun päivämäärä tai kellonaika muuttuu."
+      },
+      "appointment_reminder": {
+        "name": "Ajanvarauksen muistutus",
+        "description": "Lähettää potilaalle automaattisesti muistutussähköpostin, kun ajanvaraukseen on 1 päivä."
+      }
+    }
   }
 }
