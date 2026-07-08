@@ -527,7 +527,8 @@
     "menu": "Menü",
     "whatsapp": "WhatsApp",
     "budgets": "Fiyat Teklifleri",
-    "workflows": "İş Akışları"
+    "workflows": "İş Akışları",
+    "tickets": "Arıza kayıtları"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Arıza kayıtları",
+    "subtitle_admin": "Kliniklerin bildirdiği arızalar",
+    "subtitle_clinic": "Hataları veya sorunları bildirin ve çözüm sürecini takip edin",
+    "new_ticket": "Yeni kayıt",
+    "subject": "Konu",
+    "subject_placeholder": "Sorunun kısa özeti",
+    "description": "Açıklama",
+    "description_placeholder": "Hatayı mümkün olduğunca ayrıntılı açıklayın: ne yapıyordunuz, ne olmasını bekliyordunuz ve ne oldu…",
+    "send": "Gönder",
+    "no_results": "Kayıt yok",
+    "filter_open": "Açık",
+    "filter_resolved": "Çözüldü",
+    "filter_all": "Tümü",
+    "status_open": "Açık",
+    "status_resolved": "Çözüldü",
+    "mark_resolved": "Çözüldü olarak işaretle",
+    "mark_open": "Yeniden aç",
+    "reported_by": "Bildiren"
   }
 }

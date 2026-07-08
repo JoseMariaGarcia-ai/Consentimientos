@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Tilbud",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Fejlrapporter"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digital Signatur",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Fejlrapporter",
+    "subtitle_admin": "Fejl rapporteret af klinikkerne",
+    "subtitle_clinic": "Rapportér fejl eller problemer, og følg op på løsningen",
+    "new_ticket": "Ny fejlrapport",
+    "subject": "Emne",
+    "subject_placeholder": "Kort opsummering af problemet",
+    "description": "Beskrivelse",
+    "description_placeholder": "Beskriv fejlen så detaljeret som muligt: hvad du gjorde, hvad du forventede, og hvad der skete…",
+    "send": "Send",
+    "no_results": "Ingen fejlrapporter",
+    "filter_open": "Åbne",
+    "filter_resolved": "Løste",
+    "filter_all": "Alle",
+    "status_open": "Åben",
+    "status_resolved": "Løst",
+    "mark_resolved": "Markér som løst",
+    "mark_open": "Genåbn",
+    "reported_by": "Rapporteret af"
   }
 }

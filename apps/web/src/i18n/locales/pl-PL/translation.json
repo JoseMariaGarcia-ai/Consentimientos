@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Wyceny",
-    "workflows": "Przepływy pracy"
+    "workflows": "Przepływy pracy",
+    "tickets": "Zgłoszenia"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",
@@ -1534,5 +1535,25 @@
       "mobile": "Telefon",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Zgłoszenia",
+    "subtitle_admin": "Zgłoszenia przesłane przez kliniki",
+    "subtitle_clinic": "Zgłaszaj błędy lub problemy i śledź ich rozwiązanie",
+    "new_ticket": "Nowe zgłoszenie",
+    "subject": "Temat",
+    "subject_placeholder": "Krótkie podsumowanie problemu",
+    "description": "Opis",
+    "description_placeholder": "Opisz błąd jak najdokładniej: co robiłeś, czego się spodziewałeś i co się stało…",
+    "send": "Wyślij",
+    "no_results": "Brak zgłoszeń",
+    "filter_open": "Otwarte",
+    "filter_resolved": "Rozwiązane",
+    "filter_all": "Wszystkie",
+    "status_open": "Otwarte",
+    "status_resolved": "Rozwiązane",
+    "mark_resolved": "Oznacz jako rozwiązane",
+    "mark_open": "Otwórz ponownie",
+    "reported_by": "Zgłoszone przez"
   }
 }

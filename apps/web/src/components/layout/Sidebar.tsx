@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
+import { useOpenTickets } from '@/hooks/useOpenTickets'
 
 const navItems: { to: string; icon: typeof LayoutDashboard; label: string; moduleKey: string }[] = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard', moduleKey: 'dashboard' },
@@ -18,6 +19,7 @@ const navItems: { to: string; icon: typeof LayoutDashboard; label: string; modul
   { to: '/templates', icon: BookOpen, label: 'nav.templates', moduleKey: 'templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic', moduleKey: 'clinic' },
   { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', moduleKey: 'lab-partners' },
+  { to: '/tickets', icon: LifeBuoy, label: 'nav.tickets', moduleKey: 'tickets' },
 ]
 
 const bottomNavItems = [
@@ -36,6 +38,7 @@ interface SidebarProps {
 export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: SidebarProps) {
   const { t } = useTranslation()
   const { low } = useCredits()
+  const { count: openTickets } = useOpenTickets()
   const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
   const visibleBottomItems = allowedModules ? bottomNavItems.filter(i => allowedModules.includes(i.moduleKey)) : bottomNavItems
 
@@ -70,6 +73,11 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: Sidebar
             >
               <Icon className="w-4 h-4" />
               {t(label)}
+              {to === '/tickets' && openTickets > 0 && (
+                <span className="ml-auto min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">
+                  {openTickets}
+                </span>
+              )}
             </NavLink>
           ))}
 

@@ -527,7 +527,8 @@
     "menu": "תפריט",
     "whatsapp": "WhatsApp",
     "budgets": "הצעות מחיר",
-    "workflows": "תהליכי עבודה"
+    "workflows": "תהליכי עבודה",
+    "tickets": "תקלות"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
@@ -1490,5 +1491,25 @@
       "mobile": "נייד",
       "tablet": "טאבלט"
     }
+  },
+  "tickets": {
+    "title": "תקלות",
+    "subtitle_admin": "תקלות שדווחו על ידי המרפאות",
+    "subtitle_clinic": "דווח על שגיאות או תקלות ועקוב אחר פתרונן",
+    "new_ticket": "תקלה חדשה",
+    "subject": "נושא",
+    "subject_placeholder": "תקציר קצר של הבעיה",
+    "description": "תיאור",
+    "description_placeholder": "תאר את השגיאה בפירוט רב ככל האפשר: מה עשית, למה ציפית ומה קרה בפועל…",
+    "send": "שליחה",
+    "no_results": "אין תקלות",
+    "filter_open": "פתוחות",
+    "filter_resolved": "פתורות",
+    "filter_all": "הכול",
+    "status_open": "פתוחה",
+    "status_resolved": "פתורה",
+    "mark_resolved": "סמן כפתור",
+    "mark_open": "פתח מחדש",
+    "reported_by": "דווח על ידי"
   }
 }

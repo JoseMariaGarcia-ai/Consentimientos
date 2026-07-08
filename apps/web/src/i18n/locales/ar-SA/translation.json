@@ -527,7 +527,8 @@
     "menu": "القائمة",
     "whatsapp": "WhatsApp",
     "budgets": "عروض الأسعار",
-    "workflows": "سير العمل"
+    "workflows": "سير العمل",
+    "tickets": "الحوادث"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
@@ -1496,5 +1497,25 @@
       "mobile": "جوال",
       "tablet": "تابلت"
     }
+  },
+  "tickets": {
+    "title": "الحوادث",
+    "subtitle_admin": "الحوادث المبلغ عنها من العيادات",
+    "subtitle_clinic": "أبلغ عن الأخطاء أو الحوادث وتابع حلها",
+    "new_ticket": "حادثة جديدة",
+    "subject": "الموضوع",
+    "subject_placeholder": "ملخص موجز للمشكلة",
+    "description": "الوصف",
+    "description_placeholder": "صف الخطأ بأكبر قدر ممكن من التفاصيل: ماذا كنت تفعل، وماذا كنت تتوقع، وماذا حدث…",
+    "send": "إرسال",
+    "no_results": "لا توجد حوادث",
+    "filter_open": "مفتوحة",
+    "filter_resolved": "محلولة",
+    "filter_all": "الكل",
+    "status_open": "مفتوحة",
+    "status_resolved": "محلولة",
+    "mark_resolved": "وضع علامة كمحلولة",
+    "mark_open": "إعادة الفتح",
+    "reported_by": "تم الإبلاغ بواسطة"
   }
 }

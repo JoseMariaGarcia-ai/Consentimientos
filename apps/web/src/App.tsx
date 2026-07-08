@@ -27,6 +27,7 @@ import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
 import Budgets from './pages/Budgets'
 import Workflows from './pages/Workflows'
+import Tickets from './pages/Tickets'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -159,6 +160,7 @@ function AppShell() {
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
               <Route path="/budgets" element={guard('budgets', <Budgets />)} />
               <Route path="/workflows" element={isSuperAdmin ? <Workflows /> : <Navigate to="/" />} />
+              <Route path="/tickets" element={guard('tickets', <Tickets />)} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />
               <Route path="/recharge" element={<Recharge />} />
               <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />

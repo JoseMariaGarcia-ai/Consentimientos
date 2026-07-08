@@ -527,7 +527,8 @@
     "menu": "Menü",
     "whatsapp": "WhatsApp",
     "budgets": "Kostenvoranschläge",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Störungen"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Störungen",
+    "subtitle_admin": "Von den Kliniken gemeldete Störungen",
+    "subtitle_clinic": "Melde Fehler oder Störungen und verfolge deren Lösung",
+    "new_ticket": "Neue Störung",
+    "subject": "Betreff",
+    "subject_placeholder": "Kurze Zusammenfassung des Problems",
+    "description": "Beschreibung",
+    "description_placeholder": "Beschreibe den Fehler so detailliert wie möglich: was du getan hast, was du erwartet hast und was passiert ist…",
+    "send": "Senden",
+    "no_results": "Keine Störungen",
+    "filter_open": "Offen",
+    "filter_resolved": "Gelöst",
+    "filter_all": "Alle",
+    "status_open": "Offen",
+    "status_resolved": "Gelöst",
+    "mark_resolved": "Als gelöst markieren",
+    "mark_open": "Wieder öffnen",
+    "reported_by": "Gemeldet von"
   }
 }

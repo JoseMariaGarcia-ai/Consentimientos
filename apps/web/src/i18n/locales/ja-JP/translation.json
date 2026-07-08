@@ -527,7 +527,8 @@
     "menu": "メニュー",
     "whatsapp": "WhatsApp",
     "budgets": "見積もり",
-    "workflows": "ワークフロー"
+    "workflows": "ワークフロー",
+    "tickets": "不具合報告"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",
@@ -1534,5 +1535,25 @@
       "mobile": "モバイル",
       "tablet": "タブレット"
     }
+  },
+  "tickets": {
+    "title": "不具合報告",
+    "subtitle_admin": "クリニックから報告された不具合",
+    "subtitle_clinic": "エラーや不具合を報告し、その解決状況を確認できます",
+    "new_ticket": "新規報告",
+    "subject": "件名",
+    "subject_placeholder": "問題の簡単な要約",
+    "description": "詳細",
+    "description_placeholder": "何をしていたか、何を期待していたか、実際に何が起きたかをできるだけ詳しく記載してください…",
+    "send": "送信",
+    "no_results": "報告はありません",
+    "filter_open": "未解決",
+    "filter_resolved": "解決済み",
+    "filter_all": "すべて",
+    "status_open": "未解決",
+    "status_resolved": "解決済み",
+    "mark_resolved": "解決済みにする",
+    "mark_open": "再オープン",
+    "reported_by": "報告者"
   }
 }

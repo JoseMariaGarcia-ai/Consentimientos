@@ -527,7 +527,8 @@
     "menu": "菜单",
     "whatsapp": "WhatsApp",
     "budgets": "报价单",
-    "workflows": "工作流"
+    "workflows": "工作流",
+    "tickets": "问题反馈"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",
@@ -1534,5 +1535,25 @@
       "mobile": "移动端",
       "tablet": "平板"
     }
+  },
+  "tickets": {
+    "title": "问题反馈",
+    "subtitle_admin": "诊所提交的问题反馈",
+    "subtitle_clinic": "报告错误或问题，并跟踪处理进度",
+    "new_ticket": "新建反馈",
+    "subject": "主题",
+    "subject_placeholder": "问题的简要说明",
+    "description": "描述",
+    "description_placeholder": "请尽可能详细地描述该错误：您当时在做什么、您期望发生什么，以及实际发生了什么……",
+    "send": "发送",
+    "no_results": "暂无反馈",
+    "filter_open": "待处理",
+    "filter_resolved": "已处理",
+    "filter_all": "全部",
+    "status_open": "待处理",
+    "status_resolved": "已处理",
+    "mark_resolved": "标记为已处理",
+    "mark_open": "重新打开",
+    "reported_by": "反馈人"
   }
 }

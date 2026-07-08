@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Devis",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Incidents"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobile",
       "tablet": "Tablette"
     }
+  },
+  "tickets": {
+    "title": "Incidents",
+    "subtitle_admin": "Incidents signalés par les cliniques",
+    "subtitle_clinic": "Signalez des erreurs ou des incidents et suivez leur résolution",
+    "new_ticket": "Nouvel incident",
+    "subject": "Sujet",
+    "subject_placeholder": "Bref résumé du problème",
+    "description": "Description",
+    "description_placeholder": "Décrivez l'erreur avec le plus de détails possible : ce que vous faisiez, ce que vous attendiez et ce qui s'est passé…",
+    "send": "Envoyer",
+    "no_results": "Aucun incident",
+    "filter_open": "Ouverts",
+    "filter_resolved": "Résolus",
+    "filter_all": "Tous",
+    "status_open": "Ouvert",
+    "status_resolved": "Résolu",
+    "mark_resolved": "Marquer comme résolu",
+    "mark_open": "Rouvrir",
+    "reported_by": "Signalé par"
   }
 }

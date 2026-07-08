@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Cenové nabídky",
-    "workflows": "Automatizace"
+    "workflows": "Automatizace",
+    "tickets": "Incidenty"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Incidenty",
+    "subtitle_admin": "Incidenty nahlášené klinikami",
+    "subtitle_clinic": "Nahlaste chyby nebo incidenty a sledujte jejich řešení",
+    "new_ticket": "Nový incident",
+    "subject": "Předmět",
+    "subject_placeholder": "Stručné shrnutí problému",
+    "description": "Popis",
+    "description_placeholder": "Popište chybu co nejpodrobněji: co jste dělali, co jste očekávali a co se stalo…",
+    "send": "Odeslat",
+    "no_results": "Žádné incidenty",
+    "filter_open": "Otevřené",
+    "filter_resolved": "Vyřešené",
+    "filter_all": "Vše",
+    "status_open": "Otevřený",
+    "status_resolved": "Vyřešený",
+    "mark_resolved": "Označit jako vyřešené",
+    "mark_open": "Znovu otevřít",
+    "reported_by": "Nahlásil"
   }
 }

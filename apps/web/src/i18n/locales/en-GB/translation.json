@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Quotes",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Support tickets"
   },
   "topbar": {
     "tagline": "Digital Consents · Biometric Signature",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobile",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Support tickets",
+    "subtitle_admin": "Incidents reported by clinics",
+    "subtitle_clinic": "Report errors or issues and track their resolution",
+    "new_ticket": "New ticket",
+    "subject": "Subject",
+    "subject_placeholder": "Brief summary of the problem",
+    "description": "Description",
+    "description_placeholder": "Describe the error in as much detail as possible: what you were doing, what you expected to happen and what actually happened…",
+    "send": "Send",
+    "no_results": "No tickets",
+    "filter_open": "Open",
+    "filter_resolved": "Resolved",
+    "filter_all": "All",
+    "status_open": "Open",
+    "status_resolved": "Resolved",
+    "mark_resolved": "Mark as resolved",
+    "mark_open": "Reopen",
+    "reported_by": "Reported by"
   }
 }

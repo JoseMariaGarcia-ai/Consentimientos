@@ -29,6 +29,7 @@ import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
 import workflowsRouter from './routes/workflows'
 import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
+import ticketsRouter from './routes/tickets'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 
@@ -75,6 +76,7 @@ app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRo
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
+app.use('/api/tickets',         authMiddleware, ticketsRouter)
 
 const PORT = process.env.PORT ?? 3001
 

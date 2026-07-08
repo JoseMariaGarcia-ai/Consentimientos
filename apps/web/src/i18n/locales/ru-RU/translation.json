@@ -527,7 +527,8 @@
     "menu": "Меню",
     "whatsapp": "WhatsApp",
     "budgets": "Сметы",
-    "workflows": "Рабочие процессы"
+    "workflows": "Рабочие процессы",
+    "tickets": "Обращения"
   },
   "topbar": {
     "tagline": "Цифровые согласия · Биометрическая подпись",
@@ -1534,5 +1535,25 @@
       "mobile": "Мобильный",
       "tablet": "Планшет"
     }
+  },
+  "tickets": {
+    "title": "Обращения",
+    "subtitle_admin": "Обращения, поданные клиниками",
+    "subtitle_clinic": "Сообщайте об ошибках или проблемах и отслеживайте их решение",
+    "new_ticket": "Новое обращение",
+    "subject": "Тема",
+    "subject_placeholder": "Краткое описание проблемы",
+    "description": "Описание",
+    "description_placeholder": "Опишите ошибку как можно подробнее: что вы делали, чего ожидали и что произошло…",
+    "send": "Отправить",
+    "no_results": "Нет обращений",
+    "filter_open": "Открытые",
+    "filter_resolved": "Решённые",
+    "filter_all": "Все",
+    "status_open": "Открыто",
+    "status_resolved": "Решено",
+    "mark_resolved": "Отметить как решённое",
+    "mark_open": "Открыть заново",
+    "reported_by": "Автор обращения"
   }
 }

@@ -13,6 +13,7 @@ export const ALL_MODULES = [
   { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },
   { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },
   { key: 'lab-partners',     labelKey: 'nav.labPartners',     defaultOn: false },
+  { key: 'tickets',          labelKey: 'nav.tickets',         defaultOn: true  },
 ] as const
 
 export const DEFAULT_PERMS: Record<string, boolean> = Object.fromEntries(ALL_MODULES.map(m => [m.key, m.defaultOn]))

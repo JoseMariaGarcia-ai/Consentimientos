@@ -527,7 +527,8 @@
     "menu": "Meny",
     "whatsapp": "WhatsApp",
     "budgets": "Tilbud",
-    "workflows": "Arbeidsflyter"
+    "workflows": "Arbeidsflyter",
+    "tickets": "Feilmeldinger"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Nettbrett"
     }
+  },
+  "tickets": {
+    "title": "Feilmeldinger",
+    "subtitle_admin": "Feil rapportert av klinikkene",
+    "subtitle_clinic": "Rapporter feil eller problemer og følg opp løsningen",
+    "new_ticket": "Ny feilmelding",
+    "subject": "Emne",
+    "subject_placeholder": "Kort oppsummering av problemet",
+    "description": "Beskrivelse",
+    "description_placeholder": "Beskriv feilen så detaljert som mulig: hva du gjorde, hva du forventet og hva som skjedde…",
+    "send": "Send",
+    "no_results": "Ingen feilmeldinger",
+    "filter_open": "Åpne",
+    "filter_resolved": "Løste",
+    "filter_all": "Alle",
+    "status_open": "Åpen",
+    "status_resolved": "Løst",
+    "mark_resolved": "Merk som løst",
+    "mark_open": "Gjenåpne",
+    "reported_by": "Rapportert av"
   }
 }

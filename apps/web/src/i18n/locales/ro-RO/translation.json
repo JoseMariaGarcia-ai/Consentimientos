@@ -527,7 +527,8 @@
     "menu": "Meniu",
     "whatsapp": "WhatsApp",
     "budgets": "Oferte",
-    "workflows": "Fluxuri de lucru"
+    "workflows": "Fluxuri de lucru",
+    "tickets": "Incidente"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tabletă"
     }
+  },
+  "tickets": {
+    "title": "Incidente",
+    "subtitle_admin": "Incidente raportate de clinici",
+    "subtitle_clinic": "Raportează erori sau incidente și urmărește rezolvarea lor",
+    "new_ticket": "Incident nou",
+    "subject": "Subiect",
+    "subject_placeholder": "Rezumat scurt al problemei",
+    "description": "Descriere",
+    "description_placeholder": "Descrie eroarea cât mai detaliat posibil: ce făceai, la ce te așteptai și ce s-a întâmplat…",
+    "send": "Trimite",
+    "no_results": "Niciun incident",
+    "filter_open": "Deschise",
+    "filter_resolved": "Rezolvate",
+    "filter_all": "Toate",
+    "status_open": "Deschis",
+    "status_resolved": "Rezolvat",
+    "mark_resolved": "Marchează ca rezolvat",
+    "mark_open": "Redeschide",
+    "reported_by": "Raportat de"
   }
 }

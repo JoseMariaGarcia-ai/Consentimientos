@@ -527,7 +527,8 @@
     "menu": "Меню",
     "whatsapp": "WhatsApp",
     "budgets": "Кошториси",
-    "workflows": "Робочі процеси"
+    "workflows": "Робочі процеси",
+    "tickets": "Звернення"
   },
   "topbar": {
     "tagline": "Цифрові Згоди · Цифровий Підпис",
@@ -1534,5 +1535,25 @@
       "mobile": "Мобільний",
       "tablet": "Планшет"
     }
+  },
+  "tickets": {
+    "title": "Звернення",
+    "subtitle_admin": "Звернення, подані клініками",
+    "subtitle_clinic": "Повідомляйте про помилки чи проблеми та відстежуйте їх вирішення",
+    "new_ticket": "Нове звернення",
+    "subject": "Тема",
+    "subject_placeholder": "Короткий опис проблеми",
+    "description": "Опис",
+    "description_placeholder": "Опишіть помилку якомога детальніше: що ви робили, чого очікували і що сталося…",
+    "send": "Надіслати",
+    "no_results": "Немає звернень",
+    "filter_open": "Відкриті",
+    "filter_resolved": "Вирішені",
+    "filter_all": "Усі",
+    "status_open": "Відкрито",
+    "status_resolved": "Вирішено",
+    "mark_resolved": "Позначити як вирішене",
+    "mark_open": "Відкрити знову",
+    "reported_by": "Автор звернення"
   }
 }

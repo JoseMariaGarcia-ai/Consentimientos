@@ -527,7 +527,8 @@
     "menu": "Menú",
     "whatsapp": "WhatsApp",
     "budgets": "Presupuestos",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Incidencias"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -1506,5 +1507,25 @@
       "mobile": "Celular",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Incidencias",
+    "subtitle_admin": "Incidencias reportadas por las clínicas",
+    "subtitle_clinic": "Reportá errores o incidencias y hacé seguimiento de su resolución",
+    "new_ticket": "Nueva incidencia",
+    "subject": "Asunto",
+    "subject_placeholder": "Resumen breve del problema",
+    "description": "Descripción",
+    "description_placeholder": "Describí el error con el máximo detalle posible: qué estabas haciendo, qué esperabas que pasara y qué pasó…",
+    "send": "Enviar",
+    "no_results": "No hay incidencias",
+    "filter_open": "Abiertas",
+    "filter_resolved": "Resueltas",
+    "filter_all": "Todas",
+    "status_open": "Abierta",
+    "status_resolved": "Resuelta",
+    "mark_resolved": "Marcar como resuelta",
+    "mark_open": "Reabrir",
+    "reported_by": "Reportado por"
   }
 }

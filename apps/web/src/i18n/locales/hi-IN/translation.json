@@ -527,7 +527,8 @@
     "menu": "मेनू",
     "whatsapp": "WhatsApp",
     "budgets": "कोटेशन",
-    "workflows": "वर्कफ़्लो"
+    "workflows": "वर्कफ़्लो",
+    "tickets": "समस्या रिपोर्ट"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
@@ -1534,5 +1535,25 @@
       "mobile": "मोबाइल",
       "tablet": "टैबलेट"
     }
+  },
+  "tickets": {
+    "title": "समस्या रिपोर्ट",
+    "subtitle_admin": "क्लीनिकों द्वारा रिपोर्ट की गई समस्याएँ",
+    "subtitle_clinic": "त्रुटियों या समस्याओं की रिपोर्ट करें और उनके समाधान को ट्रैक करें",
+    "new_ticket": "नई समस्या",
+    "subject": "विषय",
+    "subject_placeholder": "समस्या का संक्षिप्त सारांश",
+    "description": "विवरण",
+    "description_placeholder": "त्रुटि का यथासंभव विस्तार से वर्णन करें: आप क्या कर रहे थे, आप क्या होने की उम्मीद कर रहे थे और वास्तव में क्या हुआ…",
+    "send": "भेजें",
+    "no_results": "कोई समस्या नहीं",
+    "filter_open": "खुली",
+    "filter_resolved": "हल हो गई",
+    "filter_all": "सभी",
+    "status_open": "खुली",
+    "status_resolved": "हल हो गई",
+    "mark_resolved": "हल के रूप में चिह्नित करें",
+    "mark_open": "फिर से खोलें",
+    "reported_by": "रिपोर्ट किया गया"
   }
 }

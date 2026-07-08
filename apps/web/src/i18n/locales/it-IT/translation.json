@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Preventivi",
-    "workflows": "Workflow"
+    "workflows": "Workflow",
+    "tickets": "Segnalazioni"
   },
   "topbar": {
     "tagline": "Consensi Digitali · Firma Biometrica",
@@ -1588,5 +1589,25 @@
       "mobile": "Mobile",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Segnalazioni",
+    "subtitle_admin": "Segnalazioni inviate dalle cliniche",
+    "subtitle_clinic": "Segnala errori o problemi e monitora la loro risoluzione",
+    "new_ticket": "Nuova segnalazione",
+    "subject": "Oggetto",
+    "subject_placeholder": "Breve riassunto del problema",
+    "description": "Descrizione",
+    "description_placeholder": "Descrivi l'errore nel modo più dettagliato possibile: cosa stavi facendo, cosa ti aspettavi e cosa è successo…",
+    "send": "Invia",
+    "no_results": "Nessuna segnalazione",
+    "filter_open": "Aperte",
+    "filter_resolved": "Risolte",
+    "filter_all": "Tutte",
+    "status_open": "Aperta",
+    "status_resolved": "Risolta",
+    "mark_resolved": "Segna come risolta",
+    "mark_open": "Riapri",
+    "reported_by": "Segnalato da"
   }
 }

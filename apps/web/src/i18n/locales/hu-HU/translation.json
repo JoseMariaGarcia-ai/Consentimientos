@@ -527,7 +527,8 @@
     "menu": "Menü",
     "whatsapp": "WhatsApp",
     "budgets": "Árajánlatok",
-    "workflows": "Munkafolyamatok"
+    "workflows": "Munkafolyamatok",
+    "tickets": "Hibajegyek"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Hibajegyek",
+    "subtitle_admin": "A klinikák által jelentett hibák",
+    "subtitle_clinic": "Jelentsen hibákat vagy problémákat, és kövesse nyomon a megoldásukat",
+    "new_ticket": "Új hibajegy",
+    "subject": "Tárgy",
+    "subject_placeholder": "A probléma rövid összefoglalása",
+    "description": "Leírás",
+    "description_placeholder": "Írja le a hibát a lehető legrészletesebben: mit csinált, mire számított és mi történt…",
+    "send": "Küldés",
+    "no_results": "Nincsenek hibajegyek",
+    "filter_open": "Nyitott",
+    "filter_resolved": "Megoldott",
+    "filter_all": "Összes",
+    "status_open": "Nyitott",
+    "status_resolved": "Megoldott",
+    "mark_resolved": "Megjelölés megoldottként",
+    "mark_open": "Újranyitás",
+    "reported_by": "Jelentette"
   }
 }

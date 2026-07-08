@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Báo giá",
-    "workflows": "Quy trình tự động"
+    "workflows": "Quy trình tự động",
+    "tickets": "Phản ánh sự cố"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
@@ -1534,5 +1535,25 @@
       "mobile": "Di động",
       "tablet": "Máy tính bảng"
     }
+  },
+  "tickets": {
+    "title": "Phản ánh sự cố",
+    "subtitle_admin": "Sự cố do các phòng khám báo cáo",
+    "subtitle_clinic": "Báo cáo lỗi hoặc sự cố và theo dõi quá trình xử lý",
+    "new_ticket": "Phản ánh mới",
+    "subject": "Chủ đề",
+    "subject_placeholder": "Tóm tắt ngắn gọn về vấn đề",
+    "description": "Mô tả",
+    "description_placeholder": "Mô tả lỗi càng chi tiết càng tốt: bạn đang làm gì, bạn mong đợi điều gì xảy ra và điều gì đã thực sự xảy ra…",
+    "send": "Gửi",
+    "no_results": "Không có phản ánh nào",
+    "filter_open": "Đang mở",
+    "filter_resolved": "Đã xử lý",
+    "filter_all": "Tất cả",
+    "status_open": "Đang mở",
+    "status_resolved": "Đã xử lý",
+    "mark_resolved": "Đánh dấu đã xử lý",
+    "mark_open": "Mở lại",
+    "reported_by": "Người báo cáo"
   }
 }

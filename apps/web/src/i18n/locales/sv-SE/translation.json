@@ -527,7 +527,8 @@
     "menu": "Meny",
     "whatsapp": "WhatsApp",
     "budgets": "Offerter",
-    "workflows": "Arbetsflöden"
+    "workflows": "Arbetsflöden",
+    "tickets": "Ärenden"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobil",
       "tablet": "Surfplatta"
     }
+  },
+  "tickets": {
+    "title": "Ärenden",
+    "subtitle_admin": "Incidenter rapporterade av klinikerna",
+    "subtitle_clinic": "Rapportera fel eller problem och följ upp lösningen",
+    "new_ticket": "Nytt ärende",
+    "subject": "Ämne",
+    "subject_placeholder": "Kort sammanfattning av problemet",
+    "description": "Beskrivning",
+    "description_placeholder": "Beskriv felet så detaljerat som möjligt: vad du gjorde, vad du förväntade dig och vad som hände…",
+    "send": "Skicka",
+    "no_results": "Inga ärenden",
+    "filter_open": "Öppna",
+    "filter_resolved": "Lösta",
+    "filter_all": "Alla",
+    "status_open": "Öppet",
+    "status_resolved": "Löst",
+    "mark_resolved": "Markera som löst",
+    "mark_open": "Återöppna",
+    "reported_by": "Rapporterat av"
   }
 }

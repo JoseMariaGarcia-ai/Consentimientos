@@ -527,7 +527,8 @@
     "menu": "Menú",
     "whatsapp": "WhatsApp",
     "budgets": "Pressupostos",
-    "workflows": "Fluxos de treball"
+    "workflows": "Fluxos de treball",
+    "tickets": "Incidències"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",
@@ -1534,5 +1535,25 @@
       "mobile": "Mòbil",
       "tablet": "Tauleta"
     }
+  },
+  "tickets": {
+    "title": "Incidències",
+    "subtitle_admin": "Incidències reportades per les clíniques",
+    "subtitle_clinic": "Reporta errors o incidències i fes seguiment de la seva resolució",
+    "new_ticket": "Nova incidència",
+    "subject": "Assumpte",
+    "subject_placeholder": "Resum breu del problema",
+    "description": "Descripció",
+    "description_placeholder": "Descriu l'error amb el màxim detall possible: què estaves fent, què esperaves que passés i què ha passat…",
+    "send": "Enviar",
+    "no_results": "No hi ha incidències",
+    "filter_open": "Obertes",
+    "filter_resolved": "Resoltes",
+    "filter_all": "Totes",
+    "status_open": "Oberta",
+    "status_resolved": "Resolta",
+    "mark_resolved": "Marcar com a resolta",
+    "mark_open": "Reobrir",
+    "reported_by": "Reportat per"
   }
 }

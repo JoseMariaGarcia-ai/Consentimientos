@@ -527,7 +527,8 @@
     "menu": "Valikko",
     "whatsapp": "WhatsApp",
     "budgets": "Tarjoukset",
-    "workflows": "Työnkulut"
+    "workflows": "Työnkulut",
+    "tickets": "Vikailmoitukset"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobiili",
       "tablet": "Tabletti"
     }
+  },
+  "tickets": {
+    "title": "Vikailmoitukset",
+    "subtitle_admin": "Klinikoiden ilmoittamat viat",
+    "subtitle_clinic": "Ilmoita virheistä tai ongelmista ja seuraa niiden ratkaisua",
+    "new_ticket": "Uusi vikailmoitus",
+    "subject": "Aihe",
+    "subject_placeholder": "Lyhyt yhteenveto ongelmasta",
+    "description": "Kuvaus",
+    "description_placeholder": "Kuvaile virhe mahdollisimman tarkasti: mitä olit tekemässä, mitä odotit tapahtuvan ja mitä tapahtui…",
+    "send": "Lähetä",
+    "no_results": "Ei vikailmoituksia",
+    "filter_open": "Avoimet",
+    "filter_resolved": "Ratkaistut",
+    "filter_all": "Kaikki",
+    "status_open": "Avoin",
+    "status_resolved": "Ratkaistu",
+    "mark_resolved": "Merkitse ratkaistuksi",
+    "mark_open": "Avaa uudelleen",
+    "reported_by": "Ilmoittaja"
   }
 }

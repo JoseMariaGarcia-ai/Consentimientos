@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Offertes",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Meldingen"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
@@ -1534,5 +1535,25 @@
       "mobile": "Mobiel",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Meldingen",
+    "subtitle_admin": "Meldingen van de klinieken",
+    "subtitle_clinic": "Meld fouten of problemen en volg de oplossing ervan",
+    "new_ticket": "Nieuwe melding",
+    "subject": "Onderwerp",
+    "subject_placeholder": "Korte samenvatting van het probleem",
+    "description": "Beschrijving",
+    "description_placeholder": "Beschrijf de fout zo gedetailleerd mogelijk: wat je aan het doen was, wat je verwachtte en wat er is gebeurd…",
+    "send": "Versturen",
+    "no_results": "Geen meldingen",
+    "filter_open": "Open",
+    "filter_resolved": "Opgelost",
+    "filter_all": "Alle",
+    "status_open": "Open",
+    "status_resolved": "Opgelost",
+    "mark_resolved": "Markeren als opgelost",
+    "mark_open": "Heropenen",
+    "reported_by": "Gemeld door"
   }
 }

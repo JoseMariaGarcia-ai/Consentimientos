@@ -527,7 +527,8 @@
     "menu": "Menu",
     "whatsapp": "WhatsApp",
     "budgets": "Orçamentos",
-    "workflows": "Workflows"
+    "workflows": "Workflows",
+    "tickets": "Ocorrências"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",
@@ -1534,5 +1535,25 @@
       "mobile": "Telemóvel",
       "tablet": "Tablet"
     }
+  },
+  "tickets": {
+    "title": "Ocorrências",
+    "subtitle_admin": "Ocorrências reportadas pelas clínicas",
+    "subtitle_clinic": "Reporte erros ou ocorrências e acompanhe a sua resolução",
+    "new_ticket": "Nova ocorrência",
+    "subject": "Assunto",
+    "subject_placeholder": "Resumo breve do problema",
+    "description": "Descrição",
+    "description_placeholder": "Descreva o erro com o máximo de detalhe possível: o que estava a fazer, o que esperava que acontecesse e o que aconteceu…",
+    "send": "Enviar",
+    "no_results": "Sem ocorrências",
+    "filter_open": "Abertas",
+    "filter_resolved": "Resolvidas",
+    "filter_all": "Todas",
+    "status_open": "Aberta",
+    "status_resolved": "Resolvida",
+    "mark_resolved": "Marcar como resolvida",
+    "mark_open": "Reabrir",
+    "reported_by": "Reportado por"
   }
 }
