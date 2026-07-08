@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Beleegyezések átadása érintőképernyős eszközre",
           "desc": "Nincs érintőképernyője a számítógépednek? Küldd el a beleegyezést a rendelő tabletjére vagy telefonjára, hogy ott ujjal aláírják, orvos és páciens, egy másodperc kihagyása nélkül."
+        },
+        "social_media": {
+          "title": "Átfogó közösségimédia-kezelés",
+          "desc": "A Hálózatok csomaggal egy dedikált csapat kezeli az Instagramot és a Facebookot: kreatívok, Meta-kampányok, lead-generálás és nyomon követés, közösségi menedzser és heti videóhívás, a stratégiától a konverzióig."
         }
       }
     },

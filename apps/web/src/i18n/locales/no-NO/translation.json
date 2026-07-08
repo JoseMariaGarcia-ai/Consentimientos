@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Overføring av samtykker til berøringsenhet",
           "desc": "Har ikke datamaskinen din berøringsskjerm? Send samtykket til et nettbrett eller en mobil på klinikken for å signere det der med fingeren, lege og pasient, uten å miste et sekund."
+        },
+        "social_media": {
+          "title": "Komplett forvaltning av sosiale medier",
+          "desc": "Med Nettverk-planen administrerer et dedikert team Instagram og Facebook: kreativt innhold, Meta-kampanjer, leadgenerering og oppfølging, community manager og ukentlig videomøte, fra strategi til konvertering."
         }
       }
     },

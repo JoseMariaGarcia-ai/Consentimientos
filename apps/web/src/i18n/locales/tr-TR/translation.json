@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Onay formlarının dokunmatik cihaza aktarılması",
           "desc": "Bilgisayarınızda dokunmatik ekran yok mu? Onay formunu klinik tabletine veya telefonuna gönderin, doktor ve hasta orada parmakla imzalasın, bir saniye bile kaybetmeden."
+        },
+        "social_media": {
+          "title": "Kapsamlı sosyal medya yönetimi",
+          "desc": "Ağlar Planı ile özel bir ekip Instagram ve Facebook’u yönetir: kreatifler, Meta kampanyaları, potansiyel müşteri edinimi ve takibi, topluluk yöneticisi ve haftalık görüntülü görüşme, stratejiden dönüşüme kadar."
         }
       }
     },

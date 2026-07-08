@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Överföring av samtycken till pekenhet",
           "desc": "Har din dator ingen pekskärm? Skicka samtycket till en surfplatta eller mobil på kliniken för att signera det där med fingret, läkare och patient, utan att förlora en sekund."
+        },
+        "social_media": {
+          "title": "Komplett hantering av sociala medier",
+          "desc": "Med Nätverk-planen hanterar ett dedikerat team Instagram och Facebook: kreativt material, Meta-kampanjer, leadgenerering och uppföljning, community manager och veckovis videomöte, från strategi till konvertering."
         }
       }
     },

@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Chuyển mẫu đồng ý sang thiết bị cảm ứng",
           "desc": "Máy tính của bạn không có màn hình cảm ứng? Gửi mẫu đồng ý đến máy tính bảng hoặc điện thoại của phòng khám để ký ở đó bằng ngón tay, bác sĩ và bệnh nhân, không mất một giây nào."
+        },
+        "social_media": {
+          "title": "Quản lý toàn diện mạng xã hội",
+          "desc": "Với Gói Mạng Xã Hội, một đội ngũ chuyên trách quản lý Instagram và Facebook: thiết kế sáng tạo, chiến dịch Meta, thu hút và theo dõi khách hàng tiềm năng, quản lý cộng đồng và họp video hàng tuần, từ chiến lược đến chuyển đổi."
         }
       }
     },

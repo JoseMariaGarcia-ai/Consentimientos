@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Předání souhlasů na dotykové zařízení",
           "desc": "Nemá váš počítač dotykovou obrazovku? Pošlete souhlas na tablet nebo mobil ordinace a podepište ho tam prstem, lékař i pacient, bez ztráty jediné vteřiny."
+        },
+        "social_media": {
+          "title": "Komplexní správa sociálních sítí",
+          "desc": "S Plánem Sítě spravuje vyhrazený tým Instagram a Facebook: kreativy, kampaně Meta, získávání a sledování potenciálních zákazníků, community manager a týdenní videohovor, od strategie po konverzi."
         }
       }
     },

@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Transferul consimțămintelor către un dispozitiv tactil",
           "desc": "Computerul tău nu are ecran tactil? Trimite consimțământul către o tabletă sau un telefon al clinicii pentru a-l semna acolo cu degetul, medic și pacient, fără a pierde nicio secundă."
+        },
+        "social_media": {
+          "title": "Management integral al rețelelor sociale",
+          "desc": "Cu Planul Rețele, o echipă dedicată gestionează Instagram și Facebook: creativități, campanii Meta, atragerea și urmărirea lead-urilor, community manager și întâlnire video săptămânală, de la strategie la conversie."
         }
       }
     },

@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Traspàs de consentiments a dispositiu tàctil",
           "desc": "El teu ordinador no té pantalla tàctil? Envia el consentiment a una tablet o mòbil de la clínica per signar-lo allà amb el dit, metge i pacient, sense perdre ni un segon."
+        },
+        "social_media": {
+          "title": "Gestió integral de xarxes socials",
+          "desc": "Amb el Pla Xarxes, un equip dedicat gestiona Instagram i Facebook: creativitats, campanyes Meta, captació i seguiment de leads, community manager i reunió setmanal, de l’estratègia a la conversió."
         }
       }
     },

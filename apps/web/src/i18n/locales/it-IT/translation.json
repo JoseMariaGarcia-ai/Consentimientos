@@ -1418,6 +1418,10 @@
         "tablet_handoff": {
           "title": "Trasferimento dei consensi a un dispositivo touch",
           "desc": "Il tuo computer non ha lo schermo touch? Invia il consenso a un tablet o cellulare dello studio per firmarlo lì con il dito, medico e paziente, senza perdere un secondo."
+        },
+        "social_media": {
+          "title": "Gestione integrale dei social media",
+          "desc": "Con il Piano Social, un team dedicato gestisce Instagram e Facebook: creatività, campagne Meta, acquisizione e monitoraggio dei lead, community manager e videocall settimanale, dalla strategia alla conversione."
         }
       }
     },

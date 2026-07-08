@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Weiterleitung von Einwilligungen an ein Touch-Gerät",
           "desc": "Dein Computer hat keinen Touchscreen? Sende die Einwilligung an ein Tablet oder Handy der Praxis, um sie dort mit dem Finger zu unterschreiben — Arzt und Patient, ohne eine Sekunde zu verlieren."
+        },
+        "social_media": {
+          "title": "Umfassendes Social-Media-Management",
+          "desc": "Mit dem Netzwerke-Plan verwaltet ein engagiertes Team Instagram und Facebook: Creatives, Meta-Kampagnen, Lead-Gewinnung und -Nachverfolgung, Community-Management und wöchentlicher Videocall, von der Strategie bis zur Conversion."
         }
       }
     },

@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Toestemmingsformulieren doorsturen naar een touch-apparaat",
           "desc": "Heeft jouw computer geen touchscreen? Stuur het toestemmingsformulier naar een tablet of mobiel van de kliniek om het daar met de vinger te ondertekenen, arts en patiënt, zonder een seconde te verliezen."
+        },
+        "social_media": {
+          "title": "Volledig social media-beheer",
+          "desc": "Met het Netwerken-plan beheert een toegewijd team Instagram en Facebook: creatives, Meta-campagnes, leadgeneratie en opvolging, community manager en wekelijkse videocall, van strategie tot conversie."
         }
       }
     },

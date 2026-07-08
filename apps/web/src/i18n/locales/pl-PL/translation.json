@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Przekazywanie zgód na urządzenie dotykowe",
           "desc": "Twój komputer nie ma ekranu dotykowego? Wyślij zgodę na tablet lub telefon kliniki, aby podpisać ją tam palcem, lekarz i pacjent, bez straty ani sekundy."
+        },
+        "social_media": {
+          "title": "Kompleksowe zarządzanie mediami społecznościowymi",
+          "desc": "Dzięki Planowi Sieci dedykowany zespół zarządza Instagramem i Facebookiem: kreacje, kampanie Meta, pozyskiwanie i śledzenie leadów, community manager oraz cotygodniowa rozmowa wideo, od strategii po konwersję."
         }
       }
     },

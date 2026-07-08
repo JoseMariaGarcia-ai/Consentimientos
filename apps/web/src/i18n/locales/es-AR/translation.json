@@ -1336,6 +1336,10 @@
         "tablet_handoff": {
           "title": "Traspaso de consentimientos a dispositivo táctil",
           "desc": "¿Tu computadora no tiene pantalla táctil? Enviá el consentimiento a una tablet o celular de la clínica para firmarlo ahí con el dedo, médico y paciente, sin perder ni un segundo."
+        },
+        "social_media": {
+          "title": "Gestión integral de redes sociales",
+          "desc": "Con el Plan Redes, un equipo dedicado gestiona Instagram y Facebook: creatividades, campañas Meta, captación y seguimiento de leads, community manager y reunión semanal, de la estrategia a la conversión."
         }
       }
     },

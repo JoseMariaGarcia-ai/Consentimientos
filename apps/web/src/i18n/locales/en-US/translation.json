@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Handing off consent forms to a touch device",
           "desc": "Is your computer not touch-enabled? Send the consent form to a clinic tablet or phone to sign there with a finger — doctor and patient — without losing a second."
+        },
+        "social_media": {
+          "title": "Comprehensive social media management",
+          "desc": "With the Social Plan, a dedicated team manages Instagram and Facebook: creatives, Meta campaigns, lead generation and follow-up, community manager and weekly video call, from strategy to conversion."
         }
       }
     },

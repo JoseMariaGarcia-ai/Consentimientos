@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Suostumusten siirto kosketuslaitteeseen",
           "desc": "Eikö tietokoneessasi ole kosketusnäyttöä? Lähetä suostumus klinikan tabletille tai puhelimeen allekirjoitettavaksi siellä sormella, lääkäri ja potilas, hukkaamatta sekuntiakaan."
+        },
+        "social_media": {
+          "title": "Kattava sosiaalisen median hallinta",
+          "desc": "Verkostot-paketilla omistautunut tiimi hoitaa Instagramia ja Facebookia: mainosmateriaalit, Meta-kampanjat, liidien hankinta ja seuranta, yhteisömanageri sekä viikoittainen videopuhelu, strategiasta konversioon."
         }
       }
     },

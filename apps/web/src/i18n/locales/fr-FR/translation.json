@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Transfert des consentements vers un appareil tactile",
           "desc": "Votre ordinateur n'a pas d'écran tactile ? Envoyez le consentement vers une tablette ou un mobile du cabinet pour le signer là avec le doigt, médecin et patient, sans perdre une seconde."
+        },
+        "social_media": {
+          "title": "Gestion intégrale des réseaux sociaux",
+          "desc": "Avec le Plan Réseaux, une équipe dédiée gère Instagram et Facebook : créations, campagnes Meta, acquisition et suivi des leads, community manager et réunion hebdomadaire en visio, de la stratégie à la conversion."
         }
       }
     },

@@ -1364,6 +1364,10 @@
         "tablet_handoff": {
           "title": "Overførsel af samtykker til touch-enhed",
           "desc": "Har din computer ikke touchskærm? Send samtykket til en tablet eller mobil på klinikken for at underskrive det der med fingeren, læge og patient, uden at spilde et sekund."
+        },
+        "social_media": {
+          "title": "Komplet styring af sociale medier",
+          "desc": "Med Netværksplanen administrerer et dedikeret team Instagram og Facebook: kreativer, Meta-kampagner, leadgenerering og opfølgning, community manager og ugentligt videomøde, fra strategi til konvertering."
         }
       }
     },
