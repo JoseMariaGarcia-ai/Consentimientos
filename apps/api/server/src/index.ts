@@ -28,6 +28,7 @@ import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes
 import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
 import workflowsRouter from './routes/workflows'
+import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 
@@ -45,6 +46,7 @@ app.get('/health', (_req, res) => res.json({ ok: true }))
 app.use('/api/auth', authRouter)
 app.use('/api/verify', verifyRouter)
 app.use('/api/whatsapp-webhook', whatsappWebhookRouter)
+app.use('/api/analytics', analyticsPublicRouter)
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -72,6 +74,7 @@ app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
+app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
 
 const PORT = process.env.PORT ?? 3001
 

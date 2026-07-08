@@ -35,6 +35,7 @@ import { PreviewBanner } from './components/preview/PreviewBanner'
 import { ALL_MODULES, DEFAULT_CLINICA_MODULES } from './lib/modules'
 import { useAuth } from './lib/auth'
 import { api } from './lib/api'
+import { usePageAnalytics } from './lib/usePageAnalytics'
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ function AppShell() {
   const { isAuthenticated, role } = useAuth()
   const { currentLanguage } = useLanguageStore()
   const location = useLocation()
+  usePageAnalytics()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { preview, exitPreview } = usePreview()
   const isSuperAdmin = role === 'superadmin'

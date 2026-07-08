@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Användare",
       "media": "Reklam",
-      "preview": "Förhandsgranskning"
+      "preview": "Förhandsgranskning",
+      "analytics": "Analys"
     },
     "users": {
       "title": "Användare",
@@ -1497,6 +1498,41 @@
         "name": "Påminnelse om bokning",
         "description": "Skickar automatiskt ett påminnelsemejl till patienten när det är 1 dag kvar till bokningen."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Uppdatera",
+    "load_error": "Analysdata kunde inte läsas in",
+    "no_data": "Inga data under denna period",
+    "range": {
+      "d7": "7 dagar",
+      "d30": "30 dagar",
+      "d90": "90 dagar"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Totalt antal sidvisningar",
+      "sessions": "Sessioner",
+      "new_sessions": "Nya besökare",
+      "avg_duration": "Genomsnittlig varaktighet",
+      "bounce_rate": "Avvisningsfrekvens"
+    },
+    "chart": {
+      "evolution": "Utveckling av sidvisningar och sessioner",
+      "top_paths": "Mest besökta sidor",
+      "top_referrers": "Trafikkälla",
+      "devices": "Enheter",
+      "browsers": "Webbläsare",
+      "os": "Operativsystem",
+      "roles": "Besökstyp"
+    },
+    "device": {
+      "desktop": "Dator",
+      "mobile": "Mobil",
+      "tablet": "Surfplatta"
     }
   }
 }

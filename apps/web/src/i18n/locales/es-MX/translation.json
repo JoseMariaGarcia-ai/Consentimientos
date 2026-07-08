@@ -1183,7 +1183,8 @@
     "tabs": {
       "users": "Usuarios",
       "media": "Publicidad",
-      "preview": "Vista previa"
+      "preview": "Vista previa",
+      "analytics": "Analítica"
     },
     "users": {
       "title": "Usuarios",
@@ -1477,6 +1478,41 @@
         "name": "Recordatorio de citas",
         "description": "Envía automáticamente un correo al paciente recordándole la cita cuando falta 1 día para su realización."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Actualizar",
+    "load_error": "No se pudieron cargar los datos de analítica",
+    "no_data": "Sin datos en este rango de fechas",
+    "range": {
+      "d7": "7 días",
+      "d30": "30 días",
+      "d90": "90 días"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Visitas totales",
+      "sessions": "Sesiones",
+      "new_sessions": "Visitantes nuevos",
+      "avg_duration": "Duración promedio",
+      "bounce_rate": "Tasa de rebote"
+    },
+    "chart": {
+      "evolution": "Evolución de visitas y sesiones",
+      "top_paths": "Páginas más visitadas",
+      "top_referrers": "Origen del tráfico",
+      "devices": "Dispositivos",
+      "browsers": "Navegadores",
+      "os": "Sistema operativo",
+      "roles": "Tipo de visitante"
+    },
+    "device": {
+      "desktop": "Computadora",
+      "mobile": "Celular",
+      "tablet": "Tablet"
     }
   }
 }

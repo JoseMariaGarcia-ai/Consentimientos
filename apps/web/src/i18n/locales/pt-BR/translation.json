@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Usuários",
       "media": "Publicidade",
-      "preview": "Pré-visualização"
+      "preview": "Pré-visualização",
+      "analytics": "Analytics"
     },
     "users": {
       "title": "Usuários",
@@ -1497,6 +1498,41 @@
         "name": "Lembrete de consultas",
         "description": "Envia automaticamente um e-mail ao paciente lembrando da consulta quando falta 1 dia."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Atualizar",
+    "load_error": "Não foi possível carregar os dados de analytics",
+    "no_data": "Sem dados neste período",
+    "range": {
+      "d7": "7 dias",
+      "d30": "30 dias",
+      "d90": "90 dias"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Visualizações totais",
+      "sessions": "Sessões",
+      "new_sessions": "Novos visitantes",
+      "avg_duration": "Duração média",
+      "bounce_rate": "Taxa de rejeição"
+    },
+    "chart": {
+      "evolution": "Evolução de visualizações e sessões",
+      "top_paths": "Páginas mais visitadas",
+      "top_referrers": "Origem do tráfego",
+      "devices": "Dispositivos",
+      "browsers": "Navegadores",
+      "os": "Sistema operacional",
+      "roles": "Tipo de visitante"
+    },
+    "device": {
+      "desktop": "Computador",
+      "mobile": "Celular",
+      "tablet": "Tablet"
     }
   }
 }

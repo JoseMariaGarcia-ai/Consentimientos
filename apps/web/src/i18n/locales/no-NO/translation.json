@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Brukere",
       "media": "Reklame",
-      "preview": "Forhåndsvisning"
+      "preview": "Forhåndsvisning",
+      "analytics": "Analyse"
     },
     "users": {
       "title": "Brukere",
@@ -1497,6 +1498,41 @@
         "name": "Påminnelse om avtale",
         "description": "Sender automatisk en påminnelses-e-post til pasienten når det er 1 dag igjen til avtalen."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Oppdater",
+    "load_error": "Kunne ikke laste analysedata",
+    "no_data": "Ingen data i denne perioden",
+    "range": {
+      "d7": "7 dager",
+      "d30": "30 dager",
+      "d90": "90 dager"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Totale sidevisninger",
+      "sessions": "Økter",
+      "new_sessions": "Nye besøkende",
+      "avg_duration": "Gjennomsnittlig varighet",
+      "bounce_rate": "Fluktfrekvens"
+    },
+    "chart": {
+      "evolution": "Utvikling av sidevisninger og økter",
+      "top_paths": "Mest besøkte sider",
+      "top_referrers": "Trafikkilde",
+      "devices": "Enheter",
+      "browsers": "Nettlesere",
+      "os": "Operativsystem",
+      "roles": "Besøkstype"
+    },
+    "device": {
+      "desktop": "Datamaskin",
+      "mobile": "Mobil",
+      "tablet": "Nettbrett"
     }
   }
 }

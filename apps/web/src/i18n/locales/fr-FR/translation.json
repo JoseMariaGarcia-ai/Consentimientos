@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Utilisateurs",
       "media": "Publicité",
-      "preview": "Aperçu"
+      "preview": "Aperçu",
+      "analytics": "Analytique"
     },
     "users": {
       "title": "Utilisateurs",
@@ -1497,6 +1498,41 @@
         "name": "Rappel de rendez-vous",
         "description": "Envoie automatiquement un e-mail au patient pour lui rappeler son rendez-vous lorsqu'il reste 1 jour."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Actualiser",
+    "load_error": "Impossible de charger les données d'analytique",
+    "no_data": "Aucune donnée sur cette période",
+    "range": {
+      "d7": "7 jours",
+      "d30": "30 jours",
+      "d90": "90 jours"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Vues totales",
+      "sessions": "Sessions",
+      "new_sessions": "Nouveaux visiteurs",
+      "avg_duration": "Durée moyenne",
+      "bounce_rate": "Taux de rebond"
+    },
+    "chart": {
+      "evolution": "Évolution des vues et sessions",
+      "top_paths": "Pages les plus visitées",
+      "top_referrers": "Source du trafic",
+      "devices": "Appareils",
+      "browsers": "Navigateurs",
+      "os": "Système d'exploitation",
+      "roles": "Type de visiteur"
+    },
+    "device": {
+      "desktop": "Ordinateur",
+      "mobile": "Mobile",
+      "tablet": "Tablette"
     }
   }
 }

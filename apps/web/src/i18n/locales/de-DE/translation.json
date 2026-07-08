@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Benutzer",
       "media": "Werbung",
-      "preview": "Vorschau"
+      "preview": "Vorschau",
+      "analytics": "Analytik"
     },
     "users": {
       "title": "Benutzer",
@@ -1497,6 +1498,41 @@
         "name": "Terminerinnerung",
         "description": "Sendet dem Patienten automatisch eine E-Mail zur Erinnerung an den Termin, wenn nur noch 1 Tag verbleibt."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Aktualisieren",
+    "load_error": "Analytikdaten konnten nicht geladen werden",
+    "no_data": "Keine Daten in diesem Zeitraum",
+    "range": {
+      "d7": "7 Tage",
+      "d30": "30 Tage",
+      "d90": "90 Tage"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Aufrufe gesamt",
+      "sessions": "Sitzungen",
+      "new_sessions": "Neue Besucher",
+      "avg_duration": "Durchschnittliche Dauer",
+      "bounce_rate": "Absprungrate"
+    },
+    "chart": {
+      "evolution": "Entwicklung von Aufrufen und Sitzungen",
+      "top_paths": "Meistbesuchte Seiten",
+      "top_referrers": "Traffic-Quelle",
+      "devices": "Geräte",
+      "browsers": "Browser",
+      "os": "Betriebssystem",
+      "roles": "Besuchertyp"
+    },
+    "device": {
+      "desktop": "Computer",
+      "mobile": "Mobil",
+      "tablet": "Tablet"
     }
   }
 }

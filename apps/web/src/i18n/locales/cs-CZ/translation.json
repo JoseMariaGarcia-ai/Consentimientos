@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Uživatelé",
       "media": "Reklama",
-      "preview": "Náhled"
+      "preview": "Náhled",
+      "analytics": "Analytika"
     },
     "users": {
       "title": "Uživatelé",
@@ -1497,6 +1498,41 @@
         "name": "Připomenutí schůzek",
         "description": "Automaticky odešle pacientovi e-mail s připomenutím schůzky, když do ní zbývá 1 den."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Aktualizovat",
+    "load_error": "Data analytiky se nepodařilo načíst",
+    "no_data": "V tomto období nejsou žádná data",
+    "range": {
+      "d7": "7 dní",
+      "d30": "30 dní",
+      "d90": "90 dní"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Celkem zobrazení",
+      "sessions": "Relace",
+      "new_sessions": "Noví návštěvníci",
+      "avg_duration": "Průměrná doba",
+      "bounce_rate": "Míra okamžitého opuštění"
+    },
+    "chart": {
+      "evolution": "Vývoj zobrazení a relací",
+      "top_paths": "Nejnavštěvovanější stránky",
+      "top_referrers": "Zdroj návštěvnosti",
+      "devices": "Zařízení",
+      "browsers": "Prohlížeče",
+      "os": "Operační systém",
+      "roles": "Typ návštěvníka"
+    },
+    "device": {
+      "desktop": "Počítač",
+      "mobile": "Mobil",
+      "tablet": "Tablet"
     }
   }
 }

@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Brugere",
       "media": "Reklame",
-      "preview": "Forhåndsvisning"
+      "preview": "Forhåndsvisning",
+      "analytics": "Analyse"
     },
     "users": {
       "title": "Brugere",
@@ -1497,6 +1498,41 @@
         "name": "Påmindelse om aftaler",
         "description": "Sender automatisk en e-mail til patienten som påmindelse om aftalen, når der er 1 dag tilbage."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Opdater",
+    "load_error": "Analysedata kunne ikke indlæses",
+    "no_data": "Ingen data i denne periode",
+    "range": {
+      "d7": "7 dage",
+      "d30": "30 dage",
+      "d90": "90 dage"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Samlede visninger",
+      "sessions": "Sessioner",
+      "new_sessions": "Nye besøgende",
+      "avg_duration": "Gennemsnitlig varighed",
+      "bounce_rate": "Afvisningsprocent"
+    },
+    "chart": {
+      "evolution": "Udvikling i visninger og sessioner",
+      "top_paths": "Mest besøgte sider",
+      "top_referrers": "Trafikkilde",
+      "devices": "Enheder",
+      "browsers": "Browsere",
+      "os": "Styresystem",
+      "roles": "Besøgstype"
+    },
+    "device": {
+      "desktop": "Computer",
+      "mobile": "Mobil",
+      "tablet": "Tablet"
     }
   }
 }

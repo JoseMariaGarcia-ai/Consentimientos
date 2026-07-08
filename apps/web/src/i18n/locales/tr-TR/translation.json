@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Kullanıcılar",
       "media": "Reklam",
-      "preview": "Önizleme"
+      "preview": "Önizleme",
+      "analytics": "Analitik"
     },
     "users": {
       "title": "Kullanıcılar",
@@ -1497,6 +1498,41 @@
         "name": "Randevu hatırlatması",
         "description": "Randevuya 1 gün kala hastaya otomatik olarak hatırlatma e-postası gönderir."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Yenile",
+    "load_error": "Analitik verileri yüklenemedi",
+    "no_data": "Bu tarih aralığında veri yok",
+    "range": {
+      "d7": "7 gün",
+      "d30": "30 gün",
+      "d90": "90 gün"
+    },
+    "unit": {
+      "min": "dk",
+      "sec": "sn"
+    },
+    "kpi": {
+      "pageviews": "Toplam sayfa görüntüleme",
+      "sessions": "Oturumlar",
+      "new_sessions": "Yeni ziyaretçiler",
+      "avg_duration": "Ortalama süre",
+      "bounce_rate": "Hemen çıkma oranı"
+    },
+    "chart": {
+      "evolution": "Sayfa görüntüleme ve oturumların gelişimi",
+      "top_paths": "En çok ziyaret edilen sayfalar",
+      "top_referrers": "Trafik kaynağı",
+      "devices": "Cihazlar",
+      "browsers": "Tarayıcılar",
+      "os": "İşletim sistemi",
+      "roles": "Ziyaretçi türü"
+    },
+    "device": {
+      "desktop": "Masaüstü",
+      "mobile": "Mobil",
+      "tablet": "Tablet"
     }
   }
 }

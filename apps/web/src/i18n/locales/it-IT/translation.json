@@ -1257,7 +1257,8 @@
     "tabs": {
       "users": "Utenti",
       "media": "Pubblicità",
-      "preview": "Anteprima"
+      "preview": "Anteprima",
+      "analytics": "Analitica"
     },
     "users": {
       "title": "Utenti",
@@ -1551,6 +1552,41 @@
         "name": "Promemoria appuntamento",
         "description": "Invia automaticamente un'email al paziente per ricordargli l'appuntamento quando manca 1 giorno."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Aggiorna",
+    "load_error": "Impossibile caricare i dati analitici",
+    "no_data": "Nessun dato in questo intervallo di date",
+    "range": {
+      "d7": "7 giorni",
+      "d30": "30 giorni",
+      "d90": "90 giorni"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Visualizzazioni totali",
+      "sessions": "Sessioni",
+      "new_sessions": "Nuovi visitatori",
+      "avg_duration": "Durata media",
+      "bounce_rate": "Frequenza di rimbalzo"
+    },
+    "chart": {
+      "evolution": "Andamento di visualizzazioni e sessioni",
+      "top_paths": "Pagine più visitate",
+      "top_referrers": "Origine del traffico",
+      "devices": "Dispositivi",
+      "browsers": "Browser",
+      "os": "Sistema operativo",
+      "roles": "Tipo di visitatore"
+    },
+    "device": {
+      "desktop": "Computer",
+      "mobile": "Mobile",
+      "tablet": "Tablet"
     }
   }
 }

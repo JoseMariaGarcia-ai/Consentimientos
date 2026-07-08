@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Gebruikers",
       "media": "Reclame",
-      "preview": "Voorbeeld"
+      "preview": "Voorbeeld",
+      "analytics": "Analytics"
     },
     "users": {
       "title": "Gebruikers",
@@ -1497,6 +1498,41 @@
         "name": "Afspraakherinnering",
         "description": "Stuurt de patiënt automatisch een herinneringsmail wanneer er nog 1 dag tot de afspraak is."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Vernieuwen",
+    "load_error": "Analysegegevens konden niet worden geladen",
+    "no_data": "Geen gegevens in deze periode",
+    "range": {
+      "d7": "7 dagen",
+      "d30": "30 dagen",
+      "d90": "90 dagen"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Totaal paginaweergaven",
+      "sessions": "Sessies",
+      "new_sessions": "Nieuwe bezoekers",
+      "avg_duration": "Gemiddelde duur",
+      "bounce_rate": "Bouncepercentage"
+    },
+    "chart": {
+      "evolution": "Ontwikkeling van paginaweergaven en sessies",
+      "top_paths": "Meest bezochte pagina's",
+      "top_referrers": "Verkeersbron",
+      "devices": "Apparaten",
+      "browsers": "Browsers",
+      "os": "Besturingssysteem",
+      "roles": "Bezoekerstype"
+    },
+    "device": {
+      "desktop": "Desktop",
+      "mobile": "Mobiel",
+      "tablet": "Tablet"
     }
   }
 }

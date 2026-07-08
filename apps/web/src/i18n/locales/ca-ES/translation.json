@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Usuaris",
       "media": "Publicitat",
-      "preview": "Vista prèvia"
+      "preview": "Vista prèvia",
+      "analytics": "Analítica"
     },
     "users": {
       "title": "Usuaris",
@@ -1497,6 +1498,41 @@
         "name": "Recordatori de cites",
         "description": "Envia automàticament un email al pacient recordant-li la cita quan falta 1 dia per a la seva celebració."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Actualitzar",
+    "load_error": "No s'han pogut carregar les dades d'analítica",
+    "no_data": "Sense dades en aquest rang de dates",
+    "range": {
+      "d7": "7 dies",
+      "d30": "30 dies",
+      "d90": "90 dies"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Visites totals",
+      "sessions": "Sessions",
+      "new_sessions": "Visitants nous",
+      "avg_duration": "Durada mitjana",
+      "bounce_rate": "Taxa de rebot"
+    },
+    "chart": {
+      "evolution": "Evolució de visites i sessions",
+      "top_paths": "Pàgines més visitades",
+      "top_referrers": "Origen del trànsit",
+      "devices": "Dispositius",
+      "browsers": "Navegadors",
+      "os": "Sistema operatiu",
+      "roles": "Tipus de visitant"
+    },
+    "device": {
+      "desktop": "Ordinador",
+      "mobile": "Mòbil",
+      "tablet": "Tauleta"
     }
   }
 }

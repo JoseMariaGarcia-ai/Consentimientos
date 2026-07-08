@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Users",
       "media": "Advertising",
-      "preview": "Preview"
+      "preview": "Preview",
+      "analytics": "Analytics"
     },
     "users": {
       "title": "Users",
@@ -1497,6 +1498,41 @@
         "name": "Appointment reminder",
         "description": "Automatically sends the patient an email reminding them of the appointment when 1 day remains."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Refresh",
+    "load_error": "Could not load analytics data",
+    "no_data": "No data in this date range",
+    "range": {
+      "d7": "7 days",
+      "d30": "30 days",
+      "d90": "90 days"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Total pageviews",
+      "sessions": "Sessions",
+      "new_sessions": "New visitors",
+      "avg_duration": "Average duration",
+      "bounce_rate": "Bounce rate"
+    },
+    "chart": {
+      "evolution": "Pageviews and sessions over time",
+      "top_paths": "Most visited pages",
+      "top_referrers": "Traffic source",
+      "devices": "Devices",
+      "browsers": "Browsers",
+      "os": "Operating system",
+      "roles": "Visitor type"
+    },
+    "device": {
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "tablet": "Tablet"
     }
   }
 }

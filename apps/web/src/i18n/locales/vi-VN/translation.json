@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Người dùng",
       "media": "Quảng cáo",
-      "preview": "Xem trước"
+      "preview": "Xem trước",
+      "analytics": "Phân tích"
     },
     "users": {
       "title": "Người dùng",
@@ -1497,6 +1498,41 @@
         "name": "Nhắc nhở lịch hẹn",
         "description": "Tự động gửi email nhắc nhở bệnh nhân về lịch hẹn khi còn 1 ngày nữa."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Làm mới",
+    "load_error": "Không thể tải dữ liệu phân tích",
+    "no_data": "Không có dữ liệu trong khoảng thời gian này",
+    "range": {
+      "d7": "7 ngày",
+      "d30": "30 ngày",
+      "d90": "90 ngày"
+    },
+    "unit": {
+      "min": "ph",
+      "sec": "gy"
+    },
+    "kpi": {
+      "pageviews": "Tổng lượt xem",
+      "sessions": "Phiên",
+      "new_sessions": "Khách truy cập mới",
+      "avg_duration": "Thời lượng trung bình",
+      "bounce_rate": "Tỷ lệ thoát"
+    },
+    "chart": {
+      "evolution": "Diễn biến lượt xem và phiên",
+      "top_paths": "Trang được xem nhiều nhất",
+      "top_referrers": "Nguồn lưu lượng truy cập",
+      "devices": "Thiết bị",
+      "browsers": "Trình duyệt",
+      "os": "Hệ điều hành",
+      "roles": "Loại khách truy cập"
+    },
+    "device": {
+      "desktop": "Máy tính",
+      "mobile": "Di động",
+      "tablet": "Máy tính bảng"
     }
   }
 }

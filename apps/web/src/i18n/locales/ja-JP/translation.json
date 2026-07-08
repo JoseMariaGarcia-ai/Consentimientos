@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "ユーザー",
       "media": "広告",
-      "preview": "プレビュー"
+      "preview": "プレビュー",
+      "analytics": "アナリティクス"
     },
     "users": {
       "title": "ユーザー",
@@ -1497,6 +1498,41 @@
         "name": "予約リマインダー",
         "description": "予約日の1日前になると、患者にリマインダーメールを自動送信します。"
       }
+    }
+  },
+  "analytics": {
+    "refresh": "更新",
+    "load_error": "分析データを読み込めませんでした",
+    "no_data": "この期間のデータはありません",
+    "range": {
+      "d7": "7日間",
+      "d30": "30日間",
+      "d90": "90日間"
+    },
+    "unit": {
+      "min": "分",
+      "sec": "秒"
+    },
+    "kpi": {
+      "pageviews": "総ページビュー数",
+      "sessions": "セッション数",
+      "new_sessions": "新規訪問者数",
+      "avg_duration": "平均滞在時間",
+      "bounce_rate": "直帰率"
+    },
+    "chart": {
+      "evolution": "ページビューとセッションの推移",
+      "top_paths": "人気ページ",
+      "top_referrers": "流入元",
+      "devices": "デバイス",
+      "browsers": "ブラウザ",
+      "os": "OS",
+      "roles": "訪問者タイプ"
+    },
+    "device": {
+      "desktop": "デスクトップ",
+      "mobile": "モバイル",
+      "tablet": "タブレット"
     }
   }
 }

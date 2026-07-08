@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Utilizatori",
       "media": "Publicitate",
-      "preview": "Previzualizare"
+      "preview": "Previzualizare",
+      "analytics": "Analitice"
     },
     "users": {
       "title": "Utilizatori",
@@ -1497,6 +1498,41 @@
         "name": "Memento de programare",
         "description": "Trimite automat un e-mail de reamintire pacientului atunci când mai rămâne 1 zi până la programare."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Actualizează",
+    "load_error": "Datele analitice nu au putut fi încărcate",
+    "no_data": "Nu există date în acest interval",
+    "range": {
+      "d7": "7 zile",
+      "d30": "30 zile",
+      "d90": "90 zile"
+    },
+    "unit": {
+      "min": "m",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Vizualizări totale",
+      "sessions": "Sesiuni",
+      "new_sessions": "Vizitatori noi",
+      "avg_duration": "Durata medie",
+      "bounce_rate": "Rata de respingere"
+    },
+    "chart": {
+      "evolution": "Evoluția vizualizărilor și sesiunilor",
+      "top_paths": "Cele mai vizitate pagini",
+      "top_referrers": "Sursa traficului",
+      "devices": "Dispozitive",
+      "browsers": "Browsere",
+      "os": "Sistem de operare",
+      "roles": "Tip de vizitator"
+    },
+    "device": {
+      "desktop": "Computer",
+      "mobile": "Mobil",
+      "tablet": "Tabletă"
     }
   }
 }

@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "사용자",
       "media": "광고",
-      "preview": "미리보기"
+      "preview": "미리보기",
+      "analytics": "분석"
     },
     "users": {
       "title": "사용자",
@@ -1497,6 +1498,41 @@
         "name": "예약 알림",
         "description": "예약이 하루 남았을 때 환자에게 알림 이메일을 자동으로 보냅니다."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "새로고침",
+    "load_error": "분석 데이터를 불러올 수 없습니다",
+    "no_data": "이 기간에는 데이터가 없습니다",
+    "range": {
+      "d7": "7일",
+      "d30": "30일",
+      "d90": "90일"
+    },
+    "unit": {
+      "min": "분",
+      "sec": "초"
+    },
+    "kpi": {
+      "pageviews": "총 조회수",
+      "sessions": "세션",
+      "new_sessions": "신규 방문자",
+      "avg_duration": "평균 체류 시간",
+      "bounce_rate": "이탈률"
+    },
+    "chart": {
+      "evolution": "조회수 및 세션 추이",
+      "top_paths": "가장 많이 방문한 페이지",
+      "top_referrers": "유입 경로",
+      "devices": "기기",
+      "browsers": "브라우저",
+      "os": "운영체제",
+      "roles": "방문자 유형"
+    },
+    "device": {
+      "desktop": "데스크톱",
+      "mobile": "모바일",
+      "tablet": "태블릿"
     }
   }
 }

@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Käyttäjät",
       "media": "Mainonta",
-      "preview": "Esikatselu"
+      "preview": "Esikatselu",
+      "analytics": "Analytiikka"
     },
     "users": {
       "title": "Käyttäjät",
@@ -1497,6 +1498,41 @@
         "name": "Ajanvarauksen muistutus",
         "description": "Lähettää potilaalle automaattisesti muistutussähköpostin, kun ajanvaraukseen on 1 päivä."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Päivitä",
+    "load_error": "Analytiikkatietoja ei voitu ladata",
+    "no_data": "Ei tietoja tällä aikavälillä",
+    "range": {
+      "d7": "7 päivää",
+      "d30": "30 päivää",
+      "d90": "90 päivää"
+    },
+    "unit": {
+      "min": "min",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Sivunäytöt yhteensä",
+      "sessions": "Istunnot",
+      "new_sessions": "Uudet kävijät",
+      "avg_duration": "Keskimääräinen kesto",
+      "bounce_rate": "Poistumisprosentti"
+    },
+    "chart": {
+      "evolution": "Sivunäyttöjen ja istuntojen kehitys",
+      "top_paths": "Suosituimmat sivut",
+      "top_referrers": "Liikenteen lähde",
+      "devices": "Laitteet",
+      "browsers": "Selaimet",
+      "os": "Käyttöjärjestelmä",
+      "roles": "Kävijätyyppi"
+    },
+    "device": {
+      "desktop": "Tietokone",
+      "mobile": "Mobiili",
+      "tablet": "Tabletti"
     }
   }
 }

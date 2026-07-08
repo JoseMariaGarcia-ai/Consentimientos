@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Felhasználók",
       "media": "Hirdetés",
-      "preview": "Előnézet"
+      "preview": "Előnézet",
+      "analytics": "Analitika"
     },
     "users": {
       "title": "Felhasználók",
@@ -1497,6 +1498,41 @@
         "name": "Időpont-emlékeztető",
         "description": "Automatikusan emlékeztető e-mailt küld a páciensnek, amikor már csak 1 nap van hátra az időpontig."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Frissítés",
+    "load_error": "Az analitikai adatok betöltése nem sikerült",
+    "no_data": "Nincs adat ebben az időszakban",
+    "range": {
+      "d7": "7 nap",
+      "d30": "30 nap",
+      "d90": "90 nap"
+    },
+    "unit": {
+      "min": "p",
+      "sec": "mp"
+    },
+    "kpi": {
+      "pageviews": "Összes megtekintés",
+      "sessions": "Munkamenetek",
+      "new_sessions": "Új látogatók",
+      "avg_duration": "Átlagos időtartam",
+      "bounce_rate": "Visszafordulási arány"
+    },
+    "chart": {
+      "evolution": "Megtekintések és munkamenetek alakulása",
+      "top_paths": "Legnépszerűbb oldalak",
+      "top_referrers": "Forgalom forrása",
+      "devices": "Eszközök",
+      "browsers": "Böngészők",
+      "os": "Operációs rendszer",
+      "roles": "Látogató típusa"
+    },
+    "device": {
+      "desktop": "Számítógép",
+      "mobile": "Mobil",
+      "tablet": "Tablet"
     }
   }
 }

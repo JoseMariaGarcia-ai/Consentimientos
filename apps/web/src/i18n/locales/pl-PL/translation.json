@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "Użytkownicy",
       "media": "Reklama",
-      "preview": "Podgląd"
+      "preview": "Podgląd",
+      "analytics": "Analityka"
     },
     "users": {
       "title": "Użytkownicy",
@@ -1497,6 +1498,41 @@
         "name": "Przypomnienie o wizycie",
         "description": "Automatycznie wysyła pacjentowi e-mail przypominający o wizycie, gdy pozostaje 1 dzień."
       }
+    }
+  },
+  "analytics": {
+    "refresh": "Odśwież",
+    "load_error": "Nie udało się wczytać danych analitycznych",
+    "no_data": "Brak danych w tym zakresie dat",
+    "range": {
+      "d7": "7 dni",
+      "d30": "30 dni",
+      "d90": "90 dni"
+    },
+    "unit": {
+      "min": "min",
+      "sec": "s"
+    },
+    "kpi": {
+      "pageviews": "Łączna liczba odsłon",
+      "sessions": "Sesje",
+      "new_sessions": "Nowi odwiedzający",
+      "avg_duration": "Średni czas trwania",
+      "bounce_rate": "Współczynnik odrzuceń"
+    },
+    "chart": {
+      "evolution": "Zmiany liczby odsłon i sesji",
+      "top_paths": "Najczęściej odwiedzane strony",
+      "top_referrers": "Źródło ruchu",
+      "devices": "Urządzenia",
+      "browsers": "Przeglądarki",
+      "os": "System operacyjny",
+      "roles": "Typ odwiedzającego"
+    },
+    "device": {
+      "desktop": "Komputer",
+      "mobile": "Telefon",
+      "tablet": "Tablet"
     }
   }
 }

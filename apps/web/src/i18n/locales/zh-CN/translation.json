@@ -1203,7 +1203,8 @@
     "tabs": {
       "users": "用户",
       "media": "推广内容",
-      "preview": "预览"
+      "preview": "预览",
+      "analytics": "分析"
     },
     "users": {
       "title": "用户",
@@ -1497,6 +1498,41 @@
         "name": "预约提醒",
         "description": "预约前 1 天，自动向患者发送提醒邮件。"
       }
+    }
+  },
+  "analytics": {
+    "refresh": "刷新",
+    "load_error": "无法加载分析数据",
+    "no_data": "此日期范围内无数据",
+    "range": {
+      "d7": "7 天",
+      "d30": "30 天",
+      "d90": "90 天"
+    },
+    "unit": {
+      "min": "分",
+      "sec": "秒"
+    },
+    "kpi": {
+      "pageviews": "总浏览量",
+      "sessions": "会话数",
+      "new_sessions": "新访客",
+      "avg_duration": "平均停留时长",
+      "bounce_rate": "跳出率"
+    },
+    "chart": {
+      "evolution": "浏览量与会话趋势",
+      "top_paths": "最受欢迎的页面",
+      "top_referrers": "流量来源",
+      "devices": "设备",
+      "browsers": "浏览器",
+      "os": "操作系统",
+      "roles": "访客类型"
+    },
+    "device": {
+      "desktop": "桌面端",
+      "mobile": "移动端",
+      "tablet": "平板"
     }
   }
 }
