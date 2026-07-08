@@ -15,9 +15,10 @@ export const PLANS: Plan[] = [
   { id: 'pro', monthlyPrice: 79, color: 'bg-[#0D1B2E]', priceColor: 'text-[#C9A84C]', hasBadge: true },
   { id: 'ia', monthlyPrice: 119, color: 'bg-[#14532D]', priceColor: 'text-[#C9A84C]', hasBadge: false },
   { id: 'ia-plus', monthlyPrice: 159, color: 'bg-[#1C1408]', priceColor: 'text-[#C9A84C]', hasBadge: true },
+  { id: 'redes', monthlyPrice: 599, color: 'bg-[#831843]', priceColor: 'text-[#C9A84C]', hasBadge: true },
 ]
 
-export const PLAN_KEY: Record<string, string> = { base: 'base', pro: 'pro', ia: 'ia', 'ia-plus': 'ia_plus' }
+export const PLAN_KEY: Record<string, string> = { base: 'base', pro: 'pro', ia: 'ia', 'ia-plus': 'ia_plus', redes: 'redes' }
 
 const ANNUAL_DISCOUNT = 0.2
 
@@ -114,7 +115,7 @@ export default function Recharge() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
         {PLANS.map(plan => <PlanCard key={plan.id} plan={plan} />)}
       </div>
 
@@ -122,6 +123,13 @@ export default function Recharge() {
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
         <p className="text-sm text-amber-800 leading-relaxed">
           <strong>{t('recharge.note_title')}</strong> {t('recharge.note_text')}
+        </p>
+      </div>
+
+      {/* Plan Redes note */}
+      <div className="bg-rose-50 border border-rose-200 rounded-2xl p-5">
+        <p className="text-sm text-rose-800 leading-relaxed">
+          <strong>{t('recharge.note_redes_title')}</strong> {t('recharge.note_redes_text')}
         </p>
       </div>
     </div>

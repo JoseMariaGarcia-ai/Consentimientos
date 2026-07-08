@@ -1092,8 +1092,26 @@
           "Telefonla otomatik randevu planlar",
           "Resepsiyonistinizin sesini %100 klonlar"
         ]
+      },
+      "redes": {
+        "name": "Sosyal Medya Planı",
+        "badge": "Premium",
+        "features": [
+          "AI Premium Planındaki her şey +",
+          "Sosyal medya yönetimi (Instagram ve Facebook)",
+          "Kreatifler, düzenleme ve tasarım",
+          "Meta kampanyalarının kurulumu, hedeflemesi ve optimizasyonu",
+          "Potansiyel müşteri kazanımı ve takibi (ilgilenen müşteri kişileri)",
+          "Araştırma, danışmanlık, analiz ve dönüşüm",
+          "Kampanyaların günlük takibi",
+          "İstatistikler",
+          "Özel topluluk yöneticisi",
+          "Haftalık görüntülü görüşme"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Sosyal Medya Planı notu:",
+    "note_redes_text": "Reklam bütçesi (Meta Ads) aylık ücrete dahil değildir. İlk görüntülü görüşmede hedefleri, faaliyet alanını ve diğer temel faktörleri birlikte tanımlayacağız; kısa bir pazar araştırmasının ardından kampanyalarınız için en uygun yatırım tutarını önereceğiz."
   },
   "toxin": {
     "title": "Toksin Kontrolü",

@@ -1092,8 +1092,26 @@
           "Programa cites per telèfon automàticament",
           "Clona la veu de la recepcionista al 100 %"
         ]
+      },
+      "redes": {
+        "name": "Pla Xarxes",
+        "badge": "Premium",
+        "features": [
+          "Tot el Pla IA Premium +",
+          "Gestió de xarxes socials (Instagram i Facebook)",
+          "Creativitats, edició i maquetació",
+          "Configuració, segmentació i optimització de campanyes Meta",
+          "Captació i seguiment de leads (contactes de clients interessats)",
+          "Estudi, assessorament, anàlisi i conversió",
+          "Seguiment diari de campanyes",
+          "Estadístiques",
+          "Community manager dedicat",
+          "Reunió setmanal per videotrucada"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Nota Pla Xarxes:",
+    "note_redes_text": "El pressupost destinat a publicitat (Meta Ads) no està inclòs en la quota mensual. En una primera videotrucada definirem junts els objectius, l'àrea d'actuació i la resta de factors clau; després d'un breu estudi de mercat, et recomanarem l'import d'inversió més adequat per a les teves campanyes."
   },
   "toxin": {
     "title": "Control de Toxina",

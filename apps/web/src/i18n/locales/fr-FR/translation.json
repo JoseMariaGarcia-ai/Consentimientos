@@ -1092,8 +1092,26 @@
           "Prend automatiquement les rendez-vous par téléphone",
           "Clone la voix de votre réceptionniste à 100 %"
         ]
+      },
+      "redes": {
+        "name": "Formule Réseaux",
+        "badge": "Premium",
+        "features": [
+          "Tout ce qui est inclus dans la formule IA Premium +",
+          "Gestion des réseaux sociaux (Instagram et Facebook)",
+          "Créations, montage et mise en page",
+          "Paramétrage, ciblage et optimisation des campagnes Meta",
+          "Génération et suivi des leads (contacts clients intéressés)",
+          "Étude, conseil, analyse et conversion",
+          "Suivi quotidien des campagnes",
+          "Statistiques",
+          "Community manager dédié",
+          "Réunion hebdomadaire en visioconférence"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Remarque Formule Réseaux :",
+    "note_redes_text": "Le budget publicitaire (Meta Ads) n'est pas inclus dans l'abonnement mensuel. Lors d'un premier appel vidéo, nous définirons ensemble les objectifs, le domaine d'action et les autres facteurs clés ; après une brève étude de marché, nous vous recommanderons le montant d'investissement le plus adapté à vos campagnes."
   },
   "toxin": {
     "title": "Contrôle de Toxine",

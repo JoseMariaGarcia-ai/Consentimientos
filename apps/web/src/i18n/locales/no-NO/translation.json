@@ -1092,8 +1092,26 @@
           "Booker timer automatisk per telefon",
           "Kloner resepsjonistens stemme 100 %"
         ]
+      },
+      "redes": {
+        "name": "Sosiale Medier-plan",
+        "badge": "Premium",
+        "features": [
+          "Alt i AI Premium-planen +",
+          "Håndtering av sosiale medier (Instagram og Facebook)",
+          "Kreativer, redigering og oppsett",
+          "Oppsett, målretting og optimalisering av Meta-kampanjer",
+          "Leadgenerering og -oppfølging (interesserte kundekontakter)",
+          "Undersøkelse, rådgivning, analyse og konvertering",
+          "Daglig kampanjeoppfølging",
+          "Statistikk",
+          "Dedikert community manager",
+          "Ukentlig videomøte"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Merknad Sosiale Medier-plan:",
+    "note_redes_text": "Annonsebudsjettet (Meta Ads) er ikke inkludert i den månedlige avgiften. I et første videomøte definerer vi sammen mål, innsatsområde og andre nøkkelfaktorer; etter en kort markedsundersøkelse anbefaler vi det mest passende investeringsbeløpet for kampanjene dine."
   },
   "toxin": {
     "title": "Toksinkontroll",

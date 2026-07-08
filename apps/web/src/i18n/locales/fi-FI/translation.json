@@ -1092,8 +1092,26 @@
           "Varaa käyntejä puhelimitse automaattisesti",
           "Kloonaa vastaanottovirkailijasi äänen 100-prosenttisesti"
         ]
+      },
+      "redes": {
+        "name": "Somepaketti",
+        "badge": "Premium",
+        "features": [
+          "Kaikki AI Premium -paketista +",
+          "Somekanavien hallinta (Instagram ja Facebook)",
+          "Kreatiivit, editointi ja taitto",
+          "Meta-kampanjoiden asetukset, kohdennus ja optimointi",
+          "Liidien hankinta ja seuranta (kiinnostuneet asiakaskontaktit)",
+          "Tutkimus, neuvonta, analyysi ja konversio",
+          "Kampanjoiden päivittäinen seuranta",
+          "Tilastot",
+          "Oma community manager",
+          "Viikoittainen videopuhelutapaaminen"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Huomio Somepaketti:",
+    "note_redes_text": "Mainosbudjetti (Meta Ads) ei sisälly kuukausimaksuun. Ensimmäisessä videopuhelussa määrittelemme yhdessä tavoitteet, toiminta-alueen ja muut keskeiset tekijät; lyhyen markkinatutkimuksen jälkeen suosittelemme sopivinta sijoitussummaa kampanjoillesi."
   },
   "toxin": {
     "title": "Toksiinin seuranta",

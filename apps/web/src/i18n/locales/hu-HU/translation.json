@@ -1092,8 +1092,26 @@
           "Automatikusan időpontot foglal telefonon",
           "100%-ban klónozza a recepciós hangját"
         ]
+      },
+      "redes": {
+        "name": "Közösségi Média Csomag",
+        "badge": "Prémium",
+        "features": [
+          "Minden az AI Prémium csomagból +",
+          "Közösségimédia-kezelés (Instagram és Facebook)",
+          "Kreatívok, szerkesztés és tördelés",
+          "Meta-kampányok beállítása, célzása és optimalizálása",
+          "Lead-generálás és nyomon követés (érdeklődő ügyfélkapcsolatok)",
+          "Elemzés, tanácsadás, kiértékelés és konverzió",
+          "Napi kampányfigyelés",
+          "Statisztikák",
+          "Dedikált közösségi menedzser",
+          "Heti videohívásos megbeszélés"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Megjegyzés Közösségi Média Csomag:",
+    "note_redes_text": "A hirdetési költségkeret (Meta Ads) nincs benne a havi díjban. Az első videohívás során közösen meghatározzuk a célokat, a tevékenységi területet és egyéb kulcsfontosságú tényezőket; egy rövid piackutatás után javasoljuk a kampányaidhoz legmegfelelőbb befektetési összeget."
   },
   "toxin": {
     "title": "Toxinkontroll",

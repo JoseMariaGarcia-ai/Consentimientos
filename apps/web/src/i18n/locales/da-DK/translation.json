@@ -1092,8 +1092,26 @@
           "Booker aftaler automatisk via telefon",
           "Kloner receptionistens stemme 100 %"
         ]
+      },
+      "redes": {
+        "name": "Netværksplan",
+        "badge": "Premium",
+        "features": [
+          "Alt i AI Premium-planen +",
+          "Håndtering af sociale medier (Instagram og Facebook)",
+          "Kreativer, redigering og opsætning",
+          "Opsætning, målretning og optimering af Meta-kampagner",
+          "Leadgenerering og -opfølgning (interesserede kundekontakter)",
+          "Undersøgelse, rådgivning, analyse og konvertering",
+          "Daglig kampagneopfølgning",
+          "Statistik",
+          "Dedikeret community manager",
+          "Ugentligt videomøde"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Bemærkning til Netværksplan:",
+    "note_redes_text": "Budgettet til annoncering (Meta Ads) er ikke inkluderet i det månedlige gebyr. På det første videomøde definerer vi sammen mål, indsatsområde og andre nøglefaktorer; efter en kort markedsundersøgelse anbefaler vi det mest passende investeringsbeløb til dine kampagner."
   },
   "toxin": {
     "title": "Toksinkontrol",

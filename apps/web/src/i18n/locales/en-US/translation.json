@@ -1092,8 +1092,26 @@
           "Automatically books appointments by phone",
           "Clones your receptionist's voice 100%"
         ]
+      },
+      "redes": {
+        "name": "Social Media Plan",
+        "badge": "Premium",
+        "features": [
+          "Everything in the AI Premium Plan +",
+          "Social media management (Instagram and Facebook)",
+          "Creatives, editing and layout",
+          "Setup, targeting and optimization of Meta campaigns",
+          "Lead generation and follow-up (interested customer contacts)",
+          "Study, advice, analysis and conversion",
+          "Daily campaign monitoring",
+          "Statistics",
+          "Dedicated community manager",
+          "Weekly video call meeting"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Social Media Plan note:",
+    "note_redes_text": "The advertising budget (Meta Ads) is not included in the monthly fee. In an initial video call we will define your goals, area of focus and other key factors together; after a brief market study, we will recommend the most suitable investment amount for your campaigns."
   },
   "toxin": {
     "title": "Toxin Tracking",

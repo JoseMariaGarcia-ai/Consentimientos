@@ -1092,8 +1092,26 @@
           "Marca consultas por telefone automaticamente",
           "Clona a voz da sua rececionista a 100%"
         ]
+      },
+      "redes": {
+        "name": "Plano Redes",
+        "badge": "Premium",
+        "features": [
+          "Tudo do Plano IA Premium +",
+          "Gestão de redes sociais (Instagram e Facebook)",
+          "Criativos, edição e maquetização",
+          "Configuração, segmentação e otimização de campanhas Meta",
+          "Captação e acompanhamento de leads (contactos de clientes interessados)",
+          "Estudo, aconselhamento, análise e conversão",
+          "Acompanhamento diário de campanhas",
+          "Estatísticas",
+          "Community manager dedicado",
+          "Reunião semanal por videochamada"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Nota Plano Redes:",
+    "note_redes_text": "O orçamento destinado a publicidade (Meta Ads) não está incluído na mensalidade. Numa primeira videochamada definiremos em conjunto os objetivos, a área de atuação e os demais fatores-chave; após um breve estudo de mercado, recomendaremos o montante de investimento mais adequado para as suas campanhas."
   },
   "toxin": {
     "title": "Controlo de Toxina",

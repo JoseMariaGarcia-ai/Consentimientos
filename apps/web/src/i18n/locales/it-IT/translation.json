@@ -1146,8 +1146,26 @@
           "Fissa appuntamenti telefonicamente in automatico",
           "Clona la voce della tua receptionist al 100%"
         ]
+      },
+      "redes": {
+        "name": "Piano Social",
+        "badge": "Premium",
+        "features": [
+          "Tutto il Piano IA Premium +",
+          "Gestione dei social media (Instagram e Facebook)",
+          "Creatività, editing e impaginazione",
+          "Configurazione, targeting e ottimizzazione delle campagne Meta",
+          "Acquisizione e follow-up dei lead (contatti clienti interessati)",
+          "Studio, consulenza, analisi e conversione",
+          "Monitoraggio quotidiano delle campagne",
+          "Statistiche",
+          "Community manager dedicato",
+          "Riunione settimanale in videochiamata"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Nota Piano Social:",
+    "note_redes_text": "Il budget destinato alla pubblicità (Meta Ads) non è incluso nella quota mensile. In una prima videochiamata definiremo insieme gli obiettivi, l'area di intervento e gli altri fattori chiave; dopo una breve analisi di mercato, ti consiglieremo l'importo di investimento più adatto alle tue campagne."
   },
   "toxin": {
     "title": "Controllo Tossina",

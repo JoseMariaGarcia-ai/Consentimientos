@@ -1092,8 +1092,26 @@
           "Vereinbart Termine automatisch per Telefon",
           "Klont die Stimme Ihrer Rezeption zu 100 %"
         ]
+      },
+      "redes": {
+        "name": "Social-Media-Plan",
+        "badge": "Premium",
+        "features": [
+          "Alles aus dem KI-Premium-Plan +",
+          "Social-Media-Management (Instagram und Facebook)",
+          "Creatives, Bearbeitung und Layout",
+          "Einrichtung, Targeting und Optimierung von Meta-Kampagnen",
+          "Lead-Generierung und -Nachverfolgung (interessierte Kundenkontakte)",
+          "Analyse, Beratung, Auswertung und Conversion",
+          "Tägliche Kampagnenüberwachung",
+          "Statistiken",
+          "Dedizierter Community Manager",
+          "Wöchentliches Video-Meeting"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Hinweis Social-Media-Plan:",
+    "note_redes_text": "Das Werbebudget (Meta Ads) ist nicht in der monatlichen Gebühr enthalten. In einem ersten Videoanruf legen wir gemeinsam Ziele, Wirkungsbereich und weitere Schlüsselfaktoren fest; nach einer kurzen Marktanalyse empfehlen wir die passende Investitionshöhe für deine Kampagnen."
   },
   "toxin": {
     "title": "Toxin-Kontrolle",

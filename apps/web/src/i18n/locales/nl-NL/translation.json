@@ -1092,8 +1092,26 @@
           "Plant automatisch telefonische afspraken",
           "Kloont de stem van uw receptionist voor 100%"
         ]
+      },
+      "redes": {
+        "name": "Social Media Plan",
+        "badge": "Premium",
+        "features": [
+          "Alles uit het AI Premium-plan +",
+          "Beheer van sociale media (Instagram en Facebook)",
+          "Creatives, bewerking en opmaak",
+          "Instellen, targeten en optimaliseren van Meta-campagnes",
+          "Leadgeneratie en -opvolging (geïnteresseerde klantcontacten)",
+          "Studie, advies, analyse en conversie",
+          "Dagelijkse campagnemonitoring",
+          "Statistieken",
+          "Toegewijde community manager",
+          "Wekelijks videogesprek"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Opmerking Social Media Plan:",
+    "note_redes_text": "Het advertentiebudget (Meta Ads) is niet inbegrepen bij het maandelijkse tarief. Tijdens een eerste videogesprek bepalen we samen de doelen, het werkgebied en andere belangrijke factoren; na een kort marktonderzoek adviseren we het meest geschikte investeringsbedrag voor jouw campagnes."
   },
   "toxin": {
     "title": "Toxinecontrole",

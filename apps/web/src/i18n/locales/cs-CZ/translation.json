@@ -1092,8 +1092,26 @@
           "Automaticky plánuje schůzky po telefonu",
           "Klonuje hlas vaší recepční na 100 %"
         ]
+      },
+      "redes": {
+        "name": "Plán Sítě",
+        "badge": "Premium",
+        "features": [
+          "Vše z plánu AI Premium +",
+          "Správa sociálních sítí (Instagram a Facebook)",
+          "Kreativy, střih a grafická úprava",
+          "Nastavení, cílení a optimalizace kampaní Meta",
+          "Získávání a sledování leadů (kontaktů zájemců)",
+          "Studie, poradenství, analýza a konverze",
+          "Denní sledování kampaní",
+          "Statistiky",
+          "Vyhrazený community manager",
+          "Týdenní schůzka přes videohovor"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Poznámka k plánu Sítě:",
+    "note_redes_text": "Rozpočet na reklamu (Meta Ads) není zahrnut v měsíčním poplatku. Na první videohovoru společně definujeme cíle, oblast působení a další klíčové faktory; po krátkém průzkumu trhu doporučíme nejvhodnější výši investice pro vaše kampaně."
   },
   "toxin": {
     "title": "Kontrola Toxinu",

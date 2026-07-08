@@ -1092,8 +1092,26 @@
           "Programează întâlniri telefonic în mod automat",
           "Clonează vocea recepționerei dvs. 100%"
         ]
+      },
+      "redes": {
+        "name": "Plan Social Media",
+        "badge": "Premium",
+        "features": [
+          "Tot ce include Planul AI Premium +",
+          "Gestionarea rețelelor sociale (Instagram și Facebook)",
+          "Creative, editare și machetare",
+          "Configurare, targetare și optimizare a campaniilor Meta",
+          "Atragerea și urmărirea lead-urilor (contacte de clienți interesați)",
+          "Studiu, consultanță, analiză și conversie",
+          "Monitorizare zilnică a campaniilor",
+          "Statistici",
+          "Community manager dedicat",
+          "Întâlnire săptămânală prin videoconferință"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Notă Plan Social Media:",
+    "note_redes_text": "Bugetul destinat publicității (Meta Ads) nu este inclus în abonamentul lunar. Într-o primă videoconferință vom defini împreună obiectivele, aria de acțiune și ceilalți factori-cheie; după un scurt studiu de piață, îți vom recomanda suma de investiție cea mai potrivită pentru campaniile tale."
   },
   "toxin": {
     "title": "Control Toxină",

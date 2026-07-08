@@ -283,17 +283,22 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
 function Pricing() {
   const { t } = useTranslation()
   return (
-    <section id="pricing" className="max-w-6xl mx-auto px-5 py-20">
+    <section id="pricing" className="max-w-7xl mx-auto px-5 py-20">
       <div className="text-center max-w-2xl mx-auto mb-14">
         <h2 className="text-2xl md:text-3xl font-bold text-slate-800">{t('landing.pricing.title')}</h2>
         <p className="text-slate-500 mt-3">{t('landing.pricing.subtitle')}</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
         {PLANS.map(plan => <PricingCard key={plan.id} plan={plan} />)}
       </div>
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mt-8">
         <p className="text-sm text-amber-800 leading-relaxed">
           <strong>{t('recharge.note_title')}</strong> {t('recharge.note_text')}
+        </p>
+      </div>
+      <div className="bg-rose-50 border border-rose-200 rounded-2xl p-5 mt-4">
+        <p className="text-sm text-rose-800 leading-relaxed">
+          <strong>{t('recharge.note_redes_title')}</strong> {t('recharge.note_redes_text')}
         </p>
       </div>
     </section>

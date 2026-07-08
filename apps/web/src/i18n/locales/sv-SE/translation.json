@@ -1092,8 +1092,26 @@
           "Bokar tider per telefon automatiskt",
           "Klonar din receptionists röst till 100 %"
         ]
+      },
+      "redes": {
+        "name": "Social Media-plan",
+        "badge": "Premium",
+        "features": [
+          "Allt i AI Premium-planen +",
+          "Hantering av sociala medier (Instagram och Facebook)",
+          "Kreativt material, redigering och layout",
+          "Uppsättning, målgruppsstyrning och optimering av Meta-kampanjer",
+          "Leadgenerering och -uppföljning (intresserade kundkontakter)",
+          "Studie, rådgivning, analys och konvertering",
+          "Daglig kampanjuppföljning",
+          "Statistik",
+          "Dedikerad community manager",
+          "Veckovis videomöte"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Obs Social Media-plan:",
+    "note_redes_text": "Annonsbudgeten (Meta Ads) ingår inte i den månatliga avgiften. Vid ett första videomöte definierar vi tillsammans mål, verksamhetsområde och andra nyckelfaktorer; efter en kort marknadsundersökning rekommenderar vi det mest lämpliga investeringsbeloppet för dina kampanjer."
   },
   "toxin": {
     "title": "Toxinkontroll",

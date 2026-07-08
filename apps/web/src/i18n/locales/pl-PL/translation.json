@@ -1092,8 +1092,26 @@
           "Automatyczne umawianie wizyt telefonicznie",
           "Klonuje głos recepcjonisty w 100%"
         ]
+      },
+      "redes": {
+        "name": "Plan Social Media",
+        "badge": "Premium",
+        "features": [
+          "Wszystko z planu AI Premium +",
+          "Zarządzanie mediami społecznościowymi (Instagram i Facebook)",
+          "Kreacje, montaż i skład graficzny",
+          "Konfiguracja, targetowanie i optymalizacja kampanii Meta",
+          "Pozyskiwanie i śledzenie leadów (zainteresowani klienci)",
+          "Analiza, doradztwo, badania i konwersja",
+          "Codzienny monitoring kampanii",
+          "Statystyki",
+          "Dedykowany community manager",
+          "Cotygodniowe spotkanie wideo"
+        ]
       }
-    }
+    },
+    "note_redes_title": "Uwaga do planu Social Media:",
+    "note_redes_text": "Budżet reklamowy (Meta Ads) nie jest wliczony w opłatę miesięczną. Podczas pierwszej rozmowy wideo wspólnie ustalimy cele, obszar działania i pozostałe kluczowe czynniki; po krótkim badaniu rynku zarekomendujemy najodpowiedniejszą kwotę inwestycji na Twoje kampanie."
   },
   "toxin": {
     "title": "Kontrola Toksyny",
