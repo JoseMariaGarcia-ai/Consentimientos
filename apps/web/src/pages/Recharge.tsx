@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Check, Zap } from 'lucide-react'
 
-interface Plan {
+export interface Plan {
   id: string
   monthlyPrice: number
   color: string
@@ -10,14 +10,14 @@ interface Plan {
   hasBadge: boolean
 }
 
-const PLANS: Plan[] = [
+export const PLANS: Plan[] = [
   { id: 'base', monthlyPrice: 49, color: 'bg-[#6B21A8]', priceColor: 'text-[#C9A84C]', hasBadge: false },
   { id: 'pro', monthlyPrice: 79, color: 'bg-[#0D1B2E]', priceColor: 'text-[#C9A84C]', hasBadge: true },
   { id: 'ia', monthlyPrice: 119, color: 'bg-[#14532D]', priceColor: 'text-[#C9A84C]', hasBadge: false },
   { id: 'ia-plus', monthlyPrice: 159, color: 'bg-[#1C1408]', priceColor: 'text-[#C9A84C]', hasBadge: true },
 ]
 
-const PLAN_KEY: Record<string, string> = { base: 'base', pro: 'pro', ia: 'ia', 'ia-plus': 'ia_plus' }
+export const PLAN_KEY: Record<string, string> = { base: 'base', pro: 'pro', ia: 'ia', 'ia-plus': 'ia_plus' }
 
 const ANNUAL_DISCOUNT = 0.2
 

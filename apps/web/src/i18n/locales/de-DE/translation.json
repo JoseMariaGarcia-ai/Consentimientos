@@ -1256,5 +1256,96 @@
     "save": "Speichern",
     "saving": "Speichern…",
     "saved": "Gespeichert"
+  },
+  "landing": {
+    "nav": {
+      "access": "Anmelden"
+    },
+    "hero": {
+      "badge": "Software für Kliniken der ästhetischen Medizin",
+      "title_line1": "Aufklärungseinwilligungen",
+      "title_highlight": "100 % digital",
+      "subtitle": "Biometrische Unterschrift, Patientenakte, Terminplanung und KI-Agenten auf einer Plattform. Garantierte Rechtssicherheit — PatRG, eIDAS und DSGVO.",
+      "cta_primary": "Zur Plattform",
+      "cta_secondary": "Pläne ansehen",
+      "trust_1": "PatRG",
+      "trust_2": "eIDAS",
+      "trust_3": "DSGVO"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Verfügbare Sprachen",
+      "s2_value": "100 %",
+      "s2_label": "Digital und papierlos",
+      "s3_value": "24/7",
+      "s3_label": "Patientenportal",
+      "s4_value": "0",
+      "s4_label": "Rechtliches Risiko durch ungültige Unterschriften"
+    },
+    "features": {
+      "title": "Alles, was Ihre Klinik braucht",
+      "subtitle": "Eine vollständige Plattform für Kliniken der ästhetischen Medizin",
+      "items": {
+        "signature": {
+          "title": "Biometrische Unterschrift + Magic Link",
+          "desc": "Rechtsgültige Einwilligungen, vom Patienten von jedem Gerät aus unterschrieben."
+        },
+        "multilang": {
+          "title": "Unbegrenzte Einwilligungen in 31 Sprachen",
+          "desc": "Anpassbare Vorlagen, automatisch übersetzt für Patienten jeder Nationalität."
+        },
+        "records": {
+          "title": "Digitale Patientenakte",
+          "desc": "Alle Patientendaten zentralisiert, sicher und sofort abrufbar."
+        },
+        "agenda": {
+          "title": "Intelligente Terminplanung",
+          "desc": "Verwaltung von Zeitplänen, Behandlungen und Verfügbarkeit ohne Reibungsverluste."
+        },
+        "toxin": {
+          "title": "Botulinumtoxin-Kontrolle",
+          "desc": "Vollständige Rückverfolgbarkeit von Chargen und angewendeten Einheiten pro Patient und Sitzung."
+        },
+        "gallery": {
+          "title": "Vorher-/Nachher-Galerie",
+          "desc": "Klinische Fotos nach Sitzung organisiert, mit visuellen Vergleichen für den Patienten."
+        },
+        "portal": {
+          "title": "Patientenportal rund um die Uhr",
+          "desc": "Ihre Patienten greifen jederzeit auf ihre Einwilligungen, Fotos und Patientenakte zu."
+        },
+        "whatsapp": {
+          "title": "WhatsApp-Agent mit KI",
+          "desc": "Gewinnt und bestätigt Termine automatisch und kommuniziert rund um die Uhr mit Ihren Patienten."
+        },
+        "voice": {
+          "title": "Sprachagent mit KI",
+          "desc": "Nimmt Anrufe automatisch entgegen und vereinbart Termine telefonisch mit der geklonten Stimme Ihrer Rezeption."
+        }
+      }
+    },
+    "how": {
+      "title": "So einfach geht's",
+      "subtitle": "Ihre Klinik in drei Schritten einsatzbereit",
+      "step1_title": "Registrieren Sie Ihre Klinik",
+      "step1_desc": "Konfigurieren Sie Team, Behandlungen und Einwilligungsvorlagen in wenigen Minuten.",
+      "step2_title": "Laden Sie Ihre Patienten ein",
+      "step2_desc": "Senden Sie den Unterschriftslink per E-Mail oder WhatsApp — sie unterschreiben vom Handy mit Magic Link.",
+      "step3_title": "Alles wird dokumentiert",
+      "step3_desc": "Einwilligungen, Fotos und Patientenakte sicher und rechtsgültig archiviert."
+    },
+    "pricing": {
+      "title": "Abonnementpläne",
+      "subtitle": "Wählen Sie den Plan, der am besten zu Ihrer Klinik passt — jederzeit wechseln oder upgraden"
+    },
+    "final_cta": {
+      "title": "Digitalisieren Sie Ihre Klinik noch heute",
+      "subtitle": "Schließen Sie sich den Kliniken an, die Papier bereits aus ihren Aufklärungseinwilligungen verbannt haben.",
+      "button": "Zur Plattform"
+    },
+    "footer": {
+      "tagline": "Gültige digitale Einwilligungen · PatRG · DSGVO",
+      "rights": "Alle Rechte vorbehalten."
+    }
   }
 }

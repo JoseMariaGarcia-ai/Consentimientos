@@ -1256,5 +1256,96 @@
     "save": "Guardar",
     "saving": "Guardando…",
     "saved": "Guardado"
+  },
+  "landing": {
+    "nav": {
+      "access": "Acceder"
+    },
+    "hero": {
+      "badge": "Software para clínicas de medicina estética",
+      "title_line1": "Consentimientos informados",
+      "title_highlight": "100 % digitales",
+      "subtitle": "Firma biométrica, historia clínica, agenda y agentes de IA en una sola plataforma. Cumplimiento legal garantizado — Ley 41/2002, eIDAS y RGPD.",
+      "cta_primary": "Acceder a la plataforma",
+      "cta_secondary": "Ver planes",
+      "trust_1": "Ley 41/2002",
+      "trust_2": "eIDAS",
+      "trust_3": "RGPD"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Idiomas disponibles",
+      "s2_value": "100 %",
+      "s2_label": "Digital y sin papel",
+      "s3_value": "24/7",
+      "s3_label": "Portal del paciente",
+      "s4_value": "0",
+      "s4_label": "Riesgo legal por firmas inválidas"
+    },
+    "features": {
+      "title": "Todo lo que tu clínica necesita",
+      "subtitle": "Una plataforma completa pensada para clínicas de medicina estética",
+      "items": {
+        "signature": {
+          "title": "Firma biométrica + Magic Link",
+          "desc": "Consentimientos con validez legal plena, firmados por el paciente desde cualquier dispositivo."
+        },
+        "multilang": {
+          "title": "Consentimientos ilimitados en 31 idiomas",
+          "desc": "Plantillas personalizables traducidas automáticamente para pacientes de cualquier nacionalidad."
+        },
+        "records": {
+          "title": "Historia clínica digital",
+          "desc": "Toda la información del paciente centralizada, segura y accesible al instante."
+        },
+        "agenda": {
+          "title": "Agenda de citas inteligente",
+          "desc": "Gestión de horarios, tratamientos y disponibilidad sin fricciones."
+        },
+        "toxin": {
+          "title": "Control de toxina botulínica",
+          "desc": "Trazabilidad completa de lotes y unidades aplicadas por paciente y sesión."
+        },
+        "gallery": {
+          "title": "Galería antes / después",
+          "desc": "Fotografías clínicas organizadas por sesión, con comparativas visuales para el paciente."
+        },
+        "portal": {
+          "title": "Portal del paciente 24/7",
+          "desc": "Tus pacientes acceden a sus consentimientos, fotos e historia clínica en cualquier momento."
+        },
+        "whatsapp": {
+          "title": "Agente WhatsApp con IA",
+          "desc": "Capta y confirma citas automáticamente, y comunica con tus pacientes las 24 horas."
+        },
+        "voice": {
+          "title": "Agente de voz con IA",
+          "desc": "Contesta llamadas y agenda citas por teléfono automáticamente, clonando la voz de tu recepción."
+        }
+      }
+    },
+    "how": {
+      "title": "Así de fácil",
+      "subtitle": "Tu clínica operativa en tres pasos",
+      "step1_title": "Da de alta tu clínica",
+      "step1_desc": "Configura tu equipo, tratamientos y plantillas de consentimiento en minutos.",
+      "step2_title": "Invita a tus pacientes",
+      "step2_desc": "Envía el enlace de firma por email o WhatsApp — firman desde su móvil con Magic Link.",
+      "step3_title": "Todo queda registrado",
+      "step3_desc": "Consentimientos, fotos e historia clínica archivados de forma segura y con validez legal."
+    },
+    "pricing": {
+      "title": "Planes de suscripción",
+      "subtitle": "Elige el plan que mejor se adapte a tu clínica — cambia o mejora cuando quieras"
+    },
+    "final_cta": {
+      "title": "Digitaliza tu clínica hoy",
+      "subtitle": "Únete a las clínicas que ya han eliminado el papel de sus consentimientos informados.",
+      "button": "Acceder a la plataforma"
+    },
+    "footer": {
+      "tagline": "Consentimientos digitales válidos · Ley 41/2002 · RGPD",
+      "rights": "Todos los derechos reservados."
+    }
   }
 }

@@ -1256,5 +1256,96 @@
     "save": "Desar",
     "saving": "Desant…",
     "saved": "Desat"
+  },
+  "landing": {
+    "nav": {
+      "access": "Accedir"
+    },
+    "hero": {
+      "badge": "Programari per a clíniques de medicina estètica",
+      "title_line1": "Consentiments informats",
+      "title_highlight": "100 % digitals",
+      "subtitle": "Signatura biomètrica, historial clínic, agenda i agents d'IA en una sola plataforma. Compliment legal garantit — Llei 41/2002, eIDAS i RGPD.",
+      "cta_primary": "Accedir a la plataforma",
+      "cta_secondary": "Veure plans",
+      "trust_1": "Llei 41/2002",
+      "trust_2": "eIDAS",
+      "trust_3": "RGPD"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Idiomes disponibles",
+      "s2_value": "100 %",
+      "s2_label": "Digital i sense paper",
+      "s3_value": "24/7",
+      "s3_label": "Portal del pacient",
+      "s4_value": "0",
+      "s4_label": "Risc legal per signatures invàlides"
+    },
+    "features": {
+      "title": "Tot el que la teva clínica necessita",
+      "subtitle": "Una plataforma completa pensada per a clíniques de medicina estètica",
+      "items": {
+        "signature": {
+          "title": "Signatura biomètrica + Magic Link",
+          "desc": "Consentiments amb validesa legal plena, signats pel pacient des de qualsevol dispositiu."
+        },
+        "multilang": {
+          "title": "Consentiments il·limitats en 31 idiomes",
+          "desc": "Plantilles personalitzables traduïdes automàticament per a pacients de qualsevol nacionalitat."
+        },
+        "records": {
+          "title": "Historial clínic digital",
+          "desc": "Tota la informació del pacient centralitzada, segura i accessible a l'instant."
+        },
+        "agenda": {
+          "title": "Agenda de cites intel·ligent",
+          "desc": "Gestió d'horaris, tractaments i disponibilitat sense friccions."
+        },
+        "toxin": {
+          "title": "Control de toxina botulínica",
+          "desc": "Traçabilitat completa de lots i unitats aplicades per pacient i sessió."
+        },
+        "gallery": {
+          "title": "Galeria abans / després",
+          "desc": "Fotografies clíniques organitzades per sessió, amb comparatives visuals per al pacient."
+        },
+        "portal": {
+          "title": "Portal del pacient 24/7",
+          "desc": "Els teus pacients accedeixen als seus consentiments, fotos i historial clínic en qualsevol moment."
+        },
+        "whatsapp": {
+          "title": "Agent de WhatsApp amb IA",
+          "desc": "Capta i confirma cites automàticament, i comunica amb els teus pacients les 24 hores."
+        },
+        "voice": {
+          "title": "Agent de veu amb IA",
+          "desc": "Contesta trucades i agenda cites per telèfon automàticament, clonant la veu de la teva recepció."
+        }
+      }
+    },
+    "how": {
+      "title": "Així de fàcil",
+      "subtitle": "La teva clínica operativa en tres passos",
+      "step1_title": "Dona d'alta la teva clínica",
+      "step1_desc": "Configura el teu equip, tractaments i plantilles de consentiment en minuts.",
+      "step2_title": "Convida els teus pacients",
+      "step2_desc": "Envia l'enllaç de signatura per email o WhatsApp — signen des del mòbil amb Magic Link.",
+      "step3_title": "Tot queda registrat",
+      "step3_desc": "Consentiments, fotos i historial clínic arxivats de forma segura i amb validesa legal."
+    },
+    "pricing": {
+      "title": "Plans de subscripció",
+      "subtitle": "Tria el pla que millor s'adapti a la teva clínica — canvia o millora quan vulguis"
+    },
+    "final_cta": {
+      "title": "Digitalitza la teva clínica avui",
+      "subtitle": "Uneix-te a les clíniques que ja han eliminat el paper dels seus consentiments informats.",
+      "button": "Accedir a la plataforma"
+    },
+    "footer": {
+      "tagline": "Consentiments digitals vàlids · Llei 41/2002 · RGPD",
+      "rights": "Tots els drets reservats."
+    }
   }
 }

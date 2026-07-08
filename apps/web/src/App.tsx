@@ -4,6 +4,7 @@ import { useLanguageStore } from './store/languageStore'
 import { Topbar } from './components/layout/Topbar'
 import { Sidebar } from './components/layout/Sidebar'
 import Login from './pages/Login'
+import Landing from './pages/Landing'
 import AuthVerify from './pages/AuthVerify'
 import Dashboard from './pages/Dashboard'
 import Patients from './pages/Patients'
@@ -87,6 +88,7 @@ function AppShell() {
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
   if (window.location.pathname.startsWith('/verify/')) return <VerifyConsent />
   if (window.location.pathname.startsWith('/auth/verify')) return <AuthVerify />
+  if (window.location.pathname === '/' && !isAuthenticated) return <Landing />
 
   if (!isAuthenticated) return <Login />
 

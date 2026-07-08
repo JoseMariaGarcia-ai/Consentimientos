@@ -1256,5 +1256,96 @@
     "save": "Uložit",
     "saving": "Ukládání…",
     "saved": "Uloženo"
+  },
+  "landing": {
+    "nav": {
+      "access": "Přihlásit se"
+    },
+    "hero": {
+      "badge": "Software pro kliniky estetické medicíny",
+      "title_line1": "Informované souhlasy",
+      "title_highlight": "100% digitální",
+      "subtitle": "Biometrický podpis, zdravotní záznamy, kalendář a AI agenti na jedné platformě. Zaručený soulad s právními předpisy — zákon č. 372/2011 Sb., eIDAS a GDPR.",
+      "cta_primary": "Přejít na platformu",
+      "cta_secondary": "Zobrazit plány",
+      "trust_1": "Zákon č. 372/2011 Sb.",
+      "trust_2": "eIDAS",
+      "trust_3": "GDPR"
+    },
+    "stats": {
+      "s1_value": "31",
+      "s1_label": "Dostupných jazyků",
+      "s2_value": "100 %",
+      "s2_label": "Digitální a bez papíru",
+      "s3_value": "24/7",
+      "s3_label": "Portál pacienta",
+      "s4_value": "0",
+      "s4_label": "Právní riziko neplatných podpisů"
+    },
+    "features": {
+      "title": "Vše, co vaše klinika potřebuje",
+      "subtitle": "Kompletní platforma navržená pro kliniky estetické medicíny",
+      "items": {
+        "signature": {
+          "title": "Biometrický podpis + Magic Link",
+          "desc": "Souhlasy s plnou právní platností, podepsané pacientem z jakéhokoli zařízení."
+        },
+        "multilang": {
+          "title": "Neomezené souhlasy ve 31 jazycích",
+          "desc": "Přizpůsobitelné šablony automaticky přeložené pro pacienty jakékoli národnosti."
+        },
+        "records": {
+          "title": "Digitální zdravotní záznam",
+          "desc": "Veškeré informace o pacientovi centralizované, bezpečné a okamžitě dostupné."
+        },
+        "agenda": {
+          "title": "Chytrý kalendář rezervací",
+          "desc": "Správa rozvrhu, ošetření a dostupnosti bez komplikací."
+        },
+        "toxin": {
+          "title": "Sledování botulotoxinu",
+          "desc": "Kompletní sledovatelnost šarží a jednotek použitých u pacienta a relace."
+        },
+        "gallery": {
+          "title": "Galerie před / po",
+          "desc": "Klinické fotografie uspořádané podle relace s vizuálním srovnáním pro pacienta."
+        },
+        "portal": {
+          "title": "Portál pacienta 24/7",
+          "desc": "Vaši pacienti mají kdykoli přístup ke svým souhlasům, fotografiím a zdravotním záznamům."
+        },
+        "whatsapp": {
+          "title": "WhatsApp agent s AI",
+          "desc": "Automaticky získává a potvrzuje rezervace a komunikuje s vašimi pacienty 24 hodin denně."
+        },
+        "voice": {
+          "title": "Hlasový agent s AI",
+          "desc": "Automaticky přijímá hovory a domlouvá schůzky po telefonu s klonovaným hlasem vaší recepce."
+        }
+      }
+    },
+    "how": {
+      "title": "Je to snadné",
+      "subtitle": "Vaše klinika v provozu ve třech krocích",
+      "step1_title": "Zaregistrujte svou kliniku",
+      "step1_desc": "Nastavte svůj tým, ošetření a šablony souhlasů během několika minut.",
+      "step2_title": "Pozvěte své pacienty",
+      "step2_desc": "Odešlete odkaz k podpisu e-mailem nebo přes WhatsApp — podepíší z mobilu pomocí Magic Link.",
+      "step3_title": "Vše je zaznamenáno",
+      "step3_desc": "Souhlasy, fotografie a zdravotní záznamy bezpečně archivované s právní platností."
+    },
+    "pricing": {
+      "title": "Předplatné plány",
+      "subtitle": "Vyberte plán, který nejlépe vyhovuje vaší klinice — kdykoli jej změňte nebo vylepšete"
+    },
+    "final_cta": {
+      "title": "Digitalizujte svou kliniku ještě dnes",
+      "subtitle": "Připojte se ke klinikám, které již odstranily papír ze svých informovaných souhlasů.",
+      "button": "Přejít na platformu"
+    },
+    "footer": {
+      "tagline": "Platné digitální souhlasy · Zákon č. 372/2011 Sb. · GDPR",
+      "rights": "Všechna práva vyhrazena."
+    }
   }
 }
