@@ -525,7 +525,8 @@
     "toxin": "Control de Toxina",
     "labPartners": "Laboratorios",
     "menu": "Menú",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "budgets": "Presupuestos"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -1428,5 +1429,58 @@
         }
       }
     }
+  },
+  "budgets": {
+    "title": "Presupuestos",
+    "subtitle": "Crea y gestiona presupuestos para tus pacientes",
+    "new_budget": "Nuevo presupuesto",
+    "from": "Desde",
+    "to": "Hasta",
+    "patient": "Paciente",
+    "all": "Todos",
+    "search": "Buscar",
+    "search_placeholder": "Nº presupuesto o paciente",
+    "clear_filters": "Limpiar filtros",
+    "no_results": "No hay presupuestos que coincidan con los filtros",
+    "col_number": "Nº",
+    "col_date": "Fecha",
+    "col_patient": "Paciente",
+    "col_total": "Total",
+    "col_actions": "Acciones",
+    "confirm_delete": "¿Eliminar este presupuesto?"
+  },
+  "budgetModal": {
+    "title_new": "Nuevo presupuesto",
+    "title_edit": "Editar presupuesto",
+    "form": {
+      "patient": "Paciente",
+      "select_patient": "Selecciona un paciente",
+      "treatments": "Tratamientos",
+      "select_treatment": "Selecciona un tratamiento",
+      "manual_treatment": "Añadir tratamiento manual…",
+      "treatment_name_placeholder": "Nombre del tratamiento",
+      "add_treatment": "Añadir tratamiento",
+      "total": "Total",
+      "valid_until": "Válido hasta",
+      "notes": "Notas"
+    },
+    "errors": {
+      "no_items": "Añade al menos un tratamiento con nombre",
+      "save_failed": "No se pudo guardar el presupuesto"
+    },
+    "confirm_delete": "¿Eliminar este presupuesto?"
+  },
+  "budgetView": {
+    "patient": "Paciente",
+    "treatments": "Tratamientos",
+    "valid_until": "Válido hasta el {{date}}",
+    "no_email": "El paciente no tiene un email registrado",
+    "send_email": "Enviar por email",
+    "sending": "Enviando…",
+    "sent": "Enviado",
+    "send_failed": "No se pudo enviar el email"
+  },
+  "budgetPdfButton": {
+    "export": "Descargar PDF"
   }
 }

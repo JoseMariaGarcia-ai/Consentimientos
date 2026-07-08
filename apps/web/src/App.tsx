@@ -25,6 +25,7 @@ import Agenda from './pages/Agenda'
 import WhatsApp from './pages/WhatsApp'
 import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
+import Budgets from './pages/Budgets'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
@@ -153,6 +154,7 @@ function AppShell() {
               <Route path="/photos" element={guard('photos', <PhotoSessions />)} />
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
+              <Route path="/budgets" element={guard('budgets', <Budgets />)} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />
               <Route path="/recharge" element={<Recharge />} />
               <Route path="/patients/:id" element={guard('patients', <PatientDetail />)} />
