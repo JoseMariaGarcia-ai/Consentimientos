@@ -1303,8 +1303,8 @@
           "desc": "Manage schedules, treatments, and availability without friction."
         },
         "toxin": {
-          "title": "Botulinum toxin tracking",
-          "desc": "Full traceability of batches and units applied per patient and session."
+          "title": "Botulinum toxin tracking — 100% legally compliant",
+          "desc": "Full traceability of batches and units applied per patient and session, in line with current regulations."
         },
         "gallery": {
           "title": "Before / after gallery",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "24/7 patient portal",
-          "desc": "Your patients can access their consent forms, photos, and medical records anytime."
+          "desc": "Your patients can access their consent forms, photos, and medical records anytime and from anywhere."
         },
         "whatsapp": {
           "title": "AI WhatsApp agent",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "AI voice agent",
           "desc": "Answers calls and books appointments over the phone automatically, cloning your receptionist's voice."
+        },
+        "budget": {
+          "title": "Quotes for patients",
+          "desc": "Create and send custom quotes to your patients quickly and professionally."
+        },
+        "image_auth": {
+          "title": "Image authorization record",
+          "desc": "Record the patient's consent for the use of their photos, with the same legal validity and traceability as other consent forms."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Set up your clinic",
       "step1_desc": "Configure your team, treatments, and consent templates in minutes.",
       "step2_title": "Invite your patients",
-      "step2_desc": "Send the signing link by email or WhatsApp — they sign from their phone with Magic Link.",
+      "step2_desc": "They sign the consent forms at the clinic and receive by email their signed consent form along with access to their portal via Magic Link.",
       "step3_title": "Everything is recorded",
       "step3_desc": "Consent forms, photos, and medical records securely archived with full legal validity."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Valid digital consent forms · Law 41/2002 · GDPR",
       "rights": "All rights reserved."
+    },
+    "compliance": {
+      "title": "Legally valid electronic signature",
+      "subtitle": "Every consent form signed in ConsentsPro complies with the eIDAS Regulation (EU) 910/2014 on electronic identification and trust services.",
+      "items": {
+        "biometric": {
+          "title": "Biometric signature of the stroke",
+          "desc": "We capture every point of the stroke when signing: coordinates, exact time, and finger or pen pressure, to verify the signature is genuine."
+        },
+        "timestamp": {
+          "title": "Certified timestamp",
+          "desc": "Every signature is linked to the exact date and time certified by our server, not by the signer's device."
+        },
+        "device": {
+          "title": "Device fingerprint",
+          "desc": "We record the IP address and the device or browser used to sign, as additional proof of identity."
+        },
+        "hash": {
+          "title": "Document fingerprint",
+          "desc": "We generate a unique cryptographic hash for every signature, allowing any later alteration of the document to be detected."
+        },
+        "audit": {
+          "title": "Audit trail",
+          "desc": "Every signature is stored in a tamper-evident audit trail, with the full history of the signing process."
+        },
+        "doctor": {
+          "title": "Joint doctor-patient signature",
+          "desc": "The healthcare professional signs alongside the patient, recording both parties' involvement in the same document."
+        }
+      }
     }
   }
 }

@@ -1303,8 +1303,8 @@
           "desc": "Správa rozvrhu, ošetření a dostupnosti bez komplikací."
         },
         "toxin": {
-          "title": "Sledování botulotoxinu",
-          "desc": "Kompletní sledovatelnost šarží a jednotek použitých u pacienta a relace."
+          "title": "Kontrola botulotoxinu 100% v souladu se zákonem",
+          "desc": "Kompletní sledovatelnost šarží a jednotek použitých u pacienta a relace, v souladu s platnými předpisy."
         },
         "gallery": {
           "title": "Galerie před / po",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portál pacienta 24/7",
-          "desc": "Vaši pacienti mají kdykoli přístup ke svým souhlasům, fotografiím a zdravotním záznamům."
+          "desc": "Vaši pacienti mají kdykoli a odkudkoli přístup ke svým souhlasům, fotografiím a zdravotním záznamům."
         },
         "whatsapp": {
           "title": "WhatsApp agent s AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Hlasový agent s AI",
           "desc": "Automaticky přijímá hovory a domlouvá schůzky po telefonu s klonovaným hlasem vaší recepce."
+        },
+        "budget": {
+          "title": "Cenové nabídky pro pacienty",
+          "desc": "Rychle a profesionálně vytvářejte a odesílejte pacientům individuální cenové nabídky."
+        },
+        "image_auth": {
+          "title": "Evidence souhlasu s použitím fotografií",
+          "desc": "Zaznamenejte souhlas pacienta s použitím jeho fotografií, se stejnou právní platností a sledovatelností jako ostatní souhlasy."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Zaregistrujte svou kliniku",
       "step1_desc": "Nastavte svůj tým, ošetření a šablony souhlasů během několika minut.",
       "step2_title": "Pozvěte své pacienty",
-      "step2_desc": "Odešlete odkaz k podpisu e-mailem nebo přes WhatsApp — podepíší z mobilu pomocí Magic Link.",
+      "step2_desc": "Souhlasy podepisují v klinice a e-mailem obdrží svůj podepsaný souhlas spolu s přístupem do portálu prostřednictvím Magic Link.",
       "step3_title": "Vše je zaznamenáno",
       "step3_desc": "Souhlasy, fotografie a zdravotní záznamy bezpečně archivované s právní platností."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Platné digitální souhlasy · Zákon č. 372/2011 Sb. · GDPR",
       "rights": "Všechna práva vyhrazena."
+    },
+    "compliance": {
+      "title": "Elektronický podpis s právní platností",
+      "subtitle": "Každý souhlas podepsaný v ConsentsPro splňuje nařízení eIDAS (EU) č. 910/2014 o elektronické identifikaci a důvěryhodných službách.",
+      "items": {
+        "biometric": {
+          "title": "Biometrický podpis tahu",
+          "desc": "Zaznamenáváme každý bod tahu při podpisu: souřadnice, přesný čas a tlak prstu nebo pera, abychom ověřili pravost podpisu."
+        },
+        "timestamp": {
+          "title": "Certifikované časové razítko",
+          "desc": "Každý podpis je spojen s přesným datem a časem certifikovaným naším serverem, nikoli zařízením podepisujícího."
+        },
+        "device": {
+          "title": "Digitální otisk zařízení",
+          "desc": "Zaznamenáváme IP adresu a zařízení nebo prohlížeč použitý k podpisu jako další důkaz identity."
+        },
+        "hash": {
+          "title": "Digitální otisk dokumentu",
+          "desc": "Vytváříme jedinečný kryptografický hash každého podpisu, který umožňuje odhalit jakoukoli pozdější úpravu dokumentu."
+        },
+        "audit": {
+          "title": "Auditní záznam",
+          "desc": "Každý podpis je uložen v neměnném auditním záznamu s kompletní historií procesu podpisu."
+        },
+        "doctor": {
+          "title": "Společný podpis lékaře a pacienta",
+          "desc": "Zdravotnický pracovník podepisuje společně s pacientem, čímž je na stejném dokumentu zaznamenána účast obou stran."
+        }
+      }
     }
   }
 }

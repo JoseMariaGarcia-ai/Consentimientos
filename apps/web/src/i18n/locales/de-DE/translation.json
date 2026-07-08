@@ -1303,8 +1303,8 @@
           "desc": "Verwaltung von Zeitplänen, Behandlungen und Verfügbarkeit ohne Reibungsverluste."
         },
         "toxin": {
-          "title": "Botulinumtoxin-Kontrolle",
-          "desc": "Vollständige Rückverfolgbarkeit von Chargen und angewendeten Einheiten pro Patient und Sitzung."
+          "title": "Botulinumtoxin-Kontrolle — 100 % rechtssicher",
+          "desc": "Vollständige Rückverfolgbarkeit von Chargen und angewendeten Einheiten pro Patient und Sitzung, gemäß geltender Vorschriften."
         },
         "gallery": {
           "title": "Vorher-/Nachher-Galerie",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Patientenportal rund um die Uhr",
-          "desc": "Ihre Patienten greifen jederzeit auf ihre Einwilligungen, Fotos und Patientenakte zu."
+          "desc": "Ihre Patienten greifen jederzeit und von überall auf ihre Einwilligungen, Fotos und Patientenakte zu."
         },
         "whatsapp": {
           "title": "WhatsApp-Agent mit KI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Sprachagent mit KI",
           "desc": "Nimmt Anrufe automatisch entgegen und vereinbart Termine telefonisch mit der geklonten Stimme Ihrer Rezeption."
+        },
+        "budget": {
+          "title": "Kostenvoranschläge für Patienten",
+          "desc": "Erstellen und versenden Sie individuelle Kostenvoranschläge für Ihre Patienten schnell und professionell."
+        },
+        "image_auth": {
+          "title": "Bildfreigabe-Protokoll",
+          "desc": "Erfassen Sie die Einwilligung des Patienten zur Nutzung seiner Fotos, mit derselben Rechtsgültigkeit und Rückverfolgbarkeit wie die übrigen Einwilligungen."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Registrieren Sie Ihre Klinik",
       "step1_desc": "Konfigurieren Sie Team, Behandlungen und Einwilligungsvorlagen in wenigen Minuten.",
       "step2_title": "Laden Sie Ihre Patienten ein",
-      "step2_desc": "Senden Sie den Unterschriftslink per E-Mail oder WhatsApp — sie unterschreiben vom Handy mit Magic Link.",
+      "step2_desc": "Sie unterschreiben die Einwilligungen in der Klinik und erhalten per E-Mail ihre unterschriebene Einwilligung zusammen mit dem Zugang zu ihrem Portal per Magic Link.",
       "step3_title": "Alles wird dokumentiert",
       "step3_desc": "Einwilligungen, Fotos und Patientenakte sicher und rechtsgültig archiviert."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Gültige digitale Einwilligungen · PatRG · DSGVO",
       "rights": "Alle Rechte vorbehalten."
+    },
+    "compliance": {
+      "title": "Elektronische Unterschrift mit Rechtsgültigkeit",
+      "subtitle": "Jede in ConsentsPro unterschriebene Einwilligung erfüllt die eIDAS-Verordnung (EU) Nr. 910/2014 über elektronische Identifizierung und Vertrauensdienste.",
+      "items": {
+        "biometric": {
+          "title": "Biometrische Unterschrift des Schriftzugs",
+          "desc": "Wir erfassen jeden Punkt des Schriftzugs beim Unterschreiben: Koordinaten, genaue Zeit und Druck von Finger oder Stift, um die Echtheit der Unterschrift zu verifizieren."
+        },
+        "timestamp": {
+          "title": "Zertifizierter Zeitstempel",
+          "desc": "Jede Unterschrift ist mit dem genauen, von unserem Server zertifizierten Datum und der Uhrzeit verknüpft, nicht mit dem Gerät des Unterzeichners."
+        },
+        "device": {
+          "title": "Digitaler Fingerabdruck des Geräts",
+          "desc": "Wir erfassen die IP-Adresse und das zum Unterschreiben verwendete Gerät oder den Browser als zusätzlichen Identitätsnachweis."
+        },
+        "hash": {
+          "title": "Digitaler Fingerabdruck des Dokuments",
+          "desc": "Wir erzeugen einen einzigartigen kryptografischen Hash für jede Unterschrift, der jede spätere Änderung des Dokuments erkennbar macht."
+        },
+        "audit": {
+          "title": "Prüfprotokoll",
+          "desc": "Jede Unterschrift wird in einem unveränderlichen Prüfprotokoll mit dem vollständigen Verlauf des Unterschriftsprozesses gespeichert."
+        },
+        "doctor": {
+          "title": "Gemeinsame Unterschrift von Arzt und Patient",
+          "desc": "Die medizinische Fachkraft unterschreibt zusammen mit dem Patienten, wodurch die Beteiligung beider Parteien im selben Dokument dokumentiert wird."
+        }
+      }
     }
   }
 }

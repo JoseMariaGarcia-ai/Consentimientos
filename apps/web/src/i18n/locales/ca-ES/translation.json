@@ -1303,8 +1303,8 @@
           "desc": "Gestió d'horaris, tractaments i disponibilitat sense friccions."
         },
         "toxin": {
-          "title": "Control de toxina botulínica",
-          "desc": "Traçabilitat completa de lots i unitats aplicades per pacient i sessió."
+          "title": "Control de toxina botulínica 100% legal",
+          "desc": "Traçabilitat completa de lots i unitats aplicades per pacient i sessió, d'acord amb la normativa vigent."
         },
         "gallery": {
           "title": "Galeria abans / després",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portal del pacient 24/7",
-          "desc": "Els teus pacients accedeixen als seus consentiments, fotos i historial clínic en qualsevol moment."
+          "desc": "Els teus pacients accedeixen als seus consentiments, fotos i historial clínic en qualsevol moment i des de qualsevol lloc."
         },
         "whatsapp": {
           "title": "Agent de WhatsApp amb IA",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agent de veu amb IA",
           "desc": "Contesta trucades i agenda cites per telèfon automàticament, clonant la veu de la teva recepció."
+        },
+        "budget": {
+          "title": "Pressupostos per a pacients",
+          "desc": "Crea i envia pressupostos personalitzats als teus pacients de forma ràpida i professional."
+        },
+        "image_auth": {
+          "title": "Registre d'autorització d'imatges",
+          "desc": "Registra el consentiment del pacient per a l'ús de les seves fotografies, amb la mateixa validesa legal i traçabilitat que la resta de consentiments."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Dona d'alta la teva clínica",
       "step1_desc": "Configura el teu equip, tractaments i plantilles de consentiment en minuts.",
       "step2_title": "Convida els teus pacients",
-      "step2_desc": "Envia l'enllaç de signatura per email o WhatsApp — signen des del mòbil amb Magic Link.",
+      "step2_desc": "Signen els consentiments a la clínica i reben per email el seu consentiment signat juntament amb l'accés al seu portal mitjançant Magic Link.",
       "step3_title": "Tot queda registrat",
       "step3_desc": "Consentiments, fotos i historial clínic arxivats de forma segura i amb validesa legal."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Consentiments digitals vàlids · Llei 41/2002 · RGPD",
       "rights": "Tots els drets reservats."
+    },
+    "compliance": {
+      "title": "Signatura electrònica amb validesa legal",
+      "subtitle": "Cada consentiment signat a ConsentsPro compleix el Reglament eIDAS (UE) 910/2014 sobre identificació electrònica i serveis de confiança.",
+      "items": {
+        "biometric": {
+          "title": "Signatura biomètrica del traç",
+          "desc": "Capturem cada punt del traç en signar: coordenades, temps exacte i pressió del dit o llapis, per verificar que la signatura és autèntica."
+        },
+        "timestamp": {
+          "title": "Segell de temps certificat",
+          "desc": "Cada signatura queda vinculada a la data i hora exactes certificades pel nostre servidor, no pel dispositiu del signant."
+        },
+        "device": {
+          "title": "Empremta digital del dispositiu",
+          "desc": "Registrem l'adreça IP i el dispositiu o navegador utilitzat per signar, com a prova addicional d'identitat."
+        },
+        "hash": {
+          "title": "Empremta digital del document",
+          "desc": "Generem un hash criptogràfic únic de cada signatura que permet detectar qualsevol alteració posterior del document."
+        },
+        "audit": {
+          "title": "Registre d'auditoria",
+          "desc": "Cada signatura queda desada en un registre d'auditoria inalterable, amb l'historial complet del procés."
+        },
+        "doctor": {
+          "title": "Signatura conjunta metge-pacient",
+          "desc": "El professional sanitari signa juntament amb el pacient, deixant constància de totes dues parts en el mateix document."
+        }
+      }
     }
   }
 }

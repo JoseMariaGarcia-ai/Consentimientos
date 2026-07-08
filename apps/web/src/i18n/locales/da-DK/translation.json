@@ -1303,8 +1303,8 @@
           "desc": "Håndtering af tidsplaner, behandlinger og ledig tid uden besvær."
         },
         "toxin": {
-          "title": "Sporing af botulinumtoksin",
-          "desc": "Fuld sporbarhed af batches og enheder anvendt pr. patient og session."
+          "title": "Botulinumtoksin-kontrol — 100 % lovlig",
+          "desc": "Fuld sporbarhed af batches og enheder anvendt pr. patient og session, i overensstemmelse med gældende regler."
         },
         "gallery": {
           "title": "Galleri før / efter",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Patientportal 24/7",
-          "desc": "Dine patienter har adgang til deres samtykker, fotos og journal når som helst."
+          "desc": "Dine patienter har adgang til deres samtykker, fotos og journal når som helst og hvor som helst."
         },
         "whatsapp": {
           "title": "WhatsApp-agent med AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Stemmeagent med AI",
           "desc": "Besvarer opkald og booker aftaler telefonisk automatisk ved at klone stemmen fra din reception."
+        },
+        "budget": {
+          "title": "Tilbud til patienter",
+          "desc": "Opret og send skræddersyede tilbud til dine patienter hurtigt og professionelt."
+        },
+        "image_auth": {
+          "title": "Registrering af billedtilladelse",
+          "desc": "Registrer patientens samtykke til brug af deres fotos, med samme juridiske gyldighed og sporbarhed som øvrige samtykker."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Opret din klinik",
       "step1_desc": "Konfigurer dit team, behandlinger og samtykkeskabeloner på få minutter.",
       "step2_title": "Inviter dine patienter",
-      "step2_desc": "Send underskriftslinket via e-mail eller WhatsApp — de underskriver fra mobilen med Magic Link.",
+      "step2_desc": "De underskriver samtykkerne på klinikken og modtager på e-mail deres underskrevne samtykke sammen med adgang til deres portal via Magic Link.",
       "step3_title": "Alt bliver registreret",
       "step3_desc": "Samtykker, fotos og journal arkiveret sikkert og med juridisk gyldighed."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Gyldige digitale samtykker · Sundhedsloven · GDPR",
       "rights": "Alle rettigheder forbeholdes."
+    },
+    "compliance": {
+      "title": "Elektronisk underskrift med juridisk gyldighed",
+      "subtitle": "Hvert samtykke underskrevet i ConsentsPro overholder eIDAS-forordningen (EU) nr. 910/2014 om elektronisk identifikation og tillidstjenester.",
+      "items": {
+        "biometric": {
+          "title": "Biometrisk underskrift af pennestrøg",
+          "desc": "Vi registrerer hvert punkt i strøget ved underskrift: koordinater, præcist tidspunkt og tryk fra finger eller pen, for at verificere ægtheden af underskriften."
+        },
+        "timestamp": {
+          "title": "Certificeret tidsstempel",
+          "desc": "Hver underskrift er knyttet til den præcise dato og tid certificeret af vores server, ikke af underskriverens enhed."
+        },
+        "device": {
+          "title": "Digitalt enhedsaftryk",
+          "desc": "Vi registrerer IP-adressen og den enhed eller browser, der blev brugt til at underskrive, som yderligere identitetsbevis."
+        },
+        "hash": {
+          "title": "Digitalt dokumentaftryk",
+          "desc": "Vi genererer et unikt kryptografisk hash for hver underskrift, der gør det muligt at opdage enhver efterfølgende ændring af dokumentet."
+        },
+        "audit": {
+          "title": "Revisionsspor",
+          "desc": "Hver underskrift gemmes i et uforanderligt revisionsspor med den fulde historik for underskriftsprocessen."
+        },
+        "doctor": {
+          "title": "Fælles underskrift læge-patient",
+          "desc": "Sundhedspersonalet underskriver sammen med patienten, hvilket dokumenterer begge parters deltagelse i samme dokument."
+        }
+      }
     }
   }
 }
