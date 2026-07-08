@@ -1367,6 +1367,46 @@
         }
       }
     },
+    "social": {
+      "badge": "Plan Redes",
+      "title": "Gestión integral de redes sociales",
+      "subtitle": "Deja Instagram y Facebook en manos de un equipo dedicado a hacer crecer tu clínica, de la creatividad a la conversión.",
+      "items": {
+        "management": {
+          "title": "Gestión de Instagram y Facebook",
+          "desc": "Publicaciones, calendario de contenido y una presencia de marca cuidada al detalle en tus redes."
+        },
+        "creatives": {
+          "title": "Creatividades, edición y maquetación",
+          "desc": "Piezas visuales profesionales diseñadas a medida para cada campaña y cada red social."
+        },
+        "campaigns": {
+          "title": "Campañas Meta a medida",
+          "desc": "Configuración, segmentación y optimización continua de tus campañas de Instagram y Facebook Ads."
+        },
+        "leads": {
+          "title": "Captación y seguimiento de leads",
+          "desc": "Gestionamos de principio a fin cada contacto de un cliente interesado, sin que se te escape ninguno."
+        },
+        "strategy": {
+          "title": "Estudio y estrategia de conversión",
+          "desc": "Análisis de mercado, asesoramiento y optimización constante para convertir el interés en pacientes reales."
+        },
+        "tracking": {
+          "title": "Seguimiento diario y estadísticas",
+          "desc": "Supervisamos tus campañas cada día y te mostramos resultados claros y medibles."
+        },
+        "community": {
+          "title": "Community manager dedicado",
+          "desc": "Un profesional exclusivo para tu clínica, siempre al tanto de tu marca y tus objetivos."
+        },
+        "meetings": {
+          "title": "Reunión semanal por videollamada",
+          "desc": "Seguimiento cercano cada semana para revisar resultados y ajustar la estrategia contigo."
+        }
+      },
+      "cta": "Descubre el Plan Redes"
+    },
     "how": {
       "title": "Así de fácil",
       "subtitle": "Tu clínica operativa en tres pasos",

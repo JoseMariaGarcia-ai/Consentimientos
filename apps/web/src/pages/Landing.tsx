@@ -5,7 +5,7 @@ import {
   Smartphone, MessageCircle, Mic, ShieldCheck, ArrowRight,
   Menu, X, Check, Receipt, ImageOff, Tablet,
   Clock, MonitorSmartphone, Hash, ListChecks, UserCheck,
-  ChevronDown,
+  ChevronDown, Instagram, Palette, Target, UserPlus, TrendingUp, BarChart3, Users, Video,
 } from 'lucide-react'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { PLANS, PLAN_KEY } from './Recharge'
@@ -15,6 +15,9 @@ const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'g
 
 const COMPLIANCE_ICONS = [Fingerprint, Clock, MonitorSmartphone, Hash, ListChecks, UserCheck]
 const COMPLIANCE_KEYS = ['biometric', 'timestamp', 'device', 'hash', 'audit', 'doctor']
+
+const SOCIAL_ICONS = [Instagram, Palette, Target, UserPlus, TrendingUp, BarChart3, Users, Video]
+const SOCIAL_KEYS = ['management', 'creatives', 'campaigns', 'leads', 'strategy', 'tracking', 'community', 'meetings']
 
 const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10']
 
@@ -152,6 +155,48 @@ function Features() {
             </div>
           )
         })}
+      </div>
+    </section>
+  )
+}
+
+function SocialMedia() {
+  const { t } = useTranslation()
+  return (
+    <section className="relative overflow-hidden bg-[#3B0B25]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(201,162,39,0.14),transparent_45%),radial-gradient(circle_at_85%_90%,rgba(131,24,67,0.7),transparent_55%)]" />
+      <div className="relative max-w-6xl mx-auto px-5 py-20">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block bg-white/10 text-brand-gold text-xs font-semibold tracking-wide uppercase px-3.5 py-1.5 rounded-full border border-white/10 mb-4">
+            {t('landing.social.badge')}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">{t('landing.social.title')}</h2>
+          <p className="text-white/70 mt-3">{t('landing.social.subtitle')}</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {SOCIAL_KEYS.map((key, i) => {
+            const Icon = SOCIAL_ICONS[i]
+            return (
+              <div key={key} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-brand-gold/15 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-brand-gold" />
+                </div>
+                <h3 className="font-bold text-white">{t(`landing.social.items.${key}.title`)}</h3>
+                <p className="text-sm text-white/60 mt-2 leading-relaxed">{t(`landing.social.items.${key}.desc`)}</p>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2 bg-brand-gold hover:brightness-110 text-[#1C1408] font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-black/20"
+          >
+            {t('landing.social.cta')} <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   )
@@ -379,6 +424,7 @@ export default function Landing() {
       <Hero />
       <Stats />
       <Features />
+      <SocialMedia />
       <HowItWorks />
       <Compliance />
       <Pricing />
