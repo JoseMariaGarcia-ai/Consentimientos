@@ -1262,7 +1262,7 @@
       "access": "Kirjaudu sisään"
     },
     "hero": {
-      "badge": "Ohjelmisto estetiikkalääketieteen klinikoille",
+      "badge": "Ohjelmisto estetiikkaklinikoille ja -keskuksille",
       "title_line1": "Tietoon perustuvat suostumukset",
       "title_highlight": "100 % digitaalisina",
       "subtitle": "Biometrinen allekirjoitus, potilaskertomus, ajanvaraus ja tekoälyagentit yhdellä alustalla. Taattu lainmukaisuus — potilaslaki, eIDAS ja GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Kaikki, mitä klinikkasi tarvitsee",
-      "subtitle": "Kattava alusta estetiikkalääketieteen klinikoille",
+      "subtitle": "Kattava alusta esteettisille klinikoille ja keskuksille",
       "items": {
         "signature": {
           "title": "Biometrinen allekirjoitus + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Aikataulujen, hoitojen ja saatavuuden hallinta ilman kitkaa."
         },
         "toxin": {
-          "title": "Botuliinitoksiinin seuranta",
-          "desc": "Täysi jäljitettävyys erille ja potilaskohtaisesti käytetyille yksiköille."
+          "title": "Botuliinitoksiinin hallinta — 100 % lainmukainen",
+          "desc": "Täysi jäljitettävyys erille ja potilaskohtaisesti käytetyille yksiköille, voimassa olevien säädösten mukaisesti."
         },
         "gallery": {
           "title": "Ennen / jälkeen -galleria",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Potilasportaali ympäri vuorokauden",
-          "desc": "Potilaasi pääsevät käsiksi suostumuksiinsa, kuviinsa ja potilaskertomukseensa milloin tahansa."
+          "desc": "Potilaasi pääsevät käsiksi suostumuksiinsa, kuviinsa ja potilaskertomukseensa milloin ja mistä tahansa."
         },
         "whatsapp": {
           "title": "Tekoälypohjainen WhatsApp-agentti",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Tekoälypohjainen puheagentti",
           "desc": "Vastaa puheluihin ja varaa aikoja puhelimitse automaattisesti kloonaamalla vastaanottosi äänen."
+        },
+        "budget": {
+          "title": "Tarjoukset potilaille",
+          "desc": "Luo ja lähetä räätälöityjä tarjouksia potilaillesi nopeasti ja ammattimaisesti."
+        },
+        "image_auth": {
+          "title": "Kuvien käyttöluvan rekisteri",
+          "desc": "Kirjaa potilaan suostumus heidän kuviensa käyttöön, samalla oikeudellisella pätevyydellä ja jäljitettävyydellä kuin muutkin suostumukset."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Rekisteröi klinikkasi",
       "step1_desc": "Määritä tiimisi, hoitosi ja suostumusmallit muutamassa minuutissa.",
       "step2_title": "Kutsu potilaasi",
-      "step2_desc": "Lähetä allekirjoituslinkki sähköpostitse tai WhatsAppilla — he allekirjoittavat puhelimella Magic Linkin avulla.",
+      "step2_desc": "He allekirjoittavat suostumukset klinikalla ja saavat sähköpostitse allekirjoitetun suostumuksensa sekä pääsyn potilasportaaliinsa Magic Linkin kautta.",
       "step3_title": "Kaikki tallentuu",
       "step3_desc": "Suostumukset, kuvat ja potilaskertomus arkistoituna turvallisesti ja oikeudellisesti pätevästi."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Kelvolliset digitaaliset suostumukset · Potilaslaki · GDPR",
       "rights": "Kaikki oikeudet pidätetään."
+    },
+    "compliance": {
+      "title": "Oikeudellisesti pätevä sähköinen allekirjoitus",
+      "subtitle": "Jokainen ConsentsPro-palvelussa allekirjoitettu suostumus täyttää eIDAS-asetuksen (EU) N:o 910/2014 vaatimukset sähköisestä tunnistamisesta ja luottamuspalveluista.",
+      "items": {
+        "biometric": {
+          "title": "Allekirjoituksen biometrinen jälki",
+          "desc": "Tallennamme jokaisen pisteen allekirjoituksen aikana: koordinaatit, tarkan ajan sekä sormen tai kynän paineen, jotta voimme varmistaa allekirjoituksen aitouden."
+        },
+        "timestamp": {
+          "title": "Sertifioitu aikaleima",
+          "desc": "Jokainen allekirjoitus liitetään palvelimemme sertifioimaan tarkkaan päivämäärään ja kellonaikaan, ei allekirjoittajan laitteeseen."
+        },
+        "device": {
+          "title": "Laitteen digitaalinen sormenjälki",
+          "desc": "Tallennamme allekirjoittamiseen käytetyn IP-osoitteen ja laitteen tai selaimen lisätodisteena henkilöllisyydestä."
+        },
+        "hash": {
+          "title": "Asiakirjan digitaalinen sormenjälki",
+          "desc": "Luomme jokaiselle allekirjoitukselle yksilöllisen kryptografisen tarkisteen, jonka avulla asiakirjan myöhemmät muutokset voidaan havaita."
+        },
+        "audit": {
+          "title": "Tapahtumaloki",
+          "desc": "Jokainen allekirjoitus tallennetaan muuttumattomaan tapahtumalokiin, joka sisältää koko allekirjoitusprosessin historian."
+        },
+        "doctor": {
+          "title": "Lääkärin ja potilaan yhteinen allekirjoitus",
+          "desc": "Terveydenhuollon ammattilainen allekirjoittaa yhdessä potilaan kanssa, jolloin molempien osapuolten osallistuminen kirjataan samaan asiakirjaan."
+        }
+      }
     }
   }
 }

@@ -1262,7 +1262,7 @@
       "access": "Accedir"
     },
     "hero": {
-      "badge": "Programari per a clíniques de medicina estètica",
+      "badge": "Programari per a clíniques i centres estètics",
       "title_line1": "Consentiments informats",
       "title_highlight": "100 % digitals",
       "subtitle": "Signatura biomètrica, historial clínic, agenda i agents d'IA en una sola plataforma. Compliment legal garantit — Llei 41/2002, eIDAS i RGPD.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Tot el que la teva clínica necessita",
-      "subtitle": "Una plataforma completa pensada per a clíniques de medicina estètica",
+      "subtitle": "Una plataforma completa pensada per a clíniques i centres estètics",
       "items": {
         "signature": {
           "title": "Signatura biomètrica + Magic Link",

@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Alt klinikken din trenger",
-      "subtitle": "En komplett plattform bygget for klinikker for estetisk medisin",
+      "subtitle": "En komplett plattform bygget for estetiske klinikker og sentre",
       "items": {
         "signature": {
           "title": "Biometrisk signatur + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Håndtering av timeplaner, behandlinger og tilgjengelighet uten friksjon."
         },
         "toxin": {
-          "title": "Sporing av botulinumtoksin",
-          "desc": "Full sporbarhet av batcher og enheter brukt per pasient og økt."
+          "title": "Botulinumtoksin-kontroll — 100 % lovlig",
+          "desc": "Full sporbarhet av batcher og enheter brukt per pasient og økt, i samsvar med gjeldende regelverk."
         },
         "gallery": {
           "title": "Galleri før / etter",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Pasientportal døgnet rundt",
-          "desc": "Pasientene dine har tilgang til sine samtykker, bilder og journal når som helst."
+          "desc": "Pasientene dine har tilgang til sine samtykker, bilder og journal når som helst og hvor som helst."
         },
         "whatsapp": {
           "title": "WhatsApp-agent med AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Taleagent med AI",
           "desc": "Svarer på anrop og bestiller timer per telefon automatisk, med en klonet stemme fra resepsjonen din."
+        },
+        "budget": {
+          "title": "Tilbud til pasienter",
+          "desc": "Opprett og send skreddersydde tilbud til pasientene dine raskt og profesjonelt."
+        },
+        "image_auth": {
+          "title": "Registrering av bildetillatelse",
+          "desc": "Registrer pasientens samtykke til bruk av bildene sine, med samme juridiske gyldighet og sporbarhet som øvrige samtykker."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Registrer klinikken din",
       "step1_desc": "Sett opp teamet, behandlingene og samtykkemalene dine på få minutter.",
       "step2_title": "Inviter pasientene dine",
-      "step2_desc": "Send signeringslenken på e-post eller WhatsApp — de signerer fra mobilen med Magic Link.",
+      "step2_desc": "De signerer samtykkene på klinikken og mottar på e-post sitt signerte samtykke sammen med tilgang til portalen sin via Magic Link.",
       "step3_title": "Alt blir registrert",
       "step3_desc": "Samtykker, bilder og journal arkivert sikkert med full juridisk gyldighet."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Gyldige digitale samtykker · Pasientrettighetsloven · GDPR",
       "rights": "Alle rettigheter forbeholdt."
+    },
+    "compliance": {
+      "title": "Elektronisk signatur med juridisk gyldighet",
+      "subtitle": "Hvert samtykke signert i ConsentsPro overholder eIDAS-forordningen (EU) nr. 910/2014 om elektronisk identifikasjon og tillitstjenester.",
+      "items": {
+        "biometric": {
+          "title": "Biometrisk signatur av pennestrøket",
+          "desc": "Vi registrerer hvert punkt i strøket ved signering: koordinater, nøyaktig tidspunkt og trykk fra finger eller penn, for å verifisere at signaturen er ekte."
+        },
+        "timestamp": {
+          "title": "Sertifisert tidsstempel",
+          "desc": "Hver signatur er knyttet til den nøyaktige datoen og tidspunktet sertifisert av vår server, ikke av signeringsenheten."
+        },
+        "device": {
+          "title": "Digitalt enhetsavtrykk",
+          "desc": "Vi registrerer IP-adressen og enheten eller nettleseren som ble brukt til å signere, som ytterligere identitetsbevis."
+        },
+        "hash": {
+          "title": "Digitalt dokumentavtrykk",
+          "desc": "Vi genererer en unik kryptografisk hash for hver signatur, som gjør det mulig å oppdage enhver senere endring av dokumentet."
+        },
+        "audit": {
+          "title": "Revisjonsspor",
+          "desc": "Hver signatur lagres i et uforanderlig revisjonsspor, med den fullstendige historikken til signeringsprosessen."
+        },
+        "doctor": {
+          "title": "Felles signatur lege-pasient",
+          "desc": "Helsepersonellet signerer sammen med pasienten, noe som dokumenterer begge parters deltakelse i det samme dokumentet."
+        }
+      }
     }
   }
 }

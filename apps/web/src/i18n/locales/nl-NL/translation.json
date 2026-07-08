@@ -1262,7 +1262,7 @@
       "access": "Inloggen"
     },
     "hero": {
-      "badge": "Software voor klinieken voor esthetische geneeskunde",
+      "badge": "Software voor esthetische klinieken en centra",
       "title_line1": "Geïnformeerde toestemmingen",
       "title_highlight": "100% digitaal",
       "subtitle": "Biometrische handtekening, medisch dossier, agenda en AI-agenten op één platform. Gegarandeerde wettelijke naleving — WGBO, eIDAS en AVG.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Alles wat uw kliniek nodig heeft",
-      "subtitle": "Een compleet platform ontworpen voor klinieken voor esthetische geneeskunde",
+      "subtitle": "Een compleet platform ontworpen voor esthetische klinieken en centra",
       "items": {
         "signature": {
           "title": "Biometrische handtekening + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Beheer van roosters, behandelingen en beschikbaarheid zonder wrijving."
         },
         "toxin": {
-          "title": "Botulinetoxine-tracking",
-          "desc": "Volledige traceerbaarheid van batches en eenheden toegepast per patiënt en sessie."
+          "title": "Botulinetoxine-controle — 100% wettelijk conform",
+          "desc": "Volledige traceerbaarheid van batches en eenheden toegepast per patiënt en sessie, in overeenstemming met de geldende regelgeving."
         },
         "gallery": {
           "title": "Galerij voor / na",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Patiëntenportaal 24/7",
-          "desc": "Uw patiënten hebben altijd toegang tot hun toestemmingen, foto's en medisch dossier."
+          "desc": "Uw patiënten hebben altijd en overal toegang tot hun toestemmingen, foto's en medisch dossier."
         },
         "whatsapp": {
           "title": "WhatsApp-agent met AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Spraakagent met AI",
           "desc": "Beantwoordt oproepen en boekt telefonisch automatisch afspraken, met een gekloonde stem van uw receptie."
+        },
+        "budget": {
+          "title": "Offertes voor patiënten",
+          "desc": "Maak en verstuur snel en professioneel offertes op maat voor uw patiënten."
+        },
+        "image_auth": {
+          "title": "Registratie van beeldtoestemming",
+          "desc": "Registreer de toestemming van de patiënt voor het gebruik van diens foto's, met dezelfde juridische geldigheid en traceerbaarheid als de overige toestemmingen."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Registreer uw kliniek",
       "step1_desc": "Stel uw team, behandelingen en toestemmingssjablonen in enkele minuten in.",
       "step2_title": "Nodig uw patiënten uit",
-      "step2_desc": "Stuur de ondertekenlink per e-mail of WhatsApp — zij ondertekenen vanaf hun mobiel met Magic Link.",
+      "step2_desc": "Zij ondertekenen de toestemmingen in de kliniek en ontvangen per e-mail hun ondertekende toestemming samen met toegang tot hun portaal via Magic Link.",
       "step3_title": "Alles wordt vastgelegd",
       "step3_desc": "Toestemmingen, foto's en medisch dossier veilig gearchiveerd met volledige juridische geldigheid."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Geldige digitale toestemmingen · WGBO · AVG",
       "rights": "Alle rechten voorbehouden."
+    },
+    "compliance": {
+      "title": "Elektronische handtekening met juridische geldigheid",
+      "subtitle": "Elke in ConsentsPro ondertekende toestemming voldoet aan de eIDAS-verordening (EU) nr. 910/2014 inzake elektronische identificatie en vertrouwensdiensten.",
+      "items": {
+        "biometric": {
+          "title": "Biometrische handtekening van de streek",
+          "desc": "We leggen elk punt van de streek vast tijdens het ondertekenen: coördinaten, exacte tijd en druk van vinger of pen, om de authenticiteit van de handtekening te verifiëren."
+        },
+        "timestamp": {
+          "title": "Gecertificeerd tijdstempel",
+          "desc": "Elke handtekening is gekoppeld aan de exacte datum en tijd, gecertificeerd door onze server, niet door het apparaat van de ondertekenaar."
+        },
+        "device": {
+          "title": "Digitale vingerafdruk van het apparaat",
+          "desc": "We registreren het IP-adres en het apparaat of de browser die gebruikt zijn om te ondertekenen, als aanvullend identiteitsbewijs."
+        },
+        "hash": {
+          "title": "Digitale vingerafdruk van het document",
+          "desc": "We genereren een unieke cryptografische hash voor elke handtekening, waarmee elke latere wijziging van het document kan worden opgespoord."
+        },
+        "audit": {
+          "title": "Auditlogboek",
+          "desc": "Elke handtekening wordt opgeslagen in een onveranderlijk auditlogboek, met de volledige geschiedenis van het ondertekeningsproces."
+        },
+        "doctor": {
+          "title": "Gezamenlijke handtekening arts-patiënt",
+          "desc": "De zorgverlener ondertekent samen met de patiënt, waardoor de betrokkenheid van beide partijen op hetzelfde document wordt vastgelegd."
+        }
+      }
     }
   }
 }

@@ -1242,7 +1242,7 @@
       "access": "Iniciar sesión"
     },
     "hero": {
-      "badge": "Software para clínicas de medicina estética",
+      "badge": "Software para clínicas y centros estéticos",
       "title_line1": "Consentimientos informados",
       "title_highlight": "100 % digitales",
       "subtitle": "Firma biométrica, expediente clínico, agenda y agentes de IA en una sola plataforma. Cumplimiento legal garantizado — NOM-012-SSA3, eIDAS y LFPDPPP.",
@@ -1264,7 +1264,7 @@
     },
     "features": {
       "title": "Todo lo que tu clínica necesita",
-      "subtitle": "Una plataforma completa pensada para clínicas de medicina estética",
+      "subtitle": "Una plataforma completa pensada para clínicas y centros estéticos",
       "items": {
         "signature": {
           "title": "Firma biométrica + Magic Link",

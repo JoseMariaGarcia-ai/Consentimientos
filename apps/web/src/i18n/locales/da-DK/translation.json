@@ -1262,7 +1262,7 @@
       "access": "Log ind"
     },
     "hero": {
-      "badge": "Software til klinikker for æstetisk medicin",
+      "badge": "Software til æstetiske klinikker og centre",
       "title_line1": "Informerede samtykker",
       "title_highlight": "100 % digitale",
       "subtitle": "Biometrisk underskrift, journal, kalender og AI-agenter på én platform. Garanteret lovoverholdelse — Sundhedsloven, eIDAS og GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Alt din klinik har brug for",
-      "subtitle": "En komplet platform designet til klinikker for æstetisk medicin",
+      "subtitle": "En komplet platform designet til æstetiske klinikker og centre",
       "items": {
         "signature": {
           "title": "Biometrisk underskrift + Magic Link",

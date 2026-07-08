@@ -1262,7 +1262,7 @@
       "access": "Přihlásit se"
     },
     "hero": {
-      "badge": "Software pro kliniky estetické medicíny",
+      "badge": "Software pro estetické kliniky a centra",
       "title_line1": "Informované souhlasy",
       "title_highlight": "100% digitální",
       "subtitle": "Biometrický podpis, zdravotní záznamy, kalendář a AI agenti na jedné platformě. Zaručený soulad s právními předpisy — zákon č. 372/2011 Sb., eIDAS a GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Vše, co vaše klinika potřebuje",
-      "subtitle": "Kompletní platforma navržená pro kliniky estetické medicíny",
+      "subtitle": "Kompletní platforma navržená pro estetické kliniky a centra",
       "items": {
         "signature": {
           "title": "Biometrický podpis + Magic Link",

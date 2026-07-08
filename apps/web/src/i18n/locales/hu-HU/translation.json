@@ -1262,7 +1262,7 @@
       "access": "Bejelentkezés"
     },
     "hero": {
-      "badge": "Szoftver esztétikai orvosi klinikák számára",
+      "badge": "Szoftver esztétikai klinikák és központok számára",
       "title_line1": "Tájékozott beleegyezések",
       "title_highlight": "100%-ban digitálisan",
       "subtitle": "Biometrikus aláírás, betegdokumentáció, időpontfoglalás és AI ügynökök egyetlen platformon. Garantált jogi megfelelés — 1997. évi CLIV. törvény, eIDAS és GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Minden, amire klinikájának szüksége van",
-      "subtitle": "Teljes körű platform esztétikai orvosi klinikák számára",
+      "subtitle": "Teljes körű platform esztétikai klinikák és központok számára",
       "items": {
         "signature": {
           "title": "Biometrikus aláírás + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Ütemtervek, kezelések és elérhetőség kezelése zökkenőmentesen."
         },
         "toxin": {
-          "title": "Botulinum-toxin nyomon követése",
-          "desc": "Tételek és betegenként, kezelésenként alkalmazott egységek teljes nyomon követhetősége."
+          "title": "Botulinum-toxin ellenőrzés — 100%-ban jogszerű",
+          "desc": "Tételek és betegenként, kezelésenként alkalmazott egységek teljes nyomon követhetősége, a hatályos előírásoknak megfelelően."
         },
         "gallery": {
           "title": "Előtte / utána galéria",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Betegportál éjjel-nappal",
-          "desc": "Betegei bármikor hozzáférhetnek beleegyezéseikhez, fotóikhoz és betegdokumentációjukhoz."
+          "desc": "Betegei bármikor és bárhonnan hozzáférhetnek beleegyezéseikhez, fotóikhoz és betegdokumentációjukhoz."
         },
         "whatsapp": {
           "title": "AI-alapú WhatsApp ügynök",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "AI-alapú hangügynök",
           "desc": "Automatikusan fogadja a hívásokat és telefonon foglal időpontokat, klónozva recepciósa hangját."
+        },
+        "budget": {
+          "title": "Árajánlatok betegeknek",
+          "desc": "Hozzon létre és küldjön testreszabott árajánlatokat betegeinek gyorsan és professzionálisan."
+        },
+        "image_auth": {
+          "title": "Képfelhasználási engedély nyilvántartása",
+          "desc": "Rögzítse a beteg hozzájárulását fotóinak felhasználásához, ugyanolyan jogi érvényességgel és nyomon követhetőséggel, mint a többi beleegyezést."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Regisztrálja klinikáját",
       "step1_desc": "Állítsa be csapatát, kezeléseit és beleegyezési sablonjait percek alatt.",
       "step2_title": "Hívja meg betegeit",
-      "step2_desc": "Küldje el az aláírási linket e-mailben vagy WhatsAppon — a betegek mobilról írják alá Magic Linkkel.",
+      "step2_desc": "A klinikán írják alá a beleegyezéseket, majd e-mailben megkapják aláírt beleegyezésüket a portáljukhoz való hozzáféréssel együtt, Magic Linken keresztül.",
       "step3_title": "Minden rögzítve van",
       "step3_desc": "Beleegyezések, fotók és betegdokumentáció biztonságosan archiválva, teljes jogi érvényességgel."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Érvényes digitális beleegyezések · 1997. évi CLIV. törvény · GDPR",
       "rights": "Minden jog fenntartva."
+    },
+    "compliance": {
+      "title": "Jogilag érvényes elektronikus aláírás",
+      "subtitle": "Minden, a ConsentsPro rendszerben aláírt beleegyezés megfelel az elektronikus azonosításról és bizalmi szolgáltatásokról szóló eIDAS-rendeletnek (EU) 910/2014.",
+      "items": {
+        "biometric": {
+          "title": "Az aláírás vonalvezetésének biometrikus rögzítése",
+          "desc": "Aláíráskor a vonal minden pontját rögzítjük: koordináták, pontos idő és az ujj vagy toll nyomása, hogy ellenőrizhessük az aláírás valódiságát."
+        },
+        "timestamp": {
+          "title": "Hitelesített időbélyeg",
+          "desc": "Minden aláírás a szerverünk által hitelesített pontos dátumhoz és időponthoz kapcsolódik, nem az aláíró eszközéhez."
+        },
+        "device": {
+          "title": "Eszköz digitális ujjlenyomata",
+          "desc": "Rögzítjük az aláíráshoz használt IP-címet és eszközt vagy böngészőt, további személyazonossági bizonyítékként."
+        },
+        "hash": {
+          "title": "Dokumentum digitális ujjlenyomata",
+          "desc": "Minden aláíráshoz egyedi kriptográfiai hasht generálunk, amely lehetővé teszi a dokumentum bármely későbbi módosításának észlelését."
+        },
+        "audit": {
+          "title": "Naplózási nyomvonal",
+          "desc": "Minden aláírás megváltoztathatatlan naplózási nyomvonalon kerül tárolásra, az aláírási folyamat teljes előzményével."
+        },
+        "doctor": {
+          "title": "Orvos és beteg közös aláírása",
+          "desc": "Az egészségügyi szakember a beteggel együtt írja alá, így mindkét fél részvétele ugyanazon dokumentumon kerül rögzítésre."
+        }
+      }
     }
   }
 }

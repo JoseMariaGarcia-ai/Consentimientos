@@ -1316,7 +1316,7 @@
       "access": "Accedi"
     },
     "hero": {
-      "badge": "Software per cliniche di medicina estetica",
+      "badge": "Software per cliniche e centri estetici",
       "title_line1": "Consensi informati",
       "title_highlight": "100% digitali",
       "subtitle": "Firma biometrica, cartella clinica, agenda e agenti IA in un'unica piattaforma. Conformità legale garantita — L. 219/2017, eIDAS e GDPR.",
@@ -1338,7 +1338,7 @@
     },
     "features": {
       "title": "Tutto ciò di cui la tua clinica ha bisogno",
-      "subtitle": "Una piattaforma completa pensata per cliniche di medicina estetica",
+      "subtitle": "Una piattaforma completa pensata per cliniche e centri estetici",
       "items": {
         "signature": {
           "title": "Firma biometrica + Magic Link",
@@ -1357,8 +1357,8 @@
           "desc": "Gestione di orari, trattamenti e disponibilità senza attriti."
         },
         "toxin": {
-          "title": "Controllo della tossina botulinica",
-          "desc": "Tracciabilità completa di lotti e unità applicate per paziente e sessione."
+          "title": "Controllo della tossina botulinica — 100% legale",
+          "desc": "Tracciabilità completa di lotti e unità applicate per paziente e sessione, in conformità con la normativa vigente."
         },
         "gallery": {
           "title": "Galleria prima / dopo",
@@ -1366,7 +1366,7 @@
         },
         "portal": {
           "title": "Portale del paziente 24/7",
-          "desc": "I tuoi pazienti accedono ai loro consensi, foto e cartella clinica in qualsiasi momento."
+          "desc": "I tuoi pazienti accedono ai loro consensi, foto e cartella clinica in qualsiasi momento e da qualsiasi luogo."
         },
         "whatsapp": {
           "title": "Agente WhatsApp con IA",
@@ -1375,6 +1375,14 @@
         "voice": {
           "title": "Agente vocale con IA",
           "desc": "Risponde alle chiamate e fissa appuntamenti telefonicamente in automatico, clonando la voce della tua reception."
+        },
+        "budget": {
+          "title": "Preventivi per i pazienti",
+          "desc": "Crea e invia preventivi personalizzati ai tuoi pazienti in modo rapido e professionale."
+        },
+        "image_auth": {
+          "title": "Registro di autorizzazione delle immagini",
+          "desc": "Registra il consenso del paziente per l'uso delle sue fotografie, con la stessa validità legale e tracciabilità degli altri consensi."
         }
       }
     },
@@ -1384,7 +1392,7 @@
       "step1_title": "Registra la tua clinica",
       "step1_desc": "Configura il tuo team, i trattamenti e i modelli di consenso in pochi minuti.",
       "step2_title": "Invita i tuoi pazienti",
-      "step2_desc": "Invia il link di firma via email o WhatsApp — firmano dal cellulare con Magic Link.",
+      "step2_desc": "Firmano i consensi in clinica e ricevono via email il proprio consenso firmato insieme all'accesso al portale tramite Magic Link.",
       "step3_title": "Tutto viene registrato",
       "step3_desc": "Consensi, foto e cartella clinica archiviati in modo sicuro e con validità legale."
     },
@@ -1400,6 +1408,36 @@
     "footer": {
       "tagline": "Consensi digitali validi · L. 219/2017 · GDPR",
       "rights": "Tutti i diritti riservati."
+    },
+    "compliance": {
+      "title": "Firma elettronica con validità legale",
+      "subtitle": "Ogni consenso firmato su ConsentsPro è conforme al Regolamento eIDAS (UE) n. 910/2014 in materia di identificazione elettronica e servizi fiduciari.",
+      "items": {
+        "biometric": {
+          "title": "Firma biometrica del tratto",
+          "desc": "Catturiamo ogni punto del tratto durante la firma: coordinate, orario esatto e pressione del dito o della penna, per verificare l'autenticità della firma."
+        },
+        "timestamp": {
+          "title": "Marca temporale certificata",
+          "desc": "Ogni firma è collegata alla data e all'ora esatte certificate dal nostro server, non dal dispositivo del firmatario."
+        },
+        "device": {
+          "title": "Impronta digitale del dispositivo",
+          "desc": "Registriamo l'indirizzo IP e il dispositivo o browser utilizzato per firmare, come prova aggiuntiva di identità."
+        },
+        "hash": {
+          "title": "Impronta digitale del documento",
+          "desc": "Generiamo un hash crittografico univoco per ogni firma, che consente di rilevare qualsiasi modifica successiva del documento."
+        },
+        "audit": {
+          "title": "Registro di controllo",
+          "desc": "Ogni firma viene salvata in un registro di controllo immutabile, con la cronologia completa del processo di firma."
+        },
+        "doctor": {
+          "title": "Firma congiunta medico-paziente",
+          "desc": "Il professionista sanitario firma insieme al paziente, documentando la partecipazione di entrambe le parti sullo stesso documento."
+        }
+      }
     }
   }
 }

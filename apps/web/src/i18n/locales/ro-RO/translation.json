@@ -1262,7 +1262,7 @@
       "access": "Autentificare"
     },
     "hero": {
-      "badge": "Software pentru clinici de medicină estetică",
+      "badge": "Software pentru clinici și centre estetice",
       "title_line1": "Consimțăminte informate",
       "title_highlight": "100% digitale",
       "subtitle": "Semnătură biometrică, fișă medicală, programări și agenți de inteligență artificială într-o singură platformă. Conformitate legală garantată — Legea 95/2006, eIDAS și RGPD.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Tot ce are nevoie clinica dumneavoastră",
-      "subtitle": "O platformă completă concepută pentru clinici de medicină estetică",
+      "subtitle": "O platformă completă concepută pentru clinici și centre estetice",
       "items": {
         "signature": {
           "title": "Semnătură biometrică + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Gestionarea programului, tratamentelor și disponibilității fără dificultăți."
         },
         "toxin": {
-          "title": "Trasabilitatea toxinei botulinice",
-          "desc": "Trasabilitate completă a loturilor și unităților aplicate pe pacient și ședință."
+          "title": "Trasabilitatea toxinei botulinice — 100% conformă",
+          "desc": "Trasabilitate completă a loturilor și unităților aplicate pe pacient și ședință, conform reglementărilor în vigoare."
         },
         "gallery": {
           "title": "Galerie înainte / după",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portal pacient 24/7",
-          "desc": "Pacienții dumneavoastră accesează consimțămintele, fotografiile și fișa medicală în orice moment."
+          "desc": "Pacienții dumneavoastră accesează consimțămintele, fotografiile și fișa medicală în orice moment și din orice loc."
         },
         "whatsapp": {
           "title": "Agent WhatsApp cu inteligență artificială",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agent vocal cu inteligență artificială",
           "desc": "Răspunde la apeluri și programează întâlniri telefonic automat, clonând vocea recepției dumneavoastră."
+        },
+        "budget": {
+          "title": "Oferte pentru pacienți",
+          "desc": "Creați și trimiteți oferte personalizate pacienților dumneavoastră rapid și profesionist."
+        },
+        "image_auth": {
+          "title": "Registru de autorizare a imaginilor",
+          "desc": "Înregistrați consimțământul pacientului pentru utilizarea fotografiilor sale, cu aceeași valabilitate legală și trasabilitate ca celelalte consimțăminte."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Înregistrați-vă clinica",
       "step1_desc": "Configurați echipa, tratamentele și șabloanele de consimțământ în câteva minute.",
       "step2_title": "Invitați-vă pacienții",
-      "step2_desc": "Trimiteți linkul de semnare prin email sau WhatsApp — semnează de pe mobil cu Magic Link.",
+      "step2_desc": "Semnează consimțămintele la clinică și primesc prin email consimțământul semnat împreună cu accesul la portalul lor prin Magic Link.",
       "step3_title": "Totul este înregistrat",
       "step3_desc": "Consimțăminte, fotografii și fișă medicală arhivate în siguranță și cu valabilitate legală."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Consimțăminte digitale valide · Legea 95/2006 · RGPD",
       "rights": "Toate drepturile rezervate."
+    },
+    "compliance": {
+      "title": "Semnătură electronică cu valabilitate legală",
+      "subtitle": "Fiecare consimțământ semnat în ConsentsPro respectă Regulamentul eIDAS (UE) 910/2014 privind identificarea electronică și serviciile de încredere.",
+      "items": {
+        "biometric": {
+          "title": "Semnătură biometrică a traseului",
+          "desc": "Captăm fiecare punct al traseului la semnare: coordonate, ora exactă și presiunea degetului sau a stiloului, pentru a verifica autenticitatea semnăturii."
+        },
+        "timestamp": {
+          "title": "Marcă temporală certificată",
+          "desc": "Fiecare semnătură este asociată cu data și ora exacte certificate de serverul nostru, nu de dispozitivul semnatarului."
+        },
+        "device": {
+          "title": "Amprentă digitală a dispozitivului",
+          "desc": "Înregistrăm adresa IP și dispozitivul sau browserul utilizat pentru semnare, ca dovadă suplimentară de identitate."
+        },
+        "hash": {
+          "title": "Amprentă digitală a documentului",
+          "desc": "Generăm un hash criptografic unic pentru fiecare semnătură, care permite detectarea oricărei modificări ulterioare a documentului."
+        },
+        "audit": {
+          "title": "Jurnal de audit",
+          "desc": "Fiecare semnătură este stocată într-un jurnal de audit imuabil, cu istoricul complet al procesului de semnare."
+        },
+        "doctor": {
+          "title": "Semnătură comună medic-pacient",
+          "desc": "Profesionistul din domeniul sănătății semnează alături de pacient, consemnând participarea ambelor părți în același document."
+        }
+      }
     }
   }
 }

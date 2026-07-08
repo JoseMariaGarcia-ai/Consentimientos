@@ -1262,7 +1262,7 @@
       "access": "Se connecter"
     },
     "hero": {
-      "badge": "Logiciel pour cliniques de médecine esthétique",
+      "badge": "Logiciel pour cliniques et centres esthétiques",
       "title_line1": "Consentements éclairés",
       "title_highlight": "100 % numériques",
       "subtitle": "Signature biométrique, dossier médical, agenda et agents IA sur une seule plateforme. Conformité légale garantie — Loi n° 2002-303, eIDAS et RGPD.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Tout ce dont votre clinique a besoin",
-      "subtitle": "Une plateforme complète conçue pour les cliniques de médecine esthétique",
+      "subtitle": "Une plateforme complète conçue pour les cliniques et centres esthétiques",
       "items": {
         "signature": {
           "title": "Signature biométrique + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Gestion des plannings, des traitements et des disponibilités sans friction."
         },
         "toxin": {
-          "title": "Traçabilité de la toxine botulique",
-          "desc": "Traçabilité complète des lots et unités appliquées par patient et par séance."
+          "title": "Traçabilité de la toxine botulique — 100 % conforme",
+          "desc": "Traçabilité complète des lots et unités appliquées par patient et par séance, conformément à la réglementation en vigueur."
         },
         "gallery": {
           "title": "Galerie avant / après",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portail patient 24 h/24, 7 j/7",
-          "desc": "Vos patients accèdent à leurs consentements, photos et dossier médical à tout moment."
+          "desc": "Vos patients accèdent à leurs consentements, photos et dossier médical à tout moment et depuis n'importe où."
         },
         "whatsapp": {
           "title": "Agent WhatsApp avec IA",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agent vocal avec IA",
           "desc": "Répond aux appels et prend des rendez-vous par téléphone automatiquement, en clonant la voix de votre accueil."
+        },
+        "budget": {
+          "title": "Devis pour les patients",
+          "desc": "Créez et envoyez des devis personnalisés à vos patients rapidement et de manière professionnelle."
+        },
+        "image_auth": {
+          "title": "Registre d'autorisation d'image",
+          "desc": "Enregistrez le consentement du patient pour l'utilisation de ses photos, avec la même validité juridique et la même traçabilité que les autres consentements."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Inscrivez votre clinique",
       "step1_desc": "Configurez votre équipe, vos traitements et vos modèles de consentement en quelques minutes.",
       "step2_title": "Invitez vos patients",
-      "step2_desc": "Envoyez le lien de signature par email ou WhatsApp — ils signent depuis leur mobile avec Magic Link.",
+      "step2_desc": "Ils signent les consentements à la clinique et reçoivent par email leur consentement signé ainsi que l'accès à leur portail via Magic Link.",
       "step3_title": "Tout est enregistré",
       "step3_desc": "Consentements, photos et dossier médical archivés en toute sécurité et avec validité juridique."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Consentements numériques valides · Loi n° 2002-303 · RGPD",
       "rights": "Tous droits réservés."
+    },
+    "compliance": {
+      "title": "Signature électronique à valeur juridique",
+      "subtitle": "Chaque consentement signé sur ConsentsPro respecte le règlement eIDAS (UE) n° 910/2014 relatif à l'identification électronique et aux services de confiance.",
+      "items": {
+        "biometric": {
+          "title": "Signature biométrique du tracé",
+          "desc": "Nous capturons chaque point du tracé lors de la signature : coordonnées, heure exacte et pression du doigt ou du stylet, afin de vérifier l'authenticité de la signature."
+        },
+        "timestamp": {
+          "title": "Horodatage certifié",
+          "desc": "Chaque signature est liée à la date et à l'heure exactes certifiées par notre serveur, et non par l'appareil du signataire."
+        },
+        "device": {
+          "title": "Empreinte numérique de l'appareil",
+          "desc": "Nous enregistrons l'adresse IP et l'appareil ou le navigateur utilisé pour signer, comme preuve d'identité supplémentaire."
+        },
+        "hash": {
+          "title": "Empreinte numérique du document",
+          "desc": "Nous générons un hash cryptographique unique pour chaque signature, permettant de détecter toute modification ultérieure du document."
+        },
+        "audit": {
+          "title": "Piste d'audit",
+          "desc": "Chaque signature est enregistrée dans une piste d'audit infalsifiable, avec l'historique complet du processus de signature."
+        },
+        "doctor": {
+          "title": "Signature conjointe médecin-patient",
+          "desc": "Le professionnel de santé signe aux côtés du patient, ce qui atteste de la participation des deux parties sur le même document."
+        }
+      }
     }
   }
 }

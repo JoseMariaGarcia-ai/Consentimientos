@@ -1262,7 +1262,7 @@
       "access": "Sign in"
     },
     "hero": {
-      "badge": "Software for aesthetic medicine clinics",
+      "badge": "Software for aesthetic clinics and centres",
       "title_line1": "Informed consent forms,",
       "title_highlight": "100% digital",
       "subtitle": "Biometric signature, medical records, scheduling and AI agents in one platform. Guaranteed legal compliance — Mental Capacity Act 2005, eIDAS and UK GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Everything your clinic needs",
-      "subtitle": "A complete platform built for aesthetic medicine clinics",
+      "subtitle": "A complete platform built for aesthetic clinics and centres",
       "items": {
         "signature": {
           "title": "Biometric signature + Magic Link",

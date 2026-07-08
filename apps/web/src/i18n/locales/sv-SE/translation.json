@@ -1262,7 +1262,7 @@
       "access": "Logga in"
     },
     "hero": {
-      "badge": "Programvara för kliniker inom estetisk medicin",
+      "badge": "Programvara för estetiska kliniker och center",
       "title_line1": "Informerade samtycken",
       "title_highlight": "100 % digitala",
       "subtitle": "Biometrisk signatur, patientjournal, bokningskalender och AI-agenter på en plattform. Garanterad regelefterlevnad — patientdatalagen, eIDAS och GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Allt din klinik behöver",
-      "subtitle": "En komplett plattform byggd för kliniker inom estetisk medicin",
+      "subtitle": "En komplett plattform byggd för estetiska kliniker och center",
       "items": {
         "signature": {
           "title": "Biometrisk signatur + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Hantera scheman, behandlingar och tillgänglighet utan friktion."
         },
         "toxin": {
-          "title": "Spårning av botulinumtoxin",
-          "desc": "Full spårbarhet av batcher och enheter som använts per patient och session."
+          "title": "Kontroll av botulinumtoxin — 100 % laglig",
+          "desc": "Full spårbarhet av batcher och enheter som använts per patient och session, i enlighet med gällande regler."
         },
         "gallery": {
           "title": "Galleri före / efter",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Patientportal dygnet runt",
-          "desc": "Dina patienter har tillgång till sina samtycken, foton och journal när som helst."
+          "desc": "Dina patienter har tillgång till sina samtycken, foton och journal när som helst och var som helst."
         },
         "whatsapp": {
           "title": "WhatsApp-agent med AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Röstagent med AI",
           "desc": "Besvarar samtal och bokar tider per telefon automatiskt, med en klonad röst från din reception."
+        },
+        "budget": {
+          "title": "Offerter till patienter",
+          "desc": "Skapa och skicka skräddarsydda offerter till dina patienter snabbt och professionellt."
+        },
+        "image_auth": {
+          "title": "Register för bildtillstånd",
+          "desc": "Registrera patientens samtycke till användning av sina foton, med samma juridiska giltighet och spårbarhet som övriga samtycken."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Registrera din klinik",
       "step1_desc": "Konfigurera ditt team, behandlingar och samtyckesmallar på några minuter.",
       "step2_title": "Bjud in dina patienter",
-      "step2_desc": "Skicka signeringslänken via e-post eller WhatsApp — de signerar från mobilen med Magic Link.",
+      "step2_desc": "De signerar samtyckena på kliniken och får via e-post sitt signerade samtycke tillsammans med åtkomst till sin portal via Magic Link.",
       "step3_title": "Allt registreras",
       "step3_desc": "Samtycken, foton och journal arkiveras säkert med full juridisk giltighet."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Giltiga digitala samtycken · Patientdatalagen · GDPR",
       "rights": "Alla rättigheter förbehållna."
+    },
+    "compliance": {
+      "title": "Elektronisk signatur med juridisk giltighet",
+      "subtitle": "Varje samtycke som signeras i ConsentsPro uppfyller eIDAS-förordningen (EU) nr 910/2014 om elektronisk identifiering och betrodda tjänster.",
+      "items": {
+        "biometric": {
+          "title": "Biometrisk signatur av penndraget",
+          "desc": "Vi registrerar varje punkt i draget vid signering: koordinater, exakt tid och tryck från finger eller penna, för att verifiera att signaturen är äkta."
+        },
+        "timestamp": {
+          "title": "Certifierad tidsstämpel",
+          "desc": "Varje signatur kopplas till det exakta datum och den tid som certifierats av vår server, inte av undertecknarens enhet."
+        },
+        "device": {
+          "title": "Digitalt enhetsavtryck",
+          "desc": "Vi registrerar IP-adressen och enheten eller webbläsaren som användes för att signera, som ytterligare identitetsbevis."
+        },
+        "hash": {
+          "title": "Digitalt dokumentavtryck",
+          "desc": "Vi genererar en unik kryptografisk hash för varje signatur, vilket gör det möjligt att upptäcka eventuella senare ändringar av dokumentet."
+        },
+        "audit": {
+          "title": "Granskningsspår",
+          "desc": "Varje signatur lagras i ett oföränderligt granskningsspår, med den fullständiga historiken för signeringsprocessen."
+        },
+        "doctor": {
+          "title": "Gemensam signatur läkare-patient",
+          "desc": "Vårdpersonalen signerar tillsammans med patienten, vilket dokumenterar bägge parters medverkan i samma dokument."
+        }
+      }
     }
   }
 }

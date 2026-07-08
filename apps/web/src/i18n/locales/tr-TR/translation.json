@@ -1262,7 +1262,7 @@
       "access": "Giriş yap"
     },
     "hero": {
-      "badge": "Estetik tıp klinikleri için yazılım",
+      "badge": "Estetik klinikler ve merkezler için yazılım",
       "title_line1": "Aydınlatılmış onam formları",
       "title_highlight": "%100 dijital",
       "subtitle": "Biyometrik imza, hasta dosyası, randevu takvimi ve yapay zeka ajanları tek bir platformda. Garantili yasal uyumluluk — Hasta Hakları Yönetmeliği, eIDAS ve KVKK.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Kliniğinizin ihtiyaç duyduğu her şey",
-      "subtitle": "Estetik tıp klinikleri için tasarlanmış eksiksiz bir platform",
+      "subtitle": "Estetik klinikler ve merkezler için tasarlanmış eksiksiz bir platform",
       "items": {
         "signature": {
           "title": "Biyometrik imza + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Programların, tedavilerin ve uygunluğun sorunsuz yönetimi."
         },
         "toxin": {
-          "title": "Botulinum toksini takibi",
-          "desc": "Hasta ve seans başına uygulanan parti ve ünitelerin tam izlenebilirliği."
+          "title": "Botulinum toksini takibi — %100 yasal uyumlu",
+          "desc": "Hasta ve seans başına uygulanan parti ve ünitelerin, yürürlükteki mevzuata uygun tam izlenebilirliği."
         },
         "gallery": {
           "title": "Önce / sonra galerisi",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "7/24 hasta portalı",
-          "desc": "Hastalarınız onam formlarına, fotoğraflarına ve hasta dosyalarına her an erişebilir."
+          "desc": "Hastalarınız onam formlarına, fotoğraflarına ve hasta dosyalarına her an ve her yerden erişebilir."
         },
         "whatsapp": {
           "title": "Yapay zekalı WhatsApp ajanı",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Yapay zekalı sesli ajan",
           "desc": "Resepsiyonunuzun sesini klonlayarak çağrıları otomatik yanıtlar ve telefonla randevu alır."
+        },
+        "budget": {
+          "title": "Hastalar için fiyat teklifleri",
+          "desc": "Hastalarınız için hızlı ve profesyonel bir şekilde özel fiyat teklifleri oluşturun ve gönderin."
+        },
+        "image_auth": {
+          "title": "Görsel kullanım izni kaydı",
+          "desc": "Hastanın fotoğraflarının kullanımına ilişkin onayını, diğer onam formlarıyla aynı yasal geçerlilik ve izlenebilirlikle kaydedin."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Kliniğinizi kaydedin",
       "step1_desc": "Ekibinizi, tedavilerinizi ve onam şablonlarınızı dakikalar içinde yapılandırın.",
       "step2_title": "Hastalarınızı davet edin",
-      "step2_desc": "İmza bağlantısını e-posta veya WhatsApp ile gönderin — Magic Link ile telefonlarından imzalarlar.",
+      "step2_desc": "Onam formlarını klinikte imzalarlar ve Magic Link ile portal erişim bilgileriyle birlikte imzalanmış onamlarını e-posta yoluyla alırlar.",
       "step3_title": "Her şey kaydedilir",
       "step3_desc": "Onam formları, fotoğraflar ve hasta dosyaları yasal geçerlilikle güvenli şekilde arşivlenir."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Geçerli dijital onaylar · Hasta Hakları Yönetmeliği · KVKK",
       "rights": "Tüm hakları saklıdır."
+    },
+    "compliance": {
+      "title": "Yasal geçerliliğe sahip elektronik imza",
+      "subtitle": "ConsentsPro'da imzalanan her onam, elektronik kimlik doğrulama ve güven hizmetlerine ilişkin eIDAS Yönetmeliği'ne (AB) 910/2014 uygundur.",
+      "items": {
+        "biometric": {
+          "title": "İmza çizgisinin biyometrik kaydı",
+          "desc": "İmzalama sırasında çizginin her noktasını kaydederiz: koordinatlar, tam zaman ve parmak veya kalemin basıncı, imzanın gerçekliğini doğrulamak için."
+        },
+        "timestamp": {
+          "title": "Onaylı zaman damgası",
+          "desc": "Her imza, imzalayanın cihazı tarafından değil, sunucumuz tarafından onaylanan kesin tarih ve saatle ilişkilendirilir."
+        },
+        "device": {
+          "title": "Cihaz dijital parmak izi",
+          "desc": "İmzalamak için kullanılan IP adresini ve cihazı veya tarayıcıyı ek kimlik kanıtı olarak kaydederiz."
+        },
+        "hash": {
+          "title": "Belge dijital parmak izi",
+          "desc": "Her imza için, belgede sonradan yapılan herhangi bir değişikliğin tespit edilmesini sağlayan benzersiz bir kriptografik hash oluştururuz."
+        },
+        "audit": {
+          "title": "Denetim kaydı",
+          "desc": "Her imza, imzalama sürecinin tam geçmişiyle birlikte değiştirilemez bir denetim kaydında saklanır."
+        },
+        "doctor": {
+          "title": "Doktor-hasta ortak imzası",
+          "desc": "Sağlık uzmanı, hastayla birlikte imzalayarak her iki tarafın katılımını aynı belgede kayıt altına alır."
+        }
+      }
     }
   }
 }

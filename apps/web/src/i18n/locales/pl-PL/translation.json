@@ -1262,7 +1262,7 @@
       "access": "Zaloguj się"
     },
     "hero": {
-      "badge": "Oprogramowanie dla klinik medycyny estetycznej",
+      "badge": "Oprogramowanie dla klinik i centrów estetycznych",
       "title_line1": "Świadome zgody",
       "title_highlight": "w 100% cyfrowe",
       "subtitle": "Podpis biometryczny, dokumentacja medyczna, harmonogram wizyt i agenci AI na jednej platformie. Gwarantowana zgodność z prawem — ustawa o prawach pacjenta, eIDAS i RODO.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Wszystko, czego potrzebuje Twoja klinika",
-      "subtitle": "Kompletna platforma stworzona dla klinik medycyny estetycznej",
+      "subtitle": "Kompletna platforma stworzona dla klinik i centrów estetycznych",
       "items": {
         "signature": {
           "title": "Podpis biometryczny + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Zarządzanie grafikami, zabiegami i dostępnością bez tarć."
         },
         "toxin": {
-          "title": "Kontrola toksyny botulinowej",
-          "desc": "Pełna identyfikowalność partii i jednostek zastosowanych na pacjenta i sesję."
+          "title": "Kontrola toksyny botulinowej — 100% zgodna z prawem",
+          "desc": "Pełna identyfikowalność partii i jednostek zastosowanych na pacjenta i sesję, zgodnie z obowiązującymi przepisami."
         },
         "gallery": {
           "title": "Galeria przed / po",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portal pacjenta 24/7",
-          "desc": "Twoi pacjenci mają dostęp do swoich zgód, zdjęć i dokumentacji medycznej o każdej porze."
+          "desc": "Twoi pacjenci mają dostęp do swoich zgód, zdjęć i dokumentacji medycznej o każdej porze i z dowolnego miejsca."
         },
         "whatsapp": {
           "title": "Agent WhatsApp z AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agent głosowy z AI",
           "desc": "Automatycznie odbiera połączenia i umawia wizyty telefonicznie, klonując głos Twojej recepcji."
+        },
+        "budget": {
+          "title": "Wyceny dla pacjentów",
+          "desc": "Twórz i wysyłaj spersonalizowane wyceny dla swoich pacjentów szybko i profesjonalnie."
+        },
+        "image_auth": {
+          "title": "Rejestr zgody na wykorzystanie wizerunku",
+          "desc": "Zarejestruj zgodę pacjenta na wykorzystanie jego zdjęć, z taką samą mocą prawną i identyfikowalnością jak pozostałe zgody."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Zarejestruj swoją klinikę",
       "step1_desc": "Skonfiguruj zespół, zabiegi i szablony zgód w kilka minut.",
       "step2_title": "Zaproś swoich pacjentów",
-      "step2_desc": "Wyślij link do podpisu e-mailem lub przez WhatsApp — podpisują się z telefonu za pomocą Magic Link.",
+      "step2_desc": "Podpisują zgody w klinice i otrzymują e-mailem podpisaną zgodę wraz z dostępem do swojego portalu za pomocą Magic Link.",
       "step3_title": "Wszystko zostaje zarejestrowane",
       "step3_desc": "Zgody, zdjęcia i dokumentacja medyczna bezpiecznie zarchiwizowane z pełną mocą prawną."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Ważne zgody cyfrowe · Ustawa o prawach pacjenta · RODO",
       "rights": "Wszelkie prawa zastrzeżone."
+    },
+    "compliance": {
+      "title": "Podpis elektroniczny o mocy prawnej",
+      "subtitle": "Każda zgoda podpisana w ConsentsPro jest zgodna z rozporządzeniem eIDAS (UE) nr 910/2014 w sprawie identyfikacji elektronicznej i usług zaufania.",
+      "items": {
+        "biometric": {
+          "title": "Biometryczny zapis podpisu",
+          "desc": "Rejestrujemy każdy punkt kreski podczas podpisywania: współrzędne, dokładny czas oraz nacisk palca lub rysika, aby zweryfikować autentyczność podpisu."
+        },
+        "timestamp": {
+          "title": "Certyfikowany znacznik czasu",
+          "desc": "Każdy podpis jest powiązany z dokładną datą i godziną certyfikowaną przez nasz serwer, a nie przez urządzenie podpisującego."
+        },
+        "device": {
+          "title": "Cyfrowy odcisk urządzenia",
+          "desc": "Rejestrujemy adres IP oraz urządzenie lub przeglądarkę użytą do podpisania, jako dodatkowy dowód tożsamości."
+        },
+        "hash": {
+          "title": "Cyfrowy odcisk dokumentu",
+          "desc": "Generujemy unikalny skrót kryptograficzny (hash) dla każdego podpisu, co pozwala wykryć każdą późniejszą zmianę dokumentu."
+        },
+        "audit": {
+          "title": "Rejestr audytowy",
+          "desc": "Każdy podpis jest zapisywany w niezmiennym rejestrze audytowym, z pełną historią procesu podpisywania."
+        },
+        "doctor": {
+          "title": "Wspólny podpis lekarza i pacjenta",
+          "desc": "Pracownik służby zdrowia podpisuje razem z pacjentem, dokumentując udział obu stron w tym samym dokumencie."
+        }
+      }
     }
   }
 }

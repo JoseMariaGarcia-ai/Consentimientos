@@ -1262,7 +1262,7 @@
       "access": "Entrar"
     },
     "hero": {
-      "badge": "Software para clínicas de medicina estética",
+      "badge": "Software para clínicas e centros estéticos",
       "title_line1": "Consentimentos informados",
       "title_highlight": "100% digitais",
       "subtitle": "Assinatura biométrica, processo clínico, agenda e agentes de IA numa só plataforma. Conformidade legal garantida — Lei 15/2014, eIDAS e RGPD.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Tudo o que a sua clínica precisa",
-      "subtitle": "Uma plataforma completa pensada para clínicas de medicina estética",
+      "subtitle": "Uma plataforma completa pensada para clínicas e centros estéticos",
       "items": {
         "signature": {
           "title": "Assinatura biométrica + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Gestão de horários, tratamentos e disponibilidade sem fricções."
         },
         "toxin": {
-          "title": "Controlo de toxina botulínica",
-          "desc": "Rastreabilidade completa de lotes e unidades aplicadas por doente e sessão."
+          "title": "Controlo de toxina botulínica — 100% legal",
+          "desc": "Rastreabilidade completa de lotes e unidades aplicadas por doente e sessão, em conformidade com a regulamentação em vigor."
         },
         "gallery": {
           "title": "Galeria antes / depois",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Portal do doente 24/7",
-          "desc": "Os seus doentes acedem aos seus consentimentos, fotografias e processo clínico a qualquer momento."
+          "desc": "Os seus doentes acedem aos seus consentimentos, fotografias e processo clínico a qualquer momento e a partir de qualquer lugar."
         },
         "whatsapp": {
           "title": "Agente de WhatsApp com IA",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Agente de voz com IA",
           "desc": "Atende chamadas e marca consultas por telefone automaticamente, clonando a voz da sua receção."
+        },
+        "budget": {
+          "title": "Orçamentos para doentes",
+          "desc": "Crie e envie orçamentos personalizados aos seus doentes de forma rápida e profissional."
+        },
+        "image_auth": {
+          "title": "Registo de autorização de imagem",
+          "desc": "Registe o consentimento do doente para a utilização das suas fotografias, com a mesma validade legal e rastreabilidade que os restantes consentimentos."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Registe a sua clínica",
       "step1_desc": "Configure a sua equipa, tratamentos e modelos de consentimento em minutos.",
       "step2_title": "Convide os seus doentes",
-      "step2_desc": "Envie a ligação de assinatura por email ou WhatsApp — assinam a partir do telemóvel com Magic Link.",
+      "step2_desc": "Assinam os consentimentos na clínica e recebem por email o seu consentimento assinado juntamente com o acesso ao seu portal através de Magic Link.",
       "step3_title": "Tudo fica registado",
       "step3_desc": "Consentimentos, fotografias e processo clínico arquivados com segurança e validade legal."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Consentimentos digitais válidos · Lei 15/2014 · RGPD",
       "rights": "Todos os direitos reservados."
+    },
+    "compliance": {
+      "title": "Assinatura eletrónica com validade legal",
+      "subtitle": "Cada consentimento assinado no ConsentsPro cumpre o Regulamento eIDAS (UE) 910/2014 relativo à identificação eletrónica e aos serviços de confiança.",
+      "items": {
+        "biometric": {
+          "title": "Assinatura biométrica do traço",
+          "desc": "Capturamos cada ponto do traço ao assinar: coordenadas, hora exata e pressão do dedo ou caneta, para verificar a autenticidade da assinatura."
+        },
+        "timestamp": {
+          "title": "Carimbo de tempo certificado",
+          "desc": "Cada assinatura fica associada à data e hora exatas certificadas pelo nosso servidor, e não pelo dispositivo do signatário."
+        },
+        "device": {
+          "title": "Impressão digital do dispositivo",
+          "desc": "Registamos o endereço IP e o dispositivo ou navegador utilizado para assinar, como prova adicional de identidade."
+        },
+        "hash": {
+          "title": "Impressão digital do documento",
+          "desc": "Geramos um hash criptográfico único para cada assinatura, que permite detetar qualquer alteração posterior do documento."
+        },
+        "audit": {
+          "title": "Registo de auditoria",
+          "desc": "Cada assinatura fica guardada num registo de auditoria inalterável, com o histórico completo do processo de assinatura."
+        },
+        "doctor": {
+          "title": "Assinatura conjunta médico-doente",
+          "desc": "O profissional de saúde assina juntamente com o doente, ficando registada a participação de ambas as partes no mesmo documento."
+        }
+      }
     }
   }
 }

@@ -1262,7 +1262,7 @@
       "access": "Đăng nhập"
     },
     "hero": {
-      "badge": "Phần mềm cho các phòng khám y học thẩm mỹ",
+      "badge": "Phần mềm cho các phòng khám và trung tâm thẩm mỹ",
       "title_line1": "Bản chấp thuận có thông tin",
       "title_highlight": "100% kỹ thuật số",
       "subtitle": "Chữ ký sinh trắc học, hồ sơ bệnh án, lịch hẹn và các tác nhân AI trên một nền tảng duy nhất. Đảm bảo tuân thủ pháp lý — Luật Khám bệnh, chữa bệnh, eIDAS và GDPR.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Mọi thứ phòng khám của bạn cần",
-      "subtitle": "Một nền tảng toàn diện được thiết kế cho các phòng khám y học thẩm mỹ",
+      "subtitle": "Một nền tảng toàn diện được thiết kế cho các phòng khám và trung tâm thẩm mỹ",
       "items": {
         "signature": {
           "title": "Chữ ký sinh trắc học + Magic Link",
@@ -1303,8 +1303,8 @@
           "desc": "Quản lý lịch trình, liệu trình và tình trạng sẵn có mà không gặp trở ngại."
         },
         "toxin": {
-          "title": "Kiểm soát độc tố botulinum",
-          "desc": "Truy xuất nguồn gốc đầy đủ lô hàng và đơn vị được áp dụng theo từng bệnh nhân và buổi điều trị."
+          "title": "Kiểm soát độc tố botulinum — 100% tuân thủ pháp luật",
+          "desc": "Truy xuất nguồn gốc đầy đủ lô hàng và đơn vị được áp dụng theo từng bệnh nhân và buổi điều trị, tuân theo các quy định hiện hành."
         },
         "gallery": {
           "title": "Thư viện ảnh trước / sau",
@@ -1312,7 +1312,7 @@
         },
         "portal": {
           "title": "Cổng thông tin bệnh nhân 24/7",
-          "desc": "Bệnh nhân của bạn có thể truy cập các bản chấp thuận, ảnh và hồ sơ bệnh án bất cứ lúc nào."
+          "desc": "Bệnh nhân của bạn có thể truy cập các bản chấp thuận, ảnh và hồ sơ bệnh án bất cứ lúc nào và từ bất cứ đâu."
         },
         "whatsapp": {
           "title": "Tác nhân WhatsApp có AI",
@@ -1321,6 +1321,14 @@
         "voice": {
           "title": "Tác nhân giọng nói có AI",
           "desc": "Tự động trả lời cuộc gọi và đặt lịch hẹn qua điện thoại, nhân bản giọng nói của lễ tân của bạn."
+        },
+        "budget": {
+          "title": "Báo giá cho bệnh nhân",
+          "desc": "Tạo và gửi báo giá tùy chỉnh cho bệnh nhân của bạn một cách nhanh chóng và chuyên nghiệp."
+        },
+        "image_auth": {
+          "title": "Hồ sơ cấp phép sử dụng hình ảnh",
+          "desc": "Ghi lại sự đồng ý của bệnh nhân đối với việc sử dụng hình ảnh của họ, với hiệu lực pháp lý và khả năng truy xuất nguồn gốc tương tự như các bản chấp thuận khác."
         }
       }
     },
@@ -1330,7 +1338,7 @@
       "step1_title": "Đăng ký phòng khám của bạn",
       "step1_desc": "Thiết lập đội ngũ, liệu trình và mẫu chấp thuận của bạn trong vài phút.",
       "step2_title": "Mời bệnh nhân của bạn",
-      "step2_desc": "Gửi liên kết ký qua email hoặc WhatsApp — họ ký từ điện thoại di động bằng Magic Link.",
+      "step2_desc": "Họ ký các bản chấp thuận tại phòng khám và nhận qua email bản chấp thuận đã ký cùng với quyền truy cập vào cổng thông tin của họ qua Magic Link.",
       "step3_title": "Mọi thứ đều được ghi lại",
       "step3_desc": "Các bản chấp thuận, ảnh và hồ sơ bệnh án được lưu trữ an toàn và có hiệu lực pháp lý."
     },
@@ -1346,6 +1354,36 @@
     "footer": {
       "tagline": "Chấp thuận kỹ thuật số hợp lệ · Luật Khám bệnh, chữa bệnh · GDPR",
       "rights": "Bảo lưu mọi quyền."
+    },
+    "compliance": {
+      "title": "Chữ ký điện tử có hiệu lực pháp lý",
+      "subtitle": "Mọi bản chấp thuận được ký trong ConsentsPro đều tuân thủ Quy định eIDAS (EU) 910/2014 về nhận dạng điện tử và dịch vụ tin cậy.",
+      "items": {
+        "biometric": {
+          "title": "Chữ ký sinh trắc học của nét bút",
+          "desc": "Chúng tôi ghi lại mọi điểm của nét bút khi ký: tọa độ, thời gian chính xác và lực ấn của ngón tay hoặc bút, để xác minh chữ ký là xác thực."
+        },
+        "timestamp": {
+          "title": "Dấu thời gian được chứng thực",
+          "desc": "Mỗi chữ ký được liên kết với ngày và giờ chính xác được chứng thực bởi máy chủ của chúng tôi, không phải bởi thiết bị của người ký."
+        },
+        "device": {
+          "title": "Dấu vân tay kỹ thuật số của thiết bị",
+          "desc": "Chúng tôi ghi lại địa chỉ IP và thiết bị hoặc trình duyệt được sử dụng để ký, như một bằng chứng nhận dạng bổ sung."
+        },
+        "hash": {
+          "title": "Dấu vân tay kỹ thuật số của tài liệu",
+          "desc": "Chúng tôi tạo ra một mã băm mật mã duy nhất cho mỗi chữ ký, cho phép phát hiện bất kỳ thay đổi nào sau đó đối với tài liệu."
+        },
+        "audit": {
+          "title": "Nhật ký kiểm tra",
+          "desc": "Mỗi chữ ký được lưu trữ trong một nhật ký kiểm tra không thể thay đổi, với toàn bộ lịch sử của quá trình ký."
+        },
+        "doctor": {
+          "title": "Chữ ký chung của bác sĩ và bệnh nhân",
+          "desc": "Chuyên gia y tế ký cùng với bệnh nhân, ghi lại sự tham gia của cả hai bên trong cùng một tài liệu."
+        }
+      }
     }
   }
 }

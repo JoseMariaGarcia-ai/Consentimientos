@@ -1262,7 +1262,7 @@
       "access": "Anmelden"
     },
     "hero": {
-      "badge": "Software für Kliniken der ästhetischen Medizin",
+      "badge": "Software für ästhetische Kliniken und Zentren",
       "title_line1": "Aufklärungseinwilligungen",
       "title_highlight": "100 % digital",
       "subtitle": "Biometrische Unterschrift, Patientenakte, Terminplanung und KI-Agenten auf einer Plattform. Garantierte Rechtssicherheit — PatRG, eIDAS und DSGVO.",
@@ -1284,7 +1284,7 @@
     },
     "features": {
       "title": "Alles, was Ihre Klinik braucht",
-      "subtitle": "Eine vollständige Plattform für Kliniken der ästhetischen Medizin",
+      "subtitle": "Eine vollständige Plattform für ästhetische Kliniken und Zentren",
       "items": {
         "signature": {
           "title": "Biometrische Unterschrift + Magic Link",
