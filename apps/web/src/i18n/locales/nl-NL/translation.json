@@ -1051,13 +1051,13 @@
         "name": "Basisabonnement",
         "features": [
           "Onbeperkte toestemmingen",
+          "Verzending van toestemmingsformulieren per e-mail",
           "Klinisch dossier",
           "Fotogalerij",
           "Toestemming voor beeldgebruik",
           "Patiëntenportaal",
           "Magic Link + biometrie",
-          "Ondersteuning inbegrepen",
-          "Verzending van toestemmingsformulieren per e-mail"
+          "Ondersteuning inbegrepen"
         ]
       },
       "pro": {

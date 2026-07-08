@@ -1051,13 +1051,13 @@
         "name": "Základní plán",
         "features": [
           "Neomezené informované souhlasy",
+          "Odesílání souhlasů e-mailem",
           "Klinický záznam",
           "Fotogalerie",
           "Souhlas s užitím fotografií",
           "Portál pacienta",
           "Magic Link + biometrie",
-          "Podpora v ceně",
-          "Odesílání souhlasů e-mailem"
+          "Podpora v ceně"
         ]
       },
       "pro": {

@@ -1051,13 +1051,13 @@
         "name": "Peruspaketti",
         "features": [
           "Rajattomat suostumukset",
+          "Suostumusten lähetys sähköpostitse",
           "Potilaskertomus",
           "Valokuvagalleria",
           "Suostumus kuvankäyttöoikeuksiin",
           "Potilasportaali",
           "Magic Link + biometriikka",
-          "Tuki sisältyy",
-          "Suostumusten lähetys sähköpostitse"
+          "Tuki sisältyy"
         ]
       },
       "pro": {

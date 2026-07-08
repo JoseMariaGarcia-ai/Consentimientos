@@ -1051,13 +1051,13 @@
         "name": "Pla Base",
         "features": [
           "Consentiments il·limitats",
+          "Enviament per email dels consentiments",
           "Història clínica",
           "Galeria fotogràfica",
           "Consentiment de cessió d'imatges",
           "Portal pacient",
           "Magic Link + biometria",
-          "Suport inclòs",
-          "Enviament per email dels consentiments"
+          "Suport inclòs"
         ]
       },
       "pro": {

@@ -1051,13 +1051,13 @@
         "name": "Basis-Plan",
         "features": [
           "Unbegrenzte Einwilligungen",
+          "Versand der Einwilligungen per E-Mail",
           "Krankenakte",
           "Fotogalerie",
           "Einwilligung zur Bildnutzung",
           "Patientenportal",
           "Magic Link + Biometrie",
-          "Support inklusive",
-          "Versand der Einwilligungen per E-Mail"
+          "Support inklusive"
         ]
       },
       "pro": {

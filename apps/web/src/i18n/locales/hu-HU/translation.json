@@ -1051,13 +1051,13 @@
         "name": "Alap csomag",
         "features": [
           "Korlátlan beleegyezés",
+          "Beleegyező nyilatkozatok küldése e-mailben",
           "Klinikai napló",
           "Fotógaléria",
           "Képfelhasználási hozzájárulás",
           "Betegportál",
           "Magic Link + biometria",
-          "Támogatás benne foglaltatik",
-          "Beleegyező nyilatkozatok küldése e-mailben"
+          "Támogatás benne foglaltatik"
         ]
       },
       "pro": {

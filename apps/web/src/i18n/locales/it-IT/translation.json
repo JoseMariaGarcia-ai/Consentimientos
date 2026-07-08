@@ -1105,13 +1105,13 @@
         "name": "Piano Base",
         "features": [
           "Consensi illimitati",
+          "Invio dei consensi via email",
           "Cartella clinica",
           "Galleria fotografica",
           "Consenso per la cessione dell'immagine",
           "Portale paziente",
           "Magic Link + biometria",
-          "Supporto incluso",
-          "Invio dei consensi via email"
+          "Supporto incluso"
         ]
       },
       "pro": {

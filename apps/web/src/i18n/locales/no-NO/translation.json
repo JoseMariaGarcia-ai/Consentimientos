@@ -1051,13 +1051,13 @@
         "name": "Grunnplan",
         "features": [
           "Ubegrensede informerte samtykker",
+          "Sending av samtykker via e-post",
           "Klinisk journal",
           "Bildegalleri",
           "Samtykke til bilderettigheter",
           "Pasientportal",
           "Magic Link + biometri",
-          "Support inkludert",
-          "Sending av samtykker via e-post"
+          "Support inkludert"
         ]
       },
       "pro": {

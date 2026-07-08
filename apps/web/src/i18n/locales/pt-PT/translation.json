@@ -1051,13 +1051,13 @@
         "name": "Plano Base",
         "features": [
           "Consentimentos ilimitados",
+          "Envio de consentimentos por email",
           "Historial clínico",
           "Galeria fotográfica",
           "Consentimento de cedência de imagem",
           "Portal do paciente",
           "Magic Link + biometria",
-          "Suporte incluído",
-          "Envio de consentimentos por email"
+          "Suporte incluído"
         ]
       },
       "pro": {

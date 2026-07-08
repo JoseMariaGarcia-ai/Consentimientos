@@ -1031,13 +1031,13 @@
         "name": "Plan Base",
         "features": [
           "Consentimientos ilimitados",
+          "Envío por email de consentimientos",
           "Historia clínica",
           "Galería fotográfica",
           "Consentimiento de cesión de imágenes",
           "Portal paciente",
           "Magic Link + biometría",
-          "Soporte incluido",
-          "Envío por email de consentimientos"
+          "Soporte incluido"
         ]
       },
       "pro": {

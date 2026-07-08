@@ -1051,13 +1051,13 @@
         "name": "Gói Cơ Bản",
         "features": [
           "Đơn chấp thuận không giới hạn",
+          "Gửi phiếu ưng thuận qua email",
           "Hồ sơ bệnh án",
           "Thư viện ảnh",
           "Sự chấp thuận chuyển nhượng hình ảnh",
           "Cổng thông tin bệnh nhân",
           "Magic Link + sinh trắc học",
-          "Hỗ trợ bao gồm",
-          "Gửi phiếu ưng thuận qua email"
+          "Hỗ trợ bao gồm"
         ]
       },
       "pro": {

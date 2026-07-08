@@ -1051,13 +1051,13 @@
         "name": "Plan Podstawowy",
         "features": [
           "Nieograniczone zgody",
+          "Wysyłka zgód e-mailem",
           "Historia choroby",
           "Galeria zdjęć",
           "Zgoda na wykorzystanie wizerunku",
           "Portal pacjenta",
           "Magic Link + biometria",
-          "Wsparcie w cenie",
-          "Wysyłka zgód e-mailem"
+          "Wsparcie w cenie"
         ]
       },
       "pro": {

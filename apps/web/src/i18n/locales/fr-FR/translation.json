@@ -1051,13 +1051,13 @@
         "name": "Formule Base",
         "features": [
           "Consentements illimités",
+          "Envoi des consentements par email",
           "Dossier clinique",
           "Galerie photo",
           "Consentement de cession d'image",
           "Portail patient",
           "Magic Link + biométrie",
-          "Support inclus",
-          "Envoi des consentements par email"
+          "Support inclus"
         ]
       },
       "pro": {

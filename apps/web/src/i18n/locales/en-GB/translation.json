@@ -1051,13 +1051,13 @@
         "name": "Base Plan",
         "features": [
           "Unlimited consents",
+          "Sending consents by email",
           "Clinical records",
           "Photo gallery",
           "Image release consent",
           "Patient portal",
           "Magic Link + biometrics",
-          "Support included",
-          "Sending consents by email"
+          "Support included"
         ]
       },
       "pro": {

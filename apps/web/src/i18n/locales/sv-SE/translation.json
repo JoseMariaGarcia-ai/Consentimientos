@@ -1051,13 +1051,13 @@
         "name": "Grundplan",
         "features": [
           "Obegränsat antal samtycken",
+          "Utskick av samtycken via e-post",
           "Journal",
           "Fotogalleri",
           "Samtycke till bildanvändning",
           "Patientportal",
           "Magic Link + biometri",
-          "Support ingår",
-          "Utskick av samtycken via e-post"
+          "Support ingår"
         ]
       },
       "pro": {

@@ -1051,13 +1051,13 @@
         "name": "Basisplan",
         "features": [
           "Ubegrænsede samtykker",
+          "Afsendelse af samtykker via e-mail",
           "Klinisk journal",
           "Fotogalleri",
           "Samtykke til billedrettigheder",
           "Patientportal",
           "Magic Link + biometri",
-          "Support inkluderet",
-          "Afsendelse af samtykker via e-mail"
+          "Support inkluderet"
         ]
       },
       "pro": {
