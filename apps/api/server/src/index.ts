@@ -35,8 +35,10 @@ import signingDevicesRouter, { publicRouter as signingDevicesPublicRouter } from
 import signingKioskRouter from './routes/signingKiosk'
 import consentHandoffRouter from './routes/consentHandoff'
 import billingRouter, { webhookRouter as billingWebhookRouter } from './routes/billing'
+import { publicRouter as billingActionRouter } from './routes/billingActions'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
+import { startBillingScheduler } from './lib/billingScheduler'
 
 const app = express()
 
@@ -60,6 +62,7 @@ app.use('/api/whatsapp-webhook', whatsappWebhookRouter)
 app.use('/api/analytics', analyticsPublicRouter)
 app.use('/api/signing-devices', signingDevicesPublicRouter)
 app.use('/api/signing-kiosk', deviceAuthMiddleware, signingKioskRouter)
+app.use('/api/billing-action', billingActionRouter)
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -100,6 +103,7 @@ runMigrations()
   .finally(() => {
     app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
     startReminderScheduler()
+    startBillingScheduler()
   })
 
 export default app

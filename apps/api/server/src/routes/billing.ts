@@ -11,11 +11,19 @@ export const webhookRouter = Router()
 
 const APP_URL = process.env.APP_URL ?? 'http://localhost:5173'
 
-async function getClinic(userId: string) {
+type ClinicRow = { id: string; name: string; email: string | null; stripe_customer_id: string | null }
+
+async function getClinic(userId: string): Promise<ClinicRow | null> {
   const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
   if (!me?.clinic_id) return null
-  return queryOne<{ id: string; name: string; email: string | null; stripe_customer_id: string | null }>(
+  return queryOne<ClinicRow>(
     'SELECT id, name, email, stripe_customer_id FROM clinics WHERE id = $1', [me.clinic_id]
+  )
+}
+
+export async function getClinicById(clinicId: string): Promise<ClinicRow | null> {
+  return queryOne<ClinicRow>(
+    'SELECT id, name, email, stripe_customer_id FROM clinics WHERE id = $1', [clinicId]
   )
 }
 
@@ -41,6 +49,32 @@ async function getOrCreateStripeCustomer(clinic: { id: string; name: string; ema
   return customer.id
 }
 
+// Compartido entre POST /checkout (clínica autenticada) y el enlace de
+// reactivación por email (routes/billingActions.ts).
+export async function createCheckoutSession(clinic: ClinicRow, planId: string, cycle: BillingCycle) {
+  const stripeCustomerId = await getOrCreateStripeCustomer(clinic)
+  const amount = priceFor(planId, cycle)
+
+  return getStripe().checkout.sessions.create({
+    mode: 'subscription',
+    customer: stripeCustomerId,
+    line_items: [{
+      price_data: {
+        currency: 'eur',
+        product_data: { name: `ConsentsPro — ${PLAN_NAMES[planId]}` },
+        unit_amount: Math.round(amount * 100),
+        recurring: { interval: cycle === 'annual' ? 'year' : 'month' },
+      },
+      quantity: 1,
+    }],
+    success_url: `${APP_URL}/recharge?checkout=success`,
+    cancel_url: `${APP_URL}/recharge?checkout=cancelled`,
+    subscription_data: {
+      metadata: { clinic_id: clinic.id, plan_id: planId, billing_cycle: cycle },
+    },
+  })
+}
+
 // POST /api/billing/checkout — { planId, cycle } -> { url }
 router.post('/checkout', async (req, res) => {
   try {
@@ -53,28 +87,7 @@ router.post('/checkout', async (req, res) => {
     const clinic = await getClinic(userId)
     if (!clinic) return res.status(403).json({ error: 'Sin clínica asociada' })
 
-    const stripeCustomerId = await getOrCreateStripeCustomer(clinic)
-    const amount = priceFor(planId, cycle as BillingCycle)
-
-    const session = await getStripe().checkout.sessions.create({
-      mode: 'subscription',
-      customer: stripeCustomerId,
-      line_items: [{
-        price_data: {
-          currency: 'eur',
-          product_data: { name: `ConsentsPro — ${PLAN_NAMES[planId]}` },
-          unit_amount: Math.round(amount * 100),
-          recurring: { interval: cycle === 'annual' ? 'year' : 'month' },
-        },
-        quantity: 1,
-      }],
-      success_url: `${APP_URL}/recharge?checkout=success`,
-      cancel_url: `${APP_URL}/recharge?checkout=cancelled`,
-      subscription_data: {
-        metadata: { clinic_id: clinic.id, plan_id: planId, billing_cycle: cycle },
-      },
-    })
-
+    const session = await createCheckoutSession(clinic, planId, cycle as BillingCycle)
     return res.json({ url: session.url })
   } catch (err: any) {
     console.error('[billing/checkout]', err)
@@ -98,17 +111,25 @@ router.get('/status', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// Compartido entre POST /portal y el enlace "Actualizar método de pago" del
+// email de fallo de cobro (routes/billingActions.ts).
+export async function createPortalSession(clinic: ClinicRow) {
+  if (!clinic.stripe_customer_id) return null
+  return getStripe().billingPortal.sessions.create({
+    customer: clinic.stripe_customer_id,
+    return_url: `${APP_URL}/recharge`,
+  })
+}
+
 // POST /api/billing/portal — sesión del Stripe Customer Portal para gestionar/cancelar
 router.post('/portal', async (req, res) => {
   try {
     const { userId } = (req as any).user
     const clinic = await getClinic(userId)
-    if (!clinic?.stripe_customer_id) return res.status(400).json({ error: 'Esta clínica todavía no tiene una suscripción' })
+    if (!clinic) return res.status(403).json({ error: 'Sin clínica asociada' })
 
-    const portalSession = await getStripe().billingPortal.sessions.create({
-      customer: clinic.stripe_customer_id,
-      return_url: `${APP_URL}/recharge`,
-    })
+    const portalSession = await createPortalSession(clinic)
+    if (!portalSession) return res.status(400).json({ error: 'Esta clínica todavía no tiene una suscripción' })
     return res.json({ url: portalSession.url })
   } catch (err: any) {
     console.error('[billing/portal]', err)
@@ -210,6 +231,38 @@ webhookRouter.post('/', async (req, res) => {
         // por un fallo puntual del webhook.
         if (status === 'active' || status === 'trialing') {
           await applyPlanToClinic(clinicId, planId)
+        }
+      }
+    }
+
+    // Cobros de renovación (no el cobro inicial al contratar, que ya se
+    // confirma con la propia redirección de éxito del Checkout).
+    if (event.type === 'invoice.payment_succeeded' || event.type === 'invoice.payment_failed') {
+      const invoice = event.data.object as Stripe.Invoice
+      const subDetails = invoice.parent?.subscription_details?.subscription
+      const stripeSubId = typeof subDetails === 'string' ? subDetails : subDetails?.id
+      if (stripeSubId && invoice.billing_reason === 'subscription_cycle') {
+        const row = await queryOne<{ id: string; payment_failed_at: string | null; payment_failed_notified_at: string | null }>(
+          'SELECT id, payment_failed_at, payment_failed_notified_at FROM subscriptions WHERE stripe_subscription_id = $1',
+          [stripeSubId]
+        )
+        if (row) {
+          if (event.type === 'invoice.payment_succeeded') {
+            if (row.payment_failed_at) {
+              await query('UPDATE subscriptions SET payment_failed_at = NULL, payment_failed_notified_at = NULL WHERE id = $1', [row.id])
+            }
+            const { sendSubscriptionRenewedEmail } = await import('../lib/subscriptionEmails')
+            await sendSubscriptionRenewedEmail(row.id, (invoice.amount_paid ?? 0) / 100)
+          } else {
+            if (!row.payment_failed_at) {
+              await query('UPDATE subscriptions SET payment_failed_at = NOW() WHERE id = $1', [row.id])
+            }
+            if (!row.payment_failed_notified_at) {
+              await query('UPDATE subscriptions SET payment_failed_notified_at = NOW() WHERE id = $1', [row.id])
+              const { sendSubscriptionPaymentFailedEmail } = await import('../lib/subscriptionEmails')
+              await sendSubscriptionPaymentFailedEmail(row.id)
+            }
+          }
         }
       }
     }

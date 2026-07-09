@@ -39,3 +39,15 @@ export async function applyPlanToClinic(clinicId: string, plan: string) {
   )
   for (const u of users) await applyUserPermissions(u.id, permissions)
 }
+
+// Revoca el acceso de una clínica (impago no regularizado en 5 días):
+// clinics.plan a NULL y todos los módulos a false para sus usuarios
+// "clinica". No borra nada — reactivar (applyPlanToClinic) lo restaura.
+export async function deactivateClinic(clinicId: string) {
+  await query('UPDATE clinics SET plan = NULL WHERE id = $1', [clinicId])
+  const noAccess = Object.fromEntries(ALL_MODULES.map(m => [m, false]))
+  const users = await query<{ id: string }>(
+    `SELECT id FROM app_users WHERE clinic_id = $1 AND role = 'clinica'`, [clinicId]
+  )
+  for (const u of users) await applyUserPermissions(u.id, noAccess)
+}
