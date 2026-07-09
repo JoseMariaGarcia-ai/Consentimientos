@@ -1126,7 +1126,11 @@
       "manageLoading": "Zahlungsportal wird geöffnet…",
       "manageError": "Das Zahlungsportal konnte nicht geöffnet werden. Versuche es erneut oder schreib uns an soporte@consentspro.com.",
       "renewsOn": "Nächste Verlängerung:"
-    }
+    },
+    "promoTrialBadge": "{{days}} Tage gratis",
+    "promoTrialButton": "Kostenlose Testphase starten",
+    "promoTrialHint": "{{days}} Tage gratis, danach {{price}}. Jederzeit kündbar.",
+    "promoBanner": "Sie haben einen aktiven Aktionscode! Genießen Sie {{days}} Tage kostenlose Testphase des Pro-Plans."
   },
   "toxin": {
     "title": "Toxin-Kontrolle",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytik",
       "devices": "Unterschriftsgeräte",
       "subscriptions": "Abonnements",
-      "keys": "Schlüssel"
+      "keys": "Schlüssel",
+      "promoCodes": "Aktionscodes"
     },
     "users": {
       "title": "Benutzer",
@@ -1691,6 +1696,46 @@
       "active": "Aktiv",
       "past_due": "Zahlung ausstehend",
       "canceled": "Gekündigt"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Erstellen Sie Codes für Kampagnen (z. B. Meta Ads), die Zugang zu einem Plan mit kostenloser Testphase gewähren. Derselbe Code kann von einer unbegrenzten Anzahl verschiedener Nutzer verwendet werden, aber jeder Nutzer kann ihn nur einmal einlösen.",
+    "newCode": "Neuer Code",
+    "empty": "Sie haben noch keine Aktionscodes erstellt.",
+    "unlimited": "Unbegrenzt",
+    "copyLink": "Link kopieren",
+    "deactivate": "Deaktivieren",
+    "activate": "Aktivieren",
+    "deleteConfirm": "Möchten Sie diesen Aktionscode wirklich löschen?",
+    "table": {
+      "code": "Code",
+      "plan": "Plan",
+      "trialDays": "Testtage",
+      "campaign": "Kampagne",
+      "uses": "Nutzungen",
+      "status": "Status",
+      "expires": "Läuft ab",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "expired": "Abgelaufen",
+      "exhausted": "Aufgebraucht"
+    },
+    "form": {
+      "code": "Code",
+      "codeRequired": "Der Code ist erforderlich",
+      "codeHint": "Nur Großbuchstaben und Zahlen, keine Leerzeichen.",
+      "plan": "Plan",
+      "trialDays": "Testtage",
+      "campaign": "Kampagne",
+      "campaignHint": "z. B. Meta Ads Juli",
+      "maxUses": "Max. Nutzungen",
+      "expiresAt": "Läuft ab am",
+      "onceHint": "Derselbe Code kann von einer unbegrenzten Anzahl verschiedener Nutzer verwendet werden, aber jeder Nutzer kann ihn nur einmal einlösen.",
+      "error": "Der Code konnte nicht gespeichert werden",
+      "save": "Speichern"
     }
   }
 }

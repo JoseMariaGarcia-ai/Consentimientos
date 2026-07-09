@@ -1126,7 +1126,11 @@
       "manageLoading": "Opening the payment portal…",
       "manageError": "We couldn't open the payment portal. Try again or email us at soporte@consentspro.com.",
       "renewsOn": "Next renewal:"
-    }
+    },
+    "promoTrialBadge": "{{days}} days free",
+    "promoTrialButton": "Start free trial",
+    "promoTrialHint": "{{days}} days free, then {{price}}. Cancel anytime.",
+    "promoBanner": "You have an active promo code! Enjoy a {{days}}-day free trial of the Pro plan."
   },
   "toxin": {
     "title": "Toxin Tracking",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytics",
       "devices": "Signing devices",
       "subscriptions": "Subscriptions",
-      "keys": "API Keys"
+      "keys": "API Keys",
+      "promoCodes": "Promo codes"
     },
     "users": {
       "title": "Users",
@@ -1691,6 +1696,46 @@
       "active": "Active",
       "past_due": "Payment pending",
       "canceled": "Cancelled"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Generate codes for campaigns (e.g. Meta Ads) that grant access to a plan with a free trial period. The same code can be used by an unlimited number of different users, but each user can only redeem it once.",
+    "newCode": "New code",
+    "empty": "You haven't created any promo codes yet.",
+    "unlimited": "Unlimited",
+    "copyLink": "Copy link",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "deleteConfirm": "Are you sure you want to delete this promo code?",
+    "table": {
+      "code": "Code",
+      "plan": "Plan",
+      "trialDays": "Trial days",
+      "campaign": "Campaign",
+      "uses": "Uses",
+      "status": "Status",
+      "expires": "Expires",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "expired": "Expired",
+      "exhausted": "Exhausted"
+    },
+    "form": {
+      "code": "Code",
+      "codeRequired": "Code is required",
+      "codeHint": "Uppercase letters and numbers only, no spaces.",
+      "plan": "Plan",
+      "trialDays": "Trial days",
+      "campaign": "Campaign",
+      "campaignHint": "e.g. Meta Ads July",
+      "maxUses": "Max uses",
+      "expiresAt": "Expires on",
+      "onceHint": "The same code can be used by an unlimited number of different users, but each user can only redeem it once.",
+      "error": "Couldn't save the code",
+      "save": "Save"
     }
   }
 }

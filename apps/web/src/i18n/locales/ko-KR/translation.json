@@ -1126,7 +1126,11 @@
       "manageLoading": "결제 포털을 여는 중…",
       "manageError": "결제 포털을 열 수 없습니다. 다시 시도하거나 soporte@consentspro.com으로 문의해 주세요.",
       "renewsOn": "다음 갱신일:"
-    }
+    },
+    "promoTrialBadge": "{{days}}일 무료",
+    "promoTrialButton": "무료 체험 시작",
+    "promoTrialHint": "{{days}}일 무료, 이후 {{price}}. 언제든지 취소 가능.",
+    "promoBanner": "활성 프로모션 코드가 있습니다! Pro 플랜의 {{days}}일 무료 체험을 즐겨보세요."
   },
   "toxin": {
     "title": "톡신 관리",
@@ -1247,7 +1251,8 @@
       "analytics": "분석",
       "devices": "서명 기기",
       "subscriptions": "구독",
-      "keys": "키"
+      "keys": "키",
+      "promoCodes": "프로모션 코드"
     },
     "users": {
       "title": "사용자",
@@ -1691,6 +1696,46 @@
       "active": "활성",
       "past_due": "결제 대기중",
       "canceled": "취소됨"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "무료 체험 기간이 있는 플랜에 대한 액세스를 제공하는 캠페인(예: Meta Ads)용 코드를 생성하세요. 동일한 코드는 무제한의 서로 다른 사용자가 사용할 수 있지만, 각 사용자는 한 번만 사용할 수 있습니다.",
+    "newCode": "새 코드",
+    "empty": "아직 생성된 프로모션 코드가 없습니다.",
+    "unlimited": "무제한",
+    "copyLink": "링크 복사",
+    "deactivate": "비활성화",
+    "activate": "활성화",
+    "deleteConfirm": "이 프로모션 코드를 삭제하시겠습니까?",
+    "table": {
+      "code": "코드",
+      "plan": "플랜",
+      "trialDays": "체험 일수",
+      "campaign": "캠페인",
+      "uses": "사용 횟수",
+      "status": "상태",
+      "expires": "만료일",
+      "actions": "작업"
+    },
+    "status": {
+      "active": "활성",
+      "inactive": "비활성",
+      "expired": "만료됨",
+      "exhausted": "소진됨"
+    },
+    "form": {
+      "code": "코드",
+      "codeRequired": "코드는 필수입니다",
+      "codeHint": "대문자와 숫자만, 공백 없이.",
+      "plan": "플랜",
+      "trialDays": "체험 일수",
+      "campaign": "캠페인",
+      "campaignHint": "예: Meta Ads 7월",
+      "maxUses": "최대 사용 횟수",
+      "expiresAt": "만료일",
+      "onceHint": "동일한 코드는 무제한의 서로 다른 사용자가 사용할 수 있지만, 각 사용자는 한 번만 사용할 수 있습니다.",
+      "error": "코드를 저장하지 못했습니다",
+      "save": "저장"
     }
   }
 }

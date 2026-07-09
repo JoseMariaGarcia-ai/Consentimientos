@@ -1126,7 +1126,11 @@
       "manageLoading": "Đang mở cổng thanh toán…",
       "manageError": "Không thể mở cổng thanh toán. Vui lòng thử lại hoặc liên hệ soporte@consentspro.com.",
       "renewsOn": "Gia hạn tiếp theo:"
-    }
+    },
+    "promoTrialBadge": "{{days}} ngày miễn phí",
+    "promoTrialButton": "Bắt đầu dùng thử miễn phí",
+    "promoTrialHint": "{{days}} ngày miễn phí, sau đó {{price}}. Hủy bất cứ lúc nào.",
+    "promoBanner": "Bạn có một mã khuyến mãi đang hoạt động! Tận hưởng {{days}} ngày dùng thử miễn phí gói Pro."
   },
   "toxin": {
     "title": "Kiểm Soát Độc Tố",
@@ -1247,7 +1251,8 @@
       "analytics": "Phân tích",
       "devices": "Thiết bị ký",
       "subscriptions": "Gói đăng ký",
-      "keys": "Khóa"
+      "keys": "Khóa",
+      "promoCodes": "Mã khuyến mãi"
     },
     "users": {
       "title": "Người dùng",
@@ -1691,6 +1696,46 @@
       "active": "Đang hoạt động",
       "past_due": "Chờ thanh toán",
       "canceled": "Đã hủy"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Tạo mã cho các chiến dịch (ví dụ: Meta Ads) cấp quyền truy cập vào gói với thời gian dùng thử miễn phí. Cùng một mã có thể được sử dụng bởi số lượng người dùng khác nhau không giới hạn, nhưng mỗi người dùng chỉ có thể sử dụng một lần.",
+    "newCode": "Mã mới",
+    "empty": "Bạn chưa tạo mã khuyến mãi nào.",
+    "unlimited": "Không giới hạn",
+    "copyLink": "Sao chép liên kết",
+    "deactivate": "Vô hiệu hóa",
+    "activate": "Kích hoạt",
+    "deleteConfirm": "Bạn có chắc chắn muốn xóa mã khuyến mãi này không?",
+    "table": {
+      "code": "Mã",
+      "plan": "Gói",
+      "trialDays": "Số ngày dùng thử",
+      "campaign": "Chiến dịch",
+      "uses": "Lượt sử dụng",
+      "status": "Trạng thái",
+      "expires": "Hết hạn",
+      "actions": "Hành động"
+    },
+    "status": {
+      "active": "Đang hoạt động",
+      "inactive": "Không hoạt động",
+      "expired": "Đã hết hạn",
+      "exhausted": "Đã dùng hết"
+    },
+    "form": {
+      "code": "Mã",
+      "codeRequired": "Mã là bắt buộc",
+      "codeHint": "Chỉ chữ in hoa và số, không có khoảng trắng.",
+      "plan": "Gói",
+      "trialDays": "Số ngày dùng thử",
+      "campaign": "Chiến dịch",
+      "campaignHint": "vd: Meta Ads tháng 7",
+      "maxUses": "Số lượt sử dụng tối đa",
+      "expiresAt": "Ngày hết hạn",
+      "onceHint": "Cùng một mã có thể được sử dụng bởi số lượng người dùng khác nhau không giới hạn, nhưng mỗi người dùng chỉ có thể sử dụng một lần.",
+      "error": "Không thể lưu mã",
+      "save": "Lưu"
     }
   }
 }

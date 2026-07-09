@@ -1126,7 +1126,11 @@
       "manageLoading": "Avataan maksuportaalia…",
       "manageError": "Maksuportaalia ei voitu avata. Yritä uudelleen tai kirjoita meille osoitteeseen soporte@consentspro.com.",
       "renewsOn": "Seuraava uusiminen:"
-    }
+    },
+    "promoTrialBadge": "{{days}} päivää ilmaiseksi",
+    "promoTrialButton": "Aloita ilmainen kokeilu",
+    "promoTrialHint": "{{days}} päivää ilmaiseksi, sitten {{price}}. Peruuta milloin tahansa.",
+    "promoBanner": "Sinulla on aktiivinen kampanjakoodi! Nauti {{days}} päivän ilmaisesta kokeilusta Pro-suunnitelmassa."
   },
   "toxin": {
     "title": "Toksiinin seuranta",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytiikka",
       "devices": "Allekirjoituslaitteet",
       "subscriptions": "Tilaukset",
-      "keys": "Avaimet"
+      "keys": "Avaimet",
+      "promoCodes": "Kampanjakoodit"
     },
     "users": {
       "title": "Käyttäjät",
@@ -1691,6 +1696,46 @@
       "active": "Aktiiviset",
       "past_due": "Maksu odottaa",
       "canceled": "Peruutetut"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Luo koodeja kampanjoille (esim. Meta Ads), jotka antavat pääsyn suunnitelmaan ilmaisella kokeilujaksolla. Samaa koodia voi käyttää rajoittamaton määrä eri käyttäjiä, mutta kukin käyttäjä voi lunastaa sen vain kerran.",
+    "newCode": "Uusi koodi",
+    "empty": "Et ole vielä luonut yhtään kampanjakoodia.",
+    "unlimited": "Rajoittamaton",
+    "copyLink": "Kopioi linkki",
+    "deactivate": "Poista käytöstä",
+    "activate": "Ota käyttöön",
+    "deleteConfirm": "Haluatko varmasti poistaa tämän kampanjakoodin?",
+    "table": {
+      "code": "Koodi",
+      "plan": "Suunnitelma",
+      "trialDays": "Kokeilupäivät",
+      "campaign": "Kampanja",
+      "uses": "Käytöt",
+      "status": "Tila",
+      "expires": "Vanhenee",
+      "actions": "Toiminnot"
+    },
+    "status": {
+      "active": "Aktiivinen",
+      "inactive": "Ei aktiivinen",
+      "expired": "Vanhentunut",
+      "exhausted": "Loppunut"
+    },
+    "form": {
+      "code": "Koodi",
+      "codeRequired": "Koodi on pakollinen",
+      "codeHint": "Vain isot kirjaimet ja numerot, ei välilyöntejä.",
+      "plan": "Suunnitelma",
+      "trialDays": "Kokeilupäivät",
+      "campaign": "Kampanja",
+      "campaignHint": "esim. Meta Ads heinäkuu",
+      "maxUses": "Enimmäiskäytöt",
+      "expiresAt": "Vanhenee",
+      "onceHint": "Samaa koodia voi käyttää rajoittamaton määrä eri käyttäjiä, mutta kukin käyttäjä voi lunastaa sen vain kerran.",
+      "error": "Koodia ei voitu tallentaa",
+      "save": "Tallenna"
     }
   }
 }

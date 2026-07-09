@@ -36,6 +36,7 @@ import signingKioskRouter from './routes/signingKiosk'
 import consentHandoffRouter from './routes/consentHandoff'
 import billingRouter, { webhookRouter as billingWebhookRouter, publicRouter as billingSignupRouter } from './routes/billing'
 import { publicRouter as billingActionRouter } from './routes/billingActions'
+import promoCodesRouter from './routes/promoCodes'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 import { startBillingScheduler } from './lib/billingScheduler'
@@ -96,6 +97,7 @@ app.use('/api/tickets',         authMiddleware, ticketsRouter)
 app.use('/api/signing-devices', authMiddleware, requireAdmin, signingDevicesRouter)
 app.use('/api/consent-handoff', authMiddleware, consentHandoffRouter)
 app.use('/api/billing',         authMiddleware, billingRouter)
+app.use('/api/promo-codes',     authMiddleware, requireSuperAdmin, promoCodesRouter)
 
 const PORT = process.env.PORT ?? 3001
 

@@ -1098,7 +1098,11 @@
       "manageLoading": "Abriendo el portal de pago…",
       "manageError": "No se pudo abrir el portal de pago. Probá de nuevo o escribinos a soporte@consentspro.com.",
       "renewsOn": "Próxima renovación:"
-    }
+    },
+    "promoTrialBadge": "{{days}} días gratis",
+    "promoTrialButton": "Empezar prueba gratuita",
+    "promoTrialHint": "{{days}} días gratis, luego {{price}}. Cancela cuando quieras.",
+    "promoBanner": "¡Tienes un código promocional activo! Disfruta de {{days}} días de prueba gratuita en el plan Pro."
   },
   "toxin": {
     "title": "Control de Toxina",
@@ -1219,7 +1223,8 @@
       "analytics": "Analítica",
       "devices": "Dispositivos de firma",
       "subscriptions": "Suscripciones",
-      "keys": "Claves"
+      "keys": "Claves",
+      "promoCodes": "Códigos promocionales"
     },
     "users": {
       "title": "Usuarios",
@@ -1663,6 +1668,46 @@
       "active": "Activas",
       "past_due": "Pendiente de pago",
       "canceled": "Canceladas"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Genera códigos para campañas (p. ej. Meta Ads) que dan acceso a un plan con periodo de prueba gratuito. Un mismo código puede usarlo un número ilimitado de usuarios distintos, pero cada usuario solo puede canjearlo una vez.",
+    "newCode": "Nuevo código",
+    "empty": "Todavía no has creado ningún código promocional.",
+    "unlimited": "Ilimitado",
+    "copyLink": "Copiar enlace",
+    "deactivate": "Desactivar",
+    "activate": "Activar",
+    "deleteConfirm": "¿Seguro que quieres eliminar este código promocional?",
+    "table": {
+      "code": "Código",
+      "plan": "Plan",
+      "trialDays": "Días de prueba",
+      "campaign": "Campaña",
+      "uses": "Usos",
+      "status": "Estado",
+      "expires": "Caduca",
+      "actions": "Acciones"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "expired": "Caducado",
+      "exhausted": "Agotado"
+    },
+    "form": {
+      "code": "Código",
+      "codeRequired": "El código es obligatorio",
+      "codeHint": "Solo mayúsculas y números, sin espacios.",
+      "plan": "Plan",
+      "trialDays": "Días de prueba",
+      "campaign": "Campaña",
+      "campaignHint": "P. ej. Meta Ads Julio",
+      "maxUses": "Usos máximos",
+      "expiresAt": "Caduca el",
+      "onceHint": "Un mismo código puede usarlo un número ilimitado de usuarios distintos, pero cada usuario solo puede canjearlo una vez.",
+      "error": "No se pudo guardar el código",
+      "save": "Guardar"
     }
   }
 }

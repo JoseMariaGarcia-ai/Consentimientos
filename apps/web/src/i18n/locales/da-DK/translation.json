@@ -1126,7 +1126,11 @@
       "manageLoading": "Åbner betalingsportalen…",
       "manageError": "Betalingsportalen kunne ikke åbnes. Prøv igen, eller skriv til os på soporte@consentspro.com.",
       "renewsOn": "Næste fornyelse:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dage gratis",
+    "promoTrialButton": "Start gratis prøveperiode",
+    "promoTrialHint": "{{days}} dage gratis, derefter {{price}}. Opsig når som helst.",
+    "promoBanner": "Du har en aktiv kampagnekode! Nyd {{days}} dages gratis prøveperiode af Pro-planen."
   },
   "toxin": {
     "title": "Toksinkontrol",
@@ -1247,7 +1251,8 @@
       "analytics": "Analyse",
       "devices": "Signeringsenheder",
       "subscriptions": "Abonnementer",
-      "keys": "Nøgler"
+      "keys": "Nøgler",
+      "promoCodes": "Kampagnekoder"
     },
     "users": {
       "title": "Brugere",
@@ -1691,6 +1696,46 @@
       "active": "Aktive",
       "past_due": "Afventer betaling",
       "canceled": "Annulleret"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Generer koder til kampagner (f.eks. Meta Ads), der giver adgang til en plan med gratis prøveperiode. Samme kode kan bruges af et ubegrænset antal forskellige brugere, men hver bruger kan kun indløse den én gang.",
+    "newCode": "Ny kode",
+    "empty": "Du har endnu ikke oprettet nogen kampagnekoder.",
+    "unlimited": "Ubegrænset",
+    "copyLink": "Kopiér link",
+    "deactivate": "Deaktiver",
+    "activate": "Aktiver",
+    "deleteConfirm": "Er du sikker på, at du vil slette denne kampagnekode?",
+    "table": {
+      "code": "Kode",
+      "plan": "Plan",
+      "trialDays": "Prøvedage",
+      "campaign": "Kampagne",
+      "uses": "Anvendelser",
+      "status": "Status",
+      "expires": "Udløber",
+      "actions": "Handlinger"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "expired": "Udløbet",
+      "exhausted": "Opbrugt"
+    },
+    "form": {
+      "code": "Kode",
+      "codeRequired": "Kode er påkrævet",
+      "codeHint": "Kun store bogstaver og tal, ingen mellemrum.",
+      "plan": "Plan",
+      "trialDays": "Prøvedage",
+      "campaign": "Kampagne",
+      "campaignHint": "f.eks. Meta Ads juli",
+      "maxUses": "Maks. anvendelser",
+      "expiresAt": "Udløber den",
+      "onceHint": "Samme kode kan bruges af et ubegrænset antal forskellige brugere, men hver bruger kan kun indløse den én gang.",
+      "error": "Koden kunne ikke gemmes",
+      "save": "Gem"
     }
   }
 }

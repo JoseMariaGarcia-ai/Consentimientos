@@ -5,6 +5,7 @@ import { getStripe } from '../lib/stripe'
 import { PLAN_NAMES, isValidPlan, isValidCycle, priceFor, BillingCycle } from '../lib/plans'
 import { applyPlanToClinic } from '../lib/planPermissions'
 import { requireSuperAdmin } from '../middleware/auth'
+import { validatePromoCode } from '../lib/promoCodes'
 
 const router = Router()
 export const webhookRouter = Router()
@@ -107,7 +108,25 @@ export async function createCheckoutSession(clinic: ClinicRow, planId: string, c
 // Alta pública desde la web (sin cuenta todavía) — Stripe Checkout pide el
 // email él mismo. La clínica y el usuario se crean en el webhook al
 // completarse el pago (customer.subscription.created con signup=true).
-export async function createSignupCheckoutSession(planId: string, cycle: BillingCycle) {
+//
+// Si se pasa un código promocional válido, el plan que se contrata es el
+// que diga el código (nunca el que mande el cliente — igual que el precio,
+// nunca nos fiamos de lo que llega del navegador) y la suscripción arranca
+// con trial_period_days, así que Stripe no cobra nada hasta que termine la
+// prueba. Se sigue pidiendo tarjeta en el checkout: eso es justo lo que
+// filtra los registros no serios de una campaña pública.
+export async function createSignupCheckoutSession(planId: string, cycle: BillingCycle, promoCode?: string) {
+  let trialDays: number | undefined
+  let appliedPromoCode: string | undefined
+
+  if (promoCode) {
+    const promo = await validatePromoCode(promoCode)
+    if (!promo) throw Object.assign(new Error('Código promocional no válido o caducado'), { status: 400 })
+    planId = promo.planId
+    trialDays = promo.trialDays
+    appliedPromoCode = promo.code
+  }
+
   const amount = priceFor(planId, cycle)
   return getStripe().checkout.sessions.create({
     mode: 'subscription',
@@ -123,7 +142,13 @@ export async function createSignupCheckoutSession(planId: string, cycle: Billing
     success_url: `${APP_URL}/?signup=success#pricing`,
     cancel_url: `${APP_URL}/?signup=cancelled#pricing`,
     subscription_data: {
-      metadata: { plan_id: planId, billing_cycle: cycle, signup: 'true' },
+      ...(trialDays ? { trial_period_days: trialDays } : {}),
+      metadata: {
+        plan_id: planId,
+        billing_cycle: cycle,
+        signup: 'true',
+        ...(appliedPromoCode ? { promo_code: appliedPromoCode } : {}),
+      },
     },
   })
 }
@@ -132,16 +157,29 @@ export async function createSignupCheckoutSession(planId: string, cycle: Billing
 // (montado sin authMiddleware — ver routes/billing.ts's publicRouter export e index.ts)
 publicRouter.post('/checkout-signup', async (req, res) => {
   try {
-    const { planId, cycle } = req.body as { planId?: string; cycle?: string }
+    const { planId, cycle, promoCode } = req.body as { planId?: string; cycle?: string; promoCode?: string }
     if (!planId || !isValidPlan(planId)) return res.status(400).json({ error: 'Plan no válido' })
     if (!cycle || !isValidCycle(cycle)) return res.status(400).json({ error: 'Ciclo de facturación no válido' })
 
-    const session = await createSignupCheckoutSession(planId, cycle as BillingCycle)
+    const session = await createSignupCheckoutSession(planId, cycle as BillingCycle, promoCode)
     return res.json({ url: session.url })
   } catch (err: any) {
     console.error('[billing/checkout-signup]', err)
-    return res.status(500).json({ error: err.message })
+    return res.status(err.status ?? 500).json({ error: err.message })
   }
+})
+
+// GET /api/billing/promo-preview?code=X — público. La landing lo usa para
+// saber, antes de que el visitante pulse nada, qué plan y cuántos días de
+// prueba da un código, y así resaltar la tarjeta correcta.
+publicRouter.get('/promo-preview', async (req, res) => {
+  try {
+    const code = req.query.code as string | undefined
+    if (!code) return res.status(400).json({ error: 'code requerido' })
+    const promo = await validatePromoCode(code)
+    if (!promo) return res.status(404).json({ error: 'Código no válido o caducado' })
+    return res.json({ planId: promo.planId, trialDays: promo.trialDays })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 // POST /api/billing/checkout — { planId, cycle } -> { url }
@@ -220,9 +258,10 @@ router.get('/subscriptions', requireSuperAdmin, async (_req, res) => {
       current_period_end: string | null
       cancel_at_period_end: boolean
       created_at: string
+      promo_code: string | null
     }>(
       `SELECT s.id, s.clinic_id, c.name AS clinic_name, s.plan_id, s.billing_cycle, s.status,
-              s.current_period_end, s.cancel_at_period_end, s.created_at
+              s.current_period_end, s.cancel_at_period_end, s.created_at, s.promo_code
        FROM subscriptions s
        JOIN clinics c ON c.id = s.clinic_id
        ORDER BY s.created_at DESC`
@@ -236,6 +275,7 @@ router.get('/subscriptions', requireSuperAdmin, async (_req, res) => {
       billing_cycle: r.billing_cycle,
       amount: priceFor(r.plan_id, r.billing_cycle),
       status: r.status,
+      promo_code: r.promo_code,
       activated_at: r.created_at,
       expires_at: r.current_period_end,
       cancel_at_period_end: r.cancel_at_period_end,
@@ -268,38 +308,67 @@ async function provisionSignupClinic(sub: Stripe.Subscription, planId: string): 
     const existingUser = await queryOne<{ clinic_id: string | null }>(
       'SELECT clinic_id FROM app_users WHERE lower(email) = $1', [email]
     )
-    if (existingUser?.clinic_id) return existingUser.clinic_id
 
-    const clinic = await queryOne<{ id: string }>(
-      'INSERT INTO clinics (name, email, stripe_customer_id) VALUES ($1, $2, $3) RETURNING id',
-      ['Mi clínica', email, customerId]
-    )
-    if (!clinic) return null
+    let clinicId: string
+    let isNewClinic = false
+    let newUser: { id: string; email: string; full_name: string; role: string } | null = null
 
-    const namePart = email.split('@')[0]
-    const fullName = namePart.charAt(0).toUpperCase() + namePart.slice(1)
+    if (existingUser?.clinic_id) {
+      clinicId = existingUser.clinic_id
+    } else {
+      const clinic = await queryOne<{ id: string }>(
+        'INSERT INTO clinics (name, email, stripe_customer_id) VALUES ($1, $2, $3) RETURNING id',
+        ['Mi clínica', email, customerId]
+      )
+      if (!clinic) return null
+      clinicId = clinic.id
+      isNewClinic = true
 
-    const user = await queryOne<{ id: string; email: string; full_name: string; role: string }>(
-      `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1,$2,'clinica',$3) RETURNING id, email, full_name, role`,
-      [email, fullName, clinic.id]
-    )
-    if (!user) return null
+      const namePart = email.split('@')[0]
+      const fullName = namePart.charAt(0).toUpperCase() + namePart.slice(1)
+      newUser = await queryOne<{ id: string; email: string; full_name: string; role: string }>(
+        `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1,$2,'clinica',$3) RETURNING id, email, full_name, role`,
+        [email, fullName, clinicId]
+      )
+      if (!newUser) return null
+    }
+
+    // Un mismo código promocional sirve para muchos usuarios distintos,
+    // pero cada email solo puede canjearlo una vez — si ya lo había usado
+    // (con esta u otra clínica), se anula esta segunda suscripción de
+    // prueba nada más crearse: no se cobra nada y no se le vuelve a
+    // conceder el acceso de prueba. El límite de usos total del código
+    // (max_uses) es independiente de esto.
+    const promoCode = sub.metadata?.promo_code
+    if (promoCode) {
+      const { redeemPromoCode } = await import('../lib/promoCodes')
+      const granted = await redeemPromoCode(promoCode, email, clinicId)
+      if (!granted) {
+        console.warn(`[billing/webhook] código ${promoCode} ya canjeado por ${email} — cancelando la suscripción de prueba duplicada ${sub.id}`)
+        try { await getStripe().subscriptions.cancel(sub.id) } catch (err: any) {
+          console.error('[billing/webhook] no se pudo cancelar la suscripción duplicada:', err.message)
+        }
+        return null
+      }
+    }
 
     // Para que los próximos eventos de esta misma suscripción (renovación,
     // fallo de cobro…) ya sepan a qué clínica pertenecen.
     try {
-      await getStripe().subscriptions.update(sub.id, { metadata: { ...sub.metadata, clinic_id: clinic.id } })
+      await getStripe().subscriptions.update(sub.id, { metadata: { ...sub.metadata, clinic_id: clinicId } })
     } catch (err: any) {
       console.error('[billing/webhook] no se pudo guardar clinic_id en la metadata de Stripe:', err.message)
     }
 
-    const { sendInviteEmail } = await import('../lib/inviteEmail')
-    await sendInviteEmail(user, null)
+    if (isNewClinic && newUser) {
+      const { sendInviteEmail } = await import('../lib/inviteEmail')
+      await sendInviteEmail(newUser, null)
 
-    const { sendWelcomeEmail } = await import('../lib/welcomeEmail')
-    await sendWelcomeEmail(clinic.id, planId)
+      const { sendWelcomeEmail } = await import('../lib/welcomeEmail')
+      await sendWelcomeEmail(clinicId, planId)
+    }
 
-    return clinic.id
+    return clinicId
   } catch (err: any) {
     console.error('[billing/webhook] provisionSignupClinic falló:', err.message)
     return null
@@ -343,9 +412,10 @@ webhookRouter.post('/', async (req, res) => {
         const status = event.type === 'customer.subscription.deleted' ? 'canceled' : sub.status
         const periodEndSeconds = sub.items.data[0]?.current_period_end
         const currentPeriodEnd = periodEndSeconds ? new Date(periodEndSeconds * 1000) : null
+        const promoCodeUsed = sub.metadata?.promo_code || null
         await query(
-          `INSERT INTO subscriptions (clinic_id, plan_id, billing_cycle, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end)
-           VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+          `INSERT INTO subscriptions (clinic_id, plan_id, billing_cycle, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end, promo_code)
+           VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
            ON CONFLICT (stripe_subscription_id) DO UPDATE SET
              plan_id = EXCLUDED.plan_id,
              billing_cycle = EXCLUDED.billing_cycle,
@@ -353,7 +423,7 @@ webhookRouter.post('/', async (req, res) => {
              current_period_end = EXCLUDED.current_period_end,
              cancel_at_period_end = EXCLUDED.cancel_at_period_end,
              updated_at = NOW()`,
-          [clinicId, planId, billingCycle, sub.customer as string, sub.id, status, currentPeriodEnd, sub.cancel_at_period_end ?? false]
+          [clinicId, planId, billingCycle, sub.customer as string, sub.id, status, currentPeriodEnd, sub.cancel_at_period_end ?? false, promoCodeUsed]
         )
 
         // El plan activo de la clínica (que rige el acceso a módulos vía

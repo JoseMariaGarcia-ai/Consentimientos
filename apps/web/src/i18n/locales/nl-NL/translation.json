@@ -1126,7 +1126,11 @@
       "manageLoading": "Betaalportaal wordt geopend…",
       "manageError": "Het betaalportaal kon niet worden geopend. Probeer het opnieuw of mail ons op soporte@consentspro.com.",
       "renewsOn": "Volgende verlenging:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dagen gratis",
+    "promoTrialButton": "Start gratis proefperiode",
+    "promoTrialHint": "{{days}} dagen gratis, daarna {{price}}. Altijd opzegbaar.",
+    "promoBanner": "Je hebt een actieve promotiecode! Geniet van {{days}} dagen gratis proefperiode van het Pro-plan."
   },
   "toxin": {
     "title": "Toxinecontrole",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytics",
       "devices": "Ondertekenapparaten",
       "subscriptions": "Abonnementen",
-      "keys": "Sleutels"
+      "keys": "Sleutels",
+      "promoCodes": "Promotiecodes"
     },
     "users": {
       "title": "Gebruikers",
@@ -1691,6 +1696,46 @@
       "active": "Actief",
       "past_due": "Betaling in behandeling",
       "canceled": "Geannuleerd"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Genereer codes voor campagnes (bijv. Meta Ads) die toegang geven tot een abonnement met een gratis proefperiode. Dezelfde code kan door een onbeperkt aantal verschillende gebruikers worden gebruikt, maar elke gebruiker kan hem maar één keer inwisselen.",
+    "newCode": "Nieuwe code",
+    "empty": "Je hebt nog geen promotiecodes aangemaakt.",
+    "unlimited": "Onbeperkt",
+    "copyLink": "Link kopiëren",
+    "deactivate": "Deactiveren",
+    "activate": "Activeren",
+    "deleteConfirm": "Weet je zeker dat je deze promotiecode wilt verwijderen?",
+    "table": {
+      "code": "Code",
+      "plan": "Abonnement",
+      "trialDays": "Proefdagen",
+      "campaign": "Campagne",
+      "uses": "Gebruikt",
+      "status": "Status",
+      "expires": "Verloopt",
+      "actions": "Acties"
+    },
+    "status": {
+      "active": "Actief",
+      "inactive": "Inactief",
+      "expired": "Verlopen",
+      "exhausted": "Uitgeput"
+    },
+    "form": {
+      "code": "Code",
+      "codeRequired": "Code is verplicht",
+      "codeHint": "Alleen hoofdletters en cijfers, geen spaties.",
+      "plan": "Abonnement",
+      "trialDays": "Proefdagen",
+      "campaign": "Campagne",
+      "campaignHint": "bijv. Meta Ads juli",
+      "maxUses": "Max. gebruik",
+      "expiresAt": "Verloopt op",
+      "onceHint": "Dezelfde code kan door een onbeperkt aantal verschillende gebruikers worden gebruikt, maar elke gebruiker kan hem maar één keer inwisselen.",
+      "error": "Kon de code niet opslaan",
+      "save": "Opslaan"
     }
   }
 }

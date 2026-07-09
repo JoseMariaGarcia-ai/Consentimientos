@@ -1126,7 +1126,11 @@
       "manageLoading": "Se deschide portalul de plată…",
       "manageError": "Portalul de plată nu a putut fi deschis. Încearcă din nou sau scrie-ne la soporte@consentspro.com.",
       "renewsOn": "Următoarea reînnoire:"
-    }
+    },
+    "promoTrialBadge": "{{days}} zile gratuite",
+    "promoTrialButton": "Începe perioada de probă gratuită",
+    "promoTrialHint": "{{days}} zile gratuite, apoi {{price}}. Anulează oricând.",
+    "promoBanner": "Ai un cod promoțional activ! Bucură-te de {{days}} zile de probă gratuită pentru planul Pro."
   },
   "toxin": {
     "title": "Control Toxină",
@@ -1247,7 +1251,8 @@
       "analytics": "Analitice",
       "devices": "Dispozitive de semnare",
       "subscriptions": "Abonamente",
-      "keys": "Chei"
+      "keys": "Chei",
+      "promoCodes": "Coduri promoționale"
     },
     "users": {
       "title": "Utilizatori",
@@ -1691,6 +1696,46 @@
       "active": "Active",
       "past_due": "În așteptarea plății",
       "canceled": "Anulate"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Generează coduri pentru campanii (de ex. Meta Ads) care oferă acces la un plan cu o perioadă de probă gratuită. Același cod poate fi folosit de un număr nelimitat de utilizatori diferiți, dar fiecare utilizator îl poate revendica o singură dată.",
+    "newCode": "Cod nou",
+    "empty": "Nu ai creat încă niciun cod promoțional.",
+    "unlimited": "Nelimitat",
+    "copyLink": "Copiază linkul",
+    "deactivate": "Dezactivează",
+    "activate": "Activează",
+    "deleteConfirm": "Sigur vrei să ștergi acest cod promoțional?",
+    "table": {
+      "code": "Cod",
+      "plan": "Plan",
+      "trialDays": "Zile de probă",
+      "campaign": "Campanie",
+      "uses": "Utilizări",
+      "status": "Stare",
+      "expires": "Expiră",
+      "actions": "Acțiuni"
+    },
+    "status": {
+      "active": "Activ",
+      "inactive": "Inactiv",
+      "expired": "Expirat",
+      "exhausted": "Epuizat"
+    },
+    "form": {
+      "code": "Cod",
+      "codeRequired": "Codul este obligatoriu",
+      "codeHint": "Doar litere mari și cifre, fără spații.",
+      "plan": "Plan",
+      "trialDays": "Zile de probă",
+      "campaign": "Campanie",
+      "campaignHint": "de ex. Meta Ads iulie",
+      "maxUses": "Utilizări maxime",
+      "expiresAt": "Expiră la",
+      "onceHint": "Același cod poate fi folosit de un număr nelimitat de utilizatori diferiți, dar fiecare utilizator îl poate revendica o singură dată.",
+      "error": "Codul nu a putut fi salvat",
+      "save": "Salvează"
     }
   }
 }

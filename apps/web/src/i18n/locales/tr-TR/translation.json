@@ -1126,7 +1126,11 @@
       "manageLoading": "Ödeme portalı açılıyor…",
       "manageError": "Ödeme portalı açılamadı. Tekrar deneyin ya da soporte@consentspro.com adresinden bize yazın.",
       "renewsOn": "Sonraki yenileme:"
-    }
+    },
+    "promoTrialBadge": "{{days}} gün ücretsiz",
+    "promoTrialButton": "Ücretsiz denemeyi başlat",
+    "promoTrialHint": "{{days}} gün ücretsiz, ardından {{price}}. İstediğiniz zaman iptal edin.",
+    "promoBanner": "Aktif bir promosyon kodunuz var! Pro planında {{days}} gün ücretsiz deneme keyfini yaşayın."
   },
   "toxin": {
     "title": "Toksin Kontrolü",
@@ -1247,7 +1251,8 @@
       "analytics": "Analitik",
       "devices": "İmza cihazları",
       "subscriptions": "Abonelikler",
-      "keys": "Anahtarlar"
+      "keys": "Anahtarlar",
+      "promoCodes": "Promosyon kodları"
     },
     "users": {
       "title": "Kullanıcılar",
@@ -1691,6 +1696,46 @@
       "active": "Aktif",
       "past_due": "Ödeme bekleniyor",
       "canceled": "İptal edildi"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Ücretsiz deneme süresiyle bir plana erişim sağlayan kampanya kodları (ör. Meta Ads) oluşturun. Aynı kod sınırsız sayıda farklı kullanıcı tarafından kullanılabilir, ancak her kullanıcı yalnızca bir kez kullanabilir.",
+    "newCode": "Yeni kod",
+    "empty": "Henüz hiç promosyon kodu oluşturmadınız.",
+    "unlimited": "Sınırsız",
+    "copyLink": "Bağlantıyı kopyala",
+    "deactivate": "Devre dışı bırak",
+    "activate": "Etkinleştir",
+    "deleteConfirm": "Bu promosyon kodunu silmek istediğinizden emin misiniz?",
+    "table": {
+      "code": "Kod",
+      "plan": "Plan",
+      "trialDays": "Deneme günü",
+      "campaign": "Kampanya",
+      "uses": "Kullanım",
+      "status": "Durum",
+      "expires": "Sona erer",
+      "actions": "İşlemler"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "expired": "Süresi doldu",
+      "exhausted": "Tükendi"
+    },
+    "form": {
+      "code": "Kod",
+      "codeRequired": "Kod zorunludur",
+      "codeHint": "Yalnızca büyük harf ve rakam, boşluksuz.",
+      "plan": "Plan",
+      "trialDays": "Deneme günü",
+      "campaign": "Kampanya",
+      "campaignHint": "ör. Meta Ads Temmuz",
+      "maxUses": "Maks. kullanım",
+      "expiresAt": "Sona erme tarihi",
+      "onceHint": "Aynı kod sınırsız sayıda farklı kullanıcı tarafından kullanılabilir, ancak her kullanıcı yalnızca bir kez kullanabilir.",
+      "error": "Kod kaydedilemedi",
+      "save": "Kaydet"
     }
   }
 }

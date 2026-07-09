@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import {
@@ -217,7 +217,7 @@ function Compliance() {
   )
 }
 
-function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
+function PricingCard({ plan, promo }: { plan: (typeof PLANS)[number]; promo?: { code: string; trialDays: number } | null }) {
   const { t } = useTranslation()
   const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly')
   const [loading, setLoading] = useState(false)
@@ -233,7 +233,9 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
     setLoading(true)
     setError(null)
     try {
-      const { url } = await api.post('/billing/checkout-signup', { planId: plan.id, cycle })
+      const body: { planId: string; cycle: string; promoCode?: string } = { planId: plan.id, cycle }
+      if (promo) body.promoCode = promo.code
+      const { url } = await api.post('/billing/checkout-signup', body)
       window.location.href = url
     } catch (err) {
       setLoading(false)
@@ -243,7 +245,11 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow relative flex flex-col">
-      {badge && (
+      {promo ? (
+        <div className="absolute top-4 right-4 text-[10px] font-bold bg-emerald-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wide z-10">
+          {t('recharge.promoTrialBadge', { days: promo.trialDays })}
+        </div>
+      ) : badge && (
         <div className="absolute top-4 right-4 text-[10px] font-bold bg-[#C9A84C] text-[#0D1B2E] px-2.5 py-1 rounded-full uppercase tracking-wide z-10">
           {badge}
         </div>
@@ -289,10 +295,15 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
           type="button"
           onClick={handleHire}
           disabled={loading}
-          className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className={`w-full py-2.5 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${promo ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-slate-800 hover:bg-slate-700'}`}
         >
-          {loading ? t('recharge.redirecting') : t('recharge.hire_plan')}
+          {loading ? t('recharge.redirecting') : promo ? t('recharge.promoTrialButton') : t('recharge.hire_plan')}
         </button>
+        {promo && !error && (
+          <p className="text-[11px] text-slate-400 text-center mt-2">
+            {t('recharge.promoTrialHint', { days: promo.trialDays, price: displayPrice })}
+          </p>
+        )}
         {error && (
           <div className="mt-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
             <p className="text-xs text-red-700 font-medium">{error}</p>
@@ -307,6 +318,15 @@ function Pricing() {
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const signupResult = searchParams.get('signup')
+  const promoParam = searchParams.get('promo')
+  const [promo, setPromo] = useState<{ code: string; planId: string; trialDays: number } | null>(null)
+
+  useEffect(() => {
+    if (!promoParam) { setPromo(null); return }
+    api.get(`/billing/promo-preview?code=${encodeURIComponent(promoParam)}`)
+      .then((data: any) => setPromo({ code: promoParam, planId: data.planId, trialDays: data.trialDays }))
+      .catch(() => setPromo(null))
+  }, [promoParam])
 
   function dismissSignupBanner() {
     searchParams.delete('signup')
@@ -337,8 +357,16 @@ function Pricing() {
           </button>
         </div>
       )}
+      {promo && (
+        <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+          <p className="text-sm text-emerald-800 flex-1">{t('recharge.promoBanner', { days: promo.trialDays })}</p>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
-        {PLANS.map(plan => <PricingCard key={plan.id} plan={plan} />)}
+        {PLANS.map(plan => (
+          <PricingCard key={plan.id} plan={plan} promo={promo?.planId === plan.id ? promo : null} />
+        ))}
       </div>
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mt-8">
         <p className="text-sm text-amber-800 leading-relaxed">

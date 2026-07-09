@@ -1126,7 +1126,11 @@
       "manageLoading": "Ouverture du portail de paiement…",
       "manageError": "Impossible d'ouvrir le portail de paiement. Réessayez ou écrivez-nous à soporte@consentspro.com.",
       "renewsOn": "Prochain renouvellement :"
-    }
+    },
+    "promoTrialBadge": "{{days}} jours gratuits",
+    "promoTrialButton": "Commencer l'essai gratuit",
+    "promoTrialHint": "{{days}} jours gratuits, puis {{price}}. Annulez à tout moment.",
+    "promoBanner": "Vous avez un code promo actif ! Profitez de {{days}} jours d'essai gratuit sur le forfait Pro."
   },
   "toxin": {
     "title": "Contrôle de Toxine",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytique",
       "devices": "Appareils de signature",
       "subscriptions": "Abonnements",
-      "keys": "Clés"
+      "keys": "Clés",
+      "promoCodes": "Codes promo"
     },
     "users": {
       "title": "Utilisateurs",
@@ -1691,6 +1696,46 @@
       "active": "Actifs",
       "past_due": "Paiement en attente",
       "canceled": "Annulés"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Générez des codes pour vos campagnes (p. ex. Meta Ads) donnant accès à un forfait avec une période d'essai gratuite. Un même code peut être utilisé par un nombre illimité d'utilisateurs différents, mais chaque utilisateur ne peut l'utiliser qu'une seule fois.",
+    "newCode": "Nouveau code",
+    "empty": "Vous n'avez pas encore créé de code promo.",
+    "unlimited": "Illimité",
+    "copyLink": "Copier le lien",
+    "deactivate": "Désactiver",
+    "activate": "Activer",
+    "deleteConfirm": "Voulez-vous vraiment supprimer ce code promo ?",
+    "table": {
+      "code": "Code",
+      "plan": "Forfait",
+      "trialDays": "Jours d'essai",
+      "campaign": "Campagne",
+      "uses": "Utilisations",
+      "status": "Statut",
+      "expires": "Expire",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Actif",
+      "inactive": "Inactif",
+      "expired": "Expiré",
+      "exhausted": "Épuisé"
+    },
+    "form": {
+      "code": "Code",
+      "codeRequired": "Le code est obligatoire",
+      "codeHint": "Lettres majuscules et chiffres uniquement, sans espaces.",
+      "plan": "Forfait",
+      "trialDays": "Jours d'essai",
+      "campaign": "Campagne",
+      "campaignHint": "p. ex. Meta Ads juillet",
+      "maxUses": "Utilisations max.",
+      "expiresAt": "Expire le",
+      "onceHint": "Un même code peut être utilisé par un nombre illimité d'utilisateurs différents, mais chaque utilisateur ne peut l'utiliser qu'une seule fois.",
+      "error": "Impossible d'enregistrer le code",
+      "save": "Enregistrer"
     }
   }
 }

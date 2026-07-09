@@ -1126,7 +1126,11 @@
       "manageLoading": "Fizetési portál megnyitása…",
       "manageError": "Nem sikerült megnyitni a fizetési portált. Próbáld újra, vagy írj nekünk a soporte@consentspro.com címre.",
       "renewsOn": "Következő megújítás:"
-    }
+    },
+    "promoTrialBadge": "{{days}} nap ingyen",
+    "promoTrialButton": "Ingyenes próbaidőszak indítása",
+    "promoTrialHint": "{{days}} nap ingyen, utána {{price}}. Bármikor lemondható.",
+    "promoBanner": "Aktív promóciós kódja van! Élvezze a Pro csomag {{days}} napos ingyenes próbaidőszakát."
   },
   "toxin": {
     "title": "Toxinkontroll",
@@ -1247,7 +1251,8 @@
       "analytics": "Analitika",
       "devices": "Aláíró eszközök",
       "subscriptions": "Előfizetések",
-      "keys": "Kulcsok"
+      "keys": "Kulcsok",
+      "promoCodes": "Promóciós kódok"
     },
     "users": {
       "title": "Felhasználók",
@@ -1691,6 +1696,46 @@
       "active": "Aktív",
       "past_due": "Fizetésre vár",
       "canceled": "Lemondva"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Hozzon létre kódokat kampányokhoz (pl. Meta Ads), amelyek hozzáférést biztosítanak egy csomaghoz ingyenes próbaidőszakkal. Ugyanazt a kódot korlátlan számú különböző felhasználó használhatja, de minden felhasználó csak egyszer válthatja be.",
+    "newCode": "Új kód",
+    "empty": "Még nem hozott létre promóciós kódot.",
+    "unlimited": "Korlátlan",
+    "copyLink": "Link másolása",
+    "deactivate": "Deaktiválás",
+    "activate": "Aktiválás",
+    "deleteConfirm": "Biztosan törli ezt a promóciós kódot?",
+    "table": {
+      "code": "Kód",
+      "plan": "Csomag",
+      "trialDays": "Próbanapok",
+      "campaign": "Kampány",
+      "uses": "Felhasználások",
+      "status": "Állapot",
+      "expires": "Lejár",
+      "actions": "Műveletek"
+    },
+    "status": {
+      "active": "Aktív",
+      "inactive": "Inaktív",
+      "expired": "Lejárt",
+      "exhausted": "Elfogyott"
+    },
+    "form": {
+      "code": "Kód",
+      "codeRequired": "A kód megadása kötelező",
+      "codeHint": "Csak nagybetűk és számok, szóköz nélkül.",
+      "plan": "Csomag",
+      "trialDays": "Próbanapok",
+      "campaign": "Kampány",
+      "campaignHint": "pl. Meta Ads július",
+      "maxUses": "Max. felhasználás",
+      "expiresAt": "Lejárat dátuma",
+      "onceHint": "Ugyanazt a kódot korlátlan számú különböző felhasználó használhatja, de minden felhasználó csak egyszer válthatja be.",
+      "error": "A kódot nem sikerült menteni",
+      "save": "Mentés"
     }
   }
 }

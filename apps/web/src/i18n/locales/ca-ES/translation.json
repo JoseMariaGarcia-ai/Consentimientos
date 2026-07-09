@@ -1126,7 +1126,11 @@
       "manageLoading": "Obrint el portal de pagament…",
       "manageError": "No s'ha pogut obrir el portal de pagament. Torna-ho a provar o escriu-nos a soporte@consentspro.com.",
       "renewsOn": "Pròxima renovació:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dies gratis",
+    "promoTrialButton": "Comença la prova gratuïta",
+    "promoTrialHint": "{{days}} dies gratis, després {{price}}. Cancel·la quan vulguis.",
+    "promoBanner": "Tens un codi promocional actiu! Gaudeix de {{days}} dies de prova gratuïta del pla Pro."
   },
   "toxin": {
     "title": "Control de Toxina",
@@ -1247,7 +1251,8 @@
       "analytics": "Analítica",
       "devices": "Dispositius de signatura",
       "subscriptions": "Subscripcions",
-      "keys": "Claus"
+      "keys": "Claus",
+      "promoCodes": "Codis promocionals"
     },
     "users": {
       "title": "Usuaris",
@@ -1691,6 +1696,46 @@
       "active": "Actives",
       "past_due": "Pendent de pagament",
       "canceled": "Cancel·lades"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Genera codis per a campanyes (p. ex. Meta Ads) que donen accés a un pla amb període de prova gratuït. Un mateix codi el poden fer servir un nombre il·limitat d'usuaris diferents, però cada usuari només el pot bescanviar una vegada.",
+    "newCode": "Nou codi",
+    "empty": "Encara no has creat cap codi promocional.",
+    "unlimited": "Il·limitat",
+    "copyLink": "Copia l'enllaç",
+    "deactivate": "Desactiva",
+    "activate": "Activa",
+    "deleteConfirm": "Segur que vols eliminar aquest codi promocional?",
+    "table": {
+      "code": "Codi",
+      "plan": "Pla",
+      "trialDays": "Dies de prova",
+      "campaign": "Campanya",
+      "uses": "Usos",
+      "status": "Estat",
+      "expires": "Caduca",
+      "actions": "Accions"
+    },
+    "status": {
+      "active": "Actiu",
+      "inactive": "Inactiu",
+      "expired": "Caducat",
+      "exhausted": "Esgotat"
+    },
+    "form": {
+      "code": "Codi",
+      "codeRequired": "El codi és obligatori",
+      "codeHint": "Només majúscules i números, sense espais.",
+      "plan": "Pla",
+      "trialDays": "Dies de prova",
+      "campaign": "Campanya",
+      "campaignHint": "p. ex. Meta Ads juliol",
+      "maxUses": "Usos màxims",
+      "expiresAt": "Caduca el",
+      "onceHint": "Un mateix codi el poden fer servir un nombre il·limitat d'usuaris diferents, però cada usuari només el pot bescanviar una vegada.",
+      "error": "No s'ha pogut desar el codi",
+      "save": "Desa"
     }
   }
 }

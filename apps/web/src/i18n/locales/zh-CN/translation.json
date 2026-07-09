@@ -1126,7 +1126,11 @@
       "manageLoading": "正在打开付款门户…",
       "manageError": "无法打开付款门户。请重试,或发邮件至 soporte@consentspro.com 联系我们。",
       "renewsOn": "下次续费:"
-    }
+    },
+    "promoTrialBadge": "{{days}} 天免费",
+    "promoTrialButton": "开始免费试用",
+    "promoTrialHint": "{{days}} 天免费，之后 {{price}}。随时可取消。",
+    "promoBanner": "您有一个有效的促销代码！享受 Pro 套餐 {{days}} 天免费试用。"
   },
   "toxin": {
     "title": "毒素管理",
@@ -1247,7 +1251,8 @@
       "analytics": "分析",
       "devices": "签署设备",
       "subscriptions": "订阅",
-      "keys": "密钥"
+      "keys": "密钥",
+      "promoCodes": "促销代码"
     },
     "users": {
       "title": "用户",
@@ -1691,6 +1696,46 @@
       "active": "活跃",
       "past_due": "付款待处理",
       "canceled": "已取消"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "为活动（例如 Meta Ads）生成代码，授予对带有免费试用期的套餐的访问权限。同一个代码可供无限数量的不同用户使用，但每个用户只能兑换一次。",
+    "newCode": "新建代码",
+    "empty": "您还没有创建任何促销代码。",
+    "unlimited": "无限制",
+    "copyLink": "复制链接",
+    "deactivate": "停用",
+    "activate": "启用",
+    "deleteConfirm": "确定要删除此促销代码吗？",
+    "table": {
+      "code": "代码",
+      "plan": "套餐",
+      "trialDays": "试用天数",
+      "campaign": "活动",
+      "uses": "使用次数",
+      "status": "状态",
+      "expires": "到期时间",
+      "actions": "操作"
+    },
+    "status": {
+      "active": "有效",
+      "inactive": "已停用",
+      "expired": "已过期",
+      "exhausted": "已用完"
+    },
+    "form": {
+      "code": "代码",
+      "codeRequired": "代码为必填项",
+      "codeHint": "仅限大写字母和数字，不含空格。",
+      "plan": "套餐",
+      "trialDays": "试用天数",
+      "campaign": "活动",
+      "campaignHint": "例如：Meta Ads 7月",
+      "maxUses": "最大使用次数",
+      "expiresAt": "到期日期",
+      "onceHint": "同一个代码可供无限数量的不同用户使用，但每个用户只能兑换一次。",
+      "error": "无法保存代码",
+      "save": "保存"
     }
   }
 }

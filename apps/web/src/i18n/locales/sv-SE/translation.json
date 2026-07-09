@@ -1126,7 +1126,11 @@
       "manageLoading": "Öppnar betalningsportalen…",
       "manageError": "Det gick inte att öppna betalningsportalen. Försök igen eller mejla oss på soporte@consentspro.com.",
       "renewsOn": "Nästa förnyelse:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dagar gratis",
+    "promoTrialButton": "Starta gratis provperiod",
+    "promoTrialHint": "{{days}} dagar gratis, sedan {{price}}. Avsluta när som helst.",
+    "promoBanner": "Du har en aktiv kampanjkod! Njut av {{days}} dagars gratis provperiod av Pro-planen."
   },
   "toxin": {
     "title": "Toxinkontroll",
@@ -1247,7 +1251,8 @@
       "analytics": "Analys",
       "devices": "Signeringsenheter",
       "subscriptions": "Prenumerationer",
-      "keys": "Nycklar"
+      "keys": "Nycklar",
+      "promoCodes": "Kampanjkoder"
     },
     "users": {
       "title": "Användare",
@@ -1691,6 +1696,46 @@
       "active": "Aktiva",
       "past_due": "Väntar på betalning",
       "canceled": "Avbrutna"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Skapa koder för kampanjer (t.ex. Meta Ads) som ger tillgång till en plan med gratis provperiod. Samma kod kan användas av ett obegränsat antal olika användare, men varje användare kan bara lösa in den en gång.",
+    "newCode": "Ny kod",
+    "empty": "Du har inte skapat några kampanjkoder än.",
+    "unlimited": "Obegränsat",
+    "copyLink": "Kopiera länk",
+    "deactivate": "Inaktivera",
+    "activate": "Aktivera",
+    "deleteConfirm": "Är du säker på att du vill ta bort den här kampanjkoden?",
+    "table": {
+      "code": "Kod",
+      "plan": "Plan",
+      "trialDays": "Provdagar",
+      "campaign": "Kampanj",
+      "uses": "Användningar",
+      "status": "Status",
+      "expires": "Upphör",
+      "actions": "Åtgärder"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "expired": "Utgången",
+      "exhausted": "Slut"
+    },
+    "form": {
+      "code": "Kod",
+      "codeRequired": "Kod krävs",
+      "codeHint": "Endast versaler och siffror, inga mellanslag.",
+      "plan": "Plan",
+      "trialDays": "Provdagar",
+      "campaign": "Kampanj",
+      "campaignHint": "t.ex. Meta Ads juli",
+      "maxUses": "Max antal användningar",
+      "expiresAt": "Upphör den",
+      "onceHint": "Samma kod kan användas av ett obegränsat antal olika användare, men varje användare kan bara lösa in den en gång.",
+      "error": "Det gick inte att spara koden",
+      "save": "Spara"
     }
   }
 }

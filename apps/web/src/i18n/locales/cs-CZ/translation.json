@@ -1126,7 +1126,11 @@
       "manageLoading": "Otevírá se platební portál…",
       "manageError": "Platební portál se nepodařilo otevřít. Zkuste to znovu nebo nám napište na soporte@consentspro.com.",
       "renewsOn": "Další obnovení:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dní zdarma",
+    "promoTrialButton": "Začít bezplatnou zkušební dobu",
+    "promoTrialHint": "{{days}} dní zdarma, poté {{price}}. Kdykoli zrušitelné.",
+    "promoBanner": "Máte aktivní promo kód! Užijte si {{days}} dní bezplatné zkušební doby plánu Pro."
   },
   "toxin": {
     "title": "Kontrola Toxinu",
@@ -1247,7 +1251,8 @@
       "analytics": "Analytika",
       "devices": "Podepisovací zařízení",
       "subscriptions": "Předplatné",
-      "keys": "Klíče"
+      "keys": "Klíče",
+      "promoCodes": "Promo kódy"
     },
     "users": {
       "title": "Uživatelé",
@@ -1691,6 +1696,46 @@
       "active": "Aktivní",
       "past_due": "Čeká na platbu",
       "canceled": "Zrušená"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Vytvářejte kódy pro kampaně (např. Meta Ads), které poskytují přístup k plánu se zkušební dobou zdarma. Stejný kód může použít neomezený počet různých uživatelů, ale každý uživatel jej může uplatnit pouze jednou.",
+    "newCode": "Nový kód",
+    "empty": "Zatím jste nevytvořili žádný promo kód.",
+    "unlimited": "Neomezeno",
+    "copyLink": "Kopírovat odkaz",
+    "deactivate": "Deaktivovat",
+    "activate": "Aktivovat",
+    "deleteConfirm": "Opravdu chcete odstranit tento promo kód?",
+    "table": {
+      "code": "Kód",
+      "plan": "Plán",
+      "trialDays": "Zkušební dny",
+      "campaign": "Kampaň",
+      "uses": "Použití",
+      "status": "Stav",
+      "expires": "Vyprší",
+      "actions": "Akce"
+    },
+    "status": {
+      "active": "Aktivní",
+      "inactive": "Neaktivní",
+      "expired": "Vypršel",
+      "exhausted": "Vyčerpán"
+    },
+    "form": {
+      "code": "Kód",
+      "codeRequired": "Kód je povinný",
+      "codeHint": "Pouze velká písmena a čísla, bez mezer.",
+      "plan": "Plán",
+      "trialDays": "Zkušební dny",
+      "campaign": "Kampaň",
+      "campaignHint": "např. Meta Ads červenec",
+      "maxUses": "Max. počet použití",
+      "expiresAt": "Vyprší dne",
+      "onceHint": "Stejný kód může použít neomezený počet různých uživatelů, ale každý uživatel jej může uplatnit pouze jednou.",
+      "error": "Kód se nepodařilo uložit",
+      "save": "Uložit"
     }
   }
 }

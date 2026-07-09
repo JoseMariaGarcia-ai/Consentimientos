@@ -1126,7 +1126,11 @@
       "manageLoading": "Otwieranie portalu płatności…",
       "manageError": "Nie udało się otworzyć portalu płatności. Spróbuj ponownie lub napisz do nas na soporte@consentspro.com.",
       "renewsOn": "Następne odnowienie:"
-    }
+    },
+    "promoTrialBadge": "{{days}} dni za darmo",
+    "promoTrialButton": "Rozpocznij bezpłatny okres próbny",
+    "promoTrialHint": "{{days}} dni za darmo, potem {{price}}. Anuluj w dowolnym momencie.",
+    "promoBanner": "Masz aktywny kod promocyjny! Skorzystaj z {{days}} dni bezpłatnego okresu próbnego planu Pro."
   },
   "toxin": {
     "title": "Kontrola Toksyny",
@@ -1247,7 +1251,8 @@
       "analytics": "Analityka",
       "devices": "Urządzenia do podpisu",
       "subscriptions": "Subskrypcje",
-      "keys": "Klucze"
+      "keys": "Klucze",
+      "promoCodes": "Kody promocyjne"
     },
     "users": {
       "title": "Użytkownicy",
@@ -1691,6 +1696,46 @@
       "active": "Aktywne",
       "past_due": "Oczekuje na płatność",
       "canceled": "Anulowane"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "Twórz kody dla kampanii (np. Meta Ads), które dają dostęp do planu z bezpłatnym okresem próbnym. Ten sam kod może być używany przez nieograniczoną liczbę różnych użytkowników, ale każdy użytkownik może go wykorzystać tylko raz.",
+    "newCode": "Nowy kod",
+    "empty": "Nie utworzono jeszcze żadnego kodu promocyjnego.",
+    "unlimited": "Bez ograniczeń",
+    "copyLink": "Kopiuj link",
+    "deactivate": "Dezaktywuj",
+    "activate": "Aktywuj",
+    "deleteConfirm": "Czy na pewno chcesz usunąć ten kod promocyjny?",
+    "table": {
+      "code": "Kod",
+      "plan": "Plan",
+      "trialDays": "Dni próbne",
+      "campaign": "Kampania",
+      "uses": "Użycia",
+      "status": "Status",
+      "expires": "Wygasa",
+      "actions": "Akcje"
+    },
+    "status": {
+      "active": "Aktywny",
+      "inactive": "Nieaktywny",
+      "expired": "Wygasł",
+      "exhausted": "Wyczerpany"
+    },
+    "form": {
+      "code": "Kod",
+      "codeRequired": "Kod jest wymagany",
+      "codeHint": "Tylko wielkie litery i cyfry, bez spacji.",
+      "plan": "Plan",
+      "trialDays": "Dni próbne",
+      "campaign": "Kampania",
+      "campaignHint": "np. Meta Ads lipiec",
+      "maxUses": "Maks. liczba użyć",
+      "expiresAt": "Wygasa dnia",
+      "onceHint": "Ten sam kod może być używany przez nieograniczoną liczbę różnych użytkowników, ale każdy użytkownik może go wykorzystać tylko raz.",
+      "error": "Nie udało się zapisać kodu",
+      "save": "Zapisz"
     }
   }
 }

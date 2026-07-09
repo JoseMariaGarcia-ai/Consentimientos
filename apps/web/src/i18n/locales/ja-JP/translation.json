@@ -1126,7 +1126,11 @@
       "manageLoading": "支払いポータルを開いています…",
       "manageError": "支払いポータルを開けませんでした。もう一度お試しいただくか、soporte@consentspro.com までご連絡ください。",
       "renewsOn": "次回更新日:"
-    }
+    },
+    "promoTrialBadge": "{{days}}日間無料",
+    "promoTrialButton": "無料お試しを開始",
+    "promoTrialHint": "{{days}}日間無料、その後{{price}}。いつでもキャンセル可能。",
+    "promoBanner": "有効なプロモーションコードがあります！Proプランの{{days}}日間無料お試しをお楽しみください。"
   },
   "toxin": {
     "title": "トキシン管理",
@@ -1247,7 +1251,8 @@
       "analytics": "アナリティクス",
       "devices": "署名デバイス",
       "subscriptions": "サブスクリプション",
-      "keys": "キー"
+      "keys": "キー",
+      "promoCodes": "プロモーションコード"
     },
     "users": {
       "title": "ユーザー",
@@ -1691,6 +1696,46 @@
       "active": "有効",
       "past_due": "支払い保留中",
       "canceled": "キャンセル済み"
+    }
+  },
+  "promoCodes": {
+    "subtitle": "無料お試し期間付きのプランへのアクセスを提供するキャンペーン（例：Meta Ads）用のコードを生成します。同じコードは無制限の数の異なるユーザーが使用できますが、各ユーザーは一度だけ利用できます。",
+    "newCode": "新しいコード",
+    "empty": "まだプロモーションコードを作成していません。",
+    "unlimited": "無制限",
+    "copyLink": "リンクをコピー",
+    "deactivate": "無効化",
+    "activate": "有効化",
+    "deleteConfirm": "このプロモーションコードを削除してもよろしいですか？",
+    "table": {
+      "code": "コード",
+      "plan": "プラン",
+      "trialDays": "お試し日数",
+      "campaign": "キャンペーン",
+      "uses": "使用回数",
+      "status": "ステータス",
+      "expires": "有効期限",
+      "actions": "操作"
+    },
+    "status": {
+      "active": "有効",
+      "inactive": "無効",
+      "expired": "期限切れ",
+      "exhausted": "使用上限に到達"
+    },
+    "form": {
+      "code": "コード",
+      "codeRequired": "コードは必須です",
+      "codeHint": "大文字と数字のみ、スペースなし。",
+      "plan": "プラン",
+      "trialDays": "お試し日数",
+      "campaign": "キャンペーン",
+      "campaignHint": "例：Meta Ads 7月",
+      "maxUses": "最大使用回数",
+      "expiresAt": "有効期限",
+      "onceHint": "同じコードは無制限の数の異なるユーザーが使用できますが、各ユーザーは一度だけ利用できます。",
+      "error": "コードを保存できませんでした",
+      "save": "保存"
     }
   }
 }
