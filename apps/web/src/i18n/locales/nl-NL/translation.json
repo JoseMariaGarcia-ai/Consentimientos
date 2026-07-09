@@ -1238,7 +1238,8 @@
       "media": "Reclame",
       "preview": "Voorbeeld",
       "analytics": "Analytics",
-      "devices": "Ondertekenapparaten"
+      "devices": "Ondertekenapparaten",
+      "subscriptions": "Abonnementen"
     },
     "users": {
       "title": "Gebruikers",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Zodra er een toestemmingsformulier vanaf de computer wordt verzonden, verschijnt het hier om te ondertekenen",
     "revoked": "Dit apparaat is niet meer geautoriseerd",
     "redirecting": "Doorverwijzen om opnieuw te koppelen…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Vernieuwen",
+    "empty": "Nog geen abonnementen.",
+    "loadError": "Abonnementen konden niet worden geladen.",
+    "cancelsAtPeriodEnd": "Wordt beëindigd aan het einde van de periode",
+    "filters": {
+      "all": "Alle",
+      "active": "Actief",
+      "pastDue": "Betaling in behandeling",
+      "canceled": "Geannuleerd"
+    },
+    "table": {
+      "clinic": "Kliniek",
+      "plan": "Abonnement",
+      "cycle": "Cyclus",
+      "amount": "Bedrag",
+      "status": "Status",
+      "activatedAt": "Activeringsdatum",
+      "expiresAt": "Vervaldatum"
+    },
+    "cycle": {
+      "monthly": "Maandelijks",
+      "annual": "Jaarlijks"
+    },
+    "status": {
+      "active": "Actief",
+      "past_due": "Betaling in behandeling",
+      "canceled": "Geannuleerd"
+    }
   }
 }

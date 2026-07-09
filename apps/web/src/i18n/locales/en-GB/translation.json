@@ -1238,7 +1238,8 @@
       "media": "Advertising",
       "preview": "Preview",
       "analytics": "Analytics",
-      "devices": "Signing devices"
+      "devices": "Signing devices",
+      "subscriptions": "Subscriptions"
     },
     "users": {
       "title": "Users",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "As soon as a consent form is sent from the computer, it will appear here to sign",
     "revoked": "This device is no longer authorised",
     "redirecting": "Redirecting to pair again…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Refresh",
+    "empty": "No subscriptions yet.",
+    "loadError": "Could not load subscriptions.",
+    "cancelsAtPeriodEnd": "Will cancel at the end of the period",
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "pastDue": "Payment pending",
+      "canceled": "Cancelled"
+    },
+    "table": {
+      "clinic": "Clinic",
+      "plan": "Plan",
+      "cycle": "Cycle",
+      "amount": "Amount",
+      "status": "Status",
+      "activatedAt": "Activation date",
+      "expiresAt": "Expiry date"
+    },
+    "cycle": {
+      "monthly": "Monthly",
+      "annual": "Annual"
+    },
+    "status": {
+      "active": "Active",
+      "past_due": "Payment pending",
+      "canceled": "Cancelled"
+    }
   }
 }

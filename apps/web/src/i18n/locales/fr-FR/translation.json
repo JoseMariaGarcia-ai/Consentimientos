@@ -1238,7 +1238,8 @@
       "media": "Publicité",
       "preview": "Aperçu",
       "analytics": "Analytique",
-      "devices": "Appareils de signature"
+      "devices": "Appareils de signature",
+      "subscriptions": "Abonnements"
     },
     "users": {
       "title": "Utilisateurs",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Dès qu'un consentement sera envoyé depuis l'ordinateur, il apparaîtra ici pour être signé",
     "revoked": "Cet appareil n'est plus autorisé",
     "redirecting": "Redirection pour se réassocier…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Actualiser",
+    "empty": "Aucun abonnement pour le moment.",
+    "loadError": "Impossible de charger les abonnements.",
+    "cancelsAtPeriodEnd": "Sera annulé à la fin de la période",
+    "filters": {
+      "all": "Tous",
+      "active": "Actifs",
+      "pastDue": "Paiement en attente",
+      "canceled": "Annulés"
+    },
+    "table": {
+      "clinic": "Clinique",
+      "plan": "Formule",
+      "cycle": "Cycle",
+      "amount": "Montant",
+      "status": "Statut",
+      "activatedAt": "Date d'activation",
+      "expiresAt": "Date d'expiration"
+    },
+    "cycle": {
+      "monthly": "Mensuel",
+      "annual": "Annuel"
+    },
+    "status": {
+      "active": "Actifs",
+      "past_due": "Paiement en attente",
+      "canceled": "Annulés"
+    }
   }
 }

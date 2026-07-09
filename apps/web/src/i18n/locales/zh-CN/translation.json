@@ -1238,7 +1238,8 @@
       "media": "推广内容",
       "preview": "预览",
       "analytics": "分析",
-      "devices": "签署设备"
+      "devices": "签署设备",
+      "subscriptions": "订阅"
     },
     "users": {
       "title": "用户",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "一旦从电脑发送知情同意书，它将显示在此处以供签署",
     "revoked": "此设备已不再获得授权",
     "redirecting": "正在重定向以重新配对…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "刷新",
+    "empty": "暂无订阅。",
+    "loadError": "无法加载订阅信息。",
+    "cancelsAtPeriodEnd": "将在本周期结束时取消",
+    "filters": {
+      "all": "全部",
+      "active": "活跃",
+      "pastDue": "付款待处理",
+      "canceled": "已取消"
+    },
+    "table": {
+      "clinic": "诊所",
+      "plan": "套餐",
+      "cycle": "周期",
+      "amount": "金额",
+      "status": "状态",
+      "activatedAt": "激活日期",
+      "expiresAt": "到期日期"
+    },
+    "cycle": {
+      "monthly": "每月",
+      "annual": "每年"
+    },
+    "status": {
+      "active": "活跃",
+      "past_due": "付款待处理",
+      "canceled": "已取消"
+    }
   }
 }

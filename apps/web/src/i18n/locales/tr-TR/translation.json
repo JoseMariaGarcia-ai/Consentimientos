@@ -1238,7 +1238,8 @@
       "media": "Reklam",
       "preview": "Önizleme",
       "analytics": "Analitik",
-      "devices": "İmza cihazları"
+      "devices": "İmza cihazları",
+      "subscriptions": "Abonelikler"
     },
     "users": {
       "title": "Kullanıcılar",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Bilgisayardan bir onay gönderildiğinde imzalanmak üzere burada görünecek",
     "revoked": "Bu cihazın artık yetkisi yok",
     "redirecting": "Yeniden eşleştirmek için yönlendiriliyor…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Yenile",
+    "empty": "Henüz abonelik yok.",
+    "loadError": "Abonelikler yüklenemedi.",
+    "cancelsAtPeriodEnd": "Dönem sonunda iptal edilecek",
+    "filters": {
+      "all": "Tümü",
+      "active": "Aktif",
+      "pastDue": "Ödeme bekleniyor",
+      "canceled": "İptal edildi"
+    },
+    "table": {
+      "clinic": "Klinik",
+      "plan": "Plan",
+      "cycle": "Döngü",
+      "amount": "Tutar",
+      "status": "Durum",
+      "activatedAt": "Aktivasyon tarihi",
+      "expiresAt": "Bitiş tarihi"
+    },
+    "cycle": {
+      "monthly": "Aylık",
+      "annual": "Yıllık"
+    },
+    "status": {
+      "active": "Aktif",
+      "past_due": "Ödeme bekleniyor",
+      "canceled": "İptal edildi"
+    }
   }
 }

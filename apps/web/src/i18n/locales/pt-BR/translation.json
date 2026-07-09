@@ -1238,7 +1238,8 @@
       "media": "Publicidade",
       "preview": "Pré-visualização",
       "analytics": "Analytics",
-      "devices": "Dispositivos de assinatura"
+      "devices": "Dispositivos de assinatura",
+      "subscriptions": "Assinaturas"
     },
     "users": {
       "title": "Usuários",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Assim que um consentimento for enviado do computador, aparecerá aqui para ser assinado",
     "revoked": "Este dispositivo não está mais autorizado",
     "redirecting": "Redirecionando para vincular novamente…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Atualizar",
+    "empty": "Ainda não há assinaturas.",
+    "loadError": "Não foi possível carregar as assinaturas.",
+    "cancelsAtPeriodEnd": "Será cancelada no final do período",
+    "filters": {
+      "all": "Todas",
+      "active": "Ativas",
+      "pastDue": "Pagamento pendente",
+      "canceled": "Canceladas"
+    },
+    "table": {
+      "clinic": "Clínica",
+      "plan": "Plano",
+      "cycle": "Ciclo",
+      "amount": "Valor",
+      "status": "Status",
+      "activatedAt": "Data de ativação",
+      "expiresAt": "Data de vencimento"
+    },
+    "cycle": {
+      "monthly": "Mensal",
+      "annual": "Anual"
+    },
+    "status": {
+      "active": "Ativas",
+      "past_due": "Pagamento pendente",
+      "canceled": "Canceladas"
+    }
   }
 }

@@ -1238,7 +1238,8 @@
       "media": "Reklame",
       "preview": "Forhåndsvisning",
       "analytics": "Analyse",
-      "devices": "Signeringsenheter"
+      "devices": "Signeringsenheter",
+      "subscriptions": "Abonnementer"
     },
     "users": {
       "title": "Brukere",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Så snart et samtykke sendes fra datamaskinen, vises det her for signering",
     "revoked": "Denne enheten er ikke lenger autorisert",
     "redirecting": "Omdirigerer for å koble til på nytt…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Oppdater",
+    "empty": "Ingen abonnementer ennå.",
+    "loadError": "Kunne ikke laste abonnementer.",
+    "cancelsAtPeriodEnd": "Avsluttes ved periodens slutt",
+    "filters": {
+      "all": "Alle",
+      "active": "Aktive",
+      "pastDue": "Venter på betaling",
+      "canceled": "Kansellert"
+    },
+    "table": {
+      "clinic": "Klinikk",
+      "plan": "Plan",
+      "cycle": "Syklus",
+      "amount": "Beløp",
+      "status": "Status",
+      "activatedAt": "Aktiveringsdato",
+      "expiresAt": "Utløpsdato"
+    },
+    "cycle": {
+      "monthly": "Månedlig",
+      "annual": "Årlig"
+    },
+    "status": {
+      "active": "Aktive",
+      "past_due": "Venter på betaling",
+      "canceled": "Kansellert"
+    }
   }
 }

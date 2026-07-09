@@ -1218,7 +1218,8 @@
       "media": "Publicidad",
       "preview": "Vista previa",
       "analytics": "Analítica",
-      "devices": "Dispositivos de firma"
+      "devices": "Dispositivos de firma",
+      "subscriptions": "Suscripciones"
     },
     "users": {
       "title": "Usuarios",
@@ -1615,5 +1616,35 @@
     "waiting_hint": "En cuanto se envíe un consentimiento desde la computadora, aparecerá aquí para firmarlo",
     "revoked": "Este dispositivo ya no está autorizado",
     "redirecting": "Redirigiendo para volver a vincular…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Actualizar",
+    "empty": "Todavía no hay suscripciones.",
+    "loadError": "No se pudieron cargar las suscripciones.",
+    "cancelsAtPeriodEnd": "Se cancelará al final del periodo",
+    "filters": {
+      "all": "Todas",
+      "active": "Activas",
+      "pastDue": "Pendiente de pago",
+      "canceled": "Canceladas"
+    },
+    "table": {
+      "clinic": "Clínica",
+      "plan": "Plan",
+      "cycle": "Ciclo",
+      "amount": "Importe",
+      "status": "Estado",
+      "activatedAt": "Fecha de activación",
+      "expiresAt": "Fecha de vencimiento"
+    },
+    "cycle": {
+      "monthly": "Mensual",
+      "annual": "Anual"
+    },
+    "status": {
+      "active": "Activas",
+      "past_due": "Pendiente de pago",
+      "canceled": "Canceladas"
+    }
   }
 }

@@ -1200,7 +1200,8 @@
       "media": "الإعلانات",
       "preview": "معاينة",
       "analytics": "التحليلات",
-      "devices": "أجهزة التوقيع"
+      "devices": "أجهزة التوقيع",
+      "subscriptions": "الاشتراكات"
     },
     "users": {
       "title": "المستخدمون",
@@ -1597,5 +1598,35 @@
     "waiting_hint": "بمجرد إرسال موافقة من الكمبيوتر، ستظهر هنا للتوقيع عليها",
     "revoked": "هذا الجهاز لم يعد مصرحًا له",
     "redirecting": "جارٍ إعادة التوجيه لإعادة الربط…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "تحديث",
+    "empty": "لا توجد اشتراكات بعد.",
+    "loadError": "تعذّر تحميل الاشتراكات.",
+    "cancelsAtPeriodEnd": "سيتم الإلغاء في نهاية الفترة",
+    "filters": {
+      "all": "الكل",
+      "active": "نشطة",
+      "pastDue": "بانتظار الدفع",
+      "canceled": "ملغاة"
+    },
+    "table": {
+      "clinic": "العيادة",
+      "plan": "الخطة",
+      "cycle": "الدورة",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "activatedAt": "تاريخ التفعيل",
+      "expiresAt": "تاريخ الانتهاء"
+    },
+    "cycle": {
+      "monthly": "شهري",
+      "annual": "سنوي"
+    },
+    "status": {
+      "active": "نشطة",
+      "past_due": "بانتظار الدفع",
+      "canceled": "ملغاة"
+    }
   }
 }

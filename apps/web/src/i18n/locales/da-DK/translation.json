@@ -1238,7 +1238,8 @@
       "media": "Reklame",
       "preview": "Forhåndsvisning",
       "analytics": "Analyse",
-      "devices": "Signeringsenheder"
+      "devices": "Signeringsenheder",
+      "subscriptions": "Abonnementer"
     },
     "users": {
       "title": "Brugere",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Så snart et samtykke sendes fra computeren, vises det her til underskrift",
     "revoked": "Denne enhed er ikke længere godkendt",
     "redirecting": "Omdirigerer for at tilknytte igen…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Opdater",
+    "empty": "Ingen abonnementer endnu.",
+    "loadError": "Kunne ikke indlæse abonnementer.",
+    "cancelsAtPeriodEnd": "Annulleres ved periodens udløb",
+    "filters": {
+      "all": "Alle",
+      "active": "Aktive",
+      "pastDue": "Afventer betaling",
+      "canceled": "Annulleret"
+    },
+    "table": {
+      "clinic": "Klinik",
+      "plan": "Plan",
+      "cycle": "Cyklus",
+      "amount": "Beløb",
+      "status": "Status",
+      "activatedAt": "Aktiveringsdato",
+      "expiresAt": "Udløbsdato"
+    },
+    "cycle": {
+      "monthly": "Månedlig",
+      "annual": "Årlig"
+    },
+    "status": {
+      "active": "Aktive",
+      "past_due": "Afventer betaling",
+      "canceled": "Annulleret"
+    }
   }
 }

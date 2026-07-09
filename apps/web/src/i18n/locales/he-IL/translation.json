@@ -1194,7 +1194,8 @@
       "media": "פרסום",
       "preview": "תצוגה מקדימה",
       "analytics": "ניתוח נתונים",
-      "devices": "מכשירי חתימה"
+      "devices": "מכשירי חתימה",
+      "subscriptions": "מנויים"
     },
     "users": {
       "title": "משתמשים",
@@ -1591,5 +1592,35 @@
     "waiting_hint": "ברגע שתישלח הסכמה מהמחשב, היא תופיע כאן לחתימה",
     "revoked": "מכשיר זה כבר אינו מורשה",
     "redirecting": "מפנה מחדש לשיוך…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "רענן",
+    "empty": "עדיין אין מנויים.",
+    "loadError": "לא ניתן היה לטעון את המנויים.",
+    "cancelsAtPeriodEnd": "יבוטל בסוף התקופה",
+    "filters": {
+      "all": "הכל",
+      "active": "פעילים",
+      "pastDue": "ממתין לתשלום",
+      "canceled": "בוטלו"
+    },
+    "table": {
+      "clinic": "קליניקה",
+      "plan": "תוכנית",
+      "cycle": "מחזור",
+      "amount": "סכום",
+      "status": "סטטוס",
+      "activatedAt": "תאריך הפעלה",
+      "expiresAt": "תאריך תפוגה"
+    },
+    "cycle": {
+      "monthly": "חודשי",
+      "annual": "שנתי"
+    },
+    "status": {
+      "active": "פעילים",
+      "past_due": "ממתין לתשלום",
+      "canceled": "בוטלו"
+    }
   }
 }

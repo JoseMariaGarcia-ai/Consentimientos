@@ -1238,7 +1238,8 @@
       "media": "Werbung",
       "preview": "Vorschau",
       "analytics": "Analytik",
-      "devices": "Unterschriftsgeräte"
+      "devices": "Unterschriftsgeräte",
+      "subscriptions": "Abonnements"
     },
     "users": {
       "title": "Benutzer",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Sobald vom Computer eine Einwilligung gesendet wird, erscheint sie hier zum Unterschreiben",
     "revoked": "Dieses Gerät ist nicht mehr autorisiert",
     "redirecting": "Weiterleitung zum erneuten Verbinden…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Aktualisieren",
+    "empty": "Noch keine Abonnements.",
+    "loadError": "Abonnements konnten nicht geladen werden.",
+    "cancelsAtPeriodEnd": "Wird am Ende des Zeitraums gekündigt",
+    "filters": {
+      "all": "Alle",
+      "active": "Aktiv",
+      "pastDue": "Zahlung ausstehend",
+      "canceled": "Gekündigt"
+    },
+    "table": {
+      "clinic": "Klinik",
+      "plan": "Plan",
+      "cycle": "Zyklus",
+      "amount": "Betrag",
+      "status": "Status",
+      "activatedAt": "Aktivierungsdatum",
+      "expiresAt": "Ablaufdatum"
+    },
+    "cycle": {
+      "monthly": "Monatlich",
+      "annual": "Jährlich"
+    },
+    "status": {
+      "active": "Aktiv",
+      "past_due": "Zahlung ausstehend",
+      "canceled": "Gekündigt"
+    }
   }
 }

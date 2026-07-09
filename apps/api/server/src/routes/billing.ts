@@ -4,6 +4,7 @@ import { query, queryOne } from '../lib/db'
 import { getStripe } from '../lib/stripe'
 import { PLAN_NAMES, isValidPlan, isValidCycle, priceFor, BillingCycle } from '../lib/plans'
 import { applyPlanToClinic } from '../lib/planPermissions'
+import { requireSuperAdmin } from '../middleware/auth'
 
 const router = Router()
 export const webhookRouter = Router()
@@ -113,6 +114,44 @@ router.post('/portal', async (req, res) => {
     console.error('[billing/portal]', err)
     return res.status(500).json({ error: err.message })
   }
+})
+
+// GET /api/billing/subscriptions — superadmin only. Todas las suscripciones
+// de todas las clínicas, para el panel Configuración > Suscripciones.
+router.get('/subscriptions', requireSuperAdmin, async (_req, res) => {
+  try {
+    const rows = await query<{
+      id: string
+      clinic_id: string
+      clinic_name: string
+      plan_id: string
+      billing_cycle: BillingCycle
+      status: string
+      current_period_end: string | null
+      cancel_at_period_end: boolean
+      created_at: string
+    }>(
+      `SELECT s.id, s.clinic_id, c.name AS clinic_name, s.plan_id, s.billing_cycle, s.status,
+              s.current_period_end, s.cancel_at_period_end, s.created_at
+       FROM subscriptions s
+       JOIN clinics c ON c.id = s.clinic_id
+       ORDER BY s.created_at DESC`
+    )
+    const data = rows.map(r => ({
+      id: r.id,
+      clinic_id: r.clinic_id,
+      clinic_name: r.clinic_name,
+      plan_id: r.plan_id,
+      plan_name: PLAN_NAMES[r.plan_id] ?? r.plan_id,
+      billing_cycle: r.billing_cycle,
+      amount: priceFor(r.plan_id, r.billing_cycle),
+      status: r.status,
+      activated_at: r.created_at,
+      expires_at: r.current_period_end,
+      cancel_at_period_end: r.cancel_at_period_end,
+    }))
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 export default router

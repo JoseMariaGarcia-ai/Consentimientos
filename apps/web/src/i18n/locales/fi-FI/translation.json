@@ -1238,7 +1238,8 @@
       "media": "Mainonta",
       "preview": "Esikatselu",
       "analytics": "Analytiikka",
-      "devices": "Allekirjoituslaitteet"
+      "devices": "Allekirjoituslaitteet",
+      "subscriptions": "Tilaukset"
     },
     "users": {
       "title": "Käyttäjät",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Heti kun tietokoneelta lähetetään suostumus, se näkyy täällä allekirjoitettavaksi",
     "revoked": "Tätä laitetta ei enää valtuuteta",
     "redirecting": "Ohjataan uudelleenyhdistämiseen…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Päivitä",
+    "empty": "Ei vielä tilauksia.",
+    "loadError": "Tilauksia ei voitu ladata.",
+    "cancelsAtPeriodEnd": "Perutaan jakson lopussa",
+    "filters": {
+      "all": "Kaikki",
+      "active": "Aktiiviset",
+      "pastDue": "Maksu odottaa",
+      "canceled": "Peruutetut"
+    },
+    "table": {
+      "clinic": "Klinikka",
+      "plan": "Paketti",
+      "cycle": "Jakso",
+      "amount": "Määrä",
+      "status": "Tila",
+      "activatedAt": "Aktivointipäivä",
+      "expiresAt": "Päättymispäivä"
+    },
+    "cycle": {
+      "monthly": "Kuukausittain",
+      "annual": "Vuosittain"
+    },
+    "status": {
+      "active": "Aktiiviset",
+      "past_due": "Maksu odottaa",
+      "canceled": "Peruutetut"
+    }
   }
 }

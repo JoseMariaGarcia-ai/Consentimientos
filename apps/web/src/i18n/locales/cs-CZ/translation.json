@@ -1238,7 +1238,8 @@
       "media": "Reklama",
       "preview": "Náhled",
       "analytics": "Analytika",
-      "devices": "Podepisovací zařízení"
+      "devices": "Podepisovací zařízení",
+      "subscriptions": "Předplatné"
     },
     "users": {
       "title": "Uživatelé",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Jakmile bude z počítače odeslán souhlas, zobrazí se zde k podpisu",
     "revoked": "Toto zařízení již není autorizováno",
     "redirecting": "Přesměrování pro opětovné připojení…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Aktualizovat",
+    "empty": "Zatím nejsou žádná předplatná.",
+    "loadError": "Předplatná se nepodařilo načíst.",
+    "cancelsAtPeriodEnd": "Zruší se na konci období",
+    "filters": {
+      "all": "Všechna",
+      "active": "Aktivní",
+      "pastDue": "Čeká na platbu",
+      "canceled": "Zrušená"
+    },
+    "table": {
+      "clinic": "Klinika",
+      "plan": "Plán",
+      "cycle": "Cyklus",
+      "amount": "Částka",
+      "status": "Stav",
+      "activatedAt": "Datum aktivace",
+      "expiresAt": "Datum vypršení"
+    },
+    "cycle": {
+      "monthly": "Měsíčně",
+      "annual": "Ročně"
+    },
+    "status": {
+      "active": "Aktivní",
+      "past_due": "Čeká na platbu",
+      "canceled": "Zrušená"
+    }
   }
 }

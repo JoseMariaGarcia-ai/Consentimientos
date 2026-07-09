@@ -1238,7 +1238,8 @@
       "media": "広告",
       "preview": "プレビュー",
       "analytics": "アナリティクス",
-      "devices": "署名デバイス"
+      "devices": "署名デバイス",
+      "subscriptions": "サブスクリプション"
     },
     "users": {
       "title": "ユーザー",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "コンピューターから同意書が送信されると、ここに表示され署名できます",
     "revoked": "このデバイスは認証されていません",
     "redirecting": "再ペアリングのためリダイレクトしています…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "更新",
+    "empty": "まだサブスクリプションはありません。",
+    "loadError": "サブスクリプションを読み込めませんでした。",
+    "cancelsAtPeriodEnd": "期間終了時にキャンセルされます",
+    "filters": {
+      "all": "すべて",
+      "active": "有効",
+      "pastDue": "支払い保留中",
+      "canceled": "キャンセル済み"
+    },
+    "table": {
+      "clinic": "クリニック",
+      "plan": "プラン",
+      "cycle": "サイクル",
+      "amount": "金額",
+      "status": "ステータス",
+      "activatedAt": "有効化日",
+      "expiresAt": "有効期限"
+    },
+    "cycle": {
+      "monthly": "月次",
+      "annual": "年次"
+    },
+    "status": {
+      "active": "有効",
+      "past_due": "支払い保留中",
+      "canceled": "キャンセル済み"
+    }
   }
 }

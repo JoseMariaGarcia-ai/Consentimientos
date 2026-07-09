@@ -1238,7 +1238,8 @@
       "media": "Reklam",
       "preview": "Förhandsgranskning",
       "analytics": "Analys",
-      "devices": "Signeringsenheter"
+      "devices": "Signeringsenheter",
+      "subscriptions": "Prenumerationer"
     },
     "users": {
       "title": "Användare",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Så snart ett samtycke skickas från datorn visas det här för signering",
     "revoked": "Denna enhet är inte längre auktoriserad",
     "redirecting": "Omdirigerar för att ansluta igen…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Uppdatera",
+    "empty": "Inga prenumerationer ännu.",
+    "loadError": "Det gick inte att hämta prenumerationer.",
+    "cancelsAtPeriodEnd": "Avslutas vid periodens slut",
+    "filters": {
+      "all": "Alla",
+      "active": "Aktiva",
+      "pastDue": "Väntar på betalning",
+      "canceled": "Avbrutna"
+    },
+    "table": {
+      "clinic": "Klinik",
+      "plan": "Plan",
+      "cycle": "Cykel",
+      "amount": "Belopp",
+      "status": "Status",
+      "activatedAt": "Aktiveringsdatum",
+      "expiresAt": "Utgångsdatum"
+    },
+    "cycle": {
+      "monthly": "Månatlig",
+      "annual": "Årlig"
+    },
+    "status": {
+      "active": "Aktiva",
+      "past_due": "Väntar på betalning",
+      "canceled": "Avbrutna"
+    }
   }
 }

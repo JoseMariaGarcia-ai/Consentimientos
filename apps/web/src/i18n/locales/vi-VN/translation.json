@@ -1238,7 +1238,8 @@
       "media": "Quảng cáo",
       "preview": "Xem trước",
       "analytics": "Phân tích",
-      "devices": "Thiết bị ký"
+      "devices": "Thiết bị ký",
+      "subscriptions": "Gói đăng ký"
     },
     "users": {
       "title": "Người dùng",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Ngay khi một mẫu đồng ý được gửi từ máy tính, nó sẽ xuất hiện ở đây để ký",
     "revoked": "Thiết bị này không còn được ủy quyền",
     "redirecting": "Đang chuyển hướng để ghép nối lại…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Làm mới",
+    "empty": "Chưa có gói đăng ký nào.",
+    "loadError": "Không thể tải các gói đăng ký.",
+    "cancelsAtPeriodEnd": "Sẽ bị hủy vào cuối kỳ",
+    "filters": {
+      "all": "Tất cả",
+      "active": "Đang hoạt động",
+      "pastDue": "Chờ thanh toán",
+      "canceled": "Đã hủy"
+    },
+    "table": {
+      "clinic": "Phòng khám",
+      "plan": "Gói",
+      "cycle": "Chu kỳ",
+      "amount": "Số tiền",
+      "status": "Trạng thái",
+      "activatedAt": "Ngày kích hoạt",
+      "expiresAt": "Ngày hết hạn"
+    },
+    "cycle": {
+      "monthly": "Hàng tháng",
+      "annual": "Hàng năm"
+    },
+    "status": {
+      "active": "Đang hoạt động",
+      "past_due": "Chờ thanh toán",
+      "canceled": "Đã hủy"
+    }
   }
 }

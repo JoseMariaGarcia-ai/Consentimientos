@@ -1238,7 +1238,8 @@
       "media": "Publicitate",
       "preview": "Previzualizare",
       "analytics": "Analitice",
-      "devices": "Dispozitive de semnare"
+      "devices": "Dispozitive de semnare",
+      "subscriptions": "Abonamente"
     },
     "users": {
       "title": "Utilizatori",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "De îndată ce se trimite un consimțământ de la computer, va apărea aici pentru semnare",
     "revoked": "Acest dispozitiv nu mai este autorizat",
     "redirecting": "Se redirecționează pentru reasociere…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Actualizează",
+    "empty": "Nu există încă abonamente.",
+    "loadError": "Abonamentele nu au putut fi încărcate.",
+    "cancelsAtPeriodEnd": "Se va anula la sfârșitul perioadei",
+    "filters": {
+      "all": "Toate",
+      "active": "Active",
+      "pastDue": "În așteptarea plății",
+      "canceled": "Anulate"
+    },
+    "table": {
+      "clinic": "Clinică",
+      "plan": "Plan",
+      "cycle": "Ciclu",
+      "amount": "Sumă",
+      "status": "Stare",
+      "activatedAt": "Data activării",
+      "expiresAt": "Data expirării"
+    },
+    "cycle": {
+      "monthly": "Lunar",
+      "annual": "Anual"
+    },
+    "status": {
+      "active": "Active",
+      "past_due": "În așteptarea plății",
+      "canceled": "Anulate"
+    }
   }
 }

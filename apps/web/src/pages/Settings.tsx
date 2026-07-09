@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3, FileUp, Tablet } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3, FileUp, Tablet, CreditCard } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
@@ -9,6 +9,7 @@ import { DemoPreviewPanel } from '@/components/settings/DemoPreviewPanel'
 import { PlanPermissionsPanel } from '@/components/settings/PlanPermissionsPanel'
 import { AnalyticsPanel } from '@/components/settings/AnalyticsPanel'
 import { SigningDevicesPanel } from '@/components/settings/SigningDevicesPanel'
+import { SubscriptionsPanel } from '@/components/settings/SubscriptionsPanel'
 import { useAuth } from '@/lib/auth'
 import { ALL_MODULES } from '@/lib/modules'
 
@@ -549,7 +550,7 @@ export default function Settings() {
   }
 
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview' | 'keys' | 'plans' | 'analytics' | 'devices'>('users')
+  const [activeTab, setActiveTab] = useState<'users' | 'media' | 'preview' | 'keys' | 'plans' | 'analytics' | 'devices' | 'subscriptions'>('users')
   const [mediaData, setMediaData] = useState<any>({})
 
   const loadMedia = async () => {
@@ -587,6 +588,9 @@ export default function Settings() {
             <button onClick={() => setActiveTab('analytics')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'analytics' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
               <BarChart3 className="w-4 h-4" />{t('settings.tabs.analytics')}
             </button>
+            <button onClick={() => setActiveTab('subscriptions')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'subscriptions' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+              <CreditCard className="w-4 h-4" />{t('settings.tabs.subscriptions')}
+            </button>
           </>
         )}
         {isAdmin && (
@@ -607,6 +611,9 @@ export default function Settings() {
 
       {/* Analítica — superadmin only */}
       {activeTab === 'analytics' && isSuperAdmin && <AnalyticsPanel />}
+
+      {/* Suscripciones — superadmin only */}
+      {activeTab === 'subscriptions' && isSuperAdmin && <SubscriptionsPanel />}
 
       {/* Dispositivos de firma (tablet) — admin y superadmin */}
       {activeTab === 'devices' && isAdmin && <SigningDevicesPanel />}

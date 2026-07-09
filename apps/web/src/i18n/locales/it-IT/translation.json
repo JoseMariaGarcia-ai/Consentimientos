@@ -1292,7 +1292,8 @@
       "media": "Pubblicità",
       "preview": "Anteprima",
       "analytics": "Analitica",
-      "devices": "Dispositivi di firma"
+      "devices": "Dispositivi di firma",
+      "subscriptions": "Abbonamenti"
     },
     "users": {
       "title": "Utenti",
@@ -1689,5 +1690,35 @@
     "waiting_hint": "Non appena un consenso viene inviato dal computer, apparirà qui per essere firmato",
     "revoked": "Questo dispositivo non è più autorizzato",
     "redirecting": "Reindirizzamento per riassociare…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Aggiorna",
+    "empty": "Nessun abbonamento ancora.",
+    "loadError": "Impossibile caricare gli abbonamenti.",
+    "cancelsAtPeriodEnd": "Verrà annullato alla fine del periodo",
+    "filters": {
+      "all": "Tutti",
+      "active": "Attivi",
+      "pastDue": "Pagamento in sospeso",
+      "canceled": "Annullati"
+    },
+    "table": {
+      "clinic": "Clinica",
+      "plan": "Piano",
+      "cycle": "Ciclo",
+      "amount": "Importo",
+      "status": "Stato",
+      "activatedAt": "Data di attivazione",
+      "expiresAt": "Data di scadenza"
+    },
+    "cycle": {
+      "monthly": "Mensile",
+      "annual": "Annuale"
+    },
+    "status": {
+      "active": "Attivi",
+      "past_due": "Pagamento in sospeso",
+      "canceled": "Annullati"
+    }
   }
 }

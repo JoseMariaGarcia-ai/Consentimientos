@@ -1238,7 +1238,8 @@
       "media": "Hirdetés",
       "preview": "Előnézet",
       "analytics": "Analitika",
-      "devices": "Aláíró eszközök"
+      "devices": "Aláíró eszközök",
+      "subscriptions": "Előfizetések"
     },
     "users": {
       "title": "Felhasználók",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Amint a számítógépről elküldenek egy beleegyezést, itt jelenik meg aláírásra",
     "revoked": "Ez az eszköz már nincs felhatalmazva",
     "redirecting": "Átirányítás az újbóli párosításhoz…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Frissítés",
+    "empty": "Még nincs előfizetés.",
+    "loadError": "Az előfizetések betöltése nem sikerült.",
+    "cancelsAtPeriodEnd": "Az időszak végén megszűnik",
+    "filters": {
+      "all": "Összes",
+      "active": "Aktív",
+      "pastDue": "Fizetésre vár",
+      "canceled": "Lemondva"
+    },
+    "table": {
+      "clinic": "Klinika",
+      "plan": "Csomag",
+      "cycle": "Ciklus",
+      "amount": "Összeg",
+      "status": "Állapot",
+      "activatedAt": "Aktiválás dátuma",
+      "expiresAt": "Lejárat dátuma"
+    },
+    "cycle": {
+      "monthly": "Havi",
+      "annual": "Éves"
+    },
+    "status": {
+      "active": "Aktív",
+      "past_due": "Fizetésre vár",
+      "canceled": "Lemondva"
+    }
   }
 }

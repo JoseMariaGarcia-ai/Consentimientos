@@ -1238,7 +1238,8 @@
       "media": "Reklama",
       "preview": "Podgląd",
       "analytics": "Analityka",
-      "devices": "Urządzenia do podpisu"
+      "devices": "Urządzenia do podpisu",
+      "subscriptions": "Subskrypcje"
     },
     "users": {
       "title": "Użytkownicy",
@@ -1635,5 +1636,35 @@
     "waiting_hint": "Gdy tylko zgoda zostanie wysłana z komputera, pojawi się tutaj do podpisu",
     "revoked": "To urządzenie nie jest już autoryzowane",
     "redirecting": "Przekierowywanie w celu ponownego sparowania…"
+  },
+  "subscriptionsPanel": {
+    "refresh": "Odśwież",
+    "empty": "Brak subskrypcji.",
+    "loadError": "Nie udało się wczytać subskrypcji.",
+    "cancelsAtPeriodEnd": "Zostanie anulowana na koniec okresu",
+    "filters": {
+      "all": "Wszystkie",
+      "active": "Aktywne",
+      "pastDue": "Oczekuje na płatność",
+      "canceled": "Anulowane"
+    },
+    "table": {
+      "clinic": "Klinika",
+      "plan": "Plan",
+      "cycle": "Cykl",
+      "amount": "Kwota",
+      "status": "Status",
+      "activatedAt": "Data aktywacji",
+      "expiresAt": "Data wygaśnięcia"
+    },
+    "cycle": {
+      "monthly": "Miesięcznie",
+      "annual": "Rocznie"
+    },
+    "status": {
+      "active": "Aktywne",
+      "past_due": "Oczekuje na płatność",
+      "canceled": "Anulowane"
+    }
   }
 }
