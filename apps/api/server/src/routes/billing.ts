@@ -11,23 +11,45 @@ export const webhookRouter = Router()
 
 const APP_URL = process.env.APP_URL ?? 'http://localhost:5173'
 
-type ClinicRow = { id: string; name: string; email: string | null; stripe_customer_id: string | null }
+type ClinicRow = {
+  id: string; name: string; email: string | null; stripe_customer_id: string | null
+  legal_name: string | null; tax_id: string | null; address: string | null
+}
+
+const CLINIC_FIELDS = 'id, name, email, stripe_customer_id, legal_name, tax_id, address'
 
 async function getClinic(userId: string): Promise<ClinicRow | null> {
   const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
   if (!me?.clinic_id) return null
-  return queryOne<ClinicRow>(
-    'SELECT id, name, email, stripe_customer_id FROM clinics WHERE id = $1', [me.clinic_id]
-  )
+  return queryOne<ClinicRow>(`SELECT ${CLINIC_FIELDS} FROM clinics WHERE id = $1`, [me.clinic_id])
 }
 
 export async function getClinicById(clinicId: string): Promise<ClinicRow | null> {
-  return queryOne<ClinicRow>(
-    'SELECT id, name, email, stripe_customer_id FROM clinics WHERE id = $1', [clinicId]
-  )
+  return queryOne<ClinicRow>(`SELECT ${CLINIC_FIELDS} FROM clinics WHERE id = $1`, [clinicId])
 }
 
-async function getOrCreateStripeCustomer(clinic: { id: string; name: string; email: string | null; stripe_customer_id: string | null }) {
+// Los datos fiscales de la clínica (NIF/CIF, razón social, dirección) ya se
+// editan en Clínica > Datos fiscales — aquí solo se reflejan en Stripe para
+// que salgan correctamente en sus facturas. Nunca deben poder tumbar el
+// checkout: si Stripe rechaza el formato del NIF, se sigue sin él.
+function stripeCustomerFields(clinic: ClinicRow): { name: string; email?: string; address?: { line1: string; country: string } } {
+  return {
+    name: clinic.legal_name || clinic.name,
+    email: clinic.email ?? undefined,
+    address: clinic.address ? { line1: clinic.address, country: 'ES' } : undefined,
+  }
+}
+
+async function attachTaxId(stripeCustomerId: string, taxId: string | null) {
+  if (!taxId) return
+  try {
+    await getStripe().customers.createTaxId(stripeCustomerId, { type: 'es_cif', value: taxId })
+  } catch (err: any) {
+    console.error(`[billing] no se pudo asociar el NIF/CIF a ${stripeCustomerId}:`, err.message)
+  }
+}
+
+async function getOrCreateStripeCustomer(clinic: ClinicRow) {
   if (clinic.stripe_customer_id) {
     // The stored ID can go stale (deleted in Stripe, or created under a
     // different key — e.g. live vs. test mode each have their own customer
@@ -35,16 +57,22 @@ async function getOrCreateStripeCustomer(clinic: { id: string; name: string; ema
     // fresh customer instead of failing the whole checkout.
     try {
       const existing = await getStripe().customers.retrieve(clinic.stripe_customer_id)
-      if (!existing.deleted) return existing.id
+      if (!existing.deleted) {
+        // Mantiene el nombre/dirección/NIF al día si la clínica los añade o
+        // edita después de la primera compra — nunca bloquea el checkout.
+        try { await getStripe().customers.update(existing.id, stripeCustomerFields(clinic)) } catch {}
+        await attachTaxId(existing.id, clinic.tax_id)
+        return existing.id
+      }
     } catch {
       // stale ID — fall through and create a new one below
     }
   }
   const customer = await getStripe().customers.create({
-    name: clinic.name,
-    email: clinic.email ?? undefined,
+    ...stripeCustomerFields(clinic),
     metadata: { clinic_id: clinic.id },
   })
+  await attachTaxId(customer.id, clinic.tax_id)
   await query('UPDATE clinics SET stripe_customer_id = $1 WHERE id = $2', [customer.id, clinic.id])
   return customer.id
 }
