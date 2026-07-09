@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Nota Pla Xarxes:",
-    "note_redes_text": "El pressupost destinat a publicitat (Meta Ads) no està inclòs en la quota mensual. En una primera videotrucada definirem junts els objectius, l'àrea d'actuació i la resta de factors clau; després d'un breu estudi de mercat, et recomanarem l'import d'inversió més adequat per a les teves campanyes."
+    "note_redes_text": "El pressupost destinat a publicitat (Meta Ads) no està inclòs en la quota mensual. En una primera videotrucada definirem junts els objectius, l'àrea d'actuació i la resta de factors clau; després d'un breu estudi de mercat, et recomanarem l'import d'inversió més adequat per a les teves campanyes.",
+    "currentPlan": {
+      "title": "El teu pla actual",
+      "manage": "Gestionar subscripció",
+      "manageLoading": "Obrint el portal de pagament…",
+      "manageError": "No s'ha pogut obrir el portal de pagament. Torna-ho a provar o escriu-nos a soporte@consentspro.com.",
+      "renewsOn": "Pròxima renovació:"
+    }
   },
   "toxin": {
     "title": "Control de Toxina",

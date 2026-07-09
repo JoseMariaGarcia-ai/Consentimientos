@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Hinweis Social-Media-Plan:",
-    "note_redes_text": "Das Werbebudget (Meta Ads) ist nicht in der monatlichen Gebühr enthalten. In einem ersten Videoanruf legen wir gemeinsam Ziele, Wirkungsbereich und weitere Schlüsselfaktoren fest; nach einer kurzen Marktanalyse empfehlen wir die passende Investitionshöhe für deine Kampagnen."
+    "note_redes_text": "Das Werbebudget (Meta Ads) ist nicht in der monatlichen Gebühr enthalten. In einem ersten Videoanruf legen wir gemeinsam Ziele, Wirkungsbereich und weitere Schlüsselfaktoren fest; nach einer kurzen Marktanalyse empfehlen wir die passende Investitionshöhe für deine Kampagnen.",
+    "currentPlan": {
+      "title": "Dein aktueller Plan",
+      "manage": "Abo verwalten",
+      "manageLoading": "Zahlungsportal wird geöffnet…",
+      "manageError": "Das Zahlungsportal konnte nicht geöffnet werden. Versuche es erneut oder schreib uns an soporte@consentspro.com.",
+      "renewsOn": "Nächste Verlängerung:"
+    }
   },
   "toxin": {
     "title": "Toxin-Kontrolle",

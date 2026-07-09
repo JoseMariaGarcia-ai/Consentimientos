@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Nota Plano Redes:",
-    "note_redes_text": "O orçamento destinado à publicidade (Meta Ads) não está incluído na mensalidade. Em uma primeira videochamada, definiremos juntos os objetivos, a área de atuação e os demais fatores-chave; após um breve estudo de mercado, recomendaremos o valor de investimento mais adequado para suas campanhas."
+    "note_redes_text": "O orçamento destinado à publicidade (Meta Ads) não está incluído na mensalidade. Em uma primeira videochamada, definiremos juntos os objetivos, a área de atuação e os demais fatores-chave; após um breve estudo de mercado, recomendaremos o valor de investimento mais adequado para suas campanhas.",
+    "currentPlan": {
+      "title": "Seu plano atual",
+      "manage": "Gerenciar assinatura",
+      "manageLoading": "Abrindo o portal de pagamento…",
+      "manageError": "Não foi possível abrir o portal de pagamento. Tente novamente ou escreva para soporte@consentspro.com.",
+      "renewsOn": "Próxima renovação:"
+    }
   },
   "toxin": {
     "title": "Controle de Toxina",

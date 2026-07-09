@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "社媒套餐说明：",
-    "note_redes_text": "广告预算（Meta Ads）不包含在月费中。在首次视频通话中，我们将共同确定目标、业务范围及其他关键因素；经过简短的市场调研后，我们会为您的广告活动推荐最合适的投资金额。"
+    "note_redes_text": "广告预算（Meta Ads）不包含在月费中。在首次视频通话中，我们将共同确定目标、业务范围及其他关键因素；经过简短的市场调研后，我们会为您的广告活动推荐最合适的投资金额。",
+    "currentPlan": {
+      "title": "你当前的套餐",
+      "manage": "管理订阅",
+      "manageLoading": "正在打开付款门户…",
+      "manageError": "无法打开付款门户。请重试,或发邮件至 soporte@consentspro.com 联系我们。",
+      "renewsOn": "下次续费:"
+    }
   },
   "toxin": {
     "title": "毒素管理",

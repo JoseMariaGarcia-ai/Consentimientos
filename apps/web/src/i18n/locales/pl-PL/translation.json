@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Uwaga do planu Social Media:",
-    "note_redes_text": "Budżet reklamowy (Meta Ads) nie jest wliczony w opłatę miesięczną. Podczas pierwszej rozmowy wideo wspólnie ustalimy cele, obszar działania i pozostałe kluczowe czynniki; po krótkim badaniu rynku zarekomendujemy najodpowiedniejszą kwotę inwestycji na Twoje kampanie."
+    "note_redes_text": "Budżet reklamowy (Meta Ads) nie jest wliczony w opłatę miesięczną. Podczas pierwszej rozmowy wideo wspólnie ustalimy cele, obszar działania i pozostałe kluczowe czynniki; po krótkim badaniu rynku zarekomendujemy najodpowiedniejszą kwotę inwestycji na Twoje kampanie.",
+    "currentPlan": {
+      "title": "Twój aktualny plan",
+      "manage": "Zarządzaj subskrypcją",
+      "manageLoading": "Otwieranie portalu płatności…",
+      "manageError": "Nie udało się otworzyć portalu płatności. Spróbuj ponownie lub napisz do nas na soporte@consentspro.com.",
+      "renewsOn": "Następne odnowienie:"
+    }
   },
   "toxin": {
     "title": "Kontrola Toksyny",

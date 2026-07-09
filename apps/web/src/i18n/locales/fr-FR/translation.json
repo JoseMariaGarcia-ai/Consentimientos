@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Remarque Formule Réseaux :",
-    "note_redes_text": "Le budget publicitaire (Meta Ads) n'est pas inclus dans l'abonnement mensuel. Lors d'un premier appel vidéo, nous définirons ensemble les objectifs, le domaine d'action et les autres facteurs clés ; après une brève étude de marché, nous vous recommanderons le montant d'investissement le plus adapté à vos campagnes."
+    "note_redes_text": "Le budget publicitaire (Meta Ads) n'est pas inclus dans l'abonnement mensuel. Lors d'un premier appel vidéo, nous définirons ensemble les objectifs, le domaine d'action et les autres facteurs clés ; après une brève étude de marché, nous vous recommanderons le montant d'investissement le plus adapté à vos campagnes.",
+    "currentPlan": {
+      "title": "Votre offre actuelle",
+      "manage": "Gérer l'abonnement",
+      "manageLoading": "Ouverture du portail de paiement…",
+      "manageError": "Impossible d'ouvrir le portail de paiement. Réessayez ou écrivez-nous à soporte@consentspro.com.",
+      "renewsOn": "Prochain renouvellement :"
+    }
   },
   "toxin": {
     "title": "Contrôle de Toxine",

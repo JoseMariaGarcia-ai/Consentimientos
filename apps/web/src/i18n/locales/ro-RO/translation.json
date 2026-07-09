@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Notă Plan Social Media:",
-    "note_redes_text": "Bugetul destinat publicității (Meta Ads) nu este inclus în abonamentul lunar. Într-o primă videoconferință vom defini împreună obiectivele, aria de acțiune și ceilalți factori-cheie; după un scurt studiu de piață, îți vom recomanda suma de investiție cea mai potrivită pentru campaniile tale."
+    "note_redes_text": "Bugetul destinat publicității (Meta Ads) nu este inclus în abonamentul lunar. Într-o primă videoconferință vom defini împreună obiectivele, aria de acțiune și ceilalți factori-cheie; după un scurt studiu de piață, îți vom recomanda suma de investiție cea mai potrivită pentru campaniile tale.",
+    "currentPlan": {
+      "title": "Planul tău actual",
+      "manage": "Gestionează abonamentul",
+      "manageLoading": "Se deschide portalul de plată…",
+      "manageError": "Portalul de plată nu a putut fi deschis. Încearcă din nou sau scrie-ne la soporte@consentspro.com.",
+      "renewsOn": "Următoarea reînnoire:"
+    }
   },
   "toxin": {
     "title": "Control Toxină",

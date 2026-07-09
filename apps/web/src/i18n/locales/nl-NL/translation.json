@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Opmerking Social Media Plan:",
-    "note_redes_text": "Het advertentiebudget (Meta Ads) is niet inbegrepen bij het maandelijkse tarief. Tijdens een eerste videogesprek bepalen we samen de doelen, het werkgebied en andere belangrijke factoren; na een kort marktonderzoek adviseren we het meest geschikte investeringsbedrag voor jouw campagnes."
+    "note_redes_text": "Het advertentiebudget (Meta Ads) is niet inbegrepen bij het maandelijkse tarief. Tijdens een eerste videogesprek bepalen we samen de doelen, het werkgebied en andere belangrijke factoren; na een kort marktonderzoek adviseren we het meest geschikte investeringsbedrag voor jouw campagnes.",
+    "currentPlan": {
+      "title": "Jouw huidige plan",
+      "manage": "Abonnement beheren",
+      "manageLoading": "Betaalportaal wordt geopend…",
+      "manageError": "Het betaalportaal kon niet worden geopend. Probeer het opnieuw of mail ons op soporte@consentspro.com.",
+      "renewsOn": "Volgende verlenging:"
+    }
   },
   "toxin": {
     "title": "Toxinecontrole",

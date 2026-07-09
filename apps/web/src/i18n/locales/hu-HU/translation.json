@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Megjegyzés Közösségi Média Csomag:",
-    "note_redes_text": "A hirdetési költségkeret (Meta Ads) nincs benne a havi díjban. Az első videohívás során közösen meghatározzuk a célokat, a tevékenységi területet és egyéb kulcsfontosságú tényezőket; egy rövid piackutatás után javasoljuk a kampányaidhoz legmegfelelőbb befektetési összeget."
+    "note_redes_text": "A hirdetési költségkeret (Meta Ads) nincs benne a havi díjban. Az első videohívás során közösen meghatározzuk a célokat, a tevékenységi területet és egyéb kulcsfontosságú tényezőket; egy rövid piackutatás után javasoljuk a kampányaidhoz legmegfelelőbb befektetési összeget.",
+    "currentPlan": {
+      "title": "Jelenlegi csomagod",
+      "manage": "Előfizetés kezelése",
+      "manageLoading": "Fizetési portál megnyitása…",
+      "manageError": "Nem sikerült megnyitni a fizetési portált. Próbáld újra, vagy írj nekünk a soporte@consentspro.com címre.",
+      "renewsOn": "Következő megújítás:"
+    }
   },
   "toxin": {
     "title": "Toxinkontroll",

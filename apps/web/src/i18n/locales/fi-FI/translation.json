@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Huomio Somepaketti:",
-    "note_redes_text": "Mainosbudjetti (Meta Ads) ei sisälly kuukausimaksuun. Ensimmäisessä videopuhelussa määrittelemme yhdessä tavoitteet, toiminta-alueen ja muut keskeiset tekijät; lyhyen markkinatutkimuksen jälkeen suosittelemme sopivinta sijoitussummaa kampanjoillesi."
+    "note_redes_text": "Mainosbudjetti (Meta Ads) ei sisälly kuukausimaksuun. Ensimmäisessä videopuhelussa määrittelemme yhdessä tavoitteet, toiminta-alueen ja muut keskeiset tekijät; lyhyen markkinatutkimuksen jälkeen suosittelemme sopivinta sijoitussummaa kampanjoillesi.",
+    "currentPlan": {
+      "title": "Nykyinen suunnitelmasi",
+      "manage": "Hallinnoi tilausta",
+      "manageLoading": "Avataan maksuportaalia…",
+      "manageError": "Maksuportaalia ei voitu avata. Yritä uudelleen tai kirjoita meille osoitteeseen soporte@consentspro.com.",
+      "renewsOn": "Seuraava uusiminen:"
+    }
   },
   "toxin": {
     "title": "Toksiinin seuranta",

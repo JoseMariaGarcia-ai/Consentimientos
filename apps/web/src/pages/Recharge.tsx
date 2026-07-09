@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { Check, Zap, CheckCircle2, XCircle } from 'lucide-react'
+import { Check, Zap, CheckCircle2, XCircle, CreditCard } from 'lucide-react'
 import { api } from '../lib/api'
 
 export interface Plan {
@@ -127,6 +127,96 @@ function PlanCard({ plan }: { plan: Plan }) {
   )
 }
 
+interface SubscriptionStatus {
+  plan_id: string
+  billing_cycle: 'monthly' | 'annual'
+  status: string
+  current_period_end: string | null
+  cancel_at_period_end: boolean
+}
+
+function bucketOf(status: string): 'active' | 'past_due' | 'canceled' {
+  if (status === 'active' || status === 'trialing') return 'active'
+  if (status === 'canceled' || status === 'incomplete_expired') return 'canceled'
+  return 'past_due'
+}
+
+const BUCKET_BADGE: Record<'active' | 'past_due' | 'canceled', string> = {
+  active: 'bg-emerald-100 text-emerald-700',
+  past_due: 'bg-amber-100 text-amber-700',
+  canceled: 'bg-slate-100 text-slate-600',
+}
+
+function CurrentPlanStatus() {
+  const { t, i18n } = useTranslation()
+  const [sub, setSub] = useState<SubscriptionStatus | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [portalLoading, setPortalLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    api.get('/billing/status')
+      .then(data => setSub(data ?? null))
+      .catch(() => setSub(null))
+      .finally(() => setLoading(false))
+  }, [])
+
+  async function handleManage() {
+    setPortalLoading(true)
+    setError(null)
+    try {
+      const { url } = await api.post('/billing/portal', {})
+      window.location.href = url
+    } catch (err) {
+      setPortalLoading(false)
+      setError(err instanceof Error ? err.message : t('recharge.currentPlan.manageError'))
+    }
+  }
+
+  if (loading || !sub) return null
+
+  const key = PLAN_KEY[sub.plan_id]
+  const planName = key ? t(`recharge.plans.${key}.name`) : sub.plan_id
+  const bucket = bucketOf(sub.status)
+  const dateStr = sub.current_period_end
+    ? new Date(sub.current_period_end).toLocaleDateString(i18n.language, { day: 'numeric', month: 'long', year: 'numeric' })
+    : null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+          <CreditCard className="w-5 h-5 text-blue-600" />
+        </div>
+        <div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <p className="text-sm font-bold text-slate-700">{t('recharge.currentPlan.title')}: {planName}</p>
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${BUCKET_BADGE[bucket]}`}>
+              {t(`subscriptionsPanel.status.${bucket === 'past_due' ? 'past_due' : bucket}`)}
+            </span>
+          </div>
+          {dateStr && (
+            <p className="text-xs text-slate-500 mt-1">
+              {sub.cancel_at_period_end
+                ? `${t('subscriptionsPanel.cancelsAtPeriodEnd')} — ${dateStr}`
+                : `${t('recharge.currentPlan.renewsOn')} ${dateStr}`}
+            </p>
+          )}
+          {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={handleManage}
+        disabled={portalLoading}
+        className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex-shrink-0"
+      >
+        {portalLoading ? t('recharge.currentPlan.manageLoading') : t('recharge.currentPlan.manage')}
+      </button>
+    </div>
+  )
+}
+
 export default function Recharge() {
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -148,6 +238,8 @@ export default function Recharge() {
           <p className="text-sm text-slate-500 mt-0.5">{t('recharge.subtitle')}</p>
         </div>
       </div>
+
+      <CurrentPlanStatus />
 
       {checkoutResult === 'success' && (
         <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4">

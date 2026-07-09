@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Poznámka k plánu Sítě:",
-    "note_redes_text": "Rozpočet na reklamu (Meta Ads) není zahrnut v měsíčním poplatku. Na první videohovoru společně definujeme cíle, oblast působení a další klíčové faktory; po krátkém průzkumu trhu doporučíme nejvhodnější výši investice pro vaše kampaně."
+    "note_redes_text": "Rozpočet na reklamu (Meta Ads) není zahrnut v měsíčním poplatku. Na první videohovoru společně definujeme cíle, oblast působení a další klíčové faktory; po krátkém průzkumu trhu doporučíme nejvhodnější výši investice pro vaše kampaně.",
+    "currentPlan": {
+      "title": "Tvůj aktuální plán",
+      "manage": "Spravovat předplatné",
+      "manageLoading": "Otevírá se platební portál…",
+      "manageError": "Platební portál se nepodařilo otevřít. Zkuste to znovu nebo nám napište na soporte@consentspro.com.",
+      "renewsOn": "Další obnovení:"
+    }
   },
   "toxin": {
     "title": "Kontrola Toxinu",

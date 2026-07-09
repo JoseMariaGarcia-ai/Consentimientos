@@ -1119,6 +1119,13 @@
           "Reunión semanal por videollamada"
         ]
       }
+    },
+    "currentPlan": {
+      "title": "Tu plan actual",
+      "manage": "Gestionar suscripción",
+      "manageLoading": "Abriendo el portal de pago…",
+      "manageError": "No se ha podido abrir el portal de pago. Inténtalo de nuevo o escríbenos a soporte@consentspro.com.",
+      "renewsOn": "Próxima renovación:"
     }
   },
   "toxin": {

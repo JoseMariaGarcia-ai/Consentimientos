@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Ghi chú Gói Mạng Xã Hội:",
-    "note_redes_text": "Ngân sách quảng cáo (Meta Ads) không bao gồm trong phí hằng tháng. Trong cuộc gọi video đầu tiên, chúng tôi sẽ cùng bạn xác định mục tiêu, lĩnh vực hoạt động và các yếu tố quan trọng khác; sau một nghiên cứu thị trường ngắn, chúng tôi sẽ đề xuất số tiền đầu tư phù hợp nhất cho các chiến dịch của bạn."
+    "note_redes_text": "Ngân sách quảng cáo (Meta Ads) không bao gồm trong phí hằng tháng. Trong cuộc gọi video đầu tiên, chúng tôi sẽ cùng bạn xác định mục tiêu, lĩnh vực hoạt động và các yếu tố quan trọng khác; sau một nghiên cứu thị trường ngắn, chúng tôi sẽ đề xuất số tiền đầu tư phù hợp nhất cho các chiến dịch của bạn.",
+    "currentPlan": {
+      "title": "Gói hiện tại của bạn",
+      "manage": "Quản lý gói đăng ký",
+      "manageLoading": "Đang mở cổng thanh toán…",
+      "manageError": "Không thể mở cổng thanh toán. Vui lòng thử lại hoặc liên hệ soporte@consentspro.com.",
+      "renewsOn": "Gia hạn tiếp theo:"
+    }
   },
   "toxin": {
     "title": "Kiểm Soát Độc Tố",

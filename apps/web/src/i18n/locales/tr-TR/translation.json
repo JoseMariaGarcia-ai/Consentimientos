@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Sosyal Medya Planı notu:",
-    "note_redes_text": "Reklam bütçesi (Meta Ads) aylık ücrete dahil değildir. İlk görüntülü görüşmede hedefleri, faaliyet alanını ve diğer temel faktörleri birlikte tanımlayacağız; kısa bir pazar araştırmasının ardından kampanyalarınız için en uygun yatırım tutarını önereceğiz."
+    "note_redes_text": "Reklam bütçesi (Meta Ads) aylık ücrete dahil değildir. İlk görüntülü görüşmede hedefleri, faaliyet alanını ve diğer temel faktörleri birlikte tanımlayacağız; kısa bir pazar araştırmasının ardından kampanyalarınız için en uygun yatırım tutarını önereceğiz.",
+    "currentPlan": {
+      "title": "Mevcut planın",
+      "manage": "Aboneliği yönet",
+      "manageLoading": "Ödeme portalı açılıyor…",
+      "manageError": "Ödeme portalı açılamadı. Tekrar deneyin ya da soporte@consentspro.com adresinden bize yazın.",
+      "renewsOn": "Sonraki yenileme:"
+    }
   },
   "toxin": {
     "title": "Toksin Kontrolü",

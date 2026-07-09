@@ -1173,7 +1173,14 @@
       }
     },
     "note_redes_title": "Nota Piano Social:",
-    "note_redes_text": "Il budget destinato alla pubblicità (Meta Ads) non è incluso nella quota mensile. In una prima videochiamata definiremo insieme gli obiettivi, l'area di intervento e gli altri fattori chiave; dopo una breve analisi di mercato, ti consiglieremo l'importo di investimento più adatto alle tue campagne."
+    "note_redes_text": "Il budget destinato alla pubblicità (Meta Ads) non è incluso nella quota mensile. In una prima videochiamata definiremo insieme gli obiettivi, l'area di intervento e gli altri fattori chiave; dopo una breve analisi di mercato, ti consiglieremo l'importo di investimento più adatto alle tue campagne.",
+    "currentPlan": {
+      "title": "Il tuo piano attuale",
+      "manage": "Gestisci abbonamento",
+      "manageLoading": "Apertura del portale di pagamento…",
+      "manageError": "Non è stato possibile aprire il portale di pagamento. Riprova o scrivici a soporte@consentspro.com.",
+      "renewsOn": "Prossimo rinnovo:"
+    }
   },
   "toxin": {
     "title": "Controllo Tossina",

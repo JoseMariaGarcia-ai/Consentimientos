@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Bemærkning til Netværksplan:",
-    "note_redes_text": "Budgettet til annoncering (Meta Ads) er ikke inkluderet i det månedlige gebyr. På det første videomøde definerer vi sammen mål, indsatsområde og andre nøglefaktorer; efter en kort markedsundersøgelse anbefaler vi det mest passende investeringsbeløb til dine kampagner."
+    "note_redes_text": "Budgettet til annoncering (Meta Ads) er ikke inkluderet i det månedlige gebyr. På det første videomøde definerer vi sammen mål, indsatsområde og andre nøglefaktorer; efter en kort markedsundersøgelse anbefaler vi det mest passende investeringsbeløb til dine kampagner.",
+    "currentPlan": {
+      "title": "Din nuværende plan",
+      "manage": "Administrer abonnement",
+      "manageLoading": "Åbner betalingsportalen…",
+      "manageError": "Betalingsportalen kunne ikke åbnes. Prøv igen, eller skriv til os på soporte@consentspro.com.",
+      "renewsOn": "Næste fornyelse:"
+    }
   },
   "toxin": {
     "title": "Toksinkontrol",

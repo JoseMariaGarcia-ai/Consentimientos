@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Social Media Plan note:",
-    "note_redes_text": "The advertising budget (Meta Ads) is not included in the monthly fee. In an initial video call we will define your goals, area of focus and other key factors together; after a brief market study, we will recommend the most suitable investment amount for your campaigns."
+    "note_redes_text": "The advertising budget (Meta Ads) is not included in the monthly fee. In an initial video call we will define your goals, area of focus and other key factors together; after a brief market study, we will recommend the most suitable investment amount for your campaigns.",
+    "currentPlan": {
+      "title": "Your current plan",
+      "manage": "Manage subscription",
+      "manageLoading": "Opening the payment portal…",
+      "manageError": "We couldn't open the payment portal. Try again or email us at soporte@consentspro.com.",
+      "renewsOn": "Next renewal:"
+    }
   },
   "toxin": {
     "title": "Toxin Tracking",

@@ -1119,7 +1119,14 @@
       }
     },
     "note_redes_title": "Obs Social Media-plan:",
-    "note_redes_text": "Annonsbudgeten (Meta Ads) ingår inte i den månatliga avgiften. Vid ett första videomöte definierar vi tillsammans mål, verksamhetsområde och andra nyckelfaktorer; efter en kort marknadsundersökning rekommenderar vi det mest lämpliga investeringsbeloppet för dina kampanjer."
+    "note_redes_text": "Annonsbudgeten (Meta Ads) ingår inte i den månatliga avgiften. Vid ett första videomöte definierar vi tillsammans mål, verksamhetsområde och andra nyckelfaktorer; efter en kort marknadsundersökning rekommenderar vi det mest lämpliga investeringsbeloppet för dina kampanjer.",
+    "currentPlan": {
+      "title": "Din nuvarande plan",
+      "manage": "Hantera prenumeration",
+      "manageLoading": "Öppnar betalningsportalen…",
+      "manageError": "Det gick inte att öppna betalningsportalen. Försök igen eller mejla oss på soporte@consentspro.com.",
+      "renewsOn": "Nästa förnyelse:"
+    }
   },
   "toxin": {
     "title": "Toxinkontroll",
