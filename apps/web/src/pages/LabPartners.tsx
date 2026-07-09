@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X } from 'lucide-react'
@@ -376,8 +376,8 @@ export default function LabPartners() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {filtered.map(lab => (
-                <>
-                  <tr key={lab.id} id={`lab-row-${lab.id}`} className={`${!lab.is_active ? 'opacity-50' : ''} ${lab.id === highlightId ? 'bg-amber-50' : ''}`}>
+                <Fragment key={lab.id}>
+                  <tr id={`lab-row-${lab.id}`} className={`${!lab.is_active ? 'opacity-50' : ''} ${lab.id === highlightId ? 'bg-amber-50' : ''}`}>
                     <td className="px-6 py-3">
                       <button onClick={() => setExpanded(expanded === lab.id ? null : lab.id)} className="flex items-center gap-2 font-medium text-slate-800 hover:text-blue-600">
                         <Building2 className="w-4 h-4 text-slate-400" />{lab.name}
@@ -397,11 +397,11 @@ export default function LabPartners() {
                     </td>
                   </tr>
                   {expanded === lab.id && (
-                    <tr key={lab.id + '-panel'}>
+                    <tr>
                       <td colSpan={6} className="p-0"><CampaignsPanel lab={lab} /></td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>

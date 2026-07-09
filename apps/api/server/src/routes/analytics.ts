@@ -34,22 +34,22 @@ publicRouter.post('/pageview', async (req, res) => {
     const { device_type, browser, os } = parseUserAgent(ua)
     const { userId, clinicId, role } = resolveIdentity(req)
 
-    const existing = await queryOne<{ session_key: string }>(
-      'SELECT session_key FROM analytics_sessions WHERE session_key = $1', [session_key]
+    // INSERT ... ON CONFLICT en una sola sentencia atómica — la versión
+    // anterior hacía SELECT y luego INSERT/UPDATE por separado, lo que
+    // dejaba una ventana de carrera: si dos pageviews de una sesión nueva
+    // llegaban casi a la vez (dos pestañas, doble disparo del hook de
+    // tracking...) ambas veían "no existe" y la segunda INSERT violaba la
+    // restricción UNIQUE de session_key, tumbando esa petición con 500.
+    await query(
+      `INSERT INTO analytics_sessions (session_key, user_id, clinic_id, role, device_type, browser, os, referrer, landing_path, user_agent)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+       ON CONFLICT (session_key) DO UPDATE SET
+         last_seen = NOW(),
+         user_id = COALESCE(EXCLUDED.user_id, analytics_sessions.user_id),
+         clinic_id = COALESCE(EXCLUDED.clinic_id, analytics_sessions.clinic_id),
+         role = COALESCE(EXCLUDED.role, analytics_sessions.role)`,
+      [session_key, userId, clinicId, role, device_type, browser, os, referrer ?? null, path, ua ?? null]
     )
-    if (existing) {
-      await query(
-        `UPDATE analytics_sessions SET last_seen = NOW(), user_id = COALESCE($2, user_id), clinic_id = COALESCE($3, clinic_id), role = COALESCE($4, role)
-         WHERE session_key = $1`,
-        [session_key, userId, clinicId, role]
-      )
-    } else {
-      await query(
-        `INSERT INTO analytics_sessions (session_key, user_id, clinic_id, role, device_type, browser, os, referrer, landing_path, user_agent)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
-        [session_key, userId, clinicId, role, device_type, browser, os, referrer ?? null, path, ua ?? null]
-      )
-    }
 
     const row = await queryOne<{ id: string }>(
       `INSERT INTO analytics_pageviews (session_key, path, title, referrer) VALUES ($1,$2,$3,$4) RETURNING id`,
