@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Wyceny",
     "workflows": "Przepływy pracy",
-    "tickets": "Zgłoszenia"
+    "tickets": "Zgłoszenia",
+    "invoicing": "Fakturowanie"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",
@@ -1746,5 +1747,72 @@
       "error": "Nie udało się zapisać kodu",
       "save": "Zapisz"
     }
+  },
+  "invoicing": {
+    "title": "Fakturowanie",
+    "subtitle": "Wystawiaj faktury zgodne z VeriFactu — numeracja ciągła, łańcuch hashy i wysyłka do AEAT.",
+    "newInvoice": "Nowa faktura",
+    "integrityAlarm": "Wykryto {{count}} rozbieżności w łańcuchu hashy Twoich faktur. Skontaktuj się z pomocą techniczną przed wystawieniem kolejnych.",
+    "from": "Od",
+    "to": "Do",
+    "patient": "Pacjent",
+    "status": "Status",
+    "statusEmitida": "Wystawiona",
+    "statusAnulada": "Anulowana",
+    "statusRectificada": "Skorygowana",
+    "search": "Szukaj",
+    "searchPlaceholder": "Nazwa lub numer faktury",
+    "all": "Wszystkie",
+    "clearFilters": "Wyczyść filtry",
+    "noResults": "Nie wystawiono jeszcze żadnej faktury.",
+    "colNumber": "Numer",
+    "colDate": "Data",
+    "colRecipient": "Odbiorca",
+    "colTotal": "Suma",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Akcje"
+  },
+  "invoiceModal": {
+    "title": "Nowa faktura",
+    "form": {
+      "patient": "Pacjent",
+      "selectPatientOrManual": "Wybierz pacjenta lub wypełnij ręcznie",
+      "manualHint": "Możesz też wystawić fakturę osobie trzeciej bez wybierania pacjenta, wypełniając dane ręcznie.",
+      "taxpayerType": "Typ podatnika",
+      "autonomo": "Samozatrudniony",
+      "empresa": "Firma",
+      "recipientName": "Nazwa / Nazwa firmy",
+      "recipientNif": "NIP",
+      "recipientAddress": "Adres",
+      "concept": "Opis",
+      "baseAmount": "Podstawa opodatkowania",
+      "vatRate": "Stawka VAT",
+      "vatExempt": "Zwolniona",
+      "series": "Seria",
+      "base": "Podstawa opodatkowania",
+      "vat": "VAT ({{rate}}%)",
+      "total": "Suma",
+      "issue": "Wystaw fakturę"
+    },
+    "errors": {
+      "recipientName": "Nazwa odbiorcy jest wymagana",
+      "recipientNif": "NIP odbiorcy jest wymagany",
+      "concept": "Opis jest wymagany",
+      "baseAmount": "Podstawa opodatkowania musi być większa niż 0",
+      "saveFailed": "Nie udało się wystawić faktury"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Pobierz PDF",
+    "confirmCancel": "Czy na pewno chcesz anulować tę fakturę? Zostanie utworzony powiązany zapis anulowania; oryginalna faktura nie zostanie zmieniona.",
+    "cancelFailed": "Nie udało się anulować faktury",
+    "cancelledNotice": "Ta faktura jest anulowana.",
+    "recipient": "Odbiorca",
+    "concept": "Opis",
+    "aeatPending": "Wysyłka do AEAT oczekuje na połączenie",
+    "aeatSent": "Wysłano do AEAT",
+    "cancelInvoice": "Anuluj fakturę",
+    "cancelling": "Anulowanie…"
   }
 }

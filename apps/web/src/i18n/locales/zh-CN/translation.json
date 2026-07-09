@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "报价单",
     "workflows": "工作流",
-    "tickets": "问题反馈"
+    "tickets": "问题反馈",
+    "invoicing": "开票"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",
@@ -1746,5 +1747,72 @@
       "error": "无法保存代码",
       "save": "保存"
     }
+  },
+  "invoicing": {
+    "title": "开票",
+    "subtitle": "开具符合 VeriFactu 规范的发票 — 连续编号、哈希链和向 AEAT 提交。",
+    "newInvoice": "新建发票",
+    "integrityAlarm": "在您发票的哈希链中检测到 {{count}} 处差异。在继续开票前请联系支持人员。",
+    "from": "起始日期",
+    "to": "结束日期",
+    "patient": "患者",
+    "status": "状态",
+    "statusEmitida": "已开具",
+    "statusAnulada": "已作废",
+    "statusRectificada": "已更正",
+    "search": "搜索",
+    "searchPlaceholder": "姓名或发票号码",
+    "all": "全部",
+    "clearFilters": "清除筛选",
+    "noResults": "尚未开具任何发票。",
+    "colNumber": "编号",
+    "colDate": "日期",
+    "colRecipient": "收件人",
+    "colTotal": "总计",
+    "colStatus": "状态",
+    "colAeat": "AEAT",
+    "colActions": "操作"
+  },
+  "invoiceModal": {
+    "title": "新建发票",
+    "form": {
+      "patient": "患者",
+      "selectPatientOrManual": "选择患者或手动填写",
+      "manualHint": "您也可以不选择患者，通过手动填写信息为第三方开票。",
+      "taxpayerType": "纳税人类型",
+      "autonomo": "个体经营者",
+      "empresa": "公司",
+      "recipientName": "姓名 / 公司名称",
+      "recipientNif": "税号",
+      "recipientAddress": "地址",
+      "concept": "说明",
+      "baseAmount": "计税基数",
+      "vatRate": "增值税税率",
+      "vatExempt": "免税",
+      "series": "系列",
+      "base": "计税基数",
+      "vat": "增值税（{{rate}}%）",
+      "total": "总计",
+      "issue": "开具发票"
+    },
+    "errors": {
+      "recipientName": "收件人姓名为必填项",
+      "recipientNif": "收件人税号为必填项",
+      "concept": "说明为必填项",
+      "baseAmount": "计税基数必须大于 0",
+      "saveFailed": "无法开具发票"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "下载 PDF",
+    "confirmCancel": "确定要作废此发票吗？将创建一条链接的作废记录；原始发票不会被修改。",
+    "cancelFailed": "无法作废发票",
+    "cancelledNotice": "此发票已作废。",
+    "recipient": "收件人",
+    "concept": "说明",
+    "aeatPending": "向 AEAT 的提交正在等待连接",
+    "aeatSent": "已提交至 AEAT",
+    "cancelInvoice": "作废发票",
+    "cancelling": "作废中…"
   }
 }

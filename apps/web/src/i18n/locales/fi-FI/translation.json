@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Tarjoukset",
     "workflows": "Työnkulut",
-    "tickets": "Vikailmoitukset"
+    "tickets": "Vikailmoitukset",
+    "invoicing": "Laskutus"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
@@ -1746,5 +1747,72 @@
       "error": "Koodia ei voitu tallentaa",
       "save": "Tallenna"
     }
+  },
+  "invoicing": {
+    "title": "Laskutus",
+    "subtitle": "Anna VeriFactu-yhteensopivia laskuja — juokseva numerointi, hash-ketjutus ja lähetys AEAT:lle.",
+    "newInvoice": "Uusi lasku",
+    "integrityAlarm": "Laskujesi hash-ketjussa havaittiin {{count}} poikkeamaa. Ota yhteyttä tukeen ennen kuin annat lisää laskuja.",
+    "from": "Alkaen",
+    "to": "Asti",
+    "patient": "Potilas",
+    "status": "Tila",
+    "statusEmitida": "Annettu",
+    "statusAnulada": "Mitätöity",
+    "statusRectificada": "Korjattu",
+    "search": "Haku",
+    "searchPlaceholder": "Nimi tai laskun numero",
+    "all": "Kaikki",
+    "clearFilters": "Tyhjennä suodattimet",
+    "noResults": "Yhtään laskua ei ole vielä annettu.",
+    "colNumber": "Numero",
+    "colDate": "Päivämäärä",
+    "colRecipient": "Vastaanottaja",
+    "colTotal": "Yhteensä",
+    "colStatus": "Tila",
+    "colAeat": "AEAT",
+    "colActions": "Toiminnot"
+  },
+  "invoiceModal": {
+    "title": "Uusi lasku",
+    "form": {
+      "patient": "Potilas",
+      "selectPatientOrManual": "Valitse potilas tai täytä käsin",
+      "manualHint": "Voit myös laskuttaa kolmatta osapuolta valitsematta potilasta täyttämällä tiedot käsin.",
+      "taxpayerType": "Verovelvollisen tyyppi",
+      "autonomo": "Yksityisyrittäjä",
+      "empresa": "Yritys",
+      "recipientName": "Nimi / Toiminimi",
+      "recipientNif": "Y-tunnus",
+      "recipientAddress": "Osoite",
+      "concept": "Kuvaus",
+      "baseAmount": "Veron peruste",
+      "vatRate": "ALV-kanta",
+      "vatExempt": "Verovapaa",
+      "series": "Sarja",
+      "base": "Veron peruste",
+      "vat": "ALV ({{rate}}%)",
+      "total": "Yhteensä",
+      "issue": "Anna lasku"
+    },
+    "errors": {
+      "recipientName": "Vastaanottajan nimi vaaditaan",
+      "recipientNif": "Vastaanottajan Y-tunnus vaaditaan",
+      "concept": "Kuvaus vaaditaan",
+      "baseAmount": "Veron perusteen on oltava suurempi kuin 0",
+      "saveFailed": "Laskua ei voitu antaa"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Lataa PDF",
+    "confirmCancel": "Haluatko varmasti mitätöidä tämän laskun? Ketjutettu mitätöintimerkintä luodaan; alkuperäistä laskua ei muuteta.",
+    "cancelFailed": "Laskua ei voitu mitätöidä",
+    "cancelledNotice": "Tämä lasku on mitätöity.",
+    "recipient": "Vastaanottaja",
+    "concept": "Kuvaus",
+    "aeatPending": "Lähetys AEAT:lle odottaa yhteyttä",
+    "aeatSent": "Lähetetty AEAT:lle",
+    "cancelInvoice": "Mitätöi lasku",
+    "cancelling": "Mitätöidään…"
   }
 }

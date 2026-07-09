@@ -26,6 +26,7 @@ import WhatsApp from './pages/WhatsApp'
 import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
 import Budgets from './pages/Budgets'
+import Invoicing from './pages/Invoicing'
 import Workflows from './pages/Workflows'
 import Tickets from './pages/Tickets'
 import TabletPair from './pages/TabletPair'
@@ -163,6 +164,7 @@ function AppShell() {
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
               <Route path="/budgets" element={guard('budgets', <Budgets />)} />
+              <Route path="/invoicing" element={guard('invoicing', <Invoicing />)} />
               <Route path="/workflows" element={isSuperAdmin ? <Workflows /> : <Navigate to="/" />} />
               <Route path="/tickets" element={guard('tickets', <Tickets />)} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />

@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Offertes",
     "workflows": "Workflows",
-    "tickets": "Meldingen"
+    "tickets": "Meldingen",
+    "invoicing": "Facturatie"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
@@ -1746,5 +1747,72 @@
       "error": "Kon de code niet opslaan",
       "save": "Opslaan"
     }
+  },
+  "invoicing": {
+    "title": "Facturatie",
+    "subtitle": "Geef VeriFactu-conforme facturen uit — doorlopende nummering, hashketen en verzending naar de AEAT.",
+    "newInvoice": "Nieuwe factuur",
+    "integrityAlarm": "Er zijn {{count}} afwijkingen gevonden in de hashketen van je facturen. Neem contact op met support voordat je meer facturen uitgeeft.",
+    "from": "Van",
+    "to": "Tot",
+    "patient": "Patiënt",
+    "status": "Status",
+    "statusEmitida": "Uitgegeven",
+    "statusAnulada": "Geannuleerd",
+    "statusRectificada": "Gecorrigeerd",
+    "search": "Zoeken",
+    "searchPlaceholder": "Naam of factuurnummer",
+    "all": "Alle",
+    "clearFilters": "Filters wissen",
+    "noResults": "Nog geen facturen uitgegeven.",
+    "colNumber": "Nummer",
+    "colDate": "Datum",
+    "colRecipient": "Ontvanger",
+    "colTotal": "Totaal",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Acties"
+  },
+  "invoiceModal": {
+    "title": "Nieuwe factuur",
+    "form": {
+      "patient": "Patiënt",
+      "selectPatientOrManual": "Selecteer een patiënt of vul handmatig in",
+      "manualHint": "Je kunt ook een derde factureren zonder een patiënt te selecteren, door de gegevens handmatig in te vullen.",
+      "taxpayerType": "Type belastingplichtige",
+      "autonomo": "Zelfstandige",
+      "empresa": "Bedrijf",
+      "recipientName": "Naam / Bedrijfsnaam",
+      "recipientNif": "Fiscaal nummer",
+      "recipientAddress": "Adres",
+      "concept": "Omschrijving",
+      "baseAmount": "Belastbaar bedrag",
+      "vatRate": "Btw-tarief",
+      "vatExempt": "Vrijgesteld",
+      "series": "Serie",
+      "base": "Belastbaar bedrag",
+      "vat": "Btw ({{rate}}%)",
+      "total": "Totaal",
+      "issue": "Factuur uitgeven"
+    },
+    "errors": {
+      "recipientName": "Naam van de ontvanger is verplicht",
+      "recipientNif": "Fiscaal nummer van de ontvanger is verplicht",
+      "concept": "Omschrijving is verplicht",
+      "baseAmount": "Het belastbaar bedrag moet groter zijn dan 0",
+      "saveFailed": "Kon de factuur niet uitgeven"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF downloaden",
+    "confirmCancel": "Weet je zeker dat je deze factuur wilt annuleren? Er wordt een gekoppelde annuleringsregistratie aangemaakt; de oorspronkelijke factuur wordt niet gewijzigd.",
+    "cancelFailed": "Kon de factuur niet annuleren",
+    "cancelledNotice": "Deze factuur is geannuleerd.",
+    "recipient": "Ontvanger",
+    "concept": "Omschrijving",
+    "aeatPending": "Verzending naar de AEAT wacht op koppeling",
+    "aeatSent": "Verzonden naar de AEAT",
+    "cancelInvoice": "Factuur annuleren",
+    "cancelling": "Bezig met annuleren…"
   }
 }

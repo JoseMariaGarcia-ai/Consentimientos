@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "عروض الأسعار",
     "workflows": "سير العمل",
-    "tickets": "الحوادث"
+    "tickets": "الحوادث",
+    "invoicing": "الفوترة"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
@@ -1708,5 +1709,72 @@
       "error": "تعذر حفظ الكود",
       "save": "حفظ"
     }
+  },
+  "invoicing": {
+    "title": "الفوترة",
+    "subtitle": "أصدر فواتير متوافقة مع VeriFactu — ترقيم متسلسل، سلسلة تجزئة (hash) وإرسال إلى AEAT.",
+    "newInvoice": "فاتورة جديدة",
+    "integrityAlarm": "تم اكتشاف {{count}} تناقضات في سلسلة التجزئة لفواتيرك. تواصل مع الدعم قبل إصدار المزيد.",
+    "from": "من",
+    "to": "إلى",
+    "patient": "المريض",
+    "status": "الحالة",
+    "statusEmitida": "صادرة",
+    "statusAnulada": "ملغاة",
+    "statusRectificada": "مصححة",
+    "search": "بحث",
+    "searchPlaceholder": "الاسم أو رقم الفاتورة",
+    "all": "الكل",
+    "clearFilters": "مسح الفلاتر",
+    "noResults": "لم يتم إصدار أي فاتورة بعد.",
+    "colNumber": "الرقم",
+    "colDate": "التاريخ",
+    "colRecipient": "المستلم",
+    "colTotal": "الإجمالي",
+    "colStatus": "الحالة",
+    "colAeat": "AEAT",
+    "colActions": "الإجراءات"
+  },
+  "invoiceModal": {
+    "title": "فاتورة جديدة",
+    "form": {
+      "patient": "المريض",
+      "selectPatientOrManual": "اختر مريضًا أو املأ يدويًا",
+      "manualHint": "يمكنك أيضًا إصدار فاتورة لطرف ثالث دون اختيار مريض، عن طريق ملء البيانات يدويًا.",
+      "taxpayerType": "نوع دافع الضريبة",
+      "autonomo": "عامل مستقل",
+      "empresa": "شركة",
+      "recipientName": "الاسم / الاسم التجاري",
+      "recipientNif": "الرقم الضريبي",
+      "recipientAddress": "العنوان",
+      "concept": "الوصف",
+      "baseAmount": "الوعاء الضريبي",
+      "vatRate": "نسبة الضريبة",
+      "vatExempt": "معفى",
+      "series": "السلسلة",
+      "base": "الوعاء الضريبي",
+      "vat": "الضريبة ({{rate}}%)",
+      "total": "الإجمالي",
+      "issue": "إصدار الفاتورة"
+    },
+    "errors": {
+      "recipientName": "اسم المستلم مطلوب",
+      "recipientNif": "الرقم الضريبي للمستلم مطلوب",
+      "concept": "الوصف مطلوب",
+      "baseAmount": "يجب أن يكون الوعاء الضريبي أكبر من 0",
+      "saveFailed": "تعذر إصدار الفاتورة"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "تنزيل PDF",
+    "confirmCancel": "هل أنت متأكد أنك تريد إلغاء هذه الفاتورة؟ سيتم إنشاء سجل إلغاء مسلسل؛ لن يتم تعديل الفاتورة الأصلية.",
+    "cancelFailed": "تعذر إلغاء الفاتورة",
+    "cancelledNotice": "هذه الفاتورة ملغاة.",
+    "recipient": "المستلم",
+    "concept": "الوصف",
+    "aeatPending": "الإرسال إلى AEAT بانتظار الاتصال",
+    "aeatSent": "تم الإرسال إلى AEAT",
+    "cancelInvoice": "إلغاء الفاتورة",
+    "cancelling": "جارٍ الإلغاء…"
   }
 }

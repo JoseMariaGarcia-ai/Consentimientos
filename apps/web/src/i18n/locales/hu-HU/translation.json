@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Árajánlatok",
     "workflows": "Munkafolyamatok",
-    "tickets": "Hibajegyek"
+    "tickets": "Hibajegyek",
+    "invoicing": "Számlázás"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",
@@ -1746,5 +1747,72 @@
       "error": "A kódot nem sikerült menteni",
       "save": "Mentés"
     }
+  },
+  "invoicing": {
+    "title": "Számlázás",
+    "subtitle": "Állítson ki VeriFactu-kompatibilis számlákat — folyamatos sorszámozás, hash-lánc és AEAT-nak történő beküldés.",
+    "newInvoice": "Új számla",
+    "integrityAlarm": "{{count}} eltérést találtunk a számlái hash-láncában. A további számlázás előtt lépjen kapcsolatba az ügyfélszolgálattal.",
+    "from": "Ettől",
+    "to": "Eddig",
+    "patient": "Páciens",
+    "status": "Állapot",
+    "statusEmitida": "Kiállítva",
+    "statusAnulada": "Törölve",
+    "statusRectificada": "Javítva",
+    "search": "Keresés",
+    "searchPlaceholder": "Név vagy számlaszám",
+    "all": "Összes",
+    "clearFilters": "Szűrők törlése",
+    "noResults": "Még nem állítottak ki számlát.",
+    "colNumber": "Szám",
+    "colDate": "Dátum",
+    "colRecipient": "Címzett",
+    "colTotal": "Összesen",
+    "colStatus": "Állapot",
+    "colAeat": "AEAT",
+    "colActions": "Műveletek"
+  },
+  "invoiceModal": {
+    "title": "Új számla",
+    "form": {
+      "patient": "Páciens",
+      "selectPatientOrManual": "Válasszon pácienst, vagy töltse ki kézzel",
+      "manualHint": "Harmadik félnek is számlázhat páciens kiválasztása nélkül, az adatok kézi kitöltésével.",
+      "taxpayerType": "Adózó típusa",
+      "autonomo": "Egyéni vállalkozó",
+      "empresa": "Vállalat",
+      "recipientName": "Név / Cégnév",
+      "recipientNif": "Adószám",
+      "recipientAddress": "Cím",
+      "concept": "Leírás",
+      "baseAmount": "Adóalap",
+      "vatRate": "ÁFA-kulcs",
+      "vatExempt": "Mentes",
+      "series": "Sorozat",
+      "base": "Adóalap",
+      "vat": "ÁFA ({{rate}}%)",
+      "total": "Összesen",
+      "issue": "Számla kiállítása"
+    },
+    "errors": {
+      "recipientName": "A címzett neve kötelező",
+      "recipientNif": "A címzett adószáma kötelező",
+      "concept": "A leírás kötelező",
+      "baseAmount": "Az adóalapnak nagyobbnak kell lennie 0-nál",
+      "saveFailed": "A számlát nem sikerült kiállítani"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF letöltése",
+    "confirmCancel": "Biztosan törölni szeretné ezt a számlát? Egy láncolt törlési bejegyzés jön létre; az eredeti számla nem módosul.",
+    "cancelFailed": "A számlát nem sikerült törölni",
+    "cancelledNotice": "Ez a számla törölve van.",
+    "recipient": "Címzett",
+    "concept": "Leírás",
+    "aeatPending": "Az AEAT-nak történő beküldés kapcsolatra vár",
+    "aeatSent": "Elküldve az AEAT-nak",
+    "cancelInvoice": "Számla törlése",
+    "cancelling": "Törlés folyamatban…"
   }
 }

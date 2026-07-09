@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Devis",
     "workflows": "Workflows",
-    "tickets": "Incidents"
+    "tickets": "Incidents",
+    "invoicing": "Facturation"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",
@@ -1746,5 +1747,72 @@
       "error": "Impossible d'enregistrer le code",
       "save": "Enregistrer"
     }
+  },
+  "invoicing": {
+    "title": "Facturation",
+    "subtitle": "Émettez des factures conformes à VeriFactu — numérotation séquentielle, chaînage par hash et envoi à l'AEAT.",
+    "newInvoice": "Nouvelle facture",
+    "integrityAlarm": "{{count}} incohérences ont été détectées dans la chaîne de hash de vos factures. Contactez le support avant d'en émettre d'autres.",
+    "from": "Du",
+    "to": "Au",
+    "patient": "Patient",
+    "status": "Statut",
+    "statusEmitida": "Émise",
+    "statusAnulada": "Annulée",
+    "statusRectificada": "Rectifiée",
+    "search": "Rechercher",
+    "searchPlaceholder": "Nom ou numéro de facture",
+    "all": "Tous",
+    "clearFilters": "Effacer les filtres",
+    "noResults": "Aucune facture émise pour le moment.",
+    "colNumber": "Numéro",
+    "colDate": "Date",
+    "colRecipient": "Destinataire",
+    "colTotal": "Total",
+    "colStatus": "Statut",
+    "colAeat": "AEAT",
+    "colActions": "Actions"
+  },
+  "invoiceModal": {
+    "title": "Nouvelle facture",
+    "form": {
+      "patient": "Patient",
+      "selectPatientOrManual": "Sélectionnez un patient ou saisissez manuellement",
+      "manualHint": "Vous pouvez aussi facturer un tiers sans sélectionner de patient, en saisissant les données manuellement.",
+      "taxpayerType": "Type de contribuable",
+      "autonomo": "Indépendant",
+      "empresa": "Entreprise",
+      "recipientName": "Nom / Raison sociale",
+      "recipientNif": "NIF",
+      "recipientAddress": "Adresse",
+      "concept": "Concept",
+      "baseAmount": "Base imposable",
+      "vatRate": "Taux de TVA",
+      "vatExempt": "Exonéré",
+      "series": "Série",
+      "base": "Base imposable",
+      "vat": "TVA ({{rate}}%)",
+      "total": "Total",
+      "issue": "Émettre la facture"
+    },
+    "errors": {
+      "recipientName": "Le nom du destinataire est obligatoire",
+      "recipientNif": "Le NIF du destinataire est obligatoire",
+      "concept": "Le concept est obligatoire",
+      "baseAmount": "La base imposable doit être supérieure à 0",
+      "saveFailed": "Impossible d'émettre la facture"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Télécharger le PDF",
+    "confirmCancel": "Voulez-vous vraiment annuler cette facture ? Un enregistrement d'annulation chaîné sera créé ; la facture d'origine n'est pas modifiée.",
+    "cancelFailed": "Impossible d'annuler la facture",
+    "cancelledNotice": "Cette facture est annulée.",
+    "recipient": "Destinataire",
+    "concept": "Concept",
+    "aeatPending": "Envoi à l'AEAT en attente de connexion",
+    "aeatSent": "Envoyée à l'AEAT",
+    "cancelInvoice": "Annuler la facture",
+    "cancelling": "Annulation…"
   }
 }

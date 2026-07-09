@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Fiyat Teklifleri",
     "workflows": "İş Akışları",
-    "tickets": "Arıza kayıtları"
+    "tickets": "Arıza kayıtları",
+    "invoicing": "Faturalama"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",
@@ -1746,5 +1747,72 @@
       "error": "Kod kaydedilemedi",
       "save": "Kaydet"
     }
+  },
+  "invoicing": {
+    "title": "Faturalama",
+    "subtitle": "VeriFactu uyumlu faturalar düzenleyin — sıralı numaralandırma, hash zinciri ve AEAT'a gönderim.",
+    "newInvoice": "Yeni fatura",
+    "integrityAlarm": "Faturalarınızın hash zincirinde {{count}} tutarsızlık tespit edildi. Daha fazla fatura düzenlemeden önce destek ile iletişime geçin.",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "patient": "Hasta",
+    "status": "Durum",
+    "statusEmitida": "Düzenlendi",
+    "statusAnulada": "İptal edildi",
+    "statusRectificada": "Düzeltildi",
+    "search": "Ara",
+    "searchPlaceholder": "Ad veya fatura numarası",
+    "all": "Tümü",
+    "clearFilters": "Filtreleri temizle",
+    "noResults": "Henüz hiç fatura düzenlenmedi.",
+    "colNumber": "Numara",
+    "colDate": "Tarih",
+    "colRecipient": "Alıcı",
+    "colTotal": "Toplam",
+    "colStatus": "Durum",
+    "colAeat": "AEAT",
+    "colActions": "İşlemler"
+  },
+  "invoiceModal": {
+    "title": "Yeni fatura",
+    "form": {
+      "patient": "Hasta",
+      "selectPatientOrManual": "Bir hasta seçin veya manuel olarak doldurun",
+      "manualHint": "Hasta seçmeden, bilgileri elle doldurarak üçüncü bir tarafa da fatura kesebilirsiniz.",
+      "taxpayerType": "Mükellef türü",
+      "autonomo": "Serbest meslek",
+      "empresa": "Şirket",
+      "recipientName": "Ad / Unvan",
+      "recipientNif": "Vergi Kimlik No",
+      "recipientAddress": "Adres",
+      "concept": "Açıklama",
+      "baseAmount": "Vergi matrahı",
+      "vatRate": "KDV oranı",
+      "vatExempt": "Muaf",
+      "series": "Seri",
+      "base": "Vergi matrahı",
+      "vat": "KDV (%{{rate}})",
+      "total": "Toplam",
+      "issue": "Fatura düzenle"
+    },
+    "errors": {
+      "recipientName": "Alıcı adı zorunludur",
+      "recipientNif": "Alıcı vergi kimlik numarası zorunludur",
+      "concept": "Açıklama zorunludur",
+      "baseAmount": "Vergi matrahı 0'dan büyük olmalıdır",
+      "saveFailed": "Fatura düzenlenemedi"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF indir",
+    "confirmCancel": "Bu faturayı iptal etmek istediğinizden emin misiniz? Zincirlenmiş bir iptal kaydı oluşturulacak; orijinal fatura değiştirilmez.",
+    "cancelFailed": "Fatura iptal edilemedi",
+    "cancelledNotice": "Bu fatura iptal edildi.",
+    "recipient": "Alıcı",
+    "concept": "Açıklama",
+    "aeatPending": "AEAT'a gönderim bağlantı bekliyor",
+    "aeatSent": "AEAT'a gönderildi",
+    "cancelInvoice": "Faturayı iptal et",
+    "cancelling": "İptal ediliyor…"
   }
 }

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 import { useOpenTickets } from '@/hooks/useOpenTickets'
@@ -15,6 +15,7 @@ const navItems: { to: string; icon: typeof LayoutDashboard; label: string; modul
   { to: '/photos', icon: Camera, label: 'nav.photos', moduleKey: 'photos' },
   { to: '/toxina', icon: Syringe, label: 'nav.toxin', moduleKey: 'toxin' },
   { to: '/budgets', icon: Receipt, label: 'nav.budgets', moduleKey: 'budgets' },
+  { to: '/invoicing', icon: BadgeEuro, label: 'nav.invoicing', moduleKey: 'invoicing' },
   { to: '/whatsapp', icon: MessageCircle, label: 'nav.whatsapp', moduleKey: 'whatsapp' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates', moduleKey: 'templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic', moduleKey: 'clinic' },

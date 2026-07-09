@@ -8,6 +8,7 @@ export const ALL_MODULES = [
   { key: 'photos',           labelKey: 'nav.photos',          defaultOn: true  },
   { key: 'toxin',            labelKey: 'nav.toxin',           defaultOn: true  },
   { key: 'budgets',          labelKey: 'nav.budgets',         defaultOn: false },
+  { key: 'invoicing',        labelKey: 'nav.invoicing',       defaultOn: false },
   { key: 'whatsapp',         labelKey: 'nav.whatsapp',        defaultOn: true  },
   { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
   { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },

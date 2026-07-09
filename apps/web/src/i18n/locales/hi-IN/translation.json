@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "कोटेशन",
     "workflows": "वर्कफ़्लो",
-    "tickets": "समस्या रिपोर्ट"
+    "tickets": "समस्या रिपोर्ट",
+    "invoicing": "बिलिंग"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
@@ -1746,5 +1747,72 @@
       "error": "कोड सहेजा नहीं जा सका",
       "save": "सहेजें"
     }
+  },
+  "invoicing": {
+    "title": "बिलिंग",
+    "subtitle": "VeriFactu-अनुरूप चालान जारी करें — क्रमिक क्रमांकन, हैश चेनिंग और AEAT को भेजना।",
+    "newInvoice": "नया चालान",
+    "integrityAlarm": "आपके चालानों की हैश श्रृंखला में {{count}} विसंगतियां पाई गईं। और चालान जारी करने से पहले सहायता से संपर्क करें।",
+    "from": "से",
+    "to": "तक",
+    "patient": "मरीज़",
+    "status": "स्थिति",
+    "statusEmitida": "जारी",
+    "statusAnulada": "रद्द",
+    "statusRectificada": "सुधारा गया",
+    "search": "खोजें",
+    "searchPlaceholder": "नाम या चालान संख्या",
+    "all": "सभी",
+    "clearFilters": "फ़िल्टर साफ़ करें",
+    "noResults": "अभी तक कोई चालान जारी नहीं किया गया है।",
+    "colNumber": "संख्या",
+    "colDate": "तारीख",
+    "colRecipient": "प्राप्तकर्ता",
+    "colTotal": "कुल",
+    "colStatus": "स्थिति",
+    "colAeat": "AEAT",
+    "colActions": "कार्रवाइयां"
+  },
+  "invoiceModal": {
+    "title": "नया चालान",
+    "form": {
+      "patient": "मरीज़",
+      "selectPatientOrManual": "मरीज़ चुनें या मैन्युअल रूप से भरें",
+      "manualHint": "आप मरीज़ चुने बिना, विवरण मैन्युअल रूप से भरकर किसी तीसरे पक्ष को भी बिल दे सकते हैं।",
+      "taxpayerType": "करदाता प्रकार",
+      "autonomo": "स्व-रोज़गार",
+      "empresa": "कंपनी",
+      "recipientName": "नाम / कानूनी नाम",
+      "recipientNif": "कर पहचान संख्या",
+      "recipientAddress": "पता",
+      "concept": "विवरण",
+      "baseAmount": "कर योग्य राशि",
+      "vatRate": "वैट दर",
+      "vatExempt": "छूट प्राप्त",
+      "series": "श्रृंखला",
+      "base": "कर योग्य राशि",
+      "vat": "वैट ({{rate}}%)",
+      "total": "कुल",
+      "issue": "चालान जारी करें"
+    },
+    "errors": {
+      "recipientName": "प्राप्तकर्ता का नाम आवश्यक है",
+      "recipientNif": "प्राप्तकर्ता की कर पहचान संख्या आवश्यक है",
+      "concept": "विवरण आवश्यक है",
+      "baseAmount": "कर योग्य राशि 0 से अधिक होनी चाहिए",
+      "saveFailed": "चालान जारी नहीं किया जा सका"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF डाउनलोड करें",
+    "confirmCancel": "क्या आप वाकई इस चालान को रद्द करना चाहते हैं? एक श्रृंखलाबद्ध रद्दीकरण रिकॉर्ड बनाया जाएगा; मूल चालान में बदलाव नहीं होगा।",
+    "cancelFailed": "चालान रद्द नहीं किया जा सका",
+    "cancelledNotice": "यह चालान रद्द कर दिया गया है।",
+    "recipient": "प्राप्तकर्ता",
+    "concept": "विवरण",
+    "aeatPending": "AEAT को भेजना कनेक्शन की प्रतीक्षा में है",
+    "aeatSent": "AEAT को भेजा गया",
+    "cancelInvoice": "चालान रद्द करें",
+    "cancelling": "रद्द किया जा रहा है…"
   }
 }

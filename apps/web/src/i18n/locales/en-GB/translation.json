@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Quotes",
     "workflows": "Workflows",
-    "tickets": "Support tickets"
+    "tickets": "Support tickets",
+    "invoicing": "Invoicing"
   },
   "topbar": {
     "tagline": "Digital Consents · Biometric Signature",
@@ -1746,5 +1747,72 @@
       "error": "Couldn't save the code",
       "save": "Save"
     }
+  },
+  "invoicing": {
+    "title": "Invoicing",
+    "subtitle": "Issue VeriFactu-compliant invoices — sequential numbering, hash chaining and submission to the AEAT.",
+    "newInvoice": "New invoice",
+    "integrityAlarm": "{{count}} discrepancies were found in your invoices' hash chain. Contact support before issuing any more.",
+    "from": "From",
+    "to": "To",
+    "patient": "Patient",
+    "status": "Status",
+    "statusEmitida": "Issued",
+    "statusAnulada": "Cancelled",
+    "statusRectificada": "Corrected",
+    "search": "Search",
+    "searchPlaceholder": "Name or invoice number",
+    "all": "All",
+    "clearFilters": "Clear filters",
+    "noResults": "No invoices issued yet.",
+    "colNumber": "Number",
+    "colDate": "Date",
+    "colRecipient": "Recipient",
+    "colTotal": "Total",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Actions"
+  },
+  "invoiceModal": {
+    "title": "New invoice",
+    "form": {
+      "patient": "Patient",
+      "selectPatientOrManual": "Select a patient or fill in manually",
+      "manualHint": "You can also invoice a third party without selecting a patient, by filling in the details by hand.",
+      "taxpayerType": "Taxpayer type",
+      "autonomo": "Self-employed",
+      "empresa": "Company",
+      "recipientName": "Name / Legal name",
+      "recipientNif": "Tax ID",
+      "recipientAddress": "Address",
+      "concept": "Concept",
+      "baseAmount": "Taxable base",
+      "vatRate": "VAT rate",
+      "vatExempt": "Exempt",
+      "series": "Series",
+      "base": "Taxable base",
+      "vat": "VAT ({{rate}}%)",
+      "total": "Total",
+      "issue": "Issue invoice"
+    },
+    "errors": {
+      "recipientName": "Recipient name is required",
+      "recipientNif": "Recipient tax ID is required",
+      "concept": "Concept is required",
+      "baseAmount": "Taxable base must be greater than 0",
+      "saveFailed": "Couldn't issue the invoice"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Download PDF",
+    "confirmCancel": "Are you sure you want to cancel this invoice? A chained cancellation record will be created; the original invoice is not modified.",
+    "cancelFailed": "Couldn't cancel the invoice",
+    "cancelledNotice": "This invoice is cancelled.",
+    "recipient": "Recipient",
+    "concept": "Concept",
+    "aeatPending": "Submission to the AEAT pending connection",
+    "aeatSent": "Submitted to the AEAT",
+    "cancelInvoice": "Cancel invoice",
+    "cancelling": "Cancelling…"
   }
 }

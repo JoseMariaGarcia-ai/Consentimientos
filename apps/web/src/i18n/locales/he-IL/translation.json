@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "הצעות מחיר",
     "workflows": "תהליכי עבודה",
-    "tickets": "תקלות"
+    "tickets": "תקלות",
+    "invoicing": "חשבוניות"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
@@ -1702,5 +1703,72 @@
       "error": "לא ניתן היה לשמור את הקוד",
       "save": "שמור"
     }
+  },
+  "invoicing": {
+    "title": "חשבוניות",
+    "subtitle": "הפקת חשבוניות תואמות VeriFactu — מספור רציף, שרשור גיבוב ושליחה ל-AEAT.",
+    "newInvoice": "חשבונית חדשה",
+    "integrityAlarm": "זוהו {{count}} אי-התאמות בשרשרת הגיבוב של החשבוניות שלך. פנה לתמיכה לפני הפקת חשבוניות נוספות.",
+    "from": "מ",
+    "to": "עד",
+    "patient": "מטופל",
+    "status": "סטטוס",
+    "statusEmitida": "הופקה",
+    "statusAnulada": "בוטלה",
+    "statusRectificada": "תוקנה",
+    "search": "חיפוש",
+    "searchPlaceholder": "שם או מספר חשבונית",
+    "all": "הכול",
+    "clearFilters": "נקה סינון",
+    "noResults": "עדיין לא הופקה אף חשבונית.",
+    "colNumber": "מספר",
+    "colDate": "תאריך",
+    "colRecipient": "נמען",
+    "colTotal": "סה\"כ",
+    "colStatus": "סטטוס",
+    "colAeat": "AEAT",
+    "colActions": "פעולות"
+  },
+  "invoiceModal": {
+    "title": "חשבונית חדשה",
+    "form": {
+      "patient": "מטופל",
+      "selectPatientOrManual": "בחר מטופל או מלא ידנית",
+      "manualHint": "ניתן גם לחייב צד שלישי מבלי לבחור מטופל, על ידי מילוי הפרטים ידנית.",
+      "taxpayerType": "סוג נישום",
+      "autonomo": "עצמאי",
+      "empresa": "חברה",
+      "recipientName": "שם / שם חברה",
+      "recipientNif": "מספר זהות/עוסק",
+      "recipientAddress": "כתובת",
+      "concept": "תיאור",
+      "baseAmount": "בסיס המס",
+      "vatRate": "שיעור מע\"מ",
+      "vatExempt": "פטור",
+      "series": "סדרה",
+      "base": "בסיס המס",
+      "vat": "מע\"מ ({{rate}}%)",
+      "total": "סה\"כ",
+      "issue": "הפק חשבונית"
+    },
+    "errors": {
+      "recipientName": "שם הנמען הוא שדה חובה",
+      "recipientNif": "מספר הזהות/עוסק של הנמען הוא שדה חובה",
+      "concept": "התיאור הוא שדה חובה",
+      "baseAmount": "בסיס המס חייב להיות גדול מ-0",
+      "saveFailed": "לא ניתן היה להפיק את החשבונית"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "הורד PDF",
+    "confirmCancel": "האם אתה בטוח שברצונך לבטל חשבונית זו? תיווצר רשומת ביטול משורשרת; החשבונית המקורית לא תשתנה.",
+    "cancelFailed": "לא ניתן היה לבטל את החשבונית",
+    "cancelledNotice": "חשבונית זו בוטלה.",
+    "recipient": "נמען",
+    "concept": "תיאור",
+    "aeatPending": "שליחה ל-AEAT ממתינה לחיבור",
+    "aeatSent": "נשלחה ל-AEAT",
+    "cancelInvoice": "בטל חשבונית",
+    "cancelling": "מבטל…"
   }
 }

@@ -1,4 +1,4 @@
-import { Pool } from 'pg'
+import { Pool, PoolClient } from 'pg'
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -15,3 +15,23 @@ export async function queryOne<T = any>(sql: string, params?: any[]): Promise<T 
   const { rows } = await pool.query(sql, params)
   return rows[0] ?? null
 }
+
+// Reserva un cliente dedicado para BEGIN/COMMIT — necesario cuando una
+// secuencia de queries tiene que ser atómica (p.ej. la numeración
+// correlativa de facturas, donde dos altas concurrentes no pueden acabar
+// compartiendo o saltándose un número).
+export async function withTransaction<T>(fn: (client: PoolClient) => Promise<T>): Promise<T> {
+  const client = await pool.connect()
+  try {
+    await client.query('BEGIN')
+    const result = await fn(client)
+    await client.query('COMMIT')
+    return result
+  } catch (err) {
+    await client.query('ROLLBACK')
+    throw err
+  } finally {
+    client.release()
+  }
+}
+

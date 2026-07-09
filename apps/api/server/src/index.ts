@@ -28,6 +28,7 @@ import clinicConfigRouter from './routes/clinicConfig'
 import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes/whatsapp'
 import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
+import invoicesRouter from './routes/invoices'
 import workflowsRouter from './routes/workflows'
 import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
 import ticketsRouter from './routes/tickets'
@@ -91,6 +92,7 @@ app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
+app.use('/api/invoices',        authMiddleware, invoicesRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
 app.use('/api/tickets',         authMiddleware, ticketsRouter)

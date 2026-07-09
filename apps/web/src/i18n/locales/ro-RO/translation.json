@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Oferte",
     "workflows": "Fluxuri de lucru",
-    "tickets": "Incidente"
+    "tickets": "Incidente",
+    "invoicing": "Facturare"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",
@@ -1746,5 +1747,72 @@
       "error": "Codul nu a putut fi salvat",
       "save": "Salvează"
     }
+  },
+  "invoicing": {
+    "title": "Facturare",
+    "subtitle": "Emite facturi conforme VeriFactu — numerotare secvențială, înlănțuire prin hash și trimitere către AEAT.",
+    "newInvoice": "Factură nouă",
+    "integrityAlarm": "S-au detectat {{count}} discrepanțe în lanțul de hash-uri al facturilor tale. Contactează asistența înainte de a mai emite.",
+    "from": "De la",
+    "to": "Până la",
+    "patient": "Pacient",
+    "status": "Stare",
+    "statusEmitida": "Emisă",
+    "statusAnulada": "Anulată",
+    "statusRectificada": "Rectificată",
+    "search": "Caută",
+    "searchPlaceholder": "Nume sau număr factură",
+    "all": "Toate",
+    "clearFilters": "Șterge filtrele",
+    "noResults": "Nu a fost emisă încă nicio factură.",
+    "colNumber": "Număr",
+    "colDate": "Data",
+    "colRecipient": "Destinatar",
+    "colTotal": "Total",
+    "colStatus": "Stare",
+    "colAeat": "AEAT",
+    "colActions": "Acțiuni"
+  },
+  "invoiceModal": {
+    "title": "Factură nouă",
+    "form": {
+      "patient": "Pacient",
+      "selectPatientOrManual": "Selectează un pacient sau completează manual",
+      "manualHint": "Poți factura și unui terț fără a selecta un pacient, completând datele manual.",
+      "taxpayerType": "Tip de contribuabil",
+      "autonomo": "Liber profesionist",
+      "empresa": "Companie",
+      "recipientName": "Nume / Denumire",
+      "recipientNif": "CIF/CNP",
+      "recipientAddress": "Adresă",
+      "concept": "Descriere",
+      "baseAmount": "Bază impozabilă",
+      "vatRate": "Cotă TVA",
+      "vatExempt": "Scutit",
+      "series": "Serie",
+      "base": "Bază impozabilă",
+      "vat": "TVA ({{rate}}%)",
+      "total": "Total",
+      "issue": "Emite factura"
+    },
+    "errors": {
+      "recipientName": "Numele destinatarului este obligatoriu",
+      "recipientNif": "CIF-ul/CNP-ul destinatarului este obligatoriu",
+      "concept": "Descrierea este obligatorie",
+      "baseAmount": "Baza impozabilă trebuie să fie mai mare decât 0",
+      "saveFailed": "Factura nu a putut fi emisă"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Descarcă PDF",
+    "confirmCancel": "Sigur vrei să anulezi această factură? Se va crea o înregistrare de anulare înlănțuită; factura originală nu este modificată.",
+    "cancelFailed": "Factura nu a putut fi anulată",
+    "cancelledNotice": "Această factură este anulată.",
+    "recipient": "Destinatar",
+    "concept": "Descriere",
+    "aeatPending": "Trimiterea către AEAT așteaptă conectarea",
+    "aeatSent": "Trimisă către AEAT",
+    "cancelInvoice": "Anulează factura",
+    "cancelling": "Se anulează…"
   }
 }

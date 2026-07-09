@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "見積もり",
     "workflows": "ワークフロー",
-    "tickets": "不具合報告"
+    "tickets": "不具合報告",
+    "invoicing": "請求書発行"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",
@@ -1746,5 +1747,72 @@
       "error": "コードを保存できませんでした",
       "save": "保存"
     }
+  },
+  "invoicing": {
+    "title": "請求書発行",
+    "subtitle": "VeriFactu準拠の請求書を発行 — 連続番号付け、ハッシュチェーン、AEATへの送信。",
+    "newInvoice": "新規請求書",
+    "integrityAlarm": "請求書のハッシュチェーンに{{count}}件の不整合が見つかりました。さらに発行する前にサポートにお問い合わせください。",
+    "from": "開始日",
+    "to": "終了日",
+    "patient": "患者",
+    "status": "ステータス",
+    "statusEmitida": "発行済み",
+    "statusAnulada": "取消済み",
+    "statusRectificada": "修正済み",
+    "search": "検索",
+    "searchPlaceholder": "名前または請求書番号",
+    "all": "すべて",
+    "clearFilters": "フィルターをクリア",
+    "noResults": "まだ請求書は発行されていません。",
+    "colNumber": "番号",
+    "colDate": "日付",
+    "colRecipient": "宛先",
+    "colTotal": "合計",
+    "colStatus": "ステータス",
+    "colAeat": "AEAT",
+    "colActions": "操作"
+  },
+  "invoiceModal": {
+    "title": "新規請求書",
+    "form": {
+      "patient": "患者",
+      "selectPatientOrManual": "患者を選択するか手動で入力",
+      "manualHint": "患者を選択せずに、詳細を手動で入力して第三者に請求することもできます。",
+      "taxpayerType": "納税者タイプ",
+      "autonomo": "個人事業主",
+      "empresa": "会社",
+      "recipientName": "氏名 / 法人名",
+      "recipientNif": "納税者番号",
+      "recipientAddress": "住所",
+      "concept": "内容",
+      "baseAmount": "課税標準額",
+      "vatRate": "消費税率",
+      "vatExempt": "非課税",
+      "series": "シリーズ",
+      "base": "課税標準額",
+      "vat": "消費税（{{rate}}%）",
+      "total": "合計",
+      "issue": "請求書を発行"
+    },
+    "errors": {
+      "recipientName": "宛先の氏名は必須です",
+      "recipientNif": "宛先の納税者番号は必須です",
+      "concept": "内容は必須です",
+      "baseAmount": "課税標準額は0より大きくなければなりません",
+      "saveFailed": "請求書を発行できませんでした"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDFをダウンロード",
+    "confirmCancel": "この請求書を取り消してもよろしいですか？連鎖した取消記録が作成されます。元の請求書は変更されません。",
+    "cancelFailed": "請求書を取り消せませんでした",
+    "cancelledNotice": "この請求書は取り消されています。",
+    "recipient": "宛先",
+    "concept": "内容",
+    "aeatPending": "AEATへの送信は接続待ちです",
+    "aeatSent": "AEATに送信済み",
+    "cancelInvoice": "請求書を取り消す",
+    "cancelling": "取り消し中…"
   }
 }

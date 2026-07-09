@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Cenové nabídky",
     "workflows": "Automatizace",
-    "tickets": "Incidenty"
+    "tickets": "Incidenty",
+    "invoicing": "Fakturace"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",
@@ -1746,5 +1747,72 @@
       "error": "Kód se nepodařilo uložit",
       "save": "Uložit"
     }
+  },
+  "invoicing": {
+    "title": "Fakturace",
+    "subtitle": "Vystavujte faktury v souladu s VeriFactu — souvislé číslování, řetězení hashů a odeslání na AEAT.",
+    "newInvoice": "Nová faktura",
+    "integrityAlarm": "V řetězci hashů vašich faktur bylo zjištěno {{count}} nesrovnalostí. Před dalším vystavováním kontaktujte podporu.",
+    "from": "Od",
+    "to": "Do",
+    "patient": "Pacient",
+    "status": "Stav",
+    "statusEmitida": "Vystavena",
+    "statusAnulada": "Zrušena",
+    "statusRectificada": "Opravena",
+    "search": "Hledat",
+    "searchPlaceholder": "Jméno nebo číslo faktury",
+    "all": "Vše",
+    "clearFilters": "Vymazat filtry",
+    "noResults": "Zatím nebyla vystavena žádná faktura.",
+    "colNumber": "Číslo",
+    "colDate": "Datum",
+    "colRecipient": "Příjemce",
+    "colTotal": "Celkem",
+    "colStatus": "Stav",
+    "colAeat": "AEAT",
+    "colActions": "Akce"
+  },
+  "invoiceModal": {
+    "title": "Nová faktura",
+    "form": {
+      "patient": "Pacient",
+      "selectPatientOrManual": "Vyberte pacienta nebo vyplňte ručně",
+      "manualHint": "Fakturu můžete vystavit i třetí straně bez výběru pacienta, ručním vyplněním údajů.",
+      "taxpayerType": "Typ daňového poplatníka",
+      "autonomo": "OSVČ",
+      "empresa": "Firma",
+      "recipientName": "Jméno / Obchodní jméno",
+      "recipientNif": "DIČ",
+      "recipientAddress": "Adresa",
+      "concept": "Popis",
+      "baseAmount": "Základ daně",
+      "vatRate": "Sazba DPH",
+      "vatExempt": "Osvobozeno",
+      "series": "Řada",
+      "base": "Základ daně",
+      "vat": "DPH ({{rate}}%)",
+      "total": "Celkem",
+      "issue": "Vystavit fakturu"
+    },
+    "errors": {
+      "recipientName": "Jméno příjemce je povinné",
+      "recipientNif": "DIČ příjemce je povinné",
+      "concept": "Popis je povinný",
+      "baseAmount": "Základ daně musí být větší než 0",
+      "saveFailed": "Fakturu se nepodařilo vystavit"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Stáhnout PDF",
+    "confirmCancel": "Opravdu chcete tuto fakturu zrušit? Vytvoří se navazující záznam o zrušení; původní faktura se nezmění.",
+    "cancelFailed": "Fakturu se nepodařilo zrušit",
+    "cancelledNotice": "Tato faktura je zrušena.",
+    "recipient": "Příjemce",
+    "concept": "Popis",
+    "aeatPending": "Odeslání na AEAT čeká na připojení",
+    "aeatSent": "Odesláno na AEAT",
+    "cancelInvoice": "Zrušit fakturu",
+    "cancelling": "Ruší se…"
   }
 }

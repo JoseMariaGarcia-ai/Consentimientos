@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "견적서",
     "workflows": "워크플로우",
-    "tickets": "오류 신고"
+    "tickets": "오류 신고",
+    "invoicing": "청구서 발행"
   },
   "topbar": {
     "tagline": "디지털 동의서 · 생체 인식 서명",
@@ -1746,5 +1747,72 @@
       "error": "코드를 저장하지 못했습니다",
       "save": "저장"
     }
+  },
+  "invoicing": {
+    "title": "청구서 발행",
+    "subtitle": "VeriFactu 규정을 준수하는 청구서를 발행하세요 — 순차 번호 매기기, 해시 체인, AEAT로 전송.",
+    "newInvoice": "새 청구서",
+    "integrityAlarm": "청구서의 해시 체인에서 {{count}}개의 불일치가 발견되었습니다. 추가로 발행하기 전에 지원팀에 문의하세요.",
+    "from": "시작일",
+    "to": "종료일",
+    "patient": "환자",
+    "status": "상태",
+    "statusEmitida": "발행됨",
+    "statusAnulada": "취소됨",
+    "statusRectificada": "수정됨",
+    "search": "검색",
+    "searchPlaceholder": "이름 또는 청구서 번호",
+    "all": "전체",
+    "clearFilters": "필터 지우기",
+    "noResults": "아직 발행된 청구서가 없습니다.",
+    "colNumber": "번호",
+    "colDate": "날짜",
+    "colRecipient": "수신자",
+    "colTotal": "합계",
+    "colStatus": "상태",
+    "colAeat": "AEAT",
+    "colActions": "작업"
+  },
+  "invoiceModal": {
+    "title": "새 청구서",
+    "form": {
+      "patient": "환자",
+      "selectPatientOrManual": "환자를 선택하거나 직접 입력",
+      "manualHint": "환자를 선택하지 않고 정보를 직접 입력하여 제3자에게 청구할 수도 있습니다.",
+      "taxpayerType": "납세자 유형",
+      "autonomo": "자영업자",
+      "empresa": "회사",
+      "recipientName": "이름 / 법인명",
+      "recipientNif": "세금 식별 번호",
+      "recipientAddress": "주소",
+      "concept": "설명",
+      "baseAmount": "과세표준",
+      "vatRate": "부가가치세율",
+      "vatExempt": "면세",
+      "series": "시리즈",
+      "base": "과세표준",
+      "vat": "부가가치세 ({{rate}}%)",
+      "total": "합계",
+      "issue": "청구서 발행"
+    },
+    "errors": {
+      "recipientName": "수신자 이름은 필수입니다",
+      "recipientNif": "수신자 세금 식별 번호는 필수입니다",
+      "concept": "설명은 필수입니다",
+      "baseAmount": "과세표준은 0보다 커야 합니다",
+      "saveFailed": "청구서를 발행하지 못했습니다"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF 다운로드",
+    "confirmCancel": "이 청구서를 취소하시겠습니까? 연결된 취소 기록이 생성됩니다. 원본 청구서는 변경되지 않습니다.",
+    "cancelFailed": "청구서를 취소하지 못했습니다",
+    "cancelledNotice": "이 청구서는 취소되었습니다.",
+    "recipient": "수신자",
+    "concept": "설명",
+    "aeatPending": "AEAT로의 전송은 연결 대기 중입니다",
+    "aeatSent": "AEAT로 전송됨",
+    "cancelInvoice": "청구서 취소",
+    "cancelling": "취소 중…"
   }
 }

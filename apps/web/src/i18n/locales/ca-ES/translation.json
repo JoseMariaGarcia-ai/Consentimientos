@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Pressupostos",
     "workflows": "Fluxos de treball",
-    "tickets": "Incidències"
+    "tickets": "Incidències",
+    "invoicing": "Facturació"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",
@@ -1746,5 +1747,72 @@
       "error": "No s'ha pogut desar el codi",
       "save": "Desa"
     }
+  },
+  "invoicing": {
+    "title": "Facturació",
+    "subtitle": "Emet factures conformes amb VeriFactu — numeració correlativa, encadenament per hash i enviament a l'AEAT.",
+    "newInvoice": "Nova factura",
+    "integrityAlarm": "S'han detectat {{count}} discrepàncies a la cadena de hashos de les teves factures. Contacta amb suport abans de seguir emetent.",
+    "from": "Des de",
+    "to": "Fins a",
+    "patient": "Pacient",
+    "status": "Estat",
+    "statusEmitida": "Emesa",
+    "statusAnulada": "Anul·lada",
+    "statusRectificada": "Rectificada",
+    "search": "Cerca",
+    "searchPlaceholder": "Nom o número de factura",
+    "all": "Tots",
+    "clearFilters": "Neteja filtres",
+    "noResults": "Encara no s'ha emès cap factura.",
+    "colNumber": "Número",
+    "colDate": "Data",
+    "colRecipient": "Destinatari",
+    "colTotal": "Total",
+    "colStatus": "Estat",
+    "colAeat": "AEAT",
+    "colActions": "Accions"
+  },
+  "invoiceModal": {
+    "title": "Nova factura",
+    "form": {
+      "patient": "Pacient",
+      "selectPatientOrManual": "Selecciona un pacient o omple-ho a mà",
+      "manualHint": "També pots facturar a un tercer sense seleccionar pacient, omplint les dades manualment.",
+      "taxpayerType": "Tipus de contribuent",
+      "autonomo": "Autònom",
+      "empresa": "Empresa",
+      "recipientName": "Nom / Raó social",
+      "recipientNif": "NIF",
+      "recipientAddress": "Domicili",
+      "concept": "Concepte",
+      "baseAmount": "Base imposable",
+      "vatRate": "Tipus d'IVA",
+      "vatExempt": "Exempt",
+      "series": "Sèrie",
+      "base": "Base imposable",
+      "vat": "IVA ({{rate}}%)",
+      "total": "Total",
+      "issue": "Emet factura"
+    },
+    "errors": {
+      "recipientName": "El nom del destinatari és obligatori",
+      "recipientNif": "El NIF del destinatari és obligatori",
+      "concept": "El concepte és obligatori",
+      "baseAmount": "La base imposable ha de ser superior a 0",
+      "saveFailed": "No s'ha pogut emetre la factura"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Descarrega el PDF",
+    "confirmCancel": "Segur que vols anul·lar aquesta factura? Es crearà un registre d'anul·lació encadenat; la factura original no es modifica.",
+    "cancelFailed": "No s'ha pogut anul·lar la factura",
+    "cancelledNotice": "Aquesta factura està anul·lada.",
+    "recipient": "Destinatari",
+    "concept": "Concepte",
+    "aeatPending": "Enviament a l'AEAT pendent de connexió",
+    "aeatSent": "Enviada a l'AEAT",
+    "cancelInvoice": "Anul·la factura",
+    "cancelling": "Anul·lant…"
   }
 }

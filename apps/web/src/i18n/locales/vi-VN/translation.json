@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Báo giá",
     "workflows": "Quy trình tự động",
-    "tickets": "Phản ánh sự cố"
+    "tickets": "Phản ánh sự cố",
+    "invoicing": "Hóa đơn"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
@@ -1746,5 +1747,72 @@
       "error": "Không thể lưu mã",
       "save": "Lưu"
     }
+  },
+  "invoicing": {
+    "title": "Hóa đơn",
+    "subtitle": "Phát hành hóa đơn tuân thủ VeriFactu — đánh số tuần tự, chuỗi hash và gửi tới AEAT.",
+    "newInvoice": "Hóa đơn mới",
+    "integrityAlarm": "Đã phát hiện {{count}} sai lệch trong chuỗi hash hóa đơn của bạn. Liên hệ hỗ trợ trước khi phát hành thêm.",
+    "from": "Từ",
+    "to": "Đến",
+    "patient": "Bệnh nhân",
+    "status": "Trạng thái",
+    "statusEmitida": "Đã phát hành",
+    "statusAnulada": "Đã hủy",
+    "statusRectificada": "Đã chỉnh sửa",
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tên hoặc số hóa đơn",
+    "all": "Tất cả",
+    "clearFilters": "Xóa bộ lọc",
+    "noResults": "Chưa có hóa đơn nào được phát hành.",
+    "colNumber": "Số",
+    "colDate": "Ngày",
+    "colRecipient": "Người nhận",
+    "colTotal": "Tổng cộng",
+    "colStatus": "Trạng thái",
+    "colAeat": "AEAT",
+    "colActions": "Hành động"
+  },
+  "invoiceModal": {
+    "title": "Hóa đơn mới",
+    "form": {
+      "patient": "Bệnh nhân",
+      "selectPatientOrManual": "Chọn bệnh nhân hoặc điền thủ công",
+      "manualHint": "Bạn cũng có thể xuất hóa đơn cho bên thứ ba mà không cần chọn bệnh nhân, bằng cách điền thông tin thủ công.",
+      "taxpayerType": "Loại người nộp thuế",
+      "autonomo": "Tự kinh doanh",
+      "empresa": "Công ty",
+      "recipientName": "Tên / Tên pháp lý",
+      "recipientNif": "Mã số thuế",
+      "recipientAddress": "Địa chỉ",
+      "concept": "Mô tả",
+      "baseAmount": "Giá trị tính thuế",
+      "vatRate": "Thuế suất VAT",
+      "vatExempt": "Miễn thuế",
+      "series": "Ký hiệu",
+      "base": "Giá trị tính thuế",
+      "vat": "VAT ({{rate}}%)",
+      "total": "Tổng cộng",
+      "issue": "Phát hành hóa đơn"
+    },
+    "errors": {
+      "recipientName": "Tên người nhận là bắt buộc",
+      "recipientNif": "Mã số thuế người nhận là bắt buộc",
+      "concept": "Mô tả là bắt buộc",
+      "baseAmount": "Giá trị tính thuế phải lớn hơn 0",
+      "saveFailed": "Không thể phát hành hóa đơn"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Tải PDF",
+    "confirmCancel": "Bạn có chắc chắn muốn hủy hóa đơn này không? Một bản ghi hủy được liên kết sẽ được tạo; hóa đơn gốc không bị thay đổi.",
+    "cancelFailed": "Không thể hủy hóa đơn",
+    "cancelledNotice": "Hóa đơn này đã bị hủy.",
+    "recipient": "Người nhận",
+    "concept": "Mô tả",
+    "aeatPending": "Gửi tới AEAT đang chờ kết nối",
+    "aeatSent": "Đã gửi tới AEAT",
+    "cancelInvoice": "Hủy hóa đơn",
+    "cancelling": "Đang hủy…"
   }
 }

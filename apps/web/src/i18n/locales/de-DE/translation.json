@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Kostenvoranschläge",
     "workflows": "Workflows",
-    "tickets": "Störungen"
+    "tickets": "Störungen",
+    "invoicing": "Rechnungsstellung"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",
@@ -1746,5 +1747,72 @@
       "error": "Der Code konnte nicht gespeichert werden",
       "save": "Speichern"
     }
+  },
+  "invoicing": {
+    "title": "Rechnungsstellung",
+    "subtitle": "VeriFactu-konforme Rechnungen ausstellen — fortlaufende Nummerierung, Hash-Verkettung und Übermittlung an die AEAT.",
+    "newInvoice": "Neue Rechnung",
+    "integrityAlarm": "In der Hash-Kette Ihrer Rechnungen wurden {{count}} Unstimmigkeiten festgestellt. Wenden Sie sich an den Support, bevor Sie weitere Rechnungen ausstellen.",
+    "from": "Von",
+    "to": "Bis",
+    "patient": "Patient",
+    "status": "Status",
+    "statusEmitida": "Ausgestellt",
+    "statusAnulada": "Storniert",
+    "statusRectificada": "Berichtigt",
+    "search": "Suchen",
+    "searchPlaceholder": "Name oder Rechnungsnummer",
+    "all": "Alle",
+    "clearFilters": "Filter zurücksetzen",
+    "noResults": "Es wurde noch keine Rechnung ausgestellt.",
+    "colNumber": "Nummer",
+    "colDate": "Datum",
+    "colRecipient": "Empfänger",
+    "colTotal": "Gesamt",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Aktionen"
+  },
+  "invoiceModal": {
+    "title": "Neue Rechnung",
+    "form": {
+      "patient": "Patient",
+      "selectPatientOrManual": "Patient auswählen oder manuell eingeben",
+      "manualHint": "Sie können auch einem Dritten eine Rechnung stellen, ohne einen Patienten auszuwählen, indem Sie die Daten manuell eingeben.",
+      "taxpayerType": "Steuerpflichtiger Typ",
+      "autonomo": "Selbstständig",
+      "empresa": "Unternehmen",
+      "recipientName": "Name / Firmenname",
+      "recipientNif": "Steuernummer",
+      "recipientAddress": "Adresse",
+      "concept": "Konzept",
+      "baseAmount": "Steuerbemessungsgrundlage",
+      "vatRate": "Mehrwertsteuersatz",
+      "vatExempt": "Befreit",
+      "series": "Serie",
+      "base": "Steuerbemessungsgrundlage",
+      "vat": "MwSt. ({{rate}}%)",
+      "total": "Gesamt",
+      "issue": "Rechnung ausstellen"
+    },
+    "errors": {
+      "recipientName": "Der Name des Empfängers ist erforderlich",
+      "recipientNif": "Die Steuernummer des Empfängers ist erforderlich",
+      "concept": "Das Konzept ist erforderlich",
+      "baseAmount": "Die Steuerbemessungsgrundlage muss größer als 0 sein",
+      "saveFailed": "Die Rechnung konnte nicht ausgestellt werden"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "PDF herunterladen",
+    "confirmCancel": "Möchten Sie diese Rechnung wirklich stornieren? Es wird ein verketteter Stornierungseintrag erstellt; die ursprüngliche Rechnung wird nicht geändert.",
+    "cancelFailed": "Die Rechnung konnte nicht storniert werden",
+    "cancelledNotice": "Diese Rechnung ist storniert.",
+    "recipient": "Empfänger",
+    "concept": "Konzept",
+    "aeatPending": "Übermittlung an die AEAT wartet auf Anbindung",
+    "aeatSent": "An die AEAT übermittelt",
+    "cancelInvoice": "Rechnung stornieren",
+    "cancelling": "Wird storniert…"
   }
 }

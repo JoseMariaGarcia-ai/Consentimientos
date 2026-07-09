@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Tilbud",
     "workflows": "Arbeidsflyter",
-    "tickets": "Feilmeldinger"
+    "tickets": "Feilmeldinger",
+    "invoicing": "Fakturering"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",
@@ -1746,5 +1747,72 @@
       "error": "Kunne ikke lagre koden",
       "save": "Lagre"
     }
+  },
+  "invoicing": {
+    "title": "Fakturering",
+    "subtitle": "Utsted VeriFactu-kompatible fakturaer — fortløpende nummerering, hashkjede og innsending til AEAT.",
+    "newInvoice": "Ny faktura",
+    "integrityAlarm": "{{count}} avvik ble funnet i hashkjeden til fakturaene dine. Kontakt support før du utsteder flere.",
+    "from": "Fra",
+    "to": "Til",
+    "patient": "Pasient",
+    "status": "Status",
+    "statusEmitida": "Utstedt",
+    "statusAnulada": "Kansellert",
+    "statusRectificada": "Korrigert",
+    "search": "Søk",
+    "searchPlaceholder": "Navn eller fakturanummer",
+    "all": "Alle",
+    "clearFilters": "Fjern filtre",
+    "noResults": "Ingen fakturaer utstedt ennå.",
+    "colNumber": "Nummer",
+    "colDate": "Dato",
+    "colRecipient": "Mottaker",
+    "colTotal": "Totalt",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Handlinger"
+  },
+  "invoiceModal": {
+    "title": "Ny faktura",
+    "form": {
+      "patient": "Pasient",
+      "selectPatientOrManual": "Velg en pasient eller fyll ut manuelt",
+      "manualHint": "Du kan også fakturere en tredjepart uten å velge pasient, ved å fylle ut opplysningene manuelt.",
+      "taxpayerType": "Skattyter-type",
+      "autonomo": "Selvstendig næringsdrivende",
+      "empresa": "Bedrift",
+      "recipientName": "Navn / Firmanavn",
+      "recipientNif": "Organisasjonsnummer",
+      "recipientAddress": "Adresse",
+      "concept": "Beskrivelse",
+      "baseAmount": "Avgiftsgrunnlag",
+      "vatRate": "MVA-sats",
+      "vatExempt": "Fritatt",
+      "series": "Serie",
+      "base": "Avgiftsgrunnlag",
+      "vat": "MVA ({{rate}}%)",
+      "total": "Totalt",
+      "issue": "Utsted faktura"
+    },
+    "errors": {
+      "recipientName": "Mottakerens navn er påkrevd",
+      "recipientNif": "Mottakerens organisasjonsnummer er påkrevd",
+      "concept": "Beskrivelse er påkrevd",
+      "baseAmount": "Avgiftsgrunnlaget må være større enn 0",
+      "saveFailed": "Kunne ikke utstede fakturaen"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Last ned PDF",
+    "confirmCancel": "Er du sikker på at du vil kansellere denne fakturaen? En kjedet kanselleringspost vil bli opprettet; den opprinnelige fakturaen endres ikke.",
+    "cancelFailed": "Kunne ikke kansellere fakturaen",
+    "cancelledNotice": "Denne fakturaen er kansellert.",
+    "recipient": "Mottaker",
+    "concept": "Beskrivelse",
+    "aeatPending": "Innsending til AEAT venter på tilkobling",
+    "aeatSent": "Sendt til AEAT",
+    "cancelInvoice": "Kanseller faktura",
+    "cancelling": "Kansellerer…"
   }
 }

@@ -530,7 +530,8 @@
     "whatsapp": "WhatsApp",
     "budgets": "Offerter",
     "workflows": "Arbetsflöden",
-    "tickets": "Ärenden"
+    "tickets": "Ärenden",
+    "invoicing": "Fakturering"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",
@@ -1746,5 +1747,72 @@
       "error": "Det gick inte att spara koden",
       "save": "Spara"
     }
+  },
+  "invoicing": {
+    "title": "Fakturering",
+    "subtitle": "Utfärda VeriFactu-kompatibla fakturor — löpande numrering, hashkedja och inlämning till AEAT.",
+    "newInvoice": "Ny faktura",
+    "integrityAlarm": "{{count}} avvikelser hittades i hashkedjan för dina fakturor. Kontakta support innan du utfärdar fler.",
+    "from": "Från",
+    "to": "Till",
+    "patient": "Patient",
+    "status": "Status",
+    "statusEmitida": "Utfärdad",
+    "statusAnulada": "Avbruten",
+    "statusRectificada": "Rättad",
+    "search": "Sök",
+    "searchPlaceholder": "Namn eller fakturanummer",
+    "all": "Alla",
+    "clearFilters": "Rensa filter",
+    "noResults": "Ingen faktura har utfärdats ännu.",
+    "colNumber": "Nummer",
+    "colDate": "Datum",
+    "colRecipient": "Mottagare",
+    "colTotal": "Totalt",
+    "colStatus": "Status",
+    "colAeat": "AEAT",
+    "colActions": "Åtgärder"
+  },
+  "invoiceModal": {
+    "title": "Ny faktura",
+    "form": {
+      "patient": "Patient",
+      "selectPatientOrManual": "Välj en patient eller fyll i manuellt",
+      "manualHint": "Du kan även fakturera en tredje part utan att välja patient, genom att fylla i uppgifterna manuellt.",
+      "taxpayerType": "Skattebetalartyp",
+      "autonomo": "Enskild firma",
+      "empresa": "Företag",
+      "recipientName": "Namn / Firmanamn",
+      "recipientNif": "Organisationsnummer",
+      "recipientAddress": "Adress",
+      "concept": "Beskrivning",
+      "baseAmount": "Beskattningsunderlag",
+      "vatRate": "Momssats",
+      "vatExempt": "Undantagen",
+      "series": "Serie",
+      "base": "Beskattningsunderlag",
+      "vat": "Moms ({{rate}}%)",
+      "total": "Totalt",
+      "issue": "Utfärda faktura"
+    },
+    "errors": {
+      "recipientName": "Mottagarens namn krävs",
+      "recipientNif": "Mottagarens organisationsnummer krävs",
+      "concept": "Beskrivning krävs",
+      "baseAmount": "Beskattningsunderlaget måste vara större än 0",
+      "saveFailed": "Det gick inte att utfärda fakturan"
+    }
+  },
+  "invoiceView": {
+    "downloadPdf": "Ladda ner PDF",
+    "confirmCancel": "Är du säker på att du vill avbryta denna faktura? En kedjad avbrottspost skapas; originalfakturan ändras inte.",
+    "cancelFailed": "Det gick inte att avbryta fakturan",
+    "cancelledNotice": "Den här fakturan är avbruten.",
+    "recipient": "Mottagare",
+    "concept": "Beskrivning",
+    "aeatPending": "Inlämning till AEAT väntar på anslutning",
+    "aeatSent": "Skickad till AEAT",
+    "cancelInvoice": "Avbryt faktura",
+    "cancelling": "Avbryter…"
   }
 }

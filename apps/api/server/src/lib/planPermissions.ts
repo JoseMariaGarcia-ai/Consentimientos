@@ -1,6 +1,6 @@
 import { query } from './db'
 
-export const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin', 'whatsapp']
+export const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin', 'whatsapp', 'invoicing']
 export const PLANS = ['base', 'pro', 'ia', 'ia-plus', 'redes']
 
 // Reads plan_permissions for a plan, defaulting any module without an
