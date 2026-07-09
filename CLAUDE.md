@@ -36,3 +36,17 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 3. Revisar el código existente en el repositorio
 4. Determinar qué puntos del checklist están completados
 5. Continuar por el primer punto pendiente sin preguntar
+
+## Configuración manual pendiente (Stripe / Facturación)
+Estas tareas solo las puede hacer José María (Claude no tiene acceso a Railway ni a Stripe desde este entorno — red bloqueada a nivel de infraestructura, no es un tema de permisos). Marcar como hechas conforme se completen.
+
+- [ ] Rotar la clave `sk_live_...` original de Stripe (quedó pegada en el chat al principio de la integración). Stripe Dashboard → Developers → API keys → Roll key. Si se rota, actualizar `STRIPE_SECRET_KEY` en Railway y volver a desplegar.
+- [ ] Añadir en Railway (servicio del backend, ej. "practical-prosperity") la variable `BILLING_NOTIFICATION_EMAIL` = correo donde José María quiere recibir el aviso de cada nueva suscripción contratada. Guardar y pulsar Deploy.
+- [ ] En Stripe Dashboard → Developers → Webhooks (modo real/live) → editar el endpoint que apunta a `.../api/billing/webhook` → añadir estos 2 eventos nuevos a los 3 que ya tiene (`customer.subscription.created/updated/deleted`):
+  - `invoice.payment_succeeded`
+  - `invoice.payment_failed`
+- [ ] Configurar la marca de las facturas en Stripe (requiere que José María dé acceso a Stripe primero, avisará cuando quiera): Settings → Branding (logo, color) y Settings → Invoice template (razón social, NIF/CIF, dirección, email de soporte, texto de pie de página, numeración).
+- [ ] Opcional: revisar en Stripe Settings → Customer emails si se quiere activar también el recibo nativo de Stripe (ya existe uno propio de ConsentsPro por email, esto sería redundante salvo que se prefiera tenerlo también).
+- [ ] Opcional: fijar `API_URL` en Railway si el dominio público del backend cambia alguna vez (si no se define, se usa `RAILWAY_PUBLIC_DOMAIN` automáticamente).
+
+Contexto: la integración de Stripe (checkout, webhook, portal de cliente, panel de Suscripciones en Configuración, emails automáticos de renovación/fallo de cobro/desactivación, datos fiscales por clínica) ya está implementada y desplegada. El alta de clínicas nuevas desde la web pública (pago → creación automática de cuenta → magic link → email de bienvenida con guía por plan) está en construcción.
