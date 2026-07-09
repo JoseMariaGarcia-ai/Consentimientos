@@ -1044,6 +1044,11 @@
     "save_20_annual": "Säästät 20 % maksamalla vuosittain",
     "switch_annual_save": "Vaihda vuosimaksuun ja säästä 20 %",
     "hire_plan": "Tilaa suunnitelma",
+    "redirecting": "Ohjataan turvalliseen maksuun…",
+    "checkout_error": "Maksua ei voitu käynnistää. Yritä uudelleen.",
+    "checkout_success": "Maksu suoritettu! Pakettisi aktivoituu hetken kuluttua.",
+    "checkout_cancelled": "Peruutit maksuprosessin. Sinulta ei ole veloitettu mitään.",
+    "dismiss": "Sulje",
     "note_title": "Huomio AI-suunnitelma ja AI Premium -suunnitelma:",
     "note_text": "Tekoälyagenttien alkuasetukset (palvelut, hoidot ja personointi) sekä käyttöönotto hinnoitellaan erikseen klinikan monimutkaisuuden mukaan. Puheagentin, tekoälymallin ja WhatsApp API:n kustannukset eivät sisälly kuukausimaksuun.",
     "plans": {

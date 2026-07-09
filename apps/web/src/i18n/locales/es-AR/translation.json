@@ -1016,6 +1016,11 @@
     "save_20_annual": "Ahorrás un 20 % pagando anual",
     "switch_annual_save": "Cambiá a anual y ahorrá un 20 %",
     "hire_plan": "Contratar plan",
+    "redirecting": "Redirigiendo a pago seguro…",
+    "checkout_error": "No se pudo iniciar el pago. Intentalo de nuevo.",
+    "checkout_success": "¡Pago completado! Tu plan se activará en unos instantes.",
+    "checkout_cancelled": "Cancelaste el proceso de pago. No se te cobró nada.",
+    "dismiss": "Cerrar",
     "note_title": "Nota Plan IA y Plan IA Premium:",
     "note_text": "La configuración inicial de los agentes IA (servicios, tratamientos y personalización) y la implantación se presupuestan aparte según la complejidad de cada clínica. Los costes de agente de voz, modelo de IA y WhatsApp API no están incluidos en la cuota mensual.",
     "plans": {

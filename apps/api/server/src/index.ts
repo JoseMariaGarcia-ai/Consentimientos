@@ -34,6 +34,7 @@ import ticketsRouter from './routes/tickets'
 import signingDevicesRouter, { publicRouter as signingDevicesPublicRouter } from './routes/signingDevices'
 import signingKioskRouter from './routes/signingKiosk'
 import consentHandoffRouter from './routes/consentHandoff'
+import billingRouter, { webhookRouter as billingWebhookRouter } from './routes/billing'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 
@@ -43,6 +44,11 @@ app.use(cors({
   origin: process.env.APP_URL ?? '*',
   credentials: true,
 }))
+
+// El webhook de Stripe necesita el cuerpo sin procesar para verificar la
+// firma — debe montarse antes del parser JSON global.
+app.use('/api/billing/webhook', express.raw({ type: 'application/json' }), billingWebhookRouter)
+
 app.use(express.json({ limit: '10mb' }))
 
 app.get('/health', (_req, res) => res.json({ ok: true }))
@@ -85,6 +91,7 @@ app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRout
 app.use('/api/tickets',         authMiddleware, ticketsRouter)
 app.use('/api/signing-devices', authMiddleware, requireAdmin, signingDevicesRouter)
 app.use('/api/consent-handoff', authMiddleware, consentHandoffRouter)
+app.use('/api/billing',         authMiddleware, billingRouter)
 
 const PORT = process.env.PORT ?? 3001
 

@@ -1044,6 +1044,11 @@
     "save_20_annual": "Yıllık ödeyerek %20 tasarruf edin",
     "switch_annual_save": "Yıllığa geçin ve %20 tasarruf edin",
     "hire_plan": "Planı satın al",
+    "redirecting": "Güvenli ödemeye yönlendiriliyor…",
+    "checkout_error": "Ödeme başlatılamadı. Lütfen tekrar deneyin.",
+    "checkout_success": "Ödeme tamamlandı! Planınız kısa süre içinde etkinleştirilecek.",
+    "checkout_cancelled": "Ödeme işlemini iptal ettiniz. Herhangi bir ücret alınmadı.",
+    "dismiss": "Kapat",
     "note_title": "AI Planı ve AI Premium Planı Notu:",
     "note_text": "Yapay zeka ajanlarının ilk kurulumu (hizmetler, tedaviler ve kişiselleştirme) ve devreye alma, her kliniğin karmaşıklığına göre ayrıca fiyatlandırılır. Sesli ajan, yapay zeka modeli ve WhatsApp API maliyetleri aylık ücrete dahil değildir.",
     "plans": {

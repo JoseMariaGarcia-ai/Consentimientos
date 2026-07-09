@@ -1,9 +1,8 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { sendInviteEmail } from '../lib/inviteEmail'
+import { ALL_MODULES, getPlanPermissions, applyUserPermissions } from '../lib/planPermissions'
 
-const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin', 'whatsapp']
-const PLANS = ['base', 'pro', 'ia', 'ia-plus']
 const router = Router()
 
 async function canManageUser(requesterId: string, targetId: string): Promise<{ ok: boolean; requesterIsSuperAdmin: boolean; targetClinicId: string | null }> {
@@ -12,29 +11,6 @@ async function canManageUser(requesterId: string, targetId: string): Promise<{ o
   const target = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [targetId])
   if (me.role === 'superadmin') return { ok: true, requesterIsSuperAdmin: true, targetClinicId: target?.clinic_id ?? null }
   return { ok: !!target && target.clinic_id === me.clinic_id, requesterIsSuperAdmin: false, targetClinicId: target?.clinic_id ?? null }
-}
-
-// Reads plan_permissions for a plan, defaulting any module without an
-// explicit row to false, so a "clinica" user's access always matches
-// exactly what's configured in Configuración > Planes Suscripción.
-async function getPlanPermissions(plan: string): Promise<Record<string, boolean>> {
-  const perms = Object.fromEntries(ALL_MODULES.map(m => [m, false]))
-  if (!PLANS.includes(plan)) return perms
-  const rows = await query<{ module: string; can_access: boolean }>(
-    'SELECT module, can_access FROM plan_permissions WHERE plan = $1', [plan]
-  )
-  for (const r of rows) perms[r.module] = r.can_access
-  return perms
-}
-
-async function applyUserPermissions(userId: string, permissions: Record<string, boolean>) {
-  for (const module of ALL_MODULES) {
-    await query(
-      `INSERT INTO user_permissions (user_id, module, can_access) VALUES ($1,$2,$3)
-       ON CONFLICT (user_id, module) DO UPDATE SET can_access=$3`,
-      [userId, module, permissions[module] ?? false]
-    )
-  }
 }
 
 router.get('/', async (req, res) => {

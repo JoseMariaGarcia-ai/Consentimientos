@@ -1044,6 +1044,11 @@
     "save_20_annual": "按年支付可节省20%",
     "switch_annual_save": "切换为按年支付，节省20%",
     "hire_plan": "订阅此套餐",
+    "redirecting": "正在跳转至安全支付…",
+    "checkout_error": "无法开始支付，请重试。",
+    "checkout_success": "支付完成！您的套餐将在片刻后激活。",
+    "checkout_cancelled": "您已取消支付流程，未产生任何费用。",
+    "dismiss": "关闭",
     "note_title": "AI套餐和AI高级套餐说明：",
     "note_text": "AI 智能体的初始设置（服务、疗程和个性化）及实施将根据各诊所的复杂程度另行报价。语音智能体、AI 模型及 WhatsApp API 的费用不包含在月费中。",
     "plans": {

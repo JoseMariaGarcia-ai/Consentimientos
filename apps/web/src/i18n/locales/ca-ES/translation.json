@@ -1044,6 +1044,11 @@
     "save_20_annual": "Estalvies un 20 % pagant a l'any",
     "switch_annual_save": "Canvia a anual i estalvia un 20 %",
     "hire_plan": "Contractar pla",
+    "redirecting": "Redirigint al pagament segur…",
+    "checkout_error": "No s’ha pogut iniciar el pagament. Torna-ho a provar.",
+    "checkout_success": "Pagament completat! El teu pla s’activarà en uns instants.",
+    "checkout_cancelled": "Has cancel·lat el procés de pagament. No se t’ha cobrat res.",
+    "dismiss": "Tancar",
     "note_title": "Nota Pla IA i Pla IA Premium:",
     "note_text": "La configuració inicial dels agents IA (serveis, tractaments i personalització) i la implantació es pressuposten a part segons la complexitat de cada clínica. Els costos d’agent de veu, model d’IA i WhatsApp API no estan inclosos en la quota mensual.",
     "plans": {

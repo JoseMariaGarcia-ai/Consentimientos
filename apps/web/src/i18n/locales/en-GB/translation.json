@@ -1044,6 +1044,11 @@
     "save_20_annual": "Save 20% by paying annually",
     "switch_annual_save": "Switch to annual and save 20%",
     "hire_plan": "Choose plan",
+    "redirecting": "Redirecting to secure payment…",
+    "checkout_error": "We couldn't start the payment. Please try again.",
+    "checkout_success": "Payment complete! Your plan will be activated shortly.",
+    "checkout_cancelled": "You cancelled the payment process. You have not been charged.",
+    "dismiss": "Dismiss",
     "note_title": "Note on the AI Plan and AI Premium Plan:",
     "note_text": "The initial setup of the AI agents (services, treatments and personalisation) and rollout are quoted separately depending on the complexity of each clinic. Voice agent, AI model and WhatsApp API costs are not included in the monthly fee.",
     "plans": {

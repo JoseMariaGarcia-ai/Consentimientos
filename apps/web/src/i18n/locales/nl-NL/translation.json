@@ -1044,6 +1044,11 @@
     "save_20_annual": "Bespaar 20% door jaarlijks te betalen",
     "switch_annual_save": "Schakel over naar jaarlijks en bespaar 20%",
     "hire_plan": "Abonnement afsluiten",
+    "redirecting": "Doorverwijzen naar beveiligde betaling…",
+    "checkout_error": "De betaling kon niet worden gestart. Probeer het opnieuw.",
+    "checkout_success": "Betaling voltooid! Uw abonnement wordt binnenkort geactiveerd.",
+    "checkout_cancelled": "U hebt het betalingsproces geannuleerd. Er is niets in rekening gebracht.",
+    "dismiss": "Sluiten",
     "note_title": "Let op AI-abonnement en AI Premium-abonnement:",
     "note_text": "De initiële configuratie van de AI-agenten (diensten, behandelingen en personalisatie) en de implementatie worden apart begroot afhankelijk van de complexiteit van elke kliniek. Kosten voor spraakagent, AI-model en WhatsApp API zijn niet inbegrepen in het maandelijkse tarief.",
     "plans": {

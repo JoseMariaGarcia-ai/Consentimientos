@@ -1,8 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
-
-const PLANS = ['base', 'pro', 'ia', 'ia-plus']
-const ALL_MODULES = ['dashboard', 'agenda', 'patients', 'doctors', 'consents', 'clinical-records', 'photos', 'clinic', 'settings', 'templates', 'lab-partners', 'toxin', 'whatsapp']
+import { PLANS, ALL_MODULES } from '../lib/planPermissions'
 
 const router = Router()
 

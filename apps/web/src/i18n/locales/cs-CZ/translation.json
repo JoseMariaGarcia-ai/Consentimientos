@@ -1044,6 +1044,11 @@
     "save_20_annual": "Ušetříte 20 % při roční platbě",
     "switch_annual_save": "Přejděte na roční platbu a ušetřete 20 %",
     "hire_plan": "Objednat plán",
+    "redirecting": "Přesměrování na bezpečnou platbu…",
+    "checkout_error": "Platbu se nepodařilo zahájit. Zkuste to znovu.",
+    "checkout_success": "Platba dokončena! Váš plán se během chvíle aktivuje.",
+    "checkout_cancelled": "Zrušili jste platební proces. Nebylo vám nic účtováno.",
+    "dismiss": "Zavřít",
     "note_title": "Poznámka k Plánu AI a Plánu AI Premium:",
     "note_text": "Počáteční nastavení AI agentů (služby, ošetření a personalizace) a implementace se rozpočtují zvlášť podle složitosti dané kliniky. Náklady na hlasového agenta, AI model a WhatsApp API nejsou zahrnuty v měsíčním poplatku.",
     "plans": {

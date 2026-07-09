@@ -1044,6 +1044,11 @@
     "save_20_annual": "Du sparer 20 % ved at betale årligt",
     "switch_annual_save": "Skift til årlig og spar 20 %",
     "hire_plan": "Vælg plan",
+    "redirecting": "Omdirigerer til sikker betaling…",
+    "checkout_error": "Betalingen kunne ikke startes. Prøv igen.",
+    "checkout_success": "Betaling gennemført! Din plan aktiveres om et øjeblik.",
+    "checkout_cancelled": "Du har annulleret betalingsprocessen. Du er ikke blevet opkrævet noget.",
+    "dismiss": "Luk",
     "note_title": "Bemærkning til AI-plan og AI Premium-plan:",
     "note_text": "Den indledende opsætning af AI-agenterne (ydelser, behandlinger og tilpasning) og implementeringen budgetteres separat afhængigt af kompleksiteten på hver klinik. Omkostninger til stemmeagent, AI-model og WhatsApp API er ikke inkluderet i det månedlige gebyr.",
     "plans": {

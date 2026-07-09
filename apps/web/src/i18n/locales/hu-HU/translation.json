@@ -1044,6 +1044,11 @@
     "save_20_annual": "20%-ot takarít meg, ha évente fizet",
     "switch_annual_save": "Váltson évesre, és takarítson meg 20%-ot",
     "hire_plan": "Csomag választása",
+    "redirecting": "Átirányítás a biztonságos fizetéshez…",
+    "checkout_error": "A fizetést nem sikerült elindítani. Próbálja újra.",
+    "checkout_success": "A fizetés sikeres! Az Ön csomagja hamarosan aktiválódik.",
+    "checkout_cancelled": "Megszakította a fizetési folyamatot. Nem került levonásra semmilyen összeg.",
+    "dismiss": "Bezárás",
     "note_title": "Megjegyzés az AI csomaghoz és az AI Premium csomaghoz:",
     "note_text": "Az AI-ügynökök kezdeti beállítása (szolgáltatások, kezelések és személyre szabás) és a bevezetés a klinika összetettségétől függően külön kerül kalkulálásra. A hangalapú ügynök, az AI-modell és a WhatsApp API költségei nem szerepelnek a havi díjban.",
     "plans": {

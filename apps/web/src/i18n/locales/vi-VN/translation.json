@@ -1044,6 +1044,11 @@
     "save_20_annual": "Tiết kiệm 20% khi thanh toán theo năm",
     "switch_annual_save": "Chuyển sang gói năm và tiết kiệm 20%",
     "hire_plan": "Đăng ký gói",
+    "redirecting": "Đang chuyển hướng đến trang thanh toán an toàn…",
+    "checkout_error": "Không thể bắt đầu thanh toán. Vui lòng thử lại.",
+    "checkout_success": "Thanh toán hoàn tất! Gói của bạn sẽ được kích hoạt trong giây lát.",
+    "checkout_cancelled": "Bạn đã hủy quá trình thanh toán. Bạn chưa bị tính phí.",
+    "dismiss": "Đóng",
     "note_title": "Ghi chú về Gói AI và Gói AI Premium:",
     "note_text": "Việc thiết lập ban đầu cho các trợ lý AI (dịch vụ, liệu trình và cá nhân hóa) cũng như triển khai sẽ được báo giá riêng tùy theo mức độ phức tạp của từng phòng khám. Chi phí trợ lý giọng nói, mô hình AI và WhatsApp API không bao gồm trong phí hàng tháng.",
     "plans": {

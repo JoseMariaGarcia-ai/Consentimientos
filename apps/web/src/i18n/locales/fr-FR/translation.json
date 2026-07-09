@@ -1044,6 +1044,11 @@
     "save_20_annual": "Économisez 20 % en payant à l'année",
     "switch_annual_save": "Passez à l'annuel et économisez 20 %",
     "hire_plan": "Choisir cette formule",
+    "redirecting": "Redirection vers le paiement sécurisé…",
+    "checkout_error": "Impossible de démarrer le paiement. Veuillez réessayer.",
+    "checkout_success": "Paiement terminé ! Votre formule sera activée dans quelques instants.",
+    "checkout_cancelled": "Vous avez annulé le processus de paiement. Aucun montant ne vous a été facturé.",
+    "dismiss": "Fermer",
     "note_title": "Remarque sur les formules IA et IA Premium :",
     "note_text": "La configuration initiale des agents IA (services, traitements et personnalisation) ainsi que la mise en place font l'objet d'un devis séparé selon la complexité de chaque clinique. Les coûts de l'agent vocal, du modèle d'IA et de l'API WhatsApp ne sont pas inclus dans l'abonnement mensuel.",
     "plans": {

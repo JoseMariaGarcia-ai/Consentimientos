@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Check, Zap } from 'lucide-react'
+import { useSearchParams } from 'react-router-dom'
+import { Check, Zap, CheckCircle2, XCircle } from 'lucide-react'
+import { api } from '../lib/api'
 
 export interface Plan {
   id: string
@@ -25,6 +27,8 @@ const ANNUAL_DISCOUNT = 0.2
 function PlanCard({ plan }: { plan: Plan }) {
   const { t } = useTranslation()
   const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const isAnnual = cycle === 'annual'
   const displayPrice = isAnnual
     ? Math.round(plan.monthlyPrice * (1 - ANNUAL_DISCOUNT))
@@ -34,6 +38,18 @@ function PlanCard({ plan }: { plan: Plan }) {
   const name = t(`recharge.plans.${key}.name`)
   const badge = plan.hasBadge ? t(`recharge.plans.${key}.badge`) : null
   const features = t(`recharge.plans.${key}.features`, { returnObjects: true }) as string[]
+
+  async function handleHire() {
+    setLoading(true)
+    setError(null)
+    try {
+      const { url } = await api.post('/billing/checkout', { planId: plan.id, cycle })
+      window.location.href = url
+    } catch (err) {
+      setLoading(false)
+      setError(err instanceof Error ? err.message : t('recharge.checkout_error'))
+    }
+  }
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow relative flex flex-col">
@@ -93,9 +109,15 @@ function PlanCard({ plan }: { plan: Plan }) {
 
       {/* CTA */}
       <div className="px-6 pb-6">
-        <button className="w-full py-2.5 bg-slate-800 text-white rounded-xl text-sm font-semibold hover:bg-slate-700 transition-colors">
-          {t('recharge.hire_plan')}
+        <button
+          type="button"
+          onClick={handleHire}
+          disabled={loading}
+          className="w-full py-2.5 bg-slate-800 text-white rounded-xl text-sm font-semibold hover:bg-slate-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {loading ? t('recharge.redirecting') : t('recharge.hire_plan')}
         </button>
+        {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
       </div>
     </div>
   )
@@ -103,6 +125,14 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 export default function Recharge() {
   const { t } = useTranslation()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const checkoutResult = searchParams.get('checkout')
+
+  function dismissCheckoutBanner() {
+    searchParams.delete('checkout')
+    setSearchParams(searchParams, { replace: true })
+  }
+
   return (
     <div className="flex flex-col gap-8 max-w-6xl">
       <div className="flex items-center gap-3">
@@ -114,6 +144,25 @@ export default function Recharge() {
           <p className="text-sm text-slate-500 mt-0.5">{t('recharge.subtitle')}</p>
         </div>
       </div>
+
+      {checkoutResult === 'success' && (
+        <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+          <p className="text-sm text-emerald-800 flex-1">{t('recharge.checkout_success')}</p>
+          <button type="button" onClick={dismissCheckoutBanner} className="text-xs text-emerald-700 underline">
+            {t('recharge.dismiss')}
+          </button>
+        </div>
+      )}
+      {checkoutResult === 'cancelled' && (
+        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl p-4">
+          <XCircle className="w-5 h-5 text-slate-500 flex-shrink-0" />
+          <p className="text-sm text-slate-600 flex-1">{t('recharge.checkout_cancelled')}</p>
+          <button type="button" onClick={dismissCheckoutBanner} className="text-xs text-slate-500 underline">
+            {t('recharge.dismiss')}
+          </button>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
         {PLANS.map(plan => <PlanCard key={plan.id} plan={plan} />)}
