@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import Stripe from 'stripe'
 import { query, queryOne } from '../lib/db'
-import { stripe } from '../lib/stripe'
+import { getStripe } from '../lib/stripe'
 import { PLAN_NAMES, isValidPlan, isValidCycle, priceFor, BillingCycle } from '../lib/plans'
 import { applyPlanToClinic } from '../lib/planPermissions'
 
@@ -20,7 +20,7 @@ async function getClinic(userId: string) {
 
 async function getOrCreateStripeCustomer(clinic: { id: string; name: string; email: string | null; stripe_customer_id: string | null }) {
   if (clinic.stripe_customer_id) return clinic.stripe_customer_id
-  const customer = await stripe.customers.create({
+  const customer = await getStripe().customers.create({
     name: clinic.name,
     email: clinic.email ?? undefined,
     metadata: { clinic_id: clinic.id },
@@ -44,7 +44,7 @@ router.post('/checkout', async (req, res) => {
     const stripeCustomerId = await getOrCreateStripeCustomer(clinic)
     const amount = priceFor(planId, cycle as BillingCycle)
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: 'subscription',
       customer: stripeCustomerId,
       line_items: [{
@@ -93,7 +93,7 @@ router.post('/portal', async (req, res) => {
     const clinic = await getClinic(userId)
     if (!clinic?.stripe_customer_id) return res.status(400).json({ error: 'Esta clínica todavía no tiene una suscripción' })
 
-    const portalSession = await stripe.billingPortal.sessions.create({
+    const portalSession = await getStripe().billingPortal.sessions.create({
       customer: clinic.stripe_customer_id,
       return_url: `${APP_URL}/recharge`,
     })
@@ -115,7 +115,7 @@ webhookRouter.post('/', async (req, res) => {
 
   let event: Stripe.Event
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, secret)
+    event = getStripe().webhooks.constructEvent(req.body, sig, secret)
   } catch (err: any) {
     console.error('[billing/webhook] firma inválida', err.message)
     return res.status(400).send(`Webhook Error: ${err.message}`)
