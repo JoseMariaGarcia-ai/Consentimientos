@@ -260,6 +260,11 @@ webhookRouter.post('/', async (req, res) => {
         if (status === 'active' || status === 'trialing') {
           await applyPlanToClinic(clinicId, planId)
         }
+
+        if (event.type === 'customer.subscription.created') {
+          const { sendNewSubscriptionNotification } = await import('../lib/subscriptionEmails')
+          await sendNewSubscriptionNotification(clinicId, planId, billingCycle as BillingCycle)
+        }
       }
     }
 

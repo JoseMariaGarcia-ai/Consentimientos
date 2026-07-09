@@ -218,3 +218,29 @@ export async function sendSubscriptionDeactivatedEmail(subscriptionId: string) {
 
   await send(sub.clinic_email, 'Tu acceso a ConsentsPro ha sido desactivado', html, 'subscriptionDeactivatedEmail')
 }
+
+// Aviso interno (no al cliente) cada vez que se contrata un plan nuevo,
+// enviado a BILLING_NOTIFICATION_EMAIL. Sustituye a la notificación nativa
+// de Stripe, a la que no tenemos acceso desde aquí para configurarla.
+export async function sendNewSubscriptionNotification(clinicId: string, planId: string, cycle: 'monthly' | 'annual') {
+  const to = process.env.BILLING_NOTIFICATION_EMAIL
+  if (!to) return
+  const clinic = await queryOne<{ name: string }>('SELECT name FROM clinics WHERE id = $1', [clinicId])
+  const planName = PLAN_NAMES[planId] ?? planId
+  const amount = priceFor(planId, cycle)
+  const cycleLabel = cycle === 'annual' ? 'anual' : 'mensual'
+
+  const html = wrap(`
+        <tr><td style="background:#10b981;height:5px;font-size:0">&nbsp;</td></tr>
+        <tr>
+          <td style="padding:40px 40px 8px">
+            <p style="margin:0 0 8px;font-size:22px;font-weight:700;color:#0f172a">Nueva suscripción 🎉</p>
+            <p style="margin:0 0 8px;font-size:15px;color:#64748b;line-height:1.6">
+              <strong>${clinic?.name ?? 'Una clínica'}</strong> acaba de contratar el <strong>${planName}</strong> (${cycleLabel}) por <strong>${fmtEUR(amount)}</strong>.
+            </p>
+            ${button('Ver suscripciones', `${APP_URL}/settings`, '#10b981')}
+          </td>
+        </tr>`)
+
+  await send(to, `Nueva suscripción: ${clinic?.name ?? 'clínica'} — ${planName}`, html, 'newSubscriptionNotification')
+}
