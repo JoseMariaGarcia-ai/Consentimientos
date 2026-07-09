@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Vista Clinica",
-        "description": "Simula il pannello visto dal personale della clinica, con il menu limitato ai suoi permessi reali."
+        "description": "Simula il pannello visto dal personale della clinica, con il menu limitato ai permessi del piano scelto."
       },
       "lab": {
         "title": "Vista Laboratorio",
@@ -312,7 +312,8 @@
       "lab": "laboratorio"
     },
     "creating": "Creazione…",
-    "createTestData": "Crea dato di prova"
+    "createTestData": "Crea dato di prova",
+    "planLabel": "Piano da simulare"
   },
   "previewBanner": {
     "message": "Anteprima — stai visualizzando l'interfaccia come la vedrebbe",
@@ -321,7 +322,8 @@
       "patient": "Paziente",
       "clinica": "Clinica",
       "labPartner": "Laboratorio"
-    }
+    },
+    "planLabel": "Piano"
   },
   "appointmentCalendar": {
     "view_month": "Vedi mese",
@@ -1184,7 +1186,14 @@
     "promoTrialBadge": "{{days}} giorni gratis",
     "promoTrialButton": "Inizia la prova gratuita",
     "promoTrialHint": "Non ti verrà addebitato nulla durante i {{days}} giorni di prova. Dopo, {{price}} €/mese se non annulli. Annulla quando vuoi, senza impegno.",
-    "promoBanner": "Hai un codice promozionale attivo! Prova gratis il piano {{plan}} per {{days}} giorni. Ti chiediamo la carta per verificarla, ma non ti verrà addebitato nulla fino alla fine del periodo di prova — annulla quando vuoi, senza impegno."
+    "promoBanner": "Hai un codice promozionale attivo! Prova gratis il piano {{plan}} per {{days}} giorni. Ti chiediamo la carta solo per verificarla — non ti verrà addebitato nulla fino alla fine della prova.",
+    "promoTrustStripe": "Pagamento 100% sicuro elaborato da Stripe",
+    "promoCancelButton": "Come annullo?",
+    "promoCancelHide": "Nascondi",
+    "promoCancelSteps": "Annullare è facile quanto iscriversi, senza telefonate né clausole nascoste:",
+    "promoCancelStep1": "Vai al tuo account → Configurazione → Abbonamenti",
+    "promoCancelStep2": "Clicca su \"Annulla abbonamento\"",
+    "promoCancelNote": "Se annulli durante i {{days}} giorni di prova, non ti verrà addebitato nulla. Se annulli dopo, la fatturazione si interrompe dal ciclo successivo — senza penali."
   },
   "toxin": {
     "title": "Controllo Tossina",

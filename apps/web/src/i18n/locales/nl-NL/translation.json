@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Kliniekweergave",
-        "description": "Simuleert het paneel dat het klinisch personeel ziet, met het menu beperkt tot hun werkelijke rechten."
+        "description": "Simuleert het paneel dat het kliniekpersoneel ziet, met het menu beperkt tot de rechten van het gekozen abonnement."
       },
       "lab": {
         "title": "Laboratoriumweergave",
@@ -312,7 +312,8 @@
       "lab": "laboratorium"
     },
     "creating": "Aanmaken…",
-    "createTestData": "Testgegevens aanmaken"
+    "createTestData": "Testgegevens aanmaken",
+    "planLabel": "Te simuleren abonnement"
   },
   "previewBanner": {
     "message": "Voorbeeld — u bekijkt de interface zoals deze eruit zou zien voor",
@@ -321,7 +322,8 @@
       "patient": "Patiënt",
       "clinica": "Kliniek",
       "labPartner": "Laboratorium"
-    }
+    },
+    "planLabel": "Abonnement"
   },
   "appointmentCalendar": {
     "view_month": "Maand bekijken",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dagen gratis",
     "promoTrialButton": "Start gratis proefperiode",
     "promoTrialHint": "Er wordt niets in rekening gebracht tijdens de {{days}} proefdagen. Daarna {{price}}/maand als je niet opzegt. Je kunt altijd zonder verplichtingen opzeggen.",
-    "promoBanner": "Je hebt een actieve promotiecode! Probeer het {{plan}}-abonnement {{days}} dagen gratis. We vragen je kaartgegevens ter verificatie, maar er wordt niets in rekening gebracht tot de proefperiode afloopt — je kunt altijd zonder verplichtingen opzeggen."
+    "promoBanner": "Je hebt een actieve promotiecode! Probeer het {{plan}}-abonnement {{days}} dagen gratis. We vragen je kaart alleen ter verificatie — er wordt niets in rekening gebracht tot de proefperiode afloopt.",
+    "promoTrustStripe": "100% veilige betaling via Stripe",
+    "promoCancelButton": "Hoe zeg ik op?",
+    "promoCancelHide": "Verbergen",
+    "promoCancelSteps": "Opzeggen is net zo makkelijk als aanmelden, zonder telefoontjes of kleine lettertjes:",
+    "promoCancelStep1": "Ga naar je account → Instellingen → Abonnementen",
+    "promoCancelStep2": "Klik op \"Abonnement opzeggen\"",
+    "promoCancelNote": "Als je opzegt tijdens de {{days}} proefdagen, wordt er niets in rekening gebracht. Zeg je later op, dan stopt de facturering bij de volgende cyclus — zonder boete."
   },
   "toxin": {
     "title": "Toxinecontrole",

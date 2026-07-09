@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Vizualizare Clinică",
-        "description": "Simulează panoul văzut de personalul clinicii, cu meniul restricționat la permisiunile lui reale."
+        "description": "Simulează panoul pe care îl vede personalul clinicii, cu meniul limitat la permisiunile planului ales."
       },
       "lab": {
         "title": "Vizualizare Laborator",
@@ -312,7 +312,8 @@
       "lab": "laborator"
     },
     "creating": "Se creează…",
-    "createTestData": "Creează date de test"
+    "createTestData": "Creează date de test",
+    "planLabel": "Plan de simulat"
   },
   "previewBanner": {
     "message": "Previzualizare — vizualizați interfața așa cum ar vedea-o",
@@ -321,7 +322,8 @@
       "patient": "Pacient",
       "clinica": "Clinică",
       "labPartner": "Laborator"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Vezi luna",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} zile gratuite",
     "promoTrialButton": "Începe perioada de probă gratuită",
     "promoTrialHint": "Nu vei fi taxat în timpul celor {{days}} zile de probă. Apoi {{price}}/lună dacă nu anulezi. Poți anula oricând, fără obligații.",
-    "promoBanner": "Ai un cod promoțional activ! Încearcă gratuit planul {{plan}} timp de {{days}} zile. Îți cerem cardul pentru verificare, dar nu vei fi taxat până la finalul perioadei de probă — poți anula oricând, fără obligații."
+    "promoBanner": "Ai un cod promoțional activ! Încearcă gratuit planul {{plan}} timp de {{days}} zile. Îți cerem cardul doar pentru verificare — nu vei fi taxat până la finalul perioadei de probă.",
+    "promoTrustStripe": "Plată 100% sigură procesată de Stripe",
+    "promoCancelButton": "Cum anulez?",
+    "promoCancelHide": "Ascunde",
+    "promoCancelSteps": "Anularea e la fel de ușoară ca înscrierea, fără apeluri sau clauze ascunse:",
+    "promoCancelStep1": "Intră în contul tău → Setări → Abonamente",
+    "promoCancelStep2": "Apasă \"Anulează abonamentul\"",
+    "promoCancelNote": "Dacă anulezi în timpul celor {{days}} zile de probă, nu vei fi taxat deloc. Dacă anulezi după, facturarea se oprește din următorul ciclu — fără penalizare."
   },
   "toxin": {
     "title": "Control Toxină",

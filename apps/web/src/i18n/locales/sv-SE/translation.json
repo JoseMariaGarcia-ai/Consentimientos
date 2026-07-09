@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinikvy",
-        "description": "Simulerar panelen som klinikens personal ser, med menyn begränsad till deras faktiska behörigheter."
+        "description": "Simulerar panelen som klinikpersonalen ser, med menyn begränsad till behörigheterna för den valda planen."
       },
       "lab": {
         "title": "Laboratorievy",
@@ -312,7 +312,8 @@
       "lab": "laboratorium"
     },
     "creating": "Skapar…",
-    "createTestData": "Skapa testdata"
+    "createTestData": "Skapa testdata",
+    "planLabel": "Plan att simulera"
   },
   "previewBanner": {
     "message": "Förhandsgranskning — du ser gränssnittet som",
@@ -321,7 +322,8 @@
       "patient": "Patient",
       "clinica": "Klinik",
       "labPartner": "Laboratorium"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Visa månad",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dagar gratis",
     "promoTrialButton": "Starta gratis provperiod",
     "promoTrialHint": "Du debiteras inget under de {{days}} provdagarna. Därefter {{price}}/månad om du inte avslutar. Avsluta när som helst, utan bindningstid.",
-    "promoBanner": "Du har en aktiv kampanjkod! Prova {{plan}}-planen gratis i {{days}} dagar. Vi ber om ditt kort för verifiering, men du debiteras inget förrän provperioden är slut — avsluta när som helst, utan bindningstid."
+    "promoBanner": "Du har en aktiv kampanjkod! Prova {{plan}}-planen gratis i {{days}} dagar. Vi ber om ditt kort bara för verifiering — du debiteras inget förrän provperioden är slut.",
+    "promoTrustStripe": "100 % säker betalning hanterad av Stripe",
+    "promoCancelButton": "Hur avslutar jag?",
+    "promoCancelHide": "Dölj",
+    "promoCancelSteps": "Att avsluta är lika enkelt som att registrera sig, utan samtal eller finstilt:",
+    "promoCancelStep1": "Gå till ditt konto → Inställningar → Prenumerationer",
+    "promoCancelStep2": "Klicka på \"Avsluta prenumeration\"",
+    "promoCancelNote": "Avslutar du under de {{days}} provdagarna debiteras du ingenting alls. Avslutar du efteråt stoppas faktureringen vid nästa cykel — utan avgift."
   },
   "toxin": {
     "title": "Toxinkontroll",

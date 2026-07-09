@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinika nézet",
-        "description": "Szimulálja a klinikai személyzet által látott panelt, a menüt a tényleges jogosultságaikra korlátozva."
+        "description": "Szimulálja a klinikai személyzet által látott panelt, a menüt a kiválasztott csomag jogosultságaira korlátozva."
       },
       "lab": {
         "title": "Laboratórium nézet",
@@ -312,7 +312,8 @@
       "lab": "laboratórium"
     },
     "creating": "Létrehozás…",
-    "createTestData": "Tesztadat létrehozása"
+    "createTestData": "Tesztadat létrehozása",
+    "planLabel": "Szimulálandó csomag"
   },
   "previewBanner": {
     "message": "Előnézet — a felületet úgy látja, ahogy azt látná",
@@ -321,7 +322,8 @@
       "patient": "Beteg",
       "clinica": "Klinika",
       "labPartner": "Laboratórium"
-    }
+    },
+    "planLabel": "Csomag"
   },
   "appointmentCalendar": {
     "view_month": "Hónap megtekintése",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} nap ingyen",
     "promoTrialButton": "Ingyenes próbaidőszak indítása",
     "promoTrialHint": "A {{days}} napos próbaidőszak alatt semmit nem terhelünk Önre. Utána {{price}}/hó, ha nem mondja le. Bármikor lemondhatja, kötelezettség nélkül.",
-    "promoBanner": "Aktív promóciós kódja van! Próbálja ki ingyenesen a(z) {{plan}} csomagot {{days}} napig. A kártyáját ellenőrzés céljából kérjük, de semmit nem terhelünk rá, amíg a próbaidőszak véget nem ér — bármikor lemondhatja, kötelezettség nélkül."
+    "promoBanner": "Aktív promóciós kódja van! Próbálja ki ingyenesen a(z) {{plan}} csomagot {{days}} napig. A kártyáját csak ellenőrzés céljából kérjük — semmit nem terhelünk rá, amíg a próbaidőszak véget nem ér.",
+    "promoTrustStripe": "100%-ban biztonságos fizetés, amit a Stripe dolgoz fel",
+    "promoCancelButton": "Hogyan mondom le?",
+    "promoCancelHide": "Elrejtés",
+    "promoCancelSteps": "A lemondás olyan egyszerű, mint a regisztráció, telefonhívás és apró betűs rész nélkül:",
+    "promoCancelStep1": "Lépjen be a fiókjába → Beállítások → Előfizetések",
+    "promoCancelStep2": "Kattintson az \"Előfizetés lemondása\" gombra",
+    "promoCancelNote": "Ha a {{days}} napos próbaidőszak alatt mond le, egyáltalán nem terheljük meg. Ha utána mond le, a számlázás a következő ciklustól leáll — büntetés nélkül."
   },
   "toxin": {
     "title": "Toxinkontroll",

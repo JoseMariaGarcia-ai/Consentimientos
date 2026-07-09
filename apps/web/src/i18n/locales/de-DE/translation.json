@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinikansicht",
-        "description": "Simuliert das Dashboard, das Klinikmitarbeiter sehen, mit einem auf ihre tatsächlichen Berechtigungen beschränkten Menü."
+        "description": "Simuliert die Ansicht, die das Klinikpersonal sieht, mit dem Menü beschränkt auf die Berechtigungen des gewählten Plans."
       },
       "lab": {
         "title": "Laboransicht",
@@ -312,7 +312,8 @@
       "lab": "Labor"
     },
     "creating": "Wird erstellt…",
-    "createTestData": "Testdaten erstellen"
+    "createTestData": "Testdaten erstellen",
+    "planLabel": "Zu simulierender Plan"
   },
   "previewBanner": {
     "message": "Vorschau — Sie sehen die Oberfläche so, wie sie angezeigt würde für",
@@ -321,7 +322,8 @@
       "patient": "Patient",
       "clinica": "Klinik",
       "labPartner": "Labor"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Monat anzeigen",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} Tage gratis",
     "promoTrialButton": "Kostenlose Testphase starten",
     "promoTrialHint": "Während der {{days}}-tägigen Testphase wird Ihnen nichts berechnet. Danach {{price}} €/Monat, falls Sie nicht kündigen. Jederzeit ohne Verpflichtung kündbar.",
-    "promoBanner": "Sie haben einen aktiven Aktionscode! Testen Sie den Plan {{plan}} {{days}} Tage lang kostenlos. Wir bitten Sie um Ihre Karte zur Verifizierung, aber es wird nichts abgebucht, bis die Testphase endet — jederzeit ohne Verpflichtung kündbar."
+    "promoBanner": "Sie haben einen aktiven Aktionscode! Testen Sie den Plan {{plan}} {{days}} Tage lang kostenlos. Wir fragen nach Ihrer Karte nur zur Verifizierung — es wird nichts abgebucht, bis die Testphase endet.",
+    "promoTrustStripe": "100 % sichere Zahlungsabwicklung über Stripe",
+    "promoCancelButton": "Wie kündige ich?",
+    "promoCancelHide": "Ausblenden",
+    "promoCancelSteps": "Kündigen ist so einfach wie die Anmeldung — kein Anruf, kein Kleingedrucktes:",
+    "promoCancelStep1": "Gehen Sie zu Ihrem Konto → Konfiguration → Abonnements",
+    "promoCancelStep2": "Klicken Sie auf „Abonnement kündigen“",
+    "promoCancelNote": "Wenn Sie während der {{days}}-tägigen Testphase kündigen, wird Ihnen nichts berechnet. Kündigen Sie danach, endet die Abrechnung zum nächsten Zyklus — ohne Vertragsstrafe."
   },
   "toxin": {
     "title": "Toxin-Kontrolle",

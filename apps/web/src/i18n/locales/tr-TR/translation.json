@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinik Görünümü",
-        "description": "Klinik personelinin gördüğü paneli, menüsü gerçek izinleriyle sınırlı olacak şekilde simüle eder."
+        "description": "Klinik personelinin gördüğü paneli, seçilen planın izinleriyle sınırlı menüyle simüle eder."
       },
       "lab": {
         "title": "Laboratuvar Görünümü",
@@ -312,7 +312,8 @@
       "lab": "laboratuvar"
     },
     "creating": "Oluşturuluyor…",
-    "createTestData": "Test verisi oluştur"
+    "createTestData": "Test verisi oluştur",
+    "planLabel": "Simüle edilecek plan"
   },
   "previewBanner": {
     "message": "Önizleme — arayüzü şu şekilde görüntülüyorsunuz:",
@@ -321,7 +322,8 @@
       "patient": "Hasta",
       "clinica": "Klinik",
       "labPartner": "Laboratuvar"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Ayı görüntüle",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} gün ücretsiz",
     "promoTrialButton": "Ücretsiz denemeyi başlat",
     "promoTrialHint": "{{days}} günlük deneme süresi boyunca hiçbir ücret alınmaz. Sonrasında iptal etmezseniz {{price}}/ay. İstediğiniz zaman, taahhütsüz olarak iptal edebilirsiniz.",
-    "promoBanner": "Aktif bir promosyon kodunuz var! {{plan}} planını {{days}} gün boyunca ücretsiz deneyin. Doğrulama için kartınızı istiyoruz, ancak deneme süresi bitene kadar hiçbir ücret alınmaz — istediğiniz zaman, taahhütsüz olarak iptal edebilirsiniz."
+    "promoBanner": "Aktif bir promosyon kodunuz var! {{plan}} planını {{days}} gün boyunca ücretsiz deneyin. Kartınızı yalnızca doğrulama için istiyoruz — deneme süresi bitene kadar hiçbir ücret alınmaz.",
+    "promoTrustStripe": "Stripe tarafından işlenen %100 güvenli ödeme",
+    "promoCancelButton": "Nasıl iptal ederim?",
+    "promoCancelHide": "Gizle",
+    "promoCancelSteps": "İptal etmek, kayıt olmak kadar kolaydır — arama yok, küçük yazı yok:",
+    "promoCancelStep1": "Hesabınıza gidin → Ayarlar → Abonelikler",
+    "promoCancelStep2": "\"Aboneliği iptal et\"e tıklayın",
+    "promoCancelNote": "{{days}} günlük deneme süresi içinde iptal ederseniz hiçbir ücret alınmaz. Sonrasında iptal ederseniz, faturalandırma bir sonraki döngüde durur — cezasız."
   },
   "toxin": {
     "title": "Toksin Kontrolü",

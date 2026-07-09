@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Vista de Clínica",
-        "description": "Simula el panell que veu el personal de la clínica, amb el menú restringit als seus permisos reals."
+        "description": "Simula el panell que veu el personal de la clínica, amb el menú restringit als permisos del pla que triïs."
       },
       "lab": {
         "title": "Vista de Laboratori",
@@ -312,7 +312,8 @@
       "lab": "laboratori"
     },
     "creating": "Creant…",
-    "createTestData": "Crear dada de prova"
+    "createTestData": "Crear dada de prova",
+    "planLabel": "Pla a simular"
   },
   "previewBanner": {
     "message": "Vista prèvia — estàs veient la interfície com la veuria",
@@ -321,7 +322,8 @@
       "patient": "Pacient",
       "clinica": "Clínica",
       "labPartner": "Laboratori"
-    }
+    },
+    "planLabel": "Pla"
   },
   "appointmentCalendar": {
     "view_month": "Veure mes",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dies gratis",
     "promoTrialButton": "Comença la prova gratuïta",
     "promoTrialHint": "No se't cobrarà res durant els {{days}} dies de prova. Després, {{price}} €/mes si no cancel·les. Pots cancel·lar quan vulguis, sense compromís.",
-    "promoBanner": "Tens un codi promocional actiu! Prova gratis el pla {{plan}} durant {{days}} dies. Et demanem la targeta per verificar-la, però no se't cobrarà res fins que acabi el període de prova — cancel·la quan vulguis, sense compromís."
+    "promoBanner": "Tens un codi promocional actiu! Prova gratis el pla {{plan}} durant {{days}} dies. Et demanem la targeta només per verificar-la — no se't cobrarà res fins que acabi la prova.",
+    "promoTrustStripe": "Pagament 100% segur processat per Stripe",
+    "promoCancelButton": "Com cancel·lo?",
+    "promoCancelHide": "Amaga",
+    "promoCancelSteps": "Cancel·lar és tan fàcil com donar-te d'alta, sense trucades ni lletra petita:",
+    "promoCancelStep1": "Entra al teu compte → Configuració → Subscripcions",
+    "promoCancelStep2": "Prem \"Cancel·la la subscripció\"",
+    "promoCancelNote": "Si cancel·les durant els {{days}} dies de prova, no se't cobra absolutament res. Si cancel·les després, deixes de pagar a partir del cicle següent — sense penalització."
   },
   "toxin": {
     "title": "Control de Toxina",

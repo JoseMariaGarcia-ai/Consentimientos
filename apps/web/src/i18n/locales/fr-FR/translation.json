@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Vue Clinique",
-        "description": "Simule le panneau que voit le personnel de la clinique, avec le menu limité à ses permissions réelles."
+        "description": "Simule le panneau que voit le personnel de la clinique, avec le menu limité aux permissions du forfait que vous choisissez."
       },
       "lab": {
         "title": "Vue Laboratoire",
@@ -312,7 +312,8 @@
       "lab": "laboratoire"
     },
     "creating": "Création…",
-    "createTestData": "Créer une donnée de test"
+    "createTestData": "Créer une donnée de test",
+    "planLabel": "Forfait à simuler"
   },
   "previewBanner": {
     "message": "Aperçu — vous visualisez l'interface telle que la verrait",
@@ -321,7 +322,8 @@
       "patient": "Patient",
       "clinica": "Clinique",
       "labPartner": "Laboratoire"
-    }
+    },
+    "planLabel": "Forfait"
   },
   "appointmentCalendar": {
     "view_month": "Voir le mois",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} jours gratuits",
     "promoTrialButton": "Commencer l'essai gratuit",
     "promoTrialHint": "Vous ne serez pas débité pendant les {{days}} jours d'essai. Ensuite, {{price}} €/mois si vous n'annulez pas. Annulez à tout moment, sans engagement.",
-    "promoBanner": "Vous avez un code promo actif ! Essayez gratuitement le forfait {{plan}} pendant {{days}} jours. Nous vous demandons votre carte pour la vérifier, mais vous ne serez débité qu'à la fin de la période d'essai — annulez à tout moment, sans engagement."
+    "promoBanner": "Vous avez un code promo actif ! Essayez gratuitement le forfait {{plan}} pendant {{days}} jours. Nous demandons votre carte uniquement pour la vérifier — vous ne serez débité qu'à la fin de la période d'essai.",
+    "promoTrustStripe": "Paiement 100 % sécurisé traité par Stripe",
+    "promoCancelButton": "Comment annuler ?",
+    "promoCancelHide": "Masquer",
+    "promoCancelSteps": "Annuler est aussi simple que de s'inscrire, sans appel ni petites lignes :",
+    "promoCancelStep1": "Allez dans votre compte → Configuration → Abonnements",
+    "promoCancelStep2": "Cliquez sur « Annuler l'abonnement »",
+    "promoCancelNote": "Si vous annulez pendant les {{days}} jours d'essai, vous ne serez absolument pas débité. Si vous annulez après, la facturation s'arrête au cycle suivant — sans pénalité."
   },
   "toxin": {
     "title": "Contrôle de Toxine",

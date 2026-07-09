@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "诊所视图",
-        "description": "模拟诊所员工所看到的面板，菜单会限制为其实际权限范围。"
+        "description": "模拟诊所员工看到的面板，菜单仅限于所选套餐的权限。"
       },
       "lab": {
         "title": "实验室视图",
@@ -312,7 +312,8 @@
       "lab": "实验室"
     },
     "creating": "正在创建…",
-    "createTestData": "创建测试数据"
+    "createTestData": "创建测试数据",
+    "planLabel": "要模拟的套餐"
   },
   "previewBanner": {
     "message": "预览模式 — 您正在以下列身份查看界面：",
@@ -321,7 +322,8 @@
       "patient": "患者",
       "clinica": "诊所",
       "labPartner": "实验室"
-    }
+    },
+    "planLabel": "套餐"
   },
   "appointmentCalendar": {
     "view_month": "查看月份",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} 天免费",
     "promoTrialButton": "开始免费试用",
     "promoTrialHint": "在{{days}}天试用期内不会产生任何费用。之后，如果您不取消，将按{{price}}/月收费。您可以随时取消，无需承担任何义务。",
-    "promoBanner": "您有一个有效的促销代码！免费试用{{plan}}套餐{{days}}天。我们会要求您提供银行卡用于验证，但在试用期结束前不会产生任何费用——您可以随时取消，无需承担任何义务。"
+    "promoBanner": "您有一个有效的促销代码！免费试用{{plan}}套餐{{days}}天。我们仅要求提供银行卡用于验证——在试用期结束前不会产生任何费用。",
+    "promoTrustStripe": "由 Stripe 处理的100%安全支付",
+    "promoCancelButton": "如何取消？",
+    "promoCancelHide": "隐藏",
+    "promoCancelSteps": "取消和注册一样简单，无需电话，无隐藏条款：",
+    "promoCancelStep1": "进入您的账户 → 设置 → 订阅",
+    "promoCancelStep2": "点击“取消订阅”",
+    "promoCancelNote": "如果您在{{days}}天试用期内取消，将不会产生任何费用。如果之后取消，将从下一个周期起停止扣费——无任何罚金。"
   },
   "toxin": {
     "title": "毒素管理",

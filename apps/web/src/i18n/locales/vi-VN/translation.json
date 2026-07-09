@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Xem như Phòng khám",
-        "description": "Mô phỏng bảng điều khiển mà nhân viên phòng khám nhìn thấy, với menu giới hạn theo quyền thực tế của họ."
+        "description": "Mô phỏng bảng điều khiển mà nhân viên phòng khám nhìn thấy, với menu bị giới hạn theo quyền của gói đã chọn."
       },
       "lab": {
         "title": "Xem như Phòng thí nghiệm",
@@ -312,7 +312,8 @@
       "lab": "phòng thí nghiệm"
     },
     "creating": "Đang tạo…",
-    "createTestData": "Tạo dữ liệu thử nghiệm"
+    "createTestData": "Tạo dữ liệu thử nghiệm",
+    "planLabel": "Gói cần mô phỏng"
   },
   "previewBanner": {
     "message": "Xem trước — bạn đang xem giao diện như cách nó sẽ được nhìn thấy bởi",
@@ -321,7 +322,8 @@
       "patient": "Bệnh nhân",
       "clinica": "Phòng khám",
       "labPartner": "Phòng thí nghiệm"
-    }
+    },
+    "planLabel": "Gói"
   },
   "appointmentCalendar": {
     "view_month": "Xem tháng",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} ngày miễn phí",
     "promoTrialButton": "Bắt đầu dùng thử miễn phí",
     "promoTrialHint": "Bạn sẽ không bị tính phí trong {{days}} ngày dùng thử. Sau đó, {{price}}/tháng nếu bạn không hủy. Hủy bất cứ lúc nào, không ràng buộc.",
-    "promoBanner": "Bạn có một mã khuyến mãi đang hoạt động! Dùng thử miễn phí gói {{plan}} trong {{days}} ngày. Chúng tôi yêu cầu thẻ của bạn để xác minh, nhưng bạn sẽ không bị tính phí cho đến khi thời gian dùng thử kết thúc — hủy bất cứ lúc nào, không ràng buộc."
+    "promoBanner": "Bạn có một mã khuyến mãi đang hoạt động! Dùng thử miễn phí gói {{plan}} trong {{days}} ngày. Chúng tôi chỉ yêu cầu thẻ của bạn để xác minh — bạn sẽ không bị tính phí cho đến khi thời gian dùng thử kết thúc.",
+    "promoTrustStripe": "Thanh toán an toàn 100% được xử lý bởi Stripe",
+    "promoCancelButton": "Làm sao để hủy?",
+    "promoCancelHide": "Ẩn",
+    "promoCancelSteps": "Hủy cũng dễ như đăng ký, không cần gọi điện hay điều khoản ẩn:",
+    "promoCancelStep1": "Vào tài khoản của bạn → Cài đặt → Gói đăng ký",
+    "promoCancelStep2": "Nhấp vào \"Hủy gói đăng ký\"",
+    "promoCancelNote": "Nếu bạn hủy trong {{days}} ngày dùng thử, bạn sẽ không bị tính phí gì cả. Nếu hủy sau đó, việc tính phí dừng lại từ chu kỳ tiếp theo — không phạt."
   },
   "toxin": {
     "title": "Kiểm Soát Độc Tố",

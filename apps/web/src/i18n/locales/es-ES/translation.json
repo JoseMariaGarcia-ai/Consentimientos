@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Vista de Clínica",
-        "description": "Simula el panel que ve el personal de la clínica, con el menú restringido a sus permisos reales."
+        "description": "Simula el panel que ve el personal de la clínica, con el menú restringido a los permisos del plan que elijas."
       },
       "lab": {
         "title": "Vista de Laboratorio",
@@ -312,7 +312,8 @@
       "lab": "laboratorio"
     },
     "creating": "Creando…",
-    "createTestData": "Crear dato de prueba"
+    "createTestData": "Crear dato de prueba",
+    "planLabel": "Plan a simular"
   },
   "previewBanner": {
     "message": "Vista previa — estás viendo la interfaz como la vería",
@@ -321,7 +322,8 @@
       "patient": "Paciente",
       "clinica": "Clínica",
       "labPartner": "Laboratorio"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Ver mes",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} días gratis",
     "promoTrialButton": "Empezar prueba gratuita",
     "promoTrialHint": "No se te cobrará nada durante los {{days}} días de prueba. Después, {{price}} €/mes si no cancelas. Puedes cancelar cuando quieras, sin compromiso.",
-    "promoBanner": "¡Tienes un código promocional activo! Prueba gratis el plan {{plan}} durante {{days}} días. Te pedimos la tarjeta para verificarla, pero no se te cobrará nada hasta que termine el periodo de prueba, y puedes cancelar cuando quieras sin compromiso."
+    "promoBanner": "¡Tienes un código promocional activo! Prueba gratis el plan {{plan}} durante {{days}} días. Te pedimos la tarjeta solo para verificarla — no se te cobrará nada hasta que termine la prueba.",
+    "promoTrustStripe": "Pago 100% seguro procesado por Stripe",
+    "promoCancelButton": "¿Cómo cancelo?",
+    "promoCancelHide": "Ocultar",
+    "promoCancelSteps": "Cancelar es tan fácil como darte de alta, sin llamadas ni letra pequeña:",
+    "promoCancelStep1": "Entra en tu cuenta → Configuración → Suscripciones",
+    "promoCancelStep2": "Pulsa \"Cancelar suscripción\"",
+    "promoCancelNote": "Si cancelas durante los {{days}} días de prueba, no se te cobra absolutamente nada. Si cancelas después, dejas de pagar a partir del siguiente ciclo — sin penalización."
   },
   "toxin": {
     "title": "Control de Toxina",

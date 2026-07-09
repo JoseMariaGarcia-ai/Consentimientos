@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "クリニックビュー",
-        "description": "クリニックのスタッフが見るパネルをシミュレートします。実際の権限に応じたメニューに制限されます。"
+        "description": "選択したプランの権限に制限されたメニューで、クリニックスタッフに表示されるパネルをシミュレートします。"
       },
       "lab": {
         "title": "ラボビュー",
@@ -312,7 +312,8 @@
       "lab": "ラボ"
     },
     "creating": "作成中…",
-    "createTestData": "テストデータを作成"
+    "createTestData": "テストデータを作成",
+    "planLabel": "シミュレートするプラン"
   },
   "previewBanner": {
     "message": "プレビュー — 次の視点でインターフェースを表示しています：",
@@ -321,7 +322,8 @@
       "patient": "患者",
       "clinica": "クリニック",
       "labPartner": "ラボ"
-    }
+    },
+    "planLabel": "プラン"
   },
   "appointmentCalendar": {
     "view_month": "月表示",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}}日間無料",
     "promoTrialButton": "無料お試しを開始",
     "promoTrialHint": "{{days}}日間のお試し期間中は料金が発生しません。その後、解約しない場合は月額{{price}}。いつでも解約でき、違約金もありません。",
-    "promoBanner": "有効なプロモーションコードがあります！{{plan}}プランを{{days}}日間無料でお試しください。確認のためカード情報をお伺いしますが、お試し期間が終了するまで料金は一切発生しません。いつでも解約でき、違約金もありません。"
+    "promoBanner": "有効なプロモーションコードがあります！{{plan}}プランを{{days}}日間無料でお試しください。カード情報は確認のためだけにお伺いします — お試し期間が終了するまで料金は一切発生しません。",
+    "promoTrustStripe": "Stripeが処理する100%安全な決済",
+    "promoCancelButton": "解約方法は？",
+    "promoCancelHide": "隠す",
+    "promoCancelSteps": "解約は登録と同じくらい簡単です。電話も細かい規約もありません。",
+    "promoCancelStep1": "アカウントにアクセス → 設定 → サブスクリプション",
+    "promoCancelStep2": "「サブスクリプションを解約」をクリック",
+    "promoCancelNote": "{{days}}日間のお試し期間中に解約すれば、料金は一切発生しません。それ以降に解約した場合、次の請求サイクルから課金が停止します — 違約金なし。"
   },
   "toxin": {
     "title": "トキシン管理",

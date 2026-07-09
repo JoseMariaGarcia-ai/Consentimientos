@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinikan näkymä",
-        "description": "Simuloi paneelia, jonka klinikan henkilökunta näkee, valikko rajattuna heidän todellisiin oikeuksiinsa."
+        "description": "Simuloi näkymää, jonka klinikan henkilökunta näkee, valikko rajattuna valitun suunnitelman oikeuksiin."
       },
       "lab": {
         "title": "Laboratorion näkymä",
@@ -312,7 +312,8 @@
       "lab": "laboratorio"
     },
     "creating": "Luodaan…",
-    "createTestData": "Luo testidata"
+    "createTestData": "Luo testidata",
+    "planLabel": "Simuloitava suunnitelma"
   },
   "previewBanner": {
     "message": "Esikatselu — näet käyttöliittymän sellaisena kuin sen näkisi",
@@ -321,7 +322,8 @@
       "patient": "Potilas",
       "clinica": "Klinikka",
       "labPartner": "Laboratorio"
-    }
+    },
+    "planLabel": "Suunnitelma"
   },
   "appointmentCalendar": {
     "view_month": "Näytä kuukausi",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} päivää ilmaiseksi",
     "promoTrialButton": "Aloita ilmainen kokeilu",
     "promoTrialHint": "Sinulta ei veloiteta mitään {{days}} kokeilupäivän aikana. Sen jälkeen {{price}}/kk, jos et peruuta. Peruuta milloin tahansa, ilman sitoumuksia.",
-    "promoBanner": "Sinulla on aktiivinen kampanjakoodi! Kokeile {{plan}}-suunnitelmaa ilmaiseksi {{days}} päivää. Pyydämme korttisi vahvistusta varten, mutta sinulta ei veloiteta mitään ennen kuin kokeilujakso päättyy — peruuta milloin tahansa, ilman sitoumuksia."
+    "promoBanner": "Sinulla on aktiivinen kampanjakoodi! Kokeile {{plan}}-suunnitelmaa ilmaiseksi {{days}} päivää. Pyydämme korttiasi vain vahvistusta varten — sinulta ei veloiteta mitään ennen kuin kokeilujakso päättyy.",
+    "promoTrustStripe": "100 % turvallinen maksu, jonka käsittelee Stripe",
+    "promoCancelButton": "Miten peruutan?",
+    "promoCancelHide": "Piilota",
+    "promoCancelSteps": "Peruuttaminen on yhtä helppoa kuin rekisteröityminen, ilman puheluita tai pienellä painettua tekstiä:",
+    "promoCancelStep1": "Siirry tilillesi → Asetukset → Tilaukset",
+    "promoCancelStep2": "Napsauta \"Peruuta tilaus\"",
+    "promoCancelNote": "Jos peruutat {{days}} kokeilupäivän aikana, sinulta ei veloiteta mitään. Jos peruutat myöhemmin, laskutus loppuu seuraavasta jaksosta — ilman sakkoa."
   },
   "toxin": {
     "title": "Toksiinin seuranta",

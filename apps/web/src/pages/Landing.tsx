@@ -320,6 +320,7 @@ function Pricing() {
   const signupResult = searchParams.get('signup')
   const promoParam = searchParams.get('promo')
   const [promo, setPromo] = useState<{ code: string; planId: string; trialDays: number } | null>(null)
+  const [cancelInfoOpen, setCancelInfoOpen] = useState(false)
 
   useEffect(() => {
     if (!promoParam) { setPromo(null); return }
@@ -358,14 +359,42 @@ function Pricing() {
         </div>
       )}
       {promo && (
-        <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
-          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-          <p className="text-sm text-emerald-800 flex-1">
-            {t('recharge.promoBanner', {
-              days: promo.trialDays,
-              plan: t(`recharge.plans.${PLAN_KEY[promo.planId] ?? promo.planId}.name`),
-            })}
-          </p>
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-emerald-800 flex-1">
+              {t('recharge.promoBanner', {
+                days: promo.trialDays,
+                plan: t(`recharge.plans.${PLAN_KEY[promo.planId] ?? promo.planId}.name`),
+              })}
+            </p>
+          </div>
+          <div className="flex items-center justify-between flex-wrap gap-2 mt-3 pt-3 border-t border-emerald-200">
+            <div className="flex items-center gap-1.5 text-xs text-emerald-700">
+              <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+              {t('recharge.promoTrustStripe')}
+            </div>
+            <button
+              type="button"
+              onClick={() => setCancelInfoOpen(v => !v)}
+              className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-white border border-emerald-200 rounded-full px-3 py-1.5 hover:bg-emerald-100 transition-colors"
+            >
+              {cancelInfoOpen ? t('recharge.promoCancelHide') : t('recharge.promoCancelButton')}
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${cancelInfoOpen ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+          {cancelInfoOpen && (
+            <div className="mt-3 bg-white border border-emerald-200 rounded-xl px-4 py-3 text-xs text-slate-600 leading-relaxed">
+              <p>{t('recharge.promoCancelSteps')}</p>
+              <ol className="list-decimal list-inside mt-1.5 space-y-1">
+                <li>{t('recharge.promoCancelStep1')}</li>
+                <li>{t('recharge.promoCancelStep2')}</li>
+              </ol>
+              <p className="mt-2.5 pt-2.5 border-t border-dashed border-slate-200 text-slate-500">
+                {t('recharge.promoCancelNote', { days: promo.trialDays })}
+              </p>
+            </div>
+          )}
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">

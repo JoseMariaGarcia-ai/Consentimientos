@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "클리닉 보기",
-        "description": "클리닉 직원이 보는 패널을 시뮬레이션하며, 실제 권한에 맞춰 메뉴가 제한됩니다."
+        "description": "선택한 플랜의 권한으로 제한된 메뉴를 사용하여 클리닉 직원이 보는 패널을 시뮬레이션합니다."
       },
       "lab": {
         "title": "실험실 보기",
@@ -312,7 +312,8 @@
       "lab": "실험실"
     },
     "creating": "생성 중…",
-    "createTestData": "테스트 데이터 생성"
+    "createTestData": "테스트 데이터 생성",
+    "planLabel": "시뮬레이션할 플랜"
   },
   "previewBanner": {
     "message": "미리보기 — 다음 사용자로서 인터페이스를 보고 있습니다:",
@@ -321,7 +322,8 @@
       "patient": "환자",
       "clinica": "클리닉",
       "labPartner": "실험실"
-    }
+    },
+    "planLabel": "플랜"
   },
   "appointmentCalendar": {
     "view_month": "월별 보기",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}}일 무료",
     "promoTrialButton": "무료 체험 시작",
     "promoTrialHint": "{{days}}일의 체험 기간 동안 요금이 청구되지 않습니다. 이후 취소하지 않으면 월 {{price}}가 청구됩니다. 언제든지 위약금 없이 취소할 수 있습니다.",
-    "promoBanner": "활성 프로모션 코드가 있습니다! {{plan}} 플랜을 {{days}}일 동안 무료로 체험해 보세요. 확인을 위해 카드 정보를 요청드리지만, 체험 기간이 끝날 때까지 요금이 청구되지 않습니다 — 언제든지 위약금 없이 취소할 수 있습니다."
+    "promoBanner": "활성 프로모션 코드가 있습니다! {{plan}} 플랜을 {{days}}일 동안 무료로 체험해 보세요. 카드 정보는 확인 목적으로만 요청드립니다 — 체험 기간이 끝날 때까지 요금이 청구되지 않습니다.",
+    "promoTrustStripe": "Stripe가 처리하는 100% 안전한 결제",
+    "promoCancelButton": "어떻게 취소하나요?",
+    "promoCancelHide": "숨기기",
+    "promoCancelSteps": "취소는 가입만큼 쉽습니다 — 전화도, 약관도 필요 없습니다:",
+    "promoCancelStep1": "계정으로 이동 → 설정 → 구독",
+    "promoCancelStep2": "\"구독 취소\" 클릭",
+    "promoCancelNote": "{{days}}일의 체험 기간 중에 취소하면 전혀 요금이 청구되지 않습니다. 이후에 취소하면 다음 결제 주기부터 청구가 중단됩니다 — 위약금 없음."
   },
   "toxin": {
     "title": "톡신 관리",

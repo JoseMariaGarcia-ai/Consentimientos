@@ -5,10 +5,15 @@ import { Eye, Users, Building2, FlaskConical, Check, Sparkles, ExternalLink } fr
 import { api } from '@/lib/api'
 import { usePreview } from '@/context/PreviewContext'
 import { ALL_MODULES, DEFAULT_CLINICA_MODULES } from '@/lib/modules'
+import { PLAN_KEY } from '@/pages/Recharge'
 
 const DEMO_PATIENT_NAME = 'Paciente Demo (Prueba)'
 const DEMO_BRANCH_NAME  = 'Sede Demo (Prueba)'
 const DEMO_LAB_NAME     = 'Laboratorio Demo (Prueba)'
+
+// Mismo conjunto que Configuración > Planes y el selector de plan al invitar
+// una clínica — "redes" es un servicio aparte, no un plan de clínica.
+const CLINICA_PLAN_IDS = ['base', 'pro', 'ia', 'ia-plus']
 
 interface DemoState {
   patientId: string | null
@@ -24,20 +29,24 @@ export function DemoPreviewPanel() {
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState<string | null>(null)
   const [error, setError] = useState('')
+  const [planMatrix, setPlanMatrix] = useState<Record<string, Record<string, boolean>>>({})
+  const [clinicaPlan, setClinicaPlan] = useState('pro')
 
   const load = useCallback(async () => {
     setLoading(true)
     setError('')
     try {
-      const [patients, clinic, labs] = await Promise.all([
+      const [patients, clinic, labs, permissions] = await Promise.all([
         api.get('/patients').catch(() => []),
         api.get('/clinic').catch(() => ({})),
         api.get('/lab-partners').catch(() => []),
+        api.get('/plan-permissions').catch(() => ({})),
       ])
       const patient = Array.isArray(patients) ? patients.find((p: any) => (p.full_name ?? p.fullName) === DEMO_PATIENT_NAME) : null
       const branch = Array.isArray(clinic?.branches) ? clinic.branches.find((b: any) => b.name === DEMO_BRANCH_NAME) : null
       const lab = Array.isArray(labs) ? labs.find((l: any) => l.name === DEMO_LAB_NAME) : null
       setDemo({ patientId: patient?.id ?? null, branchId: branch?.id ?? null, labId: lab?.id ?? null })
+      setPlanMatrix(permissions ?? {})
     } catch (e: any) {
       setError(e.message ?? t('demoPreviewPanel.errors.checkFailed'))
     } finally {
@@ -125,18 +134,16 @@ export function DemoPreviewPanel() {
     navigate('/')
   }
 
-  const viewAsClinica = async () => {
-    try {
-      const users = await api.get('/users')
-      const clinicaUser = Array.isArray(users) ? users.find((u: any) => u.role === 'clinica') : null
-      const perms = Object.fromEntries((clinicaUser?.user_permissions ?? []).map((p: any) => [p.module, p.can_access]))
-      const modules = ALL_MODULES
-        .filter(m => (m.key in perms ? perms[m.key] !== false : m.defaultOn))
-        .map(m => m.key)
-      enterPreview({ role: 'clinica', clinicaModules: modules.length ? modules : DEFAULT_CLINICA_MODULES })
-    } catch {
-      enterPreview({ role: 'clinica', clinicaModules: DEFAULT_CLINICA_MODULES })
-    }
+  // El menú que ve la clínica en la vista previa se calcula a partir del
+  // plan elegido en el selector (mismo origen de datos que Configuración >
+  // Planes), no de los permisos reales de un usuario concreto — así el
+  // superadmin puede comprobar exactamente qué vería una clínica en
+  // cualquiera de los planes, no solo el que tenga ya alguna clínica dada
+  // de alta.
+  const viewAsClinica = () => {
+    const perms = planMatrix[clinicaPlan] ?? {}
+    const modules = ALL_MODULES.filter(m => perms[m.key]).map(m => m.key)
+    enterPreview({ role: 'clinica', clinicaModules: modules.length ? modules : DEFAULT_CLINICA_MODULES, clinicaPlan })
     navigate('/')
   }
 
@@ -223,6 +230,24 @@ export function DemoPreviewPanel() {
                 <p className="text-sm font-semibold text-slate-800">{card.title}</p>
               </div>
               <p className="text-xs text-slate-500 flex-1">{card.description}</p>
+              {card.key === 'branch' && !loading && (
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide">
+                    {t('demoPreviewPanel.planLabel')}
+                  </label>
+                  <select
+                    value={clinicaPlan}
+                    onChange={e => setClinicaPlan(e.target.value)}
+                    className="px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  >
+                    {CLINICA_PLAN_IDS.map(planId => (
+                      <option key={planId} value={planId}>
+                        {t(`recharge.plans.${PLAN_KEY[planId]}.name`)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
               {loading ? (
                 <div className="h-8 rounded-lg bg-slate-100 animate-pulse" />
               ) : card.exists ? (

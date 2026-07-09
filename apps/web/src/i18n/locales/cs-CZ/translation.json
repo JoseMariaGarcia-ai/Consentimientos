@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Náhled kliniky",
-        "description": "Simuluje panel, který vidí personál kliniky, s nabídkou omezenou na jejich skutečná oprávnění."
+        "description": "Simuluje panel, který vidí personál kliniky, s nabídkou omezenou na oprávnění zvoleného plánu."
       },
       "lab": {
         "title": "Náhled laboratoře",
@@ -312,7 +312,8 @@
       "lab": "laboratoř"
     },
     "creating": "Vytváření…",
-    "createTestData": "Vytvořit testovací data"
+    "createTestData": "Vytvořit testovací data",
+    "planLabel": "Plán k simulaci"
   },
   "previewBanner": {
     "message": "Náhled — vidíte rozhraní tak, jak by ho viděl(a)",
@@ -321,7 +322,8 @@
       "patient": "Pacient",
       "clinica": "Klinika",
       "labPartner": "Laboratoř"
-    }
+    },
+    "planLabel": "Plán"
   },
   "appointmentCalendar": {
     "view_month": "Zobrazit měsíc",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dní zdarma",
     "promoTrialButton": "Začít bezplatnou zkušební dobu",
     "promoTrialHint": "Během {{days}} zkušebních dní vám nebude nic účtováno. Poté {{price}}/měsíc, pokud nezrušíte. Kdykoli můžete zrušit, bez závazků.",
-    "promoBanner": "Máte aktivní promo kód! Vyzkoušejte plán {{plan}} zdarma po dobu {{days}} dní. Žádáme o kartu kvůli ověření, ale nic vám nebude účtováno, dokud zkušební doba neskončí — kdykoli můžete zrušit, bez závazků."
+    "promoBanner": "Máte aktivní promo kód! Vyzkoušejte plán {{plan}} zdarma po dobu {{days}} dní. Kartu žádáme jen kvůli ověření — nic vám nebude účtováno, dokud zkušební doba neskončí.",
+    "promoTrustStripe": "100% bezpečná platba zpracovaná společností Stripe",
+    "promoCancelButton": "Jak zruším?",
+    "promoCancelHide": "Skrýt",
+    "promoCancelSteps": "Zrušení je stejně snadné jako registrace, bez telefonátů a drobného písma:",
+    "promoCancelStep1": "Přejděte do svého účtu → Nastavení → Předplatná",
+    "promoCancelStep2": "Klikněte na \"Zrušit předplatné\"",
+    "promoCancelNote": "Pokud zrušíte během {{days}} zkušebních dní, nebude vám účtováno vůbec nic. Pokud zrušíte později, fakturace se zastaví od dalšího cyklu — bez penalizace."
   },
   "toxin": {
     "title": "Kontrola Toxinu",

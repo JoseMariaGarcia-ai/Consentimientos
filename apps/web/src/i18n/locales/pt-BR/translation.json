@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Visão de Clínica",
-        "description": "Simula o painel que a equipe da clínica vê, com o menu restrito às suas permissões reais."
+        "description": "Simula o painel que a equipe da clínica vê, com o menu restrito às permissões do plano escolhido."
       },
       "lab": {
         "title": "Visão de Laboratório",
@@ -312,7 +312,8 @@
       "lab": "laboratório"
     },
     "creating": "Criando…",
-    "createTestData": "Criar dado de teste"
+    "createTestData": "Criar dado de teste",
+    "planLabel": "Plano a simular"
   },
   "previewBanner": {
     "message": "Pré-visualização — você está vendo a interface como a veria",
@@ -321,7 +322,8 @@
       "patient": "Paciente",
       "clinica": "Clínica",
       "labPartner": "Laboratório"
-    }
+    },
+    "planLabel": "Plano"
   },
   "appointmentCalendar": {
     "view_month": "Ver mês",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dias grátis",
     "promoTrialButton": "Iniciar teste gratuito",
     "promoTrialHint": "Você não será cobrado durante os {{days}} dias de teste. Depois, {{price}}/mês caso não cancele. Cancele quando quiser, sem compromisso.",
-    "promoBanner": "Você tem um código promocional ativo! Experimente grátis o plano {{plan}} por {{days}} dias. Pedimos o cartão para verificá-lo, mas você não será cobrado até o fim do período de teste — cancele quando quiser, sem compromisso."
+    "promoBanner": "Você tem um código promocional ativo! Experimente grátis o plano {{plan}} por {{days}} dias. Pedimos o cartão só para verificá-lo — você não será cobrado até o fim do período de teste.",
+    "promoTrustStripe": "Pagamento 100% seguro processado pela Stripe",
+    "promoCancelButton": "Como eu cancelo?",
+    "promoCancelHide": "Ocultar",
+    "promoCancelSteps": "Cancelar é tão fácil quanto se inscrever, sem ligações nem letras miúdas:",
+    "promoCancelStep1": "Acesse sua conta → Configurações → Assinaturas",
+    "promoCancelStep2": "Clique em \"Cancelar assinatura\"",
+    "promoCancelNote": "Se você cancelar durante os {{days}} dias de teste, não será cobrado nada. Se cancelar depois, a cobrança para no próximo ciclo — sem multa."
   },
   "toxin": {
     "title": "Controle de Toxina",

@@ -1,18 +1,23 @@
 import { useTranslation } from 'react-i18next'
 import { Eye, X } from 'lucide-react'
+import { PLAN_KEY } from '@/pages/Recharge'
 
-export function PreviewBanner({ role, onExit }: { role: string; onExit: () => void }) {
+export function PreviewBanner({ role, planId, onExit }: { role: string; planId?: string; onExit: () => void }) {
   const { t } = useTranslation()
   const roleLabels: Record<string, string> = {
     patient: t('previewBanner.roles.patient'),
     clinica: t('previewBanner.roles.clinica'),
     lab_partner: t('previewBanner.roles.labPartner'),
   }
+  const planKey = planId ? PLAN_KEY[planId] : undefined
   return (
     <div className="sticky top-0 z-[200] bg-amber-400 text-amber-950 px-4 py-2 flex items-center justify-center gap-3 text-sm font-medium shadow-md">
       <Eye className="w-4 h-4 flex-shrink-0" />
       <span>
         {t('previewBanner.message')} <strong>{roleLabels[role] ?? role}</strong>
+        {planKey && (
+          <> · {t('previewBanner.planLabel')} <strong>{t(`recharge.plans.${planKey}.name`)}</strong></>
+        )}
       </span>
       <button
         onClick={onExit}

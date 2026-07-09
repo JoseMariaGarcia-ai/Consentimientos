@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Widok Kliniki",
-        "description": "Symuluje panel, który widzi personel kliniki, z menu ograniczonym do jego rzeczywistych uprawnień."
+        "description": "Symuluje panel, który widzi personel kliniki, z menu ograniczonym do uprawnień wybranego planu."
       },
       "lab": {
         "title": "Widok Laboratorium",
@@ -312,7 +312,8 @@
       "lab": "laboratorium"
     },
     "creating": "Tworzenie…",
-    "createTestData": "Utwórz dane testowe"
+    "createTestData": "Utwórz dane testowe",
+    "planLabel": "Plan do symulacji"
   },
   "previewBanner": {
     "message": "Podgląd — widzisz interfejs tak, jak widziałby go",
@@ -321,7 +322,8 @@
       "patient": "Pacjent",
       "clinica": "Klinika",
       "labPartner": "Laboratorium"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Zobacz miesiąc",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dni za darmo",
     "promoTrialButton": "Rozpocznij bezpłatny okres próbny",
     "promoTrialHint": "Nic nie zostanie pobrane przez {{days}} dni okresu próbnego. Potem {{price}}/mies., jeśli nie anulujesz. Anuluj kiedy chcesz, bez zobowiązań.",
-    "promoBanner": "Masz aktywny kod promocyjny! Wypróbuj plan {{plan}} bezpłatnie przez {{days}} dni. Prosimy o kartę w celu weryfikacji, ale nic nie zostanie pobrane, dopóki nie zakończy się okres próbny — anuluj kiedy chcesz, bez zobowiązań."
+    "promoBanner": "Masz aktywny kod promocyjny! Wypróbuj plan {{plan}} bezpłatnie przez {{days}} dni. Prosimy o kartę tylko w celu weryfikacji — nic nie zostanie pobrane, dopóki nie zakończy się okres próbny.",
+    "promoTrustStripe": "100% bezpieczna płatność obsługiwana przez Stripe",
+    "promoCancelButton": "Jak anulować?",
+    "promoCancelHide": "Ukryj",
+    "promoCancelSteps": "Anulowanie jest tak proste jak rejestracja, bez telefonów i drobnego druku:",
+    "promoCancelStep1": "Wejdź na swoje konto → Ustawienia → Subskrypcje",
+    "promoCancelStep2": "Kliknij \"Anuluj subskrypcję\"",
+    "promoCancelNote": "Jeśli anulujesz w ciągu {{days}} dni okresu próbnego, nic nie zostanie pobrane. Jeśli anulujesz później, rozliczenia kończą się w następnym cyklu — bez kar."
   },
   "toxin": {
     "title": "Kontrola Toksyny",

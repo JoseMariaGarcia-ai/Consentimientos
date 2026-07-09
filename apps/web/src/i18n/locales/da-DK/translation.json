@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinikvisning",
-        "description": "Simulerer det panel, klinikpersonalet ser, med menuen begrænset til deres reelle tilladelser."
+        "description": "Simulerer panelet, som klinikpersonalet ser, med menuen begrænset til rettighederne for den valgte plan."
       },
       "lab": {
         "title": "Laboratorievisning",
@@ -312,7 +312,8 @@
       "lab": "laboratorium"
     },
     "creating": "Opretter…",
-    "createTestData": "Opret testdata"
+    "createTestData": "Opret testdata",
+    "planLabel": "Plan der skal simuleres"
   },
   "previewBanner": {
     "message": "Forhåndsvisning — du ser grænsefladen, som den ville blive set af",
@@ -321,7 +322,8 @@
       "patient": "Patient",
       "clinica": "Klinik",
       "labPartner": "Laboratorium"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Se måned",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dage gratis",
     "promoTrialButton": "Start gratis prøveperiode",
     "promoTrialHint": "Du bliver ikke opkrævet i løbet af de {{days}} prøvedage. Derefter {{price}}/måned, hvis du ikke opsiger. Opsig når som helst, uden binding.",
-    "promoBanner": "Du har en aktiv kampagnekode! Prøv {{plan}}-planen gratis i {{days}} dage. Vi beder om dit kort til verifikation, men du bliver ikke opkrævet, før prøveperioden slutter — opsig når som helst, uden binding."
+    "promoBanner": "Du har en aktiv kampagnekode! Prøv {{plan}}-planen gratis i {{days}} dage. Vi beder kun om dit kort til verifikation — du bliver ikke opkrævet, før prøveperioden slutter.",
+    "promoTrustStripe": "100 % sikker betaling behandlet af Stripe",
+    "promoCancelButton": "Hvordan opsiger jeg?",
+    "promoCancelHide": "Skjul",
+    "promoCancelSteps": "At opsige er lige så nemt som at tilmelde sig, uden opkald eller fint tryk:",
+    "promoCancelStep1": "Gå til din konto → Indstillinger → Abonnementer",
+    "promoCancelStep2": "Klik på \"Opsig abonnement\"",
+    "promoCancelNote": "Opsiger du i løbet af de {{days}} prøvedage, bliver du slet ikke opkrævet. Opsiger du bagefter, stopper faktureringen ved næste cyklus — uden gebyr."
   },
   "toxin": {
     "title": "Toksinkontrol",

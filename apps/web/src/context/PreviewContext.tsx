@@ -7,6 +7,7 @@ interface PreviewState {
   patientId?: string
   labId?: string
   clinicaModules?: string[]
+  clinicaPlan?: string
 }
 
 interface PreviewContextValue {

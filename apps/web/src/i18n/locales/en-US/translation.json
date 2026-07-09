@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Clinic View",
-        "description": "Simulates the panel clinic staff see, with the menu restricted to their actual permissions."
+        "description": "Simulates the panel clinic staff see, with the menu restricted to the permissions of the plan you choose."
       },
       "lab": {
         "title": "Lab View",
@@ -312,7 +312,8 @@
       "lab": "lab"
     },
     "creating": "Creating…",
-    "createTestData": "Create test data"
+    "createTestData": "Create test data",
+    "planLabel": "Plan to simulate"
   },
   "previewBanner": {
     "message": "Preview — you're viewing the interface as it would be seen by",
@@ -321,7 +322,8 @@
       "patient": "Patient",
       "clinica": "Clinic",
       "labPartner": "Lab"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "View month",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} days free",
     "promoTrialButton": "Start free trial",
     "promoTrialHint": "You won't be charged anything during the {{days}}-day trial. After that, {{price}}/month if you don't cancel. Cancel anytime, no commitment.",
-    "promoBanner": "You have an active promo code! Try the {{plan}} plan free for {{days}} days. We ask for your card to verify it, but you won't be charged anything until the trial ends — cancel anytime, no commitment."
+    "promoBanner": "You have an active promo code! Try the {{plan}} plan free for {{days}} days. We ask for your card only to verify it — you won't be charged anything until the trial ends.",
+    "promoTrustStripe": "100% secure payment processed by Stripe",
+    "promoCancelButton": "How do I cancel?",
+    "promoCancelHide": "Hide",
+    "promoCancelSteps": "Cancelling is as easy as signing up — no calls, no fine print:",
+    "promoCancelStep1": "Go to your account → Settings → Subscriptions",
+    "promoCancelStep2": "Click \"Cancel subscription\"",
+    "promoCancelNote": "If you cancel during the {{days}}-day trial, you won't be charged anything. If you cancel afterward, billing stops at the next cycle — no penalty."
   },
   "toxin": {
     "title": "Toxin Tracking",

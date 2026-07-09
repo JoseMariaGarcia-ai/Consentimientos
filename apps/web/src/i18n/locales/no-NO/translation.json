@@ -297,7 +297,7 @@
       },
       "branch": {
         "title": "Klinikkvisning",
-        "description": "Simulerer panelet klinikkens ansatte ser, med menyen begrenset til deres faktiske tillatelser."
+        "description": "Simulerer panelet klinikkpersonalet ser, med menyen begrenset til rettighetene til planen du velger."
       },
       "lab": {
         "title": "Laboratorievisning",
@@ -312,7 +312,8 @@
       "lab": "laboratorium"
     },
     "creating": "Oppretter…",
-    "createTestData": "Opprett testdata"
+    "createTestData": "Opprett testdata",
+    "planLabel": "Plan som skal simuleres"
   },
   "previewBanner": {
     "message": "Forhåndsvisning — du ser grensesnittet slik det ville blitt sett av",
@@ -321,7 +322,8 @@
       "patient": "Pasient",
       "clinica": "Klinikk",
       "labPartner": "Laboratorium"
-    }
+    },
+    "planLabel": "Plan"
   },
   "appointmentCalendar": {
     "view_month": "Vis måned",
@@ -1130,7 +1132,14 @@
     "promoTrialBadge": "{{days}} dager gratis",
     "promoTrialButton": "Start gratis prøveperiode",
     "promoTrialHint": "Du blir ikke belastet i løpet av de {{days}} prøvedagene. Deretter {{price}}/måned hvis du ikke avbestiller. Avbestill når som helst, uten forpliktelser.",
-    "promoBanner": "Du har en aktiv kampanjekode! Prøv {{plan}}-planen gratis i {{days}} dager. Vi ber om kortet ditt for verifisering, men du blir ikke belastet før prøveperioden er over — avbestill når som helst, uten forpliktelser."
+    "promoBanner": "Du har en aktiv kampanjekode! Prøv {{plan}}-planen gratis i {{days}} dager. Vi ber om kortet ditt bare for verifisering — du blir ikke belastet før prøveperioden er over.",
+    "promoTrustStripe": "100 % sikker betaling behandlet av Stripe",
+    "promoCancelButton": "Hvordan avbestiller jeg?",
+    "promoCancelHide": "Skjul",
+    "promoCancelSteps": "Å avbestille er like enkelt som å registrere seg, uten telefonsamtaler eller finskrift:",
+    "promoCancelStep1": "Gå til kontoen din → Innstillinger → Abonnementer",
+    "promoCancelStep2": "Klikk på «Avbestill abonnement»",
+    "promoCancelNote": "Avbestiller du i løpet av de {{days}} prøvedagene, blir du ikke belastet i det hele tatt. Avbestiller du etterpå, stopper faktureringen ved neste syklus — uten gebyr."
   },
   "toxin": {
     "title": "Toksinkontroll",

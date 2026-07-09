@@ -142,7 +142,7 @@ function AppShell() {
   return (
     <WelcomeMediaProvider>
       <div className="flex flex-col h-screen bg-slate-50">
-        {isClinicaPreview && <PreviewBanner role="clinica" onExit={exitPreview} />}
+        {isClinicaPreview && <PreviewBanner role="clinica" planId={activePreview?.clinicaPlan} onExit={exitPreview} />}
         <Topbar onMenuClick={() => setSidebarOpen(o => !o)} />
         <div className="flex flex-1 overflow-hidden">
           <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} allowedModules={allowedModules} isSuperAdmin={isSuperAdmin} />
