@@ -1246,7 +1246,8 @@
       "preview": "プレビュー",
       "analytics": "アナリティクス",
       "devices": "署名デバイス",
-      "subscriptions": "サブスクリプション"
+      "subscriptions": "サブスクリプション",
+      "keys": "キー"
     },
     "users": {
       "title": "ユーザー",
@@ -1293,6 +1294,24 @@
       "welcome_description": "画像または動画を最大5点まで。ランダムまたは順番に表示するかを選択できます（1ファイルあたり最大100MB）。",
       "patient_title": "患者向けコンテンツ",
       "patient_description": "患者向けの画像または動画を最大5点まで。具体的な用途は今後設定される予定です。"
+    },
+    "apiKeys": {
+      "selectClinic": "クリニックを選択",
+      "selectPlaceholder": "— クリニックを選択 —",
+      "title": "APIキーとAI設定",
+      "superadminOnly": "スーパー管理者にのみ表示",
+      "makeHint": "リードをMake.comに接続するため",
+      "knowledgeBase": "ナレッジベース",
+      "knowledgeBaseHint": "ここにクリニックのナレッジベースを貼り付けるか、PDFをアップロードしてください:サービス、施術、価格、よくある質問…",
+      "prompt": "AIエージェントのプロンプト",
+      "promptHint": "このクリニックのAIエージェントの振る舞いに関する指示、またはPDFをアップロード…",
+      "readingPdf": "PDFを読み込み中…",
+      "uploadPdf": "PDFをアップロード",
+      "saved": "正常に保存されました",
+      "saving": "保存中…",
+      "save": "キーを保存",
+      "extractPdfError": "PDFからテキストを抽出できませんでした",
+      "defaultClinicName": "自分のクリニック"
     }
   },
   "planPermissions": {

@@ -1202,7 +1202,8 @@
       "preview": "תצוגה מקדימה",
       "analytics": "ניתוח נתונים",
       "devices": "מכשירי חתימה",
-      "subscriptions": "מנויים"
+      "subscriptions": "מנויים",
+      "keys": "מפתחות"
     },
     "users": {
       "title": "משתמשים",
@@ -1249,6 +1250,24 @@
       "welcome_description": "עד 5 תמונות או סרטונים. בחר מה להציג, באקראי או ברצף (מקסימום 100 מ\"ב לקובץ).",
       "patient_title": "תוכן למטופל",
       "patient_description": "עד 5 תמונות או סרטונים המיועדים למטופל. השימוש המדויק שלהם יוגדר בקרוב."
+    },
+    "apiKeys": {
+      "selectClinic": "בחר את המרפאה",
+      "selectPlaceholder": "— בחר מרפאה —",
+      "title": "מפתחות API והגדרות בינה מלאכותית",
+      "superadminOnly": "גלוי רק למנהל-על",
+      "makeHint": "לחיבור לידים ל-Make.com",
+      "knowledgeBase": "מאגר ידע",
+      "knowledgeBaseHint": "הדבק כאן את מאגר הידע של המרפאה, או העלה PDF: שירותים, טיפולים, מחירים, שאלות נפוצות…",
+      "prompt": "פרומפט סוכן הבינה המלאכותית",
+      "promptHint": "הוראות התנהגות לסוכן הבינה המלאכותית של מרפאה זו, או העלה PDF…",
+      "readingPdf": "קורא PDF…",
+      "uploadPdf": "העלה PDF",
+      "saved": "נשמר בהצלחה",
+      "saving": "שומר…",
+      "save": "שמור מפתחות",
+      "extractPdfError": "לא ניתן היה לחלץ טקסט מה-PDF",
+      "defaultClinicName": "המרפאה שלי"
     }
   },
   "planPermissions": {

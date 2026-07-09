@@ -1246,7 +1246,8 @@
       "preview": "Preview",
       "analytics": "Analytics",
       "devices": "Signing devices",
-      "subscriptions": "Subscriptions"
+      "subscriptions": "Subscriptions",
+      "keys": "API Keys"
     },
     "users": {
       "title": "Users",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Up to 5 images or videos. Choose which to show, randomly or in sequence (max. 100 MB per file).",
       "patient_title": "Patient content",
       "patient_description": "Up to 5 images or videos aimed at the patient. Exact usage will be configurable soon."
+    },
+    "apiKeys": {
+      "selectClinic": "Select the clinic",
+      "selectPlaceholder": "— Select clinic —",
+      "title": "API Keys and AI configuration",
+      "superadminOnly": "Only visible to Super Admin",
+      "makeHint": "To connect leads with Make.com",
+      "knowledgeBase": "Knowledge base",
+      "knowledgeBaseHint": "Paste the clinic's knowledge base here, or upload a PDF: services, treatments, prices, FAQs…",
+      "prompt": "AI agent prompt",
+      "promptHint": "Behaviour instructions for this clinic's AI agent, or upload a PDF…",
+      "readingPdf": "Reading PDF…",
+      "uploadPdf": "Upload PDF",
+      "saved": "Saved successfully",
+      "saving": "Saving…",
+      "save": "Save keys",
+      "extractPdfError": "Could not extract text from the PDF",
+      "defaultClinicName": "My clinic"
     }
   },
   "planPermissions": {

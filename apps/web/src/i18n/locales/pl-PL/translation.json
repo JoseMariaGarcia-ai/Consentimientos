@@ -1246,7 +1246,8 @@
       "preview": "Podgląd",
       "analytics": "Analityka",
       "devices": "Urządzenia do podpisu",
-      "subscriptions": "Subskrypcje"
+      "subscriptions": "Subskrypcje",
+      "keys": "Klucze"
     },
     "users": {
       "title": "Użytkownicy",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Do 5 obrazów lub filmów. Wybierz, co wyświetlać, losowo lub sekwencyjnie (maks. 100 MB na plik).",
       "patient_title": "Treść dla pacjenta",
       "patient_description": "Do 5 obrazów lub filmów przeznaczonych dla pacjenta. Ich dokładne zastosowanie zostanie skonfigurowane wkrótce."
+    },
+    "apiKeys": {
+      "selectClinic": "Wybierz klinikę",
+      "selectPlaceholder": "— Wybierz klinikę —",
+      "title": "Klucze API i konfiguracja AI",
+      "superadminOnly": "Widoczne tylko dla Super Admina",
+      "makeHint": "Aby połączyć leady z Make.com",
+      "knowledgeBase": "Baza wiedzy",
+      "knowledgeBaseHint": "Wklej tutaj bazę wiedzy kliniki lub prześlij plik PDF: usługi, zabiegi, ceny, FAQ…",
+      "prompt": "Prompt agenta AI",
+      "promptHint": "Instrukcje zachowania dla agenta AI tej kliniki lub prześlij plik PDF…",
+      "readingPdf": "Odczytywanie PDF…",
+      "uploadPdf": "Prześlij PDF",
+      "saved": "Zapisano pomyślnie",
+      "saving": "Zapisywanie…",
+      "save": "Zapisz klucze",
+      "extractPdfError": "Nie udało się wyodrębnić tekstu z pliku PDF",
+      "defaultClinicName": "Moja klinika"
     }
   },
   "planPermissions": {

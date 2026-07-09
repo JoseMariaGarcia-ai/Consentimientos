@@ -1246,7 +1246,8 @@
       "preview": "Forhåndsvisning",
       "analytics": "Analyse",
       "devices": "Signeringsenheder",
-      "subscriptions": "Abonnementer"
+      "subscriptions": "Abonnementer",
+      "keys": "Nøgler"
     },
     "users": {
       "title": "Brugere",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Op til 5 billeder eller videoer. Vælg hvilken der skal vises, tilfældigt eller i rækkefølge (maks. 100 MB pr. fil).",
       "patient_title": "Indhold til patient",
       "patient_description": "Op til 5 billeder eller videoer til patienten. Den præcise brug konfigureres snart."
+    },
+    "apiKeys": {
+      "selectClinic": "Vælg klinikken",
+      "selectPlaceholder": "— Vælg klinik —",
+      "title": "API-nøgler og AI-konfiguration",
+      "superadminOnly": "Kun synlig for superadmin",
+      "makeHint": "For at forbinde leads til Make.com",
+      "knowledgeBase": "Videnbase",
+      "knowledgeBaseHint": "Indsæt klinikkens videnbase her, eller upload en PDF: services, behandlinger, priser, ofte stillede spørgsmål…",
+      "prompt": "AI-agentens prompt",
+      "promptHint": "Adfærdsinstruktioner til denne kliniks AI-agent, eller upload en PDF…",
+      "readingPdf": "Læser PDF…",
+      "uploadPdf": "Upload PDF",
+      "saved": "Gemt",
+      "saving": "Gemmer…",
+      "save": "Gem nøgler",
+      "extractPdfError": "Kunne ikke udtrække teksten fra PDF'en",
+      "defaultClinicName": "Min klinik"
     }
   },
   "planPermissions": {

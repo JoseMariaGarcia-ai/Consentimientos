@@ -1246,7 +1246,8 @@
       "preview": "Voorbeeld",
       "analytics": "Analytics",
       "devices": "Ondertekenapparaten",
-      "subscriptions": "Abonnementen"
+      "subscriptions": "Abonnementen",
+      "keys": "Sleutels"
     },
     "users": {
       "title": "Gebruikers",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Tot 5 afbeeldingen of video's. Kies welke wordt getoond, willekeurig of achtereenvolgens (max. 100 MB per bestand).",
       "patient_title": "Inhoud voor patiënt",
       "patient_description": "Tot 5 afbeeldingen of video's bestemd voor de patiënt. Het exacte gebruik ervan wordt binnenkort geconfigureerd."
+    },
+    "apiKeys": {
+      "selectClinic": "Selecteer de kliniek",
+      "selectPlaceholder": "— Kliniek selecteren —",
+      "title": "API-sleutels en AI-configuratie",
+      "superadminOnly": "Alleen zichtbaar voor Super Admin",
+      "makeHint": "Om leads te koppelen aan Make.com",
+      "knowledgeBase": "Kennisbank",
+      "knowledgeBaseHint": "Plak hier de kennisbank van de kliniek, of upload een PDF: diensten, behandelingen, prijzen, FAQ's…",
+      "prompt": "Prompt van de AI-agent",
+      "promptHint": "Gedragsinstructies voor de AI-agent van deze kliniek, of upload een PDF…",
+      "readingPdf": "PDF wordt gelezen…",
+      "uploadPdf": "PDF uploaden",
+      "saved": "Succesvol opgeslagen",
+      "saving": "Opslaan…",
+      "save": "Sleutels opslaan",
+      "extractPdfError": "Kon de tekst niet uit de PDF halen",
+      "defaultClinicName": "Mijn kliniek"
     }
   },
   "planPermissions": {

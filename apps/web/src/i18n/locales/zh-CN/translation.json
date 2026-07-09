@@ -1246,7 +1246,8 @@
       "preview": "预览",
       "analytics": "分析",
       "devices": "签署设备",
-      "subscriptions": "订阅"
+      "subscriptions": "订阅",
+      "keys": "密钥"
     },
     "users": {
       "title": "用户",
@@ -1293,6 +1294,24 @@
       "welcome_description": "最多5张图片或视频。可选择固定展示、随机展示或按顺序展示（每个文件最大100 MB）。",
       "patient_title": "患者内容",
       "patient_description": "最多5张面向患者的图片或视频。具体使用方式将在后续配置。"
+    },
+    "apiKeys": {
+      "selectClinic": "选择诊所",
+      "selectPlaceholder": "— 选择诊所 —",
+      "title": "API 密钥和 AI 配置",
+      "superadminOnly": "仅超级管理员可见",
+      "makeHint": "用于将潜在客户与 Make.com 连接",
+      "knowledgeBase": "知识库",
+      "knowledgeBaseHint": "在此粘贴诊所的知识库,或上传 PDF:服务、治疗、价格、常见问题…",
+      "prompt": "AI 代理提示词",
+      "promptHint": "该诊所 AI 代理的行为指令,或上传 PDF…",
+      "readingPdf": "正在读取 PDF…",
+      "uploadPdf": "上传 PDF",
+      "saved": "保存成功",
+      "saving": "保存中…",
+      "save": "保存密钥",
+      "extractPdfError": "无法从 PDF 中提取文本",
+      "defaultClinicName": "我的诊所"
     }
   },
   "planPermissions": {

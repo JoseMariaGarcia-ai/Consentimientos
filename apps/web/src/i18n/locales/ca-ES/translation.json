@@ -1246,7 +1246,8 @@
       "preview": "Vista prèvia",
       "analytics": "Analítica",
       "devices": "Dispositius de signatura",
-      "subscriptions": "Subscripcions"
+      "subscriptions": "Subscripcions",
+      "keys": "Claus"
     },
     "users": {
       "title": "Usuaris",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Fins a 5 imatges o vídeos. Tria quin mostrar, a l'atzar o en seqüència (màx. 100 MB per arxiu).",
       "patient_title": "Contingut per al pacient",
       "patient_description": "Fins a 5 imatges o vídeos destinats al pacient. El seu ús exacte es configurarà properament."
+    },
+    "apiKeys": {
+      "selectClinic": "Selecciona la clínica",
+      "selectPlaceholder": "— Selecciona clínica —",
+      "title": "API Keys i configuració d'IA",
+      "superadminOnly": "Només visible per a Super Admin",
+      "makeHint": "Per enllaçar leads amb Make.com",
+      "knowledgeBase": "Base de coneixement",
+      "knowledgeBaseHint": "Enganxa aquí la base de coneixement de la clínica, o puja un PDF: serveis, tractaments, preus, FAQ…",
+      "prompt": "Prompt de l'agent d'IA",
+      "promptHint": "Instruccions de comportament per a l'agent d'IA d'aquesta clínica, o puja un PDF…",
+      "readingPdf": "Llegint PDF…",
+      "uploadPdf": "Puja PDF",
+      "saved": "Desat correctament",
+      "saving": "Desant…",
+      "save": "Desa les claus",
+      "extractPdfError": "No s'ha pogut extreure el text del PDF",
+      "defaultClinicName": "La meva clínica"
     }
   },
   "planPermissions": {

@@ -1246,7 +1246,8 @@
       "preview": "Forhåndsvisning",
       "analytics": "Analyse",
       "devices": "Signeringsenheter",
-      "subscriptions": "Abonnementer"
+      "subscriptions": "Abonnementer",
+      "keys": "Nøkler"
     },
     "users": {
       "title": "Brukere",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Opptil 5 bilder eller videoer. Velg hvilken som vises, tilfeldig eller sekvensielt (maks 100 MB per fil).",
       "patient_title": "Innhold for pasient",
       "patient_description": "Opptil 5 bilder eller videoer rettet mot pasienten. Nøyaktig bruk vil bli konfigurert senere."
+    },
+    "apiKeys": {
+      "selectClinic": "Velg klinikken",
+      "selectPlaceholder": "— Velg klinikk —",
+      "title": "API-nøkler og AI-konfigurasjon",
+      "superadminOnly": "Kun synlig for superadmin",
+      "makeHint": "For å koble leads til Make.com",
+      "knowledgeBase": "Kunnskapsbase",
+      "knowledgeBaseHint": "Lim inn klinikkens kunnskapsbase her, eller last opp en PDF: tjenester, behandlinger, priser, ofte stilte spørsmål…",
+      "prompt": "AI-agentens prompt",
+      "promptHint": "Atferdsinstruksjoner for denne klinikkens AI-agent, eller last opp en PDF…",
+      "readingPdf": "Leser PDF…",
+      "uploadPdf": "Last opp PDF",
+      "saved": "Lagret",
+      "saving": "Lagrer…",
+      "save": "Lagre nøkler",
+      "extractPdfError": "Kunne ikke hente ut teksten fra PDF-en",
+      "defaultClinicName": "Min klinikk"
     }
   },
   "planPermissions": {

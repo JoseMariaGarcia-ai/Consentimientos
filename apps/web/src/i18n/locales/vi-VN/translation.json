@@ -1246,7 +1246,8 @@
       "preview": "Xem trước",
       "analytics": "Phân tích",
       "devices": "Thiết bị ký",
-      "subscriptions": "Gói đăng ký"
+      "subscriptions": "Gói đăng ký",
+      "keys": "Khóa"
     },
     "users": {
       "title": "Người dùng",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Tối đa 5 hình ảnh hoặc video. Chọn cách hiển thị: ngẫu nhiên hoặc tuần tự (tối đa 100 MB mỗi tệp).",
       "patient_title": "Nội dung cho bệnh nhân",
       "patient_description": "Tối đa 5 hình ảnh hoặc video dành cho bệnh nhân. Cách sử dụng chính xác sẽ được cấu hình trong thời gian tới."
+    },
+    "apiKeys": {
+      "selectClinic": "Chọn phòng khám",
+      "selectPlaceholder": "— Chọn phòng khám —",
+      "title": "Khóa API và cấu hình AI",
+      "superadminOnly": "Chỉ hiển thị cho Super Admin",
+      "makeHint": "Để kết nối khách hàng tiềm năng với Make.com",
+      "knowledgeBase": "Cơ sở kiến thức",
+      "knowledgeBaseHint": "Dán cơ sở kiến thức của phòng khám vào đây, hoặc tải lên PDF: dịch vụ, liệu trình, giá cả, câu hỏi thường gặp…",
+      "prompt": "Prompt của tác nhân AI",
+      "promptHint": "Hướng dẫn hành vi cho tác nhân AI của phòng khám này, hoặc tải lên PDF…",
+      "readingPdf": "Đang đọc PDF…",
+      "uploadPdf": "Tải lên PDF",
+      "saved": "Đã lưu thành công",
+      "saving": "Đang lưu…",
+      "save": "Lưu khóa",
+      "extractPdfError": "Không thể trích xuất văn bản từ PDF",
+      "defaultClinicName": "Phòng khám của tôi"
     }
   },
   "planPermissions": {

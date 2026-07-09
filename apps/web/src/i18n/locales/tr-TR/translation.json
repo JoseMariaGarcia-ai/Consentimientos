@@ -1246,7 +1246,8 @@
       "preview": "Önizleme",
       "analytics": "Analitik",
       "devices": "İmza cihazları",
-      "subscriptions": "Abonelikler"
+      "subscriptions": "Abonelikler",
+      "keys": "Anahtarlar"
     },
     "users": {
       "title": "Kullanıcılar",
@@ -1293,6 +1294,24 @@
       "welcome_description": "En fazla 5 görsel veya video. Hangisinin gösterileceğini, rastgele veya sırayla seçin (dosya başına maks. 100 MB).",
       "patient_title": "Hasta için içerik",
       "patient_description": "Hasta için en fazla 5 görsel veya video. Tam kullanımı yakında yapılandırılacaktır."
+    },
+    "apiKeys": {
+      "selectClinic": "Kliniği seç",
+      "selectPlaceholder": "— Klinik seç —",
+      "title": "API Anahtarları ve Yapay Zeka Yapılandırması",
+      "superadminOnly": "Yalnızca Süper Yöneticiye görünür",
+      "makeHint": "Potansiyel müşterileri Make.com ile bağlamak için",
+      "knowledgeBase": "Bilgi tabanı",
+      "knowledgeBaseHint": "Kliniğin bilgi tabanını buraya yapıştır ya da bir PDF yükle: hizmetler, tedaviler, fiyatlar, SSS…",
+      "prompt": "Yapay zeka ajanının promptu",
+      "promptHint": "Bu kliniğin yapay zeka ajanı için davranış talimatları, ya da bir PDF yükle…",
+      "readingPdf": "PDF okunuyor…",
+      "uploadPdf": "PDF yükle",
+      "saved": "Başarıyla kaydedildi",
+      "saving": "Kaydediliyor…",
+      "save": "Anahtarları kaydet",
+      "extractPdfError": "PDF'den metin çıkarılamadı",
+      "defaultClinicName": "Kliniğim"
     }
   },
   "planPermissions": {

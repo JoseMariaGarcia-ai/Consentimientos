@@ -1246,7 +1246,8 @@
       "preview": "미리보기",
       "analytics": "분석",
       "devices": "서명 기기",
-      "subscriptions": "구독"
+      "subscriptions": "구독",
+      "keys": "키"
     },
     "users": {
       "title": "사용자",
@@ -1293,6 +1294,24 @@
       "welcome_description": "최대 5개의 이미지 또는 동영상. 표시 방식을 선택하세요, 무작위 또는 순차 (파일당 최대 100MB).",
       "patient_title": "환자용 콘텐츠",
       "patient_description": "환자를 위한 최대 5개의 이미지 또는 동영상. 정확한 사용법은 곧 설정될 예정입니다."
+    },
+    "apiKeys": {
+      "selectClinic": "클리닉 선택",
+      "selectPlaceholder": "— 클리닉 선택 —",
+      "title": "API 키 및 AI 설정",
+      "superadminOnly": "슈퍼 관리자에게만 표시됨",
+      "makeHint": "리드를 Make.com에 연결하기 위해",
+      "knowledgeBase": "지식 베이스",
+      "knowledgeBaseHint": "여기에 클리닉의 지식 베이스를 붙여넣거나 PDF를 업로드하세요: 서비스, 시술, 가격, 자주 묻는 질문…",
+      "prompt": "AI 에이전트 프롬프트",
+      "promptHint": "이 클리닉의 AI 에이전트에 대한 행동 지침, 또는 PDF 업로드…",
+      "readingPdf": "PDF 읽는 중…",
+      "uploadPdf": "PDF 업로드",
+      "saved": "성공적으로 저장됨",
+      "saving": "저장 중…",
+      "save": "키 저장",
+      "extractPdfError": "PDF에서 텍스트를 추출할 수 없습니다",
+      "defaultClinicName": "내 클리닉"
     }
   },
   "planPermissions": {

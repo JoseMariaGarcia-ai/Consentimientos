@@ -1246,7 +1246,8 @@
       "preview": "Vorschau",
       "analytics": "Analytik",
       "devices": "Unterschriftsgeräte",
-      "subscriptions": "Abonnements"
+      "subscriptions": "Abonnements",
+      "keys": "Schlüssel"
     },
     "users": {
       "title": "Benutzer",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Bis zu 5 Bilder oder Videos. Wählen Sie, was angezeigt wird — zufällig oder nacheinander (max. 100 MB pro Datei).",
       "patient_title": "Inhalte für Patienten",
       "patient_description": "Bis zu 5 Bilder oder Videos für den Patienten. Die genaue Verwendung wird in Kürze konfigurierbar sein."
+    },
+    "apiKeys": {
+      "selectClinic": "Klinik auswählen",
+      "selectPlaceholder": "— Klinik auswählen —",
+      "title": "API-Keys und KI-Konfiguration",
+      "superadminOnly": "Nur für Super Admin sichtbar",
+      "makeHint": "Zum Verknüpfen von Leads mit Make.com",
+      "knowledgeBase": "Wissensdatenbank",
+      "knowledgeBaseHint": "Füge hier die Wissensdatenbank der Klinik ein oder lade ein PDF hoch: Leistungen, Behandlungen, Preise, FAQs…",
+      "prompt": "Prompt des KI-Agenten",
+      "promptHint": "Verhaltensanweisungen für den KI-Agenten dieser Klinik oder PDF hochladen…",
+      "readingPdf": "PDF wird gelesen…",
+      "uploadPdf": "PDF hochladen",
+      "saved": "Erfolgreich gespeichert",
+      "saving": "Speichern…",
+      "save": "Schlüssel speichern",
+      "extractPdfError": "Der Text konnte nicht aus dem PDF extrahiert werden",
+      "defaultClinicName": "Meine Klinik"
     }
   },
   "planPermissions": {

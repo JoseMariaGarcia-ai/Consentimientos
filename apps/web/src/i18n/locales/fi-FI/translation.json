@@ -1246,7 +1246,8 @@
       "preview": "Esikatselu",
       "analytics": "Analytiikka",
       "devices": "Allekirjoituslaitteet",
-      "subscriptions": "Tilaukset"
+      "subscriptions": "Tilaukset",
+      "keys": "Avaimet"
     },
     "users": {
       "title": "Käyttäjät",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Enintään 5 kuvaa tai videota. Valitse mikä näytetään, satunnaisesti tai järjestyksessä (enintään 100 Mt per tiedosto).",
       "patient_title": "Sisältö potilaalle",
       "patient_description": "Enintään 5 kuvaa tai videota potilaalle. Tarkka käyttötapa määritetään myöhemmin."
+    },
+    "apiKeys": {
+      "selectClinic": "Valitse klinikka",
+      "selectPlaceholder": "— Valitse klinikka —",
+      "title": "API-avaimet ja tekoälyn määritykset",
+      "superadminOnly": "Näkyy vain pääkäyttäjälle",
+      "makeHint": "Liidien yhdistämiseen Make.comiin",
+      "knowledgeBase": "Tietopohja",
+      "knowledgeBaseHint": "Liitä klinikan tietopohja tähän tai lataa PDF: palvelut, hoidot, hinnat, UKK…",
+      "prompt": "Tekoälyagentin prompti",
+      "promptHint": "Tämän klinikan tekoälyagentin käyttäytymisohjeet, tai lataa PDF…",
+      "readingPdf": "Luetaan PDF:ää…",
+      "uploadPdf": "Lataa PDF",
+      "saved": "Tallennettu onnistuneesti",
+      "saving": "Tallennetaan…",
+      "save": "Tallenna avaimet",
+      "extractPdfError": "PDF:stä ei voitu poimia tekstiä",
+      "defaultClinicName": "Oma klinikka"
     }
   },
   "planPermissions": {

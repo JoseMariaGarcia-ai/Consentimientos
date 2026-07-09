@@ -1246,7 +1246,8 @@
       "preview": "Előnézet",
       "analytics": "Analitika",
       "devices": "Aláíró eszközök",
-      "subscriptions": "Előfizetések"
+      "subscriptions": "Előfizetések",
+      "keys": "Kulcsok"
     },
     "users": {
       "title": "Felhasználók",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Legfeljebb 5 kép vagy videó. Válassza ki, melyik jelenjen meg, véletlenszerűen vagy sorban (max. 100 MB fájlonként).",
       "patient_title": "Tartalom a beteg számára",
       "patient_description": "Legfeljebb 5, a betegnek szánt kép vagy videó. A pontos felhasználás konfigurálása hamarosan elérhető lesz."
+    },
+    "apiKeys": {
+      "selectClinic": "Válaszd ki a klinikát",
+      "selectPlaceholder": "— Klinika kiválasztása —",
+      "title": "API kulcsok és AI konfiguráció",
+      "superadminOnly": "Csak a Super Admin számára látható",
+      "makeHint": "Leadek összekapcsolásához a Make.com-mal",
+      "knowledgeBase": "Tudásbázis",
+      "knowledgeBaseHint": "Illeszd be ide a klinika tudásbázisát, vagy tölts fel egy PDF-et: szolgáltatások, kezelések, árak, GYIK…",
+      "prompt": "Az AI ügynök promptja",
+      "promptHint": "Ennek a klinikának az AI ügynökére vonatkozó viselkedési utasítások, vagy tölts fel egy PDF-et…",
+      "readingPdf": "PDF olvasása…",
+      "uploadPdf": "PDF feltöltése",
+      "saved": "Sikeresen mentve",
+      "saving": "Mentés…",
+      "save": "Kulcsok mentése",
+      "extractPdfError": "Nem sikerült kinyerni a szöveget a PDF-ből",
+      "defaultClinicName": "Az én klinikám"
     }
   },
   "planPermissions": {

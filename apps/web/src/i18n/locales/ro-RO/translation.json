@@ -1246,7 +1246,8 @@
       "preview": "Previzualizare",
       "analytics": "Analitice",
       "devices": "Dispozitive de semnare",
-      "subscriptions": "Abonamente"
+      "subscriptions": "Abonamente",
+      "keys": "Chei"
     },
     "users": {
       "title": "Utilizatori",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Până la 5 imagini sau videoclipuri. Alegeți ce se afișează, aleatoriu sau secvențial (max. 100 MB per fișier).",
       "patient_title": "Conținut pentru pacient",
       "patient_description": "Până la 5 imagini sau videoclipuri destinate pacientului. Utilizarea exactă va fi configurată în curând."
+    },
+    "apiKeys": {
+      "selectClinic": "Selectează clinica",
+      "selectPlaceholder": "— Selectează clinica —",
+      "title": "Chei API și configurare AI",
+      "superadminOnly": "Vizibil doar pentru Super Admin",
+      "makeHint": "Pentru a conecta lead-urile cu Make.com",
+      "knowledgeBase": "Bază de cunoștințe",
+      "knowledgeBaseHint": "Lipește aici baza de cunoștințe a clinicii, sau încarcă un PDF: servicii, tratamente, prețuri, întrebări frecvente…",
+      "prompt": "Promptul agentului AI",
+      "promptHint": "Instrucțiuni de comportament pentru agentul AI al acestei clinici, sau încarcă un PDF…",
+      "readingPdf": "Se citește PDF-ul…",
+      "uploadPdf": "Încarcă PDF",
+      "saved": "Salvat cu succes",
+      "saving": "Se salvează…",
+      "save": "Salvează cheile",
+      "extractPdfError": "Nu s-a putut extrage textul din PDF",
+      "defaultClinicName": "Clinica mea"
     }
   },
   "planPermissions": {

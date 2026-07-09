@@ -281,6 +281,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
 
 /* ─── Clinic Keys Panel (superadmin only) ─────────────────────────── */
 function ClinicKeysPanel() {
+  const { t } = useTranslation()
   const [clinics, setClinics]   = useState<{ id: string; name: string; trade_name: string | null }[]>([])
   const [selectedId, setSelectedId] = useState<string>('')
   const [form, setForm] = useState({
@@ -349,7 +350,7 @@ function ClinicKeysPanel() {
       const { text } = await api.post('/clinic-config/extract-pdf', { fileBase64 })
       setForm(f => ({ ...f, [field]: text }))
     } catch (e: any) {
-      setError(e.message || 'No se pudo extraer el texto del PDF')
+      setError(e.message || t('settings.apiKeys.extractPdfError'))
     } finally {
       setUploadingField(null)
     }
@@ -365,7 +366,7 @@ function ClinicKeysPanel() {
         {onPdfUpload && (
           <label className={`flex items-center gap-1.5 text-xs font-medium cursor-pointer ${uploading ? 'text-slate-300' : 'text-purple-600 hover:text-purple-700'}`}>
             <FileUp className="w-3.5 h-3.5" />
-            {uploading ? 'Leyendo PDF…' : 'Subir PDF'}
+            {uploading ? t('settings.apiKeys.readingPdf') : t('settings.apiKeys.uploadPdf')}
             <input
               type="file"
               accept="application/pdf"
@@ -406,7 +407,7 @@ function ClinicKeysPanel() {
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Building2 className="w-4 h-4 text-purple-500" />
-          <p className="text-sm font-bold text-slate-700">Selecciona la clínica</p>
+          <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.selectClinic')}</p>
         </div>
         {clinics.length === 0 ? (
           <ClinicSelectorFallback onSelect={setSelectedId} selectedId={selectedId} />
@@ -416,7 +417,7 @@ function ClinicKeysPanel() {
             onChange={e => setSelectedId(e.target.value)}
             className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
-            <option value="">— Seleccionar clínica —</option>
+            <option value="">{t('settings.apiKeys.selectPlaceholder')}</option>
             {clinics.map(c => (
               <option key={c.id} value={c.id}>{c.trade_name ?? c.name}</option>
             ))}
@@ -429,8 +430,8 @@ function ClinicKeysPanel() {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-5">
           <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
             <KeyRound className="w-4 h-4 text-purple-500" />
-            <h3 className="text-sm font-bold text-slate-700">API Keys y configuración IA</h3>
-            <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">Solo visible para Super Admin</span>
+            <h3 className="text-sm font-bold text-slate-700">{t('settings.apiKeys.title')}</h3>
+            <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
           </div>
 
           {loading ? (
@@ -443,25 +444,25 @@ function ClinicKeysPanel() {
                 <Field label="YCloud API Key" value={form.ycloud_api_key} onChange={v => setForm(f => ({ ...f, ycloud_api_key: v }))} hint="yc_live_..." />
                 <Field label="Anthropic API Key" value={form.anthropic_api_key} onChange={v => setForm(f => ({ ...f, anthropic_api_key: v }))} hint="sk-ant-..." />
                 <Field label="Retell API Key" value={form.retell_api_key} onChange={v => setForm(f => ({ ...f, retell_api_key: v }))} hint="key_..." />
-                <Field label="Make API Key" value={form.make_api_key} onChange={v => setForm(f => ({ ...f, make_api_key: v }))} hint="Para enlazar leads con Make.com" />
+                <Field label="Make API Key" value={form.make_api_key} onChange={v => setForm(f => ({ ...f, make_api_key: v }))} hint={t('settings.apiKeys.makeHint')} />
               </div>
 
               <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
                 <Field
-                  label="Base de conocimientos"
+                  label={t('settings.apiKeys.knowledgeBase')}
                   value={form.knowledge_base}
                   onChange={v => setForm(f => ({ ...f, knowledge_base: v }))}
                   type="textarea"
-                  hint="Pega aquí la base de conocimientos de la clínica, o sube un PDF: servicios, tratamientos, precios, FAQs…"
+                  hint={t('settings.apiKeys.knowledgeBaseHint')}
                   onPdfUpload={file => handlePdfUpload('knowledge_base', file)}
                   uploading={uploadingField === 'knowledge_base'}
                 />
                 <Field
-                  label="Prompt del agente IA"
+                  label={t('settings.apiKeys.prompt')}
                   value={form.prompt}
                   onChange={v => setForm(f => ({ ...f, prompt: v }))}
                   type="textarea"
-                  hint="Instrucciones de comportamiento para el agente IA de esta clínica, o sube un PDF…"
+                  hint={t('settings.apiKeys.promptHint')}
                   onPdfUpload={file => handlePdfUpload('prompt', file)}
                   uploading={uploadingField === 'prompt'}
                 />
@@ -470,14 +471,14 @@ function ClinicKeysPanel() {
               {error && <p className="text-sm text-red-500">{error}</p>}
 
               <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                {saved && <span className="text-sm text-emerald-600 font-medium">✓ Guardado correctamente</span>}
+                {saved && <span className="text-sm text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</span>}
                 <button
                   onClick={handleSave}
                   disabled={saving}
                   className="ml-auto flex items-center gap-2 px-5 py-2.5 bg-purple-600 text-white text-sm font-semibold rounded-xl hover:bg-purple-700 disabled:opacity-50 transition-colors"
                 >
                   <Save className="w-4 h-4" />
-                  {saving ? 'Guardando…' : 'Guardar claves'}
+                  {saving ? t('settings.apiKeys.saving') : t('settings.apiKeys.save')}
                 </button>
               </div>
             </>
@@ -489,20 +490,21 @@ function ClinicKeysPanel() {
 }
 
 function ClinicSelectorFallback({ onSelect, selectedId }: { onSelect: (id: string) => void; selectedId: string }) {
+  const { t } = useTranslation()
   const [clinics, setClinics] = useState<{ id: string; name: string }[]>([])
   useEffect(() => {
     // Fallback: get clinic from the logged-in user's own clinic
     api.get('/clinic').then((data: any) => {
-      if (data?.id) setClinics([{ id: data.id, name: data.trade_name ?? data.name ?? 'Mi clínica' }])
+      if (data?.id) setClinics([{ id: data.id, name: data.trade_name ?? data.name ?? t('settings.apiKeys.defaultClinicName') }])
     }).catch(() => {})
-  }, [])
+  }, [t])
   return (
     <select
       value={selectedId}
       onChange={e => onSelect(e.target.value)}
       className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
     >
-      <option value="">— Seleccionar clínica —</option>
+      <option value="">{t('settings.apiKeys.selectPlaceholder')}</option>
       {clinics.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
     </select>
   )
@@ -580,7 +582,7 @@ export default function Settings() {
               <Eye className="w-4 h-4" />{t('settings.tabs.preview')}
             </button>
             <button onClick={() => setActiveTab('keys')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'keys' ? 'bg-white text-purple-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
-              <KeyRound className="w-4 h-4" />Claves
+              <KeyRound className="w-4 h-4" />{t('settings.tabs.keys')}
             </button>
             <button onClick={() => setActiveTab('plans')} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'plans' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
               <Layers className="w-4 h-4" />{t('planPermissions.tab')}

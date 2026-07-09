@@ -1246,7 +1246,8 @@
       "preview": "Förhandsgranskning",
       "analytics": "Analys",
       "devices": "Signeringsenheter",
-      "subscriptions": "Prenumerationer"
+      "subscriptions": "Prenumerationer",
+      "keys": "Nycklar"
     },
     "users": {
       "title": "Användare",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Upp till 5 bilder eller videor. Välj vilken som ska visas, slumpmässigt eller i sekvens (max 100 MB per fil).",
       "patient_title": "Innehåll för patienten",
       "patient_description": "Upp till 5 bilder eller videor riktade till patienten. Exakt användning konfigureras inom kort."
+    },
+    "apiKeys": {
+      "selectClinic": "Välj kliniken",
+      "selectPlaceholder": "— Välj klinik —",
+      "title": "API-nycklar och AI-konfiguration",
+      "superadminOnly": "Endast synligt för superadmin",
+      "makeHint": "För att koppla leads till Make.com",
+      "knowledgeBase": "Kunskapsbas",
+      "knowledgeBaseHint": "Klistra in klinikens kunskapsbas här, eller ladda upp en PDF: tjänster, behandlingar, priser, FAQ…",
+      "prompt": "AI-agentens prompt",
+      "promptHint": "Beteendeinstruktioner för klinikens AI-agent, eller ladda upp en PDF…",
+      "readingPdf": "Läser PDF…",
+      "uploadPdf": "Ladda upp PDF",
+      "saved": "Sparat",
+      "saving": "Sparar…",
+      "save": "Spara nycklar",
+      "extractPdfError": "Det gick inte att extrahera texten från PDF:en",
+      "defaultClinicName": "Min klinik"
     }
   },
   "planPermissions": {

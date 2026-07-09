@@ -1246,7 +1246,8 @@
       "preview": "Náhled",
       "analytics": "Analytika",
       "devices": "Podepisovací zařízení",
-      "subscriptions": "Předplatné"
+      "subscriptions": "Předplatné",
+      "keys": "Klíče"
     },
     "users": {
       "title": "Uživatelé",
@@ -1293,6 +1294,24 @@
       "welcome_description": "Až 5 obrázků nebo videí. Vyberte, co se zobrazí, náhodně nebo v pořadí (max. 100 MB na soubor).",
       "patient_title": "Obsah pro pacienta",
       "patient_description": "Až 5 obrázků nebo videí určených pro pacienta. Jejich přesné využití bude brzy nastavitelné."
+    },
+    "apiKeys": {
+      "selectClinic": "Vyber kliniku",
+      "selectPlaceholder": "— Vybrat kliniku —",
+      "title": "API klíče a konfigurace AI",
+      "superadminOnly": "Viditelné pouze pro superadmina",
+      "makeHint": "Pro propojení leadů s Make.com",
+      "knowledgeBase": "Znalostní báze",
+      "knowledgeBaseHint": "Sem vlož znalostní bázi kliniky, nebo nahraj PDF: služby, procedury, ceny, časté dotazy…",
+      "prompt": "Prompt AI agenta",
+      "promptHint": "Pokyny chování pro AI agenta této kliniky, nebo nahraj PDF…",
+      "readingPdf": "Čtení PDF…",
+      "uploadPdf": "Nahrát PDF",
+      "saved": "Úspěšně uloženo",
+      "saving": "Ukládání…",
+      "save": "Uložit klíče",
+      "extractPdfError": "Nepodařilo se extrahovat text z PDF",
+      "defaultClinicName": "Moje klinika"
     }
   },
   "planPermissions": {

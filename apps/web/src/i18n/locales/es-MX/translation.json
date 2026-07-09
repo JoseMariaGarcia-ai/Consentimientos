@@ -1226,7 +1226,8 @@
       "preview": "Vista previa",
       "analytics": "Analítica",
       "devices": "Dispositivos de firma",
-      "subscriptions": "Suscripciones"
+      "subscriptions": "Suscripciones",
+      "keys": "Claves"
     },
     "users": {
       "title": "Usuarios",
@@ -1273,6 +1274,24 @@
       "welcome_description": "Hasta 5 imágenes o videos. Elige cuál mostrar, en aleatorio o en secuencia (máx. 100 MB por archivo).",
       "patient_title": "Contenido para paciente",
       "patient_description": "Hasta 5 imágenes o videos destinados al paciente. Su uso exacto se configurará próximamente."
+    },
+    "apiKeys": {
+      "selectClinic": "Selecciona la clínica",
+      "selectPlaceholder": "— Seleccionar clínica —",
+      "title": "API Keys y configuración de IA",
+      "superadminOnly": "Solo visible para Super Admin",
+      "makeHint": "Para vincular leads con Make.com",
+      "knowledgeBase": "Base de conocimientos",
+      "knowledgeBaseHint": "Pega aquí la base de conocimientos de la clínica, o sube un PDF: servicios, tratamientos, precios, preguntas frecuentes…",
+      "prompt": "Prompt del agente de IA",
+      "promptHint": "Instrucciones de comportamiento para el agente de IA de esta clínica, o sube un PDF…",
+      "readingPdf": "Leyendo PDF…",
+      "uploadPdf": "Subir PDF",
+      "saved": "Guardado correctamente",
+      "saving": "Guardando…",
+      "save": "Guardar claves",
+      "extractPdfError": "No se pudo extraer el texto del PDF",
+      "defaultClinicName": "Mi clínica"
     }
   },
   "planPermissions": {
