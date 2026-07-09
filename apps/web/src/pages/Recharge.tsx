@@ -117,7 +117,11 @@ function PlanCard({ plan }: { plan: Plan }) {
         >
           {loading ? t('recharge.redirecting') : t('recharge.hire_plan')}
         </button>
-        {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
+        {error && (
+          <div className="mt-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+            <p className="text-xs text-red-700 font-medium">{error}</p>
+          </div>
+        )}
       </div>
     </div>
   )
