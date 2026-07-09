@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSearchParams } from 'react-router-dom'
 import {
   Fingerprint, Globe, FileText, Calendar, Syringe, Images,
   Smartphone, MessageCircle, Mic, ShieldCheck, ArrowRight,
   Menu, X, Check, Receipt, ImageOff, Tablet,
   Clock, MonitorSmartphone, Hash, ListChecks, UserCheck,
-  ChevronDown, Instagram,
+  ChevronDown, Instagram, CheckCircle2, XCircle,
 } from 'lucide-react'
 import { LanguageSelector } from '@/components/language/LanguageSelector'
 import { PLANS, PLAN_KEY } from './Recharge'
+import { api } from '@/lib/api'
 
 const FEATURE_ICONS = [Fingerprint, Globe, FileText, Calendar, Syringe, Images, Smartphone, MessageCircle, Mic, Receipt, ImageOff, Tablet, Instagram]
 const FEATURE_KEYS = ['signature', 'multilang', 'records', 'agenda', 'toxin', 'gallery', 'portal', 'whatsapp', 'voice', 'budget', 'image_auth', 'tablet_handoff', 'social_media']
@@ -218,12 +220,26 @@ function Compliance() {
 function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
   const { t } = useTranslation()
   const [cycle, setCycle] = useState<'monthly' | 'annual'>('monthly')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const isAnnual = cycle === 'annual'
   const displayPrice = isAnnual ? Math.round(plan.monthlyPrice * (1 - ANNUAL_DISCOUNT)) : plan.monthlyPrice
   const key = PLAN_KEY[plan.id]
   const name = t(`recharge.plans.${key}.name`)
   const badge = plan.hasBadge ? t(`recharge.plans.${key}.badge`) : null
   const features = t(`recharge.plans.${key}.features`, { returnObjects: true }) as string[]
+
+  async function handleHire() {
+    setLoading(true)
+    setError(null)
+    try {
+      const { url } = await api.post('/billing/checkout-signup', { planId: plan.id, cycle })
+      window.location.href = url
+    } catch (err) {
+      setLoading(false)
+      setError(err instanceof Error ? err.message : t('recharge.checkout_error'))
+    }
+  }
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow relative flex flex-col">
@@ -270,11 +286,18 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
       </div>
       <div className="px-6 pb-6">
         <button
-          onClick={goToLogin}
-          className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors"
+          type="button"
+          onClick={handleHire}
+          disabled={loading}
+          className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {t('recharge.hire_plan')}
+          {loading ? t('recharge.redirecting') : t('recharge.hire_plan')}
         </button>
+        {error && (
+          <div className="mt-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+            <p className="text-xs text-red-700 font-medium">{error}</p>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -282,12 +305,38 @@ function PricingCard({ plan }: { plan: (typeof PLANS)[number] }) {
 
 function Pricing() {
   const { t } = useTranslation()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const signupResult = searchParams.get('signup')
+
+  function dismissSignupBanner() {
+    searchParams.delete('signup')
+    setSearchParams(searchParams, { replace: true })
+  }
+
   return (
     <section id="pricing" className="max-w-7xl mx-auto px-5 py-20">
       <div className="text-center max-w-2xl mx-auto mb-14">
         <h2 className="text-2xl md:text-3xl font-bold text-slate-800">{t('landing.pricing.title')}</h2>
         <p className="text-slate-500 mt-3">{t('landing.pricing.subtitle')}</p>
       </div>
+      {signupResult === 'success' && (
+        <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+          <p className="text-sm text-emerald-800 flex-1">{t('recharge.checkout_success')}</p>
+          <button type="button" onClick={dismissSignupBanner} className="text-xs text-emerald-700 underline">
+            {t('recharge.dismiss')}
+          </button>
+        </div>
+      )}
+      {signupResult === 'cancelled' && (
+        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-8">
+          <XCircle className="w-5 h-5 text-slate-500 flex-shrink-0" />
+          <p className="text-sm text-slate-600 flex-1">{t('recharge.checkout_cancelled')}</p>
+          <button type="button" onClick={dismissSignupBanner} className="text-xs text-slate-500 underline">
+            {t('recharge.dismiss')}
+          </button>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
         {PLANS.map(plan => <PricingCard key={plan.id} plan={plan} />)}
       </div>

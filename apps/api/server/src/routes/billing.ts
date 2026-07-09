@@ -8,6 +8,7 @@ import { requireSuperAdmin } from '../middleware/auth'
 
 const router = Router()
 export const webhookRouter = Router()
+export const publicRouter = Router()
 
 const APP_URL = process.env.APP_URL ?? 'http://localhost:5173'
 
@@ -102,6 +103,46 @@ export async function createCheckoutSession(clinic: ClinicRow, planId: string, c
     },
   })
 }
+
+// Alta pública desde la web (sin cuenta todavía) — Stripe Checkout pide el
+// email él mismo. La clínica y el usuario se crean en el webhook al
+// completarse el pago (customer.subscription.created con signup=true).
+export async function createSignupCheckoutSession(planId: string, cycle: BillingCycle) {
+  const amount = priceFor(planId, cycle)
+  return getStripe().checkout.sessions.create({
+    mode: 'subscription',
+    line_items: [{
+      price_data: {
+        currency: 'eur',
+        product_data: { name: `ConsentsPro — ${PLAN_NAMES[planId]}` },
+        unit_amount: Math.round(amount * 100),
+        recurring: { interval: cycle === 'annual' ? 'year' : 'month' },
+      },
+      quantity: 1,
+    }],
+    success_url: `${APP_URL}/?signup=success#pricing`,
+    cancel_url: `${APP_URL}/?signup=cancelled#pricing`,
+    subscription_data: {
+      metadata: { plan_id: planId, billing_cycle: cycle, signup: 'true' },
+    },
+  })
+}
+
+// POST /api/billing/checkout-signup — público, para un visitante sin cuenta todavía
+// (montado sin authMiddleware — ver routes/billing.ts's publicRouter export e index.ts)
+publicRouter.post('/checkout-signup', async (req, res) => {
+  try {
+    const { planId, cycle } = req.body as { planId?: string; cycle?: string }
+    if (!planId || !isValidPlan(planId)) return res.status(400).json({ error: 'Plan no válido' })
+    if (!cycle || !isValidCycle(cycle)) return res.status(400).json({ error: 'Ciclo de facturación no válido' })
+
+    const session = await createSignupCheckoutSession(planId, cycle as BillingCycle)
+    return res.json({ url: session.url })
+  } catch (err: any) {
+    console.error('[billing/checkout-signup]', err)
+    return res.status(500).json({ error: err.message })
+  }
+})
 
 // POST /api/billing/checkout — { planId, cycle } -> { url }
 router.post('/checkout', async (req, res) => {
@@ -205,6 +246,66 @@ router.get('/subscriptions', requireSuperAdmin, async (_req, res) => {
 
 export default router
 
+// Alta automática desde la web pública: crea la clínica y el usuario
+// "clinica" a partir del email que Stripe Checkout recogió, le manda el
+// Magic Link de acceso y el email de bienvenida con las funciones de su
+// plan. Solo se llama desde customer.subscription.created (no desde
+// "updated") para no crear clínicas duplicadas si llegan varios eventos
+// seguidos de la misma suscripción.
+async function provisionSignupClinic(sub: Stripe.Subscription, planId: string): Promise<string | null> {
+  try {
+    const customerId = typeof sub.customer === 'string' ? sub.customer : sub.customer.id
+    const customer = await getStripe().customers.retrieve(customerId)
+    if (customer.deleted || !customer.email) {
+      console.error('[billing/webhook] alta sin email de Stripe, no se puede crear la clínica', sub.id)
+      return null
+    }
+    const email = customer.email.toLowerCase()
+
+    // Si ya existe un usuario con ese email (p. ej. alguien ya registrado
+    // que compró desde la web pública por error), reutiliza su clínica en
+    // vez de crear una nueva.
+    const existingUser = await queryOne<{ clinic_id: string | null }>(
+      'SELECT clinic_id FROM app_users WHERE lower(email) = $1', [email]
+    )
+    if (existingUser?.clinic_id) return existingUser.clinic_id
+
+    const clinic = await queryOne<{ id: string }>(
+      'INSERT INTO clinics (name, email) VALUES ($1, $2) RETURNING id',
+      ['Mi clínica', email]
+    )
+    if (!clinic) return null
+
+    const namePart = email.split('@')[0]
+    const fullName = namePart.charAt(0).toUpperCase() + namePart.slice(1)
+
+    const user = await queryOne<{ id: string; email: string; full_name: string; role: string }>(
+      `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1,$2,'clinica',$3) RETURNING id, email, full_name, role`,
+      [email, fullName, clinic.id]
+    )
+    if (!user) return null
+
+    // Para que los próximos eventos de esta misma suscripción (renovación,
+    // fallo de cobro…) ya sepan a qué clínica pertenecen.
+    try {
+      await getStripe().subscriptions.update(sub.id, { metadata: { ...sub.metadata, clinic_id: clinic.id } })
+    } catch (err: any) {
+      console.error('[billing/webhook] no se pudo guardar clinic_id en la metadata de Stripe:', err.message)
+    }
+
+    const { sendInviteEmail } = await import('../lib/inviteEmail')
+    await sendInviteEmail(user, null)
+
+    const { sendWelcomeEmail } = await import('../lib/welcomeEmail')
+    await sendWelcomeEmail(clinic.id, planId)
+
+    return clinic.id
+  } catch (err: any) {
+    console.error('[billing/webhook] provisionSignupClinic falló:', err.message)
+    return null
+  }
+}
+
 // POST /api/billing/webhook — público, montado con express.raw antes del parser JSON global (ver index.ts)
 webhookRouter.post('/', async (req, res) => {
   const sig = req.headers['stripe-signature']
@@ -231,9 +332,14 @@ webhookRouter.post('/', async (req, res) => {
       event.type === 'customer.subscription.deleted'
     ) {
       const sub = event.data.object as Stripe.Subscription
-      const clinicId = sub.metadata?.clinic_id
+      let clinicId: string | undefined = sub.metadata?.clinic_id
       const planId = sub.metadata?.plan_id
       const billingCycle = sub.metadata?.billing_cycle ?? 'monthly'
+
+      if (!clinicId && sub.metadata?.signup === 'true' && planId && event.type === 'customer.subscription.created') {
+        clinicId = (await provisionSignupClinic(sub, planId)) ?? undefined
+      }
+
       if (clinicId && planId) {
         const status = event.type === 'customer.subscription.deleted' ? 'canceled' : sub.status
         const periodEndSeconds = sub.items.data[0]?.current_period_end
