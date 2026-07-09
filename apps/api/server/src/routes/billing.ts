@@ -271,8 +271,8 @@ async function provisionSignupClinic(sub: Stripe.Subscription, planId: string): 
     if (existingUser?.clinic_id) return existingUser.clinic_id
 
     const clinic = await queryOne<{ id: string }>(
-      'INSERT INTO clinics (name, email) VALUES ($1, $2) RETURNING id',
-      ['Mi clínica', email]
+      'INSERT INTO clinics (name, email, stripe_customer_id) VALUES ($1, $2, $3) RETURNING id',
+      ['Mi clínica', email, customerId]
     )
     if (!clinic) return null
 
@@ -324,7 +324,6 @@ webhookRouter.post('/', async (req, res) => {
   try {
     const already = await queryOne('SELECT id FROM stripe_webhook_events WHERE id = $1', [event.id])
     if (already) return res.json({ received: true, duplicate: true })
-    await query('INSERT INTO stripe_webhook_events (id, type) VALUES ($1, $2)', [event.id, event.type])
 
     if (
       event.type === 'customer.subscription.created' ||
@@ -388,7 +387,7 @@ webhookRouter.post('/', async (req, res) => {
         if (row) {
           if (event.type === 'invoice.payment_succeeded') {
             if (row.payment_failed_at) {
-              await query('UPDATE subscriptions SET payment_failed_at = NULL, payment_failed_notified_at = NULL WHERE id = $1', [row.id])
+              await query('UPDATE subscriptions SET payment_failed_at = NULL, payment_failed_notified_at = NULL, deactivated_at = NULL WHERE id = $1', [row.id])
             }
             const { sendSubscriptionRenewedEmail } = await import('../lib/subscriptionEmails')
             await sendSubscriptionRenewedEmail(row.id, (invoice.amount_paid ?? 0) / 100)
@@ -406,6 +405,14 @@ webhookRouter.post('/', async (req, res) => {
       }
     }
 
+    // Se marca como procesado solo al final, tras completar toda la lógica
+    // de negocio sin errores — si se marcara nada más entrar, un fallo a
+    // mitad de proceso (p. ej. un error de red) haría que el reintento
+    // automático de Stripe se descartase como duplicado sin reprocesarse.
+    await query(
+      'INSERT INTO stripe_webhook_events (id, type) VALUES ($1, $2) ON CONFLICT (id) DO NOTHING',
+      [event.id, event.type]
+    )
     return res.json({ received: true })
   } catch (err: any) {
     console.error('[billing/webhook]', err)

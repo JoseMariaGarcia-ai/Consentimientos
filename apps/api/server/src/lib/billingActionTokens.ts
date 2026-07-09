@@ -9,10 +9,11 @@ function hash(raw: string) {
   return crypto.createHash('sha256').update(raw).digest('hex')
 }
 
-// Reuses a still-valid token for the same subscription+action instead of
-// minting a new one on every email — a clinic that gets the reminder and
-// then the payment-failed notice for the same subscription reuses one
-// "portal" link rather than juggling several.
+// Emite un token nuevo en cada llamada (solo se guarda su hash, así que no
+// hay forma de recuperar uno anterior en claro para reutilizarlo). Los
+// tokens previos de la misma suscripción+acción no se invalidan: siguen
+// siendo válidos hasta su propio expires_at, así que un enlace de un email
+// anterior no deja de funcionar solo porque se haya mandado uno nuevo.
 export async function getOrCreateActionToken(subscriptionId: string, clinicId: string, action: BillingAction): Promise<string> {
   const rawToken = crypto.randomBytes(32).toString('hex')
   const tokenHash = hash(rawToken)
