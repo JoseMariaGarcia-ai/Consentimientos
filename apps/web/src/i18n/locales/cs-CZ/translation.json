@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dní zdarma",
     "promoTrialButton": "Začít bezplatnou zkušební dobu",
-    "promoTrialHint": "{{days}} dní zdarma, poté {{price}}. Kdykoli zrušitelné.",
-    "promoBanner": "Máte aktivní promo kód! Užijte si {{days}} dní bezplatné zkušební doby plánu Pro."
+    "promoTrialHint": "Během {{days}} zkušebních dní vám nebude nic účtováno. Poté {{price}}/měsíc, pokud nezrušíte. Kdykoli můžete zrušit, bez závazků.",
+    "promoBanner": "Máte aktivní promo kód! Vyzkoušejte plán {{plan}} zdarma po dobu {{days}} dní. Žádáme o kartu kvůli ověření, ale nic vám nebude účtováno, dokud zkušební doba neskončí — kdykoli můžete zrušit, bez závazků."
   },
   "toxin": {
     "title": "Kontrola Toxinu",

@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dagen gratis",
     "promoTrialButton": "Start gratis proefperiode",
-    "promoTrialHint": "{{days}} dagen gratis, daarna {{price}}. Altijd opzegbaar.",
-    "promoBanner": "Je hebt een actieve promotiecode! Geniet van {{days}} dagen gratis proefperiode van het Pro-plan."
+    "promoTrialHint": "Er wordt niets in rekening gebracht tijdens de {{days}} proefdagen. Daarna {{price}}/maand als je niet opzegt. Je kunt altijd zonder verplichtingen opzeggen.",
+    "promoBanner": "Je hebt een actieve promotiecode! Probeer het {{plan}}-abonnement {{days}} dagen gratis. We vragen je kaartgegevens ter verificatie, maar er wordt niets in rekening gebracht tot de proefperiode afloopt — je kunt altijd zonder verplichtingen opzeggen."
   },
   "toxin": {
     "title": "Toxinecontrole",

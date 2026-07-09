@@ -360,7 +360,12 @@ function Pricing() {
       {promo && (
         <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
           <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-          <p className="text-sm text-emerald-800 flex-1">{t('recharge.promoBanner', { days: promo.trialDays })}</p>
+          <p className="text-sm text-emerald-800 flex-1">
+            {t('recharge.promoBanner', {
+              days: promo.trialDays,
+              plan: t(`recharge.plans.${PLAN_KEY[promo.planId] ?? promo.planId}.name`),
+            })}
+          </p>
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">

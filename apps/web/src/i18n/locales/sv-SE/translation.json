@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dagar gratis",
     "promoTrialButton": "Starta gratis provperiod",
-    "promoTrialHint": "{{days}} dagar gratis, sedan {{price}}. Avsluta när som helst.",
-    "promoBanner": "Du har en aktiv kampanjkod! Njut av {{days}} dagars gratis provperiod av Pro-planen."
+    "promoTrialHint": "Du debiteras inget under de {{days}} provdagarna. Därefter {{price}}/månad om du inte avslutar. Avsluta när som helst, utan bindningstid.",
+    "promoBanner": "Du har en aktiv kampanjkod! Prova {{plan}}-planen gratis i {{days}} dagar. Vi ber om ditt kort för verifiering, men du debiteras inget förrän provperioden är slut — avsluta när som helst, utan bindningstid."
   },
   "toxin": {
     "title": "Toxinkontroll",

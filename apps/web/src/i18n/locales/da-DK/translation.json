@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dage gratis",
     "promoTrialButton": "Start gratis prøveperiode",
-    "promoTrialHint": "{{days}} dage gratis, derefter {{price}}. Opsig når som helst.",
-    "promoBanner": "Du har en aktiv kampagnekode! Nyd {{days}} dages gratis prøveperiode af Pro-planen."
+    "promoTrialHint": "Du bliver ikke opkrævet i løbet af de {{days}} prøvedage. Derefter {{price}}/måned, hvis du ikke opsiger. Opsig når som helst, uden binding.",
+    "promoBanner": "Du har en aktiv kampagnekode! Prøv {{plan}}-planen gratis i {{days}} dage. Vi beder om dit kort til verifikation, men du bliver ikke opkrævet, før prøveperioden slutter — opsig når som helst, uden binding."
   },
   "toxin": {
     "title": "Toksinkontrol",

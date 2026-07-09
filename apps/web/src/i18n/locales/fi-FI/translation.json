@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} päivää ilmaiseksi",
     "promoTrialButton": "Aloita ilmainen kokeilu",
-    "promoTrialHint": "{{days}} päivää ilmaiseksi, sitten {{price}}. Peruuta milloin tahansa.",
-    "promoBanner": "Sinulla on aktiivinen kampanjakoodi! Nauti {{days}} päivän ilmaisesta kokeilusta Pro-suunnitelmassa."
+    "promoTrialHint": "Sinulta ei veloiteta mitään {{days}} kokeilupäivän aikana. Sen jälkeen {{price}}/kk, jos et peruuta. Peruuta milloin tahansa, ilman sitoumuksia.",
+    "promoBanner": "Sinulla on aktiivinen kampanjakoodi! Kokeile {{plan}}-suunnitelmaa ilmaiseksi {{days}} päivää. Pyydämme korttisi vahvistusta varten, mutta sinulta ei veloiteta mitään ennen kuin kokeilujakso päättyy — peruuta milloin tahansa, ilman sitoumuksia."
   },
   "toxin": {
     "title": "Toksiinin seuranta",

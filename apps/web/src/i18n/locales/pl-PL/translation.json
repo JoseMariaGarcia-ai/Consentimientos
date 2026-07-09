@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dni za darmo",
     "promoTrialButton": "Rozpocznij bezpłatny okres próbny",
-    "promoTrialHint": "{{days}} dni za darmo, potem {{price}}. Anuluj w dowolnym momencie.",
-    "promoBanner": "Masz aktywny kod promocyjny! Skorzystaj z {{days}} dni bezpłatnego okresu próbnego planu Pro."
+    "promoTrialHint": "Nic nie zostanie pobrane przez {{days}} dni okresu próbnego. Potem {{price}}/mies., jeśli nie anulujesz. Anuluj kiedy chcesz, bez zobowiązań.",
+    "promoBanner": "Masz aktywny kod promocyjny! Wypróbuj plan {{plan}} bezpłatnie przez {{days}} dni. Prosimy o kartę w celu weryfikacji, ale nic nie zostanie pobrane, dopóki nie zakończy się okres próbny — anuluj kiedy chcesz, bez zobowiązań."
   },
   "toxin": {
     "title": "Kontrola Toksyny",

@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} jours gratuits",
     "promoTrialButton": "Commencer l'essai gratuit",
-    "promoTrialHint": "{{days}} jours gratuits, puis {{price}}. Annulez à tout moment.",
-    "promoBanner": "Vous avez un code promo actif ! Profitez de {{days}} jours d'essai gratuit sur le forfait Pro."
+    "promoTrialHint": "Vous ne serez pas débité pendant les {{days}} jours d'essai. Ensuite, {{price}} €/mois si vous n'annulez pas. Annulez à tout moment, sans engagement.",
+    "promoBanner": "Vous avez un code promo actif ! Essayez gratuitement le forfait {{plan}} pendant {{days}} jours. Nous vous demandons votre carte pour la vérifier, mais vous ne serez débité qu'à la fin de la période d'essai — annulez à tout moment, sans engagement."
   },
   "toxin": {
     "title": "Contrôle de Toxine",

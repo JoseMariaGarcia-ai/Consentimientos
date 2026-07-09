@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} days free",
     "promoTrialButton": "Start free trial",
-    "promoTrialHint": "{{days}} days free, then {{price}}. Cancel anytime.",
-    "promoBanner": "You have an active promo code! Enjoy a {{days}}-day free trial of the Pro plan."
+    "promoTrialHint": "You won't be charged anything during the {{days}}-day trial. After that, {{price}}/month if you don't cancel. Cancel anytime, no commitment.",
+    "promoBanner": "You have an active promo code! Try the {{plan}} plan free for {{days}} days. We ask for your card to verify it, but you won't be charged anything until the trial ends — cancel anytime, no commitment."
   },
   "toxin": {
     "title": "Toxin Tracking",

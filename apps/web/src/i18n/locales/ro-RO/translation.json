@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} zile gratuite",
     "promoTrialButton": "Începe perioada de probă gratuită",
-    "promoTrialHint": "{{days}} zile gratuite, apoi {{price}}. Anulează oricând.",
-    "promoBanner": "Ai un cod promoțional activ! Bucură-te de {{days}} zile de probă gratuită pentru planul Pro."
+    "promoTrialHint": "Nu vei fi taxat în timpul celor {{days}} zile de probă. Apoi {{price}}/lună dacă nu anulezi. Poți anula oricând, fără obligații.",
+    "promoBanner": "Ai un cod promoțional activ! Încearcă gratuit planul {{plan}} timp de {{days}} zile. Îți cerem cardul pentru verificare, dar nu vei fi taxat până la finalul perioadei de probă — poți anula oricând, fără obligații."
   },
   "toxin": {
     "title": "Control Toxină",

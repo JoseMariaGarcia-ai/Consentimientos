@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dias grátis",
     "promoTrialButton": "Iniciar teste gratuito",
-    "promoTrialHint": "{{days}} dias grátis, depois {{price}}. Cancele quando quiser.",
-    "promoBanner": "Você tem um código promocional ativo! Aproveite {{days}} dias de teste gratuito do plano Pro."
+    "promoTrialHint": "Você não será cobrado durante os {{days}} dias de teste. Depois, {{price}}/mês caso não cancele. Cancele quando quiser, sem compromisso.",
+    "promoBanner": "Você tem um código promocional ativo! Experimente grátis o plano {{plan}} por {{days}} dias. Pedimos o cartão para verificá-lo, mas você não será cobrado até o fim do período de teste — cancele quando quiser, sem compromisso."
   },
   "toxin": {
     "title": "Controle de Toxina",

@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} Tage gratis",
     "promoTrialButton": "Kostenlose Testphase starten",
-    "promoTrialHint": "{{days}} Tage gratis, danach {{price}}. Jederzeit kündbar.",
-    "promoBanner": "Sie haben einen aktiven Aktionscode! Genießen Sie {{days}} Tage kostenlose Testphase des Pro-Plans."
+    "promoTrialHint": "Während der {{days}}-tägigen Testphase wird Ihnen nichts berechnet. Danach {{price}} €/Monat, falls Sie nicht kündigen. Jederzeit ohne Verpflichtung kündbar.",
+    "promoBanner": "Sie haben einen aktiven Aktionscode! Testen Sie den Plan {{plan}} {{days}} Tage lang kostenlos. Wir bitten Sie um Ihre Karte zur Verifizierung, aber es wird nichts abgebucht, bis die Testphase endet — jederzeit ohne Verpflichtung kündbar."
   },
   "toxin": {
     "title": "Toxin-Kontrolle",

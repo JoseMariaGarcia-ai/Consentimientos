@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} 天免费",
     "promoTrialButton": "开始免费试用",
-    "promoTrialHint": "{{days}} 天免费，之后 {{price}}。随时可取消。",
-    "promoBanner": "您有一个有效的促销代码！享受 Pro 套餐 {{days}} 天免费试用。"
+    "promoTrialHint": "在{{days}}天试用期内不会产生任何费用。之后，如果您不取消，将按{{price}}/月收费。您可以随时取消，无需承担任何义务。",
+    "promoBanner": "您有一个有效的促销代码！免费试用{{plan}}套餐{{days}}天。我们会要求您提供银行卡用于验证，但在试用期结束前不会产生任何费用——您可以随时取消，无需承担任何义务。"
   },
   "toxin": {
     "title": "毒素管理",

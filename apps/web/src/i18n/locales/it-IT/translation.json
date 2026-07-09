@@ -1183,8 +1183,8 @@
     },
     "promoTrialBadge": "{{days}} giorni gratis",
     "promoTrialButton": "Inizia la prova gratuita",
-    "promoTrialHint": "{{days}} giorni gratis, poi {{price}}. Annulla quando vuoi.",
-    "promoBanner": "Hai un codice promozionale attivo! Goditi {{days}} giorni di prova gratuita del piano Pro."
+    "promoTrialHint": "Non ti verrà addebitato nulla durante i {{days}} giorni di prova. Dopo, {{price}} €/mese se non annulli. Annulla quando vuoi, senza impegno.",
+    "promoBanner": "Hai un codice promozionale attivo! Prova gratis il piano {{plan}} per {{days}} giorni. Ti chiediamo la carta per verificarla, ma non ti verrà addebitato nulla fino alla fine del periodo di prova — annulla quando vuoi, senza impegno."
   },
   "toxin": {
     "title": "Controllo Tossina",

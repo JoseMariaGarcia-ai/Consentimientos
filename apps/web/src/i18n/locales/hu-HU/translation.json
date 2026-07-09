@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} nap ingyen",
     "promoTrialButton": "Ingyenes próbaidőszak indítása",
-    "promoTrialHint": "{{days}} nap ingyen, utána {{price}}. Bármikor lemondható.",
-    "promoBanner": "Aktív promóciós kódja van! Élvezze a Pro csomag {{days}} napos ingyenes próbaidőszakát."
+    "promoTrialHint": "A {{days}} napos próbaidőszak alatt semmit nem terhelünk Önre. Utána {{price}}/hó, ha nem mondja le. Bármikor lemondhatja, kötelezettség nélkül.",
+    "promoBanner": "Aktív promóciós kódja van! Próbálja ki ingyenesen a(z) {{plan}} csomagot {{days}} napig. A kártyáját ellenőrzés céljából kérjük, de semmit nem terhelünk rá, amíg a próbaidőszak véget nem ér — bármikor lemondhatja, kötelezettség nélkül."
   },
   "toxin": {
     "title": "Toxinkontroll",

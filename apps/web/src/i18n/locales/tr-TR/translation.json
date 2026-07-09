@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} gün ücretsiz",
     "promoTrialButton": "Ücretsiz denemeyi başlat",
-    "promoTrialHint": "{{days}} gün ücretsiz, ardından {{price}}. İstediğiniz zaman iptal edin.",
-    "promoBanner": "Aktif bir promosyon kodunuz var! Pro planında {{days}} gün ücretsiz deneme keyfini yaşayın."
+    "promoTrialHint": "{{days}} günlük deneme süresi boyunca hiçbir ücret alınmaz. Sonrasında iptal etmezseniz {{price}}/ay. İstediğiniz zaman, taahhütsüz olarak iptal edebilirsiniz.",
+    "promoBanner": "Aktif bir promosyon kodunuz var! {{plan}} planını {{days}} gün boyunca ücretsiz deneyin. Doğrulama için kartınızı istiyoruz, ancak deneme süresi bitene kadar hiçbir ücret alınmaz — istediğiniz zaman, taahhütsüz olarak iptal edebilirsiniz."
   },
   "toxin": {
     "title": "Toksin Kontrolü",

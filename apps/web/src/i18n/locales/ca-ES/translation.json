@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} dies gratis",
     "promoTrialButton": "Comença la prova gratuïta",
-    "promoTrialHint": "{{days}} dies gratis, després {{price}}. Cancel·la quan vulguis.",
-    "promoBanner": "Tens un codi promocional actiu! Gaudeix de {{days}} dies de prova gratuïta del pla Pro."
+    "promoTrialHint": "No se't cobrarà res durant els {{days}} dies de prova. Després, {{price}} €/mes si no cancel·les. Pots cancel·lar quan vulguis, sense compromís.",
+    "promoBanner": "Tens un codi promocional actiu! Prova gratis el pla {{plan}} durant {{days}} dies. Et demanem la targeta per verificar-la, però no se't cobrarà res fins que acabi el període de prova — cancel·la quan vulguis, sense compromís."
   },
   "toxin": {
     "title": "Control de Toxina",

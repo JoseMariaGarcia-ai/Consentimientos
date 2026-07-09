@@ -1129,8 +1129,8 @@
     },
     "promoTrialBadge": "{{days}} ngày miễn phí",
     "promoTrialButton": "Bắt đầu dùng thử miễn phí",
-    "promoTrialHint": "{{days}} ngày miễn phí, sau đó {{price}}. Hủy bất cứ lúc nào.",
-    "promoBanner": "Bạn có một mã khuyến mãi đang hoạt động! Tận hưởng {{days}} ngày dùng thử miễn phí gói Pro."
+    "promoTrialHint": "Bạn sẽ không bị tính phí trong {{days}} ngày dùng thử. Sau đó, {{price}}/tháng nếu bạn không hủy. Hủy bất cứ lúc nào, không ràng buộc.",
+    "promoBanner": "Bạn có một mã khuyến mãi đang hoạt động! Dùng thử miễn phí gói {{plan}} trong {{days}} ngày. Chúng tôi yêu cầu thẻ của bạn để xác minh, nhưng bạn sẽ không bị tính phí cho đến khi thời gian dùng thử kết thúc — hủy bất cứ lúc nào, không ràng buộc."
   },
   "toxin": {
     "title": "Kiểm Soát Độc Tố",
