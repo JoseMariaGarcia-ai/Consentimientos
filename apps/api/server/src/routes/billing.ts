@@ -19,7 +19,18 @@ async function getClinic(userId: string) {
 }
 
 async function getOrCreateStripeCustomer(clinic: { id: string; name: string; email: string | null; stripe_customer_id: string | null }) {
-  if (clinic.stripe_customer_id) return clinic.stripe_customer_id
+  if (clinic.stripe_customer_id) {
+    // The stored ID can go stale (deleted in Stripe, or created under a
+    // different key — e.g. live vs. test mode each have their own customer
+    // namespace), in which case Stripe rejects it. Fall back to creating a
+    // fresh customer instead of failing the whole checkout.
+    try {
+      const existing = await getStripe().customers.retrieve(clinic.stripe_customer_id)
+      if (!existing.deleted) return existing.id
+    } catch {
+      // stale ID — fall through and create a new one below
+    }
+  }
   const customer = await getStripe().customers.create({
     name: clinic.name,
     email: clinic.email ?? undefined,
