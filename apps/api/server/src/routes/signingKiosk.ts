@@ -43,6 +43,17 @@ router.get('/pending', async (req, res) => {
     )
     if (!consent) return res.json(null)
 
+    // row_to_json(t) devuelve las columnas de consent_templates tal cual
+    // (content_json, legal_clauses_json), pero useConsentWithLegal — igual
+    // que el resto de la app — espera camelCase (así lo devuelve ya
+    // GET /api/consents/templates). Sin este remapeo, KioskConsentSigner
+    // recibe contentJson=undefined y revienta al montar (pantalla en blanco
+    // en la tablet, sin nada firmable).
+    if (consent.template) {
+      consent.template.contentJson = consent.template.content_json
+      consent.template.legalClausesJson = consent.template.legal_clauses_json
+    }
+
     return res.json({ handoffId: handoff.id, consent })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

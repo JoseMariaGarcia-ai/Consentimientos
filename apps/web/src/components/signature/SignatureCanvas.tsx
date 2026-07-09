@@ -30,17 +30,25 @@ export function SignatureCanvas({ onSave, onClear }: SignatureCanvasProps) {
     ctx.lineJoin = "round";
   }, []);
 
+  // El canvas tiene una resolución de dibujo fija (500x150, los atributos
+  // width/height) pero se muestra a un tamaño distinto por CSS (w-full lo
+  // estira a lo ancho de su contenedor — en una tablet en modo kiosco casi
+  // siempre es más ancho que 500px). Sin corregir la escala, las coordenadas
+  // del toque/ratón (relativas al tamaño mostrado) no coinciden con las del
+  // buffer de dibujo: el trazo queda desplazado o se sale del lienzo.
   const getPos = (e: React.MouseEvent | React.TouchEvent) => {
     const canvas = canvasRef.current!;
     const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     if ("touches" in e) {
       return {
-        x: e.touches[0].clientX - rect.left,
-        y: e.touches[0].clientY - rect.top,
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY,
         pressure: (e.touches[0] as any).force ?? 0.5,
       };
     }
-    return { x: e.clientX - rect.left, y: e.clientY - rect.top, pressure: 0.5 };
+    return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY, pressure: 0.5 };
   };
 
   const startDraw = (e: React.MouseEvent | React.TouchEvent) => {

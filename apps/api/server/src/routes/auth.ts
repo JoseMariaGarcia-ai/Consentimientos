@@ -11,7 +11,7 @@ router.post('/magic-link', async (req, res) => {
   if (!email) return res.status(400).json({ error: 'Email requerido' })
   try {
     let user = await queryOne<{ id: string; email: string; clinic_id: string }>(
-      'SELECT id, email, clinic_id FROM app_users WHERE email = $1', [email]
+      'SELECT id, email, clinic_id FROM app_users WHERE lower(email) = lower($1)', [email]
     )
     if (!user) {
       // Don't auto-create users — they must be invited by an admin first

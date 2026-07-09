@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 // POST /api/credits/topup — admin adds credits
 router.post('/topup', async (req, res) => {
   const { userId, role } = (req as any).user
-  if (role !== 'admin') return res.status(403).json({ error: 'Solo administradores' })
+  if (role !== 'admin' && role !== 'superadmin') return res.status(403).json({ error: 'Solo administradores' })
   const { consents = 0, clinical_records = 0, photo_sessions = 0, clinic_id } = req.body
   try {
     const targetClinicId = clinic_id ?? (await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId]))?.clinic_id
@@ -52,7 +52,7 @@ router.post('/topup', async (req, res) => {
 // POST /api/credits/set — admin sets absolute values
 router.post('/set', async (req, res) => {
   const { userId, role } = (req as any).user
-  if (role !== 'admin') return res.status(403).json({ error: 'Solo administradores' })
+  if (role !== 'admin' && role !== 'superadmin') return res.status(403).json({ error: 'Solo administradores' })
   const { consents, clinical_records, photo_sessions, clinic_id } = req.body
   try {
     const targetClinicId = clinic_id ?? (await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId]))?.clinic_id

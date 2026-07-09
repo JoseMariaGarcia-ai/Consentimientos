@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
     // Auto-create patient user and send welcome email if email provided
     if (data && f.email) {
       try {
-        const existing = await queryOne<{ id: string }>('SELECT id FROM app_users WHERE email = $1', [f.email])
+        const existing = await queryOne<{ id: string }>('SELECT id FROM app_users WHERE lower(email) = lower($1)', [f.email])
         let patientUserId: string
         if (existing) {
           patientUserId = existing.id
