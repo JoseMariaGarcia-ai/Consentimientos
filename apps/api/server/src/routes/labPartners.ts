@@ -3,8 +3,46 @@ import { query, queryOne } from '../lib/db'
 
 const router = Router()
 
+// El catálogo de laboratorios es una entidad de plataforma, no de una
+// clínica — a diferencia de /api/users o /api/plan-permissions (donde
+// "admin" gestiona SU clínica), aquí solo superadmin tiene autoridad, igual
+// que en /api/workflows y /api/analytics.
+function isPlatformAdmin(role: string) {
+  return role === 'superadmin'
+}
+
+async function getRequester(req: any): Promise<{ role: string; labPartnerId: string | null } | null> {
+  const { userId } = req.user
+  const me = await queryOne<{ role: string; lab_partner_id: string | null }>(
+    'SELECT role, lab_partner_id FROM app_users WHERE id = $1', [userId]
+  )
+  if (!me) return null
+  return { role: me.role, labPartnerId: me.lab_partner_id }
+}
+
+// El catálogo de laboratorios (y a qué clínicas están asignados) es un dato
+// compartido de toda la plataforma, no de una clínica concreta — crear,
+// editar o borrar laboratorios, o (des)asignarlos a clínicas, es exclusivo
+// de admin/superadmin.
+async function requirePlatformAdmin(req: any, res: any, next: any) {
+  const me = await getRequester(req)
+  if (!me || !isPlatformAdmin(me.role)) return res.status(403).json({ error: 'Sin acceso' })
+  next()
+}
+
+// Gestionar las campañas o el perfil de UN laboratorio concreto: admin/
+// superadmin, o el propio usuario lab_partner sobre su propio lab_partner_id
+// — antes cualquier usuario autenticado podía tocar los de otro laboratorio
+// con solo cambiar el :id de la URL.
+async function requireLabAccess(req: any, res: any, next: any) {
+  const me = await getRequester(req)
+  if (!me) return res.status(403).json({ error: 'Sin acceso' })
+  if (isPlatformAdmin(me.role) || (me.role === 'lab_partner' && me.labPartnerId === req.params.id)) return next()
+  return res.status(403).json({ error: 'Sin acceso' })
+}
+
 // List all lab partners with clinic count and campaign count
-router.get('/', async (_req, res) => {
+router.get('/', requirePlatformAdmin, async (_req, res) => {
   try {
     const data = await query(
       `SELECT lp.*,
@@ -17,7 +55,7 @@ router.get('/', async (_req, res) => {
 })
 
 // Create lab partner
-router.post('/', async (req, res) => {
+router.post('/', requirePlatformAdmin, async (req, res) => {
   const b = req.body
   try {
     const data = await queryOne(
@@ -30,7 +68,7 @@ router.post('/', async (req, res) => {
 })
 
 // Get one with assigned clinics and campaigns
-router.get('/:id', async (req, res) => {
+router.get('/:id', requireLabAccess, async (req, res) => {
   try {
     const lab = await queryOne(`SELECT * FROM lab_partners WHERE id = $1`, [req.params.id])
     if (!lab) return res.status(404).json({ error: 'Laboratorio no encontrado' })
@@ -45,7 +83,7 @@ router.get('/:id', async (req, res) => {
 
 // Daily welcome/patient impression counts for the stats dashboard.
 // Defaults to the current month when no from/to given.
-router.get('/:id/media-stats', async (req, res) => {
+router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
   try {
     const { from, to } = req.query as { from?: string; to?: string }
     const now = new Date()
@@ -83,7 +121,7 @@ router.get('/:id/media-stats', async (req, res) => {
 })
 
 // Update
-router.put('/:id', async (req, res) => {
+router.put('/:id', requirePlatformAdmin, async (req, res) => {
   const b = req.body
   try {
     const data = await queryOne(
@@ -96,7 +134,7 @@ router.put('/:id', async (req, res) => {
 })
 
 // Soft delete
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requirePlatformAdmin, async (req, res) => {
   try {
     await query('UPDATE lab_partners SET is_active=FALSE, updated_at=NOW() WHERE id = $1', [req.params.id])
     return res.json({ deleted: true })
@@ -104,7 +142,7 @@ router.delete('/:id', async (req, res) => {
 })
 
 // List clinics assigned to lab
-router.get('/:id/clinics', async (req, res) => {
+router.get('/:id/clinics', requirePlatformAdmin, async (req, res) => {
   try {
     const data = await query(
       `SELECT c.*, clp.assigned_at FROM clinic_lab_partners clp JOIN clinics c ON c.id = clp.clinic_id WHERE clp.lab_partner_id = $1`,
@@ -115,7 +153,7 @@ router.get('/:id/clinics', async (req, res) => {
 })
 
 // Assign clinic
-router.post('/:id/clinics', async (req, res) => {
+router.post('/:id/clinics', requirePlatformAdmin, async (req, res) => {
   const { clinic_id } = req.body
   try {
     const data = await queryOne(
@@ -128,7 +166,7 @@ router.post('/:id/clinics', async (req, res) => {
 })
 
 // Unassign clinic
-router.delete('/:id/clinics/:clinicId', async (req, res) => {
+router.delete('/:id/clinics/:clinicId', requirePlatformAdmin, async (req, res) => {
   try {
     await query('DELETE FROM clinic_lab_partners WHERE lab_partner_id = $1 AND clinic_id = $2', [req.params.id, req.params.clinicId])
     return res.json({ deleted: true })
@@ -136,7 +174,7 @@ router.delete('/:id/clinics/:clinicId', async (req, res) => {
 })
 
 // List campaigns
-router.get('/:id/campaigns', async (req, res) => {
+router.get('/:id/campaigns', requireLabAccess, async (req, res) => {
   try {
     const data = await query(`SELECT * FROM lab_ad_campaigns WHERE lab_partner_id = $1 ORDER BY created_at DESC`, [req.params.id])
     return res.json(data)
@@ -144,7 +182,7 @@ router.get('/:id/campaigns', async (req, res) => {
 })
 
 // Create campaign
-router.post('/:id/campaigns', async (req, res) => {
+router.post('/:id/campaigns', requireLabAccess, async (req, res) => {
   const b = req.body
   try {
     const data = await queryOne(
@@ -168,7 +206,7 @@ router.post('/:id/campaigns', async (req, res) => {
 })
 
 // Update campaign
-router.put('/:id/campaigns/:cid', async (req, res) => {
+router.put('/:id/campaigns/:cid', requireLabAccess, async (req, res) => {
   const b = req.body
   try {
     const data = await queryOne(
@@ -193,7 +231,7 @@ router.put('/:id/campaigns/:cid', async (req, res) => {
 })
 
 // Delete campaign
-router.delete('/:id/campaigns/:cid', async (req, res) => {
+router.delete('/:id/campaigns/:cid', requireLabAccess, async (req, res) => {
   try {
     await query('DELETE FROM lab_ad_campaigns WHERE id = $1 AND lab_partner_id = $2', [req.params.cid, req.params.id])
     return res.json({ deleted: true })

@@ -5,9 +5,18 @@ import { getPresignedUrl } from '../lib/r2'
 const router = Router()
 
 // Middleware: ensure caller is a patient and get their patient record
+//
+// user_id no es único en patients: si el mismo email se usa como paciente
+// en dos clínicas distintas, ambos registros de paciente comparten el mismo
+// app_users.id (patients.ts dedupa por email a nivel global, no por
+// clínica). Sin ORDER BY/LIMIT el resultado dependería del orden interno
+// de Postgres y podría "saltar" de una clínica a otra entre peticiones —
+// aquí se fija de forma determinista al registro más reciente. Esto no
+// resuelve el caso de fondo (ese paciente solo puede ver una de sus dos
+// clínicas desde este portal), que requiere una decisión de producto.
 async function getPatientRecord(userId: string) {
   const patient = await queryOne<any>(
-    'SELECT * FROM patients WHERE user_id = $1',
+    'SELECT * FROM patients WHERE user_id = $1 ORDER BY created_at DESC LIMIT 1',
     [userId]
   )
   if (!patient) throw { status: 403, message: 'No se encontró el perfil de paciente' }
@@ -22,7 +31,8 @@ router.get('/me', async (req, res) => {
       `SELECT p.*, c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email, c.logo_url AS clinic_logo
        FROM patients p
        LEFT JOIN clinics c ON c.id = p.clinic_id
-       WHERE p.user_id = $1`,
+       WHERE p.user_id = $1
+       ORDER BY p.created_at DESC LIMIT 1`,
       [userId]
     )
     if (!patient) return res.status(404).json({ error: 'Paciente no encontrado' })
