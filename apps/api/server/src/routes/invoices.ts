@@ -34,7 +34,9 @@ router.get('/', async (req, res) => {
     let sql = `
       SELECT i.*, row_to_json(p) AS patient,
         (SELECT r.aeat_response_status FROM invoice_records r
-         WHERE r.invoice_id = i.id AND r.record_type = 'alta' LIMIT 1) AS aeat_status
+         WHERE r.invoice_id = i.id AND r.record_type = 'alta' LIMIT 1) AS aeat_status,
+        (SELECT r.aeat_sent_at FROM invoice_records r
+         WHERE r.invoice_id = i.id AND r.record_type = 'alta' LIMIT 1) AS aeat_sent_at
       FROM invoices i
       LEFT JOIN patients p ON p.id = i.patient_id
       WHERE i.clinic_id = $1

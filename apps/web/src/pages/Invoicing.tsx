@@ -191,10 +191,10 @@ export default function Invoicing() {
                       </span>
                     </td>
                     <td className="px-4 py-3 text-center">
-                      {inv.aeat_status === 'pendiente_conexion_aeat' ? (
-                        <Clock className="w-4 h-4 text-amber-500 inline-block" />
-                      ) : (
+                      {inv.aeat_sent_at ? (
                         <CheckCircle2 className="w-4 h-4 text-emerald-500 inline-block" />
+                      ) : (
+                        <Clock className="w-4 h-4 text-amber-500 inline-block" />
                       )}
                     </td>
                     <td className="px-4 py-3">

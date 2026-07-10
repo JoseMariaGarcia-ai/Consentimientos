@@ -24,7 +24,7 @@ export function InvoiceView({ invoice, clinic, onClose, onCancelled }: Props) {
   const [error, setError] = useState('')
 
   const lastAlta = (invoice.records ?? []).slice().reverse().find((r: any) => r.record_type === 'alta')
-  const aeatPending = lastAlta?.aeat_response_status === 'pendiente_conexion_aeat'
+  const aeatPending = !lastAlta?.aeat_sent_at
 
   const handleCancel = async () => {
     if (!confirm(t('invoiceView.confirmCancel'))) return

@@ -43,13 +43,8 @@ export function OwnClockPanel() {
 
   const loadStatus = useCallback(async () => {
     try {
-      const now = new Date()
-      const records = await api.get(`/timetracking/records?date_from=${toDateStr(now)}`)
-      const last = Array.isArray(records) && records.length > 0 ? records[0] : null
-      if (!last) { setStatus('fuera'); return }
-      if (last.record_type === 'entrada' || last.record_type === 'fin_pausa') setStatus('dentro')
-      else if (last.record_type === 'inicio_pausa') setStatus('en_pausa')
-      else setStatus('fuera')
+      const res = await api.get('/timetracking/status')
+      setStatus(res?.status === 'dentro' || res?.status === 'en_pausa' ? res.status : 'fuera')
     } catch { setStatus('fuera') }
   }, [])
 

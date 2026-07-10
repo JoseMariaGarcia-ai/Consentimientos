@@ -152,6 +152,25 @@ router.put('/settings', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// ---- Estado actual del propio empleado (dentro/fuera/en_pausa) ------------
+
+// Se basa en el último fichaje SIN filtro de fecha (igual que la columna
+// "status" de /employees) — filtrar por "hoy" rompería el estado de un
+// turno que cruza medianoche (fichaje de "entrada" hecho el día anterior).
+router.get('/status', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const me = await getUser(userId)
+    if (!me?.clinic_id) return res.json({ status: 'fuera' })
+    const employee = await ownEmployee(userId, me.clinic_id)
+    if (!employee) return res.json({ status: 'fuera' })
+    const last = await queryOne<{ record_type: string }>(
+      'SELECT record_type FROM time_records WHERE employee_id = $1 ORDER BY created_at DESC LIMIT 1', [employee.id]
+    )
+    return res.json({ status: currentStatus(last?.record_type ?? null) })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // ---- Fichar (empleado autenticado — web / enlace QR) -----------------------
 
 // El employee_id nunca lo manda el cliente: se resuelve del app_user
