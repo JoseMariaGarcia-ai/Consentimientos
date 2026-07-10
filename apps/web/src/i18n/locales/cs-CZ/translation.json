@@ -531,7 +531,8 @@
     "budgets": "Cenové nabídky",
     "workflows": "Automatizace",
     "tickets": "Incidenty",
-    "invoicing": "Fakturace"
+    "invoicing": "Fakturace",
+    "timeTracking": "Docházka"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Odesláno na AEAT",
     "cancelInvoice": "Zrušit fakturu",
     "cancelling": "Ruší se…"
+  },
+  "employeeModal": {
+    "titleEdit": "Upravit zaměstnance",
+    "titleNew": "Nový zaměstnanec",
+    "form": {
+      "fullName": "Celé jméno",
+      "dniNie": "Číslo dokladu totožnosti",
+      "role": "Pozice",
+      "rolePlaceholder": "Např. Recepční, Lékař",
+      "email": "Email",
+      "linkedUser": "Propojený uživatel",
+      "noLinkedUser": "Nepropojeno (pouze evidence přes PIN)",
+      "linkedUserHint": "Pokud má zaměstnanec vlastní přístup do aplikace, propojte ho zde, aby viděl svou historii docházky.",
+      "pin": "PIN pro evidenci",
+      "pinPlaceholder": "4-6 číslic",
+      "pinEditPlaceholder": "Nechte prázdné, pokud ho nechcete měnit",
+      "pinHint": "Potřebné pouze, pokud se zaměstnanec eviduje z PIN terminálu kliniky."
+    },
+    "errors": {
+      "fullName": "Jméno je povinné",
+      "dniNie": "Číslo dokladu je povinné",
+      "pinFormat": "PIN musí mít 4 až 6 číslic",
+      "saveFailed": "Zaměstnance se nepodařilo uložit"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Evidence docházky",
+    "dniNie": "Číslo dokladu totožnosti",
+    "pin": "PIN",
+    "success": "Zaevidováno, {{name}}",
+    "pinFormatError": "PIN musí mít 4 až 6 číslic",
+    "genericError": "Evidenci se nepodařilo zaznamenat",
+    "missingClinic": "Neplatný odkaz — klinika nebyla identifikována"
+  },
+  "timeTracking": {
+    "title": "Docházka",
+    "subtitle": "Evidence pracovní doby v souladu s RDL 8/2019, s neměnnou sledovatelností pomocí řetězce hashů.",
+    "tabSelf": "Moje evidence",
+    "tabAdmin": "Administrace",
+    "myClock": "Moje evidence",
+    "clockIn": "Příchod",
+    "clockOut": "Odchod",
+    "startBreak": "Začátek přestávky",
+    "endBreak": "Konec přestávky",
+    "clockError": "Evidenci se nepodařilo zaznamenat",
+    "statusIn": "Přítomen",
+    "statusOut": "Nepřítomen",
+    "statusPaused": "Na přestávce",
+    "thisWeek": "Tento týden",
+    "thisMonth": "Tento měsíc",
+    "downloadMyReport": "Stáhnout můj report",
+    "exportError": "Report se nepodařilo vygenerovat",
+    "addEmployee": "Přidat zaměstnance",
+    "employeesTitle": "Zaměstnanci",
+    "noEmployees": "Zatím jste nepřidali žádného zaměstnance.",
+    "methodsTitle": "Aktivní metody evidence",
+    "methodsHint": "Zaměstnanec se eviduje z aplikace/webu jedním klepnutím (s volitelnou geolokací). QR a PIN jsou alternativy pro ty bez přístupu do aplikace.",
+    "method": {
+      "web": "Aplikace/Web (jedno klepnutí)",
+      "qr": "QR kód kliniky",
+      "pin": "Pevný PIN terminál"
+    },
+    "status": {
+      "dentro": "Přítomen",
+      "fuera": "Nepřítomen",
+      "en_pausa": "Na přestávce"
+    },
+    "hoursTitle": "Odpracované hodiny",
+    "employee": "Zaměstnanec",
+    "selectEmployee": "Vyberte zaměstnance",
+    "date": "Datum",
+    "hours": "Hodiny",
+    "overtime": "Přesčasy",
+    "overtimeShort": "přesčas",
+    "noHours": "V tomto období nejsou žádné evidence.",
+    "periodTotal": "Celkem za období",
+    "compensationType": "Kompenzace přesčasů",
+    "compensationEconomic": "Finanční odměna",
+    "compensationRest": "Náhradní volno",
+    "compensationNotes": "Poznámky",
+    "compensationSave": "Uložit kompenzaci",
+    "compensationSaved": "Uloženo",
+    "integrityAlarm": "V řetězci hashů docházky bylo zjištěno {{count}} nesrovnalostí. Kontaktujte podporu."
   }
 }

@@ -27,6 +27,8 @@ import Toxina from './pages/Toxina'
 import ToxinDetail from './pages/ToxinDetail'
 import Budgets from './pages/Budgets'
 import Invoicing from './pages/Invoicing'
+import TimeTracking from './pages/TimeTracking'
+import TimeClockKiosk from './pages/TimeClockKiosk'
 import Workflows from './pages/Workflows'
 import Tickets from './pages/Tickets'
 import TabletPair from './pages/TabletPair'
@@ -98,6 +100,7 @@ function AppShell() {
   if (window.location.pathname.startsWith('/auth/verify')) return <AuthVerify />
   if (window.location.pathname === '/tablet-pair') return <TabletPair />
   if (window.location.pathname === '/tablet-kiosk') return <TabletKiosk />
+  if (window.location.pathname === '/fichar') return <TimeClockKiosk />
   if (window.location.pathname === '/' && !isAuthenticated) return <Landing />
 
   if (!isAuthenticated) return <Login />
@@ -165,6 +168,7 @@ function AppShell() {
               <Route path="/toxina/:id" element={guard('toxin', <ToxinDetail />)} />
               <Route path="/budgets" element={guard('budgets', <Budgets />)} />
               <Route path="/invoicing" element={guard('invoicing', <Invoicing />)} />
+              <Route path="/control-horario" element={guard('time-tracking', <TimeTracking />)} />
               <Route path="/workflows" element={isSuperAdmin ? <Workflows /> : <Navigate to="/" />} />
               <Route path="/tickets" element={guard('tickets', <Tickets />)} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />

@@ -531,7 +531,8 @@
     "budgets": "הצעות מחיר",
     "workflows": "תהליכי עבודה",
     "tickets": "תקלות",
-    "invoicing": "חשבוניות"
+    "invoicing": "חשבוניות",
+    "timeTracking": "בקרת נוכחות"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",
@@ -1770,5 +1771,88 @@
     "aeatSent": "נשלחה ל-AEAT",
     "cancelInvoice": "בטל חשבונית",
     "cancelling": "מבטל…"
+  },
+  "employeeModal": {
+    "titleEdit": "עריכת עובד",
+    "titleNew": "עובד חדש",
+    "form": {
+      "fullName": "שם מלא",
+      "dniNie": "מספר תעודת זהות",
+      "role": "תפקיד",
+      "rolePlaceholder": "לדוגמה: פקידת קבלה, רופא/ה",
+      "email": "אימייל",
+      "linkedUser": "משתמש מקושר",
+      "noLinkedUser": "לא מקושר (החתמה באמצעות PIN בלבד)",
+      "linkedUserHint": "אם לעובד יש גישה משלו לאפליקציה, קשר אותו כאן כדי שיוכל לראות את היסטוריית ההחתמות שלו.",
+      "pin": "PIN להחתמה",
+      "pinPlaceholder": "4-6 ספרות",
+      "pinEditPlaceholder": "השאר ריק כדי לא לשנות",
+      "pinHint": "נדרש רק אם העובד יחתים מהעמדת ה-PIN של הקליניקה."
+    },
+    "errors": {
+      "fullName": "השם הוא שדה חובה",
+      "dniNie": "מספר תעודת הזהות הוא שדה חובה",
+      "pinFormat": "ה-PIN חייב להכיל 4 עד 6 ספרות",
+      "saveFailed": "לא ניתן היה לשמור את העובד"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "החתמת שעון",
+    "dniNie": "מספר תעודת זהות",
+    "pin": "PIN",
+    "success": "הוחתם, {{name}}",
+    "pinFormatError": "ה-PIN חייב להכיל 4 עד 6 ספרות",
+    "genericError": "לא ניתן היה לרשום את ההחתמה",
+    "missingClinic": "קישור לא תקין — לא זוהתה קליניקה"
+  },
+  "timeTracking": {
+    "title": "בקרת נוכחות",
+    "subtitle": "רישום שעות עבודה בהתאם ל-RDL 8/2019, עם מעקב בלתי ניתן לשינוי באמצעות שרשרת גיבוב.",
+    "tabSelf": "ההחתמה שלי",
+    "tabAdmin": "ניהול",
+    "myClock": "ההחתמה שלי",
+    "clockIn": "כניסה",
+    "clockOut": "יציאה",
+    "startBreak": "התחלת הפסקה",
+    "endBreak": "סיום הפסקה",
+    "clockError": "לא ניתן היה לרשום את ההחתמה",
+    "statusIn": "בפנים",
+    "statusOut": "בחוץ",
+    "statusPaused": "בהפסקה",
+    "thisWeek": "השבוע",
+    "thisMonth": "החודש",
+    "downloadMyReport": "הורד את הדוח שלי",
+    "exportError": "לא ניתן היה ליצור את הדוח",
+    "addEmployee": "הוסף עובד",
+    "employeesTitle": "עובדים",
+    "noEmployees": "עדיין לא הוספת אף עובד.",
+    "methodsTitle": "שיטות החתמה פעילות",
+    "methodsHint": "העובד מחתים מהאפליקציה/אתר בלחיצה אחת (עם מיקום גיאוגרפי אופציונלי). QR ו-PIN הם חלופות למי שאין לו גישה לאפליקציה.",
+    "method": {
+      "web": "אפליקציה/אתר (לחיצה אחת)",
+      "qr": "קוד QR של הקליניקה",
+      "pin": "עמדת PIN קבועה"
+    },
+    "status": {
+      "dentro": "בפנים",
+      "fuera": "בחוץ",
+      "en_pausa": "בהפסקה"
+    },
+    "hoursTitle": "שעות עבודה",
+    "employee": "עובד",
+    "selectEmployee": "בחר עובד",
+    "date": "תאריך",
+    "hours": "שעות",
+    "overtime": "שעות נוספות",
+    "overtimeShort": "נוספות",
+    "noHours": "אין החתמות בתקופה זו.",
+    "periodTotal": "סה\"כ לתקופה",
+    "compensationType": "פיצוי על שעות נוספות",
+    "compensationEconomic": "תגמול כספי",
+    "compensationRest": "מנוחה",
+    "compensationNotes": "הערות",
+    "compensationSave": "שמור פיצוי",
+    "compensationSaved": "נשמר",
+    "integrityAlarm": "זוהו {{count}} אי-התאמות בשרשרת הגיבוב של ההחתמות. פנה לתמיכה."
   }
 }

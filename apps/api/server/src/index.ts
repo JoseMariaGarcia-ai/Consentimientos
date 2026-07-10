@@ -29,6 +29,7 @@ import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes
 import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
 import invoicesRouter from './routes/invoices'
+import timeTrackingRouter, { publicRouter as timeTrackingPublicRouter } from './routes/timeTracking'
 import workflowsRouter from './routes/workflows'
 import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
 import ticketsRouter from './routes/tickets'
@@ -66,6 +67,7 @@ app.use('/api/signing-devices', signingDevicesPublicRouter)
 app.use('/api/signing-kiosk', deviceAuthMiddleware, signingKioskRouter)
 app.use('/api/billing-action', billingActionRouter)
 app.use('/api/billing', billingSignupRouter)
+app.use('/api/timetracking', timeTrackingPublicRouter)
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -93,6 +95,7 @@ app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
 app.use('/api/invoices',        authMiddleware, invoicesRouter)
+app.use('/api/timetracking',    authMiddleware, timeTrackingRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
 app.use('/api/tickets',         authMiddleware, ticketsRouter)

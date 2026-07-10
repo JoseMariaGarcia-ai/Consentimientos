@@ -531,7 +531,8 @@
     "budgets": "견적서",
     "workflows": "워크플로우",
     "tickets": "오류 신고",
-    "invoicing": "청구서 발행"
+    "invoicing": "청구서 발행",
+    "timeTracking": "근태 관리"
   },
   "topbar": {
     "tagline": "디지털 동의서 · 생체 인식 서명",
@@ -1814,5 +1815,88 @@
     "aeatSent": "AEAT로 전송됨",
     "cancelInvoice": "청구서 취소",
     "cancelling": "취소 중…"
+  },
+  "employeeModal": {
+    "titleEdit": "직원 수정",
+    "titleNew": "신규 직원",
+    "form": {
+      "fullName": "성명",
+      "dniNie": "신분증 번호",
+      "role": "직책",
+      "rolePlaceholder": "예: 리셉셔니스트, 의사",
+      "email": "이메일",
+      "linkedUser": "연결된 사용자",
+      "noLinkedUser": "연결되지 않음(PIN 출퇴근만)",
+      "linkedUserHint": "직원이 자체 앱 접근 권한이 있는 경우, 여기서 연결하면 본인의 출퇴근 기록을 볼 수 있습니다.",
+      "pin": "출퇴근 PIN",
+      "pinPlaceholder": "4-6자리",
+      "pinEditPlaceholder": "변경하지 않으려면 비워두세요",
+      "pinHint": "직원이 클리닉의 PIN 단말기에서 출퇴근할 경우에만 필요합니다."
+    },
+    "errors": {
+      "fullName": "이름은 필수입니다",
+      "dniNie": "신분증 번호는 필수입니다",
+      "pinFormat": "PIN은 4~6자리여야 합니다",
+      "saveFailed": "직원을 저장하지 못했습니다"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "출퇴근 기록",
+    "dniNie": "신분증 번호",
+    "pin": "PIN",
+    "success": "기록됨, {{name}}",
+    "pinFormatError": "PIN은 4~6자리여야 합니다",
+    "genericError": "출퇴근을 기록하지 못했습니다",
+    "missingClinic": "유효하지 않은 링크 — 클리닉을 확인할 수 없습니다"
+  },
+  "timeTracking": {
+    "title": "근태 관리",
+    "subtitle": "RDL 8/2019를 준수하는 근무 시간 기록, 해시 체인을 통한 변경 불가능한 추적성 제공.",
+    "tabSelf": "내 출퇴근",
+    "tabAdmin": "관리",
+    "myClock": "내 출퇴근",
+    "clockIn": "출근",
+    "clockOut": "퇴근",
+    "startBreak": "휴식 시작",
+    "endBreak": "휴식 종료",
+    "clockError": "출퇴근을 기록하지 못했습니다",
+    "statusIn": "근무 중",
+    "statusOut": "퇴근함",
+    "statusPaused": "휴식 중",
+    "thisWeek": "이번 주",
+    "thisMonth": "이번 달",
+    "downloadMyReport": "내 보고서 다운로드",
+    "exportError": "보고서를 생성하지 못했습니다",
+    "addEmployee": "직원 추가",
+    "employeesTitle": "직원",
+    "noEmployees": "아직 추가된 직원이 없습니다.",
+    "methodsTitle": "활성화된 출퇴근 방식",
+    "methodsHint": "직원은 앱/웹에서 한 번의 탭으로 출퇴근합니다(선택적 위치 정보 포함). QR 및 PIN은 앱 접근 권한이 없는 사람을 위한 대안입니다.",
+    "method": {
+      "web": "앱/웹 (원탭)",
+      "qr": "클리닉 QR 코드",
+      "pin": "고정 PIN 단말기"
+    },
+    "status": {
+      "dentro": "근무 중",
+      "fuera": "퇴근함",
+      "en_pausa": "휴식 중"
+    },
+    "hoursTitle": "근무 시간",
+    "employee": "직원",
+    "selectEmployee": "직원 선택",
+    "date": "날짜",
+    "hours": "시간",
+    "overtime": "초과 근무",
+    "overtimeShort": "초과",
+    "noHours": "이 기간에 출퇴근 기록이 없습니다.",
+    "periodTotal": "기간 합계",
+    "compensationType": "초과 근무 보상",
+    "compensationEconomic": "금전적 보상",
+    "compensationRest": "휴무",
+    "compensationNotes": "메모",
+    "compensationSave": "보상 저장",
+    "compensationSaved": "저장됨",
+    "integrityAlarm": "출퇴근 기록의 해시 체인에서 {{count}}개의 불일치가 발견되었습니다. 지원팀에 문의하세요."
   }
 }

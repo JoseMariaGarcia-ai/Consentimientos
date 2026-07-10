@@ -531,7 +531,8 @@
     "budgets": "Offertes",
     "workflows": "Workflows",
     "tickets": "Meldingen",
-    "invoicing": "Facturatie"
+    "invoicing": "Facturatie",
+    "timeTracking": "Tijdregistratie"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Verzonden naar de AEAT",
     "cancelInvoice": "Factuur annuleren",
     "cancelling": "Bezig met annuleren…"
+  },
+  "employeeModal": {
+    "titleEdit": "Werknemer bewerken",
+    "titleNew": "Nieuwe werknemer",
+    "form": {
+      "fullName": "Volledige naam",
+      "dniNie": "ID-nummer",
+      "role": "Functie",
+      "rolePlaceholder": "Bijv. Receptionist, Arts",
+      "email": "E-mail",
+      "linkedUser": "Gekoppelde gebruiker",
+      "noLinkedUser": "Niet gekoppeld (alleen PIN-inklok)",
+      "linkedUserHint": "Als de werknemer eigen app-toegang heeft, koppel deze hier zodat hij/zij de eigen registratiegeschiedenis kan zien.",
+      "pin": "Inklok-PIN",
+      "pinPlaceholder": "4-6 cijfers",
+      "pinEditPlaceholder": "Laat leeg om niet te wijzigen",
+      "pinHint": "Alleen nodig als de werknemer inklokt via de PIN-terminal van de kliniek."
+    },
+    "errors": {
+      "fullName": "Naam is verplicht",
+      "dniNie": "ID-nummer is verplicht",
+      "pinFormat": "De PIN moet 4 tot 6 cijfers hebben",
+      "saveFailed": "Kon de werknemer niet opslaan"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "In-/uitklokken",
+    "dniNie": "ID-nummer",
+    "pin": "PIN",
+    "success": "Geregistreerd, {{name}}",
+    "pinFormatError": "De PIN moet 4 tot 6 cijfers hebben",
+    "genericError": "Kon de registratie niet opslaan",
+    "missingClinic": "Ongeldige link — kliniek niet geïdentificeerd"
+  },
+  "timeTracking": {
+    "title": "Tijdregistratie",
+    "subtitle": "Werktijdregistratie conform RDL 8/2019, met onveranderlijke traceerbaarheid via hashketen.",
+    "tabSelf": "Mijn registratie",
+    "tabAdmin": "Beheer",
+    "myClock": "Mijn registratie",
+    "clockIn": "Inklokken",
+    "clockOut": "Uitklokken",
+    "startBreak": "Pauze starten",
+    "endBreak": "Pauze beëindigen",
+    "clockError": "Kon de registratie niet opslaan",
+    "statusIn": "Aanwezig",
+    "statusOut": "Afwezig",
+    "statusPaused": "Op pauze",
+    "thisWeek": "Deze week",
+    "thisMonth": "Deze maand",
+    "downloadMyReport": "Mijn rapport downloaden",
+    "exportError": "Kon het rapport niet genereren",
+    "addEmployee": "Werknemer toevoegen",
+    "employeesTitle": "Werknemers",
+    "noEmployees": "Je hebt nog geen werknemer toegevoegd.",
+    "methodsTitle": "Actieve registratiemethoden",
+    "methodsHint": "De werknemer klokt in via app/web met één tik (met optionele geolocatie). QR en PIN zijn alternatieven voor wie geen app-toegang heeft.",
+    "method": {
+      "web": "App/Web (één tik)",
+      "qr": "QR-code van de kliniek",
+      "pin": "Vaste PIN-terminal"
+    },
+    "status": {
+      "dentro": "Aanwezig",
+      "fuera": "Afwezig",
+      "en_pausa": "Op pauze"
+    },
+    "hoursTitle": "Gewerkte uren",
+    "employee": "Werknemer",
+    "selectEmployee": "Selecteer een werknemer",
+    "date": "Datum",
+    "hours": "Uren",
+    "overtime": "Overuren",
+    "overtimeShort": "over.",
+    "noHours": "Geen registraties in deze periode.",
+    "periodTotal": "Totaal van de periode",
+    "compensationType": "Compensatie van overuren",
+    "compensationEconomic": "Uitbetaling",
+    "compensationRest": "Vrije tijd",
+    "compensationNotes": "Notities",
+    "compensationSave": "Compensatie opslaan",
+    "compensationSaved": "Opgeslagen",
+    "integrityAlarm": "Er zijn {{count}} afwijkingen gevonden in de hashketen van de registraties. Neem contact op met support."
   }
 }

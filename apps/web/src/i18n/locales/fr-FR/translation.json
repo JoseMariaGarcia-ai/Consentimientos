@@ -531,7 +531,8 @@
     "budgets": "Devis",
     "workflows": "Workflows",
     "tickets": "Incidents",
-    "invoicing": "Facturation"
+    "invoicing": "Facturation",
+    "timeTracking": "Contrôle horaire"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Envoyée à l'AEAT",
     "cancelInvoice": "Annuler la facture",
     "cancelling": "Annulation…"
+  },
+  "employeeModal": {
+    "titleEdit": "Modifier l'employé",
+    "titleNew": "Nouvel employé",
+    "form": {
+      "fullName": "Nom complet",
+      "dniNie": "Pièce d'identité",
+      "role": "Poste",
+      "rolePlaceholder": "Ex. Réceptionniste, Médecin",
+      "email": "Email",
+      "linkedUser": "Utilisateur lié",
+      "noLinkedUser": "Non lié (pointage par code PIN uniquement)",
+      "linkedUserHint": "Si l'employé a son propre accès à l'application, liez-le ici pour qu'il puisse consulter son historique de pointage.",
+      "pin": "Code PIN de pointage",
+      "pinPlaceholder": "4 à 6 chiffres",
+      "pinEditPlaceholder": "Laisser vide pour ne pas le modifier",
+      "pinHint": "Nécessaire uniquement si l'employé pointe depuis le terminal PIN de la clinique."
+    },
+    "errors": {
+      "fullName": "Le nom est obligatoire",
+      "dniNie": "La pièce d'identité est obligatoire",
+      "pinFormat": "Le PIN doit comporter entre 4 et 6 chiffres",
+      "saveFailed": "Impossible d'enregistrer l'employé"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Pointage",
+    "dniNie": "Pièce d'identité",
+    "pin": "PIN",
+    "success": "Pointage enregistré, {{name}}",
+    "pinFormatError": "Le PIN doit comporter entre 4 et 6 chiffres",
+    "genericError": "Impossible d'enregistrer le pointage",
+    "missingClinic": "Lien non valide — clinique non identifiée"
+  },
+  "timeTracking": {
+    "title": "Contrôle horaire",
+    "subtitle": "Registre du temps de travail conforme au RDL 8/2019, avec traçabilité immuable par chaînage de hash.",
+    "tabSelf": "Mon pointage",
+    "tabAdmin": "Administration",
+    "myClock": "Mon pointage",
+    "clockIn": "Entrée",
+    "clockOut": "Sortie",
+    "startBreak": "Début de pause",
+    "endBreak": "Fin de pause",
+    "clockError": "Impossible d'enregistrer le pointage",
+    "statusIn": "Présent",
+    "statusOut": "Absent",
+    "statusPaused": "En pause",
+    "thisWeek": "Cette semaine",
+    "thisMonth": "Ce mois-ci",
+    "downloadMyReport": "Télécharger mon rapport",
+    "exportError": "Impossible de générer le rapport",
+    "addEmployee": "Ajouter un employé",
+    "employeesTitle": "Employés",
+    "noEmployees": "Vous n'avez encore ajouté aucun employé.",
+    "methodsTitle": "Méthodes de pointage actives",
+    "methodsHint": "L'employé pointe depuis l'app/web en un clic (avec géolocalisation optionnelle). Le QR et le PIN sont des alternatives pour ceux qui n'ont pas accès à l'application.",
+    "method": {
+      "web": "App/Web (un clic)",
+      "qr": "Code QR de la clinique",
+      "pin": "Terminal PIN fixe"
+    },
+    "status": {
+      "dentro": "Présent",
+      "fuera": "Absent",
+      "en_pausa": "En pause"
+    },
+    "hoursTitle": "Heures travaillées",
+    "employee": "Employé",
+    "selectEmployee": "Sélectionnez un employé",
+    "date": "Date",
+    "hours": "Heures",
+    "overtime": "Heures supplémentaires",
+    "overtimeShort": "supp.",
+    "noHours": "Aucun pointage sur cette période.",
+    "periodTotal": "Total de la période",
+    "compensationType": "Compensation des heures supplémentaires",
+    "compensationEconomic": "Rémunération",
+    "compensationRest": "Repos compensateur",
+    "compensationNotes": "Notes",
+    "compensationSave": "Enregistrer la compensation",
+    "compensationSaved": "Enregistré",
+    "integrityAlarm": "{{count}} incohérences ont été détectées dans la chaîne de hash des pointages. Contactez le support."
   }
 }

@@ -531,7 +531,8 @@
     "budgets": "عروض الأسعار",
     "workflows": "سير العمل",
     "tickets": "الحوادث",
-    "invoicing": "الفوترة"
+    "invoicing": "الفوترة",
+    "timeTracking": "تسجيل الحضور"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",
@@ -1776,5 +1777,88 @@
     "aeatSent": "تم الإرسال إلى AEAT",
     "cancelInvoice": "إلغاء الفاتورة",
     "cancelling": "جارٍ الإلغاء…"
+  },
+  "employeeModal": {
+    "titleEdit": "تعديل الموظف",
+    "titleNew": "موظف جديد",
+    "form": {
+      "fullName": "الاسم الكامل",
+      "dniNie": "رقم الهوية",
+      "role": "الوظيفة",
+      "rolePlaceholder": "مثال: موظفة استقبال، طبيب",
+      "email": "البريد الإلكتروني",
+      "linkedUser": "المستخدم المرتبط",
+      "noLinkedUser": "غير مرتبط (تسجيل عبر PIN فقط)",
+      "linkedUserHint": "إذا كان للموظف وصول خاص به إلى التطبيق، اربطه هنا حتى يتمكن من رؤية سجل حضوره.",
+      "pin": "رمز PIN للتسجيل",
+      "pinPlaceholder": "4-6 أرقام",
+      "pinEditPlaceholder": "اتركه فارغًا لعدم تغييره",
+      "pinHint": "مطلوب فقط إذا كان الموظف سيسجل من جهاز PIN الخاص بالعيادة."
+    },
+    "errors": {
+      "fullName": "الاسم مطلوب",
+      "dniNie": "رقم الهوية مطلوب",
+      "pinFormat": "يجب أن يتكون رمز PIN من 4 إلى 6 أرقام",
+      "saveFailed": "تعذر حفظ الموظف"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "تسجيل الحضور",
+    "dniNie": "رقم الهوية",
+    "pin": "PIN",
+    "success": "تم التسجيل، {{name}}",
+    "pinFormatError": "يجب أن يتكون رمز PIN من 4 إلى 6 أرقام",
+    "genericError": "تعذر تسجيل الحضور",
+    "missingClinic": "رابط غير صالح — لم يتم تحديد العيادة"
+  },
+  "timeTracking": {
+    "title": "تسجيل الحضور",
+    "subtitle": "سجل ساعات العمل وفقًا لـ RDL 8/2019، مع إمكانية تتبع غير قابلة للتغيير عبر سلسلة تجزئة.",
+    "tabSelf": "تسجيلي",
+    "tabAdmin": "الإدارة",
+    "myClock": "تسجيلي",
+    "clockIn": "حضور",
+    "clockOut": "انصراف",
+    "startBreak": "بدء الاستراحة",
+    "endBreak": "إنهاء الاستراحة",
+    "clockError": "تعذر تسجيل الحضور",
+    "statusIn": "متواجد",
+    "statusOut": "غائب",
+    "statusPaused": "في استراحة",
+    "thisWeek": "هذا الأسبوع",
+    "thisMonth": "هذا الشهر",
+    "downloadMyReport": "تنزيل تقريري",
+    "exportError": "تعذر إنشاء التقرير",
+    "addEmployee": "إضافة موظف",
+    "employeesTitle": "الموظفون",
+    "noEmployees": "لم تقم بإضافة أي موظف بعد.",
+    "methodsTitle": "طرق التسجيل النشطة",
+    "methodsHint": "يسجل الموظف من التطبيق/الويب بلمسة واحدة (مع تحديد الموقع الجغرافي الاختياري). رمز QR وPIN بديلان لمن ليس لديه وصول إلى التطبيق.",
+    "method": {
+      "web": "التطبيق/الويب (لمسة واحدة)",
+      "qr": "رمز QR الخاص بالعيادة",
+      "pin": "جهاز PIN ثابت"
+    },
+    "status": {
+      "dentro": "متواجد",
+      "fuera": "غائب",
+      "en_pausa": "في استراحة"
+    },
+    "hoursTitle": "ساعات العمل",
+    "employee": "الموظف",
+    "selectEmployee": "اختر موظفًا",
+    "date": "التاريخ",
+    "hours": "الساعات",
+    "overtime": "ساعات إضافية",
+    "overtimeShort": "إضافي",
+    "noHours": "لا توجد تسجيلات في هذه الفترة.",
+    "periodTotal": "إجمالي الفترة",
+    "compensationType": "تعويض الساعات الإضافية",
+    "compensationEconomic": "مقابل مالي",
+    "compensationRest": "راحة",
+    "compensationNotes": "ملاحظات",
+    "compensationSave": "حفظ التعويض",
+    "compensationSaved": "تم الحفظ",
+    "integrityAlarm": "تم اكتشاف {{count}} تناقضات في سلسلة تجزئة سجلات الحضور. تواصل مع الدعم."
   }
 }

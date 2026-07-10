@@ -531,7 +531,8 @@
     "budgets": "Presupuestos",
     "workflows": "Workflows",
     "tickets": "Incidencias",
-    "invoicing": "Facturación"
+    "invoicing": "Facturación",
+    "timeTracking": "Control horario"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -1794,5 +1795,88 @@
     "aeatSent": "Enviado a la AEAT",
     "cancelInvoice": "Anular factura",
     "cancelling": "Anulando…"
+  },
+  "employeeModal": {
+    "titleEdit": "Editar empleado",
+    "titleNew": "Nuevo empleado",
+    "form": {
+      "fullName": "Nombre completo",
+      "dniNie": "DNI / NIE",
+      "role": "Puesto",
+      "rolePlaceholder": "P. ej. Recepcionista, Doctor/a",
+      "email": "Email",
+      "linkedUser": "Usuario vinculado",
+      "noLinkedUser": "Sin vincular (solo ficha por PIN)",
+      "linkedUserHint": "Si el empleado tiene su propio acceso a la app, vincúlalo aquí para que pueda ver su historial de fichajes.",
+      "pin": "PIN de fichaje",
+      "pinPlaceholder": "4-6 dígitos",
+      "pinEditPlaceholder": "Dejar en blanco para no cambiarlo",
+      "pinHint": "Necesario solo si el empleado va a fichar desde el terminal PIN de la clínica."
+    },
+    "errors": {
+      "fullName": "El nombre es obligatorio",
+      "dniNie": "El DNI/NIE es obligatorio",
+      "pinFormat": "El PIN debe tener entre 4 y 6 dígitos",
+      "saveFailed": "No se pudo guardar el empleado"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Fichaje",
+    "dniNie": "DNI / NIE",
+    "pin": "PIN",
+    "success": "Fichaje registrado, {{name}}",
+    "pinFormatError": "El PIN debe tener entre 4 y 6 dígitos",
+    "genericError": "No se pudo registrar el fichaje",
+    "missingClinic": "Enlace no válido — falta identificar la clínica"
+  },
+  "timeTracking": {
+    "title": "Control horario",
+    "subtitle": "Registro de jornada laboral conforme al RDL 8/2019, con trazabilidad inmutable por hash encadenado.",
+    "tabSelf": "Mi fichaje",
+    "tabAdmin": "Administración",
+    "myClock": "Mi fichaje",
+    "clockIn": "Entrada",
+    "clockOut": "Salida",
+    "startBreak": "Iniciar pausa",
+    "endBreak": "Fin de pausa",
+    "clockError": "No se pudo registrar el fichaje",
+    "statusIn": "Dentro",
+    "statusOut": "Fuera",
+    "statusPaused": "En pausa",
+    "thisWeek": "Esta semana",
+    "thisMonth": "Este mes",
+    "downloadMyReport": "Descargar mi informe",
+    "exportError": "No se pudo generar el informe",
+    "addEmployee": "Añadir empleado",
+    "employeesTitle": "Empleados",
+    "noEmployees": "Todavía no has añadido ningún empleado.",
+    "methodsTitle": "Métodos de fichaje activos",
+    "methodsHint": "El empleado ficha desde la app/web con un clic (con geolocalización opcional). El QR y el PIN son alternativas para quien no tenga acceso a la app.",
+    "method": {
+      "web": "App/Web (un clic)",
+      "qr": "Código QR de la clínica",
+      "pin": "PIN en terminal fijo"
+    },
+    "status": {
+      "dentro": "Dentro",
+      "fuera": "Fuera",
+      "en_pausa": "En pausa"
+    },
+    "hoursTitle": "Horas trabajadas",
+    "employee": "Empleado",
+    "selectEmployee": "Selecciona un empleado",
+    "date": "Fecha",
+    "hours": "Horas",
+    "overtime": "Horas extra",
+    "overtimeShort": "extra",
+    "noHours": "No hay fichajes en este periodo.",
+    "periodTotal": "Total del periodo",
+    "compensationType": "Compensación de horas extra",
+    "compensationEconomic": "Retribución económica",
+    "compensationRest": "Descanso",
+    "compensationNotes": "Notas",
+    "compensationSave": "Guardar compensación",
+    "compensationSaved": "Guardado",
+    "integrityAlarm": "Se han detectado {{count}} discrepancias en la cadena de hashes de los fichajes. Contacta con soporte."
   }
 }

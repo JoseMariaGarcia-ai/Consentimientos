@@ -531,7 +531,8 @@
     "budgets": "Tarjoukset",
     "workflows": "Työnkulut",
     "tickets": "Vikailmoitukset",
-    "invoicing": "Laskutus"
+    "invoicing": "Laskutus",
+    "timeTracking": "Työajanseuranta"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Lähetetty AEAT:lle",
     "cancelInvoice": "Mitätöi lasku",
     "cancelling": "Mitätöidään…"
+  },
+  "employeeModal": {
+    "titleEdit": "Muokkaa työntekijää",
+    "titleNew": "Uusi työntekijä",
+    "form": {
+      "fullName": "Koko nimi",
+      "dniNie": "Henkilötunnus",
+      "role": "Tehtävänimike",
+      "rolePlaceholder": "Esim. Vastaanottovirkailija, Lääkäri",
+      "email": "Sähköposti",
+      "linkedUser": "Liitetty käyttäjä",
+      "noLinkedUser": "Ei liitetty (vain PIN-leimaus)",
+      "linkedUserHint": "Jos työntekijällä on oma sovellustunnus, liitä se tähän, jotta hän voi nähdä oman leimaushistoriansa.",
+      "pin": "Leimaus-PIN",
+      "pinPlaceholder": "4-6 numeroa",
+      "pinEditPlaceholder": "Jätä tyhjäksi, jos et halua muuttaa sitä",
+      "pinHint": "Tarvitaan vain, jos työntekijä leimaa klinikan PIN-päätteeltä."
+    },
+    "errors": {
+      "fullName": "Nimi on pakollinen",
+      "dniNie": "Henkilötunnus on pakollinen",
+      "pinFormat": "PIN-koodin on oltava 4-6 numeroa",
+      "saveFailed": "Työntekijää ei voitu tallentaa"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Leimaus",
+    "dniNie": "Henkilötunnus",
+    "pin": "PIN",
+    "success": "Leimattu, {{name}}",
+    "pinFormatError": "PIN-koodin on oltava 4-6 numeroa",
+    "genericError": "Leimausta ei voitu tallentaa",
+    "missingClinic": "Virheellinen linkki — klinikkaa ei tunnistettu"
+  },
+  "timeTracking": {
+    "title": "Työajanseuranta",
+    "subtitle": "Työajan kirjaaminen RDL 8/2019 -asetuksen mukaisesti, muuttumattomalla jäljitettävyydellä hash-ketjun avulla.",
+    "tabSelf": "Oma leimaus",
+    "tabAdmin": "Hallinta",
+    "myClock": "Oma leimaus",
+    "clockIn": "Sisään",
+    "clockOut": "Ulos",
+    "startBreak": "Aloita tauko",
+    "endBreak": "Lopeta tauko",
+    "clockError": "Leimausta ei voitu tallentaa",
+    "statusIn": "Paikalla",
+    "statusOut": "Poissa",
+    "statusPaused": "Tauolla",
+    "thisWeek": "Tällä viikolla",
+    "thisMonth": "Tässä kuussa",
+    "downloadMyReport": "Lataa raporttini",
+    "exportError": "Raporttia ei voitu luoda",
+    "addEmployee": "Lisää työntekijä",
+    "employeesTitle": "Työntekijät",
+    "noEmployees": "Et ole vielä lisännyt yhtään työntekijää.",
+    "methodsTitle": "Aktiiviset leimausmenetelmät",
+    "methodsHint": "Työntekijä leimaa sovelluksesta/webistä yhdellä napautuksella (valinnaisella sijainnilla). QR ja PIN ovat vaihtoehtoja niille, joilla ei ole sovellusta.",
+    "method": {
+      "web": "Sovellus/Web (yksi napautus)",
+      "qr": "Klinikan QR-koodi",
+      "pin": "Kiinteä PIN-pääte"
+    },
+    "status": {
+      "dentro": "Paikalla",
+      "fuera": "Poissa",
+      "en_pausa": "Tauolla"
+    },
+    "hoursTitle": "Tehdyt tunnit",
+    "employee": "Työntekijä",
+    "selectEmployee": "Valitse työntekijä",
+    "date": "Päivämäärä",
+    "hours": "Tunnit",
+    "overtime": "Ylityöt",
+    "overtimeShort": "ylityö",
+    "noHours": "Ei leimauksia tällä ajanjaksolla.",
+    "periodTotal": "Jakson yhteensä",
+    "compensationType": "Ylityökorvaus",
+    "compensationEconomic": "Rahakorvaus",
+    "compensationRest": "Vapaa-aika",
+    "compensationNotes": "Muistiinpanot",
+    "compensationSave": "Tallenna korvaus",
+    "compensationSaved": "Tallennettu",
+    "integrityAlarm": "Leimausten hash-ketjussa havaittiin {{count}} poikkeamaa. Ota yhteyttä tukeen."
   }
 }

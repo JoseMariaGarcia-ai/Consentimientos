@@ -531,7 +531,8 @@
     "budgets": "Báo giá",
     "workflows": "Quy trình tự động",
     "tickets": "Phản ánh sự cố",
-    "invoicing": "Hóa đơn"
+    "invoicing": "Hóa đơn",
+    "timeTracking": "Chấm công"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Đã gửi tới AEAT",
     "cancelInvoice": "Hủy hóa đơn",
     "cancelling": "Đang hủy…"
+  },
+  "employeeModal": {
+    "titleEdit": "Chỉnh sửa nhân viên",
+    "titleNew": "Nhân viên mới",
+    "form": {
+      "fullName": "Họ và tên",
+      "dniNie": "Số giấy tờ tùy thân",
+      "role": "Chức vụ",
+      "rolePlaceholder": "Vd: Lễ tân, Bác sĩ",
+      "email": "Email",
+      "linkedUser": "Người dùng liên kết",
+      "noLinkedUser": "Chưa liên kết (chỉ chấm công bằng PIN)",
+      "linkedUserHint": "Nếu nhân viên có tài khoản ứng dụng riêng, hãy liên kết tại đây để họ có thể xem lịch sử chấm công của mình.",
+      "pin": "PIN chấm công",
+      "pinPlaceholder": "4-6 chữ số",
+      "pinEditPlaceholder": "Để trống nếu không muốn thay đổi",
+      "pinHint": "Chỉ cần thiết nếu nhân viên chấm công từ máy PIN của phòng khám."
+    },
+    "errors": {
+      "fullName": "Tên là bắt buộc",
+      "dniNie": "Số giấy tờ tùy thân là bắt buộc",
+      "pinFormat": "PIN phải có từ 4 đến 6 chữ số",
+      "saveFailed": "Không thể lưu nhân viên"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Chấm công",
+    "dniNie": "Số giấy tờ tùy thân",
+    "pin": "PIN",
+    "success": "Đã chấm công, {{name}}",
+    "pinFormatError": "PIN phải có từ 4 đến 6 chữ số",
+    "genericError": "Không thể ghi nhận chấm công",
+    "missingClinic": "Liên kết không hợp lệ — không xác định được phòng khám"
+  },
+  "timeTracking": {
+    "title": "Chấm công",
+    "subtitle": "Ghi nhận thời gian làm việc tuân thủ RDL 8/2019, với khả năng truy vết bất biến qua chuỗi hash.",
+    "tabSelf": "Chấm công của tôi",
+    "tabAdmin": "Quản trị",
+    "myClock": "Chấm công của tôi",
+    "clockIn": "Vào ca",
+    "clockOut": "Ra ca",
+    "startBreak": "Bắt đầu nghỉ",
+    "endBreak": "Kết thúc nghỉ",
+    "clockError": "Không thể ghi nhận chấm công",
+    "statusIn": "Đang có mặt",
+    "statusOut": "Vắng mặt",
+    "statusPaused": "Đang nghỉ",
+    "thisWeek": "Tuần này",
+    "thisMonth": "Tháng này",
+    "downloadMyReport": "Tải báo cáo của tôi",
+    "exportError": "Không thể tạo báo cáo",
+    "addEmployee": "Thêm nhân viên",
+    "employeesTitle": "Nhân viên",
+    "noEmployees": "Bạn chưa thêm nhân viên nào.",
+    "methodsTitle": "Phương thức chấm công đang hoạt động",
+    "methodsHint": "Nhân viên chấm công từ ứng dụng/web chỉ với một chạm (có định vị tùy chọn). QR và PIN là các lựa chọn thay thế cho người không có quyền truy cập ứng dụng.",
+    "method": {
+      "web": "Ứng dụng/Web (một chạm)",
+      "qr": "Mã QR của phòng khám",
+      "pin": "Máy PIN cố định"
+    },
+    "status": {
+      "dentro": "Đang có mặt",
+      "fuera": "Vắng mặt",
+      "en_pausa": "Đang nghỉ"
+    },
+    "hoursTitle": "Giờ đã làm việc",
+    "employee": "Nhân viên",
+    "selectEmployee": "Chọn một nhân viên",
+    "date": "Ngày",
+    "hours": "Giờ",
+    "overtime": "Giờ làm thêm",
+    "overtimeShort": "làm thêm",
+    "noHours": "Không có chấm công trong giai đoạn này.",
+    "periodTotal": "Tổng giai đoạn",
+    "compensationType": "Bù đắp giờ làm thêm",
+    "compensationEconomic": "Trả lương",
+    "compensationRest": "Nghỉ bù",
+    "compensationNotes": "Ghi chú",
+    "compensationSave": "Lưu khoản bù đắp",
+    "compensationSaved": "Đã lưu",
+    "integrityAlarm": "Đã phát hiện {{count}} sai lệch trong chuỗi hash của các lượt chấm công. Liên hệ hỗ trợ."
   }
 }

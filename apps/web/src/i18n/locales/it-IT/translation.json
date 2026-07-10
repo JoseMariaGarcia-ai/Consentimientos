@@ -531,7 +531,8 @@
     "budgets": "Preventivi",
     "workflows": "Workflow",
     "tickets": "Segnalazioni",
-    "invoicing": "Fatturazione"
+    "invoicing": "Fatturazione",
+    "timeTracking": "Controllo orario"
   },
   "topbar": {
     "tagline": "Consensi Digitali · Firma Biometrica",
@@ -1868,5 +1869,88 @@
     "aeatSent": "Inviata all'AEAT",
     "cancelInvoice": "Annulla fattura",
     "cancelling": "Annullamento…"
+  },
+  "employeeModal": {
+    "titleEdit": "Modifica dipendente",
+    "titleNew": "Nuovo dipendente",
+    "form": {
+      "fullName": "Nome completo",
+      "dniNie": "Documento d'identità",
+      "role": "Ruolo",
+      "rolePlaceholder": "Es. Receptionist, Medico",
+      "email": "Email",
+      "linkedUser": "Utente collegato",
+      "noLinkedUser": "Non collegato (timbra solo con PIN)",
+      "linkedUserHint": "Se il dipendente ha un proprio accesso all'app, collegalo qui per permettergli di vedere lo storico delle timbrature.",
+      "pin": "PIN di timbratura",
+      "pinPlaceholder": "4-6 cifre",
+      "pinEditPlaceholder": "Lascia vuoto per non modificarlo",
+      "pinHint": "Necessario solo se il dipendente timbra dal terminale PIN della clinica."
+    },
+    "errors": {
+      "fullName": "Il nome è obbligatorio",
+      "dniNie": "Il documento d'identità è obbligatorio",
+      "pinFormat": "Il PIN deve avere da 4 a 6 cifre",
+      "saveFailed": "Impossibile salvare il dipendente"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Timbratura",
+    "dniNie": "Documento d'identità",
+    "pin": "PIN",
+    "success": "Timbratura registrata, {{name}}",
+    "pinFormatError": "Il PIN deve avere da 4 a 6 cifre",
+    "genericError": "Impossibile registrare la timbratura",
+    "missingClinic": "Link non valido — clinica non identificata"
+  },
+  "timeTracking": {
+    "title": "Controllo orario",
+    "subtitle": "Registro dell'orario di lavoro conforme al RDL 8/2019, con tracciabilità immutabile tramite catena di hash.",
+    "tabSelf": "La mia timbratura",
+    "tabAdmin": "Amministrazione",
+    "myClock": "La mia timbratura",
+    "clockIn": "Entrata",
+    "clockOut": "Uscita",
+    "startBreak": "Inizio pausa",
+    "endBreak": "Fine pausa",
+    "clockError": "Impossibile registrare la timbratura",
+    "statusIn": "Dentro",
+    "statusOut": "Fuori",
+    "statusPaused": "In pausa",
+    "thisWeek": "Questa settimana",
+    "thisMonth": "Questo mese",
+    "downloadMyReport": "Scarica il mio report",
+    "exportError": "Impossibile generare il report",
+    "addEmployee": "Aggiungi dipendente",
+    "employeesTitle": "Dipendenti",
+    "noEmployees": "Non hai ancora aggiunto nessun dipendente.",
+    "methodsTitle": "Metodi di timbratura attivi",
+    "methodsHint": "Il dipendente timbra dall'app/web con un clic (con geolocalizzazione facoltativa). QR e PIN sono alternative per chi non ha accesso all'app.",
+    "method": {
+      "web": "App/Web (un clic)",
+      "qr": "Codice QR della clinica",
+      "pin": "Terminale PIN fisso"
+    },
+    "status": {
+      "dentro": "Dentro",
+      "fuera": "Fuori",
+      "en_pausa": "In pausa"
+    },
+    "hoursTitle": "Ore lavorate",
+    "employee": "Dipendente",
+    "selectEmployee": "Seleziona un dipendente",
+    "date": "Data",
+    "hours": "Ore",
+    "overtime": "Straordinari",
+    "overtimeShort": "straord.",
+    "noHours": "Nessuna timbratura in questo periodo.",
+    "periodTotal": "Totale del periodo",
+    "compensationType": "Compensazione degli straordinari",
+    "compensationEconomic": "Retribuzione economica",
+    "compensationRest": "Riposo compensativo",
+    "compensationNotes": "Note",
+    "compensationSave": "Salva compensazione",
+    "compensationSaved": "Salvato",
+    "integrityAlarm": "Sono state rilevate {{count}} discrepanze nella catena hash delle timbrature. Contatta l'assistenza."
   }
 }

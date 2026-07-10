@@ -531,7 +531,8 @@
     "budgets": "Quotes",
     "workflows": "Workflows",
     "tickets": "Support tickets",
-    "invoicing": "Invoicing"
+    "invoicing": "Invoicing",
+    "timeTracking": "Time Tracking"
   },
   "topbar": {
     "tagline": "Digital Consents · Biometric Signature",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Submitted to the AEAT",
     "cancelInvoice": "Cancel invoice",
     "cancelling": "Cancelling…"
+  },
+  "employeeModal": {
+    "titleEdit": "Edit employee",
+    "titleNew": "New employee",
+    "form": {
+      "fullName": "Full name",
+      "dniNie": "National ID",
+      "role": "Job title",
+      "rolePlaceholder": "e.g. Receptionist, Doctor",
+      "email": "Email",
+      "linkedUser": "Linked user",
+      "noLinkedUser": "Not linked (PIN clock-in only)",
+      "linkedUserHint": "If the employee has their own app access, link it here so they can see their clock-in history.",
+      "pin": "Clock-in PIN",
+      "pinPlaceholder": "4-6 digits",
+      "pinEditPlaceholder": "Leave blank to keep it unchanged",
+      "pinHint": "Only needed if the employee will clock in from the clinic's PIN terminal."
+    },
+    "errors": {
+      "fullName": "Name is required",
+      "dniNie": "National ID is required",
+      "pinFormat": "PIN must be 4 to 6 digits",
+      "saveFailed": "Couldn't save the employee"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Clock in/out",
+    "dniNie": "National ID",
+    "pin": "PIN",
+    "success": "Clocked in, {{name}}",
+    "pinFormatError": "PIN must be 4 to 6 digits",
+    "genericError": "Couldn't record the clock-in",
+    "missingClinic": "Invalid link — missing clinic identifier"
+  },
+  "timeTracking": {
+    "title": "Time Tracking",
+    "subtitle": "Working time record compliant with RDL 8/2019, with immutable hash-chain traceability.",
+    "tabSelf": "My clock-in",
+    "tabAdmin": "Administration",
+    "myClock": "My clock-in",
+    "clockIn": "Clock in",
+    "clockOut": "Clock out",
+    "startBreak": "Start break",
+    "endBreak": "End break",
+    "clockError": "Couldn't record the clock-in",
+    "statusIn": "In",
+    "statusOut": "Out",
+    "statusPaused": "On break",
+    "thisWeek": "This week",
+    "thisMonth": "This month",
+    "downloadMyReport": "Download my report",
+    "exportError": "Couldn't generate the report",
+    "addEmployee": "Add employee",
+    "employeesTitle": "Employees",
+    "noEmployees": "You haven't added any employee yet.",
+    "methodsTitle": "Active clock-in methods",
+    "methodsHint": "Employees clock in with one tap from the app/web (with optional geolocation). QR and PIN are alternatives for those without app access.",
+    "method": {
+      "web": "App/Web (one tap)",
+      "qr": "Clinic QR code",
+      "pin": "Fixed PIN terminal"
+    },
+    "status": {
+      "dentro": "In",
+      "fuera": "Out",
+      "en_pausa": "On break"
+    },
+    "hoursTitle": "Hours worked",
+    "employee": "Employee",
+    "selectEmployee": "Select an employee",
+    "date": "Date",
+    "hours": "Hours",
+    "overtime": "Overtime",
+    "overtimeShort": "overtime",
+    "noHours": "No clock-ins in this period.",
+    "periodTotal": "Period total",
+    "compensationType": "Overtime compensation",
+    "compensationEconomic": "Paid",
+    "compensationRest": "Time off",
+    "compensationNotes": "Notes",
+    "compensationSave": "Save compensation",
+    "compensationSaved": "Saved",
+    "integrityAlarm": "{{count}} discrepancies were found in the clock-in hash chain. Contact support."
   }
 }

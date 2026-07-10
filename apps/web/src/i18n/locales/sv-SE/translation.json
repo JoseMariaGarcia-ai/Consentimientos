@@ -531,7 +531,8 @@
     "budgets": "Offerter",
     "workflows": "Arbetsflöden",
     "tickets": "Ärenden",
-    "invoicing": "Fakturering"
+    "invoicing": "Fakturering",
+    "timeTracking": "Tidrapportering"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Skickad till AEAT",
     "cancelInvoice": "Avbryt faktura",
     "cancelling": "Avbryter…"
+  },
+  "employeeModal": {
+    "titleEdit": "Redigera anställd",
+    "titleNew": "Ny anställd",
+    "form": {
+      "fullName": "Fullständigt namn",
+      "dniNie": "ID-nummer",
+      "role": "Befattning",
+      "rolePlaceholder": "T.ex. Receptionist, Läkare",
+      "email": "E-post",
+      "linkedUser": "Kopplad användare",
+      "noLinkedUser": "Inte kopplad (endast PIN-stämpling)",
+      "linkedUserHint": "Om den anställda har egen apptillgång, koppla den här så att de kan se sin egen stämplingshistorik.",
+      "pin": "Stämplings-PIN",
+      "pinPlaceholder": "4-6 siffror",
+      "pinEditPlaceholder": "Lämna tomt för att inte ändra",
+      "pinHint": "Behövs bara om den anställda stämplar från klinikens PIN-terminal."
+    },
+    "errors": {
+      "fullName": "Namn krävs",
+      "dniNie": "ID-nummer krävs",
+      "pinFormat": "PIN måste vara 4 till 6 siffror",
+      "saveFailed": "Det gick inte att spara den anställda"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Stämpling",
+    "dniNie": "ID-nummer",
+    "pin": "PIN",
+    "success": "Stämplat, {{name}}",
+    "pinFormatError": "PIN måste vara 4 till 6 siffror",
+    "genericError": "Det gick inte att registrera stämplingen",
+    "missingClinic": "Ogiltig länk — klinik ej identifierad"
+  },
+  "timeTracking": {
+    "title": "Tidrapportering",
+    "subtitle": "Arbetstidsregistrering enligt RDL 8/2019, med oföränderlig spårbarhet via hashkedja.",
+    "tabSelf": "Min stämpling",
+    "tabAdmin": "Administration",
+    "myClock": "Min stämpling",
+    "clockIn": "In",
+    "clockOut": "Ut",
+    "startBreak": "Starta rast",
+    "endBreak": "Avsluta rast",
+    "clockError": "Det gick inte att registrera stämplingen",
+    "statusIn": "Närvarande",
+    "statusOut": "Frånvarande",
+    "statusPaused": "På rast",
+    "thisWeek": "Denna vecka",
+    "thisMonth": "Denna månad",
+    "downloadMyReport": "Ladda ner min rapport",
+    "exportError": "Det gick inte att generera rapporten",
+    "addEmployee": "Lägg till anställd",
+    "employeesTitle": "Anställda",
+    "noEmployees": "Du har inte lagt till någon anställd ännu.",
+    "methodsTitle": "Aktiva stämplingsmetoder",
+    "methodsHint": "Den anställda stämplar från app/web med ett klick (med valfri geolokalisering). QR och PIN är alternativ för de utan apptillgång.",
+    "method": {
+      "web": "App/Web (ett klick)",
+      "qr": "Klinikens QR-kod",
+      "pin": "Fast PIN-terminal"
+    },
+    "status": {
+      "dentro": "Närvarande",
+      "fuera": "Frånvarande",
+      "en_pausa": "På rast"
+    },
+    "hoursTitle": "Arbetade timmar",
+    "employee": "Anställd",
+    "selectEmployee": "Välj en anställd",
+    "date": "Datum",
+    "hours": "Timmar",
+    "overtime": "Övertid",
+    "overtimeShort": "övert.",
+    "noHours": "Inga stämplingar under denna period.",
+    "periodTotal": "Total för perioden",
+    "compensationType": "Kompensation för övertid",
+    "compensationEconomic": "Ersättning",
+    "compensationRest": "Kompledigt",
+    "compensationNotes": "Anteckningar",
+    "compensationSave": "Spara kompensation",
+    "compensationSaved": "Sparat",
+    "integrityAlarm": "{{count}} avvikelser hittades i stämplingarnas hashkedja. Kontakta support."
   }
 }

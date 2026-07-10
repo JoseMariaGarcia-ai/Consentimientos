@@ -531,7 +531,8 @@
     "budgets": "Árajánlatok",
     "workflows": "Munkafolyamatok",
     "tickets": "Hibajegyek",
-    "invoicing": "Számlázás"
+    "invoicing": "Számlázás",
+    "timeTracking": "Munkaidő-nyilvántartás"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Elküldve az AEAT-nak",
     "cancelInvoice": "Számla törlése",
     "cancelling": "Törlés folyamatban…"
+  },
+  "employeeModal": {
+    "titleEdit": "Alkalmazott szerkesztése",
+    "titleNew": "Új alkalmazott",
+    "form": {
+      "fullName": "Teljes név",
+      "dniNie": "Személyi igazolvány szám",
+      "role": "Beosztás",
+      "rolePlaceholder": "Pl. Recepciós, Orvos",
+      "email": "Email",
+      "linkedUser": "Kapcsolt felhasználó",
+      "noLinkedUser": "Nincs kapcsolva (csak PIN-es regisztráció)",
+      "linkedUserHint": "Ha az alkalmazottnak saját alkalmazás-hozzáférése van, itt kapcsolja össze, hogy láthassa saját regisztrációs előzményeit.",
+      "pin": "Regisztrációs PIN",
+      "pinPlaceholder": "4-6 számjegy",
+      "pinEditPlaceholder": "Hagyja üresen, ha nem szeretné módosítani",
+      "pinHint": "Csak akkor szükséges, ha az alkalmazott a klinika PIN-terminálján regisztrál."
+    },
+    "errors": {
+      "fullName": "A név megadása kötelező",
+      "dniNie": "A személyi igazolvány szám megadása kötelező",
+      "pinFormat": "A PIN-nek 4-6 számjegyűnek kell lennie",
+      "saveFailed": "Az alkalmazottat nem sikerült menteni"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Regisztráció",
+    "dniNie": "Személyi igazolvány szám",
+    "pin": "PIN",
+    "success": "Regisztrálva, {{name}}",
+    "pinFormatError": "A PIN-nek 4-6 számjegyűnek kell lennie",
+    "genericError": "A regisztrációt nem sikerült rögzíteni",
+    "missingClinic": "Érvénytelen link — a klinika azonosítása sikertelen"
+  },
+  "timeTracking": {
+    "title": "Munkaidő-nyilvántartás",
+    "subtitle": "Munkaidő-nyilvántartás az RDL 8/2019 szerint, változtathatatlan nyomon követhetőséggel hash-lánc segítségével.",
+    "tabSelf": "Saját regisztrációm",
+    "tabAdmin": "Adminisztráció",
+    "myClock": "Saját regisztrációm",
+    "clockIn": "Érkezés",
+    "clockOut": "Távozás",
+    "startBreak": "Szünet kezdete",
+    "endBreak": "Szünet vége",
+    "clockError": "A regisztrációt nem sikerült rögzíteni",
+    "statusIn": "Bent",
+    "statusOut": "Távol",
+    "statusPaused": "Szünetben",
+    "thisWeek": "Ezen a héten",
+    "thisMonth": "Ebben a hónapban",
+    "downloadMyReport": "Riportom letöltése",
+    "exportError": "A riportot nem sikerült előállítani",
+    "addEmployee": "Alkalmazott hozzáadása",
+    "employeesTitle": "Alkalmazottak",
+    "noEmployees": "Még nem adott hozzá alkalmazottat.",
+    "methodsTitle": "Aktív regisztrációs módszerek",
+    "methodsHint": "Az alkalmazott az app/web felületen egy koppintással regisztrál (opcionális helymeghatározással). A QR és a PIN alternatívák azoknak, akiknek nincs alkalmazás-hozzáférésük.",
+    "method": {
+      "web": "App/Web (egy koppintás)",
+      "qr": "Klinika QR-kódja",
+      "pin": "Rögzített PIN-terminál"
+    },
+    "status": {
+      "dentro": "Bent",
+      "fuera": "Távol",
+      "en_pausa": "Szünetben"
+    },
+    "hoursTitle": "Ledolgozott órák",
+    "employee": "Alkalmazott",
+    "selectEmployee": "Válasszon alkalmazottat",
+    "date": "Dátum",
+    "hours": "Órák",
+    "overtime": "Túlóra",
+    "overtimeShort": "túlóra",
+    "noHours": "Nincs regisztráció ebben az időszakban.",
+    "periodTotal": "Időszak összesen",
+    "compensationType": "Túlóra-kompenzáció",
+    "compensationEconomic": "Pénzbeli juttatás",
+    "compensationRest": "Szabadidő",
+    "compensationNotes": "Megjegyzések",
+    "compensationSave": "Kompenzáció mentése",
+    "compensationSaved": "Mentve",
+    "integrityAlarm": "A regisztrációk hash-láncában {{count}} eltérést találtunk. Vegye fel a kapcsolatot az ügyfélszolgálattal."
   }
 }

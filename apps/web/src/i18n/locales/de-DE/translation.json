@@ -531,7 +531,8 @@
     "budgets": "Kostenvoranschläge",
     "workflows": "Workflows",
     "tickets": "Störungen",
-    "invoicing": "Rechnungsstellung"
+    "invoicing": "Rechnungsstellung",
+    "timeTracking": "Arbeitszeiterfassung"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",
@@ -1814,5 +1815,88 @@
     "aeatSent": "An die AEAT übermittelt",
     "cancelInvoice": "Rechnung stornieren",
     "cancelling": "Wird storniert…"
+  },
+  "employeeModal": {
+    "titleEdit": "Mitarbeiter bearbeiten",
+    "titleNew": "Neuer Mitarbeiter",
+    "form": {
+      "fullName": "Vollständiger Name",
+      "dniNie": "Ausweisnummer",
+      "role": "Position",
+      "rolePlaceholder": "z. B. Empfang, Arzt/Ärztin",
+      "email": "E-Mail",
+      "linkedUser": "Verknüpfter Benutzer",
+      "noLinkedUser": "Nicht verknüpft (nur PIN-Erfassung)",
+      "linkedUserHint": "Wenn der Mitarbeiter einen eigenen App-Zugang hat, verknüpfen Sie ihn hier, damit er seinen Zeiterfassungsverlauf sehen kann.",
+      "pin": "Erfassungs-PIN",
+      "pinPlaceholder": "4-6 Ziffern",
+      "pinEditPlaceholder": "Leer lassen, um ihn nicht zu ändern",
+      "pinHint": "Nur nötig, wenn der Mitarbeiter am PIN-Terminal der Klinik einstempelt."
+    },
+    "errors": {
+      "fullName": "Der Name ist erforderlich",
+      "dniNie": "Die Ausweisnummer ist erforderlich",
+      "pinFormat": "Der PIN muss 4 bis 6 Ziffern haben",
+      "saveFailed": "Der Mitarbeiter konnte nicht gespeichert werden"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Zeiterfassung",
+    "dniNie": "Ausweisnummer",
+    "pin": "PIN",
+    "success": "Erfasst, {{name}}",
+    "pinFormatError": "Der PIN muss 4 bis 6 Ziffern haben",
+    "genericError": "Die Erfassung konnte nicht gespeichert werden",
+    "missingClinic": "Ungültiger Link — Klinik nicht identifiziert"
+  },
+  "timeTracking": {
+    "title": "Arbeitszeiterfassung",
+    "subtitle": "Arbeitszeiterfassung gemäß RDL 8/2019, mit unveränderlicher Nachverfolgbarkeit durch Hash-Verkettung.",
+    "tabSelf": "Meine Erfassung",
+    "tabAdmin": "Verwaltung",
+    "myClock": "Meine Erfassung",
+    "clockIn": "Kommen",
+    "clockOut": "Gehen",
+    "startBreak": "Pause beginnen",
+    "endBreak": "Pause beenden",
+    "clockError": "Die Erfassung konnte nicht gespeichert werden",
+    "statusIn": "Anwesend",
+    "statusOut": "Abwesend",
+    "statusPaused": "In Pause",
+    "thisWeek": "Diese Woche",
+    "thisMonth": "Dieser Monat",
+    "downloadMyReport": "Meinen Bericht herunterladen",
+    "exportError": "Der Bericht konnte nicht erstellt werden",
+    "addEmployee": "Mitarbeiter hinzufügen",
+    "employeesTitle": "Mitarbeiter",
+    "noEmployees": "Sie haben noch keinen Mitarbeiter hinzugefügt.",
+    "methodsTitle": "Aktive Erfassungsmethoden",
+    "methodsHint": "Der Mitarbeiter stempelt per Fingertipp über App/Web ein (mit optionaler Geolokalisierung). QR und PIN sind Alternativen für Mitarbeiter ohne App-Zugang.",
+    "method": {
+      "web": "App/Web (ein Tipp)",
+      "qr": "QR-Code der Klinik",
+      "pin": "Festes PIN-Terminal"
+    },
+    "status": {
+      "dentro": "Anwesend",
+      "fuera": "Abwesend",
+      "en_pausa": "In Pause"
+    },
+    "hoursTitle": "Geleistete Stunden",
+    "employee": "Mitarbeiter",
+    "selectEmployee": "Mitarbeiter auswählen",
+    "date": "Datum",
+    "hours": "Stunden",
+    "overtime": "Überstunden",
+    "overtimeShort": "Überstd.",
+    "noHours": "Keine Erfassungen in diesem Zeitraum.",
+    "periodTotal": "Gesamt im Zeitraum",
+    "compensationType": "Überstundenausgleich",
+    "compensationEconomic": "Vergütung",
+    "compensationRest": "Freizeitausgleich",
+    "compensationNotes": "Notizen",
+    "compensationSave": "Ausgleich speichern",
+    "compensationSaved": "Gespeichert",
+    "integrityAlarm": "In der Hash-Kette der Zeiterfassungen wurden {{count}} Unstimmigkeiten festgestellt. Wenden Sie sich an den Support."
   }
 }

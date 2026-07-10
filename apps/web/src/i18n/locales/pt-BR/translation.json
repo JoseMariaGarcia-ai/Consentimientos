@@ -531,7 +531,8 @@
     "budgets": "Orçamentos",
     "workflows": "Workflows",
     "tickets": "Chamados",
-    "invoicing": "Faturamento"
+    "invoicing": "Faturamento",
+    "timeTracking": "Controle de ponto"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Enviada à AEAT",
     "cancelInvoice": "Cancelar fatura",
     "cancelling": "Cancelando…"
+  },
+  "employeeModal": {
+    "titleEdit": "Editar funcionário",
+    "titleNew": "Novo funcionário",
+    "form": {
+      "fullName": "Nome completo",
+      "dniNie": "Documento de identidade",
+      "role": "Cargo",
+      "rolePlaceholder": "Ex.: Recepcionista, Médico(a)",
+      "email": "Email",
+      "linkedUser": "Usuário vinculado",
+      "noLinkedUser": "Não vinculado (bate ponto apenas por PIN)",
+      "linkedUserHint": "Se o funcionário tiver acesso próprio ao app, vincule-o aqui para que possa ver seu histórico de ponto.",
+      "pin": "PIN de ponto",
+      "pinPlaceholder": "4-6 dígitos",
+      "pinEditPlaceholder": "Deixe em branco para não alterar",
+      "pinHint": "Necessário apenas se o funcionário bater ponto no terminal PIN da clínica."
+    },
+    "errors": {
+      "fullName": "O nome é obrigatório",
+      "dniNie": "O documento de identidade é obrigatório",
+      "pinFormat": "O PIN deve ter de 4 a 6 dígitos",
+      "saveFailed": "Não foi possível salvar o funcionário"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Bater ponto",
+    "dniNie": "Documento de identidade",
+    "pin": "PIN",
+    "success": "Ponto registrado, {{name}}",
+    "pinFormatError": "O PIN deve ter de 4 a 6 dígitos",
+    "genericError": "Não foi possível registrar o ponto",
+    "missingClinic": "Link inválido — clínica não identificada"
+  },
+  "timeTracking": {
+    "title": "Controle de ponto",
+    "subtitle": "Registro de jornada de trabalho conforme o RDL 8/2019, com rastreabilidade imutável por cadeia de hash.",
+    "tabSelf": "Meu ponto",
+    "tabAdmin": "Administração",
+    "myClock": "Meu ponto",
+    "clockIn": "Entrada",
+    "clockOut": "Saída",
+    "startBreak": "Iniciar pausa",
+    "endBreak": "Encerrar pausa",
+    "clockError": "Não foi possível registrar o ponto",
+    "statusIn": "Presente",
+    "statusOut": "Ausente",
+    "statusPaused": "Em pausa",
+    "thisWeek": "Esta semana",
+    "thisMonth": "Este mês",
+    "downloadMyReport": "Baixar meu relatório",
+    "exportError": "Não foi possível gerar o relatório",
+    "addEmployee": "Adicionar funcionário",
+    "employeesTitle": "Funcionários",
+    "noEmployees": "Você ainda não adicionou nenhum funcionário.",
+    "methodsTitle": "Métodos de ponto ativos",
+    "methodsHint": "O funcionário bate ponto pelo app/web com um toque (com geolocalização opcional). QR e PIN são alternativas para quem não tem acesso ao app.",
+    "method": {
+      "web": "App/Web (um toque)",
+      "qr": "Código QR da clínica",
+      "pin": "Terminal PIN fixo"
+    },
+    "status": {
+      "dentro": "Presente",
+      "fuera": "Ausente",
+      "en_pausa": "Em pausa"
+    },
+    "hoursTitle": "Horas trabalhadas",
+    "employee": "Funcionário",
+    "selectEmployee": "Selecione um funcionário",
+    "date": "Data",
+    "hours": "Horas",
+    "overtime": "Horas extras",
+    "overtimeShort": "extra",
+    "noHours": "Não há registros neste período.",
+    "periodTotal": "Total do período",
+    "compensationType": "Compensação de horas extras",
+    "compensationEconomic": "Pagamento",
+    "compensationRest": "Folga",
+    "compensationNotes": "Notas",
+    "compensationSave": "Salvar compensação",
+    "compensationSaved": "Salvo",
+    "integrityAlarm": "Foram detectadas {{count}} discrepâncias na cadeia de hashes dos registros de ponto. Entre em contato com o suporte."
   }
 }

@@ -531,7 +531,8 @@
     "budgets": "Oferte",
     "workflows": "Fluxuri de lucru",
     "tickets": "Incidente",
-    "invoicing": "Facturare"
+    "invoicing": "Facturare",
+    "timeTracking": "Pontaj"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Trimisă către AEAT",
     "cancelInvoice": "Anulează factura",
     "cancelling": "Se anulează…"
+  },
+  "employeeModal": {
+    "titleEdit": "Editează angajatul",
+    "titleNew": "Angajat nou",
+    "form": {
+      "fullName": "Nume complet",
+      "dniNie": "Act de identitate",
+      "role": "Funcție",
+      "rolePlaceholder": "Ex. Recepționer, Medic",
+      "email": "Email",
+      "linkedUser": "Utilizator asociat",
+      "noLinkedUser": "Neasociat (pontează doar prin PIN)",
+      "linkedUserHint": "Dacă angajatul are propriul acces la aplicație, asociază-l aici pentru a-și putea vedea istoricul de pontaj.",
+      "pin": "PIN de pontaj",
+      "pinPlaceholder": "4-6 cifre",
+      "pinEditPlaceholder": "Lasă gol pentru a nu-l schimba",
+      "pinHint": "Necesar doar dacă angajatul pontează de la terminalul PIN al clinicii."
+    },
+    "errors": {
+      "fullName": "Numele este obligatoriu",
+      "dniNie": "Actul de identitate este obligatoriu",
+      "pinFormat": "PIN-ul trebuie să aibă între 4 și 6 cifre",
+      "saveFailed": "Angajatul nu a putut fi salvat"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Pontaj",
+    "dniNie": "Act de identitate",
+    "pin": "PIN",
+    "success": "Pontaj înregistrat, {{name}}",
+    "pinFormatError": "PIN-ul trebuie să aibă între 4 și 6 cifre",
+    "genericError": "Pontajul nu a putut fi înregistrat",
+    "missingClinic": "Link nevalid — clinica nu a fost identificată"
+  },
+  "timeTracking": {
+    "title": "Pontaj",
+    "subtitle": "Evidența timpului de muncă conform RDL 8/2019, cu trasabilitate imuabilă prin lanț de hash.",
+    "tabSelf": "Pontajul meu",
+    "tabAdmin": "Administrare",
+    "myClock": "Pontajul meu",
+    "clockIn": "Intrare",
+    "clockOut": "Ieșire",
+    "startBreak": "Începe pauza",
+    "endBreak": "Termină pauza",
+    "clockError": "Pontajul nu a putut fi înregistrat",
+    "statusIn": "Prezent",
+    "statusOut": "Absent",
+    "statusPaused": "În pauză",
+    "thisWeek": "Săptămâna aceasta",
+    "thisMonth": "Luna aceasta",
+    "downloadMyReport": "Descarcă raportul meu",
+    "exportError": "Raportul nu a putut fi generat",
+    "addEmployee": "Adaugă angajat",
+    "employeesTitle": "Angajați",
+    "noEmployees": "Nu ai adăugat încă niciun angajat.",
+    "methodsTitle": "Metode de pontaj active",
+    "methodsHint": "Angajatul pontează din aplicație/web cu o atingere (cu geolocalizare opțională). QR și PIN sunt alternative pentru cei fără acces la aplicație.",
+    "method": {
+      "web": "Aplicație/Web (o atingere)",
+      "qr": "Cod QR al clinicii",
+      "pin": "Terminal PIN fix"
+    },
+    "status": {
+      "dentro": "Prezent",
+      "fuera": "Absent",
+      "en_pausa": "În pauză"
+    },
+    "hoursTitle": "Ore lucrate",
+    "employee": "Angajat",
+    "selectEmployee": "Selectează un angajat",
+    "date": "Data",
+    "hours": "Ore",
+    "overtime": "Ore suplimentare",
+    "overtimeShort": "supl.",
+    "noHours": "Nu există pontaje în această perioadă.",
+    "periodTotal": "Total perioadă",
+    "compensationType": "Compensarea orelor suplimentare",
+    "compensationEconomic": "Plată",
+    "compensationRest": "Timp liber",
+    "compensationNotes": "Note",
+    "compensationSave": "Salvează compensarea",
+    "compensationSaved": "Salvat",
+    "integrityAlarm": "S-au detectat {{count}} discrepanțe în lanțul de hash al pontajelor. Contactează asistența."
   }
 }

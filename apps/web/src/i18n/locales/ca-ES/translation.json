@@ -531,7 +531,8 @@
     "budgets": "Pressupostos",
     "workflows": "Fluxos de treball",
     "tickets": "Incidències",
-    "invoicing": "Facturació"
+    "invoicing": "Facturació",
+    "timeTracking": "Control horari"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Enviada a l'AEAT",
     "cancelInvoice": "Anul·la factura",
     "cancelling": "Anul·lant…"
+  },
+  "employeeModal": {
+    "titleEdit": "Edita empleat",
+    "titleNew": "Nou empleat",
+    "form": {
+      "fullName": "Nom complet",
+      "dniNie": "DNI / NIE",
+      "role": "Lloc de treball",
+      "rolePlaceholder": "P. ex. Recepcionista, Doctor/a",
+      "email": "Email",
+      "linkedUser": "Usuari vinculat",
+      "noLinkedUser": "Sense vincular (només fitxa amb PIN)",
+      "linkedUserHint": "Si l'empleat té accés propi a l'app, vincula'l aquí perquè pugui veure el seu historial de fitxatges.",
+      "pin": "PIN de fitxatge",
+      "pinPlaceholder": "4-6 dígits",
+      "pinEditPlaceholder": "Deixa-ho en blanc per no canviar-lo",
+      "pinHint": "Només cal si l'empleat fitxarà des del terminal PIN de la clínica."
+    },
+    "errors": {
+      "fullName": "El nom és obligatori",
+      "dniNie": "El DNI/NIE és obligatori",
+      "pinFormat": "El PIN ha de tenir entre 4 i 6 dígits",
+      "saveFailed": "No s'ha pogut desar l'empleat"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Fitxatge",
+    "dniNie": "DNI / NIE",
+    "pin": "PIN",
+    "success": "Fitxatge registrat, {{name}}",
+    "pinFormatError": "El PIN ha de tenir entre 4 i 6 dígits",
+    "genericError": "No s'ha pogut registrar el fitxatge",
+    "missingClinic": "Enllaç no vàlid — falta identificar la clínica"
+  },
+  "timeTracking": {
+    "title": "Control horari",
+    "subtitle": "Registre de jornada laboral conforme al RDL 8/2019, amb traçabilitat immutable per cadena de hash.",
+    "tabSelf": "El meu fitxatge",
+    "tabAdmin": "Administració",
+    "myClock": "El meu fitxatge",
+    "clockIn": "Entrada",
+    "clockOut": "Sortida",
+    "startBreak": "Inicia pausa",
+    "endBreak": "Fi de pausa",
+    "clockError": "No s'ha pogut registrar el fitxatge",
+    "statusIn": "Dins",
+    "statusOut": "Fora",
+    "statusPaused": "En pausa",
+    "thisWeek": "Aquesta setmana",
+    "thisMonth": "Aquest mes",
+    "downloadMyReport": "Descarrega el meu informe",
+    "exportError": "No s'ha pogut generar l'informe",
+    "addEmployee": "Afegeix empleat",
+    "employeesTitle": "Empleats",
+    "noEmployees": "Encara no has afegit cap empleat.",
+    "methodsTitle": "Mètodes de fitxatge actius",
+    "methodsHint": "L'empleat fitxa des de l'app/web amb un clic (amb geolocalització opcional). El QR i el PIN són alternatives per a qui no tingui accés a l'app.",
+    "method": {
+      "web": "App/Web (un clic)",
+      "qr": "Codi QR de la clínica",
+      "pin": "Terminal PIN fix"
+    },
+    "status": {
+      "dentro": "Dins",
+      "fuera": "Fora",
+      "en_pausa": "En pausa"
+    },
+    "hoursTitle": "Hores treballades",
+    "employee": "Empleat",
+    "selectEmployee": "Selecciona un empleat",
+    "date": "Data",
+    "hours": "Hores",
+    "overtime": "Hores extra",
+    "overtimeShort": "extra",
+    "noHours": "No hi ha fitxatges en aquest període.",
+    "periodTotal": "Total del període",
+    "compensationType": "Compensació d'hores extra",
+    "compensationEconomic": "Retribució econòmica",
+    "compensationRest": "Descans",
+    "compensationNotes": "Notes",
+    "compensationSave": "Desa la compensació",
+    "compensationSaved": "Desat",
+    "integrityAlarm": "S'han detectat {{count}} discrepàncies a la cadena de hashos dels fitxatges. Contacta amb suport."
   }
 }

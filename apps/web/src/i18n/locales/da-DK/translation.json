@@ -531,7 +531,8 @@
     "budgets": "Tilbud",
     "workflows": "Workflows",
     "tickets": "Fejlrapporter",
-    "invoicing": "Fakturering"
+    "invoicing": "Fakturering",
+    "timeTracking": "Tidsregistrering"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digital Signatur",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Sendt til AEAT",
     "cancelInvoice": "Annullér faktura",
     "cancelling": "Annullerer…"
+  },
+  "employeeModal": {
+    "titleEdit": "Rediger medarbejder",
+    "titleNew": "Ny medarbejder",
+    "form": {
+      "fullName": "Fulde navn",
+      "dniNie": "ID-nummer",
+      "role": "Stilling",
+      "rolePlaceholder": "F.eks. Receptionist, Læge",
+      "email": "E-mail",
+      "linkedUser": "Tilknyttet bruger",
+      "noLinkedUser": "Ikke tilknyttet (kun PIN-stempling)",
+      "linkedUserHint": "Hvis medarbejderen har egen appadgang, skal du knytte den her, så de kan se deres egen stemplingshistorik.",
+      "pin": "Stemplings-PIN",
+      "pinPlaceholder": "4-6 cifre",
+      "pinEditPlaceholder": "Lad stå tomt for ikke at ændre den",
+      "pinHint": "Kun nødvendigt, hvis medarbejderen stempler fra klinikkens PIN-terminal."
+    },
+    "errors": {
+      "fullName": "Navn er påkrævet",
+      "dniNie": "ID-nummer er påkrævet",
+      "pinFormat": "PIN skal have 4 til 6 cifre",
+      "saveFailed": "Kunne ikke gemme medarbejderen"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Stempling",
+    "dniNie": "ID-nummer",
+    "pin": "PIN",
+    "success": "Stemplet, {{name}}",
+    "pinFormatError": "PIN skal have 4 til 6 cifre",
+    "genericError": "Kunne ikke registrere stemplingen",
+    "missingClinic": "Ugyldigt link — klinik ikke identificeret"
+  },
+  "timeTracking": {
+    "title": "Tidsregistrering",
+    "subtitle": "Registrering af arbejdstid i overensstemmelse med RDL 8/2019, med uforanderlig sporbarhed via hashkæde.",
+    "tabSelf": "Min stempling",
+    "tabAdmin": "Administration",
+    "myClock": "Min stempling",
+    "clockIn": "Ind",
+    "clockOut": "Ud",
+    "startBreak": "Start pause",
+    "endBreak": "Afslut pause",
+    "clockError": "Kunne ikke registrere stemplingen",
+    "statusIn": "Til stede",
+    "statusOut": "Væk",
+    "statusPaused": "På pause",
+    "thisWeek": "Denne uge",
+    "thisMonth": "Denne måned",
+    "downloadMyReport": "Download min rapport",
+    "exportError": "Kunne ikke generere rapporten",
+    "addEmployee": "Tilføj medarbejder",
+    "employeesTitle": "Medarbejdere",
+    "noEmployees": "Du har endnu ikke tilføjet nogen medarbejder.",
+    "methodsTitle": "Aktive stemplingsmetoder",
+    "methodsHint": "Medarbejderen stempler fra app/web med ét tryk (med valgfri geolokation). QR og PIN er alternativer for dem uden appadgang.",
+    "method": {
+      "web": "App/Web (ét tryk)",
+      "qr": "Klinikkens QR-kode",
+      "pin": "Fast PIN-terminal"
+    },
+    "status": {
+      "dentro": "Til stede",
+      "fuera": "Væk",
+      "en_pausa": "På pause"
+    },
+    "hoursTitle": "Arbejdstimer",
+    "employee": "Medarbejder",
+    "selectEmployee": "Vælg en medarbejder",
+    "date": "Dato",
+    "hours": "Timer",
+    "overtime": "Overarbejde",
+    "overtimeShort": "overarb.",
+    "noHours": "Ingen stemplinger i denne periode.",
+    "periodTotal": "Total for perioden",
+    "compensationType": "Kompensation for overarbejde",
+    "compensationEconomic": "Løn",
+    "compensationRest": "Afspadsering",
+    "compensationNotes": "Noter",
+    "compensationSave": "Gem kompensation",
+    "compensationSaved": "Gemt",
+    "integrityAlarm": "Der blev fundet {{count}} uoverensstemmelser i stemplingernes hashkæde. Kontakt support."
   }
 }

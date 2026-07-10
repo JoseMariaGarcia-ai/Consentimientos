@@ -531,7 +531,8 @@
     "budgets": "Fiyat Teklifleri",
     "workflows": "İş Akışları",
     "tickets": "Arıza kayıtları",
-    "invoicing": "Faturalama"
+    "invoicing": "Faturalama",
+    "timeTracking": "Zaman Takibi"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",
@@ -1814,5 +1815,88 @@
     "aeatSent": "AEAT'a gönderildi",
     "cancelInvoice": "Faturayı iptal et",
     "cancelling": "İptal ediliyor…"
+  },
+  "employeeModal": {
+    "titleEdit": "Çalışanı düzenle",
+    "titleNew": "Yeni çalışan",
+    "form": {
+      "fullName": "Ad soyad",
+      "dniNie": "Kimlik numarası",
+      "role": "Görev",
+      "rolePlaceholder": "Örn. Resepsiyonist, Doktor",
+      "email": "E-posta",
+      "linkedUser": "Bağlı kullanıcı",
+      "noLinkedUser": "Bağlı değil (yalnızca PIN ile giriş)",
+      "linkedUserHint": "Çalışanın kendi uygulama erişimi varsa, geçmiş kayıtlarını görebilmesi için buradan bağlayın.",
+      "pin": "Giriş PIN'i",
+      "pinPlaceholder": "4-6 rakam",
+      "pinEditPlaceholder": "Değiştirmemek için boş bırakın",
+      "pinHint": "Sadece çalışan kliniğin PIN terminalinden giriş yapacaksa gereklidir."
+    },
+    "errors": {
+      "fullName": "İsim zorunludur",
+      "dniNie": "Kimlik numarası zorunludur",
+      "pinFormat": "PIN 4 ile 6 rakam arasında olmalıdır",
+      "saveFailed": "Çalışan kaydedilemedi"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Giriş/Çıkış",
+    "dniNie": "Kimlik numarası",
+    "pin": "PIN",
+    "success": "Kaydedildi, {{name}}",
+    "pinFormatError": "PIN 4 ile 6 rakam arasında olmalıdır",
+    "genericError": "Kayıt yapılamadı",
+    "missingClinic": "Geçersiz bağlantı — klinik tanımlanamadı"
+  },
+  "timeTracking": {
+    "title": "Zaman Takibi",
+    "subtitle": "RDL 8/2019 uyumlu çalışma süresi kaydı, hash zinciriyle değiştirilemez izlenebilirlik.",
+    "tabSelf": "Kendi kaydım",
+    "tabAdmin": "Yönetim",
+    "myClock": "Kendi kaydım",
+    "clockIn": "Giriş",
+    "clockOut": "Çıkış",
+    "startBreak": "Molaya başla",
+    "endBreak": "Molayı bitir",
+    "clockError": "Kayıt yapılamadı",
+    "statusIn": "İçeride",
+    "statusOut": "Dışarıda",
+    "statusPaused": "Molada",
+    "thisWeek": "Bu hafta",
+    "thisMonth": "Bu ay",
+    "downloadMyReport": "Raporumu indir",
+    "exportError": "Rapor oluşturulamadı",
+    "addEmployee": "Çalışan ekle",
+    "employeesTitle": "Çalışanlar",
+    "noEmployees": "Henüz hiç çalışan eklemediniz.",
+    "methodsTitle": "Aktif giriş yöntemleri",
+    "methodsHint": "Çalışan uygulama/web üzerinden tek dokunuşla giriş yapar (isteğe bağlı konum ile). QR ve PIN, uygulamaya erişimi olmayanlar için alternatiftir.",
+    "method": {
+      "web": "Uygulama/Web (tek dokunuş)",
+      "qr": "Klinik QR kodu",
+      "pin": "Sabit PIN terminali"
+    },
+    "status": {
+      "dentro": "İçeride",
+      "fuera": "Dışarıda",
+      "en_pausa": "Molada"
+    },
+    "hoursTitle": "Çalışılan saatler",
+    "employee": "Çalışan",
+    "selectEmployee": "Bir çalışan seçin",
+    "date": "Tarih",
+    "hours": "Saat",
+    "overtime": "Fazla mesai",
+    "overtimeShort": "fazla mesai",
+    "noHours": "Bu dönemde kayıt yok.",
+    "periodTotal": "Dönem toplamı",
+    "compensationType": "Fazla mesai telafisi",
+    "compensationEconomic": "Ücret ödemesi",
+    "compensationRest": "İzin",
+    "compensationNotes": "Notlar",
+    "compensationSave": "Telafiyi kaydet",
+    "compensationSaved": "Kaydedildi",
+    "integrityAlarm": "Zaman kayıtlarının hash zincirinde {{count}} tutarsızlık tespit edildi. Destek ile iletişime geçin."
   }
 }

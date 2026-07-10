@@ -531,7 +531,8 @@
     "budgets": "कोटेशन",
     "workflows": "वर्कफ़्लो",
     "tickets": "समस्या रिपोर्ट",
-    "invoicing": "बिलिंग"
+    "invoicing": "बिलिंग",
+    "timeTracking": "उपस्थिति नियंत्रण"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",
@@ -1814,5 +1815,88 @@
     "aeatSent": "AEAT को भेजा गया",
     "cancelInvoice": "चालान रद्द करें",
     "cancelling": "रद्द किया जा रहा है…"
+  },
+  "employeeModal": {
+    "titleEdit": "कर्मचारी संपादित करें",
+    "titleNew": "नया कर्मचारी",
+    "form": {
+      "fullName": "पूरा नाम",
+      "dniNie": "पहचान संख्या",
+      "role": "पद",
+      "rolePlaceholder": "जैसे रिसेप्शनिस्ट, डॉक्टर",
+      "email": "ईमेल",
+      "linkedUser": "जुड़ा हुआ उपयोगकर्ता",
+      "noLinkedUser": "जुड़ा नहीं है (केवल PIN से उपस्थिति)",
+      "linkedUserHint": "यदि कर्मचारी के पास ऐप का अपना एक्सेस है, तो उसे यहां जोड़ें ताकि वह अपना उपस्थिति इतिहास देख सके।",
+      "pin": "उपस्थिति PIN",
+      "pinPlaceholder": "4-6 अंक",
+      "pinEditPlaceholder": "न बदलने के लिए खाली छोड़ें",
+      "pinHint": "केवल तभी आवश्यक जब कर्मचारी क्लिनिक के PIN टर्मिनल से उपस्थिति दर्ज करेगा।"
+    },
+    "errors": {
+      "fullName": "नाम आवश्यक है",
+      "dniNie": "पहचान संख्या आवश्यक है",
+      "pinFormat": "PIN 4 से 6 अंकों का होना चाहिए",
+      "saveFailed": "कर्मचारी को सहेजा नहीं जा सका"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "उपस्थिति दर्ज करें",
+    "dniNie": "पहचान संख्या",
+    "pin": "PIN",
+    "success": "दर्ज किया गया, {{name}}",
+    "pinFormatError": "PIN 4 से 6 अंकों का होना चाहिए",
+    "genericError": "उपस्थिति दर्ज नहीं की जा सकी",
+    "missingClinic": "अमान्य लिंक — क्लिनिक की पहचान नहीं हो सकी"
+  },
+  "timeTracking": {
+    "title": "उपस्थिति नियंत्रण",
+    "subtitle": "RDL 8/2019 के अनुरूप कार्य समय रिकॉर्ड, हैश चेन के माध्यम से अपरिवर्तनीय ट्रेसेबिलिटी के साथ।",
+    "tabSelf": "मेरी उपस्थिति",
+    "tabAdmin": "प्रशासन",
+    "myClock": "मेरी उपस्थिति",
+    "clockIn": "प्रवेश",
+    "clockOut": "निकास",
+    "startBreak": "ब्रेक शुरू करें",
+    "endBreak": "ब्रेक समाप्त करें",
+    "clockError": "उपस्थिति दर्ज नहीं की जा सकी",
+    "statusIn": "अंदर",
+    "statusOut": "बाहर",
+    "statusPaused": "ब्रेक पर",
+    "thisWeek": "इस सप्ताह",
+    "thisMonth": "इस महीने",
+    "downloadMyReport": "मेरी रिपोर्ट डाउनलोड करें",
+    "exportError": "रिपोर्ट बनाई नहीं जा सकी",
+    "addEmployee": "कर्मचारी जोड़ें",
+    "employeesTitle": "कर्मचारी",
+    "noEmployees": "आपने अभी तक कोई कर्मचारी नहीं जोड़ा है।",
+    "methodsTitle": "सक्रिय उपस्थिति विधियां",
+    "methodsHint": "कर्मचारी ऐप/वेब से एक टैप में उपस्थिति दर्ज करता है (वैकल्पिक जियोलोकेशन के साथ)। QR और PIN उन लोगों के लिए विकल्प हैं जिनके पास ऐप एक्सेस नहीं है।",
+    "method": {
+      "web": "ऐप/वेब (एक टैप)",
+      "qr": "क्लिनिक का QR कोड",
+      "pin": "स्थायी PIN टर्मिनल"
+    },
+    "status": {
+      "dentro": "अंदर",
+      "fuera": "बाहर",
+      "en_pausa": "ब्रेक पर"
+    },
+    "hoursTitle": "काम किए गए घंटे",
+    "employee": "कर्मचारी",
+    "selectEmployee": "एक कर्मचारी चुनें",
+    "date": "तारीख",
+    "hours": "घंटे",
+    "overtime": "ओवरटाइम",
+    "overtimeShort": "ओवरटाइम",
+    "noHours": "इस अवधि में कोई उपस्थिति नहीं है।",
+    "periodTotal": "अवधि कुल",
+    "compensationType": "ओवरटाइम मुआवज़ा",
+    "compensationEconomic": "आर्थिक भुगतान",
+    "compensationRest": "आराम",
+    "compensationNotes": "टिप्पणियाँ",
+    "compensationSave": "मुआवज़ा सहेजें",
+    "compensationSaved": "सहेजा गया",
+    "integrityAlarm": "उपस्थिति की हैश श्रृंखला में {{count}} विसंगतियां पाई गईं। सहायता से संपर्क करें।"
   }
 }

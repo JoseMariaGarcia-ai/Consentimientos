@@ -531,7 +531,8 @@
     "budgets": "Wyceny",
     "workflows": "Przepływy pracy",
     "tickets": "Zgłoszenia",
-    "invoicing": "Fakturowanie"
+    "invoicing": "Fakturowanie",
+    "timeTracking": "Kontrola czasu pracy"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",
@@ -1814,5 +1815,88 @@
     "aeatSent": "Wysłano do AEAT",
     "cancelInvoice": "Anuluj fakturę",
     "cancelling": "Anulowanie…"
+  },
+  "employeeModal": {
+    "titleEdit": "Edytuj pracownika",
+    "titleNew": "Nowy pracownik",
+    "form": {
+      "fullName": "Imię i nazwisko",
+      "dniNie": "Numer dokumentu tożsamości",
+      "role": "Stanowisko",
+      "rolePlaceholder": "Np. Recepcjonistka, Lekarz",
+      "email": "Email",
+      "linkedUser": "Powiązany użytkownik",
+      "noLinkedUser": "Niepowiązany (rejestracja tylko przez PIN)",
+      "linkedUserHint": "Jeśli pracownik ma własny dostęp do aplikacji, powiąż go tutaj, aby mógł zobaczyć swoją historię rejestracji.",
+      "pin": "PIN rejestracji",
+      "pinPlaceholder": "4-6 cyfr",
+      "pinEditPlaceholder": "Pozostaw puste, aby nie zmieniać",
+      "pinHint": "Potrzebne tylko, jeśli pracownik rejestruje się z terminala PIN kliniki."
+    },
+    "errors": {
+      "fullName": "Imię jest wymagane",
+      "dniNie": "Numer dokumentu jest wymagany",
+      "pinFormat": "PIN musi mieć od 4 do 6 cyfr",
+      "saveFailed": "Nie udało się zapisać pracownika"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "Rejestracja czasu pracy",
+    "dniNie": "Numer dokumentu tożsamości",
+    "pin": "PIN",
+    "success": "Zarejestrowano, {{name}}",
+    "pinFormatError": "PIN musi mieć od 4 do 6 cyfr",
+    "genericError": "Nie udało się zarejestrować",
+    "missingClinic": "Nieprawidłowy link — nie zidentyfikowano kliniki"
+  },
+  "timeTracking": {
+    "title": "Kontrola czasu pracy",
+    "subtitle": "Rejestracja czasu pracy zgodna z RDL 8/2019, z niezmienną identyfikowalnością dzięki łańcuchowi hashy.",
+    "tabSelf": "Moja rejestracja",
+    "tabAdmin": "Administracja",
+    "myClock": "Moja rejestracja",
+    "clockIn": "Wejście",
+    "clockOut": "Wyjście",
+    "startBreak": "Rozpocznij przerwę",
+    "endBreak": "Zakończ przerwę",
+    "clockError": "Nie udało się zarejestrować",
+    "statusIn": "Obecny",
+    "statusOut": "Nieobecny",
+    "statusPaused": "Na przerwie",
+    "thisWeek": "Ten tydzień",
+    "thisMonth": "Ten miesiąc",
+    "downloadMyReport": "Pobierz mój raport",
+    "exportError": "Nie udało się wygenerować raportu",
+    "addEmployee": "Dodaj pracownika",
+    "employeesTitle": "Pracownicy",
+    "noEmployees": "Nie dodano jeszcze żadnego pracownika.",
+    "methodsTitle": "Aktywne metody rejestracji",
+    "methodsHint": "Pracownik rejestruje się z aplikacji/strony jednym dotknięciem (z opcjonalną geolokalizacją). QR i PIN to alternatywy dla osób bez dostępu do aplikacji.",
+    "method": {
+      "web": "Aplikacja/Web (jedno dotknięcie)",
+      "qr": "Kod QR kliniki",
+      "pin": "Stały terminal PIN"
+    },
+    "status": {
+      "dentro": "Obecny",
+      "fuera": "Nieobecny",
+      "en_pausa": "Na przerwie"
+    },
+    "hoursTitle": "Przepracowane godziny",
+    "employee": "Pracownik",
+    "selectEmployee": "Wybierz pracownika",
+    "date": "Data",
+    "hours": "Godziny",
+    "overtime": "Nadgodziny",
+    "overtimeShort": "nadg.",
+    "noHours": "Brak rejestracji w tym okresie.",
+    "periodTotal": "Suma za okres",
+    "compensationType": "Rekompensata za nadgodziny",
+    "compensationEconomic": "Wynagrodzenie",
+    "compensationRest": "Odpoczynek",
+    "compensationNotes": "Notatki",
+    "compensationSave": "Zapisz rekompensatę",
+    "compensationSaved": "Zapisano",
+    "integrityAlarm": "Wykryto {{count}} rozbieżności w łańcuchu hashy rejestracji czasu pracy. Skontaktuj się z pomocą techniczną."
   }
 }

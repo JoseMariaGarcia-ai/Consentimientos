@@ -531,7 +531,8 @@
     "budgets": "报价单",
     "workflows": "工作流",
     "tickets": "问题反馈",
-    "invoicing": "开票"
+    "invoicing": "开票",
+    "timeTracking": "考勤管理"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",
@@ -1814,5 +1815,88 @@
     "aeatSent": "已提交至 AEAT",
     "cancelInvoice": "作废发票",
     "cancelling": "作废中…"
+  },
+  "employeeModal": {
+    "titleEdit": "编辑员工",
+    "titleNew": "新建员工",
+    "form": {
+      "fullName": "姓名",
+      "dniNie": "身份证件号码",
+      "role": "职位",
+      "rolePlaceholder": "例如：前台、医生",
+      "email": "电子邮件",
+      "linkedUser": "关联用户",
+      "noLinkedUser": "未关联（仅限PIN打卡）",
+      "linkedUserHint": "如果员工有自己的应用访问权限，请在此关联，以便查看自己的打卡记录。",
+      "pin": "打卡PIN",
+      "pinPlaceholder": "4-6位数字",
+      "pinEditPlaceholder": "留空表示不修改",
+      "pinHint": "仅当员工从诊所的PIN终端打卡时才需要。"
+    },
+    "errors": {
+      "fullName": "姓名为必填项",
+      "dniNie": "身份证件号码为必填项",
+      "pinFormat": "PIN必须为4到6位数字",
+      "saveFailed": "无法保存员工"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "打卡",
+    "dniNie": "身份证件号码",
+    "pin": "PIN",
+    "success": "已打卡，{{name}}",
+    "pinFormatError": "PIN必须为4到6位数字",
+    "genericError": "无法记录打卡",
+    "missingClinic": "链接无效——未能识别诊所"
+  },
+  "timeTracking": {
+    "title": "考勤管理",
+    "subtitle": "符合RDL 8/2019的工时记录，通过哈希链实现不可篡改的可追溯性。",
+    "tabSelf": "我的打卡",
+    "tabAdmin": "管理",
+    "myClock": "我的打卡",
+    "clockIn": "上班",
+    "clockOut": "下班",
+    "startBreak": "开始休息",
+    "endBreak": "结束休息",
+    "clockError": "无法记录打卡",
+    "statusIn": "在岗",
+    "statusOut": "不在岗",
+    "statusPaused": "休息中",
+    "thisWeek": "本周",
+    "thisMonth": "本月",
+    "downloadMyReport": "下载我的报告",
+    "exportError": "无法生成报告",
+    "addEmployee": "添加员工",
+    "employeesTitle": "员工",
+    "noEmployees": "您尚未添加任何员工。",
+    "methodsTitle": "启用的打卡方式",
+    "methodsHint": "员工通过应用/网页一键打卡（可选定位）。二维码和PIN是无法访问应用的人的替代方式。",
+    "method": {
+      "web": "应用/网页（一键）",
+      "qr": "诊所二维码",
+      "pin": "固定PIN终端"
+    },
+    "status": {
+      "dentro": "在岗",
+      "fuera": "不在岗",
+      "en_pausa": "休息中"
+    },
+    "hoursTitle": "工作时长",
+    "employee": "员工",
+    "selectEmployee": "选择员工",
+    "date": "日期",
+    "hours": "小时",
+    "overtime": "加班",
+    "overtimeShort": "加班",
+    "noHours": "此期间没有打卡记录。",
+    "periodTotal": "期间总计",
+    "compensationType": "加班补偿",
+    "compensationEconomic": "经济报酬",
+    "compensationRest": "调休",
+    "compensationNotes": "备注",
+    "compensationSave": "保存补偿",
+    "compensationSaved": "已保存",
+    "integrityAlarm": "在打卡哈希链中检测到{{count}}处差异。请联系支持人员。"
   }
 }

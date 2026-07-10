@@ -531,7 +531,8 @@
     "budgets": "見積もり",
     "workflows": "ワークフロー",
     "tickets": "不具合報告",
-    "invoicing": "請求書発行"
+    "invoicing": "請求書発行",
+    "timeTracking": "勤怠管理"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",
@@ -1814,5 +1815,88 @@
     "aeatSent": "AEATに送信済み",
     "cancelInvoice": "請求書を取り消す",
     "cancelling": "取り消し中…"
+  },
+  "employeeModal": {
+    "titleEdit": "従業員を編集",
+    "titleNew": "新規従業員",
+    "form": {
+      "fullName": "氏名",
+      "dniNie": "身分証明書番号",
+      "role": "役職",
+      "rolePlaceholder": "例：受付、医師",
+      "email": "メール",
+      "linkedUser": "連携ユーザー",
+      "noLinkedUser": "未連携（PIN打刻のみ）",
+      "linkedUserHint": "従業員が独自のアプリアクセス権を持っている場合、ここで連携すると自分の打刻履歴を確認できます。",
+      "pin": "打刻用PIN",
+      "pinPlaceholder": "4〜6桁",
+      "pinEditPlaceholder": "変更しない場合は空欄のまま",
+      "pinHint": "従業員がクリニックのPIN端末から打刻する場合のみ必要です。"
+    },
+    "errors": {
+      "fullName": "氏名は必須です",
+      "dniNie": "身分証明書番号は必須です",
+      "pinFormat": "PINは4〜6桁である必要があります",
+      "saveFailed": "従業員を保存できませんでした"
+    }
+  },
+  "timeClockKiosk": {
+    "title": "打刻",
+    "dniNie": "身分証明書番号",
+    "pin": "PIN",
+    "success": "打刻しました、{{name}}",
+    "pinFormatError": "PINは4〜6桁である必要があります",
+    "genericError": "打刻を記録できませんでした",
+    "missingClinic": "無効なリンクです — クリニックが特定できません"
+  },
+  "timeTracking": {
+    "title": "勤怠管理",
+    "subtitle": "RDL 8/2019に準拠した労働時間記録。ハッシュチェーンによる改ざん不可能なトレーサビリティを備えています。",
+    "tabSelf": "自分の打刻",
+    "tabAdmin": "管理",
+    "myClock": "自分の打刻",
+    "clockIn": "出勤",
+    "clockOut": "退勤",
+    "startBreak": "休憩開始",
+    "endBreak": "休憩終了",
+    "clockError": "打刻を記録できませんでした",
+    "statusIn": "勤務中",
+    "statusOut": "退勤済み",
+    "statusPaused": "休憩中",
+    "thisWeek": "今週",
+    "thisMonth": "今月",
+    "downloadMyReport": "自分のレポートをダウンロード",
+    "exportError": "レポートを生成できませんでした",
+    "addEmployee": "従業員を追加",
+    "employeesTitle": "従業員",
+    "noEmployees": "まだ従業員を追加していません。",
+    "methodsTitle": "有効な打刻方法",
+    "methodsHint": "従業員はアプリ/ウェブからワンタップで打刻します（位置情報はオプション）。QRとPINはアプリにアクセスできない人向けの代替手段です。",
+    "method": {
+      "web": "アプリ/ウェブ（ワンタップ）",
+      "qr": "クリニックのQRコード",
+      "pin": "固定PIN端末"
+    },
+    "status": {
+      "dentro": "勤務中",
+      "fuera": "退勤済み",
+      "en_pausa": "休憩中"
+    },
+    "hoursTitle": "勤務時間",
+    "employee": "従業員",
+    "selectEmployee": "従業員を選択",
+    "date": "日付",
+    "hours": "時間",
+    "overtime": "残業",
+    "overtimeShort": "残業",
+    "noHours": "この期間の打刻はありません。",
+    "periodTotal": "期間合計",
+    "compensationType": "残業の補償",
+    "compensationEconomic": "金銭的補償",
+    "compensationRest": "代休",
+    "compensationNotes": "メモ",
+    "compensationSave": "補償を保存",
+    "compensationSaved": "保存しました",
+    "integrityAlarm": "打刻のハッシュチェーンに{{count}}件の不整合が見つかりました。サポートにお問い合わせください。"
   }
 }
