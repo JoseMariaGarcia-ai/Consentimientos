@@ -284,6 +284,24 @@ router.get('/subscriptions', requireSuperAdmin, async (_req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// POST /api/billing/test-notification — superadmin only. Dispara un envío de
+// prueba del aviso interno de "nueva suscripción" (ver subscriptionEmails.ts)
+// contra BILLING_NOTIFICATION_EMAIL, para verificar que la variable de
+// entorno y el envío de emails funcionan sin esperar a una venta real.
+router.post('/test-notification', requireSuperAdmin, async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const clinic = await getClinic(userId)
+    if (!clinic) return res.status(404).json({ error: 'Clínica no encontrada' })
+    if (!process.env.BILLING_NOTIFICATION_EMAIL) {
+      return res.status(400).json({ error: 'BILLING_NOTIFICATION_EMAIL no está configurada en este entorno' })
+    }
+    const { sendNewSubscriptionNotification } = await import('../lib/subscriptionEmails')
+    await sendNewSubscriptionNotification(clinic.id, 'pro', 'monthly')
+    return res.json({ sent: true, to: process.env.BILLING_NOTIFICATION_EMAIL })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 export default router
 
 // Alta automática desde la web pública: crea la clínica y el usuario
