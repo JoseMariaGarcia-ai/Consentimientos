@@ -868,7 +868,17 @@
     "content_label": "同意書の内容",
     "content_placeholder": "インフォームドコンセントのテキストを書いてください…",
     "saving": "保存中…",
-    "saved": "保存済み"
+    "saved": "保存済み",
+    "category": "カテゴリー",
+    "categories": {
+      "medicina_estetica": "美容医療",
+      "odontologia": "歯科",
+      "centro_estetico": "エステサロン",
+      "salon_belleza": "美容室",
+      "tatuajes": "タトゥースタジオ",
+      "veterinaria": "獣医",
+      "fisioterapia": "理学療法"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "このカルテを削除しますか？",

@@ -868,7 +868,17 @@
     "content_label": "Nội dung đơn chấp thuận",
     "content_placeholder": "Viết văn bản đơn chấp thuận có thông tin…",
     "saving": "Đang lưu…",
-    "saved": "Đã lưu"
+    "saved": "Đã lưu",
+    "category": "Danh mục",
+    "categories": {
+      "medicina_estetica": "Y học Thẩm mỹ",
+      "odontologia": "Nha khoa",
+      "centro_estetico": "Trung tâm Thẩm mỹ",
+      "salon_belleza": "Tiệm Làm đẹp",
+      "tatuajes": "Studio Xăm hình",
+      "veterinaria": "Thú y",
+      "fisioterapia": "Vật lý trị liệu"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Xóa hồ sơ bệnh án này?",

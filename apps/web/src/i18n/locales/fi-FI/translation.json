@@ -868,7 +868,17 @@
     "content_label": "Suostumuksen sisältö",
     "content_placeholder": "Kirjoita tietoisen suostumuksen teksti…",
     "saving": "Tallennetaan…",
-    "saved": "Tallennettu"
+    "saved": "Tallennettu",
+    "category": "Kategoria",
+    "categories": {
+      "medicina_estetica": "Esteettinen lääketiede",
+      "odontologia": "Hammaslääketiede",
+      "centro_estetico": "Kauneushoitola",
+      "salon_belleza": "Kauneussalonki",
+      "tatuajes": "Tatuointistudiot",
+      "veterinaria": "Eläinlääkintä",
+      "fisioterapia": "Fysioterapia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Poistetaanko tämä potilaskertomus?",

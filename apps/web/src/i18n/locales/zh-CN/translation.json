@@ -868,7 +868,17 @@
     "content_label": "同意书内容",
     "content_placeholder": "写知情同意书文本…",
     "saving": "正在保存…",
-    "saved": "已保存"
+    "saved": "已保存",
+    "category": "类别",
+    "categories": {
+      "medicina_estetica": "美容医学",
+      "odontologia": "牙科",
+      "centro_estetico": "美容中心",
+      "salon_belleza": "美容院",
+      "tatuajes": "纹身工作室",
+      "veterinaria": "兽医",
+      "fisioterapia": "物理治疗"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "确定要删除此病历吗？",

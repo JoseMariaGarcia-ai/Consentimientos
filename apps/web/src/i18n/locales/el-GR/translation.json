@@ -868,7 +868,17 @@
     "content_label": "Περιεχόμενο συναίνεσης",
     "content_placeholder": "Γράψτε το κείμενο της ενημερωμένης συναίνεσης…",
     "saving": "Αποθήκευση…",
-    "saved": "Αποθηκεύτηκε"
+    "saved": "Αποθηκεύτηκε",
+    "category": "Κατηγορία",
+    "categories": {
+      "medicina_estetica": "Αισθητική Ιατρική",
+      "odontologia": "Οδοντιατρική",
+      "centro_estetico": "Κέντρο Αισθητικής",
+      "salon_belleza": "Ινστιτούτο Ομορφιάς",
+      "tatuajes": "Στούντιο Τατουάζ",
+      "veterinaria": "Κτηνιατρική",
+      "fisioterapia": "Φυσικοθεραπεία"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Διαγραφή αυτού του κλινικού ιστορικού;",

@@ -868,7 +868,17 @@
     "content_label": "Onam içeriği",
     "content_placeholder": "Aydınlatılmış onam metnini yazın…",
     "saving": "Kaydediliyor…",
-    "saved": "Kaydedildi"
+    "saved": "Kaydedildi",
+    "category": "Kategori",
+    "categories": {
+      "medicina_estetica": "Estetik Tıp",
+      "odontologia": "Diş Hekimliği",
+      "centro_estetico": "Estetik Merkezi",
+      "salon_belleza": "Güzellik Salonu",
+      "tatuajes": "Dövme Stüdyoları",
+      "veterinaria": "Veterinerlik",
+      "fisioterapia": "Fizyoterapi"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Bu klinik kayıt silinsin mi?",

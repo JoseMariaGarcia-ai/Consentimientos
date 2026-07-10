@@ -868,7 +868,17 @@
     "content_label": "Зміст згоди",
     "content_placeholder": "Введіть текст інформованої згоди…",
     "saving": "Збереження…",
-    "saved": "Збережено"
+    "saved": "Збережено",
+    "category": "Категорія",
+    "categories": {
+      "medicina_estetica": "Естетична медицина",
+      "odontologia": "Стоматологія",
+      "centro_estetico": "Естетичний центр",
+      "salon_belleza": "Салон краси",
+      "tatuajes": "Тату-студії",
+      "veterinaria": "Ветеринарія",
+      "fisioterapia": "Фізіотерапія"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Видалити цю клінічну карту?",

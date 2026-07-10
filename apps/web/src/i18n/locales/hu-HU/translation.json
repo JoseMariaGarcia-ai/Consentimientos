@@ -868,7 +868,17 @@
     "content_label": "Beleegyezés tartalma",
     "content_placeholder": "Írja be a tájékozott beleegyezés szövegét…",
     "saving": "Mentés…",
-    "saved": "Mentve"
+    "saved": "Mentve",
+    "category": "Kategória",
+    "categories": {
+      "medicina_estetica": "Esztétikai orvoslás",
+      "odontologia": "Fogászat",
+      "centro_estetico": "Esztétikai központ",
+      "salon_belleza": "Szépségszalon",
+      "tatuajes": "Tetoválószalonok",
+      "veterinaria": "Állatorvoslás",
+      "fisioterapia": "Fizioterápia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Törli ezt a klinikai naplót?",

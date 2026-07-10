@@ -868,7 +868,17 @@
     "content_label": "Consent content",
     "content_placeholder": "Write the informed consent text…",
     "saving": "Saving…",
-    "saved": "Saved"
+    "saved": "Saved",
+    "category": "Category",
+    "categories": {
+      "medicina_estetica": "Aesthetic Medicine",
+      "odontologia": "Dentistry",
+      "centro_estetico": "Beauty & Aesthetic Center",
+      "salon_belleza": "Beauty Salon",
+      "tatuajes": "Tattoo Studios",
+      "veterinaria": "Veterinary",
+      "fisioterapia": "Physiotherapy"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Delete this clinical record?",

@@ -824,7 +824,17 @@
     "content_label": "תוכן ההסכמה",
     "content_placeholder": "כתוב את טקסט ההסכמה המדעת…",
     "saving": "שומר…",
-    "saved": "נשמר"
+    "saved": "נשמר",
+    "category": "קטגוריה",
+    "categories": {
+      "medicina_estetica": "רפואה אסתטית",
+      "odontologia": "רפואת שיניים",
+      "centro_estetico": "מרכז אסתטי",
+      "salon_belleza": "מכון יופי",
+      "tatuajes": "סטודיו לקעקועים",
+      "veterinaria": "וטרינריה",
+      "fisioterapia": "פיזיותרפיה"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "למחוק רשומה רפואית זו?",

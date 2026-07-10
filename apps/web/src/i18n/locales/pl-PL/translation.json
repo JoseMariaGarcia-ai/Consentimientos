@@ -868,7 +868,17 @@
     "content_label": "Treść zgody",
     "content_placeholder": "Napisz tekst świadomej zgody…",
     "saving": "Zapisywanie…",
-    "saved": "Zapisano"
+    "saved": "Zapisano",
+    "category": "Kategoria",
+    "categories": {
+      "medicina_estetica": "Medycyna Estetyczna",
+      "odontologia": "Stomatologia",
+      "centro_estetico": "Centrum Kosmetyczne",
+      "salon_belleza": "Salon Piękności",
+      "tatuajes": "Studia Tatuażu",
+      "veterinaria": "Weterynaria",
+      "fisioterapia": "Fizjoterapia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Usunąć tę historię choroby?",

@@ -868,7 +868,17 @@
     "content_label": "Obsah souhlasu",
     "content_placeholder": "Napište text informovaného souhlasu…",
     "saving": "Ukládání…",
-    "saved": "Uloženo"
+    "saved": "Uloženo",
+    "category": "Kategorie",
+    "categories": {
+      "medicina_estetica": "Estetická medicína",
+      "odontologia": "Stomatologie",
+      "centro_estetico": "Estetické centrum",
+      "salon_belleza": "Kosmetický salon",
+      "tatuajes": "Tetovací studia",
+      "veterinaria": "Veterinární péče",
+      "fisioterapia": "Fyzioterapie"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Smazat tento klinický záznam?",

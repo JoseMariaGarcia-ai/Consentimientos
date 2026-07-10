@@ -848,7 +848,17 @@
     "content_label": "Contenido del consentimiento",
     "content_placeholder": "Escribe el texto del consentimiento informado…",
     "saving": "Guardando…",
-    "saved": "Guardado"
+    "saved": "Guardado",
+    "category": "Categoría",
+    "categories": {
+      "medicina_estetica": "Medicina Estética",
+      "odontologia": "Odontología",
+      "centro_estetico": "Centro Estético",
+      "salon_belleza": "Salón de Belleza",
+      "tatuajes": "Tatuajes",
+      "veterinaria": "Veterinaria",
+      "fisioterapia": "Fisioterapia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "¿Eliminar esta historia clínica?",

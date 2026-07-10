@@ -1,15 +1,33 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { deductCredit } from '../lib/credits'
+import { requireSuperAdmin } from '../middleware/auth'
 
 const router = Router()
 
 router.get('/templates', async (_req, res) => {
   try {
     const data = await query(
-      `SELECT id, treatment_type AS "treatmentType", content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"
-       FROM consent_templates WHERE is_active = true ORDER BY treatment_type ASC`
+      `SELECT id, treatment_type AS "treatmentType", category, content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"
+       FROM consent_templates WHERE is_active = true ORDER BY category ASC, treatment_type ASC`
     )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// Solo superadmin: las plantillas son globales (clinic_id NULL, compartidas
+// por todas las clínicas), así que editarlas afecta a toda la plataforma.
+router.put('/templates/:id', requireSuperAdmin, async (req, res) => {
+  try {
+    const b = req.body
+    const data = await queryOne(
+      `UPDATE consent_templates
+       SET treatment_type = $1, category = $2, content_json = $3, legal_clauses_json = $4
+       WHERE id = $5
+       RETURNING id, treatment_type AS "treatmentType", category, content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"`,
+      [b.treatmentType, b.category, JSON.stringify(b.contentJson ?? {}), JSON.stringify(b.legalClausesJson ?? {}), req.params.id]
+    )
+    if (!data) return res.status(404).json({ error: 'Plantilla no encontrada' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

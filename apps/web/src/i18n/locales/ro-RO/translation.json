@@ -868,7 +868,17 @@
     "content_label": "Conținutul consimțământului",
     "content_placeholder": "Scrieți textul consimțământului informat…",
     "saving": "Se salvează…",
-    "saved": "Salvat"
+    "saved": "Salvat",
+    "category": "Categorie",
+    "categories": {
+      "medicina_estetica": "Medicină Estetică",
+      "odontologia": "Stomatologie",
+      "centro_estetico": "Centru Estetic",
+      "salon_belleza": "Salon de Înfrumusețare",
+      "tatuajes": "Studiouri de Tatuaje",
+      "veterinaria": "Veterinar",
+      "fisioterapia": "Fizioterapie"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Ștergeți acest istoric medical?",

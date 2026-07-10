@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '@/lib/api'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
@@ -6,6 +6,7 @@ import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import type { Patient, Doctor, ConsentTemplate } from '@consentspro/shared-types'
 import { useLanguageStore } from '@/store/languageStore'
 import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
+import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -38,6 +39,17 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [handoffError, setHandoffError] = useState('')
 
   const selectedTemplate = templates.find(t => t.id === templateId)
+  const templatesByCategory = useMemo(() => {
+    const byCategory = new Map<string, ConsentTemplate[]>()
+    for (const tmpl of templates) {
+      const cat = tmpl.category ?? 'medicina_estetica'
+      if (!byCategory.has(cat)) byCategory.set(cat, [])
+      byCategory.get(cat)!.push(tmpl)
+    }
+    return TEMPLATE_CATEGORIES
+      .map(cat => [cat, byCategory.get(cat) ?? []] as const)
+      .filter(([, items]) => items.length > 0)
+  }, [templates])
   const legalData = useConsentWithLegal(
     selectedTemplate ?? { contentJson: {}, legalClausesJson: {} }
   )
@@ -240,7 +252,11 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">{t('consents.select_treatment')}</option>
-                  {templates.map(t => <option key={t.id} value={t.id}>{t.treatmentType}</option>)}
+                  {templatesByCategory.map(([category, items]) => (
+                    <optgroup key={category} label={t(`templates.categories.${category}`)}>
+                      {items.map(tmpl => <option key={tmpl.id} value={tmpl.id}>{tmpl.treatmentType}</option>)}
+                    </optgroup>
+                  ))}
                 </select>
               </div>
 

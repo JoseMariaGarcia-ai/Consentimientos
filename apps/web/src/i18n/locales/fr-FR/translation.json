@@ -868,7 +868,17 @@
     "content_label": "Contenu du consentement",
     "content_placeholder": "Rédigez le texte du consentement éclairé…",
     "saving": "Enregistrement…",
-    "saved": "Enregistré"
+    "saved": "Enregistré",
+    "category": "Catégorie",
+    "categories": {
+      "medicina_estetica": "Médecine Esthétique",
+      "odontologia": "Dentisterie",
+      "centro_estetico": "Centre Esthétique",
+      "salon_belleza": "Salon de Beauté",
+      "tatuajes": "Studios de Tatouage",
+      "veterinaria": "Vétérinaire",
+      "fisioterapia": "Physiothérapie"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Supprimer ce dossier clinique ?",

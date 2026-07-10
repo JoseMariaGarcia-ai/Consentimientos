@@ -830,7 +830,17 @@
     "content_label": "محتوى الموافقة",
     "content_placeholder": "اكتب نص الموافقة المستنيرة…",
     "saving": "Saving…",
-    "saved": "Saved"
+    "saved": "Saved",
+    "category": "الفئة",
+    "categories": {
+      "medicina_estetica": "طب التجميل",
+      "odontologia": "طب الأسنان",
+      "centro_estetico": "مركز التجميل",
+      "salon_belleza": "صالون تجميل",
+      "tatuajes": "استوديوهات الوشم",
+      "veterinaria": "بيطري",
+      "fisioterapia": "العلاج الطبيعي"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "هل تريد حذف هذا السجل الطبي؟",

@@ -868,7 +868,17 @@
     "content_label": "Содержание согласия",
     "content_placeholder": "Напишите текст информированного согласия…",
     "saving": "Сохранение…",
-    "saved": "Сохранено"
+    "saved": "Сохранено",
+    "category": "Категория",
+    "categories": {
+      "medicina_estetica": "Эстетическая медицина",
+      "odontologia": "Стоматология",
+      "centro_estetico": "Эстетический центр",
+      "salon_belleza": "Салон красоты",
+      "tatuajes": "Тату-студии",
+      "veterinaria": "Ветеринария",
+      "fisioterapia": "Физиотерапия"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Удалить эту медицинскую карту?",

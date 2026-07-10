@@ -5,10 +5,12 @@ import { api } from '@/lib/api'
 import { ConsentEditor } from '@/components/consents/ConsentEditor'
 import { SUPPORTED_LANGUAGES } from '@/i18n'
 import { useLanguageStore } from '@/store/languageStore'
+import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
 
 interface Template {
   id: string
   treatmentType: string
+  category: string
   contentJson: Record<string, { title: string; body: string }>
   legalClausesJson: Record<string, unknown>
 }
@@ -48,6 +50,17 @@ export default function Templates() {
     const q = search.toLowerCase()
     return templates.filter(t => t.treatmentType.toLowerCase().includes(q))
   }, [templates, search])
+
+  const grouped = useMemo(() => {
+    const byCategory = new Map<string, Template[]>()
+    for (const cat of TEMPLATE_CATEGORIES) byCategory.set(cat, [])
+    for (const tmpl of filtered) {
+      const cat = tmpl.category ?? 'medicina_estetica'
+      if (!byCategory.has(cat)) byCategory.set(cat, [])
+      byCategory.get(cat)!.push(tmpl)
+    }
+    return [...byCategory.entries()].filter(([, items]) => items.length > 0)
+  }, [filtered])
 
   const handleSave = async () => {
     if (!selected) return
@@ -110,31 +123,38 @@ export default function Templates() {
           />
         </div>
 
-        <div className="flex flex-col gap-1 overflow-y-auto">
+        <div className="flex flex-col gap-3 overflow-y-auto">
           {loading ? (
             <div className="text-center text-slate-400 text-sm py-8">{t('common.loading')}</div>
           ) : filtered.length === 0 ? (
             <div className="text-center text-slate-400 text-sm py-8">{t('templates.empty')}</div>
           ) : (
-            filtered.map(tmpl => {
-              const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
-              return (
-                <button
-                  key={tmpl.id}
-                  onClick={() => setSelected(tmpl)}
-                  className={`text-left px-3 py-2.5 rounded-xl transition-colors border ${
-                    selected?.id === tmpl.id
-                      ? 'bg-blue-50 border-blue-200 text-blue-700'
-                      : 'bg-white border-slate-100 text-slate-700 hover:bg-slate-50'
-                  }`}
-                >
-                  <p className="text-sm font-medium truncate">{tmpl.treatmentType}</p>
-                  <p className="text-xs text-slate-400 mt-0.5">
-                    {hasLang ? `✓ ${currentLanguage}` : `⚠ ${t('templates.no_translation')} ${currentLanguage}`}
-                  </p>
-                </button>
-              )
-            })
+            grouped.map(([category, items]) => (
+              <div key={category} className="flex flex-col gap-1">
+                <p className="px-1 text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  {t(`templates.categories.${category}`)} <span className="text-slate-300">({items.length})</span>
+                </p>
+                {items.map(tmpl => {
+                  const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
+                  return (
+                    <button
+                      key={tmpl.id}
+                      onClick={() => setSelected(tmpl)}
+                      className={`text-left px-3 py-2.5 rounded-xl transition-colors border ${
+                        selected?.id === tmpl.id
+                          ? 'bg-blue-50 border-blue-200 text-blue-700'
+                          : 'bg-white border-slate-100 text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <p className="text-sm font-medium truncate">{tmpl.treatmentType}</p>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        {hasLang ? `✓ ${currentLanguage}` : `⚠ ${t('templates.no_translation')} ${currentLanguage}`}
+                      </p>
+                    </button>
+                  )
+                })}
+              </div>
+            ))
           )}
         </div>
       </div>
@@ -149,6 +169,20 @@ export default function Templates() {
               <p className="text-xs text-slate-400">{t('templates.editor_title')}</p>
             </div>
             <div className="md:ml-auto flex items-center gap-2 flex-wrap">
+              {/* Category picker */}
+              <div className="relative">
+                <select
+                  value={selected.category ?? 'medicina_estetica'}
+                  onChange={e => setSelected(s => s ? { ...s, category: e.target.value } : s)}
+                  className="appearance-none pl-3 pr-8 py-1.5 border border-slate-200 rounded-xl text-sm bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                >
+                  {TEMPLATE_CATEGORIES.map(cat => (
+                    <option key={cat} value={cat}>{t(`templates.categories.${cat}`)}</option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+              </div>
+
               {/* Language picker */}
               <div className="relative">
                 <select

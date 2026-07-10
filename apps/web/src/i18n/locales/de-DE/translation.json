@@ -868,7 +868,17 @@
     "content_label": "Inhalt der Einwilligung",
     "content_placeholder": "Schreiben Sie den Text der Einwilligungserklärung…",
     "saving": "Wird gespeichert…",
-    "saved": "Gespeichert"
+    "saved": "Gespeichert",
+    "category": "Kategorie",
+    "categories": {
+      "medicina_estetica": "Ästhetische Medizin",
+      "odontologia": "Zahnmedizin",
+      "centro_estetico": "Kosmetikzentrum",
+      "salon_belleza": "Schönheitssalon",
+      "tatuajes": "Tattoo-Studios",
+      "veterinaria": "Tiermedizin",
+      "fisioterapia": "Physiotherapie"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Diese Krankenakte löschen?",

@@ -868,7 +868,17 @@
     "content_label": "Samtyckesinnehåll",
     "content_placeholder": "Skriv texten till det informerade samtycket…",
     "saving": "Sparar…",
-    "saved": "Sparat"
+    "saved": "Sparat",
+    "category": "Kategori",
+    "categories": {
+      "medicina_estetica": "Estetisk medicin",
+      "odontologia": "Tandvård",
+      "centro_estetico": "Skönhetsklinik",
+      "salon_belleza": "Skönhetssalong",
+      "tatuajes": "Tatueringsstudior",
+      "veterinaria": "Veterinär",
+      "fisioterapia": "Fysioterapi"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Ta bort denna journal?",

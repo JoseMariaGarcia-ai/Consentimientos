@@ -922,7 +922,17 @@
     "content_label": "Contenuto del consenso",
     "content_placeholder": "Scrivi il testo del consenso informato…",
     "saving": "Saving…",
-    "saved": "Saved"
+    "saved": "Saved",
+    "category": "Categoria",
+    "categories": {
+      "medicina_estetica": "Medicina Estetica",
+      "odontologia": "Odontoiatria",
+      "centro_estetico": "Centro Estetico",
+      "salon_belleza": "Salone di Bellezza",
+      "tatuajes": "Studi di Tatuaggio",
+      "veterinaria": "Veterinaria",
+      "fisioterapia": "Fisioterapia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Eliminare questa cartella clinica?",

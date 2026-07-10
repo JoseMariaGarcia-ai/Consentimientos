@@ -868,7 +868,17 @@
     "content_label": "Innhold i samtykket",
     "content_placeholder": "Skriv teksten til det informerte samtykket…",
     "saving": "Lagrer…",
-    "saved": "Lagret"
+    "saved": "Lagret",
+    "category": "Kategori",
+    "categories": {
+      "medicina_estetica": "Estetisk medisin",
+      "odontologia": "Tannpleie",
+      "centro_estetico": "Skjønnhetsklinikk",
+      "salon_belleza": "Skjønnhetssalong",
+      "tatuajes": "Tatoveringsstudioer",
+      "veterinaria": "Veterinær",
+      "fisioterapia": "Fysioterapi"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Slette denne kliniske journalen?",

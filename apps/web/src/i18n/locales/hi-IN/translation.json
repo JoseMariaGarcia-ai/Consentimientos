@@ -868,7 +868,17 @@
     "content_label": "सहमति सामग्री",
     "content_placeholder": "सूचित सहमति का पाठ लिखें…",
     "saving": "सहेजा जा रहा है…",
-    "saved": "सहेजा गया"
+    "saved": "सहेजा गया",
+    "category": "श्रेणी",
+    "categories": {
+      "medicina_estetica": "सौंदर्य चिकित्सा",
+      "odontologia": "दंत चिकित्सा",
+      "centro_estetico": "सौंदर्य केंद्र",
+      "salon_belleza": "ब्यूटी सैलून",
+      "tatuajes": "टैटू स्टूडियो",
+      "veterinaria": "पशु चिकित्सा",
+      "fisioterapia": "फिजियोथेरेपी"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "क्या इस क्लिनिकल रिकॉर्ड को हटाना है?",

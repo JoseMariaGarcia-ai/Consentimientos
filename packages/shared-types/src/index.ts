@@ -42,6 +42,7 @@ export interface ConsentTemplate {
   id: string;
   clinicId: string;
   treatmentType: string;
+  category: string;
   version: number;
   isActive: boolean;
   contentJson: Record<string, { title: string; body: string }>;

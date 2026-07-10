@@ -868,7 +868,17 @@
     "content_label": "동의서 내용",
     "content_placeholder": "동의서 텍스트를 작성하세요…",
     "saving": "저장 중…",
-    "saved": "저장됨"
+    "saved": "저장됨",
+    "category": "카테고리",
+    "categories": {
+      "medicina_estetica": "미용 의학",
+      "odontologia": "치과",
+      "centro_estetico": "에스테틱 센터",
+      "salon_belleza": "미용실",
+      "tatuajes": "타투 스튜디오",
+      "veterinaria": "수의학",
+      "fisioterapia": "물리치료"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "이 진료 기록을 삭제하시겠습니까?",

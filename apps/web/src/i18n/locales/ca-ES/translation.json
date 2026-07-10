@@ -868,7 +868,17 @@
     "content_label": "Contingut del consentiment",
     "content_placeholder": "Escriu el text del consentiment informat…",
     "saving": "Desant…",
-    "saved": "Desat"
+    "saved": "Desat",
+    "category": "Categoria",
+    "categories": {
+      "medicina_estetica": "Medicina Estètica",
+      "odontologia": "Odontologia",
+      "centro_estetico": "Centre Estètic",
+      "salon_belleza": "Saló de Bellesa",
+      "tatuajes": "Tatuatges",
+      "veterinaria": "Veterinària",
+      "fisioterapia": "Fisioteràpia"
+    }
   },
   "patientDetail": {
     "confirm_delete_clinical": "Vols eliminar aquesta història clínica?",
