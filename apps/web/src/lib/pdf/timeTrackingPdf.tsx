@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
   },
   titleMain:   { fontSize: 14, fontFamily: 'Helvetica-Bold', color: '#FFFFFF' },
   titleSub:    { fontSize: 9, color: '#94C3F8', marginTop: 3 },
+  titleMeta:   { fontSize: 7.5, color: '#7FA8DE', marginTop: 2 },
   titleRight:  { fontSize: 8, color: C.gold, fontFamily: 'Helvetica-Bold', textAlign: 'right' },
+  titleRightMeta: { fontSize: 7, color: '#BFDBFE', textAlign: 'right', marginTop: 2 },
 
   section: { marginBottom: 14 },
   sectionTitle: {
@@ -69,7 +71,8 @@ interface TimeTrackingPdfProps {
 }
 
 export function TimeTrackingPdf({ data, locale }: TimeTrackingPdfProps) {
-  const { employee, clinic, records = [], totalHours = 0, exportHash } = data
+  const { employee, clinic, records = [], totalHours = 0, exportHash, period } = data
+  const periodLabel = [period?.date_from, period?.date_to].filter(Boolean).join(' — ')
 
   return (
     <Document>
@@ -77,11 +80,18 @@ export function TimeTrackingPdf({ data, locale }: TimeTrackingPdfProps) {
         <View style={styles.titleBlock}>
           <View style={{ flex: 1 }}>
             <Text style={styles.titleMain}>Informe de control horario</Text>
-            <Text style={styles.titleSub}>{clinic?.trade_name ?? clinic?.name ?? ''}</Text>
+            <Text style={styles.titleSub}>{clinic?.legal_name ?? clinic?.trade_name ?? clinic?.name ?? ''}</Text>
+            <Text style={styles.titleMeta}>
+              {[
+                clinic?.tax_id ? `NIF: ${clinic.tax_id}` : null,
+                periodLabel ? `Periodo: ${periodLabel}` : null,
+              ].filter(Boolean).join('  ·  ')}
+            </Text>
           </View>
           <View>
             <Text style={styles.titleRight}>{employee?.full_name}</Text>
             <Text style={[styles.titleRight, { color: '#BFDBFE' }]}>{employee?.dni_nie}</Text>
+            {employee?.role && <Text style={styles.titleRightMeta}>{employee.role}</Text>}
           </View>
         </View>
 
