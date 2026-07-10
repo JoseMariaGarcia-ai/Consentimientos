@@ -5,6 +5,7 @@ import { query, queryOne, withTransaction } from '../lib/db'
 import { computeTimeRecordHash } from '../lib/timeTrackingHash'
 import { verifyClinicTimeChain } from '../lib/timeTrackingIntegrity'
 import { computeWorkedHours, currentStatus } from '../lib/timeTrackingHours'
+import { getPlanPermissions } from '../lib/planPermissions'
 
 const router = Router()
 export const publicRouter = Router()
@@ -208,6 +209,14 @@ publicRouter.post('/clock-pin', async (req, res) => {
     if (!clinic_id || !dni_nie || !pin) return res.status(400).json({ error: 'Faltan datos' })
     if (!['entrada', 'salida', 'inicio_pausa', 'fin_pausa'].includes(record_type)) {
       return res.status(400).json({ error: 'Tipo de fichaje no válido' })
+    }
+    // El kiosco de PIN no lleva sesión de usuario (no hay JWT que comprobar
+    // con requireModuleAccess), así que el plan se verifica aquí directamente
+    // contra el de la clínica indicada en el body.
+    const clinicPlan = await queryOne<{ plan: string | null }>('SELECT plan FROM clinics WHERE id = $1', [clinic_id])
+    const clinicPerms = clinicPlan?.plan ? await getPlanPermissions(clinicPlan.plan) : null
+    if (!clinicPerms?.['time-tracking']) {
+      return res.status(403).json({ error: 'El control horario no está incluido en el plan de esta clínica' })
     }
     const employee = await queryOne<{ id: string; pin_hash: string | null; active: boolean; full_name: string }>(
       'SELECT id, pin_hash, active, full_name FROM employees WHERE clinic_id = $1 AND upper(dni_nie) = upper($2)',

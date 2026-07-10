@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { authMiddleware, requireAdmin, requireSuperAdmin } from './middleware/auth'
+import { authMiddleware, requireAdmin, requireSuperAdmin, requireModuleAccess } from './middleware/auth'
 import { deviceAuthMiddleware } from './middleware/deviceAuth'
 import authRouter from './routes/auth'
 import patientsRouter from './routes/patients'
@@ -94,8 +94,8 @@ app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
-app.use('/api/invoices',        authMiddleware, invoicesRouter)
-app.use('/api/timetracking',    authMiddleware, timeTrackingRouter)
+app.use('/api/invoices',        authMiddleware, requireModuleAccess('invoicing'), invoicesRouter)
+app.use('/api/timetracking',    authMiddleware, requireModuleAccess('time-tracking'), timeTrackingRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
 app.use('/api/tickets',         authMiddleware, ticketsRouter)
