@@ -42,9 +42,11 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const templatesByCategory = useMemo(() => {
     const byCategory = new Map<string, ConsentTemplate[]>()
     for (const tmpl of templates) {
-      const cat = tmpl.category ?? 'medicina_estetica'
-      if (!byCategory.has(cat)) byCategory.set(cat, [])
-      byCategory.get(cat)!.push(tmpl)
+      const cats = [tmpl.category ?? 'medicina_estetica', ...(tmpl.extraCategories ?? [])]
+      for (const cat of cats) {
+        if (!byCategory.has(cat)) byCategory.set(cat, [])
+        byCategory.get(cat)!.push(tmpl)
+      }
     }
     return TEMPLATE_CATEGORIES
       .map(cat => [cat, byCategory.get(cat) ?? []] as const)

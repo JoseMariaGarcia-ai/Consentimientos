@@ -8,7 +8,7 @@ const router = Router()
 router.get('/templates', async (_req, res) => {
   try {
     const data = await query(
-      `SELECT id, treatment_type AS "treatmentType", category, content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"
+      `SELECT id, treatment_type AS "treatmentType", category, extra_categories AS "extraCategories", content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"
        FROM consent_templates WHERE is_active = true ORDER BY category ASC, treatment_type ASC`
     )
     return res.json(data)
@@ -22,10 +22,10 @@ router.put('/templates/:id', requireSuperAdmin, async (req, res) => {
     const b = req.body
     const data = await queryOne(
       `UPDATE consent_templates
-       SET treatment_type = $1, category = $2, content_json = $3, legal_clauses_json = $4
-       WHERE id = $5
-       RETURNING id, treatment_type AS "treatmentType", category, content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"`,
-      [b.treatmentType, b.category, JSON.stringify(b.contentJson ?? {}), JSON.stringify(b.legalClausesJson ?? {}), req.params.id]
+       SET treatment_type = $1, category = $2, extra_categories = $3, content_json = $4, legal_clauses_json = $5
+       WHERE id = $6
+       RETURNING id, treatment_type AS "treatmentType", category, extra_categories AS "extraCategories", content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"`,
+      [b.treatmentType, b.category, b.extraCategories ?? [], JSON.stringify(b.contentJson ?? {}), JSON.stringify(b.legalClausesJson ?? {}), req.params.id]
     )
     if (!data) return res.status(404).json({ error: 'Plantilla no encontrada' })
     return res.json(data)

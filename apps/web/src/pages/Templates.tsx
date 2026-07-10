@@ -11,6 +11,7 @@ interface Template {
   id: string
   treatmentType: string
   category: string
+  extraCategories: string[]
   contentJson: Record<string, { title: string; body: string }>
   legalClausesJson: Record<string, unknown>
 }
@@ -55,9 +56,11 @@ export default function Templates() {
     const byCategory = new Map<string, Template[]>()
     for (const cat of TEMPLATE_CATEGORIES) byCategory.set(cat, [])
     for (const tmpl of filtered) {
-      const cat = tmpl.category ?? 'medicina_estetica'
-      if (!byCategory.has(cat)) byCategory.set(cat, [])
-      byCategory.get(cat)!.push(tmpl)
+      const cats = [tmpl.category ?? 'medicina_estetica', ...(tmpl.extraCategories ?? [])]
+      for (const cat of cats) {
+        if (!byCategory.has(cat)) byCategory.set(cat, [])
+        byCategory.get(cat)!.push(tmpl)
+      }
     }
     return [...byCategory.entries()].filter(([, items]) => items.length > 0)
   }, [filtered])
