@@ -37,16 +37,30 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 4. Determinar qué puntos del checklist están completados
 5. Continuar por el primer punto pendiente sin preguntar
 
-## Configuración manual pendiente (Stripe / Facturación)
-Estas tareas solo las puede hacer José María (Claude no tiene acceso a Railway ni a Stripe desde este entorno — red bloqueada a nivel de infraestructura, no es un tema de permisos). Marcar como hechas conforme se completen.
+## Pendiente de configurar manualmente (José María)
+Estas tareas no las puede hacer Claude Code (requieren acceso a paneles externos como
+Railway o Stripe, o una decisión de negocio) — quedan aquí para no perderlas entre
+sesiones. Marcar como hecho y borrar la línea conforme se completen.
 
-- [ ] Rotar la clave `sk_live_...` original de Stripe (quedó pegada en el chat al principio de la integración). Stripe Dashboard → Developers → API keys → Roll key. Si se rota, actualizar `STRIPE_SECRET_KEY` en Railway y volver a desplegar.
-- [ ] Añadir en Railway (servicio del backend, ej. "practical-prosperity") la variable `BILLING_NOTIFICATION_EMAIL` = correo donde José María quiere recibir el aviso de cada nueva suscripción contratada. Guardar y pulsar Deploy.
-- [ ] En Stripe Dashboard → Developers → Webhooks (modo real/live) → editar el endpoint que apunta a `.../api/billing/webhook` → añadir estos 2 eventos nuevos a los 3 que ya tiene (`customer.subscription.created/updated/deleted`):
-  - `invoice.payment_succeeded`
-  - `invoice.payment_failed`
-- [ ] Configurar la marca de las facturas en Stripe (requiere que José María dé acceso a Stripe primero, avisará cuando quiera): Settings → Branding (logo, color) y Settings → Invoice template (razón social, NIF/CIF, dirección, email de soporte, texto de pie de página, numeración).
-- [ ] Opcional: revisar en Stripe Settings → Customer emails si se quiere activar también el recibo nativo de Stripe (ya existe uno propio de ConsentsPro por email, esto sería redundante salvo que se prefiera tenerlo también).
-- [ ] Opcional: fijar `API_URL` en Railway si el dominio público del backend cambia alguna vez (si no se define, se usa `RAILWAY_PUBLIC_DOMAIN` automáticamente).
+Desde la sesión de facturación (Stripe, 9 julio 2026):
+- [ ] Rotar la clave `sk_live_...` original que quedó pegada en el chat — actualizarla en Railway.
+- [ ] Añadir `BILLING_NOTIFICATION_EMAIL` en Railway con tu correo, para recibir el aviso de cada nueva suscripción.
+- [x] Añadir 2 eventos al webhook de Stripe (modo real): `invoice.payment_succeeded` y `invoice.payment_failed` (confirmado 10 julio 2026, endpoint con 5 eventos: los 2 nuevos + `customer.subscription.created/updated/deleted`).
+- [ ] Configurar la marca de las facturas en Stripe (logo, color, datos fiscales, pie de página) — avisar cuando se dé acceso.
+- [ ] (Opcional) Revisar si se quiere activar también el recibo nativo de Stripe.
+- [ ] (Opcional) Fijar `API_URL` en Railway si el dominio del backend cambia algún día.
 
-Contexto: la integración de Stripe (checkout, webhook, portal de cliente, panel de Suscripciones en Configuración, emails automáticos de renovación/fallo de cobro/desactivación, datos fiscales por clínica) ya está implementada y desplegada. El alta de clínicas nuevas desde la web pública (pago → creación automática de cuenta → magic link → email de bienvenida con guía por plan) está en construcción.
+Desde el módulo de Facturación VeriFactu (10 julio 2026):
+- [ ] Consultar la documentación técnica vigente de la AEAT (esquema XSD y endpoint del
+      servicio VERI*FACTU) antes de activar el envío real — ver aviso en
+      `apps/api/server/src/lib/aeatSubmission.ts`.
+- [ ] Añadir el NIF de cada clínica en Configuración > Clínica (obligatorio para poder facturar).
+
+Desde el módulo de Control Horario (10 julio 2026):
+- [ ] Dar de alta a los empleados de cada clínica (Control horario > Añadir empleado).
+- [ ] Si se usa terminal fijo por PIN, asignar PIN a cada empleado y colocar el enlace del
+      kiosco (`/fichar?clinic=ID`) en la tablet física de la clínica.
+
+Desde el módulo de Códigos promocionales / Meta Ads (10 julio 2026):
+- [ ] Crear el código promocional real (Configuración > Códigos promocionales) y pegar el
+      enlace generado como URL de destino del anuncio de Meta.
