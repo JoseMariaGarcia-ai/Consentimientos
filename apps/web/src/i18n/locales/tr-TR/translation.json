@@ -878,7 +878,11 @@
       "salon_belleza": "Güzellik Salonu",
       "tatuajes": "Dövme Stüdyoları",
       "veterinaria": "Veterinerlik",
-      "fisioterapia": "Fizyoterapi"
+      "fisioterapia": "Fizyoterapi",
+      "dermatologia": "Dermatoloji",
+      "cirugia_plastica": "Plastik Cerrahi",
+      "podologia": "Podoloji",
+      "reproduccion_asistida": "Yardımcı Üreme"
     }
   },
   "patientDetail": {

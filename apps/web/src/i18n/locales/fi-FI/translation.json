@@ -878,7 +878,11 @@
       "salon_belleza": "Kauneussalonki",
       "tatuajes": "Tatuointistudiot",
       "veterinaria": "Eläinlääkintä",
-      "fisioterapia": "Fysioterapia"
+      "fisioterapia": "Fysioterapia",
+      "dermatologia": "Ihotautioppi",
+      "cirugia_plastica": "Plastiikkakirurgia",
+      "podologia": "Jalkaterapia",
+      "reproduccion_asistida": "Hedelmöityshoidot"
     }
   },
   "patientDetail": {

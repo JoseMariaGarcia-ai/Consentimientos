@@ -878,7 +878,11 @@
       "salon_belleza": "Salon de Înfrumusețare",
       "tatuajes": "Studiouri de Tatuaje",
       "veterinaria": "Veterinar",
-      "fisioterapia": "Fizioterapie"
+      "fisioterapia": "Fizioterapie",
+      "dermatologia": "Dermatologie",
+      "cirugia_plastica": "Chirurgie Plastică",
+      "podologia": "Podologie",
+      "reproduccion_asistida": "Reproducere Asistată"
     }
   },
   "patientDetail": {

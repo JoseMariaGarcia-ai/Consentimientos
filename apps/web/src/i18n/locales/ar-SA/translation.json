@@ -840,7 +840,11 @@
       "salon_belleza": "صالون تجميل",
       "tatuajes": "استوديوهات الوشم",
       "veterinaria": "بيطري",
-      "fisioterapia": "العلاج الطبيعي"
+      "fisioterapia": "العلاج الطبيعي",
+      "dermatologia": "الأمراض الجلدية",
+      "cirugia_plastica": "الجراحة التجميلية",
+      "podologia": "طب الأقدام",
+      "reproduccion_asistida": "الإنجاب المساعد"
     }
   },
   "patientDetail": {

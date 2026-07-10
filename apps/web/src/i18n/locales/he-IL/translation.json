@@ -834,7 +834,11 @@
       "salon_belleza": "מכון יופי",
       "tatuajes": "סטודיו לקעקועים",
       "veterinaria": "וטרינריה",
-      "fisioterapia": "פיזיותרפיה"
+      "fisioterapia": "פיזיותרפיה",
+      "dermatologia": "דרמטולוגיה",
+      "cirugia_plastica": "כירורגיה פלסטית",
+      "podologia": "פודיאטריה",
+      "reproduccion_asistida": "פוריות וטיפולי הפריה"
     }
   },
   "patientDetail": {

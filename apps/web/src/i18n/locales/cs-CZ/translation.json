@@ -878,7 +878,11 @@
       "salon_belleza": "Kosmetický salon",
       "tatuajes": "Tetovací studia",
       "veterinaria": "Veterinární péče",
-      "fisioterapia": "Fyzioterapie"
+      "fisioterapia": "Fyzioterapie",
+      "dermatologia": "Dermatologie",
+      "cirugia_plastica": "Plastická chirurgie",
+      "podologia": "Podologie",
+      "reproduccion_asistida": "Asistovaná reprodukce"
     }
   },
   "patientDetail": {

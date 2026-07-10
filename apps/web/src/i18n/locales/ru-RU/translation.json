@@ -878,7 +878,11 @@
       "salon_belleza": "Салон красоты",
       "tatuajes": "Тату-студии",
       "veterinaria": "Ветеринария",
-      "fisioterapia": "Физиотерапия"
+      "fisioterapia": "Физиотерапия",
+      "dermatologia": "Дерматология",
+      "cirugia_plastica": "Пластическая хирургия",
+      "podologia": "Подология",
+      "reproduccion_asistida": "Вспомогательная репродукция"
     }
   },
   "patientDetail": {

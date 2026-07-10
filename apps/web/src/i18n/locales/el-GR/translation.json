@@ -878,7 +878,11 @@
       "salon_belleza": "Ινστιτούτο Ομορφιάς",
       "tatuajes": "Στούντιο Τατουάζ",
       "veterinaria": "Κτηνιατρική",
-      "fisioterapia": "Φυσικοθεραπεία"
+      "fisioterapia": "Φυσικοθεραπεία",
+      "dermatologia": "Δερματολογία",
+      "cirugia_plastica": "Πλαστική Χειρουργική",
+      "podologia": "Ποδολογία",
+      "reproduccion_asistida": "Υποβοηθούμενη Αναπαραγωγή"
     }
   },
   "patientDetail": {

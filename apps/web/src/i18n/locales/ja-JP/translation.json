@@ -878,7 +878,11 @@
       "salon_belleza": "美容室",
       "tatuajes": "タトゥースタジオ",
       "veterinaria": "獣医",
-      "fisioterapia": "理学療法"
+      "fisioterapia": "理学療法",
+      "dermatologia": "皮膚科",
+      "cirugia_plastica": "形成外科",
+      "podologia": "足病治療",
+      "reproduccion_asistida": "生殖補助医療"
     }
   },
   "patientDetail": {

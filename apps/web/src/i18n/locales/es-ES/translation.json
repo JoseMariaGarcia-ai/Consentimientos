@@ -873,12 +873,16 @@
     "categories": {
       "medicina_estetica": "Medicina Estética",
       "odontologia": "Odontología",
+      "dermatologia": "Dermatología",
+      "cirugia_plastica": "Cirugía Plástica",
       "capilar": "Clínica Capilar",
+      "podologia": "Podología",
       "centro_estetico": "Centro Estético",
       "salon_belleza": "Salón de Belleza",
       "tatuajes": "Tatuajes",
       "veterinaria": "Veterinaria",
-      "fisioterapia": "Fisioterapia"
+      "fisioterapia": "Fisioterapia",
+      "reproduccion_asistida": "Reproducción Asistida"
     }
   },
   "patientDetail": {

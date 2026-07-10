@@ -878,7 +878,11 @@
       "salon_belleza": "Schoonheidssalon",
       "tatuajes": "Tattoo-studio's",
       "veterinaria": "Diergeneeskunde",
-      "fisioterapia": "Fysiotherapie"
+      "fisioterapia": "Fysiotherapie",
+      "dermatologia": "Dermatologie",
+      "cirugia_plastica": "Plastische Chirurgie",
+      "podologia": "Podologie",
+      "reproduccion_asistida": "Vruchtbaarheidsbehandeling"
     }
   },
   "patientDetail": {

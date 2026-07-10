@@ -878,7 +878,11 @@
       "salon_belleza": "Szépségszalon",
       "tatuajes": "Tetoválószalonok",
       "veterinaria": "Állatorvoslás",
-      "fisioterapia": "Fizioterápia"
+      "fisioterapia": "Fizioterápia",
+      "dermatologia": "Bőrgyógyászat",
+      "cirugia_plastica": "Plasztikai Sebészet",
+      "podologia": "Podológia",
+      "reproduccion_asistida": "Asszisztált Reprodukció"
     }
   },
   "patientDetail": {

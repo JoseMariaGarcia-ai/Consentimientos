@@ -878,7 +878,11 @@
       "salon_belleza": "미용실",
       "tatuajes": "타투 스튜디오",
       "veterinaria": "수의학",
-      "fisioterapia": "물리치료"
+      "fisioterapia": "물리치료",
+      "dermatologia": "피부과",
+      "cirugia_plastica": "성형외과",
+      "podologia": "발 치료",
+      "reproduccion_asistida": "보조생식술"
     }
   },
   "patientDetail": {

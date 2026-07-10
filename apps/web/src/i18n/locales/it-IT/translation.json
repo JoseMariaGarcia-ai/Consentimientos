@@ -932,7 +932,11 @@
       "salon_belleza": "Salone di Bellezza",
       "tatuajes": "Studi di Tatuaggio",
       "veterinaria": "Veterinaria",
-      "fisioterapia": "Fisioterapia"
+      "fisioterapia": "Fisioterapia",
+      "dermatologia": "Dermatologia",
+      "cirugia_plastica": "Chirurgia Plastica",
+      "podologia": "Podologia",
+      "reproduccion_asistida": "Riproduzione Assistita"
     }
   },
   "patientDetail": {

@@ -878,7 +878,11 @@
       "salon_belleza": "Salon Piękności",
       "tatuajes": "Studia Tatuażu",
       "veterinaria": "Weterynaria",
-      "fisioterapia": "Fizjoterapia"
+      "fisioterapia": "Fizjoterapia",
+      "dermatologia": "Dermatologia",
+      "cirugia_plastica": "Chirurgia Plastyczna",
+      "podologia": "Podologia",
+      "reproduccion_asistida": "Wspomagany Rozród"
     }
   },
   "patientDetail": {

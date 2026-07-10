@@ -878,7 +878,11 @@
       "salon_belleza": "ब्यूटी सैलून",
       "tatuajes": "टैटू स्टूडियो",
       "veterinaria": "पशु चिकित्सा",
-      "fisioterapia": "फिजियोथेरेपी"
+      "fisioterapia": "फिजियोथेरेपी",
+      "dermatologia": "त्वचा विज्ञान",
+      "cirugia_plastica": "प्लास्टिक सर्जरी",
+      "podologia": "पोडियाट्री",
+      "reproduccion_asistida": "सहायक प्रजनन"
     }
   },
   "patientDetail": {

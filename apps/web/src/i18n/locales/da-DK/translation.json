@@ -878,7 +878,11 @@
       "salon_belleza": "Skønhedssalon",
       "tatuajes": "Tatoveringsstudier",
       "veterinaria": "Veterinær",
-      "fisioterapia": "Fysioterapi"
+      "fisioterapia": "Fysioterapi",
+      "dermatologia": "Dermatologi",
+      "cirugia_plastica": "Plastikkirurgi",
+      "podologia": "Podologi",
+      "reproduccion_asistida": "Assisteret reproduktion"
     }
   },
   "patientDetail": {
