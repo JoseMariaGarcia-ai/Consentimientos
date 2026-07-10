@@ -1,6 +1,7 @@
 export const TEMPLATE_CATEGORIES = [
   'medicina_estetica',
   'odontologia',
+  'capilar',
   'centro_estetico',
   'salon_belleza',
   'tatuajes',
