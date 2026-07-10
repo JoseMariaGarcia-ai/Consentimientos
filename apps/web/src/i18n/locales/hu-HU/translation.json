@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Frissítés",
+    "testNotification": {
+      "button": "Teszt e-mail küldése",
+      "success": "Teszt e-mail elküldve ide: {{email}}",
+      "error": "Nem sikerült elküldeni a teszt e-mailt"
+    },
     "empty": "Még nincs előfizetés.",
     "loadError": "Az előfizetések betöltése nem sikerült.",
     "cancelsAtPeriodEnd": "Az időszak végén megszűnik",

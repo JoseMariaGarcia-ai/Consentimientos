@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Atualizar",
+    "testNotification": {
+      "button": "Enviar email de teste",
+      "success": "Email de teste enviado para {{email}}",
+      "error": "Não foi possível enviar o email de teste"
+    },
     "empty": "Ainda não há assinaturas.",
     "loadError": "Não foi possível carregar as assinaturas.",
     "cancelsAtPeriodEnd": "Será cancelada no final do período",

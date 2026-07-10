@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Làm mới",
+    "testNotification": {
+      "button": "Gửi email thử nghiệm",
+      "success": "Đã gửi email thử nghiệm đến {{email}}",
+      "error": "Không thể gửi email thử nghiệm"
+    },
     "empty": "Chưa có gói đăng ký nào.",
     "loadError": "Không thể tải các gói đăng ký.",
     "cancelsAtPeriodEnd": "Sẽ bị hủy vào cuối kỳ",

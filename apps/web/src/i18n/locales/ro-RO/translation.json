@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Actualizează",
+    "testNotification": {
+      "button": "Trimite email de test",
+      "success": "Email de test trimis la {{email}}",
+      "error": "Emailul de test nu a putut fi trimis"
+    },
     "empty": "Nu există încă abonamente.",
     "loadError": "Abonamentele nu au putut fi încărcate.",
     "cancelsAtPeriodEnd": "Se va anula la sfârșitul perioadei",

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CreditCard, RefreshCw } from 'lucide-react'
+import { CreditCard, RefreshCw, Send } from 'lucide-react'
 import { api } from '@/lib/api'
 
 interface Subscription {
@@ -36,6 +36,17 @@ export function SubscriptionsPanel() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [filter, setFilter] = useState<Bucket>('all')
+  const [testSending, setTestSending] = useState(false)
+  const [testResult, setTestResult] = useState<{ ok: boolean; message: string } | null>(null)
+
+  const sendTestNotification = () => {
+    setTestSending(true)
+    setTestResult(null)
+    api.post('/billing/test-notification', {})
+      .then((data: any) => setTestResult({ ok: true, message: t('subscriptionsPanel.testNotification.success', { email: data.to }) }))
+      .catch((e: any) => setTestResult({ ok: false, message: e.message ?? t('subscriptionsPanel.testNotification.error') }))
+      .finally(() => setTestSending(false))
+  }
 
   const load = () => {
     setLoading(true)
@@ -90,12 +101,21 @@ export function SubscriptionsPanel() {
             </button>
           ))}
         </div>
-        <button onClick={load} disabled={loading} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 disabled:opacity-50">
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-          {t('subscriptionsPanel.refresh')}
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={sendTestNotification} disabled={testSending} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 disabled:opacity-50">
+            <Send className={`w-3.5 h-3.5 ${testSending ? 'animate-pulse' : ''}`} />
+            {t('subscriptionsPanel.testNotification.button')}
+          </button>
+          <button onClick={load} disabled={loading} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 disabled:opacity-50">
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+            {t('subscriptionsPanel.refresh')}
+          </button>
+        </div>
       </div>
 
+      {testResult && (
+        <p className={`text-sm ${testResult.ok ? 'text-emerald-600' : 'text-red-500'}`}>{testResult.message}</p>
+      )}
       {error && <p className="text-sm text-red-500">{error}</p>}
 
       <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">

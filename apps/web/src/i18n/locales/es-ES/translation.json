@@ -1341,6 +1341,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Actualizar",
+    "testNotification": {
+      "button": "Enviar email de prueba",
+      "success": "Email de prueba enviado a {{email}}",
+      "error": "No se ha podido enviar el email de prueba"
+    },
     "empty": "No hay suscripciones todavía.",
     "loadError": "No se han podido cargar las suscripciones.",
     "cancelsAtPeriodEnd": "Se cancelará al final del periodo",

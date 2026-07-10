@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Odśwież",
+    "testNotification": {
+      "button": "Wyślij e-mail testowy",
+      "success": "Wysłano e-mail testowy na {{email}}",
+      "error": "Nie udało się wysłać e-maila testowego"
+    },
     "empty": "Brak subskrypcji.",
     "loadError": "Nie udało się wczytać subskrypcji.",
     "cancelsAtPeriodEnd": "Zostanie anulowana na koniec okresu",

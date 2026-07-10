@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "रिफ्रेश करें",
+    "testNotification": {
+      "button": "परीक्षण ईमेल भेजें",
+      "success": "परीक्षण ईमेल {{email}} पर भेजा गया",
+      "error": "परीक्षण ईमेल नहीं भेजा जा सका"
+    },
     "empty": "अभी तक कोई सदस्यता नहीं है।",
     "loadError": "सदस्यताएं लोड नहीं हो सकीं।",
     "cancelsAtPeriodEnd": "अवधि के अंत में रद्द हो जाएगी",

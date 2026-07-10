@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Aktualizovat",
+    "testNotification": {
+      "button": "Odeslat testovací e-mail",
+      "success": "Testovací e-mail odeslán na {{email}}",
+      "error": "Testovací e-mail se nepodařilo odeslat"
+    },
     "empty": "Zatím nejsou žádná předplatná.",
     "loadError": "Předplatná se nepodařilo načíst.",
     "cancelsAtPeriodEnd": "Zruší se na konci období",

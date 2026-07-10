@@ -1637,6 +1637,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "רענן",
+    "testNotification": {
+      "button": "שלח אימייל בדיקה",
+      "success": "אימייל בדיקה נשלח אל {{email}}",
+      "error": "לא ניתן היה לשלוח את אימייל הבדיקה"
+    },
     "empty": "עדיין אין מנויים.",
     "loadError": "לא ניתן היה לטעון את המנויים.",
     "cancelsAtPeriodEnd": "יבוטל בסוף התקופה",

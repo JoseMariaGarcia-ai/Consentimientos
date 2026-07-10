@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Päivitä",
+    "testNotification": {
+      "button": "Lähetä testisähköposti",
+      "success": "Testisähköposti lähetetty osoitteeseen {{email}}",
+      "error": "Testisähköpostia ei voitu lähettää"
+    },
     "empty": "Ei vielä tilauksia.",
     "loadError": "Tilauksia ei voitu ladata.",
     "cancelsAtPeriodEnd": "Perutaan jakson lopussa",

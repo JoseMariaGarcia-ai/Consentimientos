@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Opdater",
+    "testNotification": {
+      "button": "Send test-e-mail",
+      "success": "Test-e-mail sendt til {{email}}",
+      "error": "Kunne ikke sende test-e-mailen"
+    },
     "empty": "Ingen abonnementer endnu.",
     "loadError": "Kunne ikke indlæse abonnementer.",
     "cancelsAtPeriodEnd": "Annulleres ved periodens udløb",

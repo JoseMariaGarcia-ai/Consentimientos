@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Yenile",
+    "testNotification": {
+      "button": "Test e-postası gönder",
+      "success": "Test e-postası {{email}} adresine gönderildi",
+      "error": "Test e-postası gönderilemedi"
+    },
     "empty": "Henüz abonelik yok.",
     "loadError": "Abonelikler yüklenemedi.",
     "cancelsAtPeriodEnd": "Dönem sonunda iptal edilecek",

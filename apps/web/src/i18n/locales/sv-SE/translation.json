@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Uppdatera",
+    "testNotification": {
+      "button": "Skicka testmejl",
+      "success": "Testmejl skickat till {{email}}",
+      "error": "Det gick inte att skicka testmejlet"
+    },
     "empty": "Inga prenumerationer ännu.",
     "loadError": "Det gick inte att hämta prenumerationer.",
     "cancelsAtPeriodEnd": "Avslutas vid periodens slut",

@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "刷新",
+    "testNotification": {
+      "button": "发送测试邮件",
+      "success": "测试邮件已发送至 {{email}}",
+      "error": "无法发送测试邮件"
+    },
     "empty": "暂无订阅。",
     "loadError": "无法加载订阅信息。",
     "cancelsAtPeriodEnd": "将在本周期结束时取消",

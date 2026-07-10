@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Refresh",
+    "testNotification": {
+      "button": "Send test email",
+      "success": "Test email sent to {{email}}",
+      "error": "Couldn't send the test email"
+    },
     "empty": "No subscriptions yet.",
     "loadError": "Could not load subscriptions.",
     "cancelsAtPeriodEnd": "Will cancel at the end of the period",

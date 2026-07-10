@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Aktualisieren",
+    "testNotification": {
+      "button": "Test-E-Mail senden",
+      "success": "Test-E-Mail an {{email}} gesendet",
+      "error": "Die Test-E-Mail konnte nicht gesendet werden"
+    },
     "empty": "Noch keine Abonnements.",
     "loadError": "Abonnements konnten nicht geladen werden.",
     "cancelsAtPeriodEnd": "Wird am Ende des Zeitraums gekündigt",

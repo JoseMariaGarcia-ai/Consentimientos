@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "更新",
+    "testNotification": {
+      "button": "テストメールを送信",
+      "success": "テストメールを {{email}} に送信しました",
+      "error": "テストメールを送信できませんでした"
+    },
     "empty": "まだサブスクリプションはありません。",
     "loadError": "サブスクリプションを読み込めませんでした。",
     "cancelsAtPeriodEnd": "期間終了時にキャンセルされます",

@@ -1735,6 +1735,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Aggiorna",
+    "testNotification": {
+      "button": "Invia email di prova",
+      "success": "Email di prova inviata a {{email}}",
+      "error": "Impossibile inviare l'email di prova"
+    },
     "empty": "Nessun abbonamento ancora.",
     "loadError": "Impossibile caricare gli abbonamenti.",
     "cancelsAtPeriodEnd": "Verrà annullato alla fine del periodo",

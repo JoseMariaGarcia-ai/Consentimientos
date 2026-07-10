@@ -1681,6 +1681,11 @@
   },
   "subscriptionsPanel": {
     "refresh": "Actualitza",
+    "testNotification": {
+      "button": "Enviar correu de prova",
+      "success": "Correu de prova enviat a {{email}}",
+      "error": "No s'ha pogut enviar el correu de prova"
+    },
     "empty": "Encara no hi ha subscripcions.",
     "loadError": "No s’han pogut carregar les subscripcions.",
     "cancelsAtPeriodEnd": "Es cancel·larà al final del periode",
