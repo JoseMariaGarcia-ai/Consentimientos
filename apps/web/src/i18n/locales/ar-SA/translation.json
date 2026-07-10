@@ -844,7 +844,10 @@
       "dermatologia": "الأمراض الجلدية",
       "cirugia_plastica": "الجراحة التجميلية",
       "podologia": "طب الأقدام",
-      "reproduccion_asistida": "الإنجاب المساعد"
+      "reproduccion_asistida": "الإنجاب المساعد",
+      "ginecologia_estetica": "طب النساء التجميلي",
+      "osteopatia": "العلاج بالتقويم العظمي والعمود الفقري",
+      "laboratorio_clinico": "المختبر السريري"
     }
   },
   "patientDetail": {

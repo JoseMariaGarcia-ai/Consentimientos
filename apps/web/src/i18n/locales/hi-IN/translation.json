@@ -882,7 +882,10 @@
       "dermatologia": "त्वचा विज्ञान",
       "cirugia_plastica": "प्लास्टिक सर्जरी",
       "podologia": "पोडियाट्री",
-      "reproduccion_asistida": "सहायक प्रजनन"
+      "reproduccion_asistida": "सहायक प्रजनन",
+      "ginecologia_estetica": "सौंदर्य स्त्री रोग",
+      "osteopatia": "ऑस्टियोपैथी और काइरोप्रैक्टिक",
+      "laboratorio_clinico": "क्लिनिकल प्रयोगशाला"
     }
   },
   "patientDetail": {

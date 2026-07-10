@@ -882,7 +882,10 @@
       "dermatologia": "Bőrgyógyászat",
       "cirugia_plastica": "Plasztikai Sebészet",
       "podologia": "Podológia",
-      "reproduccion_asistida": "Asszisztált Reprodukció"
+      "reproduccion_asistida": "Asszisztált Reprodukció",
+      "ginecologia_estetica": "Esztétikai Nőgyógyászat",
+      "osteopatia": "Oszteopátia és Kiropraktika",
+      "laboratorio_clinico": "Klinikai Laboratórium"
     }
   },
   "patientDetail": {

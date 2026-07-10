@@ -882,7 +882,10 @@
       "dermatologia": "Dermatoloji",
       "cirugia_plastica": "Plastik Cerrahi",
       "podologia": "Podoloji",
-      "reproduccion_asistida": "Yardımcı Üreme"
+      "reproduccion_asistida": "Yardımcı Üreme",
+      "ginecologia_estetica": "Estetik Jinekoloji",
+      "osteopatia": "Osteopati ve Kiropraktik",
+      "laboratorio_clinico": "Klinik Laboratuvar"
     }
   },
   "patientDetail": {

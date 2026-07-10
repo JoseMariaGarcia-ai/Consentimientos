@@ -3,6 +3,7 @@ export const TEMPLATE_CATEGORIES = [
   'odontologia',
   'dermatologia',
   'cirugia_plastica',
+  'ginecologia_estetica',
   'capilar',
   'podologia',
   'centro_estetico',
@@ -10,7 +11,9 @@ export const TEMPLATE_CATEGORIES = [
   'tatuajes',
   'veterinaria',
   'fisioterapia',
+  'osteopatia',
   'reproduccion_asistida',
+  'laboratorio_clinico',
 ] as const
 
 export type TemplateCategory = typeof TEMPLATE_CATEGORIES[number]

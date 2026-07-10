@@ -882,7 +882,10 @@
       "dermatologia": "皮肤科",
       "cirugia_plastica": "整形外科",
       "podologia": "足病治疗",
-      "reproduccion_asistida": "辅助生殖"
+      "reproduccion_asistida": "辅助生殖",
+      "ginecologia_estetica": "美容妇科",
+      "osteopatia": "整骨疗法与脊椎按摩",
+      "laboratorio_clinico": "临床检验科"
     }
   },
   "patientDetail": {

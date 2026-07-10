@@ -875,6 +875,7 @@
       "odontologia": "Odontología",
       "dermatologia": "Dermatología",
       "cirugia_plastica": "Cirugía Plástica",
+      "ginecologia_estetica": "Ginecología Estética",
       "capilar": "Clínica Capilar",
       "podologia": "Podología",
       "centro_estetico": "Centro Estético",
@@ -882,7 +883,9 @@
       "tatuajes": "Tatuajes",
       "veterinaria": "Veterinaria",
       "fisioterapia": "Fisioterapia",
-      "reproduccion_asistida": "Reproducción Asistida"
+      "osteopatia": "Osteopatía y Quiropraxia",
+      "reproduccion_asistida": "Reproducción Asistida",
+      "laboratorio_clinico": "Laboratorio Clínico"
     }
   },
   "patientDetail": {

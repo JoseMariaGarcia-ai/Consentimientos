@@ -882,7 +882,10 @@
       "dermatologia": "Dermatology",
       "cirugia_plastica": "Plastic Surgery",
       "podologia": "Podiatry",
-      "reproduccion_asistida": "Assisted Reproduction"
+      "reproduccion_asistida": "Assisted Reproduction",
+      "ginecologia_estetica": "Aesthetic Gynecology",
+      "osteopatia": "Osteopathy & Chiropractic",
+      "laboratorio_clinico": "Clinical Laboratory"
     }
   },
   "patientDetail": {

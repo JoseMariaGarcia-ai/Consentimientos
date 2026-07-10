@@ -882,7 +882,10 @@
       "dermatologia": "피부과",
       "cirugia_plastica": "성형외과",
       "podologia": "발 치료",
-      "reproduccion_asistida": "보조생식술"
+      "reproduccion_asistida": "보조생식술",
+      "ginecologia_estetica": "미용 부인과",
+      "osteopatia": "정골요법 및 카이로프랙틱",
+      "laboratorio_clinico": "임상 검사실"
     }
   },
   "patientDetail": {

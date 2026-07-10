@@ -882,7 +882,10 @@
       "dermatologia": "Дерматологія",
       "cirugia_plastica": "Пластична хірургія",
       "podologia": "Подологія",
-      "reproduccion_asistida": "Допоміжна репродукція"
+      "reproduccion_asistida": "Допоміжна репродукція",
+      "ginecologia_estetica": "Естетична гінекологія",
+      "osteopatia": "Остеопатія та хіропрактика",
+      "laboratorio_clinico": "Клінічна лабораторія"
     }
   },
   "patientDetail": {

@@ -854,7 +854,10 @@
       "dermatologia": "Dermatología",
       "cirugia_plastica": "Cirugía Plástica",
       "podologia": "Podología",
-      "reproduccion_asistida": "Reproducción Asistida"
+      "reproduccion_asistida": "Reproducción Asistida",
+      "ginecologia_estetica": "Ginecología Estética",
+      "osteopatia": "Osteopatía y Quiropraxia",
+      "laboratorio_clinico": "Laboratorio Clínico"
     }
   },
   "patientDetail": {

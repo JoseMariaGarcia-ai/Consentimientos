@@ -882,7 +882,10 @@
       "dermatologia": "Dermatologi",
       "cirugia_plastica": "Plastisk Kirurgi",
       "podologia": "Fotterapi",
-      "reproduccion_asistida": "Assistert Befruktning"
+      "reproduccion_asistida": "Assistert Befruktning",
+      "ginecologia_estetica": "Estetisk Gynekologi",
+      "osteopatia": "Osteopati og Kiropraktikk",
+      "laboratorio_clinico": "Klinisk Laboratorium"
     }
   },
   "patientDetail": {

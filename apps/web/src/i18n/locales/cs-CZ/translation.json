@@ -882,7 +882,10 @@
       "dermatologia": "Dermatologie",
       "cirugia_plastica": "Plastická chirurgie",
       "podologia": "Podologie",
-      "reproduccion_asistida": "Asistovaná reprodukce"
+      "reproduccion_asistida": "Asistovaná reprodukce",
+      "ginecologia_estetica": "Estetická gynekologie",
+      "osteopatia": "Osteopatie a chiropraxe",
+      "laboratorio_clinico": "Klinická laboratoř"
     }
   },
   "patientDetail": {

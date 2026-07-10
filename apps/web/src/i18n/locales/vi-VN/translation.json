@@ -882,7 +882,10 @@
       "dermatologia": "Da liễu",
       "cirugia_plastica": "Phẫu thuật Thẩm mỹ",
       "podologia": "Chăm sóc Bàn chân",
-      "reproduccion_asistida": "Hỗ trợ Sinh sản"
+      "reproduccion_asistida": "Hỗ trợ Sinh sản",
+      "ginecologia_estetica": "Phụ Khoa Thẩm Mỹ",
+      "osteopatia": "Nắn Khớp Xương và Trị Liệu Thần Kinh Cột Sống",
+      "laboratorio_clinico": "Phòng Xét Nghiệm Lâm Sàng"
     }
   },
   "patientDetail": {

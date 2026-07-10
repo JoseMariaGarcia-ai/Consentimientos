@@ -838,7 +838,10 @@
       "dermatologia": "דרמטולוגיה",
       "cirugia_plastica": "כירורגיה פלסטית",
       "podologia": "פודיאטריה",
-      "reproduccion_asistida": "פוריות וטיפולי הפריה"
+      "reproduccion_asistida": "פוריות וטיפולי הפריה",
+      "ginecologia_estetica": "גינקולוגיה אסתטית",
+      "osteopatia": "אוסטאופתיה וכירופרקטיקה",
+      "laboratorio_clinico": "מעבדה קלינית"
     }
   },
   "patientDetail": {

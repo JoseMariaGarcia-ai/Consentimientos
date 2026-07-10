@@ -882,7 +882,10 @@
       "dermatologia": "Δερματολογία",
       "cirugia_plastica": "Πλαστική Χειρουργική",
       "podologia": "Ποδολογία",
-      "reproduccion_asistida": "Υποβοηθούμενη Αναπαραγωγή"
+      "reproduccion_asistida": "Υποβοηθούμενη Αναπαραγωγή",
+      "ginecologia_estetica": "Αισθητική Γυναικολογία",
+      "osteopatia": "Οστεοπαθητική και Χειροπρακτική",
+      "laboratorio_clinico": "Κλινικό Εργαστήριο"
     }
   },
   "patientDetail": {
