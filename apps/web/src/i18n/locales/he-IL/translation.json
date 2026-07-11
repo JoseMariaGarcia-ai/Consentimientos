@@ -857,7 +857,8 @@
     "tabs": {
       "history": "רשומות רפואיות ({{count}})",
       "photos": "תמונות ({{count}})",
-      "consents": "הסכמות ({{count}})"
+      "consents": "הסכמות ({{count}})",
+      "odontogram": "תרשים שיניים"
     },
     "new_clinical_record": "רשומה חדשה",
     "no_clinical_records": "אין רשומות רפואיות למטופל זה",
@@ -1877,5 +1878,93 @@
     "compensationSave": "שמור פיצוי",
     "compensationSaved": "נשמר",
     "integrityAlarm": "זוהו {{count}} אי-התאמות בשרשרת הגיבוב של ההחתמות. פנה לתמיכה."
+  },
+  "odontogram": {
+    "lastVisit": "ביקור אחרון",
+    "viewHistory": "צפייה בהיסטוריה מלאה",
+    "newVisit": "ביקור חדש",
+    "saveVisit": "שמירת ביקור",
+    "visitDate": "תאריך ביקור",
+    "doctor": "רופא/ה אחראי/ת",
+    "selectDoctor": "בחר/י רופא/ה",
+    "visitNotes": "הערות לביקור",
+    "noRecords": "למטופל/ת זה עדיין אין תרשים שיניים רשום.",
+    "dentition": {
+      "permanente": "שיניים קבועות",
+      "temporal": "שיניים חלביות",
+      "mixta": "שיניים מעורבות"
+    },
+    "face": {
+      "vestibular": "וסטיבולרי",
+      "lingual_palatina": "לשוני/חכי",
+      "mesial": "מזיאלי",
+      "distal": "דיסטלי",
+      "oclusal_incisal": "לועסי/חותכני"
+    },
+    "faceCondition": {
+      "sana": "בריא",
+      "caries": "עששת",
+      "obturada": "סתום",
+      "sellante": "איטום חריצים",
+      "fractura": "שבר",
+      "desgaste": "שחיקה"
+    },
+    "toothStatus": {
+      "sano": "בריא",
+      "ausente": "חסר (מולד)",
+      "extraido": "נעקר",
+      "a_extraer": "לעקירה",
+      "implante": "שתל",
+      "corona": "כתר",
+      "puente": "גשר",
+      "endodoncia": "טיפול שורש",
+      "movil": "רופף",
+      "incluido": "טמון",
+      "temporal_presente": "שן חלבית קיימת"
+    },
+    "material": {
+      "composite": "קומפוזיט",
+      "amalgama": "אמלגם",
+      "ceramica": "קרמיקה",
+      "resina": "שרף"
+    },
+    "legend": {
+      "absent": "חסר/נעקר"
+    },
+    "tooth": {
+      "number_label": "שן {{number}}",
+      "general_status": "מצב כללי של השן",
+      "material": "חומר",
+      "faces": "מצב לפי משטח",
+      "notes": "הערות קליניות",
+      "mini_history": "היסטוריה של שן זו"
+    },
+    "history": {
+      "title": "היסטוריית התפתחות",
+      "compareMode": "מצב השוואה",
+      "from": "מ־",
+      "to": "עד",
+      "noChanges": "אין שינויים בין שני הביקורים שנבחרו.",
+      "summary": {
+        "newCaries": "{{count}} עששת/עששיות חדשה/ות בשן/שיניים {{teeth}}",
+        "fillingCompleted": "סתימה הושלמה בשן/שיניים {{teeth}}",
+        "sealant": "איטום חריצים בוצע בשן/שיניים {{teeth}}",
+        "fracture": "זוהה שבר בשן/שיניים {{teeth}}",
+        "extraction": "עקירת שן/שיניים {{teeth}}",
+        "toExtract": "שן/שיניים {{teeth}} סומנו לעקירה",
+        "crown": "הותקן כתר בשן/שיניים {{teeth}}",
+        "implant": "הותקן שתל בשן/שיניים {{teeth}}",
+        "endodontics": "בוצע טיפול שורש בשן/שיניים {{teeth}}",
+        "bridge": "הותקן גשר בשן/שיניים {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "ייצוא ל-PDF",
+      "generating": "מייצר…"
+    },
+    "errors": {
+      "doctorRequired": "בחר/י את הרופא/ה האחראי/ת על הביקור",
+      "saveFailed": "לא ניתן היה לשמור את הביקור"
+    }
   }
 }

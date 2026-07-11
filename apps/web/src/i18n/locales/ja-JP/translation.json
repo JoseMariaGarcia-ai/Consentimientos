@@ -901,7 +901,8 @@
     "tabs": {
       "history": "カルテ（{{count}}）",
       "photos": "写真（{{count}}）",
-      "consents": "同意書（{{count}}）"
+      "consents": "同意書（{{count}}）",
+      "odontogram": "歯式図"
     },
     "new_clinical_record": "新規カルテ",
     "no_clinical_records": "この患者のカルテはありません",
@@ -1921,5 +1922,93 @@
     "compensationSave": "補償を保存",
     "compensationSaved": "保存しました",
     "integrityAlarm": "打刻のハッシュチェーンに{{count}}件の不整合が見つかりました。サポートにお問い合わせください。"
+  },
+  "odontogram": {
+    "lastVisit": "前回の来院",
+    "viewHistory": "履歴をすべて見る",
+    "newVisit": "新しい来院",
+    "saveVisit": "来院を保存",
+    "visitDate": "来院日",
+    "doctor": "担当医",
+    "selectDoctor": "医師を選択",
+    "visitNotes": "来院メモ",
+    "noRecords": "この患者にはまだ歯式が登録されていません。",
+    "dentition": {
+      "permanente": "永久歯列",
+      "temporal": "乳歯列",
+      "mixta": "混合歯列"
+    },
+    "face": {
+      "vestibular": "頬側",
+      "lingual_palatina": "舌側/口蓋側",
+      "mesial": "近心",
+      "distal": "遠心",
+      "oclusal_incisal": "咬合面/切端"
+    },
+    "faceCondition": {
+      "sana": "健全",
+      "caries": "う蝕",
+      "obturada": "充填済み",
+      "sellante": "シーラント",
+      "fractura": "破折",
+      "desgaste": "咬耗"
+    },
+    "toothStatus": {
+      "sano": "健全",
+      "ausente": "欠如(先天性)",
+      "extraido": "抜歯済み",
+      "a_extraer": "抜歯予定",
+      "implante": "インプラント",
+      "corona": "クラウン",
+      "puente": "ブリッジ",
+      "endodoncia": "根管治療",
+      "movil": "動揺",
+      "incluido": "埋伏",
+      "temporal_presente": "乳歯現存"
+    },
+    "material": {
+      "composite": "コンポジット",
+      "amalgama": "アマルガム",
+      "ceramica": "セラミック",
+      "resina": "レジン"
+    },
+    "legend": {
+      "absent": "欠如/抜歯済み"
+    },
+    "tooth": {
+      "number_label": "{{number}}番の歯",
+      "general_status": "歯の全体的な状態",
+      "material": "材料",
+      "faces": "面ごとの状態",
+      "notes": "臨床メモ",
+      "mini_history": "この歯の履歴"
+    },
+    "history": {
+      "title": "経過履歴",
+      "compareMode": "比較モード",
+      "from": "開始",
+      "to": "終了",
+      "noChanges": "選択した2回の来院の間に変化はありません。",
+      "summary": {
+        "newCaries": "歯 {{teeth}} に新たなう蝕 {{count}} 件",
+        "fillingCompleted": "歯 {{teeth}} の充填が完了",
+        "sealant": "歯 {{teeth}} にシーラントを適用",
+        "fracture": "歯 {{teeth}} に破折を確認",
+        "extraction": "歯 {{teeth}} の抜歯",
+        "toExtract": "歯 {{teeth}} を抜歯予定としてマーク",
+        "crown": "歯 {{teeth}} にクラウンを装着",
+        "implant": "歯 {{teeth}} にインプラントを装着",
+        "endodontics": "歯 {{teeth}} に根管治療を実施",
+        "bridge": "歯 {{teeth}} にブリッジを装着"
+      }
+    },
+    "pdf": {
+      "export": "PDFを書き出す",
+      "generating": "生成中…"
+    },
+    "errors": {
+      "doctorRequired": "来院を担当する医師を選択してください",
+      "saveFailed": "来院を保存できませんでした"
+    }
   }
 }

@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Klinische dossiers ({{count}})",
       "photos": "Foto's ({{count}})",
-      "consents": "Toestemmingen ({{count}})"
+      "consents": "Toestemmingen ({{count}})",
+      "odontogram": "Tandschema"
     },
     "new_clinical_record": "Nieuw dossier",
     "no_clinical_records": "Er zijn geen klinische dossiers voor deze patiënt",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Compensatie opslaan",
     "compensationSaved": "Opgeslagen",
     "integrityAlarm": "Er zijn {{count}} afwijkingen gevonden in de hashketen van de registraties. Neem contact op met support."
+  },
+  "odontogram": {
+    "lastVisit": "Laatste bezoek",
+    "viewHistory": "Volledige geschiedenis bekijken",
+    "newVisit": "Nieuw bezoek",
+    "saveVisit": "Bezoek opslaan",
+    "visitDate": "Bezoekdatum",
+    "doctor": "Verantwoordelijke tandarts",
+    "selectDoctor": "Selecteer een tandarts",
+    "visitNotes": "Notities bij bezoek",
+    "noRecords": "Deze patiënt heeft nog geen tandschema geregistreerd.",
+    "dentition": {
+      "permanente": "Blijvend gebit",
+      "temporal": "Melkgebit",
+      "mixta": "Wisselgebit"
+    },
+    "face": {
+      "vestibular": "Vestibulair",
+      "lingual_palatina": "Linguaal/Palatinaal",
+      "mesial": "Mesiaal",
+      "distal": "Distaal",
+      "oclusal_incisal": "Occlusaal/Incisaal"
+    },
+    "faceCondition": {
+      "sana": "Gezond",
+      "caries": "Cariës",
+      "obturada": "Gevuld",
+      "sellante": "Sealant",
+      "fractura": "Fractuur",
+      "desgaste": "Slijtage"
+    },
+    "toothStatus": {
+      "sano": "Gezond",
+      "ausente": "Afwezig (congenitaal)",
+      "extraido": "Getrokken",
+      "a_extraer": "Te trekken",
+      "implante": "Implantaat",
+      "corona": "Kroon",
+      "puente": "Brug",
+      "endodoncia": "Wortelkanaalbehandeling",
+      "movil": "Los",
+      "incluido": "Ingesloten",
+      "temporal_presente": "Melktand aanwezig"
+    },
+    "material": {
+      "composite": "Composiet",
+      "amalgama": "Amalgaam",
+      "ceramica": "Keramiek",
+      "resina": "Kunsthars"
+    },
+    "legend": {
+      "absent": "Afwezig/Getrokken"
+    },
+    "tooth": {
+      "number_label": "Tand {{number}}",
+      "general_status": "Algemene status van de tand",
+      "material": "Materiaal",
+      "faces": "Status per vlak",
+      "notes": "Klinische notities",
+      "mini_history": "Geschiedenis van deze tand"
+    },
+    "history": {
+      "title": "Ontwikkelingsgeschiedenis",
+      "compareMode": "Vergelijkingsmodus",
+      "from": "Van",
+      "to": "Tot",
+      "noChanges": "Geen wijzigingen tussen de twee geselecteerde bezoeken.",
+      "summary": {
+        "newCaries": "{{count}} nieuwe cariës bij tand(en) {{teeth}}",
+        "fillingCompleted": "Vulling voltooid bij tand(en) {{teeth}}",
+        "sealant": "Sealant aangebracht bij tand(en) {{teeth}}",
+        "fracture": "Fractuur vastgesteld bij tand(en) {{teeth}}",
+        "extraction": "Extractie van tand(en) {{teeth}}",
+        "toExtract": "Tand(en) {{teeth}} gemarkeerd om te trekken",
+        "crown": "Kroon geplaatst bij tand(en) {{teeth}}",
+        "implant": "Implantaat geplaatst bij tand(en) {{teeth}}",
+        "endodontics": "Wortelkanaalbehandeling uitgevoerd bij tand(en) {{teeth}}",
+        "bridge": "Brug geplaatst bij tand(en) {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "PDF exporteren",
+      "generating": "Genereren…"
+    },
+    "errors": {
+      "doctorRequired": "Selecteer de verantwoordelijke tandarts voor het bezoek",
+      "saveFailed": "Het bezoek kon niet worden opgeslagen"
+    }
   }
 }

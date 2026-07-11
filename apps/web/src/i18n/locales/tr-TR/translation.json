@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Klinik kayıtlar ({{count}})",
       "photos": "Fotoğraflar ({{count}})",
-      "consents": "Onaylar ({{count}})"
+      "consents": "Onaylar ({{count}})",
+      "odontogram": "Diş haritası"
     },
     "new_clinical_record": "Yeni kayıt",
     "no_clinical_records": "Bu hasta için klinik kayıt yok",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Telafiyi kaydet",
     "compensationSaved": "Kaydedildi",
     "integrityAlarm": "Zaman kayıtlarının hash zincirinde {{count}} tutarsızlık tespit edildi. Destek ile iletişime geçin."
+  },
+  "odontogram": {
+    "lastVisit": "Son ziyaret",
+    "viewHistory": "Tüm geçmişi görüntüle",
+    "newVisit": "Yeni ziyaret",
+    "saveVisit": "Ziyareti kaydet",
+    "visitDate": "Ziyaret tarihi",
+    "doctor": "Sorumlu diş hekimi",
+    "selectDoctor": "Bir diş hekimi seçin",
+    "visitNotes": "Ziyaret notları",
+    "noRecords": "Bu hastanın henüz kayıtlı bir diş haritası yok.",
+    "dentition": {
+      "permanente": "Daimi diş dizisi",
+      "temporal": "Süt dişleri",
+      "mixta": "Karma diş dizisi"
+    },
+    "face": {
+      "vestibular": "Vestibüler",
+      "lingual_palatina": "Lingual/Palatal",
+      "mesial": "Meziyal",
+      "distal": "Distal",
+      "oclusal_incisal": "Oklüzal/İnsizal"
+    },
+    "faceCondition": {
+      "sana": "Sağlıklı",
+      "caries": "Çürük",
+      "obturada": "Dolgulu",
+      "sellante": "Fissür örtücü",
+      "fractura": "Kırık",
+      "desgaste": "Aşınma"
+    },
+    "toothStatus": {
+      "sano": "Sağlıklı",
+      "ausente": "Eksik (doğuştan)",
+      "extraido": "Çekilmiş",
+      "a_extraer": "Çekilecek",
+      "implante": "İmplant",
+      "corona": "Kron",
+      "puente": "Köprü",
+      "endodoncia": "Kanal tedavisi",
+      "movil": "Sallanan",
+      "incluido": "Gömülü",
+      "temporal_presente": "Süt dişi mevcut"
+    },
+    "material": {
+      "composite": "Kompozit",
+      "amalgama": "Amalgam",
+      "ceramica": "Seramik",
+      "resina": "Rezin"
+    },
+    "legend": {
+      "absent": "Eksik/Çekilmiş"
+    },
+    "tooth": {
+      "number_label": "Diş {{number}}",
+      "general_status": "Dişin genel durumu",
+      "material": "Malzeme",
+      "faces": "Yüzeye göre durum",
+      "notes": "Klinik notlar",
+      "mini_history": "Bu dişin geçmişi"
+    },
+    "history": {
+      "title": "Gelişim geçmişi",
+      "compareMode": "Karşılaştırma modu",
+      "from": "Başlangıç",
+      "to": "Bitiş",
+      "noChanges": "Seçilen iki ziyaret arasında değişiklik yok.",
+      "summary": {
+        "newCaries": "{{teeth}} numaralı diş(ler)de {{count}} yeni çürük",
+        "fillingCompleted": "{{teeth}} numaralı diş(ler)de dolgu tamamlandı",
+        "sealant": "{{teeth}} numaralı diş(ler)e fissür örtücü uygulandı",
+        "fracture": "{{teeth}} numaralı diş(ler)de kırık tespit edildi",
+        "extraction": "{{teeth}} numaralı diş(ler)in çekimi",
+        "toExtract": "{{teeth}} numaralı diş(ler) çekim için işaretlendi",
+        "crown": "{{teeth}} numaralı diş(ler)e kron yerleştirildi",
+        "implant": "{{teeth}} numaralı diş(ler)e implant yerleştirildi",
+        "endodontics": "{{teeth}} numaralı diş(ler)de kanal tedavisi yapıldı",
+        "bridge": "{{teeth}} numaralı diş(ler)e köprü yerleştirildi"
+      }
+    },
+    "pdf": {
+      "export": "PDF olarak dışa aktar",
+      "generating": "Oluşturuluyor…"
+    },
+    "errors": {
+      "doctorRequired": "Ziyaretten sorumlu diş hekimini seçin",
+      "saveFailed": "Ziyaret kaydedilemedi"
+    }
   }
 }

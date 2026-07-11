@@ -901,7 +901,8 @@
     "tabs": {
       "history": "क्लिनिकल रिकॉर्ड ({{count}})",
       "photos": "फ़ोटो ({{count}})",
-      "consents": "सहमतियाँ ({{count}})"
+      "consents": "सहमतियाँ ({{count}})",
+      "odontogram": "डेंटल चार्ट"
     },
     "new_clinical_record": "नया रिकॉर्ड",
     "no_clinical_records": "इस मरीज़ के लिए कोई क्लिनिकल रिकॉर्ड नहीं है",
@@ -1921,5 +1922,93 @@
     "compensationSave": "मुआवज़ा सहेजें",
     "compensationSaved": "सहेजा गया",
     "integrityAlarm": "उपस्थिति की हैश श्रृंखला में {{count}} विसंगतियां पाई गईं। सहायता से संपर्क करें।"
+  },
+  "odontogram": {
+    "lastVisit": "अंतिम विज़िट",
+    "viewHistory": "पूरा इतिहास देखें",
+    "newVisit": "नई विज़िट",
+    "saveVisit": "विज़िट सहेजें",
+    "visitDate": "विज़िट की तारीख़",
+    "doctor": "ज़िम्मेदार डॉक्टर",
+    "selectDoctor": "एक डॉक्टर चुनें",
+    "visitNotes": "विज़िट नोट्स",
+    "noRecords": "इस मरीज़ का अभी तक कोई डेंटल चार्ट दर्ज नहीं है।",
+    "dentition": {
+      "permanente": "स्थायी दांत",
+      "temporal": "दूध के दांत",
+      "mixta": "मिश्रित दंतावली"
+    },
+    "face": {
+      "vestibular": "वेस्टिबुलर",
+      "lingual_palatina": "लिंगुअल/पैलेटल",
+      "mesial": "मेज़ियल",
+      "distal": "डिस्टल",
+      "oclusal_incisal": "ओक्लूज़ल/इंसाइज़ल"
+    },
+    "faceCondition": {
+      "sana": "स्वस्थ",
+      "caries": "कैविटी",
+      "obturada": "भरा हुआ",
+      "sellante": "सीलेंट",
+      "fractura": "फ्रैक्चर",
+      "desgaste": "घिसाव"
+    },
+    "toothStatus": {
+      "sano": "स्वस्थ",
+      "ausente": "अनुपस्थित (जन्मजात)",
+      "extraido": "निकाला गया",
+      "a_extraer": "निकाला जाना है",
+      "implante": "इम्प्लांट",
+      "corona": "क्राउन",
+      "puente": "ब्रिज",
+      "endodoncia": "रूट कैनाल",
+      "movil": "ढीला",
+      "incluido": "अंतर्निहित",
+      "temporal_presente": "दूध का दांत मौजूद"
+    },
+    "material": {
+      "composite": "कंपोज़िट",
+      "amalgama": "अमलगम",
+      "ceramica": "सेरामिक",
+      "resina": "रेज़िन"
+    },
+    "legend": {
+      "absent": "अनुपस्थित/निकाला गया"
+    },
+    "tooth": {
+      "number_label": "दांत {{number}}",
+      "general_status": "दांत की सामान्य स्थिति",
+      "material": "सामग्री",
+      "faces": "सतह अनुसार स्थिति",
+      "notes": "क्लिनिकल नोट्स",
+      "mini_history": "इस दांत का इतिहास"
+    },
+    "history": {
+      "title": "विकास इतिहास",
+      "compareMode": "तुलना मोड",
+      "from": "से",
+      "to": "तक",
+      "noChanges": "चयनित दोनों विज़िट के बीच कोई बदलाव नहीं है।",
+      "summary": {
+        "newCaries": "दांत {{teeth}} में {{count}} नई कैविटी",
+        "fillingCompleted": "दांत {{teeth}} में भराई पूरी हुई",
+        "sealant": "दांत {{teeth}} में सीलेंट लगाया गया",
+        "fracture": "दांत {{teeth}} में फ्रैक्चर पाया गया",
+        "extraction": "दांत {{teeth}} निकाला गया",
+        "toExtract": "दांत {{teeth}} निकालने के लिए चिह्नित",
+        "crown": "दांत {{teeth}} पर क्राउन लगाया गया",
+        "implant": "दांत {{teeth}} में इम्प्लांट लगाया गया",
+        "endodontics": "दांत {{teeth}} में रूट कैनाल किया गया",
+        "bridge": "दांत {{teeth}} पर ब्रिज लगाया गया"
+      }
+    },
+    "pdf": {
+      "export": "PDF निर्यात करें",
+      "generating": "बनाया जा रहा है…"
+    },
+    "errors": {
+      "doctorRequired": "विज़िट के लिए ज़िम्मेदार डॉक्टर चुनें",
+      "saveFailed": "विज़िट सहेजी नहीं जा सकी"
+    }
   }
 }

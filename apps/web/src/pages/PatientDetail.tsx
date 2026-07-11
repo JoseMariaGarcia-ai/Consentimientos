@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, FileText, Stethoscope, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, Pencil, Trash2, Camera, Plus } from 'lucide-react'
+import { ArrowLeft, FileText, Stethoscope, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, Pencil, Trash2, Camera, Plus, Smile } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ClinicalRecordForm } from '@/components/clinical/ClinicalRecordForm'
 import { PhotoSessionPanel } from '@/components/photos/PhotoSessionPanel'
 import { NewSessionModal } from '@/components/photos/NewSessionModal'
+import { OdontogramTab } from '@/components/odontogram/OdontogramTab'
 import type { Doctor } from '@consentspro/shared-types'
 
 const STATUS_CONFIG: Record<string, { icon: any; color: string; bg: string }> = {
@@ -15,7 +16,7 @@ const STATUS_CONFIG: Record<string, { icon: any; color: string; bg: string }> = 
   expired: { icon: AlertCircle, color: 'text-slate-400',   bg: 'bg-slate-50' },
 }
 
-type Tab = 'history' | 'consents' | 'photos'
+type Tab = 'history' | 'consents' | 'photos' | 'odontogram'
 
 export default function PatientDetail() {
   const { t } = useTranslation()
@@ -27,6 +28,7 @@ export default function PatientDetail() {
   const [clinicalRecords, setClinicalRecords] = useState<any[]>([])
   const [photoSessions, setPhotoSessions]   = useState<any[]>([])
   const [doctors, setDoctors]               = useState<Doctor[]>([])
+  const [clinic, setClinic]                 = useState<any>(null)
   const [loading, setLoading]               = useState(true)
   const [tab, setTab]                       = useState<Tab>('history')
   const [formOpen, setFormOpen]             = useState(false)
@@ -37,12 +39,13 @@ export default function PatientDetail() {
     if (!id) return
     setLoading(true)
     try {
-      const [patients, cs, rs, ps, ds] = await Promise.all([
+      const [patients, cs, rs, ps, ds, c] = await Promise.all([
         api.get('/patients'),
         api.get('/consents'),
         api.get(`/clinical-records?patientId=${id}`),
         api.get(`/photo-sessions?patientId=${id}`),
         api.get('/doctors'),
+        api.get('/clinic').catch(() => null),
       ])
       const p = Array.isArray(patients) ? patients.find((x: any) => x.id === id) : null
       if (p) setPatient({ ...p, firstName: p.first_name ?? p.firstName, lastName: p.last_name ?? p.lastName, fullName: p.full_name ?? p.fullName })
@@ -50,6 +53,7 @@ export default function PatientDetail() {
       setClinicalRecords(Array.isArray(rs) ? rs : [])
       setPhotoSessions(Array.isArray(ps) ? ps : [])
       setDoctors(Array.isArray(ds) ? ds : [])
+      setClinic(c)
     } finally {
       setLoading(false)
     }
@@ -120,6 +124,7 @@ export default function PatientDetail() {
         <TabBtn active={tab === 'history'}  onClick={() => setTab('history')}  icon={<Stethoscope className="w-4 h-4" />} label={t('patientDetail.tabs.history', { count: clinicalRecords.length })} activeColor="text-teal-700" />
         <TabBtn active={tab === 'photos'}   onClick={() => setTab('photos')}   icon={<Camera className="w-4 h-4" />}      label={t('patientDetail.tabs.photos', { count: photoSessions.length })}                activeColor="text-violet-700" />
         <TabBtn active={tab === 'consents'} onClick={() => setTab('consents')} icon={<FileText className="w-4 h-4" />}    label={t('patientDetail.tabs.consents', { count: consents.length })}           activeColor="text-blue-700" />
+        <TabBtn active={tab === 'odontogram'} onClick={() => setTab('odontogram')} icon={<Smile className="w-4 h-4" />}  label={t('patientDetail.tabs.odontogram')}                                       activeColor="text-cyan-700" />
       </div>
 
       {/* Clinical Records tab */}
@@ -214,6 +219,11 @@ export default function PatientDetail() {
             )
           })}
         </div>
+      )}
+
+      {/* Odontograma tab */}
+      {tab === 'odontogram' && (
+        <OdontogramTab patientId={id!} patient={patient} clinic={clinic} doctors={doctors} />
       )}
 
       {formOpen && (

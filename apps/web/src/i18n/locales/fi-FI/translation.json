@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Potilaskertomukset ({{count}})",
       "photos": "Kuvat ({{count}})",
-      "consents": "Suostumukset ({{count}})"
+      "consents": "Suostumukset ({{count}})",
+      "odontogram": "Hammaskaavio"
     },
     "new_clinical_record": "Uusi kertomus",
     "no_clinical_records": "Tällä potilaalla ei ole potilaskertomuksia",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Tallenna korvaus",
     "compensationSaved": "Tallennettu",
     "integrityAlarm": "Leimausten hash-ketjussa havaittiin {{count}} poikkeamaa. Ota yhteyttä tukeen."
+  },
+  "odontogram": {
+    "lastVisit": "Viimeisin käynti",
+    "viewHistory": "Näytä koko historia",
+    "newVisit": "Uusi käynti",
+    "saveVisit": "Tallenna käynti",
+    "visitDate": "Käynnin päivämäärä",
+    "doctor": "Vastaava hammaslääkäri",
+    "selectDoctor": "Valitse hammaslääkäri",
+    "visitNotes": "Käynnin muistiinpanot",
+    "noRecords": "Tällä potilaalla ei ole vielä tallennettua hammaskaaviota.",
+    "dentition": {
+      "permanente": "Pysyvä hampaisto",
+      "temporal": "Maitohampaisto",
+      "mixta": "Sekahampaisto"
+    },
+    "face": {
+      "vestibular": "Vestibulaarinen",
+      "lingual_palatina": "Lingvaalinen/Palataalinen",
+      "mesial": "Mesiaalinen",
+      "distal": "Distaalinen",
+      "oclusal_incisal": "Okklusaalinen/Insisaalinen"
+    },
+    "faceCondition": {
+      "sana": "Terve",
+      "caries": "Reikä",
+      "obturada": "Paikattu",
+      "sellante": "Sinetöinti",
+      "fractura": "Murtuma",
+      "desgaste": "Kuluma"
+    },
+    "toothStatus": {
+      "sano": "Terve",
+      "ausente": "Puuttuu (synnynnäinen)",
+      "extraido": "Poistettu",
+      "a_extraer": "Poistettava",
+      "implante": "Implantti",
+      "corona": "Kruunu",
+      "puente": "Silta",
+      "endodoncia": "Juurihoito",
+      "movil": "Löysä",
+      "incluido": "Jäänyt piiloon",
+      "temporal_presente": "Maitohammas paikalla"
+    },
+    "material": {
+      "composite": "Komposiitti",
+      "amalgama": "Amalgaami",
+      "ceramica": "Keramia",
+      "resina": "Hartsi"
+    },
+    "legend": {
+      "absent": "Puuttuu/Poistettu"
+    },
+    "tooth": {
+      "number_label": "Hammas {{number}}",
+      "general_status": "Hampaan yleinen tila",
+      "material": "Materiaali",
+      "faces": "Tila pinnoittain",
+      "notes": "Kliiniset muistiinpanot",
+      "mini_history": "Tämän hampaan historia"
+    },
+    "history": {
+      "title": "Kehityshistoria",
+      "compareMode": "Vertailutila",
+      "from": "Alkaen",
+      "to": "Asti",
+      "noChanges": "Ei muutoksia valittujen kahden käynnin välillä.",
+      "summary": {
+        "newCaries": "{{count}} uusi/uutta reikää hampaassa/hampaissa {{teeth}}",
+        "fillingCompleted": "Paikkaus valmis hampaassa/hampaissa {{teeth}}",
+        "sealant": "Sinetöinti tehty hampaassa/hampaissa {{teeth}}",
+        "fracture": "Murtuma havaittu hampaassa/hampaissa {{teeth}}",
+        "extraction": "Hampaan/hampaiden {{teeth}} poisto",
+        "toExtract": "Hammas/hampaat {{teeth}} merkitty poistettavaksi",
+        "crown": "Kruunu asennettu hampaaseen/hampaisiin {{teeth}}",
+        "implant": "Implantti asennettu hampaaseen/hampaisiin {{teeth}}",
+        "endodontics": "Juurihoito tehty hampaassa/hampaissa {{teeth}}",
+        "bridge": "Silta asennettu hampaaseen/hampaisiin {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Vie PDF",
+      "generating": "Luodaan…"
+    },
+    "errors": {
+      "doctorRequired": "Valitse käynnistä vastaava hammaslääkäri",
+      "saveFailed": "Käyntiä ei voitu tallentaa"
+    }
   }
 }

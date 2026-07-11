@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Journaler ({{count}})",
       "photos": "Foton ({{count}})",
-      "consents": "Samtycken ({{count}})"
+      "consents": "Samtycken ({{count}})",
+      "odontogram": "Tandkarta"
     },
     "new_clinical_record": "Ny journal",
     "no_clinical_records": "Det finns inga journaler för denna patient",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Spara kompensation",
     "compensationSaved": "Sparat",
     "integrityAlarm": "{{count}} avvikelser hittades i stämplingarnas hashkedja. Kontakta support."
+  },
+  "odontogram": {
+    "lastVisit": "Senaste besök",
+    "viewHistory": "Visa fullständig historik",
+    "newVisit": "Nytt besök",
+    "saveVisit": "Spara besök",
+    "visitDate": "Besöksdatum",
+    "doctor": "Ansvarig tandläkare",
+    "selectDoctor": "Välj en tandläkare",
+    "visitNotes": "Anteckningar om besöket",
+    "noRecords": "Denna patient har ännu ingen registrerad tandkarta.",
+    "dentition": {
+      "permanente": "Permanenta tänder",
+      "temporal": "Mjölktänder",
+      "mixta": "Blandad tanduppsättning"
+    },
+    "face": {
+      "vestibular": "Vestibulär",
+      "lingual_palatina": "Lingual/Palatinal",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Ocklusal/Incisal"
+    },
+    "faceCondition": {
+      "sana": "Frisk",
+      "caries": "Karies",
+      "obturada": "Lagad",
+      "sellante": "Fissurförsegling",
+      "fractura": "Fraktur",
+      "desgaste": "Slitage"
+    },
+    "toothStatus": {
+      "sano": "Frisk",
+      "ausente": "Saknas (medfött)",
+      "extraido": "Extraherad",
+      "a_extraer": "Ska extraheras",
+      "implante": "Implantat",
+      "corona": "Krona",
+      "puente": "Bro",
+      "endodoncia": "Rotbehandling",
+      "movil": "Lös",
+      "incluido": "Inneslutet",
+      "temporal_presente": "Mjölktand kvar"
+    },
+    "material": {
+      "composite": "Komposit",
+      "amalgama": "Amalgam",
+      "ceramica": "Keramik",
+      "resina": "Resin"
+    },
+    "legend": {
+      "absent": "Saknas/Extraherad"
+    },
+    "tooth": {
+      "number_label": "Tand {{number}}",
+      "general_status": "Allmänt tandstatus",
+      "material": "Material",
+      "faces": "Status per yta",
+      "notes": "Kliniska anteckningar",
+      "mini_history": "Historik för denna tand"
+    },
+    "history": {
+      "title": "Utvecklingshistorik",
+      "compareMode": "Jämförelseläge",
+      "from": "Från",
+      "to": "Till",
+      "noChanges": "Inga förändringar mellan de två valda besöken.",
+      "summary": {
+        "newCaries": "{{count}} ny(a) karies på tand/tänder {{teeth}}",
+        "fillingCompleted": "Lagning slutförd på tand/tänder {{teeth}}",
+        "sealant": "Fissurförsegling applicerad på tand/tänder {{teeth}}",
+        "fracture": "Fraktur upptäckt på tand/tänder {{teeth}}",
+        "extraction": "Extraktion av tand/tänder {{teeth}}",
+        "toExtract": "Tand/tänder {{teeth}} markerad(e) för extraktion",
+        "crown": "Krona placerad på tand/tänder {{teeth}}",
+        "implant": "Implantat placerat på tand/tänder {{teeth}}",
+        "endodontics": "Rotbehandling utförd på tand/tänder {{teeth}}",
+        "bridge": "Bro placerad på tand/tänder {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Exportera PDF",
+      "generating": "Genererar…"
+    },
+    "errors": {
+      "doctorRequired": "Välj ansvarig tandläkare för besöket",
+      "saveFailed": "Det gick inte att spara besöket"
+    }
   }
 }

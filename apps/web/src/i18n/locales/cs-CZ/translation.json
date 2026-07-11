@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Klinické záznamy ({{count}})",
       "photos": "Fotografie ({{count}})",
-      "consents": "Souhlasy ({{count}})"
+      "consents": "Souhlasy ({{count}})",
+      "odontogram": "Zubní diagram"
     },
     "new_clinical_record": "Nový záznam",
     "no_clinical_records": "Tento pacient nemá žádné klinické záznamy",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Uložit kompenzaci",
     "compensationSaved": "Uloženo",
     "integrityAlarm": "V řetězci hashů docházky bylo zjištěno {{count}} nesrovnalostí. Kontaktujte podporu."
+  },
+  "odontogram": {
+    "lastVisit": "Poslední návštěva",
+    "viewHistory": "Zobrazit celou historii",
+    "newVisit": "Nová návštěva",
+    "saveVisit": "Uložit návštěvu",
+    "visitDate": "Datum návštěvy",
+    "doctor": "Zodpovědný lékař",
+    "selectDoctor": "Vyberte lékaře",
+    "visitNotes": "Poznámky k návštěvě",
+    "noRecords": "Tento pacient zatím nemá zaznamenaný žádný zubní diagram.",
+    "dentition": {
+      "permanente": "Trvalý chrup",
+      "temporal": "Dočasný chrup",
+      "mixta": "Smíšený chrup"
+    },
+    "face": {
+      "vestibular": "Vestibulární",
+      "lingual_palatina": "Lingvální/Patrová",
+      "mesial": "Meziální",
+      "distal": "Distální",
+      "oclusal_incisal": "Okluzní/Incizní"
+    },
+    "faceCondition": {
+      "sana": "Zdravý",
+      "caries": "Kaz",
+      "obturada": "Vyplněný",
+      "sellante": "Zapečetění",
+      "fractura": "Fraktura",
+      "desgaste": "Opotřebení"
+    },
+    "toothStatus": {
+      "sano": "Zdravý",
+      "ausente": "Chybí (vrozeně)",
+      "extraido": "Extrahovaný",
+      "a_extraer": "K extrakci",
+      "implante": "Implantát",
+      "corona": "Korunka",
+      "puente": "Můstek",
+      "endodoncia": "Endodoncie",
+      "movil": "Uvolněný",
+      "incluido": "Retinovaný",
+      "temporal_presente": "Přítomný dočasný zub"
+    },
+    "material": {
+      "composite": "Kompozit",
+      "amalgama": "Amalgám",
+      "ceramica": "Keramika",
+      "resina": "Pryskyřice"
+    },
+    "legend": {
+      "absent": "Chybí/Extrahovaný"
+    },
+    "tooth": {
+      "number_label": "Zub {{number}}",
+      "general_status": "Celkový stav zubu",
+      "material": "Materiál",
+      "faces": "Stav podle plochy",
+      "notes": "Klinické poznámky",
+      "mini_history": "Historie tohoto zubu"
+    },
+    "history": {
+      "title": "Historie vývoje",
+      "compareMode": "Režim porovnání",
+      "from": "Od",
+      "to": "Do",
+      "noChanges": "Mezi dvěma vybranými návštěvami nejsou žádné změny.",
+      "summary": {
+        "newCaries": "{{count}} nový/é kaz(y) na zubu/zubech {{teeth}}",
+        "fillingCompleted": "Výplň dokončena na zubu/zubech {{teeth}}",
+        "sealant": "Zapečetění provedeno na zubu/zubech {{teeth}}",
+        "fracture": "Zjištěna fraktura na zubu/zubech {{teeth}}",
+        "extraction": "Extrakce zubu/zubů {{teeth}}",
+        "toExtract": "Zub/zuby {{teeth}} označen(y) k extrakci",
+        "crown": "Korunka nasazena na zub/zuby {{teeth}}",
+        "implant": "Implantát zaveden na zub/zuby {{teeth}}",
+        "endodontics": "Endodoncie provedena na zubu/zubech {{teeth}}",
+        "bridge": "Můstek nasazen na zub/zuby {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Exportovat PDF",
+      "generating": "Generuje se…"
+    },
+    "errors": {
+      "doctorRequired": "Vyberte lékaře zodpovědného za návštěvu",
+      "saveFailed": "Návštěvu se nepodařilo uložit"
+    }
   }
 }

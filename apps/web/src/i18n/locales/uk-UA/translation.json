@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Клінічні карти ({{count}})",
       "photos": "Фото ({{count}})",
-      "consents": "Згоди ({{count}})"
+      "consents": "Згоди ({{count}})",
+      "odontogram": "Зубна карта"
     },
     "new_clinical_record": "Нова карта",
     "no_clinical_records": "У цього пацієнта немає клінічних карт",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Зберегти компенсацію",
     "compensationSaved": "Збережено",
     "integrityAlarm": "У ланцюзі хешів відміток часу виявлено {{count}} розбіжностей. Зверніться до підтримки."
+  },
+  "odontogram": {
+    "lastVisit": "Останній візит",
+    "viewHistory": "Переглянути всю історію",
+    "newVisit": "Новий візит",
+    "saveVisit": "Зберегти візит",
+    "visitDate": "Дата візиту",
+    "doctor": "Відповідальний лікар",
+    "selectDoctor": "Виберіть лікаря",
+    "visitNotes": "Нотатки про візит",
+    "noRecords": "У цього пацієнта ще немає зареєстрованої зубної карти.",
+    "dentition": {
+      "permanente": "Постійний прикус",
+      "temporal": "Молочний прикус",
+      "mixta": "Змішаний прикус"
+    },
+    "face": {
+      "vestibular": "Вестибулярна",
+      "lingual_palatina": "Язикова/Піднебінна",
+      "mesial": "Медіальна",
+      "distal": "Дистальна",
+      "oclusal_incisal": "Оклюзійна/Різцева"
+    },
+    "faceCondition": {
+      "sana": "Здоровий",
+      "caries": "Карієс",
+      "obturada": "Запломбовано",
+      "sellante": "Герметик",
+      "fractura": "Перелом",
+      "desgaste": "Стирання"
+    },
+    "toothStatus": {
+      "sano": "Здоровий",
+      "ausente": "Відсутній (вроджено)",
+      "extraido": "Видалений",
+      "a_extraer": "До видалення",
+      "implante": "Імплант",
+      "corona": "Коронка",
+      "puente": "Міст",
+      "endodoncia": "Лікування каналу",
+      "movil": "Рухомий",
+      "incluido": "Ретенований",
+      "temporal_presente": "Молочний зуб присутній"
+    },
+    "material": {
+      "composite": "Композит",
+      "amalgama": "Амальгама",
+      "ceramica": "Кераміка",
+      "resina": "Смола"
+    },
+    "legend": {
+      "absent": "Відсутній/Видалений"
+    },
+    "tooth": {
+      "number_label": "Зуб {{number}}",
+      "general_status": "Загальний стан зуба",
+      "material": "Матеріал",
+      "faces": "Стан за поверхнею",
+      "notes": "Клінічні нотатки",
+      "mini_history": "Історія цього зуба"
+    },
+    "history": {
+      "title": "Історія розвитку",
+      "compareMode": "Режим порівняння",
+      "from": "Від",
+      "to": "До",
+      "noChanges": "Немає змін між двома вибраними візитами.",
+      "summary": {
+        "newCaries": "{{count}} новий(і) карієс на зубі/зубах {{teeth}}",
+        "fillingCompleted": "Пломбування завершено на зубі/зубах {{teeth}}",
+        "sealant": "Герметик нанесено на зуб/зуби {{teeth}}",
+        "fracture": "Виявлено перелом на зубі/зубах {{teeth}}",
+        "extraction": "Видалення зуба/зубів {{teeth}}",
+        "toExtract": "Зуб/зуби {{teeth}} позначено до видалення",
+        "crown": "Коронку встановлено на зуб/зуби {{teeth}}",
+        "implant": "Імплант встановлено на зуб/зуби {{teeth}}",
+        "endodontics": "Лікування каналу виконано на зубі/зубах {{teeth}}",
+        "bridge": "Міст встановлено на зуб/зуби {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Експорт у PDF",
+      "generating": "Формування…"
+    },
+    "errors": {
+      "doctorRequired": "Виберіть лікаря, відповідального за візит",
+      "saveFailed": "Не вдалося зберегти візит"
+    }
   }
 }

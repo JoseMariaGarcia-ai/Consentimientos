@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Kliniske journaler ({{count}})",
       "photos": "Fotos ({{count}})",
-      "consents": "Samtykker ({{count}})"
+      "consents": "Samtykker ({{count}})",
+      "odontogram": "Tandkort"
     },
     "new_clinical_record": "Ny journal",
     "no_clinical_records": "Der er ingen kliniske journaler for denne patient",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Gem kompensation",
     "compensationSaved": "Gemt",
     "integrityAlarm": "Der blev fundet {{count}} uoverensstemmelser i stemplingernes hashkæde. Kontakt support."
+  },
+  "odontogram": {
+    "lastVisit": "Seneste besøg",
+    "viewHistory": "Se fuld historik",
+    "newVisit": "Nyt besøg",
+    "saveVisit": "Gem besøg",
+    "visitDate": "Besøgsdato",
+    "doctor": "Ansvarlig tandlæge",
+    "selectDoctor": "Vælg en tandlæge",
+    "visitNotes": "Noter til besøget",
+    "noRecords": "Denne patient har endnu ikke registreret et tandkort.",
+    "dentition": {
+      "permanente": "Permanente tænder",
+      "temporal": "Mælketænder",
+      "mixta": "Blandet tandsæt"
+    },
+    "face": {
+      "vestibular": "Vestibulær",
+      "lingual_palatina": "Lingual/Palatinal",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Okklusal/Incisal"
+    },
+    "faceCondition": {
+      "sana": "Sund",
+      "caries": "Karies",
+      "obturada": "Fyldt",
+      "sellante": "Fissurforsegling",
+      "fractura": "Fraktur",
+      "desgaste": "Slid"
+    },
+    "toothStatus": {
+      "sano": "Sund",
+      "ausente": "Mangler (medfødt)",
+      "extraido": "Trukket ud",
+      "a_extraer": "Skal trækkes ud",
+      "implante": "Implantat",
+      "corona": "Krone",
+      "puente": "Bro",
+      "endodoncia": "Rodbehandling",
+      "movil": "Løs",
+      "incluido": "Retineret",
+      "temporal_presente": "Mælketand til stede"
+    },
+    "material": {
+      "composite": "Komposit",
+      "amalgama": "Amalgam",
+      "ceramica": "Keramik",
+      "resina": "Resin"
+    },
+    "legend": {
+      "absent": "Mangler/Trukket ud"
+    },
+    "tooth": {
+      "number_label": "Tand {{number}}",
+      "general_status": "Generel tandstatus",
+      "material": "Materiale",
+      "faces": "Status pr. flade",
+      "notes": "Kliniske noter",
+      "mini_history": "Historik for denne tand"
+    },
+    "history": {
+      "title": "Udviklingshistorik",
+      "compareMode": "Sammenligningstilstand",
+      "from": "Fra",
+      "to": "Til",
+      "noChanges": "Ingen ændringer mellem de to valgte besøg.",
+      "summary": {
+        "newCaries": "{{count}} ny(e) karies på tand/tænder {{teeth}}",
+        "fillingCompleted": "Fyldning fuldført på tand/tænder {{teeth}}",
+        "sealant": "Fissurforsegling påført tand/tænder {{teeth}}",
+        "fracture": "Fraktur registreret på tand/tænder {{teeth}}",
+        "extraction": "Udtrækning af tand/tænder {{teeth}}",
+        "toExtract": "Tand/tænder {{teeth}} markeret til udtrækning",
+        "crown": "Krone placeret på tand/tænder {{teeth}}",
+        "implant": "Implantat placeret på tand/tænder {{teeth}}",
+        "endodontics": "Rodbehandling udført på tand/tænder {{teeth}}",
+        "bridge": "Bro placeret på tand/tænder {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Eksportér PDF",
+      "generating": "Genererer…"
+    },
+    "errors": {
+      "doctorRequired": "Vælg den ansvarlige tandlæge for besøget",
+      "saveFailed": "Kunne ikke gemme besøget"
+    }
   }
 }

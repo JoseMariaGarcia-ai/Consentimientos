@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Медицинские карты ({{count}})",
       "photos": "Фото ({{count}})",
-      "consents": "Согласия ({{count}})"
+      "consents": "Согласия ({{count}})",
+      "odontogram": "Зубная карта"
     },
     "new_clinical_record": "Новая карта",
     "no_clinical_records": "У этого пациента нет медицинских карт",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Сохранить компенсацию",
     "compensationSaved": "Сохранено",
     "integrityAlarm": "В цепочке хешей отметок времени обнаружено {{count}} несоответствий. Свяжитесь с поддержкой."
+  },
+  "odontogram": {
+    "lastVisit": "Последний визит",
+    "viewHistory": "Смотреть всю историю",
+    "newVisit": "Новый визит",
+    "saveVisit": "Сохранить визит",
+    "visitDate": "Дата визита",
+    "doctor": "Ответственный врач",
+    "selectDoctor": "Выберите врача",
+    "visitNotes": "Заметки о визите",
+    "noRecords": "У этого пациента ещё нет зарегистрированной зубной карты.",
+    "dentition": {
+      "permanente": "Постоянный прикус",
+      "temporal": "Молочный прикус",
+      "mixta": "Смешанный прикус"
+    },
+    "face": {
+      "vestibular": "Вестибулярная",
+      "lingual_palatina": "Язычная/Нёбная",
+      "mesial": "Медиальная",
+      "distal": "Дистальная",
+      "oclusal_incisal": "Окклюзионная/Резцовая"
+    },
+    "faceCondition": {
+      "sana": "Здоровый",
+      "caries": "Кариес",
+      "obturada": "Запломбирован",
+      "sellante": "Герметик",
+      "fractura": "Перелом",
+      "desgaste": "Истирание"
+    },
+    "toothStatus": {
+      "sano": "Здоровый",
+      "ausente": "Отсутствует (врождённо)",
+      "extraido": "Удалён",
+      "a_extraer": "К удалению",
+      "implante": "Имплант",
+      "corona": "Коронка",
+      "puente": "Мост",
+      "endodoncia": "Лечение канала",
+      "movil": "Подвижный",
+      "incluido": "Ретенированный",
+      "temporal_presente": "Молочный зуб присутствует"
+    },
+    "material": {
+      "composite": "Композит",
+      "amalgama": "Амальгама",
+      "ceramica": "Керамика",
+      "resina": "Смола"
+    },
+    "legend": {
+      "absent": "Отсутствует/Удалён"
+    },
+    "tooth": {
+      "number_label": "Зуб {{number}}",
+      "general_status": "Общее состояние зуба",
+      "material": "Материал",
+      "faces": "Состояние по поверхности",
+      "notes": "Клинические заметки",
+      "mini_history": "История этого зуба"
+    },
+    "history": {
+      "title": "История развития",
+      "compareMode": "Режим сравнения",
+      "from": "С",
+      "to": "По",
+      "noChanges": "Нет изменений между двумя выбранными визитами.",
+      "summary": {
+        "newCaries": "{{count}} новый(х) кариес на зубе/зубах {{teeth}}",
+        "fillingCompleted": "Пломбирование завершено на зубе/зубах {{teeth}}",
+        "sealant": "Герметик нанесён на зуб/зубы {{teeth}}",
+        "fracture": "Обнаружен перелом на зубе/зубах {{teeth}}",
+        "extraction": "Удаление зуба/зубов {{teeth}}",
+        "toExtract": "Зуб/зубы {{teeth}} отмечен(ы) к удалению",
+        "crown": "Коронка установлена на зуб/зубы {{teeth}}",
+        "implant": "Имплант установлен на зуб/зубы {{teeth}}",
+        "endodontics": "Лечение канала выполнено на зубе/зубах {{teeth}}",
+        "bridge": "Мост установлен на зуб/зубы {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Экспорт в PDF",
+      "generating": "Формирование…"
+    },
+    "errors": {
+      "doctorRequired": "Выберите врача, ответственного за визит",
+      "saveFailed": "Не удалось сохранить визит"
+    }
   }
 }

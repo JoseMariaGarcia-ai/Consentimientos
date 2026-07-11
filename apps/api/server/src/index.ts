@@ -28,6 +28,7 @@ import clinicConfigRouter from './routes/clinicConfig'
 import whatsappRouter, { webhookRouter as whatsappWebhookRouter } from './routes/whatsapp'
 import planPermissionsRouter from './routes/planPermissions'
 import budgetsRouter from './routes/budgets'
+import odontogramRouter from './routes/odontogram'
 import invoicesRouter from './routes/invoices'
 import timeTrackingRouter, { publicRouter as timeTrackingPublicRouter } from './routes/timeTracking'
 import workflowsRouter from './routes/workflows'
@@ -94,6 +95,7 @@ app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
 app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
 app.use('/api/budgets',         authMiddleware, budgetsRouter)
+app.use('/api/odontogram',      authMiddleware, odontogramRouter)
 app.use('/api/invoices',        authMiddleware, requireModuleAccess('invoicing'), invoicesRouter)
 app.use('/api/timetracking',    authMiddleware, requireModuleAccess('time-tracking'), timeTrackingRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)

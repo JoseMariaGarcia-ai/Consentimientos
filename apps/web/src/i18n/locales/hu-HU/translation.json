@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Klinikai naplók ({{count}})",
       "photos": "Fotók ({{count}})",
-      "consents": "Beleegyezések ({{count}})"
+      "consents": "Beleegyezések ({{count}})",
+      "odontogram": "Fogászati térkép"
     },
     "new_clinical_record": "Új napló",
     "no_clinical_records": "Nincs klinikai napló ehhez a beteghez",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Kompenzáció mentése",
     "compensationSaved": "Mentve",
     "integrityAlarm": "A regisztrációk hash-láncában {{count}} eltérést találtunk. Vegye fel a kapcsolatot az ügyfélszolgálattal."
+  },
+  "odontogram": {
+    "lastVisit": "Utolsó látogatás",
+    "viewHistory": "Teljes előzmény megtekintése",
+    "newVisit": "Új látogatás",
+    "saveVisit": "Látogatás mentése",
+    "visitDate": "Látogatás dátuma",
+    "doctor": "Felelős fogorvos",
+    "selectDoctor": "Válasszon fogorvost",
+    "visitNotes": "Látogatás megjegyzései",
+    "noRecords": "Ennek a páciensnek még nincs rögzített fogászati térképe.",
+    "dentition": {
+      "permanente": "Állandó fogazat",
+      "temporal": "Tejfogazat",
+      "mixta": "Vegyes fogazat"
+    },
+    "face": {
+      "vestibular": "Vesztibuláris",
+      "lingual_palatina": "Linguális/Palatinális",
+      "mesial": "Meziális",
+      "distal": "Disztális",
+      "oclusal_incisal": "Okkluzális/Incizális"
+    },
+    "faceCondition": {
+      "sana": "Egészséges",
+      "caries": "Szuvasodás",
+      "obturada": "Tömött",
+      "sellante": "Fissúrazárás",
+      "fractura": "Törés",
+      "desgaste": "Kopás"
+    },
+    "toothStatus": {
+      "sano": "Egészséges",
+      "ausente": "Hiányzik (veleszületett)",
+      "extraido": "Eltávolítva",
+      "a_extraer": "Eltávolítandó",
+      "implante": "Implantátum",
+      "corona": "Korona",
+      "puente": "Híd",
+      "endodoncia": "Gyökérkezelés",
+      "movil": "Meglazult",
+      "incluido": "Beágyazódott",
+      "temporal_presente": "Tejfog jelen"
+    },
+    "material": {
+      "composite": "Kompozit",
+      "amalgama": "Amalgám",
+      "ceramica": "Kerámia",
+      "resina": "Gyanta"
+    },
+    "legend": {
+      "absent": "Hiányzik/Eltávolítva"
+    },
+    "tooth": {
+      "number_label": "Fog {{number}}",
+      "general_status": "Fog általános állapota",
+      "material": "Anyag",
+      "faces": "Állapot felszínenként",
+      "notes": "Klinikai megjegyzések",
+      "mini_history": "Ennek a fognak az előzménye"
+    },
+    "history": {
+      "title": "Fejlődési előzmény",
+      "compareMode": "Összehasonlítás mód",
+      "from": "Ettől",
+      "to": "Eddig",
+      "noChanges": "Nincs változás a két kiválasztott látogatás között.",
+      "summary": {
+        "newCaries": "{{count}} új szuvasodás a(z) {{teeth}} fog(ak)on",
+        "fillingCompleted": "Tömés befejezve a(z) {{teeth}} fog(ak)on",
+        "sealant": "Fissúrazárás alkalmazva a(z) {{teeth}} fog(ak)on",
+        "fracture": "Törés észlelve a(z) {{teeth}} fog(ak)on",
+        "extraction": "A(z) {{teeth}} fog(ak) eltávolítása",
+        "toExtract": "A(z) {{teeth}} fog(ak) eltávolításra megjelölve",
+        "crown": "Korona felhelyezve a(z) {{teeth}} fog(ak)ra",
+        "implant": "Implantátum behelyezve a(z) {{teeth}} fog(ak) helyére",
+        "endodontics": "Gyökérkezelés elvégezve a(z) {{teeth}} fog(ak)on",
+        "bridge": "Híd felhelyezve a(z) {{teeth}} fog(ak)ra"
+      }
+    },
+    "pdf": {
+      "export": "PDF exportálása",
+      "generating": "Generálás…"
+    },
+    "errors": {
+      "doctorRequired": "Válassza ki a látogatásért felelős fogorvost",
+      "saveFailed": "A látogatást nem sikerült menteni"
+    }
   }
 }

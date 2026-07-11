@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Istorice medicale ({{count}})",
       "photos": "Fotografii ({{count}})",
-      "consents": "Consimțăminte ({{count}})"
+      "consents": "Consimțăminte ({{count}})",
+      "odontogram": "Odontogramă"
     },
     "new_clinical_record": "Istoric nou",
     "no_clinical_records": "Nu există istorice medicale pentru acest pacient",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Salvează compensarea",
     "compensationSaved": "Salvat",
     "integrityAlarm": "S-au detectat {{count}} discrepanțe în lanțul de hash al pontajelor. Contactează asistența."
+  },
+  "odontogram": {
+    "lastVisit": "Ultima vizită",
+    "viewHistory": "Vezi istoricul complet",
+    "newVisit": "Vizită nouă",
+    "saveVisit": "Salvează vizita",
+    "visitDate": "Data vizitei",
+    "doctor": "Medic responsabil",
+    "selectDoctor": "Selectează un medic",
+    "visitNotes": "Note despre vizită",
+    "noRecords": "Acest pacient nu are încă nicio odontogramă înregistrată.",
+    "dentition": {
+      "permanente": "Dentiție permanentă",
+      "temporal": "Dentiție temporară",
+      "mixta": "Dentiție mixtă"
+    },
+    "face": {
+      "vestibular": "Vestibulară",
+      "lingual_palatina": "Linguală/Palatinală",
+      "mesial": "Mezială",
+      "distal": "Distală",
+      "oclusal_incisal": "Ocluzală/Incizală"
+    },
+    "faceCondition": {
+      "sana": "Sănătoasă",
+      "caries": "Carie",
+      "obturada": "Obturată",
+      "sellante": "Sigilant",
+      "fractura": "Fractură",
+      "desgaste": "Uzură"
+    },
+    "toothStatus": {
+      "sano": "Sănătos",
+      "ausente": "Absent (congenital)",
+      "extraido": "Extras",
+      "a_extraer": "De extras",
+      "implante": "Implant",
+      "corona": "Coroană",
+      "puente": "Punte",
+      "endodoncia": "Tratament endodontic",
+      "movil": "Mobil",
+      "incluido": "Inclus",
+      "temporal_presente": "Dinte temporar prezent"
+    },
+    "material": {
+      "composite": "Compozit",
+      "amalgama": "Amalgam",
+      "ceramica": "Ceramică",
+      "resina": "Rășină"
+    },
+    "legend": {
+      "absent": "Absent/Extras"
+    },
+    "tooth": {
+      "number_label": "Dintele {{number}}",
+      "general_status": "Starea generală a dintelui",
+      "material": "Material",
+      "faces": "Stare pe suprafață",
+      "notes": "Note clinice",
+      "mini_history": "Istoricul acestui dinte"
+    },
+    "history": {
+      "title": "Istoric de evoluție",
+      "compareMode": "Mod comparare",
+      "from": "De la",
+      "to": "Până la",
+      "noChanges": "Nu există modificări între cele două vizite selectate.",
+      "summary": {
+        "newCaries": "{{count}} carie(carii) nouă/noi la dintele/dinții {{teeth}}",
+        "fillingCompleted": "Obturație finalizată la dintele/dinții {{teeth}}",
+        "sealant": "Sigilant aplicat la dintele/dinții {{teeth}}",
+        "fracture": "Fractură detectată la dintele/dinții {{teeth}}",
+        "extraction": "Extracția dintelui/dinților {{teeth}}",
+        "toExtract": "Dintele/dinții {{teeth}} marcat(i) pentru extracție",
+        "crown": "Coroană montată la dintele/dinții {{teeth}}",
+        "implant": "Implant montat la dintele/dinții {{teeth}}",
+        "endodontics": "Tratament endodontic efectuat la dintele/dinții {{teeth}}",
+        "bridge": "Punte montată la dintele/dinții {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Exportă PDF",
+      "generating": "Se generează…"
+    },
+    "errors": {
+      "doctorRequired": "Selectează medicul responsabil de vizită",
+      "saveFailed": "Vizita nu a putut fi salvată"
+    }
   }
 }

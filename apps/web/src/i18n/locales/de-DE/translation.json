@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Krankenakten ({{count}})",
       "photos": "Fotos ({{count}})",
-      "consents": "Einwilligungen ({{count}})"
+      "consents": "Einwilligungen ({{count}})",
+      "odontogram": "Zahnschema"
     },
     "new_clinical_record": "Neue Akte",
     "no_clinical_records": "Keine Krankenakten für diesen Patienten",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Ausgleich speichern",
     "compensationSaved": "Gespeichert",
     "integrityAlarm": "In der Hash-Kette der Zeiterfassungen wurden {{count}} Unstimmigkeiten festgestellt. Wenden Sie sich an den Support."
+  },
+  "odontogram": {
+    "lastVisit": "Letzter Besuch",
+    "viewHistory": "Vollständigen Verlauf ansehen",
+    "newVisit": "Neuer Besuch",
+    "saveVisit": "Besuch speichern",
+    "visitDate": "Besuchsdatum",
+    "doctor": "Verantwortliche/r Arzt/Ärztin",
+    "selectDoctor": "Arzt auswählen",
+    "visitNotes": "Notizen zum Besuch",
+    "noRecords": "Für diesen Patienten ist noch kein Zahnschema erfasst.",
+    "dentition": {
+      "permanente": "Bleibendes Gebiss",
+      "temporal": "Milchgebiss",
+      "mixta": "Wechselgebiss"
+    },
+    "face": {
+      "vestibular": "Vestibulär",
+      "lingual_palatina": "Lingual/Palatinal",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Okklusal/Inzisal"
+    },
+    "faceCondition": {
+      "sana": "Gesund",
+      "caries": "Karies",
+      "obturada": "Gefüllt",
+      "sellante": "Fissurenversiegelung",
+      "fractura": "Fraktur",
+      "desgaste": "Abnutzung"
+    },
+    "toothStatus": {
+      "sano": "Gesund",
+      "ausente": "Fehlend (angeboren)",
+      "extraido": "Extrahiert",
+      "a_extraer": "Zu extrahieren",
+      "implante": "Implantat",
+      "corona": "Krone",
+      "puente": "Brücke",
+      "endodoncia": "Wurzelbehandlung",
+      "movil": "Locker",
+      "incluido": "Verlagert",
+      "temporal_presente": "Milchzahn vorhanden"
+    },
+    "material": {
+      "composite": "Komposit",
+      "amalgama": "Amalgam",
+      "ceramica": "Keramik",
+      "resina": "Kunststoff"
+    },
+    "legend": {
+      "absent": "Fehlend/Extrahiert"
+    },
+    "tooth": {
+      "number_label": "Zahn {{number}}",
+      "general_status": "Allgemeiner Zahnstatus",
+      "material": "Material",
+      "faces": "Status je Fläche",
+      "notes": "Klinische Notizen",
+      "mini_history": "Verlauf dieses Zahns"
+    },
+    "history": {
+      "title": "Entwicklungsverlauf",
+      "compareMode": "Vergleichsmodus",
+      "from": "Von",
+      "to": "Bis",
+      "noChanges": "Keine Änderungen zwischen den zwei ausgewählten Besuchen.",
+      "summary": {
+        "newCaries": "{{count}} neue Karies an Zahn/Zähnen {{teeth}}",
+        "fillingCompleted": "Füllung abgeschlossen an Zahn/Zähnen {{teeth}}",
+        "sealant": "Versiegelung angewendet an Zahn/Zähnen {{teeth}}",
+        "fracture": "Fraktur festgestellt an Zahn/Zähnen {{teeth}}",
+        "extraction": "Extraktion von Zahn/Zähnen {{teeth}}",
+        "toExtract": "Zahn/Zähne {{teeth}} zur Extraktion markiert",
+        "crown": "Krone gesetzt an Zahn/Zähnen {{teeth}}",
+        "implant": "Implantat gesetzt an Zahn/Zähnen {{teeth}}",
+        "endodontics": "Wurzelbehandlung durchgeführt an Zahn/Zähnen {{teeth}}",
+        "bridge": "Brücke gesetzt an Zahn/Zähnen {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "PDF exportieren",
+      "generating": "Wird erstellt…"
+    },
+    "errors": {
+      "doctorRequired": "Wählen Sie den verantwortlichen Arzt für den Besuch",
+      "saveFailed": "Der Besuch konnte nicht gespeichert werden"
+    }
   }
 }

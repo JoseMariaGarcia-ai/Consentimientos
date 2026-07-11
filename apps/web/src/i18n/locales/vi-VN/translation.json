@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Hồ sơ bệnh án ({{count}})",
       "photos": "Ảnh ({{count}})",
-      "consents": "Chấp thuận ({{count}})"
+      "consents": "Chấp thuận ({{count}})",
+      "odontogram": "Sơ đồ răng"
     },
     "new_clinical_record": "Hồ sơ mới",
     "no_clinical_records": "Không có hồ sơ bệnh án nào cho bệnh nhân này",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Lưu khoản bù đắp",
     "compensationSaved": "Đã lưu",
     "integrityAlarm": "Đã phát hiện {{count}} sai lệch trong chuỗi hash của các lượt chấm công. Liên hệ hỗ trợ."
+  },
+  "odontogram": {
+    "lastVisit": "Lần khám gần nhất",
+    "viewHistory": "Xem toàn bộ lịch sử",
+    "newVisit": "Lần khám mới",
+    "saveVisit": "Lưu lần khám",
+    "visitDate": "Ngày khám",
+    "doctor": "Bác sĩ phụ trách",
+    "selectDoctor": "Chọn một bác sĩ",
+    "visitNotes": "Ghi chú lần khám",
+    "noRecords": "Bệnh nhân này chưa có sơ đồ răng nào được ghi nhận.",
+    "dentition": {
+      "permanente": "Răng vĩnh viễn",
+      "temporal": "Răng sữa",
+      "mixta": "Răng hỗn hợp"
+    },
+    "face": {
+      "vestibular": "Mặt ngoài",
+      "lingual_palatina": "Mặt lưỡi/Mặt trong",
+      "mesial": "Gần",
+      "distal": "Xa",
+      "oclusal_incisal": "Mặt nhai/Mặt cắn"
+    },
+    "faceCondition": {
+      "sana": "Khỏe mạnh",
+      "caries": "Sâu răng",
+      "obturada": "Đã trám",
+      "sellante": "Trám bít hố rãnh",
+      "fractura": "Gãy vỡ",
+      "desgaste": "Mòn"
+    },
+    "toothStatus": {
+      "sano": "Khỏe mạnh",
+      "ausente": "Thiếu (bẩm sinh)",
+      "extraido": "Đã nhổ",
+      "a_extraer": "Cần nhổ",
+      "implante": "Cấy ghép implant",
+      "corona": "Mão răng",
+      "puente": "Cầu răng",
+      "endodoncia": "Điều trị tủy",
+      "movil": "Lung lay",
+      "incluido": "Ngầm",
+      "temporal_presente": "Còn răng sữa"
+    },
+    "material": {
+      "composite": "Composite",
+      "amalgama": "Amalgam",
+      "ceramica": "Sứ",
+      "resina": "Nhựa"
+    },
+    "legend": {
+      "absent": "Thiếu/Đã nhổ"
+    },
+    "tooth": {
+      "number_label": "Răng {{number}}",
+      "general_status": "Tình trạng chung của răng",
+      "material": "Vật liệu",
+      "faces": "Tình trạng theo từng mặt",
+      "notes": "Ghi chú lâm sàng",
+      "mini_history": "Lịch sử của răng này"
+    },
+    "history": {
+      "title": "Lịch sử tiến triển",
+      "compareMode": "Chế độ so sánh",
+      "from": "Từ",
+      "to": "Đến",
+      "noChanges": "Không có thay đổi giữa hai lần khám đã chọn.",
+      "summary": {
+        "newCaries": "{{count}} sâu răng mới ở răng {{teeth}}",
+        "fillingCompleted": "Đã trám xong răng {{teeth}}",
+        "sealant": "Đã trám bít hố rãnh ở răng {{teeth}}",
+        "fracture": "Phát hiện gãy vỡ ở răng {{teeth}}",
+        "extraction": "Nhổ răng {{teeth}}",
+        "toExtract": "Răng {{teeth}} được đánh dấu cần nhổ",
+        "crown": "Đã gắn mão răng cho răng {{teeth}}",
+        "implant": "Đã cấy ghép implant cho răng {{teeth}}",
+        "endodontics": "Đã điều trị tủy răng {{teeth}}",
+        "bridge": "Đã gắn cầu răng cho răng {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Xuất PDF",
+      "generating": "Đang tạo…"
+    },
+    "errors": {
+      "doctorRequired": "Chọn bác sĩ phụ trách lần khám",
+      "saveFailed": "Không thể lưu lần khám"
+    }
   }
 }

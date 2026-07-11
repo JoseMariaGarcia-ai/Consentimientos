@@ -863,7 +863,8 @@
     "tabs": {
       "history": "السجلات الطبية ({{count}})",
       "photos": "الصور ({{count}})",
-      "consents": "نماذج الموافقة ({{count}})"
+      "consents": "نماذج الموافقة ({{count}})",
+      "odontogram": "مخطط الأسنان"
     },
     "new_clinical_record": "سجل جديد",
     "no_clinical_records": "لا توجد سجلات طبية لهذا المريض",
@@ -1883,5 +1884,93 @@
     "compensationSave": "حفظ التعويض",
     "compensationSaved": "تم الحفظ",
     "integrityAlarm": "تم اكتشاف {{count}} تناقضات في سلسلة تجزئة سجلات الحضور. تواصل مع الدعم."
+  },
+  "odontogram": {
+    "lastVisit": "آخر زيارة",
+    "viewHistory": "عرض السجل الكامل",
+    "newVisit": "زيارة جديدة",
+    "saveVisit": "حفظ الزيارة",
+    "visitDate": "تاريخ الزيارة",
+    "doctor": "الطبيب المسؤول",
+    "selectDoctor": "اختر طبيبًا",
+    "visitNotes": "ملاحظات الزيارة",
+    "noRecords": "لا يوجد لهذا المريض أي مخطط أسنان مسجّل بعد.",
+    "dentition": {
+      "permanente": "الأسنان الدائمة",
+      "temporal": "الأسنان اللبنية",
+      "mixta": "الأسنان المختلطة"
+    },
+    "face": {
+      "vestibular": "دهليزي",
+      "lingual_palatina": "لساني/حنكي",
+      "mesial": "إنسي",
+      "distal": "بعيد",
+      "oclusal_incisal": "إطباقي/قاطع"
+    },
+    "faceCondition": {
+      "sana": "سليم",
+      "caries": "تسوس",
+      "obturada": "محشو",
+      "sellante": "مادة سادّة",
+      "fractura": "كسر",
+      "desgaste": "تآكل"
+    },
+    "toothStatus": {
+      "sano": "سليم",
+      "ausente": "غائب (خلقي)",
+      "extraido": "مقلوع",
+      "a_extraer": "للقلع",
+      "implante": "زرعة",
+      "corona": "تاج",
+      "puente": "جسر",
+      "endodoncia": "علاج عصب",
+      "movil": "مرتخٍ",
+      "incluido": "منطمر",
+      "temporal_presente": "سن لبني موجود"
+    },
+    "material": {
+      "composite": "حشو تجميلي",
+      "amalgama": "ملغم",
+      "ceramica": "خزف",
+      "resina": "راتنج"
+    },
+    "legend": {
+      "absent": "غائب/مقلوع"
+    },
+    "tooth": {
+      "number_label": "السن {{number}}",
+      "general_status": "الحالة العامة للسن",
+      "material": "المادة",
+      "faces": "الحالة حسب السطح",
+      "notes": "ملاحظات سريرية",
+      "mini_history": "سجل هذا السن"
+    },
+    "history": {
+      "title": "سجل التطور",
+      "compareMode": "وضع المقارنة",
+      "from": "من",
+      "to": "إلى",
+      "noChanges": "لا توجد تغييرات بين الزيارتين المحددتين.",
+      "summary": {
+        "newCaries": "{{count}} تسوس جديد في السن/الأسنان {{teeth}}",
+        "fillingCompleted": "اكتمل الحشو في السن/الأسنان {{teeth}}",
+        "sealant": "تم وضع مادة سادّة في السن/الأسنان {{teeth}}",
+        "fracture": "تم اكتشاف كسر في السن/الأسنان {{teeth}}",
+        "extraction": "قلع السن/الأسنان {{teeth}}",
+        "toExtract": "تم تحديد السن/الأسنان {{teeth}} للقلع",
+        "crown": "تم تركيب تاج على السن/الأسنان {{teeth}}",
+        "implant": "تم تركيب زرعة في السن/الأسنان {{teeth}}",
+        "endodontics": "تم إجراء علاج عصب للسن/الأسنان {{teeth}}",
+        "bridge": "تم تركيب جسر على السن/الأسنان {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "تصدير PDF",
+      "generating": "جارٍ الإنشاء…"
+    },
+    "errors": {
+      "doctorRequired": "اختر الطبيب المسؤول عن الزيارة",
+      "saveFailed": "تعذّر حفظ الزيارة"
+    }
   }
 }

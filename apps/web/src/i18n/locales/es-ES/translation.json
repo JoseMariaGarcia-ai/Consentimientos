@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Historias clínicas ({{count}})",
       "photos": "Fotos ({{count}})",
-      "consents": "Consentimientos ({{count}})"
+      "consents": "Consentimientos ({{count}})",
+      "odontogram": "Odontograma"
     },
     "new_clinical_record": "Nueva historia",
     "no_clinical_records": "No hay historias clínicas para este paciente",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Guardar compensación",
     "compensationSaved": "Guardado",
     "integrityAlarm": "Se han detectado {{count}} discrepancias en la cadena de hashes de los fichajes. Contacta con soporte."
+  },
+  "odontogram": {
+    "lastVisit": "Última visita",
+    "viewHistory": "Ver historial completo",
+    "newVisit": "Nueva visita",
+    "saveVisit": "Guardar visita",
+    "visitDate": "Fecha de la visita",
+    "doctor": "Doctor/a responsable",
+    "selectDoctor": "Selecciona un doctor",
+    "visitNotes": "Notas de la visita",
+    "noRecords": "Este paciente todavía no tiene ningún odontograma registrado.",
+    "dentition": {
+      "permanente": "Dentición permanente",
+      "temporal": "Dentición temporal",
+      "mixta": "Dentición mixta"
+    },
+    "face": {
+      "vestibular": "Vestibular",
+      "lingual_palatina": "Lingual/Palatina",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Oclusal/Incisal"
+    },
+    "faceCondition": {
+      "sana": "Sana",
+      "caries": "Caries",
+      "obturada": "Obturada",
+      "sellante": "Sellante",
+      "fractura": "Fractura",
+      "desgaste": "Desgaste"
+    },
+    "toothStatus": {
+      "sano": "Sano",
+      "ausente": "Ausente (congénito)",
+      "extraido": "Extraído",
+      "a_extraer": "A extraer",
+      "implante": "Implante",
+      "corona": "Corona",
+      "puente": "Puente",
+      "endodoncia": "Endodoncia",
+      "movil": "Móvil",
+      "incluido": "Incluido (retenido)",
+      "temporal_presente": "Temporal presente"
+    },
+    "material": {
+      "composite": "Composite",
+      "amalgama": "Amalgama",
+      "ceramica": "Cerámica",
+      "resina": "Resina"
+    },
+    "legend": {
+      "absent": "Ausente/Extraído"
+    },
+    "tooth": {
+      "number_label": "Diente {{number}}",
+      "general_status": "Estado general del diente",
+      "material": "Material",
+      "faces": "Estado por cara",
+      "notes": "Notas clínicas",
+      "mini_history": "Historial de este diente"
+    },
+    "history": {
+      "title": "Historial de evolución",
+      "compareMode": "Modo comparación",
+      "from": "Desde",
+      "to": "Hasta",
+      "noChanges": "No hay cambios entre las dos visitas seleccionadas.",
+      "summary": {
+        "newCaries": "{{count}} caries nueva(s) en pieza(s) {{teeth}}",
+        "fillingCompleted": "Obturación completada en pieza(s) {{teeth}}",
+        "sealant": "Sellante aplicado en pieza(s) {{teeth}}",
+        "fracture": "Fractura detectada en pieza(s) {{teeth}}",
+        "extraction": "Extracción de pieza(s) {{teeth}}",
+        "toExtract": "Pieza(s) {{teeth}} marcada(s) a extraer",
+        "crown": "Corona colocada en pieza(s) {{teeth}}",
+        "implant": "Implante colocado en pieza(s) {{teeth}}",
+        "endodontics": "Endodoncia realizada en pieza(s) {{teeth}}",
+        "bridge": "Puente colocado en pieza(s) {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Exportar PDF",
+      "generating": "Generando…"
+    },
+    "errors": {
+      "doctorRequired": "Selecciona el doctor responsable de la visita",
+      "saveFailed": "No se ha podido guardar la visita"
+    }
   }
 }

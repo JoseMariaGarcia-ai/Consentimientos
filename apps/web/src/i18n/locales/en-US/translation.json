@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Clinical records ({{count}})",
       "photos": "Photos ({{count}})",
-      "consents": "Consents ({{count}})"
+      "consents": "Consents ({{count}})",
+      "odontogram": "Odontogram"
     },
     "new_clinical_record": "New record",
     "no_clinical_records": "No clinical records for this patient",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Save compensation",
     "compensationSaved": "Saved",
     "integrityAlarm": "{{count}} discrepancies were found in the clock-in hash chain. Contact support."
+  },
+  "odontogram": {
+    "lastVisit": "Last visit",
+    "viewHistory": "View full history",
+    "newVisit": "New visit",
+    "saveVisit": "Save visit",
+    "visitDate": "Visit date",
+    "doctor": "Responsible doctor",
+    "selectDoctor": "Select a doctor",
+    "visitNotes": "Visit notes",
+    "noRecords": "This patient doesn't have any odontogram recorded yet.",
+    "dentition": {
+      "permanente": "Permanent dentition",
+      "temporal": "Primary dentition",
+      "mixta": "Mixed dentition"
+    },
+    "face": {
+      "vestibular": "Buccal",
+      "lingual_palatina": "Lingual/Palatal",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Occlusal/Incisal"
+    },
+    "faceCondition": {
+      "sana": "Healthy",
+      "caries": "Cavity",
+      "obturada": "Filled",
+      "sellante": "Sealant",
+      "fractura": "Fracture",
+      "desgaste": "Wear"
+    },
+    "toothStatus": {
+      "sano": "Healthy",
+      "ausente": "Missing (congenital)",
+      "extraido": "Extracted",
+      "a_extraer": "To be extracted",
+      "implante": "Implant",
+      "corona": "Crown",
+      "puente": "Bridge",
+      "endodoncia": "Root canal",
+      "movil": "Loose",
+      "incluido": "Impacted",
+      "temporal_presente": "Primary tooth present"
+    },
+    "material": {
+      "composite": "Composite",
+      "amalgama": "Amalgam",
+      "ceramica": "Ceramic",
+      "resina": "Resin"
+    },
+    "legend": {
+      "absent": "Missing/Extracted"
+    },
+    "tooth": {
+      "number_label": "Tooth {{number}}",
+      "general_status": "General tooth status",
+      "material": "Material",
+      "faces": "Status by surface",
+      "notes": "Clinical notes",
+      "mini_history": "History of this tooth"
+    },
+    "history": {
+      "title": "Evolution history",
+      "compareMode": "Compare mode",
+      "from": "From",
+      "to": "To",
+      "noChanges": "No changes between the two selected visits.",
+      "summary": {
+        "newCaries": "{{count}} new cavity(ies) on tooth/teeth {{teeth}}",
+        "fillingCompleted": "Filling completed on tooth/teeth {{teeth}}",
+        "sealant": "Sealant applied on tooth/teeth {{teeth}}",
+        "fracture": "Fracture detected on tooth/teeth {{teeth}}",
+        "extraction": "Extraction of tooth/teeth {{teeth}}",
+        "toExtract": "Tooth/teeth {{teeth}} marked for extraction",
+        "crown": "Crown placed on tooth/teeth {{teeth}}",
+        "implant": "Implant placed on tooth/teeth {{teeth}}",
+        "endodontics": "Root canal performed on tooth/teeth {{teeth}}",
+        "bridge": "Bridge placed on tooth/teeth {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Export PDF",
+      "generating": "Generating…"
+    },
+    "errors": {
+      "doctorRequired": "Select the doctor responsible for the visit",
+      "saveFailed": "Could not save the visit"
+    }
   }
 }

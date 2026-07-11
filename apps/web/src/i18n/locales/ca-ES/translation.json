@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Històries clíniques ({{count}})",
       "photos": "Fotos ({{count}})",
-      "consents": "Consentiments ({{count}})"
+      "consents": "Consentiments ({{count}})",
+      "odontogram": "Odontograma"
     },
     "new_clinical_record": "Nova història",
     "no_clinical_records": "No hi ha històries clíniques per a aquest pacient",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Desa la compensació",
     "compensationSaved": "Desat",
     "integrityAlarm": "S'han detectat {{count}} discrepàncies a la cadena de hashos dels fitxatges. Contacta amb suport."
+  },
+  "odontogram": {
+    "lastVisit": "Última visita",
+    "viewHistory": "Veure historial complet",
+    "newVisit": "Nova visita",
+    "saveVisit": "Desar visita",
+    "visitDate": "Data de la visita",
+    "doctor": "Doctor/a responsable",
+    "selectDoctor": "Selecciona un doctor",
+    "visitNotes": "Notes de la visita",
+    "noRecords": "Aquest pacient encara no té cap odontograma registrat.",
+    "dentition": {
+      "permanente": "Dentició permanent",
+      "temporal": "Dentició temporal",
+      "mixta": "Dentició mixta"
+    },
+    "face": {
+      "vestibular": "Vestibular",
+      "lingual_palatina": "Lingual/Palatina",
+      "mesial": "Mesial",
+      "distal": "Distal",
+      "oclusal_incisal": "Oclusal/Incisal"
+    },
+    "faceCondition": {
+      "sana": "Sana",
+      "caries": "Càries",
+      "obturada": "Obturada",
+      "sellante": "Segellant",
+      "fractura": "Fractura",
+      "desgaste": "Desgast"
+    },
+    "toothStatus": {
+      "sano": "Sa",
+      "ausente": "Absent (congènit)",
+      "extraido": "Extret",
+      "a_extraer": "Per extreure",
+      "implante": "Implant",
+      "corona": "Corona",
+      "puente": "Pont",
+      "endodoncia": "Endodòncia",
+      "movil": "Mòbil",
+      "incluido": "Inclòs",
+      "temporal_presente": "Dent temporal present"
+    },
+    "material": {
+      "composite": "Compòsit",
+      "amalgama": "Amalgama",
+      "ceramica": "Ceràmica",
+      "resina": "Resina"
+    },
+    "legend": {
+      "absent": "Absent/Extret"
+    },
+    "tooth": {
+      "number_label": "Dent {{number}}",
+      "general_status": "Estat general de la dent",
+      "material": "Material",
+      "faces": "Estat per cara",
+      "notes": "Notes clíniques",
+      "mini_history": "Historial d'aquesta dent"
+    },
+    "history": {
+      "title": "Historial d'evolució",
+      "compareMode": "Mode comparació",
+      "from": "Des de",
+      "to": "Fins a",
+      "noChanges": "No hi ha canvis entre les dues visites seleccionades.",
+      "summary": {
+        "newCaries": "{{count}} càries nova(es) a la(les) peça(peces) {{teeth}}",
+        "fillingCompleted": "Obturació completada a la(les) peça(peces) {{teeth}}",
+        "sealant": "Segellant aplicat a la(les) peça(peces) {{teeth}}",
+        "fracture": "Fractura detectada a la(les) peça(peces) {{teeth}}",
+        "extraction": "Extracció de la(les) peça(peces) {{teeth}}",
+        "toExtract": "Peça(peces) {{teeth}} marcada(es) per extreure",
+        "crown": "Corona col·locada a la(les) peça(peces) {{teeth}}",
+        "implant": "Implant col·locat a la(les) peça(peces) {{teeth}}",
+        "endodontics": "Endodòncia realitzada a la(les) peça(peces) {{teeth}}",
+        "bridge": "Pont col·locat a la(les) peça(peces) {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Exportar PDF",
+      "generating": "Generant…"
+    },
+    "errors": {
+      "doctorRequired": "Selecciona el doctor responsable de la visita",
+      "saveFailed": "No s'ha pogut desar la visita"
+    }
   }
 }

@@ -901,7 +901,8 @@
     "tabs": {
       "history": "Historie choroby ({{count}})",
       "photos": "Zdjęcia ({{count}})",
-      "consents": "Zgody ({{count}})"
+      "consents": "Zgody ({{count}})",
+      "odontogram": "Zębodół"
     },
     "new_clinical_record": "Nowa historia",
     "no_clinical_records": "Brak historii choroby dla tego pacjenta",
@@ -1921,5 +1922,93 @@
     "compensationSave": "Zapisz rekompensatę",
     "compensationSaved": "Zapisano",
     "integrityAlarm": "Wykryto {{count}} rozbieżności w łańcuchu hashy rejestracji czasu pracy. Skontaktuj się z pomocą techniczną."
+  },
+  "odontogram": {
+    "lastVisit": "Ostatnia wizyta",
+    "viewHistory": "Zobacz pełną historię",
+    "newVisit": "Nowa wizyta",
+    "saveVisit": "Zapisz wizytę",
+    "visitDate": "Data wizyty",
+    "doctor": "Odpowiedzialny lekarz",
+    "selectDoctor": "Wybierz lekarza",
+    "visitNotes": "Notatki z wizyty",
+    "noRecords": "Ten pacjent nie ma jeszcze zarejestrowanego zębodołu.",
+    "dentition": {
+      "permanente": "Uzębienie stałe",
+      "temporal": "Uzębienie mleczne",
+      "mixta": "Uzębienie mieszane"
+    },
+    "face": {
+      "vestibular": "Przedsionkowa",
+      "lingual_palatina": "Językowa/Podniebienna",
+      "mesial": "Mezjalna",
+      "distal": "Dystalna",
+      "oclusal_incisal": "Zgryzowa/Sieczna"
+    },
+    "faceCondition": {
+      "sana": "Zdrowy",
+      "caries": "Próchnica",
+      "obturada": "Wypełniony",
+      "sellante": "Lakowanie",
+      "fractura": "Złamanie",
+      "desgaste": "Starcie"
+    },
+    "toothStatus": {
+      "sano": "Zdrowy",
+      "ausente": "Brak (wrodzony)",
+      "extraido": "Usunięty",
+      "a_extraer": "Do usunięcia",
+      "implante": "Implant",
+      "corona": "Korona",
+      "puente": "Most",
+      "endodoncia": "Leczenie kanałowe",
+      "movil": "Ruchomy",
+      "incluido": "Zatrzymany",
+      "temporal_presente": "Ząb mleczny obecny"
+    },
+    "material": {
+      "composite": "Kompozyt",
+      "amalgama": "Amalgamat",
+      "ceramica": "Ceramika",
+      "resina": "Żywica"
+    },
+    "legend": {
+      "absent": "Brak/Usunięty"
+    },
+    "tooth": {
+      "number_label": "Ząb {{number}}",
+      "general_status": "Ogólny stan zęba",
+      "material": "Materiał",
+      "faces": "Stan według powierzchni",
+      "notes": "Notatki kliniczne",
+      "mini_history": "Historia tego zęba"
+    },
+    "history": {
+      "title": "Historia zmian",
+      "compareMode": "Tryb porównania",
+      "from": "Od",
+      "to": "Do",
+      "noChanges": "Brak zmian między dwiema wybranymi wizytami.",
+      "summary": {
+        "newCaries": "{{count}} nowa/e próchnica w zębie/zębach {{teeth}}",
+        "fillingCompleted": "Wypełnienie ukończone w zębie/zębach {{teeth}}",
+        "sealant": "Lakowanie wykonane w zębie/zębach {{teeth}}",
+        "fracture": "Wykryto złamanie w zębie/zębach {{teeth}}",
+        "extraction": "Usunięcie zęba/zębów {{teeth}}",
+        "toExtract": "Ząb/zęby {{teeth}} oznaczone do usunięcia",
+        "crown": "Założono koronę na zębie/zębach {{teeth}}",
+        "implant": "Założono implant na zębie/zębach {{teeth}}",
+        "endodontics": "Wykonano leczenie kanałowe zęba/zębów {{teeth}}",
+        "bridge": "Założono most na zębie/zębach {{teeth}}"
+      }
+    },
+    "pdf": {
+      "export": "Eksportuj PDF",
+      "generating": "Generowanie…"
+    },
+    "errors": {
+      "doctorRequired": "Wybierz lekarza odpowiedzialnego za wizytę",
+      "saveFailed": "Nie udało się zapisać wizyty"
+    }
   }
 }

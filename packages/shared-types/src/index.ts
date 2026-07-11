@@ -92,3 +92,39 @@ export interface AuditLog {
   logJson: Record<string, any>;
   createdAt: string;
 }
+
+export type ToothFaceName = "vestibular" | "lingual_palatina" | "mesial" | "distal" | "oclusal_incisal";
+export type ToothFaceCondition = "sana" | "caries" | "obturada" | "sellante" | "fractura" | "desgaste";
+export type ToothStatus =
+  | "sano" | "ausente" | "extraido" | "a_extraer" | "implante" | "corona"
+  | "puente" | "endodoncia" | "movil" | "incluido" | "temporal_presente";
+
+export interface ToothFace {
+  condition: ToothFaceCondition;
+  material: string | null;
+}
+
+export interface OdontogramTooth {
+  number: string; // notación FDI, ej. '11', '46', '55'
+  status: ToothStatus;
+  material: string | null;
+  notes: string;
+  faces: Record<ToothFaceName, ToothFace>;
+}
+
+// Field names en snake_case porque así los devuelve la API (mismo patrón
+// que toxin_records, sin alias camelCase en el SELECT).
+export interface OdontogramRecord {
+  id: string;
+  clinic_id: string;
+  patient_id: string;
+  doctor_id: string | null;
+  doctor?: Doctor | null;
+  record_date: string;
+  dentition_type: "permanente" | "temporal" | "mixta";
+  teeth: OdontogramTooth[];
+  notes: string | null;
+  created_by: string | null;
+  created_at: string;
+}
+

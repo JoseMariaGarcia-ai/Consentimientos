@@ -901,7 +901,8 @@
     "tabs": {
       "history": "진료 기록 ({{count}})",
       "photos": "사진 ({{count}})",
-      "consents": "동의서 ({{count}})"
+      "consents": "동의서 ({{count}})",
+      "odontogram": "치아 도표"
     },
     "new_clinical_record": "새 진료 기록",
     "no_clinical_records": "이 환자에 대한 진료 기록이 없습니다",
@@ -1921,5 +1922,93 @@
     "compensationSave": "보상 저장",
     "compensationSaved": "저장됨",
     "integrityAlarm": "출퇴근 기록의 해시 체인에서 {{count}}개의 불일치가 발견되었습니다. 지원팀에 문의하세요."
+  },
+  "odontogram": {
+    "lastVisit": "최근 방문",
+    "viewHistory": "전체 기록 보기",
+    "newVisit": "새 방문",
+    "saveVisit": "방문 저장",
+    "visitDate": "방문 날짜",
+    "doctor": "담당 의사",
+    "selectDoctor": "의사를 선택하세요",
+    "visitNotes": "방문 메모",
+    "noRecords": "이 환자는 아직 등록된 치아 도표가 없습니다.",
+    "dentition": {
+      "permanente": "영구치열",
+      "temporal": "유치열",
+      "mixta": "혼합치열"
+    },
+    "face": {
+      "vestibular": "협측",
+      "lingual_palatina": "설측/구개측",
+      "mesial": "근심",
+      "distal": "원심",
+      "oclusal_incisal": "교합면/절단"
+    },
+    "faceCondition": {
+      "sana": "건강함",
+      "caries": "충치",
+      "obturada": "충전됨",
+      "sellante": "실런트",
+      "fractura": "파절",
+      "desgaste": "마모"
+    },
+    "toothStatus": {
+      "sano": "건강함",
+      "ausente": "결손(선천적)",
+      "extraido": "발치됨",
+      "a_extraer": "발치 예정",
+      "implante": "임플란트",
+      "corona": "크라운",
+      "puente": "브릿지",
+      "endodoncia": "근관치료",
+      "movil": "동요",
+      "incluido": "매복",
+      "temporal_presente": "유치 존재"
+    },
+    "material": {
+      "composite": "복합레진",
+      "amalgama": "아말감",
+      "ceramica": "세라믹",
+      "resina": "레진"
+    },
+    "legend": {
+      "absent": "결손/발치됨"
+    },
+    "tooth": {
+      "number_label": "치아 {{number}}",
+      "general_status": "치아의 전반적 상태",
+      "material": "재료",
+      "faces": "면별 상태",
+      "notes": "임상 메모",
+      "mini_history": "이 치아의 기록"
+    },
+    "history": {
+      "title": "변화 기록",
+      "compareMode": "비교 모드",
+      "from": "부터",
+      "to": "까지",
+      "noChanges": "선택한 두 방문 사이에 변화가 없습니다.",
+      "summary": {
+        "newCaries": "치아 {{teeth}}에 새로운 충치 {{count}}개",
+        "fillingCompleted": "치아 {{teeth}}의 충전 완료",
+        "sealant": "치아 {{teeth}}에 실런트 도포",
+        "fracture": "치아 {{teeth}}에서 파절 발견",
+        "extraction": "치아 {{teeth}} 발치",
+        "toExtract": "치아 {{teeth}} 발치 예정으로 표시",
+        "crown": "치아 {{teeth}}에 크라운 장착",
+        "implant": "치아 {{teeth}}에 임플란트 식립",
+        "endodontics": "치아 {{teeth}}에 근관치료 시행",
+        "bridge": "치아 {{teeth}}에 브릿지 장착"
+      }
+    },
+    "pdf": {
+      "export": "PDF로 내보내기",
+      "generating": "생성 중…"
+    },
+    "errors": {
+      "doctorRequired": "방문을 담당할 의사를 선택하세요",
+      "saveFailed": "방문을 저장할 수 없습니다"
+    }
   }
 }

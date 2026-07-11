@@ -901,7 +901,8 @@
     "tabs": {
       "history": "病历（{{count}}）",
       "photos": "照片（{{count}}）",
-      "consents": "知情同意书（{{count}}）"
+      "consents": "知情同意书（{{count}}）",
+      "odontogram": "牙位图"
     },
     "new_clinical_record": "新建病历",
     "no_clinical_records": "该患者暂无病历",
@@ -1921,5 +1922,93 @@
     "compensationSave": "保存补偿",
     "compensationSaved": "已保存",
     "integrityAlarm": "在打卡哈希链中检测到{{count}}处差异。请联系支持人员。"
+  },
+  "odontogram": {
+    "lastVisit": "上次就诊",
+    "viewHistory": "查看完整病历",
+    "newVisit": "新增就诊",
+    "saveVisit": "保存就诊",
+    "visitDate": "就诊日期",
+    "doctor": "负责医生",
+    "selectDoctor": "选择医生",
+    "visitNotes": "就诊备注",
+    "noRecords": "该患者尚未记录任何牙位图。",
+    "dentition": {
+      "permanente": "恒牙列",
+      "temporal": "乳牙列",
+      "mixta": "混合牙列"
+    },
+    "face": {
+      "vestibular": "颊侧",
+      "lingual_palatina": "舌侧/腭侧",
+      "mesial": "近中",
+      "distal": "远中",
+      "oclusal_incisal": "咬合面/切缘"
+    },
+    "faceCondition": {
+      "sana": "健康",
+      "caries": "龋齿",
+      "obturada": "已充填",
+      "sellante": "窝沟封闭",
+      "fractura": "折裂",
+      "desgaste": "磨损"
+    },
+    "toothStatus": {
+      "sano": "健康",
+      "ausente": "缺失(先天性)",
+      "extraido": "已拔除",
+      "a_extraer": "待拔除",
+      "implante": "种植体",
+      "corona": "牙冠",
+      "puente": "牙桥",
+      "endodoncia": "根管治疗",
+      "movil": "松动",
+      "incluido": "阻生",
+      "temporal_presente": "乳牙存在"
+    },
+    "material": {
+      "composite": "复合树脂",
+      "amalgama": "汞合金",
+      "ceramica": "陶瓷",
+      "resina": "树脂"
+    },
+    "legend": {
+      "absent": "缺失/已拔除"
+    },
+    "tooth": {
+      "number_label": "第{{number}}号牙",
+      "general_status": "牙齿总体状态",
+      "material": "材料",
+      "faces": "各面状态",
+      "notes": "临床备注",
+      "mini_history": "该牙齿的历史记录"
+    },
+    "history": {
+      "title": "变化历史",
+      "compareMode": "对比模式",
+      "from": "起",
+      "to": "止",
+      "noChanges": "所选两次就诊之间没有变化。",
+      "summary": {
+        "newCaries": "牙位{{teeth}}出现{{count}}处新龋齿",
+        "fillingCompleted": "牙位{{teeth}}充填完成",
+        "sealant": "牙位{{teeth}}已做窝沟封闭",
+        "fracture": "牙位{{teeth}}发现折裂",
+        "extraction": "拔除牙位{{teeth}}",
+        "toExtract": "牙位{{teeth}}已标记为待拔除",
+        "crown": "牙位{{teeth}}安装牙冠",
+        "implant": "牙位{{teeth}}植入种植体",
+        "endodontics": "牙位{{teeth}}完成根管治疗",
+        "bridge": "牙位{{teeth}}安装牙桥"
+      }
+    },
+    "pdf": {
+      "export": "导出PDF",
+      "generating": "生成中…"
+    },
+    "errors": {
+      "doctorRequired": "请选择本次就诊的负责医生",
+      "saveFailed": "无法保存就诊记录"
+    }
   }
 }
