@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3, FileUp, Tablet, CreditCard, Ticket } from 'lucide-react'
+import { Users, Plus, Pencil, Trash2, Shield, ShieldCheck, Mail, ToggleLeft, ToggleRight, FileText, ClipboardList, Camera, Megaphone, Stethoscope, UserCheck, FlaskConical, Eye, KeyRound, Save, Building2, Layers, Check, BarChart3, FileUp, Tablet, CreditCard, Ticket, Sparkles } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useNavigate } from 'react-router-dom'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
@@ -280,6 +280,109 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
   )
 }
 
+/* ─── Interruptor de proveedor de IA (sistema, no por clínica) ────── */
+function AiProviderSwitch() {
+  const { t } = useTranslation()
+  const [provider, setProvider] = useState<'anthropic' | 'openrouter' | null>(null)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    api.get('/clinic-config/ai-provider').then((r: any) => setProvider(r?.provider ?? 'anthropic')).catch(() => setProvider('anthropic'))
+  }, [])
+
+  const handleChange = async (next: 'anthropic' | 'openrouter') => {
+    setSaving(true)
+    try {
+      await api.put('/clinic-config/ai-provider', { provider: next })
+      setProvider(next)
+    } finally { setSaving(false) }
+  }
+
+  if (provider === null) return null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-4 h-4 text-purple-500" />
+        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.aiProviderTitle')}</p>
+        <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
+      </div>
+      <p className="text-xs text-slate-400">{t('settings.apiKeys.aiProviderHint')}</p>
+      <div className="grid grid-cols-2 gap-2">
+        {(['anthropic', 'openrouter'] as const).map(p => (
+          <button
+            key={p}
+            onClick={() => handleChange(p)}
+            disabled={saving}
+            className={`px-4 py-2.5 rounded-xl border-2 text-sm font-medium transition-colors disabled:opacity-50 ${provider === p ? 'border-purple-500 bg-purple-50 text-purple-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+          >
+            {p === 'anthropic' ? 'Anthropic API' : 'OpenRouter'}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ─── Número único de WhatsApp compartido (sistema, no por clínica) ── */
+function SharedYCloudKeyPanel() {
+  const { t } = useTranslation()
+  const [configured, setConfigured] = useState<boolean | null>(null)
+  const [apiKey, setApiKey] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  useEffect(() => {
+    api.get('/clinic-config/shared-ycloud-key').then((r: any) => setConfigured(!!r?.configured)).catch(() => setConfigured(false))
+  }, [])
+
+  const handleSave = async () => {
+    if (!apiKey.trim()) return
+    setSaving(true); setSaved(false)
+    try {
+      await api.put('/clinic-config/shared-ycloud-key', { apiKey })
+      setConfigured(true)
+      setApiKey('')
+      setSaved(true)
+    } finally { setSaving(false) }
+  }
+
+  if (configured === null) return null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-4 h-4 text-purple-500" />
+        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.sharedYcloudTitle')}</p>
+        <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
+      </div>
+      <p className="text-xs text-slate-400">{t('settings.apiKeys.sharedYcloudHint')}</p>
+      <p className="text-xs font-medium">
+        {configured
+          ? <span className="text-emerald-600">✓ {t('settings.apiKeys.sharedYcloudConfigured')}</span>
+          : <span className="text-amber-600">{t('settings.apiKeys.sharedYcloudNotConfigured')}</span>}
+      </p>
+      <div className="flex items-center gap-2">
+        <input
+          type="password"
+          value={apiKey}
+          onChange={e => setApiKey(e.target.value)}
+          placeholder={t('settings.apiKeys.sharedYcloudPlaceholder')}
+          className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <button
+          onClick={handleSave}
+          disabled={saving || !apiKey.trim()}
+          className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60"
+        >
+          {saving ? t('common.saving') : t('settings.apiKeys.sharedYcloudSave')}
+        </button>
+      </div>
+      {saved && <p className="text-xs text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</p>}
+    </div>
+  )
+}
+
 /* ─── Clinic Keys Panel (superadmin only) ─────────────────────────── */
 function ClinicKeysPanel() {
   const { t } = useTranslation()
@@ -292,12 +395,17 @@ function ClinicKeysPanel() {
     make_api_key:      '',
     knowledge_base:    '',
     prompt:            '',
+    retell_prompt:     '',
+    wa_ai_enabled:     false,
+    retell_ai_enabled: false,
   })
   const [loading, setLoading]   = useState(false)
   const [saving, setSaving]     = useState(false)
   const [saved, setSaved]       = useState(false)
   const [error, setError]       = useState('')
-  const [uploadingField, setUploadingField] = useState<'knowledge_base' | 'prompt' | null>(null)
+  const [uploadingField, setUploadingField] = useState<'knowledge_base' | 'prompt' | 'retell_prompt' | null>(null)
+  const [syncingRetell, setSyncingRetell] = useState(false)
+  const [retellSynced, setRetellSynced] = useState(false)
 
   useEffect(() => {
     api.get('/clinic-config/clinics')
@@ -318,6 +426,9 @@ function ClinicKeysPanel() {
           make_api_key:      data.make_api_key      ?? '',
           knowledge_base:    data.knowledge_base    ?? '',
           prompt:            data.prompt            ?? '',
+          retell_prompt:     data.retell_prompt     ?? '',
+          wa_ai_enabled:     !!data.wa_ai_enabled,
+          retell_ai_enabled: !!data.retell_ai_enabled,
         })
       })
       .catch(e => setError(e.message))
@@ -335,10 +446,22 @@ function ClinicKeysPanel() {
     finally { setSaving(false) }
   }
 
+  const handleSyncRetell = async () => {
+    if (!selectedId) return
+    setSyncingRetell(true); setError(''); setRetellSynced(false)
+    try {
+      await api.put('/clinic-config', { targetClinicId: selectedId, ...form })
+      await api.post('/retell/sync', { targetClinicId: selectedId })
+      setRetellSynced(true)
+      setTimeout(() => setRetellSynced(false), 4000)
+    } catch (e: any) { setError(e.message) }
+    finally { setSyncingRetell(false) }
+  }
+
   // Lets the admin upload a PDF instead of retyping the prompt / knowledge
   // base by hand — the extracted text lands in the memo field, still fully
   // editable afterwards, it doesn't replace the textarea.
-  const handlePdfUpload = async (field: 'knowledge_base' | 'prompt', file: File) => {
+  const handlePdfUpload = async (field: 'knowledge_base' | 'prompt' | 'retell_prompt', file: File) => {
     setUploadingField(field)
     setError('')
     try {
@@ -404,6 +527,9 @@ function ClinicKeysPanel() {
 
   return (
     <div className="flex flex-col gap-5">
+      <AiProviderSwitch />
+      <SharedYCloudKeyPanel />
+
       {/* Clinic selector */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
         <div className="flex items-center gap-2">
@@ -467,6 +593,50 @@ function ClinicKeysPanel() {
                   onPdfUpload={file => handlePdfUpload('prompt', file)}
                   uploading={uploadingField === 'prompt'}
                 />
+                <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.wa_ai_enabled}
+                    onChange={e => setForm(f => ({ ...f, wa_ai_enabled: e.target.checked }))}
+                    className="w-4 h-4 accent-purple-600"
+                  />
+                  {t('settings.apiKeys.waAiEnabled')}
+                </label>
+              </div>
+
+              <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide">{t('settings.apiKeys.retellSection')}</h4>
+                </div>
+                <Field
+                  label={t('settings.apiKeys.retellPrompt')}
+                  value={form.retell_prompt}
+                  onChange={v => setForm(f => ({ ...f, retell_prompt: v }))}
+                  type="textarea"
+                  hint={t('settings.apiKeys.retellPromptHint')}
+                  onPdfUpload={file => handlePdfUpload('retell_prompt', file)}
+                  uploading={uploadingField === 'retell_prompt'}
+                />
+                <label className="flex items-center gap-2.5 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.retell_ai_enabled}
+                    onChange={e => setForm(f => ({ ...f, retell_ai_enabled: e.target.checked }))}
+                    className="w-4 h-4 accent-purple-600"
+                  />
+                  {t('settings.apiKeys.retellAiEnabled')}
+                </label>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={handleSyncRetell}
+                    disabled={syncingRetell || !form.retell_api_key || !form.retell_prompt}
+                    className="flex items-center gap-2 px-4 py-2 border border-purple-300 text-purple-700 text-sm font-medium rounded-xl hover:bg-purple-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    {syncingRetell ? t('settings.apiKeys.retellSyncing') : t('settings.apiKeys.retellSync')}
+                  </button>
+                  {retellSynced && <span className="text-sm text-emerald-600 font-medium">✓ {t('settings.apiKeys.retellSynced')}</span>}
+                </div>
+                <p className="text-xs text-slate-400">{t('settings.apiKeys.retellSyncHint')}</p>
               </div>
 
               {error && <p className="text-sm text-red-500">{error}</p>}

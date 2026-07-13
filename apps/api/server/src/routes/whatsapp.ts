@@ -1,10 +1,120 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { hasPositiveBalance, chargeCredit } from '../lib/creditService'
+import { generateAiReply, type ChatMessage } from '../lib/aiProviders'
+import { resolveIncomingConversation, generateDirectLink } from '../lib/whatsappRouting'
 
 const router = Router()
 export const webhookRouter = Router()
 
 const YCLOUD_BASE = 'https://api.ycloud.com/v2'
+
+// ⚠️ PENDIENTE DE VERIFICAR ANTES DE PRODUCCIÓN: YCloud/Meta facturan por
+// CONVERSACIÓN de 24h (no por mensaje individual), y la política exacta
+// (qué categorías son facturables, tarifa por país) ha cambiado varias
+// veces durante 2026 según el propio documento de requisitos. Este valor
+// es una estimación de coste medio por conversación de servicio mientras
+// no se conecte el webhook de estado de YCloud (que sí informa del coste
+// real y la categoría de cada conversación) — contrastar con
+// https://docs.ycloud.com y la política vigente de Meta antes de confiar
+// en esto para cobros reales.
+const YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS = 6 // ~0,06 € por conversación de servicio, estimación provisional
+
+// Envío efectivo a YCloud + persistencia — compartido entre el envío manual
+// (POST /send) y la respuesta automática del agente de IA.
+async function sendViaYCloud(
+  apiKey: string, clinicId: string, conversationId: string, phone: string, body: string,
+  sender: 'clinica' | 'ia' = 'clinica'
+) {
+  let ycloudId: string | null = null
+  let status = 'sent'
+  try {
+    const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
+      method: 'POST',
+      headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER ?? undefined, to: phone, type: 'text', text: { body } }),
+    })
+    const json: any = await resp.json().catch(() => ({}))
+    if (!resp.ok) status = 'failed'
+    else ycloudId = json?.id ?? null
+  } catch {
+    status = 'failed'
+  }
+  const message = await queryOne(
+    `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id, sender)
+     VALUES ($1,$2,'outbound',$3,$4,$5,$6) RETURNING *`,
+    [conversationId, clinicId, body, status, ycloudId, sender]
+  )
+  await query(
+    `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1 WHERE id = $2`,
+    [body.slice(0, 120), conversationId]
+  )
+  return { message, status }
+}
+
+// Genera y envía la respuesta automática del agente de WhatsApp con IA, y
+// cobra el coste real a través de chargeCredit(). Nunca lanza — un fallo
+// aquí no debe tumbar la recepción del webhook (YCloud reintentaría el
+// envío del mensaje entrante si respondiéramos con error).
+//
+// clinicNameForIntro: si no es null, se antepone la identificación
+// obligatoria de clínica ("te escribimos de [clínica] a través de
+// ConsentsPro") — solo se pasa en el primer mensaje saliente de una
+// conversación nueva (A.1 del documento de requisitos).
+async function runWhatsAppAiAgent(
+  clinicId: string, conversationId: string, phone: string, apiKey: string, clinicNameForIntro: string | null
+) {
+  try {
+    const config = await queryOne<{ prompt: string | null; knowledge_base: string | null; wa_ai_enabled: boolean }>(
+      'SELECT prompt, knowledge_base, wa_ai_enabled FROM clinic_api_config WHERE clinic_id = $1', [clinicId]
+    )
+    if (!config?.wa_ai_enabled || !config.prompt) return
+
+    // Verificación previa (punto 3): comprobación rápida antes de gastar
+    // dinero real llamando al proveedor de IA — NO sustituye el cálculo
+    // exacto de chargeCredit(), solo evita ejecutar lo que luego no se
+    // podría cobrar.
+    if (!(await hasPositiveBalance(clinicId))) {
+      await sendViaYCloud(apiKey, clinicId, conversationId, phone,
+        'En este momento el asistente automático no está disponible. En breve el equipo de la clínica te atenderá.', 'ia')
+      return
+    }
+
+    const recentRows = await query<{ direction: string; body: string }>(
+      `SELECT direction, body FROM whatsapp_messages WHERE conversation_id = $1 ORDER BY created_at DESC LIMIT 10`,
+      [conversationId]
+    )
+    const history: ChatMessage[] = recentRows.reverse().map(r => ({
+      role: r.direction === 'inbound' ? 'user' : 'assistant', content: r.body,
+    }))
+    // El contexto de IA se aísla estrictamente por clínica: solo el prompt
+    // y la base de conocimiento de ESTA clinicId, ya resuelta con certeza
+    // por resolveIncomingConversation() antes de llegar aquí.
+    const systemPrompt = config.knowledge_base
+      ? `${config.prompt}\n\n--- Base de conocimientos ---\n${config.knowledge_base}`
+      : config.prompt
+
+    const reply = await generateAiReply(systemPrompt, history)
+    if (!reply.text.trim()) return
+
+    const finalText = clinicNameForIntro
+      ? `Hola, te escribimos de ${clinicNameForIntro} a través de ConsentsPro. ${reply.text}`
+      : reply.text
+
+    const { message } = await sendViaYCloud(apiKey, clinicId, conversationId, phone, finalText, 'ia')
+    const messageId = (message as any)?.id ?? null
+    await chargeCredit(clinicId, reply.provider, reply.realCostCents, messageId)
+    // Coste de YCloud/Meta por la propia conversación — ver la constante
+    // YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS más arriba sobre por qué es
+    // una estimación y no un coste exacto reportado por YCloud todavía.
+    await chargeCredit(clinicId, 'ycloud', YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS, messageId)
+  } catch (err: any) {
+    // InsufficientCreditError incluida — si el saldo se agotó justo entre
+    // la verificación previa y el cobro real, simplemente no se cobra ni
+    // se reintenta; el próximo mensaje volverá a pasar por la verificación previa.
+    console.error(`[whatsapp] fallo en el agente de IA para clínica ${clinicId}:`, err.message)
+  }
+}
 
 async function getRequesterClinicId(req: any, targetClinicId?: string): Promise<{ clinicId: string | null; isSuperAdmin: boolean }> {
   const { userId } = req.user
@@ -22,6 +132,41 @@ async function getYCloudKey(clinicId: string): Promise<string | null> {
     'SELECT ycloud_api_key FROM clinic_api_config WHERE clinic_id = $1', [clinicId]
   )
   return row?.ycloud_api_key ?? null
+}
+
+// Número único de YCloud compartido por todas las clínicas (Parte A) —
+// distinto de la clave por clínica de getYCloudKey(), usada por las
+// clínicas que aún tienen su propio número dedicado.
+async function getSharedYCloudKey(): Promise<string | null> {
+  const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'shared_ycloud_api_key'")
+  return row?.value?.trim() ? row.value : null
+}
+
+async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
+  try {
+    await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
+      method: 'POST',
+      headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER ?? undefined, to: phone, type: 'text', text: { body } }),
+    })
+  } catch (err: any) {
+    console.error('[whatsapp] fallo enviando pregunta de aclaración de clínica:', err.message)
+  }
+}
+
+async function isFirstOutboundMessage(conversationId: string): Promise<boolean> {
+  const row = await queryOne<{ count: string }>(
+    `SELECT count(*)::text AS count FROM whatsapp_messages WHERE conversation_id = $1 AND direction = 'outbound'`,
+    [conversationId]
+  )
+  return (row?.count ?? '0') === '0'
+}
+
+async function getClinicDisplayName(clinicId: string): Promise<string> {
+  const row = await queryOne<{ name: string; trade_name: string | null }>(
+    'SELECT name, trade_name FROM clinics WHERE id = $1', [clinicId]
+  )
+  return row?.trade_name ?? row?.name ?? 'la clínica'
 }
 
 // GET /api/whatsapp/clinics — clinics the requester can operate WhatsApp for
@@ -47,6 +192,19 @@ router.get('/status', async (req, res) => {
     if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
     const key = await getYCloudKey(clinicId)
     return res.json({ configured: !!key })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET /api/whatsapp/direct-link?clinicId=xxx — enlace directo de esta
+// clínica al número único compartido de YCloud (A.5), para que la clínica
+// lo copie y lo publique donde quiera. Evita la ambigüedad de origen.
+router.get('/direct-link', async (req, res) => {
+  try {
+    const { clinicId } = await getRequesterClinicId(req, req.query.clinicId as string)
+    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
+    const clinic = await queryOne<{ whatsapp_code: string | null }>('SELECT whatsapp_code FROM clinics WHERE id = $1', [clinicId])
+    if (!clinic?.whatsapp_code) return res.status(404).json({ error: 'Esta clínica no tiene código de WhatsApp asignado' })
+    return res.json({ link: generateDirectLink(clinic.whatsapp_code), code: clinic.whatsapp_code })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
@@ -97,45 +255,12 @@ router.post('/send', async (req, res) => {
     )
     if (!convo) {
       convo = await queryOne<{ id: string }>(
-        `INSERT INTO whatsapp_conversations (clinic_id, phone, contact_name) VALUES ($1,$2,$3) RETURNING id`,
+        `INSERT INTO whatsapp_conversations (clinic_id, phone, contact_name, source) VALUES ($1,$2,$3,'mensaje_saliente_clinica') RETURNING id`,
         [clinicId, phone, contactName ?? null]
       )
     }
 
-    // Send via YCloud API
-    let ycloudId: string | null = null
-    let status = 'sent'
-    try {
-      const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
-        method: 'POST',
-        headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from: process.env.YCLOUD_WA_NUMBER ?? undefined,
-          to: phone,
-          type: 'text',
-          text: { body },
-        }),
-      })
-      const json: any = await resp.json().catch(() => ({}))
-      if (!resp.ok) {
-        status = 'failed'
-      } else {
-        ycloudId = json?.id ?? null
-      }
-    } catch {
-      status = 'failed'
-    }
-
-    const message = await queryOne(
-      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id)
-       VALUES ($1,$2,'outbound',$3,$4,$5) RETURNING *`,
-      [convo!.id, clinicId, body, status, ycloudId]
-    )
-
-    await query(
-      `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1 WHERE id = $2`,
-      [body.slice(0, 120), convo!.id]
-    )
+    const { message, status } = await sendViaYCloud(apiKey, clinicId, convo!.id, phone, body, 'clinica')
 
     if (status === 'failed') {
       return res.status(502).json({ error: 'Fallo al enviar el mensaje por YCloud', message })
@@ -165,8 +290,8 @@ webhookRouter.post('/:clinicId', async (req, res) => {
     }
 
     await query(
-      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id)
-       VALUES ($1,$2,'inbound',$3,'received',$4)`,
+      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id, sender)
+       VALUES ($1,$2,'inbound',$3,'received',$4,'paciente')`,
       [convo!.id, clinicId, text, msg?.id ?? null]
     )
     await query(
@@ -174,8 +299,76 @@ webhookRouter.post('/:clinicId', async (req, res) => {
       [text.slice(0, 120), convo!.id]
     )
 
-    return res.status(200).json({ ok: true })
+    // Responde primero a YCloud (evita que reintente el webhook por
+    // timeout) y dispara el agente de IA después, sin bloquear la respuesta.
+    res.status(200).json({ ok: true })
+    const apiKey = await getYCloudKey(clinicId)
+    if (apiKey) {
+      const isFirst = await isFirstOutboundMessage(convo!.id)
+      const clinicNameForIntro = isFirst ? await getClinicDisplayName(clinicId) : null
+      runWhatsAppAiAgent(clinicId, convo!.id, phone, apiKey, clinicNameForIntro).catch(() => {})
+    }
+    return
   } catch (err: any) { return res.status(200).json({ ok: true }) }
+})
+
+// POST /api/whatsapp-webhook — número único de YCloud compartido por TODAS
+// las clínicas (Parte A del documento de ampliación). A diferencia del
+// webhook anterior (que ya trae el clinicId en la URL, para las clínicas
+// con número dedicado), aquí el clinic_id es DESCONOCIDO al llegar el
+// mensaje y debe resolverse con certeza — o preguntarse explícitamente si
+// hay ambigüedad — antes de generar cualquier respuesta de IA.
+// Ver resolveIncomingConversation() en lib/whatsappRouting.ts y su REGLA DE
+// ORO: nunca se genera contenido de IA sin clinic_id resuelto con certeza.
+webhookRouter.post('/', async (req, res) => {
+  const payload = req.body
+  const msg = payload?.whatsappInboundMessage ?? payload
+  const phone = msg?.from
+  const text = msg?.text?.body ?? msg?.body ?? ''
+
+  // Se responde ya a YCloud (evita reintentos por timeout); el resto se
+  // procesa después, sin bloquear la respuesta al webhook.
+  res.status(200).json({ ok: true })
+  if (!phone) return
+
+  try {
+    const sharedKey = await getSharedYCloudKey()
+    if (!sharedKey) {
+      console.error('[whatsapp shared webhook] falta shared_ycloud_api_key en system_settings')
+      return
+    }
+
+    const route = await resolveIncomingConversation(phone, text)
+
+    if (route.clarificationMessage) {
+      // Ambigüedad (Caso A sin coincidencia, o Caso C tras >90 días sin
+      // coincidencia): se pregunta directamente, SIN pasar por el agente de
+      // IA (todavía no hay clinic_id, no hay contexto que dar con seguridad)
+      // y sin crear conversación (se crea solo al confirmarse la clínica).
+      await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
+      return
+    }
+    if (!route.clinicId || !route.conversationId) return
+
+    await query(
+      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+       VALUES ($1,$2,'inbound',$3,'received','paciente')`,
+      [route.conversationId, route.clinicId, text]
+    )
+    await query(
+      `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1, unread_count = unread_count + 1 WHERE id = $2`,
+      [text.slice(0, 120), route.conversationId]
+    )
+
+    // Identificación obligatoria de clínica (A.1) solo en el primer mensaje
+    // saliente de esta conversación — en mensajes posteriores ya quedó claro.
+    const isFirst = await isFirstOutboundMessage(route.conversationId)
+    const clinicNameForIntro = isFirst ? await getClinicDisplayName(route.clinicId) : null
+
+    await runWhatsAppAiAgent(route.clinicId, route.conversationId, phone, sharedKey, clinicNameForIntro)
+  } catch (err: any) {
+    console.error('[whatsapp shared webhook] fallo procesando evento:', err.message)
+  }
 })
 
 export default router

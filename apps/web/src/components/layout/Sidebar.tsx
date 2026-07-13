@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro, Clock } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro, Clock, Sparkles, TrendingUp } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 import { useOpenTickets } from '@/hooks/useOpenTickets'
@@ -18,6 +18,7 @@ const navItems: { to: string; icon: typeof LayoutDashboard; label: string; modul
   { to: '/invoicing', icon: BadgeEuro, label: 'nav.invoicing', moduleKey: 'invoicing' },
   { to: '/control-horario', icon: Clock, label: 'nav.timeTracking', moduleKey: 'time-tracking' },
   { to: '/whatsapp', icon: MessageCircle, label: 'nav.whatsapp', moduleKey: 'whatsapp' },
+  { to: '/ai-credits', icon: Sparkles, label: 'nav.aiCredits', moduleKey: 'ai-credits' },
   { to: '/templates', icon: BookOpen, label: 'nav.templates', moduleKey: 'templates' },
   { to: '/clinic', icon: Building2, label: 'nav.clinic', moduleKey: 'clinic' },
   { to: '/lab-partners', icon: Building2, label: 'nav.labPartners', moduleKey: 'lab-partners' },
@@ -117,6 +118,18 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: Sidebar
             >
               <Workflow className="w-4 h-4" />
               {t('nav.workflows')}
+            </NavLink>
+            <NavLink
+              to="/ai-revenue"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                }`
+              }
+            >
+              <TrendingUp className="w-4 h-4" />
+              {t('nav.aiRevenue')}
             </NavLink>
           </div>
         )}

@@ -30,6 +30,8 @@ import Invoicing from './pages/Invoicing'
 import TimeTracking from './pages/TimeTracking'
 import TimeClockKiosk from './pages/TimeClockKiosk'
 import Workflows from './pages/Workflows'
+import AiCredits from './pages/AiCredits'
+import AiRevenue from './pages/AiRevenue'
 import Tickets from './pages/Tickets'
 import TabletPair from './pages/TabletPair'
 import TabletKiosk from './pages/TabletKiosk'
@@ -170,6 +172,8 @@ function AppShell() {
               <Route path="/invoicing" element={guard('invoicing', <Invoicing />)} />
               <Route path="/control-horario" element={guard('time-tracking', <TimeTracking />)} />
               <Route path="/workflows" element={isSuperAdmin ? <Workflows /> : <Navigate to="/" />} />
+              <Route path="/ai-revenue" element={isSuperAdmin ? <AiRevenue /> : <Navigate to="/" />} />
+              <Route path="/ai-credits" element={guard('ai-credits', <AiCredits />)} />
               <Route path="/tickets" element={guard('tickets', <Tickets />)} />
               <Route path="/whatsapp" element={guard('whatsapp', <WhatsApp />)} />
               <Route path="/recharge" element={<Recharge />} />

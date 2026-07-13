@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, Send, Search, AlertTriangle, Building2, Check, CheckCheck, Clock } from 'lucide-react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
 
@@ -10,6 +10,35 @@ interface Conversation {
   last_message_at: string
   last_message_preview: string | null
   unread_count: number
+  source?: 'link_directo' | 'mensaje_saliente_clinica' | 'pregunta_ambigua' | 'recencia_automatica' | null
+}
+
+// Enlace directo de la clínica al número único de WhatsApp compartido — lo
+// muestra la propia clínica para copiarlo y publicarlo donde quiera, evita
+// la ambigüedad de a qué clínica pertenece un mensaje entrante nuevo.
+function DirectLinkPanel({ clinicId }: { clinicId: string }) {
+  const [link, setLink] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    setLink(null)
+    api.get(`/whatsapp/direct-link?clinicId=${clinicId}`).then((d: any) => setLink(d.link)).catch(() => setLink(null))
+  }, [clinicId])
+
+  if (!link) return null
+
+  return (
+    <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2">
+      <Link2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+      <p className="text-xs text-emerald-800 flex-1 truncate">{link}</p>
+      <button
+        onClick={() => { navigator.clipboard.writeText(link); setCopied(true); setTimeout(() => setCopied(false), 1500) }}
+        className="flex-shrink-0 text-xs font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
+      >
+        <Copy className="w-3 h-3" /> {copied ? 'Copiado' : 'Copiar'}
+      </button>
+    </div>
+  )
 }
 
 interface Message {
@@ -136,6 +165,8 @@ export default function WhatsApp() {
         )}
       </div>
 
+      {clinicId && <DirectLinkPanel clinicId={clinicId} />}
+
       {!clinicId ? (
         <div className="flex-1 flex items-center justify-center text-slate-400 text-sm py-20">
           {isSuperAdmin ? 'Selecciona una clínica para gestionar su WhatsApp' : 'Cargando…'}
@@ -197,6 +228,11 @@ export default function WhatsApp() {
                         </span>
                       </div>
                       <p className="text-xs text-slate-400 truncate mt-0.5">{c.last_message_preview ?? c.phone}</p>
+                      {c.source === 'recencia_automatica' && (
+                        <span className="inline-flex items-center gap-1 mt-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
+                          <RefreshCcw className="w-2.5 h-2.5" /> Enrutada por recencia — revisar
+                        </span>
+                      )}
                     </div>
                     {c.unread_count > 0 && (
                       <span className="flex-shrink-0 bg-emerald-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">

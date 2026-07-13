@@ -11,6 +11,7 @@ export const ALL_MODULES = [
   { key: 'invoicing',        labelKey: 'nav.invoicing',       defaultOn: false },
   { key: 'time-tracking',    labelKey: 'nav.timeTracking',    defaultOn: false },
   { key: 'whatsapp',         labelKey: 'nav.whatsapp',        defaultOn: true  },
+  { key: 'ai-credits',       labelKey: 'nav.aiCredits',       defaultOn: true  },
   { key: 'clinic',           labelKey: 'nav.clinic',          defaultOn: true  },
   { key: 'settings',         labelKey: 'nav.settings',        defaultOn: false },
   { key: 'templates',        labelKey: 'nav.templates',       defaultOn: false },

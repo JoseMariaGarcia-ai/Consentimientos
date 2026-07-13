@@ -532,7 +532,9 @@
     "workflows": "Workflows",
     "tickets": "Incidencias",
     "invoicing": "Facturación",
-    "timeTracking": "Control horario"
+    "timeTracking": "Control horario",
+    "aiCredits": "Bono IA",
+    "aiRevenue": "Bono IA — Ingresos"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",
@@ -824,7 +826,9 @@
     "no_data": "Sin datos",
     "required": "Campo obligatorio",
     "saving": "Guardando…",
-    "saved": "Guardado"
+    "saved": "Guardado",
+    "yes": "Sí",
+    "no": "No"
   },
   "login": {
     "check_email": "Revisa tu email",
@@ -1346,7 +1350,24 @@
       "saving": "Guardando…",
       "save": "Guardar claves",
       "extractPdfError": "No se pudo extraer el texto del PDF",
-      "defaultClinicName": "Mi clínica"
+      "defaultClinicName": "Mi clínica",
+      "aiProviderTitle": "Proveedor de IA activo",
+      "aiProviderHint": "Motor que usa el agente de IA de WhatsApp en todas las clínicas (Anthropic u OpenRouter). Es una configuración global, no por clínica.",
+      "waAiEnabled": "Activar respuestas automáticas con IA en WhatsApp",
+      "retellSection": "Agente de voz (Retell)",
+      "retellPrompt": "Prompt del agente de voz",
+      "retellPromptHint": "Instrucciones de comportamiento para el agente de voz de esta clínica (Retell) — distinto del prompt de WhatsApp, o sube un PDF.",
+      "retellAiEnabled": "Activar el agente de voz IA (Retell)",
+      "retellSync": "Sincronizar con Retell",
+      "retellSyncing": "Sincronizando…",
+      "retellSynced": "Sincronizado",
+      "retellSyncHint": "Guarda las claves antes de sincronizar. Esto actualiza el prompt y la base de conocimientos del agente de voz en Retell.",
+      "sharedYcloudTitle": "Número único de WhatsApp compartido",
+      "sharedYcloudHint": "API Key de YCloud del número único que usan TODAS las clínicas para el enrutamiento automático de WhatsApp. Distinta de la clave de YCloud de cada clínica (para las que aún tienen número propio).",
+      "sharedYcloudPlaceholder": "API Key de YCloud",
+      "sharedYcloudConfigured": "Configurada",
+      "sharedYcloudNotConfigured": "Todavía no configurada",
+      "sharedYcloudSave": "Guardar clave"
     }
   },
   "planPermissions": {
@@ -2009,6 +2030,86 @@
     "errors": {
       "doctorRequired": "Selecciona el doctor responsable de la visita",
       "saveFailed": "No se ha podido guardar la visita"
+    }
+  },
+  "aiCredits": {
+    "title": "Bono IA",
+    "subtitle": "Saldo prepago para el agente de IA de WhatsApp, el agente de voz y WhatsApp",
+    "currentBalance": "Saldo actual",
+    "remaining": "Restante",
+    "rechargeTitle": "Recargar saldo",
+    "redirecting": "Redirigiendo…",
+    "customAmountPlaceholder": "Otro importe (€)",
+    "rechargeCustom": "Recargar",
+    "customAmountInvalid": "Introduce un importe válido (mínimo 5 €)",
+    "rechargeError": "No se pudo iniciar la recarga",
+    "autoRechargeTitle": "Auto-recarga",
+    "cardSaved": "Tarjeta guardada",
+    "noCardSaved": "No hay ninguna tarjeta guardada",
+    "saveCard": "Guardar tarjeta",
+    "saveCardError": "No se pudo guardar la tarjeta",
+    "enableAutoRecharge": "Recargar automáticamente cuando el saldo baje del umbral",
+    "autoAmount": "Importe",
+    "autoThreshold": "Umbral",
+    "autoRechargeError": "No se pudo guardar la configuración de auto-recarga",
+    "history": "Historial de movimientos",
+    "allServices": "Todos los servicios",
+    "services": {
+      "anthropic": "Anthropic (IA texto)",
+      "openrouter": "OpenRouter (IA texto)",
+      "retell": "Retell (voz)",
+      "ycloud": "YCloud (WhatsApp)"
+    },
+    "noTransactions": "No hay movimientos todavía",
+    "table": {
+      "date": "Fecha",
+      "type": "Tipo",
+      "service": "Servicio",
+      "amount": "Importe",
+      "balanceAfter": "Saldo resultante"
+    },
+    "types": {
+      "recarga": "Recarga",
+      "recarga_automatica": "Recarga automática",
+      "consumo": "Consumo",
+      "ajuste_manual": "Ajuste manual"
+    },
+    "checkoutSuccess": "Recarga completada correctamente",
+    "checkoutCancelled": "Recarga cancelada"
+  },
+  "aiRevenue": {
+    "title": "Bono IA — Ingresos",
+    "subtitle": "Panel superadmin: saldo, recargas y rentabilidad por clínica",
+    "providerBalances": {
+      "title": "Saldo de ConsentsPro en cada proveedor",
+      "subtitle": "Vigilancia de solo lectura — si se agota, el servicio se corta para todas las clínicas a la vez",
+      "refresh": "Actualizar",
+      "openDashboard": "Abrir panel del proveedor"
+    },
+    "integrityAlarms": {
+      "title": "Discrepancias de saldo detectadas",
+      "expected": "Esperado",
+      "actual": "Real",
+      "notesPlaceholder": "Motivo de la resolución…",
+      "confirm": "Confirmar",
+      "resolve": "Marcar como revisada"
+    },
+    "overview": {
+      "title": "Clínicas",
+      "clinic": "Clínica",
+      "balance": "Saldo",
+      "totalRecharged": "Total recargado",
+      "autoRecharge": "Auto-recarga",
+      "viewDetail": "Ver detalle"
+    },
+    "detail": {
+      "balance": "Saldo",
+      "monthProfit": "Beneficio este mes",
+      "historicProfit": "Beneficio histórico",
+      "historicCost": "Coste real histórico",
+      "byService": "Desglose por servicio",
+      "realCost": "Coste real",
+      "charged": "Cobrado"
     }
   }
 }

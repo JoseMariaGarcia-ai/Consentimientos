@@ -40,9 +40,15 @@ import consentHandoffRouter from './routes/consentHandoff'
 import billingRouter, { webhookRouter as billingWebhookRouter, publicRouter as billingSignupRouter } from './routes/billing'
 import { publicRouter as billingActionRouter } from './routes/billingActions'
 import promoCodesRouter from './routes/promoCodes'
+import aiCreditsRouter from './routes/aiCredits'
+import aiRevenueRouter from './routes/aiRevenue'
+import retellRouter, { webhookRouter as retellWebhookRouter } from './routes/retell'
+import providerBalancesRouter from './routes/providerBalances'
 import { runMigrations } from './lib/migrate'
 import { startReminderScheduler } from './lib/reminderScheduler'
 import { startBillingScheduler } from './lib/billingScheduler'
+import { startCreditScheduler } from './lib/creditScheduler'
+import { startProviderBalanceScheduler } from './lib/providerBalanceScheduler'
 
 const app = express()
 
@@ -69,6 +75,7 @@ app.use('/api/signing-kiosk', deviceAuthMiddleware, signingKioskRouter)
 app.use('/api/billing-action', billingActionRouter)
 app.use('/api/billing', billingSignupRouter)
 app.use('/api/timetracking', timeTrackingPublicRouter)
+app.use('/api/retell-webhook', retellWebhookRouter)
 
 // Protected
 app.use('/api/patients',  authMiddleware, patientsRouter)
@@ -105,6 +112,10 @@ app.use('/api/signing-devices', authMiddleware, requireAdmin, signingDevicesRout
 app.use('/api/consent-handoff', authMiddleware, consentHandoffRouter)
 app.use('/api/billing',         authMiddleware, billingRouter)
 app.use('/api/promo-codes',     authMiddleware, requireSuperAdmin, promoCodesRouter)
+app.use('/api/ai-credits',      authMiddleware, aiCreditsRouter)
+app.use('/api/admin/ai-revenue', authMiddleware, requireSuperAdmin, aiRevenueRouter)
+app.use('/api/retell',          authMiddleware, retellRouter)
+app.use('/api/admin/provider-balances', authMiddleware, requireSuperAdmin, providerBalancesRouter)
 
 const PORT = process.env.PORT ?? 3001
 
@@ -114,6 +125,8 @@ runMigrations()
     app.listen(PORT, () => console.log(`ConsentsPro API running on port ${PORT}`))
     startReminderScheduler()
     startBillingScheduler()
+    startCreditScheduler()
+    startProviderBalanceScheduler()
   })
 
 export default app

@@ -51,7 +51,7 @@ async function attachTaxId(stripeCustomerId: string, taxId: string | null) {
   }
 }
 
-async function getOrCreateStripeCustomer(clinic: ClinicRow) {
+export async function getOrCreateStripeCustomer(clinic: ClinicRow) {
   if (clinic.stripe_customer_id) {
     // The stored ID can go stale (deleted in Stripe, or created under a
     // different key — e.g. live vs. test mode each have their own customer
@@ -489,6 +489,39 @@ webhookRouter.post('/', async (req, res) => {
               await sendSubscriptionPaymentFailedEmail(row.id)
             }
           }
+        }
+      }
+    }
+
+    // Bono IA: recarga manual (Checkout mode=payment) o guardado de tarjeta
+    // para auto-recarga (Checkout mode=setup) — ambas identificadas por
+    // session.metadata.type, para no interferir con el checkout de planes.
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object as Stripe.Checkout.Session
+      const clinicId = session.metadata?.clinic_id
+      const type = session.metadata?.type
+      if (clinicId && type === 'ai_credit_recharge') {
+        const { recordRecharge } = await import('../lib/creditService')
+        const amountCents = session.amount_total ?? 0
+        if (amountCents > 0) {
+          await recordRecharge({ clinicId, amountCents, type: 'recarga', stripePaymentId: session.payment_intent as string })
+        }
+      } else if (clinicId && type === 'ai_credit_setup' && session.setup_intent) {
+        const setupIntentId = typeof session.setup_intent === 'string' ? session.setup_intent : session.setup_intent.id
+        const setupIntent = await getStripe().setupIntents.retrieve(setupIntentId)
+        const paymentMethodId = typeof setupIntent.payment_method === 'string' ? setupIntent.payment_method : setupIntent.payment_method?.id
+        if (paymentMethodId) {
+          const { getOrCreateAccount } = await import('../lib/creditService')
+          const { query: dbQuery } = await import('../lib/db')
+          // getOrCreateAccount() primero para garantizar que, si esta es la
+          // primera vez que se toca la cuenta de esta clínica, el bono
+          // inicial se registra también en credit_transactions (si no, el
+          // saldo y la suma de transacciones dejarían de cuadrar).
+          await getOrCreateAccount(clinicId)
+          await dbQuery(
+            'UPDATE clinic_credit_accounts SET stripe_payment_method_id = $1, updated_at = NOW() WHERE clinic_id = $2',
+            [paymentMethodId, clinicId]
+          )
         }
       }
     }

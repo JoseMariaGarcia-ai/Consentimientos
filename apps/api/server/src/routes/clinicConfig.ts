@@ -66,20 +66,74 @@ router.post('/extract-pdf', async (req, res) => {
 // PUT /api/clinic-config — superadmin only
 router.put('/', async (req, res) => {
   try {
-    const { targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt } = req.body
+    const {
+      targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt,
+      retell_prompt, wa_ai_enabled, retell_ai_enabled,
+    } = req.body
     const clinicId = await requireSuperAdminClinicId(req, targetClinicId)
     if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne(
-      `INSERT INTO clinic_api_config (clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,NOW())
+      `INSERT INTO clinic_api_config (
+         clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt,
+         retell_prompt, wa_ai_enabled, retell_ai_enabled, updated_at
+       )
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,NOW())
        ON CONFLICT (clinic_id) DO UPDATE SET
          ycloud_api_key=$2, anthropic_api_key=$3, retell_api_key=$4, make_api_key=$5,
-         knowledge_base=$6, prompt=$7, updated_at=NOW()
+         knowledge_base=$6, prompt=$7, retell_prompt=$8, wa_ai_enabled=$9, retell_ai_enabled=$10, updated_at=NOW()
        RETURNING *`,
       [clinicId, ycloud_api_key ?? null, anthropic_api_key ?? null, retell_api_key ?? null,
-       make_api_key ?? null, knowledge_base ?? null, prompt ?? null]
+       make_api_key ?? null, knowledge_base ?? null, prompt ?? null,
+       retell_prompt ?? null, !!wa_ai_enabled, !!retell_ai_enabled]
     )
     return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET/PUT /api/clinic-config/ai-provider — interruptor central de sistema
+// (no por clínica): qué proveedor de IA procesa las llamadas del agente.
+router.get('/ai-provider', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const { getActiveProvider } = await import('../lib/aiProviders')
+    return res.json({ provider: await getActiveProvider() })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.put('/ai-provider', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const { provider } = req.body
+    if (provider !== 'anthropic' && provider !== 'openrouter') return res.status(400).json({ error: 'Proveedor no válido' })
+    const { setActiveProvider } = await import('../lib/aiProviders')
+    await setActiveProvider(provider)
+    return res.json({ provider })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET/PUT /api/clinic-config/shared-ycloud-key — API Key del número único de
+// YCloud compartido por TODAS las clínicas (Parte A del enrutamiento de
+// WhatsApp) — distinta de la clave por clínica (ycloud_api_key), que sigue
+// existiendo para las clínicas con número propio dedicado.
+router.get('/shared-ycloud-key', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'shared_ycloud_api_key'")
+    return res.json({ configured: !!row?.value?.trim() })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.put('/shared-ycloud-key', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const { apiKey } = req.body
+    if (typeof apiKey !== 'string' || !apiKey.trim()) return res.status(400).json({ error: 'API Key requerida' })
+    await query(
+      `INSERT INTO system_settings (key, value) VALUES ('shared_ycloud_api_key', $1)
+       ON CONFLICT (key) DO UPDATE SET value = $1`,
+      [apiKey.trim()]
+    )
+    return res.json({ configured: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
