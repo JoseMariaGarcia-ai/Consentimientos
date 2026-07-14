@@ -30,19 +30,21 @@ router.post('/sync', async (req, res) => {
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
 
     const config = await queryOne<{
-      retell_api_key: string | null; retell_prompt: string | null; knowledge_base: string | null
+      retell_prompt: string | null; knowledge_base: string | null
       retell_llm_id: string | null; retell_agent_id: string | null
     }>(
-      'SELECT retell_api_key, retell_prompt, knowledge_base, retell_llm_id, retell_agent_id FROM clinic_api_config WHERE clinic_id = $1',
+      'SELECT retell_prompt, knowledge_base, retell_llm_id, retell_agent_id FROM clinic_api_config WHERE clinic_id = $1',
       [clinicId]
     )
-    if (!config?.retell_api_key) return res.status(400).json({ error: 'Falta la API Key de Retell en Configuración → Claves' })
-    if (!config.retell_prompt?.trim()) return res.status(400).json({ error: 'Escribe primero el prompt del agente de voz' })
+    const retellKeyRow = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'system_retell_api_key'")
+    const retellApiKey = retellKeyRow?.value?.trim()
+    if (!retellApiKey) return res.status(400).json({ error: 'Falta configurar la API Key de Retell (Configuración → Claves)' })
+    if (!config?.retell_prompt?.trim()) return res.status(400).json({ error: 'Escribe primero el prompt del agente de voz' })
 
     const clinic = await queryOne<{ name: string; trade_name: string | null }>('SELECT name, trade_name FROM clinics WHERE id = $1', [clinicId])
 
-    const llmId = await upsertRetellLlm(config.retell_api_key, config.retell_llm_id, config.retell_prompt, config.knowledge_base)
-    const agentId = await upsertRetellAgent(config.retell_api_key, config.retell_agent_id, llmId, clinic?.trade_name ?? clinic?.name ?? clinicId)
+    const llmId = await upsertRetellLlm(retellApiKey, config.retell_llm_id, config.retell_prompt, config.knowledge_base)
+    const agentId = await upsertRetellAgent(retellApiKey, config.retell_agent_id, llmId, clinic?.trade_name ?? clinic?.name ?? clinicId)
 
     await query(
       'UPDATE clinic_api_config SET retell_llm_id = $1, retell_agent_id = $2, updated_at = NOW() WHERE clinic_id = $3',

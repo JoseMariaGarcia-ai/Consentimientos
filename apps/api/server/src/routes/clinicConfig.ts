@@ -63,28 +63,21 @@ router.post('/extract-pdf', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: 'No se pudo leer el PDF: ' + err.message }) }
 })
 
-// PUT /api/clinic-config — superadmin only
+// PUT /api/clinic-config — superadmin only. YCloud/Anthropic/Retell ya no
+// se configuran por clínica (ver migración 063) — solo quedan por clínica
+// la base de conocimientos y los dos prompts (WhatsApp y Retell).
 router.put('/', async (req, res) => {
   try {
-    const {
-      targetClinicId, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt,
-      retell_prompt, wa_ai_enabled, retell_ai_enabled,
-    } = req.body
+    const { targetClinicId, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled } = req.body
     const clinicId = await requireSuperAdminClinicId(req, targetClinicId)
     if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne(
-      `INSERT INTO clinic_api_config (
-         clinic_id, ycloud_api_key, anthropic_api_key, retell_api_key, make_api_key, knowledge_base, prompt,
-         retell_prompt, wa_ai_enabled, retell_ai_enabled, updated_at
-       )
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,NOW())
+      `INSERT INTO clinic_api_config (clinic_id, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,NOW())
        ON CONFLICT (clinic_id) DO UPDATE SET
-         ycloud_api_key=$2, anthropic_api_key=$3, retell_api_key=$4, make_api_key=$5,
-         knowledge_base=$6, prompt=$7, retell_prompt=$8, wa_ai_enabled=$9, retell_ai_enabled=$10, updated_at=NOW()
+         knowledge_base=$2, prompt=$3, retell_prompt=$4, wa_ai_enabled=$5, retell_ai_enabled=$6, updated_at=NOW()
        RETURNING *`,
-      [clinicId, ycloud_api_key ?? null, anthropic_api_key ?? null, retell_api_key ?? null,
-       make_api_key ?? null, knowledge_base ?? null, prompt ?? null,
-       retell_prompt ?? null, !!wa_ai_enabled, !!retell_ai_enabled]
+      [clinicId, knowledge_base ?? null, prompt ?? null, retell_prompt ?? null, !!wa_ai_enabled, !!retell_ai_enabled]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -137,10 +130,9 @@ router.put('/issuer-tax-id', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// GET/PUT /api/clinic-config/shared-ycloud-key — API Key del número único de
-// YCloud compartido por TODAS las clínicas (Parte A del enrutamiento de
-// WhatsApp) — distinta de la clave por clínica (ycloud_api_key), que sigue
-// existiendo para las clínicas con número propio dedicado.
+// GET/PUT /api/clinic-config/shared-ycloud-key — API Key única de YCloud
+// para TODAS las clínicas (ya no existe una clave de YCloud por clínica —
+// ver migración 063).
 router.get('/shared-ycloud-key', async (req, res) => {
   try {
     if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
@@ -156,6 +148,32 @@ router.put('/shared-ycloud-key', async (req, res) => {
     if (typeof apiKey !== 'string' || !apiKey.trim()) return res.status(400).json({ error: 'API Key requerida' })
     await query(
       `INSERT INTO system_settings (key, value) VALUES ('shared_ycloud_api_key', $1)
+       ON CONFLICT (key) DO UPDATE SET value = $1`,
+      [apiKey.trim()]
+    )
+    return res.json({ configured: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET/PUT /api/clinic-config/system-retell-key — API Key única de Retell
+// para TODAS las clínicas (routes/retell.ts la usa para sincronizar el
+// agente de voz de cada clínica) — ya no existe una clave de Retell por
+// clínica (ver migración 063).
+router.get('/system-retell-key', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'system_retell_api_key'")
+    return res.json({ configured: !!row?.value?.trim() })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.put('/system-retell-key', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const { apiKey } = req.body
+    if (typeof apiKey !== 'string' || !apiKey.trim()) return res.status(400).json({ error: 'API Key requerida' })
+    await query(
+      `INSERT INTO system_settings (key, value) VALUES ('system_retell_api_key', $1)
        ON CONFLICT (key) DO UPDATE SET value = $1`,
       [apiKey.trim()]
     )

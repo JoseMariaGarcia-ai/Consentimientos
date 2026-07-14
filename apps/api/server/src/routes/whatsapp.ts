@@ -127,16 +127,20 @@ async function getRequesterClinicId(req: any, targetClinicId?: string): Promise<
   return { clinicId: me.clinic_id, isSuperAdmin }
 }
 
+// Ya no existe una clave de YCloud por clínica configurable (ver migración
+// 063) — se usa siempre la clave única de sistema. Se mantiene la consulta
+// a clinic_api_config.ycloud_api_key solo como compatibilidad hacia atrás,
+// por si alguna clínica conservase un valor antiguo de cuando sí existía
+// ese campo; en la práctica, hoy siempre cae en la clave compartida.
 async function getYCloudKey(clinicId: string): Promise<string | null> {
   const row = await queryOne<{ ycloud_api_key: string }>(
     'SELECT ycloud_api_key FROM clinic_api_config WHERE clinic_id = $1', [clinicId]
   )
-  return row?.ycloud_api_key ?? null
+  if (row?.ycloud_api_key) return row.ycloud_api_key
+  return getSharedYCloudKey()
 }
 
-// Número único de YCloud compartido por todas las clínicas (Parte A) —
-// distinto de la clave por clínica de getYCloudKey(), usada por las
-// clínicas que aún tienen su propio número dedicado.
+// Número único de YCloud compartido por todas las clínicas (Parte A).
 async function getSharedYCloudKey(): Promise<string | null> {
   const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'shared_ycloud_api_key'")
   return row?.value?.trim() ? row.value : null

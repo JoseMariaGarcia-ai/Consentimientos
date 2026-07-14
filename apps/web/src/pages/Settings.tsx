@@ -383,6 +383,65 @@ function SharedYCloudKeyPanel() {
   )
 }
 
+/* ─── API Key única de Retell (sistema, no por clínica) ─────────────── */
+function SystemRetellKeyPanel() {
+  const { t } = useTranslation()
+  const [configured, setConfigured] = useState<boolean | null>(null)
+  const [apiKey, setApiKey] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  useEffect(() => {
+    api.get('/clinic-config/system-retell-key').then((r: any) => setConfigured(!!r?.configured)).catch(() => setConfigured(false))
+  }, [])
+
+  const handleSave = async () => {
+    if (!apiKey.trim()) return
+    setSaving(true); setSaved(false)
+    try {
+      await api.put('/clinic-config/system-retell-key', { apiKey })
+      setConfigured(true)
+      setApiKey('')
+      setSaved(true)
+    } finally { setSaving(false) }
+  }
+
+  if (configured === null) return null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-4 h-4 text-purple-500" />
+        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.systemRetellTitle')}</p>
+        <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
+      </div>
+      <p className="text-xs text-slate-400">{t('settings.apiKeys.systemRetellHint')}</p>
+      <p className="text-xs font-medium">
+        {configured
+          ? <span className="text-emerald-600">✓ {t('settings.apiKeys.sharedYcloudConfigured')}</span>
+          : <span className="text-amber-600">{t('settings.apiKeys.sharedYcloudNotConfigured')}</span>}
+      </p>
+      <div className="flex items-center gap-2">
+        <input
+          type="password"
+          value={apiKey}
+          onChange={e => setApiKey(e.target.value)}
+          placeholder="key_..."
+          className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <button
+          onClick={handleSave}
+          disabled={saving || !apiKey.trim()}
+          className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60"
+        >
+          {saving ? t('common.saving') : t('settings.apiKeys.sharedYcloudSave')}
+        </button>
+      </div>
+      {saved && <p className="text-xs text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</p>}
+    </div>
+  )
+}
+
 /* ─── NIF/CIF del emisor en las facturas de suscripción (sistema) ──── */
 function IssuerTaxIdPanel() {
   const { t } = useTranslation()
@@ -442,10 +501,6 @@ function ClinicKeysPanel() {
   const [clinics, setClinics]   = useState<{ id: string; name: string; trade_name: string | null }[]>([])
   const [selectedId, setSelectedId] = useState<string>('')
   const [form, setForm] = useState({
-    ycloud_api_key:    '',
-    anthropic_api_key: '',
-    retell_api_key:    '',
-    make_api_key:      '',
     knowledge_base:    '',
     prompt:            '',
     retell_prompt:     '',
@@ -473,10 +528,6 @@ function ClinicKeysPanel() {
     api.get(`/clinic-config?clinicId=${selectedId}`)
       .then((data: any) => {
         setForm({
-          ycloud_api_key:    data.ycloud_api_key    ?? '',
-          anthropic_api_key: data.anthropic_api_key ?? '',
-          retell_api_key:    data.retell_api_key    ?? '',
-          make_api_key:      data.make_api_key      ?? '',
           knowledge_base:    data.knowledge_base    ?? '',
           prompt:            data.prompt            ?? '',
           retell_prompt:     data.retell_prompt     ?? '',
@@ -582,6 +633,7 @@ function ClinicKeysPanel() {
     <div className="flex flex-col gap-5">
       <AiProviderSwitch />
       <SharedYCloudKeyPanel />
+      <SystemRetellKeyPanel />
       <IssuerTaxIdPanel />
 
       {/* Clinic selector */}
@@ -621,14 +673,7 @@ function ClinicKeysPanel() {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 gap-4">
-                <Field label="YCloud API Key" value={form.ycloud_api_key} onChange={v => setForm(f => ({ ...f, ycloud_api_key: v }))} hint="yc_live_..." />
-                <Field label="Anthropic API Key" value={form.anthropic_api_key} onChange={v => setForm(f => ({ ...f, anthropic_api_key: v }))} hint="sk-ant-..." />
-                <Field label="Retell API Key" value={form.retell_api_key} onChange={v => setForm(f => ({ ...f, retell_api_key: v }))} hint="key_..." />
-                <Field label="Make API Key" value={form.make_api_key} onChange={v => setForm(f => ({ ...f, make_api_key: v }))} hint={t('settings.apiKeys.makeHint')} />
-              </div>
-
-              <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
                 <Field
                   label={t('settings.apiKeys.knowledgeBase')}
                   value={form.knowledge_base}
@@ -683,7 +728,7 @@ function ClinicKeysPanel() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={handleSyncRetell}
-                    disabled={syncingRetell || !form.retell_api_key || !form.retell_prompt}
+                    disabled={syncingRetell || !form.retell_prompt}
                     className="flex items-center gap-2 px-4 py-2 border border-purple-300 text-purple-700 text-sm font-medium rounded-xl hover:bg-purple-50 disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     {syncingRetell ? t('settings.apiKeys.retellSyncing') : t('settings.apiKeys.retellSync')}
