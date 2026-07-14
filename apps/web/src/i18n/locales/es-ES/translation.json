@@ -1164,7 +1164,16 @@
     "promoCancelSteps": "Cancelar es tan fácil como darte de alta, sin llamadas ni letra pequeña:",
     "promoCancelStep1": "Entra en tu cuenta → Configuración → Suscripciones",
     "promoCancelStep2": "Pulsa \"Cancelar suscripción\"",
-    "promoCancelNote": "Si cancelas durante los {{days}} días de prueba, no se te cobra absolutamente nada. Si cancelas después, dejas de pagar a partir del siguiente ciclo — sin penalización."
+    "promoCancelNote": "Si cancelas durante los {{days}} días de prueba, no se te cobra absolutamente nada. Si cancelas después, dejas de pagar a partir del siguiente ciclo — sin penalización.",
+    "invoices": {
+      "title": "Historial de facturas",
+      "allPlans": "Todos los planes",
+      "empty": "Todavía no hay facturas",
+      "date": "Fecha",
+      "plan": "Plan",
+      "amount": "Importe",
+      "download": "Descargar PDF"
+    }
   },
   "toxin": {
     "title": "Control de Toxina",

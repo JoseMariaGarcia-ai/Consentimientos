@@ -218,6 +218,45 @@ router.get('/status', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/billing/invoices?plan=&date_from=&date_to= — historial de
+// facturas propias de ConsentsPro (PDF con la identidad visual propia, no
+// el de Stripe) de la clínica del usuario.
+router.get('/invoices', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const clinic = await getClinic(userId)
+    if (!clinic) return res.status(403).json({ error: 'Sin clínica asociada' })
+
+    const { plan, date_from, date_to } = req.query
+    let sql = 'SELECT id, plan_id, amount_cents, period_start, period_end, ai_credit_topup_cents, sent_at, created_at FROM consentspro_invoices WHERE clinic_id = $1'
+    const params: any[] = [clinic.id]
+    if (plan) { params.push(plan); sql += ` AND plan_id = $${params.length}` }
+    if (date_from) { params.push(date_from); sql += ` AND created_at >= $${params.length}` }
+    if (date_to) { params.push(date_to); sql += ` AND created_at < $${params.length}::date + INTERVAL '1 day'` }
+    sql += ' ORDER BY created_at DESC LIMIT 200'
+
+    return res.json(await query(sql, params))
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET /api/billing/invoices/:id/pdf — enlace de descarga firmado y temporal
+// (mismo patrón que el resto de ficheros en R2 — nunca se sirve una URL
+// pública permanente).
+router.get('/invoices/:id/pdf', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const clinic = await getClinic(userId)
+    if (!clinic) return res.status(403).json({ error: 'Sin clínica asociada' })
+    const invoice = await queryOne<{ pdf_r2_key: string | null }>(
+      'SELECT pdf_r2_key FROM consentspro_invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinic.id]
+    )
+    if (!invoice?.pdf_r2_key) return res.status(404).json({ error: 'Factura no encontrada' })
+    const { getPresignedUrl } = await import('../lib/r2')
+    const url = await getPresignedUrl(invoice.pdf_r2_key, 300)
+    return res.json({ url })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // Compartido entre POST /portal y el enlace "Actualizar método de pago" del
 // email de fallo de cobro (routes/billingActions.ts).
 export async function createPortalSession(clinic: ClinicRow) {
@@ -522,6 +561,99 @@ webhookRouter.post('/', async (req, res) => {
             'UPDATE clinic_credit_accounts SET stripe_payment_method_id = $1, updated_at = NOW() WHERE clinic_id = $2',
             [paymentMethodId, clinicId]
           )
+        }
+      }
+    }
+
+    // Factura propia de ConsentsPro (sustituye visualmente al PDF nativo de
+    // Stripe) — la cuenta de Stripe gestiona también otras actividades del
+    // titular, así que la plantilla NO puede tocarse a nivel de cuenta.
+    //
+    // Identificación de qué facturas son de ConsentsPro: la tabla local
+    // `subscriptions` es la fuente de verdad (no una lista de product_id de
+    // Stripe — las suscripciones de este sistema se crean con price_data en
+    // línea, así que Stripe no reutiliza un product_id estable). Si el
+    // invoice.subscription no aparece en `subscriptions`, la factura no es
+    // de ConsentsPro y se ignora por completo — no se genera PDF propio ni
+    // se interviene de ningún modo, tal y como exige el aislamiento por
+    // producto.
+    //
+    // Nota sobre el punto 4.2 del documento de requisitos (desactivar el
+    // email nativo de Stripe): Stripe solo permite desactivar el email de
+    // "pago correcto" a nivel de CUENTA completa (Settings → Business →
+    // Customer emails) — no existe un parámetro por suscripción/factura en
+    // su API pública para ello. Desactivarlo a nivel de cuenta afectaría
+    // también a las demás actividades del titular ajenas a ConsentsPro, lo
+    // cual violaría el aislamiento por producto exigido — por eso NO se
+    // toca aquí. El cliente recibirá el email nativo de Stripe (genérico)
+    // además de este propio y personalizado, hasta que el titular decida
+    // manualmente en el Dashboard si quiere desactivar el suyo a nivel de
+    // cuenta, asumiendo que afecta a todo lo demás también.
+    if (event.type === 'invoice.paid') {
+      const invoice = event.data.object as Stripe.Invoice
+      const subDetails = invoice.parent?.subscription_details?.subscription
+      const stripeSubId = typeof subDetails === 'string' ? subDetails : subDetails?.id
+
+      const sub = stripeSubId
+        ? await queryOne<{ clinic_id: string; plan_id: string }>(
+            'SELECT clinic_id, plan_id FROM subscriptions WHERE stripe_subscription_id = $1', [stripeSubId]
+          )
+        : null
+
+      if (sub) {
+        const already = await queryOne('SELECT id FROM consentspro_invoices WHERE stripe_invoice_id = $1', [invoice.id])
+        if (!already) {
+          const clinic = await getClinicById(sub.clinic_id)
+          if (clinic?.email) {
+            const line = invoice.lines.data[0]
+            const periodStart = new Date((line?.period?.start ?? invoice.created) * 1000).toISOString()
+            const periodEnd = new Date((line?.period?.end ?? invoice.created) * 1000).toISOString()
+
+            const topup = await queryOne<{ sum: string }>(
+              `SELECT COALESCE(SUM(amount_cents), 0) AS sum FROM credit_transactions
+               WHERE clinic_id = $1 AND transaction_type IN ('recarga', 'recarga_automatica')
+                 AND created_at >= $2 AND created_at < $3`,
+              [sub.clinic_id, periodStart, periodEnd]
+            )
+            const aiCreditTopupCents = Number(topup?.sum ?? 0) || null
+
+            const { getIssuerInfo } = await import('../lib/stripeAccountInfo')
+            const { renderConsentsProInvoicePdf } = await import('../lib/consentsproInvoicePdf')
+            const { uploadFile } = await import('../lib/r2')
+            const { sendStripeInvoiceEmail } = await import('../lib/stripeInvoiceEmail')
+            const issuer = await getIssuerInfo()
+
+            const invoiceNumber = invoice.number ?? invoice.id!
+            const pdfBuffer = await renderConsentsProInvoicePdf({
+              invoiceNumber,
+              issueDate: new Date(invoice.created * 1000).toISOString(),
+              periodStart, periodEnd,
+              issuerName: issuer.name, issuerAddress: issuer.address, issuerTaxId: issuer.taxId,
+              customerName: clinic.legal_name || clinic.name,
+              customerTaxId: clinic.tax_id, customerAddress: clinic.address,
+              planName: PLAN_NAMES[sub.plan_id] ?? sub.plan_id,
+              baseAmountCents: invoice.subtotal, vatAmountCents: invoice.total - invoice.subtotal, totalAmountCents: invoice.total,
+              aiCreditTopupCents, logoDataUrl: null,
+            })
+
+            const r2Key = `invoices/consentspro/${sub.clinic_id}/${invoice.id}.pdf`
+            await uploadFile(r2Key, pdfBuffer, 'application/pdf')
+
+            await query(
+              `INSERT INTO consentspro_invoices
+                 (clinic_id, stripe_invoice_id, stripe_subscription_id, plan_id, amount_cents,
+                  period_start, period_end, ai_credit_topup_cents, pdf_r2_key, sent_at)
+               VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NOW())
+               ON CONFLICT (stripe_invoice_id) DO NOTHING`,
+              [sub.clinic_id, invoice.id, stripeSubId ?? null, sub.plan_id, invoice.total,
+               periodStart, periodEnd, aiCreditTopupCents, r2Key]
+            )
+
+            await sendStripeInvoiceEmail({
+              toEmail: clinic.email, clinicName: clinic.legal_name || clinic.name,
+              invoiceNumber, totalCents: invoice.total, pdfBuffer,
+            })
+          }
         }
       }
     }

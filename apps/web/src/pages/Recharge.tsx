@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { Check, Zap, CheckCircle2, XCircle, CreditCard } from 'lucide-react'
+import { Check, Zap, CheckCircle2, XCircle, CreditCard, FileText, Download } from 'lucide-react'
 import { api } from '../lib/api'
 
 export interface Plan {
@@ -217,6 +217,104 @@ function CurrentPlanStatus() {
   )
 }
 
+interface ConsentsProInvoice {
+  id: string
+  plan_id: string
+  amount_cents: string
+  period_start: string
+  period_end: string
+  ai_credit_topup_cents: string | null
+  created_at: string
+}
+
+function InvoiceHistory() {
+  const { t, i18n } = useTranslation()
+  const money = new Intl.NumberFormat(i18n.language, { style: 'currency', currency: 'EUR' })
+  const [invoices, setInvoices] = useState<ConsentsProInvoice[]>([])
+  const [loading, setLoading] = useState(true)
+  const [planFilter, setPlanFilter] = useState('')
+  const [downloadingId, setDownloadingId] = useState<string | null>(null)
+
+  const load = useCallback(() => {
+    setLoading(true)
+    const qs = planFilter ? `?plan=${planFilter}` : ''
+    api.get(`/billing/invoices${qs}`)
+      .then(data => setInvoices(Array.isArray(data) ? data : []))
+      .catch(() => setInvoices([]))
+      .finally(() => setLoading(false))
+  }, [planFilter])
+
+  useEffect(() => { load() }, [load])
+
+  async function handleDownload(id: string) {
+    setDownloadingId(id)
+    try {
+      const { url } = await api.get(`/billing/invoices/${id}/pdf`)
+      window.open(url, '_blank')
+    } finally {
+      setDownloadingId(null)
+    }
+  }
+
+  if (!loading && invoices.length === 0 && !planFilter) return null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5">
+      <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
+        <div className="flex items-center gap-2">
+          <FileText className="w-4 h-4 text-slate-500" />
+          <p className="text-sm font-bold text-slate-700">{t('recharge.invoices.title')}</p>
+        </div>
+        <select
+          value={planFilter}
+          onChange={e => setPlanFilter(e.target.value)}
+          className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm"
+        >
+          <option value="">{t('recharge.invoices.allPlans')}</option>
+          {PLANS.map(p => <option key={p.id} value={p.id}>{t(`recharge.plans.${PLAN_KEY[p.id]}.name`)}</option>)}
+        </select>
+      </div>
+
+      {loading ? (
+        <div className="p-6 text-center text-slate-400 text-sm">{t('common.loading')}</div>
+      ) : invoices.length === 0 ? (
+        <div className="p-6 text-center text-slate-400 text-sm">{t('recharge.invoices.empty')}</div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left text-xs text-slate-400 uppercase tracking-wide">
+                <th className="pb-2">{t('recharge.invoices.date')}</th>
+                <th className="pb-2">{t('recharge.invoices.plan')}</th>
+                <th className="pb-2 text-right">{t('recharge.invoices.amount')}</th>
+                <th className="pb-2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {invoices.map(inv => (
+                <tr key={inv.id} className="border-t border-slate-100">
+                  <td className="py-2 text-slate-500">{new Date(inv.created_at).toLocaleDateString(i18n.language)}</td>
+                  <td className="py-2 text-slate-700">{t(`recharge.plans.${PLAN_KEY[inv.plan_id] ?? inv.plan_id}.name`)}</td>
+                  <td className="py-2 text-right font-semibold">{money.format(Number(inv.amount_cents) / 100)}</td>
+                  <td className="py-2 text-right">
+                    <button
+                      onClick={() => handleDownload(inv.id)}
+                      disabled={downloadingId === inv.id}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-brand hover:underline disabled:opacity-60"
+                    >
+                      <Download className="w-3.5 h-3.5" /> {t('recharge.invoices.download')}
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function Recharge() {
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -240,6 +338,7 @@ export default function Recharge() {
       </div>
 
       <CurrentPlanStatus />
+      <InvoiceHistory />
 
       {checkoutResult === 'success' && (
         <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
