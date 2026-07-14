@@ -443,54 +443,75 @@ function SystemRetellKeyPanel() {
 }
 
 /* ─── NIF/CIF del emisor en las facturas de suscripción (sistema) ──── */
-function IssuerTaxIdPanel() {
+function IssuerBillingInfoPanel() {
   const { t } = useTranslation()
-  const [taxId, setTaxId] = useState<string | null>(null)
-  const [draft, setDraft] = useState('')
+  const [loaded, setLoaded] = useState(false)
+  const [form, setForm] = useState({ legalName: '', taxId: '', address: '' })
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    api.get('/clinic-config/issuer-tax-id').then((r: any) => { setTaxId(r?.taxId ?? ''); setDraft(r?.taxId ?? '') }).catch(() => setTaxId(''))
+    api.get('/clinic-config/issuer-billing-info')
+      .then((r: any) => setForm({ legalName: r?.legalName ?? '', taxId: r?.taxId ?? '', address: r?.address ?? '' }))
+      .catch(() => {})
+      .finally(() => setLoaded(true))
   }, [])
 
   const handleSave = async () => {
-    if (!draft.trim()) return
-    setSaving(true); setSaved(false)
+    setSaving(true); setSaved(false); setError('')
     try {
-      await api.put('/clinic-config/issuer-tax-id', { taxId: draft })
-      setTaxId(draft.trim())
+      await api.put('/clinic-config/issuer-billing-info', form)
       setSaved(true)
+    } catch (e: any) {
+      setError(e.message)
     } finally { setSaving(false) }
   }
 
-  if (taxId === null) return null
+  if (!loaded) return null
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
       <div className="flex items-center gap-2">
         <Sparkles className="w-4 h-4 text-purple-500" />
-        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.issuerTaxIdTitle')}</p>
+        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.issuerBillingTitle')}</p>
         <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
       </div>
-      <p className="text-xs text-slate-400">{t('settings.apiKeys.issuerTaxIdHint')}</p>
-      <div className="flex items-center gap-2">
+      <p className="text-xs text-slate-400">{t('settings.apiKeys.issuerBillingHint')}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <input
           type="text"
-          value={draft}
-          onChange={e => setDraft(e.target.value)}
-          placeholder={t('settings.apiKeys.issuerTaxIdPlaceholder')}
-          className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          value={form.legalName}
+          onChange={e => setForm(f => ({ ...f, legalName: e.target.value }))}
+          placeholder={t('settings.apiKeys.issuerLegalNamePlaceholder')}
+          className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
+        <input
+          type="text"
+          value={form.taxId}
+          onChange={e => setForm(f => ({ ...f, taxId: e.target.value }))}
+          placeholder={t('settings.apiKeys.issuerTaxIdPlaceholder')}
+          className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <input
+          type="text"
+          value={form.address}
+          onChange={e => setForm(f => ({ ...f, address: e.target.value }))}
+          placeholder={t('settings.apiKeys.issuerAddressPlaceholder')}
+          className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 sm:col-span-2"
+        />
+      </div>
+      <div className="flex items-center gap-3">
         <button
           onClick={handleSave}
-          disabled={saving || !draft.trim()}
-          className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60"
+          disabled={saving || !form.legalName.trim() || !form.taxId.trim() || !form.address.trim()}
+          className="self-start px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60"
         >
           {saving ? t('common.saving') : t('common.save')}
         </button>
+        {saved && <p className="text-xs text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</p>}
       </div>
-      {saved && <p className="text-xs text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</p>}
+      {error && <p className="text-xs text-red-600">{error}</p>}
     </div>
   )
 }
@@ -634,7 +655,7 @@ function ClinicKeysPanel() {
       <AiProviderSwitch />
       <SharedYCloudKeyPanel />
       <SystemRetellKeyPanel />
-      <IssuerTaxIdPanel />
+      <IssuerBillingInfoPanel />
 
       {/* Clinic selector */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">

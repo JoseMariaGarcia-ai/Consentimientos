@@ -1,5 +1,4 @@
-import { getStripe } from './stripe'
-import { queryOne } from './db'
+import { query, queryOne } from './db'
 
 export interface IssuerInfo {
   name: string
@@ -7,33 +6,49 @@ export interface IssuerInfo {
   taxId: string | null
 }
 
-// ⚠️ PENDIENTE DE VERIFICAR ANTES DE PRODUCCIÓN: la API de Stripe
-// (GET /v1/account) SÍ devuelve business_profile.name/company.name y
-// company.address de forma fiable, pero el NIF/CIF real NO se puede leer
-// vía API — solo se expone company.tax_id_provided (booleano), el valor en
-// sí queda oculto por motivos de cumplimiento/seguridad (comportamiento
-// documentado de Stripe, no un bug de esta implementación). Por eso el
-// NIF/CIF se configura una única vez a mano en system_settings
-// (consentspro_issuer_tax_id) en vez de leerse en vivo. Verificar también
-// que Settings → Business details tiene rellenos nombre y dirección antes
-// de confiar en esto para facturas reales.
-let cache: { info: IssuerInfo; expiresAt: number } | null = null
-const CACHE_TTL_MS = 60 * 60 * 1000 // 1 hora, según el documento de requisitos
+// Datos fiscales de ConsentsPro como emisor de sus propias facturas de
+// suscripción — configurados a mano en Configuración → Claves (superadmin)
+// en vez de leerse en vivo de la API de Stripe. Se descartó leerlos de
+// GET /v1/account porque el NIF/CIF real no es legible por API (Stripe solo
+// expone si está puesto, no el valor, por cumplimiento) y porque el nombre
+// legal/dirección configurados ahí pueden no coincidir con lo que se quiere
+// mostrar en la factura — así el superadmin tiene control total y
+// predecible sobre lo que aparece.
+const KEYS = {
+  name: 'consentspro_issuer_legal_name',
+  address: 'consentspro_issuer_address',
+  taxId: 'consentspro_issuer_tax_id',
+} as const
 
 export async function getIssuerInfo(): Promise<IssuerInfo> {
-  if (cache && cache.expiresAt > Date.now()) return cache.info
+  const rows = await query<{ key: string; value: string }>(
+    `SELECT key, value FROM system_settings WHERE key = ANY($1::text[])`,
+    [Object.values(KEYS)]
+  )
+  const byKey = Object.fromEntries(rows.map(r => [r.key, r.value?.trim() || null]))
+  return {
+    name: byKey[KEYS.name] || 'ConsentsPro',
+    address: byKey[KEYS.address] ?? null,
+    taxId: byKey[KEYS.taxId] ?? null,
+  }
+}
 
-  const account = await getStripe().accounts.retrieveCurrent()
-  const name = account.company?.name || account.business_profile?.name || 'ConsentsPro'
-  const addr = account.company?.address
-  const address = addr
-    ? [addr.line1, addr.line2, addr.postal_code, addr.city, addr.state].filter(Boolean).join(', ')
-    : null
+export async function setIssuerField(field: keyof typeof KEYS, value: string): Promise<void> {
+  await query(
+    `INSERT INTO system_settings (key, value) VALUES ($1, $2) ON CONFLICT (key) DO UPDATE SET value = $2`,
+    [KEYS[field], value.trim()]
+  )
+}
 
-  const taxIdRow = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'consentspro_issuer_tax_id'")
-  const taxId = taxIdRow?.value?.trim() || null
-
-  const info: IssuerInfo = { name, address, taxId }
-  cache = { info, expiresAt: Date.now() + CACHE_TTL_MS }
-  return info
+export async function getIssuerRaw(): Promise<{ legalName: string; address: string; taxId: string }> {
+  const rows = await query<{ key: string; value: string }>(
+    `SELECT key, value FROM system_settings WHERE key = ANY($1::text[])`,
+    [Object.values(KEYS)]
+  )
+  const byKey = Object.fromEntries(rows.map(r => [r.key, r.value ?? '']))
+  return {
+    legalName: byKey[KEYS.name] ?? '',
+    address: byKey[KEYS.address] ?? '',
+    taxId: byKey[KEYS.taxId] ?? '',
+  }
 }

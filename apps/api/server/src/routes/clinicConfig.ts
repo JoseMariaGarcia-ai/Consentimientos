@@ -104,29 +104,30 @@ router.put('/ai-provider', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// GET/PUT /api/clinic-config/issuer-tax-id — NIF/CIF de ConsentsPro que
-// aparece en las facturas propias de suscripción (routes/billing.ts,
-// invoice.paid). No se puede leer en vivo de la API de Stripe (solo
-// confirma si está puesto, no el valor) — se configura aquí una vez.
-router.get('/issuer-tax-id', async (req, res) => {
+// GET/PUT /api/clinic-config/issuer-billing-info — datos fiscales de
+// ConsentsPro como emisor de sus propias facturas de suscripción (razón
+// social, NIF/CIF, dirección fiscal). Se configuran a mano en vez de
+// leerse en vivo de la API de Stripe — ver lib/stripeAccountInfo.ts.
+router.get('/issuer-billing-info', async (req, res) => {
   try {
     if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
-    const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'consentspro_issuer_tax_id'")
-    return res.json({ taxId: row?.value ?? '' })
+    const { getIssuerRaw } = await import('../lib/stripeAccountInfo')
+    return res.json(await getIssuerRaw())
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-router.put('/issuer-tax-id', async (req, res) => {
+router.put('/issuer-billing-info', async (req, res) => {
   try {
     if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
-    const { taxId } = req.body
-    if (typeof taxId !== 'string' || !taxId.trim()) return res.status(400).json({ error: 'NIF/CIF requerido' })
-    await query(
-      `INSERT INTO system_settings (key, value) VALUES ('consentspro_issuer_tax_id', $1)
-       ON CONFLICT (key) DO UPDATE SET value = $1`,
-      [taxId.trim()]
-    )
-    return res.json({ taxId: taxId.trim() })
+    const { legalName, taxId, address } = req.body
+    if (typeof legalName !== 'string' || !legalName.trim()) return res.status(400).json({ error: 'La razón social es obligatoria' })
+    if (typeof taxId !== 'string' || !taxId.trim()) return res.status(400).json({ error: 'El NIF/CIF es obligatorio' })
+    if (typeof address !== 'string' || !address.trim()) return res.status(400).json({ error: 'La dirección fiscal es obligatoria' })
+    const { setIssuerField, getIssuerRaw } = await import('../lib/stripeAccountInfo')
+    await setIssuerField('name', legalName)
+    await setIssuerField('taxId', taxId)
+    await setIssuerField('address', address)
+    return res.json(await getIssuerRaw())
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 

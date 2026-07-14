@@ -1377,11 +1377,13 @@
       "sharedYcloudConfigured": "Configurada",
       "sharedYcloudNotConfigured": "Todavía no configurada",
       "sharedYcloudSave": "Guardar clave",
-      "issuerTaxIdTitle": "NIF/CIF de ConsentsPro en las facturas",
-      "issuerTaxIdHint": "Aparece en el PDF de las facturas de suscripción. Stripe no permite leer este dato por API (solo confirma si está puesto), así que se configura aquí una vez.",
       "issuerTaxIdPlaceholder": "B12345678",
       "systemRetellTitle": "API Key única de Retell",
-      "systemRetellHint": "Se usa para sincronizar el agente de voz de todas las clínicas — ya no hace falta una clave de Retell por clínica."
+      "systemRetellHint": "Se usa para sincronizar el agente de voz de todas las clínicas — ya no hace falta una clave de Retell por clínica.",
+      "issuerBillingTitle": "Datos fiscales de ConsentsPro en las facturas",
+      "issuerBillingHint": "Se usan como emisor en el PDF de las facturas de suscripción, en vez de leerse de Stripe — así controláis exactamente lo que aparece.",
+      "issuerLegalNamePlaceholder": "Razón social (ej. ConsentsPro Digital S.L.)",
+      "issuerAddressPlaceholder": "Dirección fiscal completa"
     }
   },
   "planPermissions": {
