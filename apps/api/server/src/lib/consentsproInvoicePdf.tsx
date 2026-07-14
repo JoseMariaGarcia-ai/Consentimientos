@@ -46,6 +46,13 @@ const styles = StyleSheet.create({
   totalLabel: { fontSize: 10, color: '#FFFFFF', fontFamily: 'Helvetica-Bold', textTransform: 'uppercase', letterSpacing: 0.5 },
   totalValue: { fontSize: 16, color: C.gold, fontFamily: 'Helvetica-Bold' },
 
+  reverseChargeBox: {
+    borderWidth: 0.5, borderColor: C.border, borderRadius: 4,
+    padding: 10, marginTop: 18,
+  },
+  reverseChargeLabel: { fontFamily: 'Helvetica-Bold', fontSize: 7.5, color: C.navy, marginBottom: 3, letterSpacing: 0.3 },
+  reverseChargeText: { fontSize: 7, color: C.slate, lineHeight: 1.5 },
+
   footer: {
     position: 'absolute', bottom: 16, left: 44, right: 44,
     borderTopWidth: 0.5, borderTopColor: C.border, paddingTop: 5,
@@ -53,6 +60,18 @@ const styles = StyleSheet.create({
   },
   footerText: { fontSize: 6.5, color: C.muted },
 })
+
+// Nota legal fija: la sociedad emisora está constituida en EEUU, sin
+// establecimiento permanente en España/UE, y presta servicios digitales a
+// clínicas (empresarios/profesionales) establecidas en España — la
+// operación se localiza en destino (art. 69.Uno.1º LIVA / art. 44 Directiva
+// 2006/112/CE) y es el destinatario quien autoliquida el IVA por inversión
+// del sujeto pasivo (art. 84.Uno.2º.a) LIVA / art. 196 Directiva 2006/112/CE),
+// por eso esta factura no repercute IVA — no es una "exención", es un
+// cambio de quién debe declararlo.
+function reverseChargeNote(issuerName: string): string {
+  return `${issuerName} es una entidad no establecida en el territorio de aplicación del impuesto (Estados Unidos) que presta servicios electrónicos a un empresario o profesional establecido en España. De acuerdo con los artículos 69.Uno.1º y 84.Uno.2º.a) de la Ley 37/1992 del Impuesto sobre el Valor Añadido, en relación con los artículos 44 y 196 de la Directiva 2006/112/CE del Consejo, de 28 de noviembre de 2006, corresponde al destinatario la autoliquidación del impuesto (inversión del sujeto pasivo).`
+}
 
 export interface ConsentsProInvoiceData {
   invoiceNumber: string
@@ -139,6 +158,11 @@ function ConsentsProInvoicePdf({ data }: { data: ConsentsProInvoiceData }) {
             <Text style={styles.totalLabel}>Total factura</Text>
             <Text style={styles.totalValue}>{fmtMoney(data.totalAmountCents)}</Text>
           </View>
+        </View>
+
+        <View style={styles.reverseChargeBox}>
+          <Text style={styles.reverseChargeLabel}>IVA NO REPERCUTIDO — INVERSIÓN DEL SUJETO PASIVO</Text>
+          <Text style={styles.reverseChargeText}>{reverseChargeNote(data.issuerName)}</Text>
         </View>
 
         <View style={styles.footer}>
