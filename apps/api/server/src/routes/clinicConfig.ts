@@ -111,6 +111,32 @@ router.put('/ai-provider', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET/PUT /api/clinic-config/issuer-tax-id — NIF/CIF de ConsentsPro que
+// aparece en las facturas propias de suscripción (routes/billing.ts,
+// invoice.paid). No se puede leer en vivo de la API de Stripe (solo
+// confirma si está puesto, no el valor) — se configura aquí una vez.
+router.get('/issuer-tax-id', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const row = await queryOne<{ value: string }>("SELECT value FROM system_settings WHERE key = 'consentspro_issuer_tax_id'")
+    return res.json({ taxId: row?.value ?? '' })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.put('/issuer-tax-id', async (req, res) => {
+  try {
+    if (!(await isSuperAdmin(req))) return res.status(403).json({ error: 'Solo superadmin' })
+    const { taxId } = req.body
+    if (typeof taxId !== 'string' || !taxId.trim()) return res.status(400).json({ error: 'NIF/CIF requerido' })
+    await query(
+      `INSERT INTO system_settings (key, value) VALUES ('consentspro_issuer_tax_id', $1)
+       ON CONFLICT (key) DO UPDATE SET value = $1`,
+      [taxId.trim()]
+    )
+    return res.json({ taxId: taxId.trim() })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // GET/PUT /api/clinic-config/shared-ycloud-key — API Key del número único de
 // YCloud compartido por TODAS las clínicas (Parte A del enrutamiento de
 // WhatsApp) — distinta de la clave por clínica (ycloud_api_key), que sigue

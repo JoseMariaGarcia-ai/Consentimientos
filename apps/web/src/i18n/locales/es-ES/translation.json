@@ -1376,7 +1376,10 @@
       "sharedYcloudPlaceholder": "API Key de YCloud",
       "sharedYcloudConfigured": "Configurada",
       "sharedYcloudNotConfigured": "Todavía no configurada",
-      "sharedYcloudSave": "Guardar clave"
+      "sharedYcloudSave": "Guardar clave",
+      "issuerTaxIdTitle": "NIF/CIF de ConsentsPro en las facturas",
+      "issuerTaxIdHint": "Aparece en el PDF de las facturas de suscripción. Stripe no permite leer este dato por API (solo confirma si está puesto), así que se configura aquí una vez.",
+      "issuerTaxIdPlaceholder": "B12345678"
     }
   },
   "planPermissions": {

@@ -383,6 +383,59 @@ function SharedYCloudKeyPanel() {
   )
 }
 
+/* ─── NIF/CIF del emisor en las facturas de suscripción (sistema) ──── */
+function IssuerTaxIdPanel() {
+  const { t } = useTranslation()
+  const [taxId, setTaxId] = useState<string | null>(null)
+  const [draft, setDraft] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  useEffect(() => {
+    api.get('/clinic-config/issuer-tax-id').then((r: any) => { setTaxId(r?.taxId ?? ''); setDraft(r?.taxId ?? '') }).catch(() => setTaxId(''))
+  }, [])
+
+  const handleSave = async () => {
+    if (!draft.trim()) return
+    setSaving(true); setSaved(false)
+    try {
+      await api.put('/clinic-config/issuer-tax-id', { taxId: draft })
+      setTaxId(draft.trim())
+      setSaved(true)
+    } finally { setSaving(false) }
+  }
+
+  if (taxId === null) return null
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <Sparkles className="w-4 h-4 text-purple-500" />
+        <p className="text-sm font-bold text-slate-700">{t('settings.apiKeys.issuerTaxIdTitle')}</p>
+        <span className="ml-auto text-xs text-slate-400 bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full font-medium">{t('settings.apiKeys.superadminOnly')}</span>
+      </div>
+      <p className="text-xs text-slate-400">{t('settings.apiKeys.issuerTaxIdHint')}</p>
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          value={draft}
+          onChange={e => setDraft(e.target.value)}
+          placeholder={t('settings.apiKeys.issuerTaxIdPlaceholder')}
+          className="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <button
+          onClick={handleSave}
+          disabled={saving || !draft.trim()}
+          className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition-colors disabled:opacity-60"
+        >
+          {saving ? t('common.saving') : t('common.save')}
+        </button>
+      </div>
+      {saved && <p className="text-xs text-emerald-600 font-medium">✓ {t('settings.apiKeys.saved')}</p>}
+    </div>
+  )
+}
+
 /* ─── Clinic Keys Panel (superadmin only) ─────────────────────────── */
 function ClinicKeysPanel() {
   const { t } = useTranslation()
@@ -529,6 +582,7 @@ function ClinicKeysPanel() {
     <div className="flex flex-col gap-5">
       <AiProviderSwitch />
       <SharedYCloudKeyPanel />
+      <IssuerTaxIdPanel />
 
       {/* Clinic selector */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-3">
