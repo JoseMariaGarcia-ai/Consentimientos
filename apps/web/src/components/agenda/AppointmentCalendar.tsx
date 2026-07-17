@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ChevronLeft, ChevronRight, Plus, CalendarRange } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, CalendarRange, CheckCircle2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { AppointmentModal } from './AppointmentModal'
 import { MonthView } from './MonthView'
+import { treatmentColorStyle } from '@/lib/treatmentColors'
 
 const START_HOUR = 8
 const END_HOUR = 20
@@ -72,10 +73,10 @@ function assignLanes(appts: any[]) {
   return withLane.map(a => ({ ...a, totalLanes }))
 }
 
-const STATUS_COLOR: Record<string, string> = {
-  scheduled: 'bg-blue-100 border-blue-300 text-blue-800',
-  completed: 'bg-emerald-100 border-emerald-300 text-emerald-800',
-  cancelled: 'bg-slate-100 border-slate-300 text-slate-400 line-through',
+const STATUS_CLASS: Record<string, string> = {
+  scheduled: '',
+  completed: '',
+  cancelled: 'opacity-50 line-through grayscale',
 }
 
 export function AppointmentCalendar() {
@@ -307,16 +308,18 @@ export function AppointmentCalendar() {
                   const height = Math.max((durationMin / SLOT_MINUTES) * ROW_HEIGHT - 2, ROW_HEIGHT - 4)
                   const widthPct = 100 / a.totalLanes
                   const leftPct = a.lane * widthPct
-                  const colorClass = STATUS_COLOR[a.status] ?? STATUS_COLOR.scheduled
+                  const statusClass = STATUS_CLASS[a.status] ?? STATUS_CLASS.scheduled
+                  const colorStyle = treatmentColorStyle(a.treatment?.color)
                   return (
                     <button
                       key={a.id}
                       type="button"
                       onClick={() => openEdit(a)}
-                      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm hover:shadow-md transition-shadow ${colorClass}`}
-                      style={{ top: top + 1, height, left: `calc(${leftPct}% + 2px)`, width: `calc(${widthPct}% - 4px)` }}
+                      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm hover:shadow-md transition-shadow ${statusClass}`}
+                      style={{ top: top + 1, height, left: `calc(${leftPct}% + 2px)`, width: `calc(${widthPct}% - 4px)`, ...colorStyle }}
                     >
-                      <p className="text-xs font-semibold truncate">
+                      <p className="text-xs font-semibold truncate flex items-center gap-1">
+                        {a.status === 'completed' && <CheckCircle2 className="w-3 h-3 flex-shrink-0" />}
                         {a.treatment?.name ?? t('appointmentCalendar.treatment_fallback')}
                         {a.treatment?.price != null && <span className="font-normal"> · {Number(a.treatment.price).toFixed(2)} €</span>}
                       </p>

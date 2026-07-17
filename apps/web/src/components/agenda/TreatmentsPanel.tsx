@@ -1,13 +1,42 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Plus, Pencil, Trash2, Stethoscope, Clock, Euro, X } from 'lucide-react'
+import { Plus, Pencil, Trash2, Stethoscope, Clock, Euro, X, Check } from 'lucide-react'
 import { api } from '@/lib/api'
+import { TREATMENT_COLOR_KEYS, DEFAULT_TREATMENT_COLOR, treatmentColorDef, treatmentColorStyle } from '@/lib/treatmentColors'
 
 interface Treatment {
   id: string
   name: string
   duration_minutes: number
   price: number
+  color: string
+}
+
+function ColorPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const { t } = useTranslation()
+  return (
+    <div className="flex flex-col gap-1">
+      <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('treatmentsPanel.form.color')}</label>
+      <div className="flex flex-wrap gap-2">
+        {TREATMENT_COLOR_KEYS.map(key => {
+          const c = treatmentColorDef(key)
+          const selected = value === key
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={() => onChange(key)}
+              aria-label={key}
+              className="w-8 h-8 rounded-full flex items-center justify-center transition-transform"
+              style={{ backgroundColor: c.bg, border: `2px solid ${selected ? c.text : c.border}`, transform: selected ? 'scale(1.1)' : undefined }}
+            >
+              {selected && <Check className="w-4 h-4" style={{ color: c.text }} />}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 function TreatmentForm({ initial, onSave, onClose }: { initial: Partial<Treatment>; onSave: (d: any) => Promise<void>; onClose: () => void }) {
@@ -16,6 +45,7 @@ function TreatmentForm({ initial, onSave, onClose }: { initial: Partial<Treatmen
     name: initial.name ?? '',
     duration_minutes: initial.duration_minutes ?? 30,
     price: initial.price ?? 0,
+    color: initial.color ?? DEFAULT_TREATMENT_COLOR,
   })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -73,6 +103,7 @@ function TreatmentForm({ initial, onSave, onClose }: { initial: Partial<Treatmen
               />
             </div>
           </div>
+          <ColorPicker value={form.color} onChange={v => setForm(f => ({ ...f, color: v }))} />
           {error && <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
           <div className="flex justify-end gap-3 pt-2 border-t border-slate-100">
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('treatmentsPanel.form.cancel')}</button>
@@ -134,21 +165,24 @@ export function TreatmentsPanel() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {treatments.map(tr => (
-            <div key={tr.id} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-2">
+          {treatments.map(tr => {
+            const c = treatmentColorDef(tr.color)
+            return (
+            <div key={tr.id} className="rounded-2xl p-4 shadow-sm flex flex-col gap-2 border" style={{ backgroundColor: c.bg, borderColor: c.border }}>
               <div className="flex items-start justify-between gap-2">
-                <p className="font-semibold text-slate-800">{tr.name}</p>
+                <p className="font-semibold" style={{ color: c.text }}>{tr.name}</p>
                 <div className="flex gap-1 flex-shrink-0">
-                  <button onClick={() => setForm({ open: true, treatment: tr })} className="p-1.5 text-slate-400 hover:text-blue-600 rounded-lg hover:bg-blue-50"><Pencil className="w-4 h-4" /></button>
-                  <button onClick={() => handleDelete(tr.id)} className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => setForm({ open: true, treatment: tr })} className="p-1.5 rounded-lg hover:bg-white/60" style={{ color: c.text }}><Pencil className="w-4 h-4" /></button>
+                  <button onClick={() => handleDelete(tr.id)} className="p-1.5 text-red-500 rounded-lg hover:bg-white/60"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
-              <div className="flex items-center gap-4 text-sm text-slate-500">
+              <div className="flex items-center gap-4 text-sm" style={{ color: c.text, opacity: 0.85 }}>
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{t('treatmentsPanel.duration_display', { duration: tr.duration_minutes })}</span>
                 <span className="flex items-center gap-1"><Euro className="w-3.5 h-3.5" />{t('treatmentsPanel.price_display', { price: Number(tr.price).toFixed(2) })}</span>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       )}
 

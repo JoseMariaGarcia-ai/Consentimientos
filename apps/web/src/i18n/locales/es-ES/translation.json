@@ -387,6 +387,7 @@
       "name_placeholder": "Ej: Toxina botulínica",
       "duration": "Duración (min)",
       "price": "Precio (€)",
+      "color": "Color",
       "validation_name_required": "El nombre es obligatorio",
       "error_unknown": "Error desconocido",
       "cancel": "Cancelar",
