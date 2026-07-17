@@ -332,6 +332,8 @@
     "view_month": "Näytä kuukausi",
     "today": "Tänään",
     "new_appointment": "Uusi käynti",
+    "drag_hint": "Vedä muuttaaksesi aikaa tai napauta muokataksesi",
+    "drag_error": "Ajanvarausta ei voitu siirtää tuohon aikaan",
     "no_treatments_warning": "Hoitoja ei ole vielä luotu. Siirry välilehdelle \"Hoidot\" luodaksesi ensimmäisen ennen käyntien varaamista.",
     "day_closed_notice": "Tämä päivä on merkitty suljetuksi Ajanvarauksen suunnittelussa. Voit tarkistaa tai avata sen kyseiseltä välilehdeltä.",
     "slot_aria_label": "Varaa aika klo {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "040 000 0000",
     "unknown_error": "Tuntematon virhe",
     "count_registered": "{{count}} rekisteröityä",
-    "license_display": "Nro {{number}}"
+    "license_display": "Nro {{number}}",
+    "photo_upload": "Lataa kuva",
+    "photo_remove": "Poista",
+    "photo_upload_error": "Kuvan lataus epäonnistui"
   },
   "consents": {
     "title": "Suostumukset",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Vastuulääkäri",
     "legal_framework_title": "Oikeudellinen kehys — {{jurisdiction}}",
     "witness_required_notice": "Tämä maa vaatii todistajan allekirjoitusta varten",
+    "image_auth_title": "Kuvien käyttölupa",
+    "image_auth_educational": "Annan luvan käyttää kuviani koulutus- tai tieteellisiin tarkoituksiin",
+    "image_auth_marketing": "Annan luvan käyttää kuviani mainos- tai markkinointitarkoituksiin",
     "back": "← Takaisin",
     "sign_arrow": "Allekirjoita →",
     "doctor_signature_title": "Lääkärin allekirjoitus",
@@ -1331,7 +1339,8 @@
       "retry": "Yritä uudelleen",
       "plan": "Suunnitelma",
       "plan_hint": "Käyttöoikeudet otetaan käyttöön automaattisesti valitun suunnitelman mukaan. Voit muokata niitä kohdassa Asetukset → Tilaussuunnitelmat.",
-      "plan_required": "Valitse suunnitelma"
+      "plan_required": "Valitse suunnitelma",
+      "delete_error": "Käyttäjää ei voitu poistaa"
     },
     "media": {
       "title": "Mainosmedian hallinta",

@@ -332,6 +332,8 @@
     "view_month": "Xem tháng",
     "today": "Hôm nay",
     "new_appointment": "Lịch hẹn mới",
+    "drag_hint": "Kéo để đổi giờ, hoặc chạm để chỉnh sửa",
+    "drag_error": "Không thể chuyển lịch hẹn sang giờ đó",
     "no_treatments_warning": "Chưa có điều trị nào được tạo. Vào tab \"Điều trị\" để tạo cái đầu tiên trước khi đặt lịch hẹn.",
     "day_closed_notice": "Ngày này được đánh dấu là đóng cửa trong Lập kế hoạch lịch trình. Bạn có thể xem lại hoặc mở nó từ tab đó.",
     "slot_aria_label": "Đặt lịch lúc {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "0900 000 000",
     "unknown_error": "Lỗi không xác định",
     "count_registered": "{{count}} đã đăng ký",
-    "license_display": "Số {{number}}"
+    "license_display": "Số {{number}}",
+    "photo_upload": "Tải ảnh lên",
+    "photo_remove": "Xóa",
+    "photo_upload_error": "Không thể tải ảnh lên"
   },
   "consents": {
     "title": "Chấp thuận",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Bác sĩ phụ trách",
     "legal_framework_title": "Khung pháp lý — {{jurisdiction}}",
     "witness_required_notice": "Quốc gia này yêu cầu người làm chứng cho chữ ký",
+    "image_auth_title": "Cho phép sử dụng hình ảnh",
+    "image_auth_educational": "Tôi cho phép sử dụng hình ảnh của mình cho mục đích giáo dục hoặc khoa học",
+    "image_auth_marketing": "Tôi cho phép sử dụng hình ảnh của mình cho mục đích quảng cáo hoặc truyền thông",
     "back": "← Quay lại",
     "sign_arrow": "Ký →",
     "doctor_signature_title": "Chữ ký bác sĩ",
@@ -1331,7 +1339,8 @@
       "retry": "Thử lại",
       "plan": "Gói",
       "plan_hint": "Quyền truy cập được áp dụng tự động theo gói đã chọn. Bạn có thể điều chỉnh trong Cài đặt → Gói Đăng Ký.",
-      "plan_required": "Chọn một gói"
+      "plan_required": "Chọn một gói",
+      "delete_error": "Không thể xóa người dùng"
     },
     "media": {
       "title": "Quản lý nội dung quảng cáo",

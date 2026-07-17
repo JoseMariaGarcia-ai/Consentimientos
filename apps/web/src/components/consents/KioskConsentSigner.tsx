@@ -4,6 +4,7 @@ import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
 import { useLanguageStore } from '@/store/languageStore'
 import { deviceApi } from '@/lib/deviceAuth'
+import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
 
 type Step = 'preview' | 'sign_doctor' | 'sign_patient' | 'done'
 
@@ -17,6 +18,8 @@ export function KioskConsentSigner({ consent, onDone }: KioskConsentSignerProps)
   const { setLanguage } = useLanguageStore()
   const [step, setStep] = useState<Step>('preview')
   const [acceptedLegal, setAcceptedLegal] = useState(false)
+  const [imageAuthEducational, setImageAuthEducational] = useState(false)
+  const [imageAuthMarketing, setImageAuthMarketing] = useState(false)
   const [saving, setSaving] = useState(false)
 
   // The consent was presented to the patient in a specific language on the
@@ -46,6 +49,8 @@ export function KioskConsentSigner({ consent, onDone }: KioskConsentSignerProps)
         signature_data_url: dataUrl,
         biometric_json: JSON.stringify(points),
         client_timestamp: new Date().toISOString(),
+        image_auth_educational: imageAuthEducational,
+        image_auth_marketing: imageAuthMarketing,
       })
       setStep('done')
       setTimeout(onDone, 2500)
@@ -92,6 +97,34 @@ export function KioskConsentSigner({ consent, onDone }: KioskConsentSignerProps)
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-4">
                 <p className="text-xs text-amber-700 leading-relaxed">{legalData.rightsText}</p>
               </div>
+
+              {(hasEducationalImageClause(legalData.body) || hasMarketingImageClause(legalData.body)) && (
+                <div className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col gap-3">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('consents.image_auth_title')}</p>
+                  {hasEducationalImageClause(legalData.body) && (
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={imageAuthEducational}
+                        onChange={e => setImageAuthEducational(e.target.checked)}
+                        className="mt-0.5 w-5 h-5 rounded accent-blue-600"
+                      />
+                      <span className="text-sm text-slate-700">{t('consents.image_auth_educational')}</span>
+                    </label>
+                  )}
+                  {hasMarketingImageClause(legalData.body) && (
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={imageAuthMarketing}
+                        onChange={e => setImageAuthMarketing(e.target.checked)}
+                        className="mt-0.5 w-5 h-5 rounded accent-blue-600"
+                      />
+                      <span className="text-sm text-slate-700">{t('consents.image_auth_marketing')}</span>
+                    </label>
+                  )}
+                </div>
+              )}
 
               <label className="flex items-start gap-3 cursor-pointer bg-white border border-slate-200 rounded-xl p-4">
                 <input

@@ -332,6 +332,8 @@
     "view_month": "Hónap megtekintése",
     "today": "Ma",
     "new_appointment": "Új időpont",
+    "drag_hint": "Húzza az időpont módosításához, vagy koppintson a szerkesztéshez",
+    "drag_error": "Az időpontot nem sikerült áthelyezni erre az időre",
     "no_treatments_warning": "Még nincsenek létrehozott kezelések. Menjen a \"Kezelések\" fülre, hogy létrehozza az elsőt, mielőtt időpontot foglalna.",
     "day_closed_notice": "Ez a nap zártként van megjelölve a Naptártervezésben. Ellenőrizheti vagy megnyithatja azt a fülről.",
     "slot_aria_label": "Időpont foglalása: {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "+36 20 123 4567",
     "unknown_error": "Ismeretlen hiba",
     "count_registered": "{{count}} regisztrálva",
-    "license_display": "Sz. {{number}}"
+    "license_display": "Sz. {{number}}",
+    "photo_upload": "Fénykép feltöltése",
+    "photo_remove": "Eltávolítás",
+    "photo_upload_error": "A fénykép feltöltése sikertelen"
   },
   "consents": {
     "title": "Beleegyezések",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Felelős orvos",
     "legal_framework_title": "Jogi keret — {{jurisdiction}}",
     "witness_required_notice": "Ez az ország tanút igényel az aláíráshoz",
+    "image_auth_title": "Képfelhasználási engedély",
+    "image_auth_educational": "Engedélyezem képeim felhasználását oktatási vagy tudományos célokra",
+    "image_auth_marketing": "Engedélyezem képeim felhasználását reklám- vagy promóciós célokra",
     "back": "← Vissza",
     "sign_arrow": "Aláírás →",
     "doctor_signature_title": "Orvos aláírása",
@@ -1331,7 +1339,8 @@
       "retry": "Újrapróbálkozás",
       "plan": "Csomag",
       "plan_hint": "A hozzáférési jogosultságok automatikusan érvénybe lépnek a kiválasztott csomag alapján. Ezeket a Beállítások → Előfizetési Csomagok menüben módosíthatja.",
-      "plan_required": "Válasszon csomagot"
+      "plan_required": "Válasszon csomagot",
+      "delete_error": "A felhasználót nem sikerült törölni"
     },
     "media": {
       "title": "Reklámmédia-kezelés",

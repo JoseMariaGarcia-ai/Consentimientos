@@ -332,6 +332,8 @@
     "view_month": "Maand bekijken",
     "today": "Vandaag",
     "new_appointment": "Nieuwe afspraak",
+    "drag_hint": "Sleep om de tijd te wijzigen, of tik om te bewerken",
+    "drag_error": "Kon de afspraak niet naar dat tijdstip verplaatsen",
     "no_treatments_warning": "Er zijn nog geen behandelingen aangemaakt. Ga naar het tabblad \"Behandelingen\" om de eerste aan te maken voordat u afspraken plant.",
     "day_closed_notice": "Deze dag is gemarkeerd als gesloten in de Agendaplanning. U kunt dit controleren of openen vanaf dat tabblad.",
     "slot_aria_label": "Afspraak plannen om {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "06 00000000",
     "unknown_error": "Onbekende fout",
     "count_registered": "{{count}} geregistreerd",
-    "license_display": "Nr. {{number}}"
+    "license_display": "Nr. {{number}}",
+    "photo_upload": "Foto uploaden",
+    "photo_remove": "Verwijderen",
+    "photo_upload_error": "Foto kon niet worden geüpload"
   },
   "consents": {
     "title": "Toestemmingen",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Verantwoordelijke arts",
     "legal_framework_title": "Juridisch Kader — {{jurisdiction}}",
     "witness_required_notice": "Dit land vereist een getuige voor de ondertekening",
+    "image_auth_title": "Toestemming voor gebruik van afbeeldingen",
+    "image_auth_educational": "Ik geef toestemming voor het gebruik van mijn beelden voor educatieve of wetenschappelijke doeleinden",
+    "image_auth_marketing": "Ik geef toestemming voor het gebruik van mijn beelden voor reclame- of promotiedoeleinden",
     "back": "← Terug",
     "sign_arrow": "Ondertekenen →",
     "doctor_signature_title": "Handtekening van de arts",
@@ -1331,7 +1339,8 @@
       "retry": "Opnieuw proberen",
       "plan": "Abonnement",
       "plan_hint": "Toegangsrechten worden automatisch toegepast op basis van het geselecteerde abonnement. Je kunt ze aanpassen bij Instellingen → Abonnementen.",
-      "plan_required": "Selecteer een abonnement"
+      "plan_required": "Selecteer een abonnement",
+      "delete_error": "Kon de gebruiker niet verwijderen"
     },
     "media": {
       "title": "Beheer van reclamemedia",

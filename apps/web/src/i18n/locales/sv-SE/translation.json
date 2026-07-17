@@ -332,6 +332,8 @@
     "view_month": "Visa månad",
     "today": "Idag",
     "new_appointment": "Ny bokning",
+    "drag_hint": "Dra för att ändra tiden, eller tryck för att redigera",
+    "drag_error": "Det gick inte att flytta bokningen till den tiden",
     "no_treatments_warning": "Inga behandlingar har skapats än. Gå till fliken \"Behandlingar\" för att skapa den första innan du bokar tider.",
     "day_closed_notice": "Den här dagen är markerad som stängd i Schemaplaneringen. Du kan granska eller öppna den från den fliken.",
     "slot_aria_label": "Boka kl. {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "070 000 00 00",
     "unknown_error": "Okänt fel",
     "count_registered": "{{count}} registrerade",
-    "license_display": "Nr {{number}}"
+    "license_display": "Nr {{number}}",
+    "photo_upload": "Ladda upp foto",
+    "photo_remove": "Ta bort",
+    "photo_upload_error": "Det gick inte att ladda upp fotot"
   },
   "consents": {
     "title": "Samtycken",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Ansvarig läkare",
     "legal_framework_title": "Juridisk ram — {{jurisdiction}}",
     "witness_required_notice": "Detta land kräver vittne för signeringen",
+    "image_auth_title": "Tillstånd för bildanvändning",
+    "image_auth_educational": "Jag godkänner användning av mina bilder för utbildnings- eller vetenskapliga ändamål",
+    "image_auth_marketing": "Jag godkänner användning av mina bilder för reklam- eller marknadsföringsändamål",
     "back": "← Tillbaka",
     "sign_arrow": "Signera →",
     "doctor_signature_title": "Läkarens signatur",
@@ -1331,7 +1339,8 @@
       "retry": "Försök igen",
       "plan": "Plan",
       "plan_hint": "Åtkomstbehörigheter tillämpas automatiskt utifrån den valda planen. Du kan justera dem under Inställningar → Abonnemangsplaner.",
-      "plan_required": "Välj en plan"
+      "plan_required": "Välj en plan",
+      "delete_error": "Det gick inte att ta bort användaren"
     },
     "media": {
       "title": "Hantering av reklammedia",

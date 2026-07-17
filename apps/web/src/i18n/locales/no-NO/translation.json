@@ -332,6 +332,8 @@
     "view_month": "Vis måned",
     "today": "I dag",
     "new_appointment": "Ny time",
+    "drag_hint": "Dra for å endre tidspunktet, eller trykk for å redigere",
+    "drag_error": "Kunne ikke flytte timen til det tidspunktet",
     "no_treatments_warning": "Det er ennå ikke opprettet noen behandlinger. Gå til fanen «Behandlinger» for å opprette den første før du booker timer.",
     "day_closed_notice": "Denne dagen er markert som stengt i Timeplanlegging. Du kan se på eller åpne den fra den fanen.",
     "slot_aria_label": "Book time kl. {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "600 00 000",
     "unknown_error": "Ukjent feil",
     "count_registered": "{{count}} registrert",
-    "license_display": "Nr. {{number}}"
+    "license_display": "Nr. {{number}}",
+    "photo_upload": "Last opp bilde",
+    "photo_remove": "Fjern",
+    "photo_upload_error": "Kunne ikke laste opp bildet"
   },
   "consents": {
     "title": "Samtykker",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Ansvarlig lege",
     "legal_framework_title": "Juridisk Rammeverk — {{jurisdiction}}",
     "witness_required_notice": "Dette landet krever vitne for signaturen",
+    "image_auth_title": "Tillatelse til bruk av bilder",
+    "image_auth_educational": "Jeg gir tillatelse til bruk av bildene mine til utdannings- eller vitenskapelige formål",
+    "image_auth_marketing": "Jeg gir tillatelse til bruk av bildene mine til reklame- eller markedsføringsformål",
     "back": "← Tilbake",
     "sign_arrow": "Signer →",
     "doctor_signature_title": "Legens signatur",
@@ -1331,7 +1339,8 @@
       "retry": "Prøv igjen",
       "plan": "Plan",
       "plan_hint": "Tilgangstillatelser brukes automatisk basert på den valgte planen. Du kan justere dem under Innstillinger → Abonnementsplaner.",
-      "plan_required": "Velg en plan"
+      "plan_required": "Velg en plan",
+      "delete_error": "Kunne ikke slette brukeren"
     },
     "media": {
       "title": "Administrasjon av reklamemateriell",

@@ -7,6 +7,7 @@ import type { Patient, Doctor, ConsentTemplate } from '@consentspro/shared-types
 import { useLanguageStore } from '@/store/languageStore'
 import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
 import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
+import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -33,6 +34,8 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [templateId, setTemplateId] = useState(continueRecord?.template_id ?? continueRecord?.templateId ?? '')
   const [step, setStep] = useState<Step>(continueRecord ? 'sign_doctor' : 'form')
   const [acceptedLegal, setAcceptedLegal] = useState(false)
+  const [imageAuthEducational, setImageAuthEducational] = useState(false)
+  const [imageAuthMarketing, setImageAuthMarketing] = useState(false)
   const [consentId, setConsentId] = useState(continueRecord?.id ?? '')
   const [saving, setSaving] = useState(false)
   const [translating, setTranslating] = useState(false)
@@ -162,6 +165,8 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
         signature_data_url: dataUrl,
         biometric_json: JSON.stringify(points),
         client_timestamp: new Date().toISOString(),
+        image_auth_educational: imageAuthEducational,
+        image_auth_marketing: imageAuthMarketing,
       })
       setStep('done')
       triggerWelcome('consent')
@@ -331,6 +336,34 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
               {legalData.witnessRequired && (
                 <div className="border border-orange-200 bg-orange-50 rounded-xl p-3">
                   <p className="text-xs font-semibold text-orange-700">⚠ {t('consents.witness_required_notice')}</p>
+                </div>
+              )}
+
+              {(hasEducationalImageClause(legalData.body) || hasMarketingImageClause(legalData.body)) && (
+                <div className="border border-slate-200 rounded-xl p-4 flex flex-col gap-3">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('consents.image_auth_title')}</p>
+                  {hasEducationalImageClause(legalData.body) && (
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={imageAuthEducational}
+                        onChange={e => setImageAuthEducational(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded accent-blue-600"
+                      />
+                      <span className="text-sm text-slate-700">{t('consents.image_auth_educational')}</span>
+                    </label>
+                  )}
+                  {hasMarketingImageClause(legalData.body) && (
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={imageAuthMarketing}
+                        onChange={e => setImageAuthMarketing(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded accent-blue-600"
+                      />
+                      <span className="text-sm text-slate-700">{t('consents.image_auth_marketing')}</span>
+                    </label>
+                  )}
                 </div>
               )}
 

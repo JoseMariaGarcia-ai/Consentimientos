@@ -332,6 +332,8 @@
     "view_month": "View month",
     "today": "Today",
     "new_appointment": "New appointment",
+    "drag_hint": "Drag to change the time, or tap to edit",
+    "drag_error": "Could not move the appointment to that time",
     "no_treatments_warning": "No treatments have been created yet. Go to the \"Treatments\" tab to create the first one before booking appointments.",
     "day_closed_notice": "This day is marked as closed in the Schedule Planning. You can review or open it from that tab.",
     "slot_aria_label": "Book at {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "07700 900000",
     "unknown_error": "Unknown error",
     "count_registered": "{{count}} registered",
-    "license_display": "No. {{number}}"
+    "license_display": "No. {{number}}",
+    "photo_upload": "Upload photo",
+    "photo_remove": "Remove",
+    "photo_upload_error": "Could not upload photo"
   },
   "consents": {
     "title": "Consents",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Responsible doctor",
     "legal_framework_title": "Legal Framework — {{jurisdiction}}",
     "witness_required_notice": "This country requires a witness for the signature",
+    "image_auth_title": "Image use authorisation",
+    "image_auth_educational": "I authorise the use of my images for educational or scientific purposes",
+    "image_auth_marketing": "I authorise the use of my images for advertising or promotional purposes",
     "back": "← Back",
     "sign_arrow": "Sign →",
     "doctor_signature_title": "Doctor's signature",
@@ -1331,7 +1339,8 @@
       "retry": "Retry",
       "plan": "Plan",
       "plan_hint": "Access permissions are applied automatically based on the selected plan. You can adjust them in Settings → Subscription Plans.",
-      "plan_required": "Select a plan"
+      "plan_required": "Select a plan",
+      "delete_error": "Could not delete the user"
     },
     "media": {
       "title": "Advertising media management",

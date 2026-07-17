@@ -332,6 +332,8 @@
     "view_month": "Zobacz miesiąc",
     "today": "Dziś",
     "new_appointment": "Nowa wizyta",
+    "drag_hint": "Przeciągnij, aby zmienić godzinę, lub dotknij, aby edytować",
+    "drag_error": "Nie udało się przenieść wizyty na tę godzinę",
     "no_treatments_warning": "Nie utworzono jeszcze żadnych zabiegów. Przejdź do zakładki \"Zabiegi\", aby utworzyć pierwszy przed umówieniem wizyt.",
     "day_closed_notice": "Ten dzień jest oznaczony jako zamknięty w Planowaniu Grafiku. Możesz to sprawdzić lub otworzyć z tej zakładki.",
     "slot_aria_label": "Umów na {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "600 000 000",
     "unknown_error": "Nieznany błąd",
     "count_registered": "{{count}} zarejestrowanych",
-    "license_display": "Nr {{number}}"
+    "license_display": "Nr {{number}}",
+    "photo_upload": "Prześlij zdjęcie",
+    "photo_remove": "Usuń",
+    "photo_upload_error": "Nie udało się przesłać zdjęcia"
   },
   "consents": {
     "title": "Zgody",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Lekarz odpowiedzialny",
     "legal_framework_title": "Ramy Prawne — {{jurisdiction}}",
     "witness_required_notice": "Ten kraj wymaga świadka do podpisu",
+    "image_auth_title": "Zgoda na wykorzystanie wizerunku",
+    "image_auth_educational": "Wyrażam zgodę na wykorzystanie moich zdjęć w celach edukacyjnych lub naukowych",
+    "image_auth_marketing": "Wyrażam zgodę na wykorzystanie moich zdjęć w celach reklamowych lub promocyjnych",
     "back": "← Wstecz",
     "sign_arrow": "Podpisz →",
     "doctor_signature_title": "Podpis lekarza",
@@ -1331,7 +1339,8 @@
       "retry": "Ponów",
       "plan": "Plan",
       "plan_hint": "Uprawnienia dostępu są stosowane automatycznie w zależności od wybranego planu. Możesz je dostosować w Ustawienia → Plany Subskrypcji.",
-      "plan_required": "Wybierz plan"
+      "plan_required": "Wybierz plan",
+      "delete_error": "Nie udało się usunąć użytkownika"
     },
     "media": {
       "title": "Zarządzanie mediami reklamowymi",

@@ -332,6 +332,8 @@
     "view_month": "Monat anzeigen",
     "today": "Heute",
     "new_appointment": "Neuer Termin",
+    "drag_hint": "Ziehen, um die Uhrzeit zu ändern, oder tippen zum Bearbeiten",
+    "drag_error": "Der Termin konnte nicht auf diese Uhrzeit verschoben werden",
     "no_treatments_warning": "Es wurden noch keine Behandlungen erstellt. Gehen Sie zum Tab „Behandlungen“, um die erste zu erstellen, bevor Sie Termine vereinbaren.",
     "day_closed_notice": "Dieser Tag ist in der Terminplanung als geschlossen markiert. Sie können ihn in diesem Tab überprüfen oder öffnen.",
     "slot_aria_label": "Termin um {{time}} buchen",
@@ -716,7 +718,10 @@
     "phone_placeholder": "0151 1234567",
     "unknown_error": "Unbekannter Fehler",
     "count_registered": "{{count}} registriert",
-    "license_display": "Nr. {{number}}"
+    "license_display": "Nr. {{number}}",
+    "photo_upload": "Foto hochladen",
+    "photo_remove": "Entfernen",
+    "photo_upload_error": "Foto konnte nicht hochgeladen werden"
   },
   "consents": {
     "title": "Einwilligungen",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Verantwortlicher Arzt",
     "legal_framework_title": "Rechtlicher Rahmen — {{jurisdiction}}",
     "witness_required_notice": "Dieses Land erfordert einen Zeugen für die Unterschrift",
+    "image_auth_title": "Einwilligung zur Bildnutzung",
+    "image_auth_educational": "Ich erlaube die Nutzung meiner Bilder zu Bildungs- oder wissenschaftlichen Zwecken",
+    "image_auth_marketing": "Ich erlaube die Nutzung meiner Bilder zu Werbe- oder Kommunikationszwecken",
     "back": "← Zurück",
     "sign_arrow": "Unterschreiben →",
     "doctor_signature_title": "Unterschrift des Arztes",
@@ -1331,7 +1339,8 @@
       "retry": "Erneut versuchen",
       "plan": "Plan",
       "plan_hint": "Die Zugriffsberechtigungen werden automatisch entsprechend dem gewählten Plan angewendet. Sie können sie unter Einstellungen → Abo-Pläne anpassen.",
-      "plan_required": "Wählen Sie einen Plan aus"
+      "plan_required": "Wählen Sie einen Plan aus",
+      "delete_error": "Der Benutzer konnte nicht gelöscht werden"
     },
     "media": {
       "title": "Verwaltung der Werbemedien",

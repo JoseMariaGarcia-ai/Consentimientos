@@ -332,6 +332,8 @@
     "view_month": "Ver mês",
     "today": "Hoje",
     "new_appointment": "Nova marcação",
+    "drag_hint": "Arraste para mudar a hora, ou toque para editar",
+    "drag_error": "Não foi possível mover a consulta para essa hora",
     "no_treatments_warning": "Ainda não há tratamentos criados. Vá ao separador \"Tratamentos\" para criar o primeiro antes de marcar consultas.",
     "day_closed_notice": "Este dia está marcado como fechado no Planeamento de Agenda. Pode revê-lo ou abri-lo nesse separador.",
     "slot_aria_label": "Marcar às {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "912 345 678",
     "unknown_error": "Erro desconhecido",
     "count_registered": "{{count}} registados",
-    "license_display": "Nº {{number}}"
+    "license_display": "Nº {{number}}",
+    "photo_upload": "Carregar foto",
+    "photo_remove": "Remover",
+    "photo_upload_error": "Não foi possível carregar a foto"
   },
   "consents": {
     "title": "Consentimentos",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Médico responsável",
     "legal_framework_title": "Enquadramento Legal — {{jurisdiction}}",
     "witness_required_notice": "Este país requer testemunha para a assinatura",
+    "image_auth_title": "Autorização de uso de imagens",
+    "image_auth_educational": "Autorizo o uso das minhas imagens para fins formativos ou científicos",
+    "image_auth_marketing": "Autorizo o uso das minhas imagens para fins publicitários ou de divulgação",
     "back": "← Voltar",
     "sign_arrow": "Assinar →",
     "doctor_signature_title": "Assinatura do médico",
@@ -1331,7 +1339,8 @@
       "retry": "Tentar novamente",
       "plan": "Plano",
       "plan_hint": "As permissões de acesso são aplicadas automaticamente de acordo com o plano selecionado. Pode ajustá-las em Configuração → Planos de Subscrição.",
-      "plan_required": "Selecione um plano"
+      "plan_required": "Selecione um plano",
+      "delete_error": "Não foi possível eliminar o utilizador"
     },
     "media": {
       "title": "Gestão de meios publicitários",

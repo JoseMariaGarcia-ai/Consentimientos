@@ -332,6 +332,8 @@
     "view_month": "Ver mês",
     "today": "Hoje",
     "new_appointment": "Novo agendamento",
+    "drag_hint": "Arraste para mudar o horário, ou toque para editar",
+    "drag_error": "Não foi possível mover a consulta para esse horário",
     "no_treatments_warning": "Ainda não há tratamentos criados. Vá até a aba \"Tratamentos\" para criar o primeiro antes de agendar consultas.",
     "day_closed_notice": "Este dia está marcado como fechado no Planejamento de Agenda. Você pode revisá-lo ou abri-lo nessa aba.",
     "slot_aria_label": "Agendar às {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "(11) 91234-5678",
     "unknown_error": "Erro desconhecido",
     "count_registered": "{{count}} cadastrados",
-    "license_display": "Nº {{number}}"
+    "license_display": "Nº {{number}}",
+    "photo_upload": "Enviar foto",
+    "photo_remove": "Remover",
+    "photo_upload_error": "Não foi possível enviar a foto"
   },
   "consents": {
     "title": "Consentimentos",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Médico responsável",
     "legal_framework_title": "Marco Legal — {{jurisdiction}}",
     "witness_required_notice": "Este país exige testemunha para a assinatura",
+    "image_auth_title": "Autorização de uso de imagens",
+    "image_auth_educational": "Autorizo o uso das minhas imagens para fins educativos ou científicos",
+    "image_auth_marketing": "Autorizo o uso das minhas imagens para fins publicitários ou de divulgação",
     "back": "← Voltar",
     "sign_arrow": "Assinar →",
     "doctor_signature_title": "Assinatura do médico",
@@ -1331,7 +1339,8 @@
       "retry": "Tentar novamente",
       "plan": "Plano",
       "plan_hint": "As permissões de acesso são aplicadas automaticamente de acordo com o plano selecionado. Você pode ajustá-las em Configurações → Planos de Assinatura.",
-      "plan_required": "Selecione um plano"
+      "plan_required": "Selecione um plano",
+      "delete_error": "Não foi possível excluir o usuário"
     },
     "media": {
       "title": "Gestão de mídias publicitárias",

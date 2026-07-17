@@ -332,6 +332,8 @@
     "view_month": "Veure mes",
     "today": "Avui",
     "new_appointment": "Nova cita",
+    "drag_hint": "Arrossega per canviar l’hora, o prem per editar",
+    "drag_error": "No s’ha pogut moure la cita a aquesta hora",
     "no_treatments_warning": "Encara no hi ha tractaments creats. Vés a la pestanya \"Tractaments\" per crear el primer abans de programar cites.",
     "day_closed_notice": "Aquest dia està marcat com a tancat a la Planificació d'Agenda. Pots revisar-ho o obrir-ho des d'aquesta pestanya.",
     "slot_aria_label": "Programar a les {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "600 000 000",
     "unknown_error": "Error desconegut",
     "count_registered": "{{count}} registrats",
-    "license_display": "Núm. {{number}}"
+    "license_display": "Núm. {{number}}",
+    "photo_upload": "Pujar foto",
+    "photo_remove": "Treure",
+    "photo_upload_error": "No s’ha pogut pujar la foto"
   },
   "consents": {
     "title": "Consentiments",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Metge responsable",
     "legal_framework_title": "Marc Legal — {{jurisdiction}}",
     "witness_required_notice": "Aquest país requereix testimoni per a la signatura",
+    "image_auth_title": "Autorització d’ús d’imatges",
+    "image_auth_educational": "Autoritzo l’ús de les meves imatges amb fins formatius o científics",
+    "image_auth_marketing": "Autoritzo l’ús de les meves imatges amb fins publicitaris o de difusió",
     "back": "← Enrere",
     "sign_arrow": "Signar →",
     "doctor_signature_title": "Signatura del metge",
@@ -1331,7 +1339,8 @@
       "retry": "Reintentar",
       "plan": "Pla",
       "plan_hint": "Els permisos d'accés s'apliquen automàticament segons el pla seleccionat. Els pots ajustar a Configuració → Plans de Subscripció.",
-      "plan_required": "Selecciona un pla"
+      "plan_required": "Selecciona un pla",
+      "delete_error": "No s’ha pogut eliminar l’usuari"
     },
     "media": {
       "title": "Gestió de mitjans publicitaris",

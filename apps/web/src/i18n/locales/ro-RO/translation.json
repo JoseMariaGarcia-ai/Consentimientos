@@ -332,6 +332,8 @@
     "view_month": "Vezi luna",
     "today": "Azi",
     "new_appointment": "Programare nouă",
+    "drag_hint": "Trageți pentru a schimba ora sau atingeți pentru a edita",
+    "drag_error": "Programarea nu a putut fi mutată la acea oră",
     "no_treatments_warning": "Încă nu există tratamente create. Mergeți la fila „Tratamente” pentru a crea primul înainte de a programa întâlniri.",
     "day_closed_notice": "Această zi este marcată ca fiind închisă în Planificarea Agendei. O puteți revizui sau deschide din acea filă.",
     "slot_aria_label": "Programează la ora {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "0700 000 000",
     "unknown_error": "Eroare necunoscută",
     "count_registered": "{{count}} înregistrați",
-    "license_display": "Nr. {{number}}"
+    "license_display": "Nr. {{number}}",
+    "photo_upload": "Încarcă fotografie",
+    "photo_remove": "Elimină",
+    "photo_upload_error": "Fotografia nu a putut fi încărcată"
   },
   "consents": {
     "title": "Consimțăminte",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Medic responsabil",
     "legal_framework_title": "Cadru Legal — {{jurisdiction}}",
     "witness_required_notice": "Această țară necesită martor pentru semnătură",
+    "image_auth_title": "Autorizație de utilizare a imaginilor",
+    "image_auth_educational": "Autorizez utilizarea imaginilor mele în scopuri educaționale sau științifice",
+    "image_auth_marketing": "Autorizez utilizarea imaginilor mele în scopuri publicitare sau de promovare",
     "back": "← Înapoi",
     "sign_arrow": "Semnează →",
     "doctor_signature_title": "Semnătura medicului",
@@ -1331,7 +1339,8 @@
       "retry": "Reîncearcă",
       "plan": "Plan",
       "plan_hint": "Permisiunile de acces sunt aplicate automat în funcție de planul selectat. Le poți ajusta din Configurare → Planuri de Abonament.",
-      "plan_required": "Selectează un plan"
+      "plan_required": "Selectează un plan",
+      "delete_error": "Utilizatorul nu a putut fi șters"
     },
     "media": {
       "title": "Gestionarea materialelor publicitare",

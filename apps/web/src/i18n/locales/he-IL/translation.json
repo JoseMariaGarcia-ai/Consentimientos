@@ -332,6 +332,8 @@
     "view_month": "הצג חודש",
     "today": "היום",
     "new_appointment": "תור חדש",
+    "drag_hint": "גררו כדי לשנות את השעה, או הקישו לעריכה",
+    "drag_error": "לא ניתן היה להעביר את התור לשעה זו",
     "no_treatments_warning": "עדיין לא נוצרו טיפולים. עבור לכרטיסייה \"טיפולים\" כדי ליצור את הראשון לפני קביעת תורים.",
     "day_closed_notice": "יום זה מסומן כסגור בתכנון היומן. ניתן לבדוק או לפתוח אותו מאותה כרטיסייה.",
     "slot_aria_label": "קבע תור בשעה {{time}}",
@@ -672,7 +674,10 @@
     "phone_placeholder": "050-0000000",
     "unknown_error": "שגיאה לא ידועה",
     "count_registered": "{{count}} רשומים",
-    "license_display": "מס' {{number}}"
+    "license_display": "מס' {{number}}",
+    "photo_upload": "העלאת תמונה",
+    "photo_remove": "הסרה",
+    "photo_upload_error": "העלאת התמונה נכשלה"
   },
   "consents": {
     "title": "הסכמות",
@@ -695,6 +700,9 @@
     "responsible_doctor": "רופא אחראי",
     "legal_framework_title": "מסגרת משפטית — {{jurisdiction}}",
     "witness_required_notice": "מדינה זו דורשת עד לחתימה",
+    "image_auth_title": "אישור לשימוש בתמונות",
+    "image_auth_educational": "אני מאשר/ת שימוש בתמונותיי למטרות חינוכיות או מדעיות",
+    "image_auth_marketing": "אני מאשר/ת שימוש בתמונותיי למטרות פרסום או קידום",
     "back": "← חזרה",
     "sign_arrow": "חתום →",
     "doctor_signature_title": "חתימת הרופא",
@@ -1287,7 +1295,8 @@
       "retry": "נסה שוב",
       "plan": "תוכנית",
       "plan_hint": "הרשאות הגישה מוחלות אוטומטית בהתאם לתוכנית שנבחרה. ניתן לכוונן אותן בהגדרות ← תוכניות מנוי.",
-      "plan_required": "בחר תוכנית"
+      "plan_required": "בחר תוכנית",
+      "delete_error": "לא ניתן היה למחוק את המשתמש"
     },
     "media": {
       "title": "ניהול מדיה פרסומית",

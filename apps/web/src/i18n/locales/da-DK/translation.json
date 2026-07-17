@@ -332,6 +332,8 @@
     "view_month": "Se måned",
     "today": "I dag",
     "new_appointment": "Ny aftale",
+    "drag_hint": "Træk for at ændre tidspunktet, eller tryk for at redigere",
+    "drag_error": "Kunne ikke flytte aftalen til det tidspunkt",
     "no_treatments_warning": "Der er endnu ikke oprettet nogen behandlinger. Gå til fanen \"Behandlinger\" for at oprette den første, før du booker aftaler.",
     "day_closed_notice": "Denne dag er markeret som lukket i Kalenderplanlægningen. Du kan gennemgå eller åbne den fra den fane.",
     "slot_aria_label": "Book kl. {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "12 34 56 78",
     "unknown_error": "Ukendt fejl",
     "count_registered": "{{count}} registreret",
-    "license_display": "Nr. {{number}}"
+    "license_display": "Nr. {{number}}",
+    "photo_upload": "Upload foto",
+    "photo_remove": "Fjern",
+    "photo_upload_error": "Kunne ikke uploade foto"
   },
   "consents": {
     "title": "Samtykker",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Ansvarlig læge",
     "legal_framework_title": "Retsgrundlag — {{jurisdiction}}",
     "witness_required_notice": "Dette land kræver et vidne til underskriften",
+    "image_auth_title": "Tilladelse til brug af billeder",
+    "image_auth_educational": "Jeg giver tilladelse til brug af mine billeder til uddannelses- eller videnskabelige formål",
+    "image_auth_marketing": "Jeg giver tilladelse til brug af mine billeder til reklame- eller kommunikationsformål",
     "back": "← Tilbage",
     "sign_arrow": "Underskriv →",
     "doctor_signature_title": "Lægens underskrift",
@@ -1331,7 +1339,8 @@
       "retry": "Prøv igen",
       "plan": "Plan",
       "plan_hint": "Adgangstilladelser anvendes automatisk baseret på den valgte plan. Du kan justere dem under Indstillinger → Abonnementsplaner.",
-      "plan_required": "Vælg en plan"
+      "plan_required": "Vælg en plan",
+      "delete_error": "Kunne ikke slette brugeren"
     },
     "media": {
       "title": "Administration af reklamemedier",

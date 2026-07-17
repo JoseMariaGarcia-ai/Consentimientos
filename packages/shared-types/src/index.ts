@@ -19,6 +19,8 @@ export interface Doctor {
   email?: string;
   role: "admin" | "doctor" | "receptionist";
   createdAt: string;
+  photoKey?: string;
+  photoUrl?: string;
 }
 
 export interface Patient {

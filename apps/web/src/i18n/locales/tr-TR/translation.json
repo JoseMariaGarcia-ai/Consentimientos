@@ -332,6 +332,8 @@
     "view_month": "Ayı görüntüle",
     "today": "Bugün",
     "new_appointment": "Yeni randevu",
+    "drag_hint": "Saati değiştirmek için sürükleyin veya düzenlemek için dokunun",
+    "drag_error": "Randevu o saate taşınamadı",
     "no_treatments_warning": "Henüz oluşturulmuş bir tedavi yok. Randevu planlamadan önce ilkini oluşturmak için \"Tedaviler\" sekmesine gidin.",
     "day_closed_notice": "Bu gün, Ajanda Planlaması bölümünde kapalı olarak işaretlenmiştir. Bu sekmeden kontrol edebilir veya açabilirsiniz.",
     "slot_aria_label": "Saat {{time}} için randevu al",
@@ -716,7 +718,10 @@
     "phone_placeholder": "0500 000 00 00",
     "unknown_error": "Bilinmeyen hata",
     "count_registered": "{{count}} kayıtlı",
-    "license_display": "No {{number}}"
+    "license_display": "No {{number}}",
+    "photo_upload": "Fotoğraf yükle",
+    "photo_remove": "Kaldır",
+    "photo_upload_error": "Fotoğraf yüklenemedi"
   },
   "consents": {
     "title": "Onaylar",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Sorumlu doktor",
     "legal_framework_title": "Yasal Çerçeve — {{jurisdiction}}",
     "witness_required_notice": "Bu ülke imza için tanık gerektirir",
+    "image_auth_title": "Görüntü kullanım izni",
+    "image_auth_educational": "Görüntülerimin eğitim veya bilimsel amaçlarla kullanılmasına izin veriyorum",
+    "image_auth_marketing": "Görüntülerimin reklam veya tanıtım amaçlarıyla kullanılmasına izin veriyorum",
     "back": "← Geri",
     "sign_arrow": "İmzala →",
     "doctor_signature_title": "Doktor imzası",
@@ -1331,7 +1339,8 @@
       "retry": "Tekrar dene",
       "plan": "Plan",
       "plan_hint": "Erişim izinleri, seçilen plana göre otomatik olarak uygulanır. Bunları Ayarlar → Abonelik Planları bölümünden ayarlayabilirsiniz.",
-      "plan_required": "Bir plan seçin"
+      "plan_required": "Bir plan seçin",
+      "delete_error": "Kullanıcı silinemedi"
     },
     "media": {
       "title": "Reklam medyası yönetimi",

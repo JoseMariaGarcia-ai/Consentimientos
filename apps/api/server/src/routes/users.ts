@@ -123,7 +123,16 @@ router.delete('/:id', async (req, res) => {
     await query('DELETE FROM user_permissions WHERE user_id = $1', [req.params.id])
     await query('DELETE FROM app_users WHERE id = $1', [req.params.id])
     return res.json({ deleted: true })
-  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+  } catch (err: any) {
+    // Un usuario con facturas, presupuestos, fichajes u otros registros
+    // asociados no se puede borrar sin romper el histórico (y en el caso de
+    // facturas, la trazabilidad legal VeriFactu) — se pide desactivarlo en
+    // su lugar en vez de devolver el error crudo de Postgres.
+    if (err.code === '23503') {
+      return res.status(409).json({ error: 'No se puede eliminar: este usuario tiene registros asociados (facturas, presupuestos, fichajes...). Desactívalo en su lugar con el interruptor de activo/inactivo.' })
+    }
+    return res.status(500).json({ error: err.message })
+  }
 })
 
 export default router

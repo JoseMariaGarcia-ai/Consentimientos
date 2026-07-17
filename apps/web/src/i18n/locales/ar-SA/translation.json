@@ -332,6 +332,8 @@
     "view_month": "عرض الشهر",
     "today": "اليوم",
     "new_appointment": "موعد جديد",
+    "drag_hint": "اسحب لتغيير الوقت، أو اضغط للتعديل",
+    "drag_error": "تعذر نقل الموعد إلى ذلك الوقت",
     "no_treatments_warning": "لم يتم إنشاء أي علاجات بعد. انتقل إلى تبويب \"العلاجات\" لإنشاء أول علاج قبل حجز المواعيد.",
     "day_closed_notice": "هذا اليوم مُحدَّد كمغلق في تخطيط الجدول. يمكنك مراجعته أو فتحه من ذلك التبويب.",
     "slot_aria_label": "حجز موعد الساعة {{time}}",
@@ -678,7 +680,10 @@
     "phone_placeholder": "05X XXX XXXX",
     "unknown_error": "خطأ غير معروف",
     "count_registered": "{{count}} مسجل",
-    "license_display": "رقم {{number}}"
+    "license_display": "رقم {{number}}",
+    "photo_upload": "رفع صورة",
+    "photo_remove": "إزالة",
+    "photo_upload_error": "تعذر رفع الصورة"
   },
   "consents": {
     "title": "نماذج الموافقة",
@@ -701,6 +706,9 @@
     "responsible_doctor": "الطبيب المسؤول",
     "legal_framework_title": "الإطار القانوني — {{jurisdiction}}",
     "witness_required_notice": "تتطلب هذه الدولة وجود شاهد على التوقيع",
+    "image_auth_title": "إذن استخدام الصور",
+    "image_auth_educational": "أوافق على استخدام صوري لأغراض تعليمية أو علمية",
+    "image_auth_marketing": "أوافق على استخدام صوري لأغراض إعلانية أو ترويجية",
     "back": "← رجوع",
     "sign_arrow": "توقيع ←",
     "doctor_signature_title": "توقيع الطبيب",
@@ -1293,7 +1301,8 @@
       "retry": "إعادة المحاولة",
       "plan": "الخطة",
       "plan_hint": "يتم تطبيق صلاحيات الوصول تلقائيًا حسب الخطة المحددة. يمكنك تعديلها من الإعدادات ← خطط الاشتراك.",
-      "plan_required": "اختر خطة"
+      "plan_required": "اختر خطة",
+      "delete_error": "تعذر حذف المستخدم"
     },
     "media": {
       "title": "إدارة الوسائط الإعلانية",

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, Plus, CalendarRange, CheckCircle2 } from 'lucide-react'
 import { api } from '@/lib/api'
@@ -77,6 +77,90 @@ const STATUS_CLASS: Record<string, string> = {
   scheduled: '',
   completed: '',
   cancelled: 'opacity-50 line-through grayscale',
+}
+
+// Umbral en px antes de considerar el gesto un arrastre en vez de un toque
+// simple — evita que un pequeño temblor del dedo/ratón al pulsar abra el
+// modal de edición en lugar de mover la cita, y viceversa.
+const DRAG_THRESHOLD_PX = 6
+
+interface DraggableAppointmentBlockProps {
+  appt: any
+  top: number
+  height: number
+  leftPct: number
+  widthPct: number
+  patientName: string
+  onOpen: () => void
+  onMove: (deltaMinutes: number) => void
+}
+
+function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, patientName, onOpen, onMove }: DraggableAppointmentBlockProps) {
+  const { t } = useTranslation()
+  const statusClass = STATUS_CLASS[a.status] ?? STATUS_CLASS.scheduled
+  const colorStyle = treatmentColorStyle(a.treatment?.color)
+  const dragRef = useRef<{ startY: number; deltaSlots: number; dragging: boolean } | null>(null)
+  const [dragOffsetPx, setDragOffsetPx] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.button !== 0 && e.pointerType === 'mouse') return
+    e.currentTarget.setPointerCapture(e.pointerId)
+    dragRef.current = { startY: e.clientY, deltaSlots: 0, dragging: false }
+  }
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current
+    if (!drag) return
+    const deltaY = e.clientY - drag.startY
+    if (!drag.dragging && Math.abs(deltaY) < DRAG_THRESHOLD_PX) return
+    drag.dragging = true
+    const deltaSlots = Math.round(deltaY / ROW_HEIGHT)
+    drag.deltaSlots = deltaSlots
+    setDragOffsetPx(deltaSlots * ROW_HEIGHT)
+    setIsDragging(true)
+  }
+
+  const endDrag = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current
+    dragRef.current = null
+    setIsDragging(false)
+    setDragOffsetPx(0)
+    if (drag?.dragging) {
+      if (drag.deltaSlots !== 0) onMove(drag.deltaSlots * SLOT_MINUTES)
+    } else if (e.type === 'pointerup') {
+      onOpen()
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm transition-shadow ${isDragging ? 'shadow-lg cursor-grabbing' : 'hover:shadow-md cursor-grab'} ${statusClass}`}
+      style={{
+        top: top + 1 + dragOffsetPx,
+        height,
+        left: `calc(${leftPct}% + 2px)`,
+        width: `calc(${widthPct}% - 4px)`,
+        touchAction: 'none',
+        zIndex: isDragging ? 20 : undefined,
+        ...colorStyle,
+      }}
+      title={t('appointmentCalendar.drag_hint')}
+    >
+      <p className="text-xs font-semibold truncate flex items-center gap-1">
+        {a.status === 'completed' && <CheckCircle2 className="w-3 h-3 flex-shrink-0" />}
+        {a.treatment?.name ?? t('appointmentCalendar.treatment_fallback')}
+        {a.treatment?.price != null && <span className="font-normal"> · {Number(a.treatment.price).toFixed(2)} €</span>}
+      </p>
+      <p className="text-[11px] truncate">{patientName}</p>
+      {a.doctor?.name && <p className="text-[10px] truncate opacity-75">{t('appointmentCalendar.doctor_prefix', { name: a.doctor.name })}</p>}
+    </button>
+  )
 }
 
 export function AppointmentCalendar() {
@@ -202,6 +286,28 @@ export function AppointmentCalendar() {
     await Promise.all([loadAppointments(), loadMonthData()])
   }
 
+  // Arrastrar y soltar una cita en la vista diaria — se reenvían todos los
+  // campos existentes (el PUT no admite actualización parcial) cambiando
+  // solo la hora de inicio según los minutos desplazados.
+  const handleMoveAppointment = async (a: any, deltaMinutes: number) => {
+    if (deltaMinutes === 0) return
+    const newStart = new Date(new Date(a.start_time).getTime() + deltaMinutes * 60000)
+    try {
+      await api.put(`/appointments/${a.id}`, {
+        patient_id: a.patient_id,
+        doctor_id: a.doctor_id,
+        treatment_id: a.treatment_id,
+        branch: a.branch,
+        start_time: newStart.toISOString(),
+        notes: a.notes,
+        status: a.status,
+      })
+      await Promise.all([loadAppointments(), loadMonthData()])
+    } catch (err: any) {
+      alert(err.message ?? t('appointmentCalendar.drag_error'))
+    }
+  }
+
   const patientName = (p: any) => p ? (p.full_name ?? p.fullName ?? `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim()) : '—'
 
   return (
@@ -308,24 +414,18 @@ export function AppointmentCalendar() {
                   const height = Math.max((durationMin / SLOT_MINUTES) * ROW_HEIGHT - 2, ROW_HEIGHT - 4)
                   const widthPct = 100 / a.totalLanes
                   const leftPct = a.lane * widthPct
-                  const statusClass = STATUS_CLASS[a.status] ?? STATUS_CLASS.scheduled
-                  const colorStyle = treatmentColorStyle(a.treatment?.color)
                   return (
-                    <button
+                    <DraggableAppointmentBlock
                       key={a.id}
-                      type="button"
-                      onClick={() => openEdit(a)}
-                      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm hover:shadow-md transition-shadow ${statusClass}`}
-                      style={{ top: top + 1, height, left: `calc(${leftPct}% + 2px)`, width: `calc(${widthPct}% - 4px)`, ...colorStyle }}
-                    >
-                      <p className="text-xs font-semibold truncate flex items-center gap-1">
-                        {a.status === 'completed' && <CheckCircle2 className="w-3 h-3 flex-shrink-0" />}
-                        {a.treatment?.name ?? t('appointmentCalendar.treatment_fallback')}
-                        {a.treatment?.price != null && <span className="font-normal"> · {Number(a.treatment.price).toFixed(2)} €</span>}
-                      </p>
-                      <p className="text-[11px] truncate">{patientName(a.patient)}</p>
-                      {a.doctor?.name && <p className="text-[10px] truncate opacity-75">{t('appointmentCalendar.doctor_prefix', { name: a.doctor.name })}</p>}
-                    </button>
+                      appt={a}
+                      top={top}
+                      height={height}
+                      leftPct={leftPct}
+                      widthPct={widthPct}
+                      patientName={patientName(a.patient)}
+                      onOpen={() => openEdit(a)}
+                      onMove={deltaMinutes => handleMoveAppointment(a, deltaMinutes)}
+                    />
                   )
                 })}
               </div>

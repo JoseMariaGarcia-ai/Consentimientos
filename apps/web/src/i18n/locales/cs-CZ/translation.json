@@ -332,6 +332,8 @@
     "view_month": "Zobrazit měsíc",
     "today": "Dnes",
     "new_appointment": "Nová schůzka",
+    "drag_hint": "Přetažením změníte čas, nebo klepnutím upravíte",
+    "drag_error": "Schůzku se nepodařilo přesunout na tento čas",
     "no_treatments_warning": "Zatím nejsou vytvořeny žádné léčby. Přejděte na kartu „Léčby“ a vytvořte první, než začnete plánovat schůzky.",
     "day_closed_notice": "Tento den je v Plánování rozvrhu označen jako zavřený. Můžete jej zkontrolovat nebo otevřít na této kartě.",
     "slot_aria_label": "Naplánovat na {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "600 000 000",
     "unknown_error": "Neznámá chyba",
     "count_registered": "{{count}} registrováno",
-    "license_display": "Č. {{number}}"
+    "license_display": "Č. {{number}}",
+    "photo_upload": "Nahrát fotku",
+    "photo_remove": "Odebrat",
+    "photo_upload_error": "Fotku se nepodařilo nahrát"
   },
   "consents": {
     "title": "Souhlasy",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Zodpovědný lékař",
     "legal_framework_title": "Právní rámec — {{jurisdiction}}",
     "witness_required_notice": "Tato země vyžaduje svědka pro podpis",
+    "image_auth_title": "Souhlas s použitím fotografií",
+    "image_auth_educational": "Souhlasím s použitím mých fotografií pro vzdělávací nebo vědecké účely",
+    "image_auth_marketing": "Souhlasím s použitím mých fotografií pro reklamní nebo propagační účely",
     "back": "← Zpět",
     "sign_arrow": "Podepsat →",
     "doctor_signature_title": "Podpis lékaře",
@@ -1331,7 +1339,8 @@
       "retry": "Zkusit znovu",
       "plan": "Plán",
       "plan_hint": "Přístupová oprávnění se aplikují automaticky podle vybraného plánu. Můžete je upravit v Nastavení → Předplatné plány.",
-      "plan_required": "Vyberte plán"
+      "plan_required": "Vyberte plán",
+      "delete_error": "Uživatele se nepodařilo odstranit"
     },
     "media": {
       "title": "Správa reklamních médií",

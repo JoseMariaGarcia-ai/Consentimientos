@@ -332,6 +332,8 @@
     "view_month": "查看月份",
     "today": "今天",
     "new_appointment": "新建预约",
+    "drag_hint": "拖动以更改时间，或点击以编辑",
+    "drag_error": "无法将预约移动到该时间",
     "no_treatments_warning": "目前还没有创建任何治疗项目。请先前往“治疗项目”标签页创建第一个项目，然后再安排预约。",
     "day_closed_notice": "此日期在日程安排中被标记为休息日。您可以在该标签页中查看或开放此日期。",
     "slot_aria_label": "预约 {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "600 000 000",
     "unknown_error": "未知错误",
     "count_registered": "已登记 {{count}} 位",
-    "license_display": "执照号 {{number}}"
+    "license_display": "执照号 {{number}}",
+    "photo_upload": "上传照片",
+    "photo_remove": "移除",
+    "photo_upload_error": "照片上传失败"
   },
   "consents": {
     "title": "知情同意书",
@@ -739,6 +744,9 @@
     "responsible_doctor": "负责医生",
     "legal_framework_title": "法律框架 — {{jurisdiction}}",
     "witness_required_notice": "该国家要求签署时有证人在场",
+    "image_auth_title": "图像使用授权",
+    "image_auth_educational": "我授权将我的图像用于教育或科学目的",
+    "image_auth_marketing": "我授权将我的图像用于广告或宣传目的",
     "back": "← 返回",
     "sign_arrow": "签署 →",
     "doctor_signature_title": "医生签名",
@@ -1331,7 +1339,8 @@
       "retry": "重试",
       "plan": "套餐",
       "plan_hint": "访问权限会根据所选套餐自动应用。您可以在\"设置 → 订阅套餐\"中进行调整。",
-      "plan_required": "请选择一个套餐"
+      "plan_required": "请选择一个套餐",
+      "delete_error": "无法删除该用户"
     },
     "media": {
       "title": "推广媒体管理",

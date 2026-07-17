@@ -17,6 +17,23 @@ function getContentJson(template: any) {
   return template?.contentJson ?? template?.content_json ?? {}
 }
 
+// Las plantillas incluyen dos líneas "☐ Autorizo el uso de mis imágenes..."
+// (formativo/científico y publicitario/difusión, ver
+// 014_image_session_clause.sql) — se identifican por palabras clave (el
+// texto exacto varía algo entre plantillas) para marcarlas con ☑ si el
+// paciente autorizó ese uso concreto, o tacharlas si lo denegó.
+const IMAGE_AUTH_PHRASE = /autorizo el uso de mis im[aá]genes/i
+const IMAGE_AUTH_EDUCATIONAL_KEYWORDS = /(formativ|cient[ií]fic)/i
+const IMAGE_AUTH_MARKETING_KEYWORDS = /(publicitario|difusi[oó]n)/i
+
+function isEducationalImageLine(line: string): boolean {
+  return IMAGE_AUTH_PHRASE.test(line) && IMAGE_AUTH_EDUCATIONAL_KEYWORDS.test(line)
+}
+
+function isMarketingImageLine(line: string): boolean {
+  return IMAGE_AUTH_PHRASE.test(line) && IMAGE_AUTH_MARKETING_KEYWORDS.test(line)
+}
+
 const C = {
   navy:    '#1A2B4A',
   blue:    '#2563EB',
@@ -56,6 +73,7 @@ const styles = StyleSheet.create({
   value: { fontSize: 9, color: '#0F172A', flex: 1 },
 
   bodyText: { fontSize: 9, color: C.body, lineHeight: 1.65 },
+  declinedImageAuthLine: { textDecoration: 'line-through', color: C.muted },
 
   legalBox: { backgroundColor: C.light, borderLeftWidth: 3, borderLeftColor: C.blue, padding: 8, marginBottom: 6 },
   legalText: { fontSize: 8, color: C.slate, lineHeight: 1.5 },
@@ -100,6 +118,8 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
   const bodyText   = stripHtml(content.body   ?? legalData?.body   ?? '')
   const introText  = stripHtml(legalData?.introText  ?? '')
   const rightsText = stripHtml(legalData?.rightsText ?? '')
+  const imageAuthEducational = consent.image_auth_educational ?? consent.imageAuthEducational ?? false
+  const imageAuthMarketing   = consent.image_auth_marketing   ?? consent.imageAuthMarketing   ?? false
 
   const patientName     = patient?.fullName ?? patient?.full_name ?? '—'
   const patientDoc      = patient?.idDocument ?? patient?.id_document ?? ''
@@ -111,7 +131,7 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
   const sede         = consent.sede ?? null
   const createdDate  = consent.created_at ? new Date(consent.created_at).toLocaleString('es-ES') : ''
   const signedDate   = (consent.signedAt ?? consent.signed_at) ? new Date(consent.signedAt ?? consent.signed_at).toLocaleString('es-ES') : '—'
-  const verifyUrl    = `https://consentimientos-production.up.railway.app/verify/${consentUuid}`
+  const verifyUrl    = `https://www.consentspro.com/verify/${consentUuid}`
   const consentTitle = content.title ?? 'Consentimiento Informado'
 
   return (
@@ -174,7 +194,24 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
         {bodyText ? (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Información y consentimiento</Text>
-            <Text style={styles.bodyText}>{bodyText}</Text>
+            <Text style={styles.bodyText}>
+              {bodyText.split('\n').map((line, i, arr) => {
+                const educational = isEducationalImageLine(line)
+                const marketing = isMarketingImageLine(line)
+                const authorized = (educational && imageAuthEducational) || (marketing && imageAuthMarketing)
+                const declined = (educational && !imageAuthEducational) || (marketing && !imageAuthMarketing)
+                // Helvetica (la fuente base de react-pdf) no incluye el
+                // glifo "☐" — se sustituye por notación ASCII "[X]"/"[ ]"
+                // para que la marca de autorizado/denegado sea visible en
+                // el PDF generado.
+                const displayLine = line.replace('☐', authorized ? '[X]' : '[ ]')
+                return (
+                  <Text key={i} style={declined ? styles.declinedImageAuthLine : undefined}>
+                    {displayLine}{i < arr.length - 1 ? '\n' : ''}
+                  </Text>
+                )
+              })}
+            </Text>
           </View>
         ) : null}
 

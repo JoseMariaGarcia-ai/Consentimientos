@@ -23,6 +23,8 @@ export default function Doctors() {
     clinicId:      d.clinicId      ?? d.clinic_id,
     licenseNumber: d.licenseNumber ?? d.license_number,
     createdAt:     d.createdAt     ?? d.created_at,
+    photoKey:      d.photoKey      ?? d.photo_key,
+    photoUrl:      d.photoUrl      ?? d.photo_url,
   })
 
   const load = async () => {
@@ -81,8 +83,8 @@ export default function Doctors() {
             return (
             <div key={d.id} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg">
-                  {firstName.charAt(0)}
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg overflow-hidden flex-shrink-0">
+                  {d.photoUrl ? <img src={d.photoUrl} alt="" className="w-full h-full object-cover" /> : firstName.charAt(0)}
                 </div>
                 <span className={`text-xs font-medium px-2 py-1 rounded-full ${ROLE_COLORS[d.role] ?? 'bg-slate-100 text-slate-600'}`}>
                   {t(`doctors.roles.${d.role}`)}

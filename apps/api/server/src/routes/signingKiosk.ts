@@ -80,16 +80,16 @@ router.post('/consents/:id/doctor-signature', async (req, res) => {
 router.post('/consents/:id/patient-signature', async (req, res) => {
   const { clinic_id: clinicId, id: deviceId } = (req as any).device
   const { id } = req.params
-  const { signature_data_url, biometric_json, client_timestamp } = req.body
+  const { signature_data_url, biometric_json, client_timestamp, image_auth_educational, image_auth_marketing } = req.body
   try {
     if (!(await consentBelongsToDeviceClinic(id, clinicId))) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     const document_hash = crypto.createHash('sha256').update(JSON.stringify(req.body)).digest('hex')
     const data = await queryOne(
       `UPDATE consent_records SET status='signed', signature_data_url=$1, biometric_json=$2,
        document_hash=$3, client_timestamp=$4, server_timestamp=NOW(), signed_at=NOW(),
-       ip_address=$5, user_agent=$6 WHERE id=$7 RETURNING *`,
+       ip_address=$5, user_agent=$6, image_auth_educational=$7, image_auth_marketing=$8 WHERE id=$9 RETURNING *`,
       [signature_data_url, biometric_json, document_hash, client_timestamp,
-       req.ip, req.headers['user-agent'], id]
+       req.ip, req.headers['user-agent'], !!image_auth_educational, !!image_auth_marketing, id]
     )
     if (!data) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     await query(

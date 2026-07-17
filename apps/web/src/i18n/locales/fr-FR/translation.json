@@ -332,6 +332,8 @@
     "view_month": "Voir le mois",
     "today": "Aujourd'hui",
     "new_appointment": "Nouveau rendez-vous",
+    "drag_hint": "Glissez pour changer l'heure, ou touchez pour modifier",
+    "drag_error": "Impossible de déplacer le rendez-vous à cette heure",
     "no_treatments_warning": "Aucun traitement n'a encore été créé. Allez dans l'onglet « Traitements » pour créer le premier avant de planifier des rendez-vous.",
     "day_closed_notice": "Ce jour est marqué comme fermé dans la Planification de l'agenda. Vous pouvez le vérifier ou l'ouvrir depuis cet onglet.",
     "slot_aria_label": "Planifier à {{time}}",
@@ -716,7 +718,10 @@
     "phone_placeholder": "06 00 00 00 00",
     "unknown_error": "Erreur inconnue",
     "count_registered": "{{count}} enregistrés",
-    "license_display": "N° {{number}}"
+    "license_display": "N° {{number}}",
+    "photo_upload": "Ajouter une photo",
+    "photo_remove": "Retirer",
+    "photo_upload_error": "Impossible d'envoyer la photo"
   },
   "consents": {
     "title": "Consentements",
@@ -739,6 +744,9 @@
     "responsible_doctor": "Médecin responsable",
     "legal_framework_title": "Cadre légal — {{jurisdiction}}",
     "witness_required_notice": "Ce pays exige un témoin pour la signature",
+    "image_auth_title": "Autorisation d'utilisation des images",
+    "image_auth_educational": "J'autorise l'utilisation de mes images à des fins éducatives ou scientifiques",
+    "image_auth_marketing": "J'autorise l'utilisation de mes images à des fins publicitaires ou de diffusion",
     "back": "← Retour",
     "sign_arrow": "Signer →",
     "doctor_signature_title": "Signature du médecin",
@@ -1331,7 +1339,8 @@
       "retry": "Réessayer",
       "plan": "Formule",
       "plan_hint": "Les permissions d'accès sont appliquées automatiquement selon la formule sélectionnée. Vous pouvez les ajuster dans Paramètres → Formules d'abonnement.",
-      "plan_required": "Sélectionnez une formule"
+      "plan_required": "Sélectionnez une formule",
+      "delete_error": "Impossible de supprimer l'utilisateur"
     },
     "media": {
       "title": "Gestion des supports publicitaires",

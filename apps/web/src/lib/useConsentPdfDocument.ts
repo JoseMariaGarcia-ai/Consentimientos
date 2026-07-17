@@ -18,7 +18,7 @@ export function useConsentPdfDocument(consent: any, clinic: any) {
   const framework = LEGAL_FRAMEWORKS[lang] ?? LEGAL_FRAMEWORKS['es-ES']
 
   const consentUuid = consent.consent_uuid ?? consent.consentUuid ?? consent.id
-  const verifyUrl = `https://consentimientos-production.up.railway.app/verify/${consentUuid}`
+  const verifyUrl = `https://www.consentspro.com/verify/${consentUuid}`
 
   useEffect(() => {
     QRCode.toDataURL(verifyUrl, { width: 200, margin: 1, color: { dark: '#1A2B4A', light: '#ffffff' } })

@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Camera, X, Loader2 } from 'lucide-react'
+import { api } from '@/lib/api'
 import type { Doctor } from '@consentspro/shared-types'
 
 interface DoctorFormProps {
@@ -43,12 +45,45 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
     phonePrefix: initPrefix,
     phoneNumber: initNumber.toUpperCase(),
     role: (initial.role ?? 'doctor') as typeof ROLES[number],
+    photoKey: initial.photoKey ?? (initial as any).photo_key ?? '',
   })
+  const [photoPreviewUrl, setPhotoPreviewUrl] = useState(initial.photoUrl ?? (initial as any).photo_url ?? '')
+  const [uploadingPhoto, setUploadingPhoto] = useState(false)
+  const [photoError, setPhotoError] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [saveError, setSaveError] = useState('')
 
   const up = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
+
+  const toBase64 = (file: File): Promise<string> => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => resolve((reader.result as string).split(',')[1])
+    reader.onerror = reject
+    reader.readAsDataURL(file)
+  })
+
+  const handlePhotoSelect = async (file?: File) => {
+    if (!file) return
+    setPhotoError('')
+    setUploadingPhoto(true)
+    try {
+      const fileBase64 = await toBase64(file)
+      const { key, url } = await api.post('/doctors/photo', { fileBase64, fileName: file.name, contentType: file.type })
+      setForm(f => ({ ...f, photoKey: key }))
+      setPhotoPreviewUrl(url)
+    } catch (err: any) {
+      setPhotoError(err.message ?? t('doctors.photo_upload_error'))
+    } finally {
+      setUploadingPhoto(false)
+    }
+  }
+
+  const removePhoto = () => {
+    setForm(f => ({ ...f, photoKey: '' }))
+    setPhotoPreviewUrl('')
+  }
 
   const validate = () => {
     const e: Record<string, string> = {}
@@ -63,12 +98,13 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
     setSaving(true)
     setSaveError('')
     try {
-      const { firstName, lastName, phonePrefix, phoneNumber, ...rest } = form
+      const { firstName, lastName, phonePrefix, phoneNumber, photoKey, ...rest } = form
       await onSave({
         ...rest,
         name: [firstName, lastName].filter(Boolean).join(' '),
         phone: `${phonePrefix} ${phoneNumber}`.trim(),
-      })
+        photo_key: photoKey || null,
+      } as any)
       onClose()
     } catch (err: any) {
       setSaveError(err.message ?? t('doctors.unknown_error'))
@@ -103,6 +139,46 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
         </div>
 
         <form onSubmit={handleSubmit} className="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="sm:col-span-2 flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="relative w-16 h-16 rounded-full flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white overflow-hidden group"
+              title={t('doctors.photo_upload')}
+            >
+              {photoPreviewUrl ? (
+                <img src={photoPreviewUrl} alt="" className="w-full h-full object-cover" />
+              ) : uploadingPhoto ? (
+                <Loader2 className="w-5 h-5 animate-spin" />
+              ) : (
+                <Camera className="w-5 h-5" />
+              )}
+              <span className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <Camera className="w-5 h-5 text-white" />
+              </span>
+            </button>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <button type="button" onClick={() => fileInputRef.current?.click()} disabled={uploadingPhoto} className="text-xs font-medium text-blue-600 hover:text-blue-800 disabled:opacity-50">
+                  {t('doctors.photo_upload')}
+                </button>
+                {photoPreviewUrl && (
+                  <button type="button" onClick={removePhoto} className="flex items-center gap-0.5 text-xs font-medium text-slate-400 hover:text-red-500">
+                    <X className="w-3 h-3" />{t('doctors.photo_remove')}
+                  </button>
+                )}
+              </div>
+              {photoError && <span className="text-xs text-red-500">{photoError}</span>}
+            </div>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={e => { handlePhotoSelect(e.target.files?.[0]); e.target.value = '' }}
+            />
+          </div>
+
           {field('firstName', t('doctors.name'), { required: true })}
           {field('lastName', t('doctors.last_name'))}
           {field('specialty', t('doctors.specialty'))}

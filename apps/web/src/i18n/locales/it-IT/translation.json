@@ -332,6 +332,8 @@
     "view_month": "Vedi mese",
     "today": "Oggi",
     "new_appointment": "Nuovo appuntamento",
+    "drag_hint": "Trascina per cambiare l'orario, o tocca per modificare",
+    "drag_error": "Impossibile spostare l'appuntamento a quell'orario",
     "no_treatments_warning": "Non sono ancora stati creati trattamenti. Vai alla scheda \"Trattamenti\" per crearne uno prima di fissare appuntamenti.",
     "day_closed_notice": "Questo giorno è contrassegnato come chiuso nella Pianificazione Agenda. Puoi rivederlo o aprirlo da quella scheda.",
     "slot_aria_label": "Fissa appuntamento alle {{time}}",
@@ -770,7 +772,10 @@
     "phone_placeholder": "300 000 0000",
     "unknown_error": "Errore sconosciuto",
     "count_registered": "{{count}} registrati",
-    "license_display": "N. {{number}}"
+    "license_display": "N. {{number}}",
+    "photo_upload": "Carica foto",
+    "photo_remove": "Rimuovi",
+    "photo_upload_error": "Impossibile caricare la foto"
   },
   "consents": {
     "title": "Consensi",
@@ -793,6 +798,9 @@
     "responsible_doctor": "Medico responsabile",
     "legal_framework_title": "Quadro Legale — {{jurisdiction}}",
     "witness_required_notice": "Questo paese richiede un testimone per la firma",
+    "image_auth_title": "Autorizzazione all’uso delle immagini",
+    "image_auth_educational": "Autorizzo l’uso delle mie immagini per finalità formative o scientifiche",
+    "image_auth_marketing": "Autorizzo l’uso delle mie immagini per finalità pubblicitarie o di diffusione",
     "back": "← Indietro",
     "sign_arrow": "Firma →",
     "doctor_signature_title": "Firma del medico",
@@ -1385,7 +1393,8 @@
       "retry": "Riprova",
       "plan": "Piano",
       "plan_hint": "I permessi di accesso vengono applicati automaticamente in base al piano selezionato. Puoi modificarli in Impostazioni → Piani di Abbonamento.",
-      "plan_required": "Seleziona un piano"
+      "plan_required": "Seleziona un piano",
+      "delete_error": "Impossibile eliminare l'utente"
     },
     "media": {
       "title": "Gestione dei contenuti pubblicitari",

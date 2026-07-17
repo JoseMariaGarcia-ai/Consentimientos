@@ -332,6 +332,8 @@
     "view_month": "月表示",
     "today": "今日",
     "new_appointment": "新規予約",
+    "drag_hint": "ドラッグして時間を変更、またはタップして編集",
+    "drag_error": "その時間に予約を移動できませんでした",
     "no_treatments_warning": "まだ治療メニューが作成されていません。予約を組む前に「治療メニュー」タブで最初の1件を作成してください。",
     "day_closed_notice": "この日は診療スケジュール設定で休診日としてマークされています。そのタブから確認・変更できます。",
     "slot_aria_label": "{{time}}に予約する",
@@ -716,7 +718,10 @@
     "phone_placeholder": "090-0000-0000",
     "unknown_error": "不明なエラー",
     "count_registered": "{{count}}件登録済み",
-    "license_display": "No. {{number}}"
+    "license_display": "No. {{number}}",
+    "photo_upload": "写真をアップロード",
+    "photo_remove": "削除",
+    "photo_upload_error": "写真をアップロードできませんでした"
   },
   "consents": {
     "title": "同意書",
@@ -739,6 +744,9 @@
     "responsible_doctor": "担当医師",
     "legal_framework_title": "法的枠組み — {{jurisdiction}}",
     "witness_required_notice": "この国では署名に証人が必要です",
+    "image_auth_title": "画像使用の許可",
+    "image_auth_educational": "教育目的または科学目的での私の画像の使用を許可します",
+    "image_auth_marketing": "広告目的または宣伝目的での私の画像の使用を許可します",
     "back": "← 戻る",
     "sign_arrow": "署名する →",
     "doctor_signature_title": "医師の署名",
@@ -1331,7 +1339,8 @@
       "retry": "再試行",
       "plan": "プラン",
       "plan_hint": "アクセス権限は選択したプランに応じて自動的に適用されます。設定 → サブスクリプションプランで調整できます。",
-      "plan_required": "プランを選択してください"
+      "plan_required": "プランを選択してください",
+      "delete_error": "ユーザーを削除できませんでした"
     },
     "media": {
       "title": "広告メディア管理",

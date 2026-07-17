@@ -332,6 +332,8 @@
     "view_month": "Ver mes",
     "today": "Hoy",
     "new_appointment": "Nueva cita",
+    "drag_hint": "Arrastra para cambiar la hora, o pulsa para editar",
+    "drag_error": "No se pudo mover la cita a esa hora",
     "no_treatments_warning": "Todavía no hay tratamientos creados. Ve a la pestaña \"Tratamientos\" para crear el primero antes de agendar citas.",
     "day_closed_notice": "Este día está marcado como cerrado en la Planificación de Agenda. Puedes revisarlo o abrirlo desde esa pestaña.",
     "slot_aria_label": "Agendar a las {{time}}",
@@ -704,7 +706,7 @@
   },
   "doctors": {
     "title": "Doctores",
-    "add": "Añadir médico",
+    "add": "Añadir doctor",
     "name": "Nombre",
     "specialty": "Especialidad",
     "license": "Nº Colegiado",
@@ -715,13 +717,16 @@
       "doctor": "Doctor",
       "receptionist": "Recepcionista"
     },
-    "save": "Guardar médico",
-    "no_results": "No hay médicos registrados",
+    "save": "Guardar doctor",
+    "no_results": "No hay doctores registrados",
     "last_name": "Apellidos",
     "phone": "Teléfono",
     "phone_placeholder": "600 000 000",
     "unknown_error": "Error desconocido",
     "count_registered": "{{count}} registrados",
+    "photo_upload": "Subir foto",
+    "photo_remove": "Quitar",
+    "photo_upload_error": "No se pudo subir la foto",
     "license_display": "Nº {{number}}"
   },
   "consents": {
@@ -745,6 +750,9 @@
     "responsible_doctor": "Doctor responsable",
     "legal_framework_title": "Marco Legal — {{jurisdiction}}",
     "witness_required_notice": "Este país requiere testigo para la firma",
+    "image_auth_title": "Autorización de uso de imágenes",
+    "image_auth_educational": "Autorizo el uso de mis imágenes con fines formativos o científicos",
+    "image_auth_marketing": "Autorizo el uso de mis imágenes con fines publicitarios o de difusión",
     "back": "← Atrás",
     "sign_arrow": "Firmar →",
     "doctor_signature_title": "Firma del doctor",
@@ -1348,6 +1356,7 @@
       "lab_hint": "El usuario solo verá las clínicas vinculadas a este laboratorio.",
       "admin_only_hint": "Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.",
       "load_error": "No se pudo cargar la lista de usuarios",
+      "delete_error": "No se pudo eliminar el usuario",
       "retry": "Reintentar"
     },
     "media": {
