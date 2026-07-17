@@ -19,15 +19,6 @@ function toMinutes(t: string) {
   return h * 60 + m
 }
 
-// Mismo intervalo de 15 min que ya usa la agenda de citas (AppointmentCalendar) —
-// desplegable en vez de escribir la hora a mano, para que solo se puedan
-// elegir horas "redondas" y evitar errores de tecleo (p. ej. 9:0 en vez de 09:00).
-const TIME_STEP_MINUTES = 15
-const TIME_OPTIONS = Array.from({ length: (24 * 60) / TIME_STEP_MINUTES }, (_, i) => {
-  const total = i * TIME_STEP_MINUTES
-  return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`
-})
-
 // Comprueba que cada tramo tenga inicio < fin y que ningún tramo se solape
 // con otro (necesario ahora que un mismo día puede tener varios tramos —
 // horario partido). Devuelve un mensaje de error o null si todo es válido.
@@ -45,24 +36,6 @@ function findTimeRangeError(ranges: TimeRange[], t: (key: string, opts?: any) =>
     if (sorted[i].startMin < sorted[i - 1].endMin) return t('schedulePlanner.errors.overlapping_ranges')
   }
   return null
-}
-
-function TimeSelect({ value, onChange }: { value: string; onChange: (v: string) => void }) {
-  // Si el valor guardado no cae en la rejilla de 15 min (dato antiguo
-  // introducido a mano antes de este cambio), se añade como opción extra
-  // para no perderlo/cambiarlo en silencio al abrir el desplegable.
-  const options = value && !TIME_OPTIONS.includes(value)
-    ? [...TIME_OPTIONS, value].sort()
-    : TIME_OPTIONS
-  return (
-    <select
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      className="px-2 py-1.5 border border-slate-300 rounded-lg text-xs w-24 bg-white"
-    >
-      {options.map(o => <option key={o} value={o}>{o}</option>)}
-    </select>
-  )
 }
 
 function TimeRangeEditor({ ranges, onChange }: { ranges: TimeRange[]; onChange: (r: TimeRange[]) => void }) {
@@ -89,9 +62,11 @@ function TimeRangeEditor({ ranges, onChange }: { ranges: TimeRange[]; onChange: 
     <div className="flex flex-col gap-1.5">
       {ranges.map((r, i) => (
         <div key={i} className="flex items-center gap-1.5">
-          <TimeSelect value={r.start} onChange={v => update(i, 'start', v)} />
+          <input type="time" value={r.start} onChange={e => update(i, 'start', e.target.value)}
+            className="px-2 py-1.5 border border-slate-300 rounded-lg text-xs w-24" />
           <span className="text-xs text-slate-400">{t('schedulePlanner.time_separator')}</span>
-          <TimeSelect value={r.end} onChange={v => update(i, 'end', v)} />
+          <input type="time" value={r.end} onChange={e => update(i, 'end', e.target.value)}
+            className="px-2 py-1.5 border border-slate-300 rounded-lg text-xs w-24" />
           <button type="button" onClick={() => remove(i)} className="p-1 text-slate-400 hover:text-red-500">
             <Trash2 className="w-3.5 h-3.5" />
           </button>
