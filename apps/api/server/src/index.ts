@@ -52,8 +52,26 @@ import { startProviderBalanceScheduler } from './lib/providerBalanceScheduler'
 
 const app = express()
 
+// El frontend se sirve desde varios orígenes a la vez (el dominio propio y
+// el subdominio de Railway) — `cors` con un string único solo admite UNO,
+// así que cualquier origen no listado aquí fallaba con un error de red
+// genérico en el navegador ("Load failed"), sin mensaje claro de CORS.
+// Se admite una lista separada por comas en APP_URL además de los dominios
+// conocidos de ConsentsPro, para no depender de tener esa variable
+// perfectamente sincronizada en Railway.
+const ALLOWED_ORIGINS = [
+  ...(process.env.APP_URL ?? '').split(',').map(o => o.trim()).filter(Boolean),
+  'https://www.consentspro.com',
+  'https://consentspro.com',
+  'https://consentimientos-production.up.railway.app',
+]
+
 app.use(cors({
-  origin: process.env.APP_URL ?? '*',
+  origin(origin, callback) {
+    // Sin cabecera Origin (llamadas servidor-a-servidor, curl, webhooks) — se permite.
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return callback(null, true)
+    callback(new Error(`Origen no permitido por CORS: ${origin}`))
+  },
   credentials: true,
 }))
 
