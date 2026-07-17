@@ -474,7 +474,9 @@
       "save_schedule_failed": "No se pudo guardar el horario",
       "apply_pattern_failed": "No se pudo aplicar el patrón",
       "select_day_required": "Selecciona al menos un día en el calendario",
-      "save_exception_failed": "No se pudo guardar el día especial"
+      "save_exception_failed": "No se pudo guardar el día especial",
+      "overlapping_ranges": "Los tramos horarios no pueden solaparse entre sí",
+      "invalid_range": "El tramo {{start}}-{{end}} no es válido: la hora de inicio debe ser anterior a la de fin"
     },
     "bulk": {
       "title": "Aplicar un patrón a varios días a la vez",

@@ -9,6 +9,33 @@ async function getClinicId(userId: string): Promise<string> {
   return row.clinic_id
 }
 
+const HHMM = /^([01]\d|2[0-3]):([0-5]\d)$/
+function toMinutes(t: string) {
+  const [h, m] = t.split(':').map(Number)
+  return h * 60 + m
+}
+
+// Defensa en profundidad (el frontend ya valida esto antes de enviar):
+// ningún tramo puede solaparse con otro, y cada tramo debe tener
+// inicio < fin — ahora que un mismo día puede tener varios tramos
+// (horario partido) esto ya no lo garantiza la forma del dato.
+function timeRangesError(ranges: unknown): string | null {
+  if (!Array.isArray(ranges)) return null
+  for (const r of ranges) {
+    if (!r || typeof r.start !== 'string' || typeof r.end !== 'string' || !HHMM.test(r.start) || !HHMM.test(r.end)) {
+      return 'Formato de hora inválido en un tramo horario'
+    }
+    if (toMinutes(r.start) >= toMinutes(r.end)) {
+      return `El tramo ${r.start}-${r.end} no es válido: la hora de inicio debe ser anterior a la de fin`
+    }
+  }
+  const sorted = [...ranges].sort((a, b) => toMinutes(a.start) - toMinutes(b.start))
+  for (let i = 1; i < sorted.length; i++) {
+    if (toMinutes(sorted[i].start) < toMinutes(sorted[i - 1].end)) return 'Los tramos horarios no pueden solaparse entre sí'
+  }
+  return null
+}
+
 // GET /api/schedule/patterns — always returns all 7 weekdays (closed defaults for gaps)
 router.get('/patterns', async (req, res) => {
   const { userId } = (req as any).user
@@ -26,6 +53,10 @@ router.put('/patterns', async (req, res) => {
   const { userId } = (req as any).user
   const { weekdays, is_open, time_ranges } = req.body as { weekdays: number[]; is_open: boolean; time_ranges: any[] }
   if (!Array.isArray(weekdays) || weekdays.length === 0) return res.status(400).json({ error: 'weekdays requerido' })
+  if (is_open) {
+    const rangeError = timeRangesError(time_ranges)
+    if (rangeError) return res.status(400).json({ error: rangeError })
+  }
   try {
     const clinicId = await getClinicId(userId)
     const results = []
@@ -50,6 +81,10 @@ router.put('/patterns/:weekday', async (req, res) => {
   const weekday = Number(req.params.weekday)
   const { is_open, time_ranges } = req.body
   if (!Number.isInteger(weekday) || weekday < 0 || weekday > 6) return res.status(400).json({ error: 'weekday inválido' })
+  if (is_open) {
+    const rangeError = timeRangesError(time_ranges)
+    if (rangeError) return res.status(400).json({ error: rangeError })
+  }
   try {
     const clinicId = await getClinicId(userId)
     const data = await queryOne(
@@ -89,6 +124,10 @@ router.post('/exceptions', async (req, res) => {
   const { userId } = (req as any).user
   const { date, is_open, time_ranges, notes } = req.body
   if (!date) return res.status(400).json({ error: 'date requerida' })
+  if (is_open) {
+    const rangeError = timeRangesError(time_ranges)
+    if (rangeError) return res.status(400).json({ error: rangeError })
+  }
   try {
     const clinicId = await getClinicId(userId)
     const data = await queryOne(

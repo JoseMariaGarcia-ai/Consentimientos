@@ -14,13 +14,49 @@ function toDateKey(d: Date) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+function toMinutes(t: string) {
+  const [h, m] = t.split(':').map(Number)
+  return h * 60 + m
+}
+
+// Comprueba que cada tramo tenga inicio < fin y que ningún tramo se solape
+// con otro (necesario ahora que un mismo día puede tener varios tramos —
+// horario partido). Devuelve un mensaje de error o null si todo es válido.
+function findTimeRangeError(ranges: TimeRange[], t: (key: string, opts?: any) => string): string | null {
+  const withMinutes = ranges
+    .filter(r => r.start && r.end)
+    .map(r => ({ ...r, startMin: toMinutes(r.start), endMin: toMinutes(r.end) }))
+
+  for (const r of withMinutes) {
+    if (r.startMin >= r.endMin) return t('schedulePlanner.errors.invalid_range', { start: r.start, end: r.end })
+  }
+
+  const sorted = [...withMinutes].sort((a, b) => a.startMin - b.startMin)
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i].startMin < sorted[i - 1].endMin) return t('schedulePlanner.errors.overlapping_ranges')
+  }
+  return null
+}
+
 function TimeRangeEditor({ ranges, onChange }: { ranges: TimeRange[]; onChange: (r: TimeRange[]) => void }) {
   const { t } = useTranslation()
   const update = (i: number, field: 'start' | 'end', value: string) => {
     onChange(ranges.map((r, idx) => (idx === i ? { ...r, [field]: value } : r)))
   }
   const remove = (i: number) => onChange(ranges.filter((_, idx) => idx !== i))
-  const add = () => onChange([...ranges, { start: '09:00', end: '14:00' }])
+  const add = () => {
+    // Un nuevo tramo empieza justo tras el último — para horario partido,
+    // el hueco (la pausa) se ajusta moviendo el inicio a mano, en vez de
+    // arrancar siempre solapado con el tramo anterior.
+    const last = ranges[ranges.length - 1]
+    const start = last ? last.end : '09:00'
+    const startMin = toMinutes(start)
+    const end = startMin + 240 < 24 * 60
+      ? `${String(Math.floor((startMin + 240) / 60)).padStart(2, '0')}:${String((startMin + 240) % 60).padStart(2, '0')}`
+      : '23:59'
+    onChange([...ranges, { start, end }])
+  }
+  const error = findTimeRangeError(ranges, t)
 
   return (
     <div className="flex flex-col gap-1.5">
@@ -39,6 +75,7 @@ function TimeRangeEditor({ ranges, onChange }: { ranges: TimeRange[]; onChange: 
       <button type="button" onClick={add} className="flex items-center gap-1 text-xs text-blue-600 hover:underline w-fit">
         <Plus className="w-3 h-3" />{t('schedulePlanner.add_time_range')}
       </button>
+      {error && <p className="text-xs text-red-600">{error}</p>}
     </div>
   )
 }
@@ -95,10 +132,14 @@ export function SchedulePlanner() {
   }
 
   const saveWeekday = async (weekday: number) => {
+    const p = patternFor(weekday)
+    if (p.is_open) {
+      const rangeError = findTimeRangeError(p.time_ranges, t)
+      if (rangeError) { setError(rangeError); return }
+    }
     setSavingWeekday(weekday)
     setError('')
     try {
-      const p = patternFor(weekday)
       await api.put(`/schedule/patterns/${weekday}`, { is_open: p.is_open, time_ranges: p.time_ranges })
     } catch (e: any) {
       setError(e.message ?? t('schedulePlanner.errors.save_schedule_failed'))
@@ -109,6 +150,8 @@ export function SchedulePlanner() {
 
   const applyBulk = async () => {
     if (bulkDays.length === 0 || bulkRanges.length === 0) return
+    const rangeError = findTimeRangeError(bulkRanges, t)
+    if (rangeError) { setError(rangeError); return }
     setApplying(true)
     setError('')
     try {
@@ -149,6 +192,10 @@ export function SchedulePlanner() {
 
   const saveException = async () => {
     if (excSelectedDates.size === 0) { setError(t('schedulePlanner.errors.select_day_required')); return }
+    if (excOpen) {
+      const rangeError = findTimeRangeError(excRanges, t)
+      if (rangeError) { setError(rangeError); return }
+    }
     setSavingExc(true)
     setError('')
     try {
@@ -215,7 +262,7 @@ export function SchedulePlanner() {
           <TimeRangeEditor ranges={bulkRanges} onChange={setBulkRanges} />
           <button
             onClick={applyBulk}
-            disabled={applying || bulkDays.length === 0 || bulkRanges.length === 0}
+            disabled={applying || bulkDays.length === 0 || bulkRanges.length === 0 || !!findTimeRangeError(bulkRanges, t)}
             className="sm:ml-auto flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50 flex-shrink-0"
           >
             {applying ? t('schedulePlanner.bulk.applying') : t('schedulePlanner.bulk.apply_button')}
@@ -250,7 +297,7 @@ export function SchedulePlanner() {
                 )}
                 <button
                   onClick={() => saveWeekday(w.value)}
-                  disabled={savingWeekday === w.value}
+                  disabled={savingWeekday === w.value || (p.is_open && !!findTimeRangeError(p.time_ranges, t))}
                   className="sm:ml-auto flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-50 flex-shrink-0"
                 >
                   <Save className="w-3.5 h-3.5" />
@@ -329,7 +376,7 @@ export function SchedulePlanner() {
             />
             <button
               onClick={saveException}
-              disabled={savingExc || excSelectedDates.size === 0}
+              disabled={savingExc || excSelectedDates.size === 0 || (excOpen && !!findTimeRangeError(excRanges, t))}
               className="flex items-center gap-1.5 px-4 py-2 bg-slate-800 text-white rounded-xl text-sm font-medium hover:bg-slate-700 disabled:opacity-50 w-fit"
             >
               {savingExc
