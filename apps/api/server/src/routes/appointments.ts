@@ -11,6 +11,15 @@ async function belongsToClinic(table: string, id: string, clinicId: string): Pro
   return !!row
 }
 
+// No se pueden agendar citas en días ya pasados — comparación por DÍA (no
+// por hora exacta), para no bloquear un hueco de hoy aunque ya haya pasado
+// esa hora concreta.
+function isPastDay(date: Date): boolean {
+  const todayStart = new Date()
+  todayStart.setHours(0, 0, 0, 0)
+  return date < todayStart
+}
+
 // GET /api/appointments?from=YYYY-MM-DD&to=YYYY-MM-DD
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
@@ -53,6 +62,7 @@ router.post('/', async (req, res) => {
     if (doctor_id && !(await belongsToClinic('doctors', doctor_id, clinicId))) return res.status(404).json({ error: 'Doctor no encontrado' })
 
     const start = new Date(start_time)
+    if (isPastDay(start)) return res.status(400).json({ error: 'No se pueden agendar citas en días pasados' })
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
 
     if (!(await isSlotAvailable(clinicId, start.toISOString(), end.toISOString()))) {
@@ -108,6 +118,14 @@ router.put('/:id', async (req, res) => {
     const start = new Date(start_time)
     const end = new Date(start.getTime() + treatment.duration_minutes * 60000)
 
+    // Solo se comprueba si es un día pasado cuando de verdad se está moviendo
+    // la cita a otra fecha/hora — editar otros campos de una cita que ya
+    // ocurrió (notas, estado) no debe bloquearse por eso.
+    const timeChanged = new Date(existing.start_time).getTime() !== start.getTime()
+    if (timeChanged && isPastDay(start)) {
+      return res.status(400).json({ error: 'No se pueden agendar citas en días pasados' })
+    }
+
     if (!(await isSlotAvailable(clinicId, start.toISOString(), end.toISOString()))) {
       return res.status(400).json({ error: 'Ese horario está fuera de la agenda disponible de la clínica' })
     }
@@ -120,11 +138,6 @@ router.put('/:id', async (req, res) => {
       )
       if (clash) return res.status(409).json({ error: 'El doctor ya tiene una cita en ese horario' })
     }
-
-    // A rescheduled appointment needs a fresh reminder window for its new
-    // time — clearing reminder_sent_at lets the 24h-before scheduler pick
-    // it up again instead of staying silent because it "already reminded".
-    const timeChanged = new Date(existing.start_time).getTime() !== start.getTime()
 
     const data = await queryOne(
       `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, branch=$4, start_time=$5, end_time=$6, notes=$7, status=$8, updated_at=NOW()${timeChanged ? ', reminder_sent_at=NULL' : ''}

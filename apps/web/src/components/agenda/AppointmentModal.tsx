@@ -34,6 +34,11 @@ function toLocalInputValue(iso?: string) {
   return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16)
 }
 
+function todayDateKey() {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 export function AppointmentModal({ initial, defaultStartTime, patients, doctors, treatments, branches = [], onSave, onDelete, onClose }: Props) {
   const { t } = useTranslation()
   const isEdit = !!initial?.id
@@ -52,10 +57,20 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
   const set = (k: keyof typeof form, v: string) => setForm(f => ({ ...f, [k]: v }))
   const selectedTreatment = treatments.find(t => t.id === form.treatment_id)
 
+  const originalStartTime = initial?.start_time ? toLocalInputValue(initial.start_time) : null
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.patient_id || !form.treatment_id || !form.start_time) {
       setError(t('appointmentModal.validation_required'))
+      return
+    }
+    // Solo se bloquea si de verdad se está moviendo la cita a una fecha
+    // pasada — editar otros campos de una cita que ya ocurrió (notas,
+    // estado) sin tocar la fecha no debe impedirse por esto.
+    const timeChanged = form.start_time !== originalStartTime
+    if (timeChanged && form.start_time.slice(0, 10) < todayDateKey()) {
+      setError(t('appointmentModal.validation_past_date'))
       return
     }
     setSaving(true)

@@ -368,7 +368,8 @@
       "duration_note": "Ocupará {{duration}} minutos en la agenda.",
       "notes": "Notas",
       "notes_placeholder": "Observaciones sobre la cita…"
-    }
+    },
+    "validation_past_date": "No se pueden agendar citas en días pasados"
   },
   "treatmentsPanel": {
     "title": "Tratamientos",
