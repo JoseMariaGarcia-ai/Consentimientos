@@ -54,7 +54,7 @@ export function SchedulePlanner() {
 
   // Bulk-apply panel state
   const [bulkDays, setBulkDays] = useState<number[]>([1, 2, 3, 4, 5])
-  const [bulkRange, setBulkRange] = useState<TimeRange>({ start: '09:00', end: '20:00' })
+  const [bulkRanges, setBulkRanges] = useState<TimeRange[]>([{ start: '09:00', end: '20:00' }])
   const [applying, setApplying] = useState(false)
 
   // New exception form state — multi-select calendar of loose days
@@ -108,11 +108,11 @@ export function SchedulePlanner() {
   }
 
   const applyBulk = async () => {
-    if (bulkDays.length === 0) return
+    if (bulkDays.length === 0 || bulkRanges.length === 0) return
     setApplying(true)
     setError('')
     try {
-      await api.put('/schedule/patterns', { weekdays: bulkDays, is_open: true, time_ranges: [bulkRange] })
+      await api.put('/schedule/patterns', { weekdays: bulkDays, is_open: true, time_ranges: bulkRanges })
       await load()
     } catch (e: any) {
       setError(e.message ?? t('schedulePlanner.errors.apply_pattern_failed'))
@@ -211,16 +211,12 @@ export function SchedulePlanner() {
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-2 flex-wrap">
-          <input type="time" value={bulkRange.start} onChange={e => setBulkRange(r => ({ ...r, start: e.target.value }))}
-            className="px-2 py-1.5 border border-slate-300 rounded-lg text-sm w-28" />
-          <span className="text-sm text-slate-400">{t('schedulePlanner.time_separator')}</span>
-          <input type="time" value={bulkRange.end} onChange={e => setBulkRange(r => ({ ...r, end: e.target.value }))}
-            className="px-2 py-1.5 border border-slate-300 rounded-lg text-sm w-28" />
+        <div className="flex flex-col sm:flex-row sm:items-start gap-3">
+          <TimeRangeEditor ranges={bulkRanges} onChange={setBulkRanges} />
           <button
             onClick={applyBulk}
-            disabled={applying || bulkDays.length === 0}
-            className="ml-auto flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
+            disabled={applying || bulkDays.length === 0 || bulkRanges.length === 0}
+            className="sm:ml-auto flex items-center gap-1.5 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50 flex-shrink-0"
           >
             {applying ? t('schedulePlanner.bulk.applying') : t('schedulePlanner.bulk.apply_button')}
           </button>

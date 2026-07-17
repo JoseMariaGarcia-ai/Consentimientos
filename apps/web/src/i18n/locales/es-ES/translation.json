@@ -478,7 +478,7 @@
     },
     "bulk": {
       "title": "Aplicar un patrón a varios días a la vez",
-      "description": "Ej: lunes a viernes de 09:00 a 20:00. Selecciona los días y el horario, luego aplica — puedes ajustar cada día individualmente después.",
+      "description": "Ej: lunes a viernes de 09:00 a 20:00. Selecciona los días y el horario, luego aplica — puedes añadir varios tramos para horario partido (p. ej. 09:00-14:00 y 16:00-20:00), y ajustar cada día individualmente después.",
       "applying": "Aplicando…",
       "apply_button": "Aplicar a los días seleccionados"
     },
