@@ -142,6 +142,9 @@
     "generating": "PDF 생성 중…",
     "export": "PDF 내보내기"
   },
+  "consentViewModal": {
+    "title": "사전 동의서"
+  },
   "newSessionModal": {
     "title": "새 사진 세션",
     "patient_label": "환자",
@@ -894,12 +897,21 @@
     "not_found": "환자를 찾을 수 없습니다",
     "date_of_birth": "생년월일",
     "email": "이메일",
+    "phone": "전화번호",
     "blood_type": "혈액형",
     "address": "주소",
     "allergies": "알레르기",
     "medications": "복용 약물",
+    "contact_info": "연락처 정보",
+    "id_document": "신분증",
+    "show_all_data": "모든 데이터",
+    "all_data_title": "환자의 모든 데이터",
+    "upcoming_appointments": "다가오는 예약",
+    "past_appointments": "지난 예약",
+    "no_appointments": "이 환자의 예약이 없습니다",
     "tabs": {
       "history": "진료 기록 ({{count}})",
+      "appointments": "예약 ({{count}})",
       "photos": "사진 ({{count}})",
       "consents": "동의서 ({{count}})",
       "odontogram": "치아 도표"

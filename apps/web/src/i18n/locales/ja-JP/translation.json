@@ -142,6 +142,9 @@
     "generating": "PDFを作成中…",
     "export": "PDFを出力"
   },
+  "consentViewModal": {
+    "title": "インフォームドコンセント"
+  },
   "newSessionModal": {
     "title": "新規撮影セッション",
     "patient_label": "患者",
@@ -894,12 +897,21 @@
     "not_found": "患者が見つかりません",
     "date_of_birth": "生年月日",
     "email": "メールアドレス",
+    "phone": "電話番号",
     "blood_type": "血液型",
     "address": "住所",
     "allergies": "アレルギー",
     "medications": "服薬情報",
+    "contact_info": "連絡先情報",
+    "id_document": "身分証明書",
+    "show_all_data": "すべてのデータ",
+    "all_data_title": "患者のすべてのデータ",
+    "upcoming_appointments": "今後の予約",
+    "past_appointments": "過去の予約",
+    "no_appointments": "この患者の予約はありません",
     "tabs": {
       "history": "カルテ（{{count}}）",
+      "appointments": "予約 ({{count}})",
       "photos": "写真（{{count}}）",
       "consents": "同意書（{{count}}）",
       "odontogram": "歯式図"

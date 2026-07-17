@@ -142,6 +142,9 @@
     "generating": "PDF बन रहा है…",
     "export": "PDF निर्यात करें"
   },
+  "consentViewModal": {
+    "title": "सूचित सहमति"
+  },
   "newSessionModal": {
     "title": "नया फ़ोटो सत्र",
     "patient_label": "मरीज़",
@@ -894,12 +897,21 @@
     "not_found": "मरीज़ नहीं मिला",
     "date_of_birth": "जन्म तिथि",
     "email": "ईमेल",
+    "phone": "फ़ोन",
     "blood_type": "रक्त समूह",
     "address": "पता",
     "allergies": "एलर्जी",
     "medications": "दवाएं",
+    "contact_info": "संपर्क जानकारी",
+    "id_document": "पहचान दस्तावेज़",
+    "show_all_data": "सभी डेटा",
+    "all_data_title": "सभी रोगी डेटा",
+    "upcoming_appointments": "आगामी अपॉइंटमेंट",
+    "past_appointments": "पिछली अपॉइंटमेंट",
+    "no_appointments": "इस रोगी के लिए कोई अपॉइंटमेंट नहीं है",
     "tabs": {
       "history": "क्लिनिकल रिकॉर्ड ({{count}})",
+      "appointments": "अपॉइंटमेंट ({{count}})",
       "photos": "फ़ोटो ({{count}})",
       "consents": "सहमतियाँ ({{count}})",
       "odontogram": "डेंटल चार्ट"

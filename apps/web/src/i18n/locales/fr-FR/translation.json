@@ -142,6 +142,9 @@
     "generating": "Génération du PDF…",
     "export": "Exporter en PDF"
   },
+  "consentViewModal": {
+    "title": "Consentement éclairé"
+  },
   "newSessionModal": {
     "title": "Nouvelle séance photo",
     "patient_label": "Patient",
@@ -894,12 +897,21 @@
     "not_found": "Patient introuvable",
     "date_of_birth": "Date de naissance",
     "email": "Email",
+    "phone": "Téléphone",
     "blood_type": "Groupe sanguin",
     "address": "Adresse",
     "allergies": "Allergies",
     "medications": "Médication",
+    "contact_info": "Coordonnées",
+    "id_document": "Pièce d'identité",
+    "show_all_data": "Toutes les données",
+    "all_data_title": "Toutes les données du patient",
+    "upcoming_appointments": "Rendez-vous à venir",
+    "past_appointments": "Rendez-vous passés",
+    "no_appointments": "Aucun rendez-vous pour ce patient",
     "tabs": {
       "history": "Dossiers cliniques ({{count}})",
+      "appointments": "Rendez-vous ({{count}})",
       "photos": "Photos ({{count}})",
       "consents": "Consentements ({{count}})",
       "odontogram": "Odontogramme"

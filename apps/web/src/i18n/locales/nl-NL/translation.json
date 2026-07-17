@@ -142,6 +142,9 @@
     "generating": "PDF genereren…",
     "export": "PDF exporteren"
   },
+  "consentViewModal": {
+    "title": "Geïnformeerde toestemming"
+  },
   "newSessionModal": {
     "title": "Nieuwe fotosessie",
     "patient_label": "Patiënt",
@@ -894,12 +897,21 @@
     "not_found": "Patiënt niet gevonden",
     "date_of_birth": "Geboortedatum",
     "email": "E-mail",
+    "phone": "Telefoon",
     "blood_type": "Bloedgroep",
     "address": "Adres",
     "allergies": "Allergieën",
     "medications": "Medicatie",
+    "contact_info": "Contactgegevens",
+    "id_document": "Identiteitsdocument",
+    "show_all_data": "Alle gegevens",
+    "all_data_title": "Alle patiëntgegevens",
+    "upcoming_appointments": "Aankomende afspraken",
+    "past_appointments": "Eerdere afspraken",
+    "no_appointments": "Geen afspraken voor deze patiënt",
     "tabs": {
       "history": "Klinische dossiers ({{count}})",
+      "appointments": "Afspraken ({{count}})",
       "photos": "Foto's ({{count}})",
       "consents": "Toestemmingen ({{count}})",
       "odontogram": "Tandschema"

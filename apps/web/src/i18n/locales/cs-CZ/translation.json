@@ -142,6 +142,9 @@
     "generating": "Generování PDF…",
     "export": "Exportovat PDF"
   },
+  "consentViewModal": {
+    "title": "Informovaný souhlas"
+  },
   "newSessionModal": {
     "title": "Nové fotografické sezení",
     "patient_label": "Pacient",
@@ -894,12 +897,21 @@
     "not_found": "Pacient nenalezen",
     "date_of_birth": "Datum narození",
     "email": "E-mail",
+    "phone": "Telefon",
     "blood_type": "Krevní skupina",
     "address": "Adresa",
     "allergies": "Alergie",
     "medications": "Medikace",
+    "contact_info": "Kontaktní údaje",
+    "id_document": "Doklad totožnosti",
+    "show_all_data": "Všechny údaje",
+    "all_data_title": "Všechny údaje pacienta",
+    "upcoming_appointments": "Nadcházející schůzky",
+    "past_appointments": "Minulé schůzky",
+    "no_appointments": "Pro tohoto pacienta nejsou žádné schůzky",
     "tabs": {
       "history": "Klinické záznamy ({{count}})",
+      "appointments": "Schůzky ({{count}})",
       "photos": "Fotografie ({{count}})",
       "consents": "Souhlasy ({{count}})",
       "odontogram": "Zubní diagram"

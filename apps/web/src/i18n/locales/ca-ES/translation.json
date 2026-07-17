@@ -142,6 +142,9 @@
     "generating": "Generant PDF…",
     "export": "Exportar PDF"
   },
+  "consentViewModal": {
+    "title": "Consentiment informat"
+  },
   "newSessionModal": {
     "title": "Nova sessió fotogràfica",
     "patient_label": "Pacient",
@@ -894,12 +897,21 @@
     "not_found": "Pacient no trobat",
     "date_of_birth": "Data de naixement",
     "email": "Email",
+    "phone": "Telèfon",
     "blood_type": "Grup sanguini",
     "address": "Adreça",
     "allergies": "Al·lèrgies",
     "medications": "Medicació",
+    "contact_info": "Dades de contacte",
+    "id_document": "Document d'identitat",
+    "show_all_data": "Totes les dades",
+    "all_data_title": "Totes les dades del pacient",
+    "upcoming_appointments": "Properes cites",
+    "past_appointments": "Cites passades",
+    "no_appointments": "No hi ha cites per a aquest pacient",
     "tabs": {
       "history": "Històries clíniques ({{count}})",
+      "appointments": "Cites ({{count}})",
       "photos": "Fotos ({{count}})",
       "consents": "Consentiments ({{count}})",
       "odontogram": "Odontograma"

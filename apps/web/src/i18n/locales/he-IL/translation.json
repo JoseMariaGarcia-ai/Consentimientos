@@ -142,6 +142,9 @@
     "generating": "יוצר PDF…",
     "export": "ייצוא PDF"
   },
+  "consentViewModal": {
+    "title": "הסכמה מדעת"
+  },
   "newSessionModal": {
     "title": "סשן צילום חדש",
     "patient_label": "מטופל",
@@ -850,12 +853,21 @@
     "not_found": "המטופל לא נמצא",
     "date_of_birth": "תאריך לידה",
     "email": "אימייל",
+    "phone": "טלפון",
     "blood_type": "סוג דם",
     "address": "כתובת",
     "allergies": "אלרגיות",
     "medications": "תרופות",
+    "contact_info": "פרטי קשר",
+    "id_document": "מסמך זהות",
+    "show_all_data": "כל הנתונים",
+    "all_data_title": "כל נתוני המטופל",
+    "upcoming_appointments": "תורים קרובים",
+    "past_appointments": "תורים קודמים",
+    "no_appointments": "אין תורים למטופל זה",
     "tabs": {
       "history": "רשומות רפואיות ({{count}})",
+      "appointments": "תורים ({{count}})",
       "photos": "תמונות ({{count}})",
       "consents": "הסכמות ({{count}})",
       "odontogram": "תרשים שיניים"

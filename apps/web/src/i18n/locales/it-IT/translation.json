@@ -142,6 +142,9 @@
     "generating": "Generazione PDF…",
     "export": "Esporta PDF"
   },
+  "consentViewModal": {
+    "title": "Consenso informato"
+  },
   "newSessionModal": {
     "title": "Nuova sessione fotografica",
     "patient_label": "Paziente",
@@ -948,12 +951,21 @@
     "not_found": "Paziente non trovato",
     "date_of_birth": "Data di nascita",
     "email": "Email",
+    "phone": "Telefono",
     "blood_type": "Gruppo sanguigno",
     "address": "Indirizzo",
     "allergies": "Allergie",
     "medications": "Farmaci",
+    "contact_info": "Dati di contatto",
+    "id_document": "Documento d'identità",
+    "show_all_data": "Tutti i dati",
+    "all_data_title": "Tutti i dati del paziente",
+    "upcoming_appointments": "Prossimi appuntamenti",
+    "past_appointments": "Appuntamenti passati",
+    "no_appointments": "Nessun appuntamento per questo paziente",
     "tabs": {
       "history": "Cartelle cliniche ({{count}})",
+      "appointments": "Appuntamenti ({{count}})",
       "photos": "Foto ({{count}})",
       "consents": "Consensi ({{count}})",
       "odontogram": "Odontogramma"

@@ -142,6 +142,9 @@
     "generating": "Generowanie PDF…",
     "export": "Eksportuj PDF"
   },
+  "consentViewModal": {
+    "title": "Świadoma zgoda"
+  },
   "newSessionModal": {
     "title": "Nowa sesja zdjęciowa",
     "patient_label": "Pacjent",
@@ -894,12 +897,21 @@
     "not_found": "Nie znaleziono pacjenta",
     "date_of_birth": "Data urodzenia",
     "email": "Email",
+    "phone": "Telefon",
     "blood_type": "Grupa krwi",
     "address": "Adres",
     "allergies": "Alergie",
     "medications": "Leki",
+    "contact_info": "Dane kontaktowe",
+    "id_document": "Dokument tożsamości",
+    "show_all_data": "Wszystkie dane",
+    "all_data_title": "Wszystkie dane pacjenta",
+    "upcoming_appointments": "Nadchodzące wizyty",
+    "past_appointments": "Minione wizyty",
+    "no_appointments": "Brak wizyt dla tego pacjenta",
     "tabs": {
       "history": "Historie choroby ({{count}})",
+      "appointments": "Wizyty ({{count}})",
       "photos": "Zdjęcia ({{count}})",
       "consents": "Zgody ({{count}})",
       "odontogram": "Zębodół"

@@ -142,6 +142,9 @@
     "generating": "Δημιουργία PDF…",
     "export": "Εξαγωγή PDF"
   },
+  "consentViewModal": {
+    "title": "Έγγραφο συναίνεσης"
+  },
   "newSessionModal": {
     "title": "Νέα φωτογραφική συνεδρία",
     "patient_label": "Ασθενής",
@@ -894,12 +897,21 @@
     "not_found": "Ο ασθενής δεν βρέθηκε",
     "date_of_birth": "Ημερομηνία γέννησης",
     "email": "Email",
+    "phone": "Τηλέφωνο",
     "blood_type": "Ομάδα αίματος",
     "address": "Διεύθυνση",
     "allergies": "Αλλεργίες",
     "medications": "Φαρμακευτική αγωγή",
+    "contact_info": "Στοιχεία επικοινωνίας",
+    "id_document": "Έγγραφο ταυτότητας",
+    "show_all_data": "Όλα τα δεδομένα",
+    "all_data_title": "Όλα τα δεδομένα του ασθενή",
+    "upcoming_appointments": "Επερχόμενα ραντεβού",
+    "past_appointments": "Προηγούμενα ραντεβού",
+    "no_appointments": "Δεν υπάρχουν ραντεβού για αυτόν τον ασθενή",
     "tabs": {
       "history": "Κλινικά ιστορικά ({{count}})",
+      "appointments": "Ραντεβού ({{count}})",
       "photos": "Φωτογραφίες ({{count}})",
       "consents": "Συναινέσεις ({{count}})",
       "odontogram": "Οδοντόγραμμα"

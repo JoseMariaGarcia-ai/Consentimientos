@@ -142,6 +142,9 @@
     "generating": "Generating PDF…",
     "export": "Export PDF"
   },
+  "consentViewModal": {
+    "title": "Informed consent"
+  },
   "newSessionModal": {
     "title": "New photo session",
     "patient_label": "Patient",
@@ -894,12 +897,21 @@
     "not_found": "Patient not found",
     "date_of_birth": "Date of birth",
     "email": "Email",
+    "phone": "Phone",
     "blood_type": "Blood type",
     "address": "Address",
     "allergies": "Allergies",
     "medications": "Medications",
+    "contact_info": "Contact information",
+    "id_document": "ID document",
+    "show_all_data": "All data",
+    "all_data_title": "All patient data",
+    "upcoming_appointments": "Upcoming appointments",
+    "past_appointments": "Past appointments",
+    "no_appointments": "No appointments for this patient",
     "tabs": {
       "history": "Clinical records ({{count}})",
+      "appointments": "Appointments ({{count}})",
       "photos": "Photos ({{count}})",
       "consents": "Consents ({{count}})",
       "odontogram": "Odontogram"

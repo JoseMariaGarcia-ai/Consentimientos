@@ -142,6 +142,9 @@
     "generating": "جارٍ إنشاء PDF…",
     "export": "تصدير PDF"
   },
+  "consentViewModal": {
+    "title": "الموافقة المستنيرة"
+  },
   "newSessionModal": {
     "title": "جلسة تصوير جديدة",
     "patient_label": "المريض",
@@ -856,12 +859,21 @@
     "not_found": "المريض غير موجود",
     "date_of_birth": "تاريخ الميلاد",
     "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
     "blood_type": "فصيلة الدم",
     "address": "العنوان",
     "allergies": "الحساسية",
     "medications": "الأدوية",
+    "contact_info": "بيانات الاتصال",
+    "id_document": "وثيقة الهوية",
+    "show_all_data": "كل البيانات",
+    "all_data_title": "جميع بيانات المريض",
+    "upcoming_appointments": "المواعيد القادمة",
+    "past_appointments": "المواعيد السابقة",
+    "no_appointments": "لا توجد مواعيد لهذا المريض",
     "tabs": {
       "history": "السجلات الطبية ({{count}})",
+      "appointments": "المواعيد ({{count}})",
       "photos": "الصور ({{count}})",
       "consents": "نماذج الموافقة ({{count}})",
       "odontogram": "مخطط الأسنان"

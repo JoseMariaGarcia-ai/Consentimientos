@@ -15,7 +15,9 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
   const now = new Date()
   const localISO = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16)
 
-  const [form, setForm] = useState({ patient_id: '', doctor_id: '', branch: '', name: '', notes: '', session_date: localISO })
+  // Si solo hay un paciente disponible (p. ej. al abrir desde la ficha del
+  // paciente), se preselecciona para no obligar a elegirlo de nuevo.
+  const [form, setForm] = useState({ patient_id: patients.length === 1 ? patients[0].id : '', doctor_id: '', branch: '', name: '', notes: '', session_date: localISO })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 

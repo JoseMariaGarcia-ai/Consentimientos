@@ -142,6 +142,9 @@
     "generating": "正在生成PDF…",
     "export": "导出PDF"
   },
+  "consentViewModal": {
+    "title": "知情同意"
+  },
   "newSessionModal": {
     "title": "新建拍照场次",
     "patient_label": "患者",
@@ -894,12 +897,21 @@
     "not_found": "未找到患者",
     "date_of_birth": "出生日期",
     "email": "电子邮件",
+    "phone": "电话",
     "blood_type": "血型",
     "address": "地址",
     "allergies": "过敏史",
     "medications": "用药情况",
+    "contact_info": "联系方式",
+    "id_document": "身份证件",
+    "show_all_data": "所有数据",
+    "all_data_title": "患者的所有数据",
+    "upcoming_appointments": "即将到来的预约",
+    "past_appointments": "过往预约",
+    "no_appointments": "该患者没有预约",
     "tabs": {
       "history": "病历（{{count}}）",
+      "appointments": "预约 ({{count}})",
       "photos": "照片（{{count}}）",
       "consents": "知情同意书（{{count}}）",
       "odontogram": "牙位图"

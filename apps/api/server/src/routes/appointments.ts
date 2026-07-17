@@ -23,7 +23,7 @@ function isPastDay(date: Date): boolean {
 // GET /api/appointments?from=YYYY-MM-DD&to=YYYY-MM-DD
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
-  const { from, to } = req.query
+  const { from, to, patient_id } = req.query
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     let sql = `
@@ -37,6 +37,7 @@ router.get('/', async (req, res) => {
     const params: any[] = [clinicRow?.clinic_id]
     if (from) { params.push(from); sql += ` AND a.start_time >= $${params.length}` }
     if (to)   { params.push(to);   sql += ` AND a.start_time < $${params.length}` }
+    if (patient_id) { params.push(patient_id); sql += ` AND a.patient_id = $${params.length}` }
     sql += ' ORDER BY a.start_time ASC'
     const data = await query(sql, params)
     return res.json(data)

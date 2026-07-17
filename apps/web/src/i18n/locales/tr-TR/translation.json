@@ -142,6 +142,9 @@
     "generating": "PDF oluşturuluyor…",
     "export": "PDF'yi dışa aktar"
   },
+  "consentViewModal": {
+    "title": "Bilgilendirilmiş onam"
+  },
   "newSessionModal": {
     "title": "Yeni fotoğraf seansı",
     "patient_label": "Hasta",
@@ -894,12 +897,21 @@
     "not_found": "Hasta bulunamadı",
     "date_of_birth": "Doğum tarihi",
     "email": "E-posta",
+    "phone": "Telefon",
     "blood_type": "Kan grubu",
     "address": "Adres",
     "allergies": "Alerjiler",
     "medications": "İlaçlar",
+    "contact_info": "İletişim bilgileri",
+    "id_document": "Kimlik belgesi",
+    "show_all_data": "Tüm veriler",
+    "all_data_title": "Hastanın tüm verileri",
+    "upcoming_appointments": "Yaklaşan randevular",
+    "past_appointments": "Geçmiş randevular",
+    "no_appointments": "Bu hasta için randevu yok",
     "tabs": {
       "history": "Klinik kayıtlar ({{count}})",
+      "appointments": "Randevular ({{count}})",
       "photos": "Fotoğraflar ({{count}})",
       "consents": "Onaylar ({{count}})",
       "odontogram": "Diş haritası"

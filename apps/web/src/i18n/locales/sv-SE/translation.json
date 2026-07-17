@@ -142,6 +142,9 @@
     "generating": "Genererar PDF…",
     "export": "Exportera PDF"
   },
+  "consentViewModal": {
+    "title": "Informerat samtycke"
+  },
   "newSessionModal": {
     "title": "Ny fotosession",
     "patient_label": "Patient",
@@ -894,12 +897,21 @@
     "not_found": "Patienten hittades inte",
     "date_of_birth": "Födelsedatum",
     "email": "E-post",
+    "phone": "Telefon",
     "blood_type": "Blodgrupp",
     "address": "Adress",
     "allergies": "Allergier",
     "medications": "Medicinering",
+    "contact_info": "Kontaktuppgifter",
+    "id_document": "Identitetshandling",
+    "show_all_data": "All data",
+    "all_data_title": "All patientdata",
+    "upcoming_appointments": "Kommande bokningar",
+    "past_appointments": "Tidigare bokningar",
+    "no_appointments": "Inga bokningar för denna patient",
     "tabs": {
       "history": "Journaler ({{count}})",
+      "appointments": "Bokningar ({{count}})",
       "photos": "Foton ({{count}})",
       "consents": "Samtycken ({{count}})",
       "odontogram": "Tandkarta"

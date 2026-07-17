@@ -142,6 +142,9 @@
     "generating": "Generando PDF…",
     "export": "Exportar PDF"
   },
+  "consentViewModal": {
+    "title": "Consentimiento informado"
+  },
   "newSessionModal": {
     "title": "Nueva sesión fotográfica",
     "patient_label": "Paciente",
@@ -866,12 +869,21 @@
     "not_found": "Paciente no encontrado",
     "date_of_birth": "Fecha de nacimiento",
     "email": "Email",
+    "phone": "Teléfono",
     "blood_type": "Grupo sanguíneo",
     "address": "Dirección",
     "allergies": "Alergias",
     "medications": "Medicación",
+    "contact_info": "Datos de contacto",
+    "id_document": "Documento de identidad",
+    "show_all_data": "Todos los datos",
+    "all_data_title": "Todos los datos del paciente",
+    "upcoming_appointments": "Próximos turnos",
+    "past_appointments": "Turnos pasados",
+    "no_appointments": "No hay turnos para este paciente",
     "tabs": {
       "history": "Historias clínicas ({{count}})",
+      "appointments": "Turnos ({{count}})",
       "photos": "Fotos ({{count}})",
       "consents": "Consentimientos ({{count}})",
       "odontogram": "Odontograma"

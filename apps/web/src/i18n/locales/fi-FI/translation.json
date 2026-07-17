@@ -142,6 +142,9 @@
     "generating": "Luodaan PDF:ää…",
     "export": "Vie PDF"
   },
+  "consentViewModal": {
+    "title": "Tietoinen suostumus"
+  },
   "newSessionModal": {
     "title": "Uusi valokuvausistunto",
     "patient_label": "Potilas",
@@ -894,12 +897,21 @@
     "not_found": "Potilasta ei löytynyt",
     "date_of_birth": "Syntymäaika",
     "email": "Sähköposti",
+    "phone": "Puhelin",
     "blood_type": "Verityyppi",
     "address": "Osoite",
     "allergies": "Allergiat",
     "medications": "Lääkitys",
+    "contact_info": "Yhteystiedot",
+    "id_document": "Henkilöllisyystodistus",
+    "show_all_data": "Kaikki tiedot",
+    "all_data_title": "Kaikki potilastiedot",
+    "upcoming_appointments": "Tulevat ajanvaraukset",
+    "past_appointments": "Menneet ajanvaraukset",
+    "no_appointments": "Ei ajanvarauksia tälle potilaalle",
     "tabs": {
       "history": "Potilaskertomukset ({{count}})",
+      "appointments": "Ajanvaraukset ({{count}})",
       "photos": "Kuvat ({{count}})",
       "consents": "Suostumukset ({{count}})",
       "odontogram": "Hammaskaavio"

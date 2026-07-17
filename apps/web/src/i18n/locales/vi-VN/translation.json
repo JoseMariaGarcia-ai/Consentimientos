@@ -142,6 +142,9 @@
     "generating": "Đang tạo PDF…",
     "export": "Xuất PDF"
   },
+  "consentViewModal": {
+    "title": "Sự đồng ý có hiểu biết"
+  },
   "newSessionModal": {
     "title": "Phiên chụp ảnh mới",
     "patient_label": "Bệnh nhân",
@@ -894,12 +897,21 @@
     "not_found": "Không tìm thấy bệnh nhân",
     "date_of_birth": "Ngày sinh",
     "email": "Email",
+    "phone": "Điện thoại",
     "blood_type": "Nhóm máu",
     "address": "Địa chỉ",
     "allergies": "Dị ứng",
     "medications": "Thuốc",
+    "contact_info": "Thông tin liên hệ",
+    "id_document": "Giấy tờ tùy thân",
+    "show_all_data": "Tất cả dữ liệu",
+    "all_data_title": "Tất cả dữ liệu bệnh nhân",
+    "upcoming_appointments": "Lịch hẹn sắp tới",
+    "past_appointments": "Lịch hẹn đã qua",
+    "no_appointments": "Không có lịch hẹn cho bệnh nhân này",
     "tabs": {
       "history": "Hồ sơ bệnh án ({{count}})",
+      "appointments": "Lịch hẹn ({{count}})",
       "photos": "Ảnh ({{count}})",
       "consents": "Chấp thuận ({{count}})",
       "odontogram": "Sơ đồ răng"

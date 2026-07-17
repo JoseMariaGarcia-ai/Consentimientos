@@ -142,6 +142,9 @@
     "generating": "Створення PDF…",
     "export": "Експортувати PDF"
   },
+  "consentViewModal": {
+    "title": "Інформована згода"
+  },
   "newSessionModal": {
     "title": "Нова фотосесія",
     "patient_label": "Пацієнт",
@@ -894,12 +897,21 @@
     "not_found": "Пацієнта не знайдено",
     "date_of_birth": "Дата народження",
     "email": "Email",
+    "phone": "Телефон",
     "blood_type": "Група крові",
     "address": "Адреса",
     "allergies": "Алергії",
     "medications": "Ліки",
+    "contact_info": "Контактні дані",
+    "id_document": "Документ, що посвідчує особу",
+    "show_all_data": "Усі дані",
+    "all_data_title": "Усі дані пацієнта",
+    "upcoming_appointments": "Майбутні візити",
+    "past_appointments": "Минулі візити",
+    "no_appointments": "Немає візитів для цього пацієнта",
     "tabs": {
       "history": "Клінічні карти ({{count}})",
+      "appointments": "Візити ({{count}})",
       "photos": "Фото ({{count}})",
       "consents": "Згоди ({{count}})",
       "odontogram": "Зубна карта"

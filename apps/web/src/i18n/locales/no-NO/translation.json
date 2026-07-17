@@ -142,6 +142,9 @@
     "generating": "Genererer PDF…",
     "export": "Eksporter PDF"
   },
+  "consentViewModal": {
+    "title": "Informert samtykke"
+  },
   "newSessionModal": {
     "title": "Ny fotoøkt",
     "patient_label": "Pasient",
@@ -894,12 +897,21 @@
     "not_found": "Pasient ikke funnet",
     "date_of_birth": "Fødselsdato",
     "email": "E-post",
+    "phone": "Telefon",
     "blood_type": "Blodtype",
     "address": "Adresse",
     "allergies": "Allergier",
     "medications": "Medisinering",
+    "contact_info": "Kontaktinformasjon",
+    "id_document": "Identitetsdokument",
+    "show_all_data": "Alle data",
+    "all_data_title": "All pasientdata",
+    "upcoming_appointments": "Kommende avtaler",
+    "past_appointments": "Tidligere avtaler",
+    "no_appointments": "Ingen avtaler for denne pasienten",
     "tabs": {
       "history": "Kliniske journaler ({{count}})",
+      "appointments": "Avtaler ({{count}})",
       "photos": "Bilder ({{count}})",
       "consents": "Samtykker ({{count}})",
       "odontogram": "Tannkart"

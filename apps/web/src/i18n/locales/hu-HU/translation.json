@@ -142,6 +142,9 @@
     "generating": "PDF generálása…",
     "export": "PDF exportálása"
   },
+  "consentViewModal": {
+    "title": "Tájékozott beleegyezés"
+  },
   "newSessionModal": {
     "title": "Új fotósorozat",
     "patient_label": "Beteg",
@@ -894,12 +897,21 @@
     "not_found": "A beteg nem található",
     "date_of_birth": "Születési dátum",
     "email": "E-mail",
+    "phone": "Telefon",
     "blood_type": "Vércsoport",
     "address": "Cím",
     "allergies": "Allergiák",
     "medications": "Gyógyszerek",
+    "contact_info": "Elérhetőségek",
+    "id_document": "Személyazonosító okmány",
+    "show_all_data": "Összes adat",
+    "all_data_title": "A páciens összes adata",
+    "upcoming_appointments": "Közelgő időpontok",
+    "past_appointments": "Korábbi időpontok",
+    "no_appointments": "Nincsenek időpontok ehhez a pácienshez",
     "tabs": {
       "history": "Klinikai naplók ({{count}})",
+      "appointments": "Időpontok ({{count}})",
       "photos": "Fotók ({{count}})",
       "consents": "Beleegyezések ({{count}})",
       "odontogram": "Fogászati térkép"

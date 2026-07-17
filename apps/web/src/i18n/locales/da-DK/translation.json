@@ -142,6 +142,9 @@
     "generating": "Genererer PDF…",
     "export": "Eksporter PDF"
   },
+  "consentViewModal": {
+    "title": "Informeret samtykke"
+  },
   "newSessionModal": {
     "title": "Ny fotosession",
     "patient_label": "Patient",
@@ -894,12 +897,21 @@
     "not_found": "Patient ikke fundet",
     "date_of_birth": "Fødselsdato",
     "email": "E-mail",
+    "phone": "Telefon",
     "blood_type": "Blodtype",
     "address": "Adresse",
     "allergies": "Allergier",
     "medications": "Medicin",
+    "contact_info": "Kontaktoplysninger",
+    "id_document": "Identitetsdokument",
+    "show_all_data": "Alle data",
+    "all_data_title": "Alle patientdata",
+    "upcoming_appointments": "Kommende aftaler",
+    "past_appointments": "Tidligere aftaler",
+    "no_appointments": "Ingen aftaler for denne patient",
     "tabs": {
       "history": "Kliniske journaler ({{count}})",
+      "appointments": "Aftaler ({{count}})",
       "photos": "Fotos ({{count}})",
       "consents": "Samtykker ({{count}})",
       "odontogram": "Tandkort"
