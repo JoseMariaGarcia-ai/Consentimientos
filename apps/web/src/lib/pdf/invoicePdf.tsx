@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5, borderColor: C.border, borderRadius: 4, padding: 10,
   },
   qrImage: { width: 90, height: 90 },
-  verifactuText: { fontSize: 7.5, color: C.slate, lineHeight: 1.5, flex: 1 },
+  verifactuText: { fontSize: 7.5, color: C.slate, lineHeight: 1.5 },
   verifactuLabel: { fontFamily: 'Helvetica-Bold', fontSize: 8, color: C.green, marginBottom: 3, letterSpacing: 0.5 },
   hashText: { fontSize: 7, color: C.muted, fontFamily: 'Courier' },
 
