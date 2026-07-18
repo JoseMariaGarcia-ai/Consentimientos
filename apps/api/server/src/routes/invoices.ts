@@ -88,7 +88,9 @@ router.get('/:id', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     const invoice = await queryOne<any>(
-      `SELECT i.*, row_to_json(p) AS patient, row_to_json(bc) AS billing_client FROM invoices i
+      `SELECT i.*, row_to_json(p) AS patient, row_to_json(bc) AS billing_client,
+        (SELECT row_to_json(o) FROM (SELECT invoice_number, issue_date FROM invoices WHERE id = i.rectifies_invoice_id) o) AS rectified_invoice
+       FROM invoices i
        LEFT JOIN patients p ON p.id = i.patient_id
        LEFT JOIN billing_clients bc ON bc.id = i.billing_client_id
        WHERE i.id = $1 AND i.clinic_id = $2`,

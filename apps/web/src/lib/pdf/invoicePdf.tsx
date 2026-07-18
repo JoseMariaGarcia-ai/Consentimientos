@@ -62,6 +62,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row', justifyContent: 'space-between',
   },
   footerText: { fontSize: 6.5, color: C.muted },
+
+  correctionBadge: {
+    alignSelf: 'flex-start', backgroundColor: '#EDE9FE', borderRadius: 3,
+    paddingHorizontal: 8, paddingVertical: 3, marginBottom: 8,
+  },
+  correctionBadgeText: { fontSize: 8, fontFamily: 'Helvetica-Bold', color: '#6D28D9', letterSpacing: 0.5 },
+  correctionRefText: { fontSize: 8, color: C.slate, marginBottom: 10 },
 })
 
 interface InvoicePdfProps {
@@ -106,6 +113,21 @@ export function InvoicePdf({ clinic, invoice, qrDataUrl }: InvoicePdfProps) {
           </View>
         </View>
 
+        {invoice.invoice_kind && invoice.invoice_kind !== 'ordinaria' && (
+          <>
+            <View style={styles.correctionBadge}>
+              <Text style={styles.correctionBadgeText}>
+                {invoice.invoice_kind === 'abono' ? 'FACTURA DE ABONO' : 'FACTURA RECTIFICATIVA'}
+              </Text>
+            </View>
+            {invoice.rectified_invoice && (
+              <Text style={styles.correctionRefText}>
+                {invoice.invoice_kind === 'abono' ? 'Abona' : 'Rectifica'} a la factura Nº {invoice.rectified_invoice.invoice_number} de fecha {fmtDate(invoice.rectified_invoice.issue_date)}
+              </Text>
+            )}
+          </>
+        )}
+
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Datos del destinatario</Text>
           <View style={styles.row}><Text style={styles.label}>Nombre / Razón social:</Text><Text style={styles.value}>{invoice.recipient_name}</Text></View>
@@ -132,7 +154,7 @@ export function InvoicePdf({ clinic, invoice, qrDataUrl }: InvoicePdfProps) {
           </View>
           <View style={styles.totalBox}>
             <Text style={styles.totalLabel}>Total factura</Text>
-            <Text style={styles.totalValue}>{fmtMoney(invoice.total_amount)}</Text>
+            <Text style={[styles.totalValue, Number(invoice.total_amount) < 0 ? { color: '#F87171' } : {}]}>{fmtMoney(invoice.total_amount)}</Text>
           </View>
         </View>
 
