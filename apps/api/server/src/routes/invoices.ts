@@ -83,6 +83,60 @@ router.get('/integrity/check', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/invoices/series — series de facturación conocidas de la clínica
+// (creadas al usarlas por primera vez, o configuradas de antemano vía el
+// PUT de abajo), con su próximo número y cuántas facturas tiene cada una.
+// Montada ANTES de "/:id" para que "series" no se interprete como un id.
+router.get('/series', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.json([])
+    const data = await query(
+      `SELECT s.series, s.next_number, s.updated_at,
+         (SELECT COUNT(*) FROM invoices i WHERE i.clinic_id = s.clinic_id AND i.series = s.series) AS invoice_count
+       FROM invoice_series s
+       WHERE s.clinic_id = $1
+       ORDER BY s.series ASC`,
+      [clinicId]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// PUT /api/invoices/series/:series — { next_number } fija el número de
+// partida de una serie. Solo permitido mientras la serie no tenga ninguna
+// factura emitida: una vez existe la primera, el número de partida deja de
+// tener sentido y editarlo rompería la correlatividad exigida por VeriFactu
+// (el propio createInvoiceRecord() ya se encarga de incrementarlo solo).
+router.put('/series/:series', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const series = String(req.params.series ?? '').trim().toUpperCase().slice(0, 10)
+    if (!series) return res.status(400).json({ error: 'Serie no válida' })
+    const nextNumber = Number(req.body?.next_number)
+    if (!Number.isInteger(nextNumber) || nextNumber < 1) {
+      return res.status(400).json({ error: 'El número de partida debe ser un entero mayor o igual que 1' })
+    }
+    const countRow = await queryOne<{ count: string }>(
+      'SELECT COUNT(*) FROM invoices WHERE clinic_id = $1 AND series = $2', [clinicId, series]
+    )
+    if (Number(countRow?.count ?? 0) > 0) {
+      return res.status(400).json({ error: 'Esta serie ya tiene facturas emitidas — no se puede cambiar su numeración' })
+    }
+    const data = await queryOne(
+      `INSERT INTO invoice_series (clinic_id, series, next_number, updated_by)
+       VALUES ($1,$2,$3,$4)
+       ON CONFLICT (clinic_id, series) DO UPDATE SET next_number = $3, updated_at = NOW(), updated_by = $4
+       RETURNING series, next_number, updated_at`,
+      [clinicId, series, nextNumber, userId]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 router.get('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
