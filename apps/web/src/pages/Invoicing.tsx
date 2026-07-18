@@ -1,14 +1,17 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BadgeEuro, Plus, Eye, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical } from 'lucide-react'
+import { BadgeEuro, Plus, Eye, FileDown, Mail, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical, Users } from 'lucide-react'
 import { api } from '@/lib/api'
 import { InvoiceModal } from '@/components/invoicing/InvoiceModal'
 import { InvoiceView } from '@/components/invoicing/InvoiceView'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { CertificateTab } from '@/components/invoicing/CertificateTab'
+import { BillingClientsList } from '@/components/invoicing/BillingClientsList'
+import { SendInvoiceEmailModal } from '@/components/invoicing/SendInvoiceEmailModal'
+import { invoicePdfBlob } from '@/components/invoicing/InvoicePdfButton'
 import { useAuth } from '@/lib/auth'
 
-const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '' }
+const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '', recipient_type: '' }
 
 const STATUS_BADGE: Record<string, string> = {
   emitida: 'bg-emerald-50 text-emerald-700',
@@ -20,15 +23,17 @@ export default function Invoicing() {
   const { t } = useTranslation()
   const { role } = useAuth()
   const canManageCertificate = role === 'clinica' || role === 'superadmin'
-  const [tab, setTab] = useState<'invoices' | 'certificate'>('invoices')
+  const [tab, setTab] = useState<'invoices' | 'certificate' | 'clients'>('invoices')
   const [aeatMode, setAeatMode] = useState<'test' | 'production'>('test')
   const [invoices, setInvoices] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
+  const [billingClients, setBillingClients] = useState<any[]>([])
   const [clinic, setClinic] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [filters, setFilters] = useState(EMPTY_FILTERS)
   const [modalOpen, setModalOpen] = useState(false)
   const [viewing, setViewing] = useState<any | null>(null)
+  const [emailing, setEmailing] = useState<any | null>(null)
   const [error, setError] = useState('')
   const [integrityIssues, setIntegrityIssues] = useState<number | null>(null)
 
@@ -41,6 +46,7 @@ export default function Invoicing() {
       if (filters.patient_id) params.set('patient_id', filters.patient_id)
       if (filters.status) params.set('status', filters.status)
       if (filters.series) params.set('series', filters.series)
+      if (filters.recipient_type) params.set('recipient_type', filters.recipient_type)
       if (filters.q) params.set('q', filters.q)
       const data = await api.get(`/invoices?${params.toString()}`)
       setInvoices(Array.isArray(data) ? data : [])
@@ -53,6 +59,10 @@ export default function Invoicing() {
 
   useEffect(() => { load() }, [load])
 
+  const loadBillingClients = useCallback(() => {
+    api.get('/billing-clients').then((c: any) => setBillingClients(Array.isArray(c) ? c : [])).catch(() => {})
+  }, [])
+
   useEffect(() => {
     Promise.all([
       api.get('/patients').catch(() => []),
@@ -61,9 +71,10 @@ export default function Invoicing() {
       setPatients(Array.isArray(p) ? p : [])
       setClinic(c)
     })
+    loadBillingClients()
     api.get('/invoices/integrity/check').then((r: any) => setIntegrityIssues(Array.isArray(r?.issues) ? r.issues.length : 0)).catch(() => {})
     api.get('/clinic-certificates/mode').then((r: any) => setAeatMode(r?.mode === 'production' ? 'production' : 'test')).catch(() => {})
-  }, [])
+  }, [loadBillingClients])
 
   const handleSave = async (data: any) => {
     try {
@@ -86,8 +97,36 @@ export default function Invoicing() {
     await load()
   }
 
+  const handleViewClientInvoices = (client: any) => {
+    setFilters(f => ({ ...EMPTY_FILTERS, q: client.tax_id }))
+    setTab('invoices')
+  }
+
+  const openEmailModal = async (inv: any) => {
+    const full = await api.get(`/invoices/${inv.id}`)
+    setEmailing(full)
+  }
+
+  const defaultEmailFor = (inv: any) => inv?.patient?.email || inv?.billing_client?.email || ''
+
+  const handlePdfAction = async (inv: any, action: 'view' | 'download') => {
+    const full = await api.get(`/invoices/${inv.id}`)
+    const blob = await invoicePdfBlob(full, clinic)
+    const url = URL.createObjectURL(blob)
+    if (action === 'view') {
+      window.open(url, '_blank')
+    } else {
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `factura_${inv.invoice_number}.pdf`
+      a.click()
+    }
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
   const fmtDate = (d?: string) => d ? new Date(d).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—'
   const fmtMoney = (n: number) => (Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'
+  const recipientTypeLabel = (rt: string) => t(`invoicing.recipientType${rt.charAt(0).toUpperCase()}${rt.slice(1)}`)
 
   return (
     <div className="flex flex-col gap-6">
@@ -118,26 +157,34 @@ export default function Invoicing() {
         </div>
       )}
 
-      {canManageCertificate && (
-        <div className="flex items-center gap-1 border-b border-slate-200">
-          <button
-            onClick={() => setTab('invoices')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'invoices' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
-          >
-            <BadgeEuro className="w-4 h-4" />{t('invoicing.tabInvoices')}
-          </button>
+      <div className="flex items-center gap-1 border-b border-slate-200">
+        <button
+          onClick={() => setTab('invoices')}
+          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'invoices' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+        >
+          <BadgeEuro className="w-4 h-4" />{t('invoicing.tabInvoices')}
+        </button>
+        <button
+          onClick={() => setTab('clients')}
+          className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'clients' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+        >
+          <Users className="w-4 h-4" />{t('invoicing.tabClients')}
+        </button>
+        {canManageCertificate && (
           <button
             onClick={() => setTab('certificate')}
             className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'certificate' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
             <ShieldCheck className="w-4 h-4" />{t('invoicing.tabCertificate')}
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
-      {tab === 'certificate' ? (
-        <CertificateTab />
-      ) : (
+      {tab === 'certificate' && <CertificateTab />}
+
+      {tab === 'clients' && <BillingClientsList onViewInvoices={handleViewClientInvoices} />}
+
+      {tab === 'invoices' && (
       <>
       {integrityIssues !== null && integrityIssues > 0 && (
         <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-2xl p-4">
@@ -166,6 +213,16 @@ export default function Invoicing() {
             onChange={id => setFilters(f => ({ ...f, patient_id: id }))}
             placeholder={t('invoicing.all')}
           />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.recipientType')}</label>
+          <select value={filters.recipient_type} onChange={e => setFilters(f => ({ ...f, recipient_type: e.target.value }))}
+            className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+            <option value="">{t('invoicing.all')}</option>
+            <option value="paciente">{t('invoicing.recipientTypePaciente')}</option>
+            <option value="cliente">{t('invoicing.recipientTypeCliente')}</option>
+            <option value="manual">{t('invoicing.recipientTypeManual')}</option>
+          </select>
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.status')}</label>
@@ -209,6 +266,7 @@ export default function Invoicing() {
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colNumber')}</th>
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colDate')}</th>
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colRecipient')}</th>
+                  <th className="px-4 py-3 font-semibold">{t('invoicing.colType')}</th>
                   <th className="px-4 py-3 font-semibold text-right">{t('invoicing.colTotal')}</th>
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colStatus')}</th>
                   <th className="px-4 py-3 font-semibold text-center">{t('invoicing.colAeat')}</th>
@@ -221,6 +279,7 @@ export default function Invoicing() {
                     <td className="px-4 py-3 font-medium text-slate-800">{inv.invoice_number}</td>
                     <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{fmtDate(inv.issue_date)}</td>
                     <td className="px-4 py-3 text-slate-600">{inv.recipient_name}</td>
+                    <td className="px-4 py-3 text-slate-500 text-xs">{recipientTypeLabel(inv.recipient_type ?? 'manual')}</td>
                     <td className="px-4 py-3 text-right font-semibold text-emerald-700">{fmtMoney(inv.total_amount)}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${STATUS_BADGE[inv.status] ?? 'bg-slate-100 text-slate-600'}`}>
@@ -237,8 +296,14 @@ export default function Invoicing() {
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
-                        <button onClick={() => openView(inv)} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
+                        <button onClick={() => openView(inv)} title={t('invoicing.actionView')} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
                           <Eye className="w-4 h-4" />
+                        </button>
+                        <button onClick={() => handlePdfAction(inv, 'download')} title={t('invoicing.actionDownload')} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
+                          <FileDown className="w-4 h-4" />
+                        </button>
+                        <button onClick={() => openEmailModal(inv)} title={t('invoicing.actionEmail')} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
+                          <Mail className="w-4 h-4" />
                         </button>
                       </div>
                     </td>
@@ -255,6 +320,8 @@ export default function Invoicing() {
       {modalOpen && (
         <InvoiceModal
           patients={patients}
+          billingClients={billingClients}
+          onBillingClientCreated={client => setBillingClients(bcs => [...bcs, client])}
           onSave={handleSave}
           onClose={() => setModalOpen(false)}
         />
@@ -262,6 +329,16 @@ export default function Invoicing() {
 
       {viewing && (
         <InvoiceView invoice={viewing} clinic={clinic} onClose={closeView} onCancelled={handleCancelled} />
+      )}
+
+      {emailing && (
+        <SendInvoiceEmailModal
+          invoice={emailing}
+          clinic={clinic}
+          defaultEmail={defaultEmailFor(emailing)}
+          onClose={() => setEmailing(null)}
+          onSent={load}
+        />
       )}
     </div>
   )
