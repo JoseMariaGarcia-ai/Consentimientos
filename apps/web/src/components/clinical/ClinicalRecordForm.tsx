@@ -8,18 +8,16 @@ interface ClinicalRecordFormProps {
   initial?: any
   patients: any[]
   doctors: Doctor[]
-  branches?: { id: string; name: string }[]
   onSave: (data: any) => Promise<void>
   onClose: () => void
 }
 
-export function ClinicalRecordForm({ initial = {}, patients, doctors, branches = [], onSave, onClose }: ClinicalRecordFormProps) {
+export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, onClose }: ClinicalRecordFormProps) {
   const { t } = useTranslation()
   const { trigger: triggerWelcome } = useWelcomeMedia()
   const [form, setForm] = useState({
     patient_id:          initial.patient_id  ?? initial.patientId  ?? '',
     doctor_id:           initial.doctor_id   ?? initial.doctorId   ?? '',
-    branch:              initial.branch ?? '',
     date:                initial.date?.split('T')[0] ?? new Date().toISOString().split('T')[0],
     reason_for_visit:    (initial.reason_for_visit    ?? initial.reasonForVisit    ?? '').toUpperCase(),
     anamnesis:           (initial.anamnesis            ?? '').toUpperCase(),
@@ -48,9 +46,9 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
     setSaving(true)
     setSaveError('')
     try {
-      // doctor_id/branch vacíos deben ir como undefined, no como "" — un
-      // UUID vacío rompe la columna doctor_id en el backend.
-      await onSave({ ...form, doctor_id: form.doctor_id || undefined, branch: form.branch || undefined })
+      // doctor_id vacío debe ir como undefined, no como "" — un UUID vacío
+      // rompe la columna doctor_id en el backend.
+      await onSave({ ...form, doctor_id: form.doctor_id || undefined })
       triggerWelcome('clinical')
       onClose()
     } catch (err: any) {
@@ -122,21 +120,6 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
               </select>
             </div>
           </div>
-
-          {/* Clínica (sede) — solo si hay más de una */}
-          {branches.length > 1 && (
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.branch')}</label>
-              <select
-                value={form.branch}
-                onChange={e => setRaw('branch', e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">{t('clinicalRecordForm.unspecified')}</option>
-                {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
-              </select>
-            </div>
-          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">

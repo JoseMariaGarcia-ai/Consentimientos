@@ -16,7 +16,6 @@ interface Props {
     patient_id?: string
     doctor_id?: string
     treatment_id?: string
-    branch?: string
     start_time?: string
     notes?: string
   }
@@ -24,7 +23,6 @@ interface Props {
   patients: any[]
   doctors: any[]
   treatments: Treatment[]
-  branches?: { id: string; name: string }[]
   onSave: (data: any) => Promise<void>
   onDelete?: () => Promise<void>
   onClose: () => void
@@ -40,14 +38,13 @@ function todayDateKey() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
-export function AppointmentModal({ initial, defaultStartTime, patients, doctors, treatments, branches = [], onSave, onDelete, onClose }: Props) {
+export function AppointmentModal({ initial, defaultStartTime, patients, doctors, treatments, onSave, onDelete, onClose }: Props) {
   const { t } = useTranslation()
   const isEdit = !!initial?.id
   const [form, setForm] = useState({
     patient_id: initial?.patient_id ?? '',
     doctor_id: initial?.doctor_id ?? '',
     treatment_id: initial?.treatment_id ?? '',
-    branch: initial?.branch ?? '',
     start_time: toLocalInputValue(initial?.start_time ?? defaultStartTime),
     notes: initial?.notes ?? '',
   })
@@ -80,7 +77,6 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
       await onSave({
         ...form,
         doctor_id: form.doctor_id || undefined,
-        branch: form.branch || undefined,
         start_time: new Date(form.start_time).toISOString(),
       })
       onClose()
@@ -137,19 +133,6 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
             >
               <option value="">{t('appointmentModal.form.unassigned')}</option>
               {doctors.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-            </select>
-          </div>
-
-          {/* Clínica / Sede */}
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.branch')}</label>
-            <select
-              value={form.branch}
-              onChange={e => set('branch', e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">{t('appointmentModal.form.main_branch')}</option>
-              {branches.map(b => <option key={b.id} value={b.name}>{b.name}</option>)}
             </select>
           </div>
 

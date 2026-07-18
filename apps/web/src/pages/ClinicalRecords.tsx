@@ -10,7 +10,6 @@ export default function ClinicalRecords() {
   const [records, setRecords] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
   const [doctors, setDoctors] = useState<Doctor[]>([])
-  const [branches, setBranches] = useState<{ id: string; name: string }[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [formOpen, setFormOpen] = useState(false)
@@ -19,11 +18,10 @@ export default function ClinicalRecords() {
   const load = async () => {
     setLoading(true)
     try {
-      const [r, p, d, clinic] = await Promise.all([
+      const [r, p, d] = await Promise.all([
         api.get('/clinical-records'),
         api.get('/patients'),
         api.get('/doctors'),
-        api.get('/clinic'),
       ])
       setRecords(Array.isArray(r) ? r : [])
       setPatients(Array.isArray(p) ? p.map((x: any) => ({
@@ -33,7 +31,6 @@ export default function ClinicalRecords() {
         fullName:  x.full_name  ?? x.fullName ?? [x.first_name, x.last_name].filter(Boolean).join(' '),
       })) : [])
       setDoctors(Array.isArray(d) ? d : [])
-      setBranches(Array.isArray((clinic as any)?.branches) ? (clinic as any).branches : [])
     } finally {
       setLoading(false)
     }
@@ -153,7 +150,6 @@ export default function ClinicalRecords() {
           initial={editing ?? {}}
           patients={patients}
           doctors={doctors}
-          branches={branches}
           onSave={handleSave}
           onClose={() => setFormOpen(false)}
         />

@@ -176,7 +176,6 @@ export function AppointmentCalendar() {
   const [patients, setPatients] = useState<any[]>([])
   const [doctors, setDoctors] = useState<any[]>([])
   const [treatments, setTreatments] = useState<any[]>([])
-  const [branches, setBranches] = useState<{ id: string; name: string }[]>([])
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState<{ open: boolean; initial?: any; defaultStartTime?: string }>({ open: false })
 
@@ -230,12 +229,10 @@ export function AppointmentCalendar() {
       api.get('/patients').catch(() => []),
       api.get('/doctors').catch(() => []),
       api.get('/treatments').catch(() => []),
-      api.get('/clinic').catch(() => ({})),
-    ]).then(([p, d, t, clinic]) => {
+    ]).then(([p, d, t]) => {
       setPatients(Array.isArray(p) ? p : [])
       setDoctors(Array.isArray(d) ? d : [])
       setTreatments(Array.isArray(t) ? t : [])
-      setBranches(Array.isArray((clinic as any)?.branches) ? (clinic as any).branches : [])
     })
   }, [])
 
@@ -268,7 +265,6 @@ export function AppointmentCalendar() {
       patient_id: a.patient_id,
       doctor_id: a.doctor_id,
       treatment_id: a.treatment_id,
-      branch: a.branch,
       start_time: a.start_time,
       notes: a.notes,
     },
@@ -297,7 +293,6 @@ export function AppointmentCalendar() {
         patient_id: a.patient_id,
         doctor_id: a.doctor_id,
         treatment_id: a.treatment_id,
-        branch: a.branch,
         start_time: newStart.toISOString(),
         notes: a.notes,
         status: a.status,
@@ -447,7 +442,6 @@ export function AppointmentCalendar() {
           patients={patients}
           doctors={doctors}
           treatments={treatments}
-          branches={branches}
           onSave={handleSave}
           onDelete={modal.initial?.id ? handleDelete : undefined}
           onClose={() => setModal({ open: false })}

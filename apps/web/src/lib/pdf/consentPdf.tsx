@@ -128,7 +128,6 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
   const doctorLicense   = doctor?.licenseNumber ?? doctor?.license_number ?? ''
   const doctorSpecialty = doctor?.specialty ?? ''
 
-  const sede         = consent.sede ?? null
   const createdDate  = consent.created_at ? new Date(consent.created_at).toLocaleString('es-ES') : ''
   const signedDate   = (consent.signedAt ?? consent.signed_at) ? new Date(consent.signedAt ?? consent.signed_at).toLocaleString('es-ES') : '—'
   const verifyUrl    = `https://www.consentspro.com/verify/${consentUuid}`
@@ -145,7 +144,6 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
             <Text style={styles.titleClinic}>
               {clinic?.trade_name ?? clinic?.name ?? ''}
               {clinic?.legal_name ? `  ·  Razón social: ${clinic.legal_name}` : ''}
-              {sede ? `  ·  Sede: ${sede}` : ''}
             </Text>
             {(clinic?.tax_id || clinic?.address || clinic?.nika_number) && (
               <Text style={styles.titleClinicMeta}>
@@ -177,7 +175,6 @@ export function ConsentPdf({ consent, patient, doctor, clinic, language, documen
             <Text style={styles.value}>{doctorName}{doctorSpecialty ? `  ·  ${doctorSpecialty}` : ''}</Text>
           </View>
           {doctorLicense && <View style={styles.row}><Text style={styles.label}>Nº Colegiado:</Text><Text style={styles.value}>{doctorLicense}</Text></View>}
-          {sede && <View style={styles.row}><Text style={styles.label}>Sede:</Text><Text style={styles.value}>{sede}</Text></View>}
           <View style={styles.row}><Text style={styles.label}>Fecha de firma:</Text><Text style={styles.value}>{signedDate}</Text></View>
         </View>
 

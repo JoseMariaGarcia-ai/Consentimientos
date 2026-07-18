@@ -122,7 +122,7 @@ export default function Consents() {
             <table className="w-full text-sm">
               <thead className="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), t('consents.branch'), t('consents.created_at'), t('consents.signed_at'), t('consents.status_header'), ''].map((h, i) => (
+                  {[t('consents.patient'), t('consents.treatment'), t('consents.doctor'), t('consents.created_at'), t('consents.signed_at'), t('consents.status_header'), ''].map((h, i) => (
                     <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
@@ -136,7 +136,6 @@ export default function Consents() {
                       <td className="px-4 py-3 font-medium text-slate-800">{c.patient?.full_name ?? c.patient?.fullName ?? '—'}</td>
                       <td className="px-4 py-3 text-slate-600">{c.template?.treatmentType ?? c.template?.treatment_type ?? '—'}</td>
                       <td className="px-4 py-3 text-slate-500">{c.doctor?.name ?? '—'}</td>
-                      <td className="px-4 py-3 text-slate-500 text-xs">{c.sede ?? '—'}</td>
                       <td className="px-4 py-3 text-slate-400 text-xs whitespace-nowrap">
                         {c.created_at ? new Date(c.created_at).toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}
                       </td>

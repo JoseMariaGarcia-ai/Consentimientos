@@ -122,7 +122,6 @@ export default function PatientDetail() {
       patient_id: a.patient_id,
       doctor_id: a.doctor_id,
       treatment_id: a.treatment_id,
-      branch: a.branch,
       start_time: a.start_time,
       notes: a.notes,
     },
@@ -141,7 +140,6 @@ export default function PatientDetail() {
   const firstName = patient.firstName ?? patient.fullName?.split(' ')[0] ?? ''
   const lastName  = patient.lastName  ?? patient.fullName?.split(' ').slice(1).join(' ') ?? ''
   const addrParts = (patient.address ?? '').split('|')
-  const branches: { id: string; name: string }[] = Array.isArray(clinic?.branches) ? clinic.branches : []
 
   return (
     <div className="flex flex-col gap-6">
@@ -352,7 +350,6 @@ export default function PatientDetail() {
         <NewSessionModal
           patients={[patient]}
           doctors={doctors}
-          branches={branches}
           onSave={handleCreateSession}
           onClose={() => setNewSessionOpen(false)}
         />
@@ -372,7 +369,6 @@ export default function PatientDetail() {
           patients={[patient]}
           doctors={doctors}
           treatments={treatments}
-          branches={branches}
           onSave={handleSaveAppointment}
           onDelete={handleDeleteAppointment}
           onClose={() => setApptModal({ open: false })}
