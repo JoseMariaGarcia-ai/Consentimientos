@@ -1,49 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Save, Building2, Plus, Pencil, Trash2, MapPin, X } from 'lucide-react'
+import { Save, Building2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import type { Clinic } from '@consentspro/shared-types'
-
-interface Branch {
-  id: string
-  name: string
-  address: string
-  phone: string
-}
-
-function BranchModal({ branch, onSave, onClose }: {
-  branch: Partial<Branch>
-  onSave: (b: Partial<Branch>) => void
-  onClose: () => void
-}) {
-  const { t } = useTranslation()
-  const [form, setForm] = useState<Partial<Branch>>(branch)
-  const set = (k: keyof Branch, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
-
-  return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 flex flex-col gap-4" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-slate-800">{branch.id ? t('clinic.edit_branch') : t('clinic.new_branch')}</h3>
-          <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600"><X className="w-5 h-5" /></button>
-        </div>
-        <Field label={t('clinic.branch_name')} value={form.name ?? ''} onChange={v => set('name', v)} />
-        <Field label={t('clinic.address')} value={form.address ?? ''} onChange={v => set('address', v)} />
-        <Field label={t('clinic.phone')} value={form.phone ?? ''} onChange={v => set('phone', v)} type="tel" />
-        <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
-          <button onClick={onClose} className="px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 rounded-xl">{t('common.cancel')}</button>
-          <button
-            onClick={() => { onSave(form); onClose() }}
-            disabled={!form.name}
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50"
-          >
-            {t('clinic.save_branch')}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 function Field({ label, value, onChange, type = 'text' }: { label: string; value: string; onChange: (v: string) => void; type?: string }) {
   return (
@@ -62,18 +21,13 @@ function Field({ label, value, onChange, type = 'text' }: { label: string; value
 export default function ClinicPage() {
   const { t } = useTranslation()
   const [form, setForm] = useState<Partial<Clinic>>({})
-  const [branches, setBranches] = useState<Branch[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
-  const [branchModal, setBranchModal] = useState<{ open: boolean; branch: Partial<Branch> }>({ open: false, branch: {} })
 
   useEffect(() => {
     api.get('/clinic').then(data => {
-      if (data) {
-        setForm(data)
-        if (Array.isArray(data.branches)) setBranches(data.branches)
-      }
+      if (data) setForm(data)
     }).finally(() => setLoading(false))
   }, [])
 
@@ -83,25 +37,12 @@ export default function ClinicPage() {
     e.preventDefault()
     setSaving(true)
     try {
-      await api.put('/clinic', { ...form, branches })
+      await api.put('/clinic', form)
       setSaved(true)
       setTimeout(() => setSaved(false), 2500)
     } finally {
       setSaving(false)
     }
-  }
-
-  const saveBranch = (b: Partial<Branch>) => {
-    if (b.id) {
-      setBranches(bs => bs.map(x => x.id === b.id ? { ...x, ...b } as Branch : x))
-    } else {
-      setBranches(bs => [...bs, { ...b, id: crypto.randomUUID() } as Branch])
-    }
-  }
-
-  const deleteBranch = (id: string) => {
-    if (!confirm(t('clinic.confirm_delete_branch'))) return
-    setBranches(bs => bs.filter(b => b.id !== id))
   }
 
   if (loading) return <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
@@ -149,77 +90,6 @@ export default function ClinicPage() {
           </div>
         </div>
       </form>
-
-      {/* Multi-sede */}
-      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
-          <div>
-            <h2 className="text-sm font-semibold text-slate-700">{t('clinic.branches')}</h2>
-            <p className="text-xs text-slate-400 mt-0.5">{t('clinic.branches_desc')}</p>
-          </div>
-          <button
-            onClick={() => setBranchModal({ open: true, branch: {} })}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-200"
-          >
-            <Plus className="w-4 h-4" />
-            {t('clinic.add_branch')}
-          </button>
-        </div>
-
-        {branches.length === 0 ? (
-          <div className="px-6 py-10 text-center text-slate-400 text-sm">
-            <MapPin className="w-8 h-8 mx-auto mb-2 opacity-30" />
-            {t('clinic.no_branches')}
-          </div>
-        ) : (
-          <div className="divide-y divide-slate-100">
-            {branches.map(b => (
-              <div key={b.id} className="px-6 py-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-slate-800">{b.name}</p>
-                  <p className="text-xs text-slate-400 mt-0.5">{b.address}</p>
-                  {b.phone && <p className="text-xs text-slate-400">{b.phone}</p>}
-                </div>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={() => setBranchModal({ open: true, branch: b })}
-                    className="p-1.5 text-slate-400 hover:text-blue-600 rounded-lg hover:bg-blue-50"
-                  >
-                    <Pencil className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => deleteBranch(b.id)}
-                    className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {branches.length > 0 && (
-          <div className="px-6 py-3 border-t border-slate-100 bg-slate-50">
-            <button
-              onClick={handleSubmit as any}
-              disabled={saving}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
-            >
-              <Save className="w-4 h-4" />
-              {t('clinic.save_branches')}
-            </button>
-          </div>
-        )}
-      </div>
-
-      {branchModal.open && (
-        <BranchModal
-          branch={branchModal.branch}
-          onSave={saveBranch}
-          onClose={() => setBranchModal({ open: false, branch: {} })}
-        />
-      )}
     </div>
   )
 }
