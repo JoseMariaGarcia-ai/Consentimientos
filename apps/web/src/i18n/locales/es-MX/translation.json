@@ -1814,7 +1814,16 @@
     "colActions": "Acciones",
     "tabInvoices": "Facturas",
     "tabCertificate": "Certificado Digital",
-    "testModeBanner": "MODO PRUEBA - Las facturas generadas en este modo NO se comunican a la AEAT real y no tienen validez fiscal"
+    "testModeBanner": "MODO PRUEBA - Las facturas generadas en este modo NO se comunican a la AEAT real y no tienen validez fiscal",
+    "tabClients": "Clientes",
+    "colType": "Tipo",
+    "recipientType": "Tipo de destinatario",
+    "recipientTypePaciente": "Paciente",
+    "recipientTypeCliente": "Cliente",
+    "recipientTypeManual": "Manual",
+    "actionView": "Ver PDF",
+    "actionDownload": "Descargar",
+    "actionEmail": "Enviar por email"
   },
   "certificateTab": {
     "unknownIssuer": "Entidad emisora desconocida",
@@ -1856,7 +1865,12 @@
       "base": "Base imponible",
       "vat": "IVA ({{rate}}%)",
       "total": "Total",
-      "issue": "Emitir factura"
+      "issue": "Emitir factura",
+      "whoAreYouBilling": "¿A quién le facturas?",
+      "billToPatient": "Paciente",
+      "billToClient": "Cliente (no paciente)",
+      "client": "Cliente",
+      "selectClient": "Selecciona un cliente guardado"
     },
     "errors": {
       "recipientName": "El nombre del destinatario es obligatorio",
@@ -2047,6 +2061,58 @@
     "errors": {
       "doctorRequired": "Selecciona al doctor responsable de la visita",
       "saveFailed": "No se pudo guardar la visita"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Buscar cliente por nombre o RFC…",
+    "createNew": "Crear nuevo cliente",
+    "no_results": "No se encontraron clientes"
+  },
+  "billingClientModal": {
+    "titleNew": "Nuevo cliente",
+    "titleEdit": "Editar cliente",
+    "fields": {
+      "fullName": "Nombre / Razón social",
+      "taxId": "RFC/NIF",
+      "address": "Dirección completa",
+      "postalCode": "Código postal",
+      "city": "Ciudad",
+      "province": "Estado",
+      "phone": "Teléfono",
+      "email": "Email",
+      "emailHint": "Necesario si le vas a enviar las facturas por email.",
+      "notes": "Notas internas"
+    },
+    "errors": {
+      "fullName": "El nombre / razón social es obligatorio",
+      "taxId": "El RFC/NIF es obligatorio",
+      "address": "La dirección es obligatoria",
+      "saveFailed": "No se pudo guardar el cliente"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Buscar por nombre o RFC",
+    "newClient": "Nuevo cliente",
+    "noResults": "Todavía no has agregado ningún cliente.",
+    "colName": "Nombre",
+    "colTaxId": "RFC",
+    "colEmail": "Email",
+    "colPhone": "Teléfono",
+    "colInvoices": "Facturas",
+    "colActions": "Acciones",
+    "confirmDelete": "¿Eliminar este cliente? Si tiene facturas emitidas se marcará como inactivo en lugar de borrarse.",
+    "inactive": "Inactivo"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Enviar factura por email",
+    "description": "Se enviará la factura {{number}} en PDF al email indicado. Este cambio es solo para este envío.",
+    "emailLabel": "Enviar a",
+    "emailHint": "Puedes editarlo para este envío sin cambiar el dato guardado.",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "errors": {
+      "emailRequired": "Indica un email de destino",
+      "sendFailed": "No se pudo enviar la factura"
     }
   }
 }

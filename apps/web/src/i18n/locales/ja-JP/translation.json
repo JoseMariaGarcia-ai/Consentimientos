@@ -1834,7 +1834,16 @@
     "colActions": "操作",
     "tabInvoices": "請求書",
     "tabCertificate": "デジタル証明書",
-    "testModeBanner": "テストモード - このモードで作成された請求書は実際のAEATには送信されず、税務上の有効性はありません"
+    "testModeBanner": "テストモード - このモードで作成された請求書は実際のAEATには送信されず、税務上の有効性はありません",
+    "tabClients": "顧客",
+    "colType": "種類",
+    "recipientType": "請求先の種類",
+    "recipientTypePaciente": "患者",
+    "recipientTypeCliente": "顧客",
+    "recipientTypeManual": "手入力",
+    "actionView": "PDFを表示",
+    "actionDownload": "ダウンロード",
+    "actionEmail": "メールで送信"
   },
   "certificateTab": {
     "unknownIssuer": "不明な発行者",
@@ -1876,7 +1885,12 @@
       "base": "課税標準額",
       "vat": "消費税（{{rate}}%）",
       "total": "合計",
-      "issue": "請求書を発行"
+      "issue": "請求書を発行",
+      "whoAreYouBilling": "誰に請求しますか？",
+      "billToPatient": "患者",
+      "billToClient": "顧客（患者以外）",
+      "client": "顧客",
+      "selectClient": "保存済みの顧客を選択"
     },
     "errors": {
       "recipientName": "宛先の氏名は必須です",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "来院を担当する医師を選択してください",
       "saveFailed": "来院を保存できませんでした"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "名前または税番号で顧客を検索…",
+    "createNew": "新規顧客を作成",
+    "no_results": "顧客が見つかりません"
+  },
+  "billingClientModal": {
+    "titleNew": "新規顧客",
+    "titleEdit": "顧客を編集",
+    "fields": {
+      "fullName": "氏名 / 法人名",
+      "taxId": "税番号",
+      "address": "住所（全体）",
+      "postalCode": "郵便番号",
+      "city": "市区町村",
+      "province": "都道府県",
+      "phone": "電話番号",
+      "email": "メール",
+      "emailHint": "請求書をメールで送る場合に必要です。",
+      "notes": "社内メモ"
+    },
+    "errors": {
+      "fullName": "氏名 / 法人名は必須です",
+      "taxId": "税番号は必須です",
+      "address": "住所は必須です",
+      "saveFailed": "顧客を保存できませんでした"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "氏名または税番号で検索",
+    "newClient": "新規顧客",
+    "noResults": "まだ顧客が登録されていません。",
+    "colName": "氏名",
+    "colTaxId": "税番号",
+    "colEmail": "メール",
+    "colPhone": "電話番号",
+    "colInvoices": "請求書",
+    "colActions": "操作",
+    "confirmDelete": "この顧客を削除しますか？発行済みの請求書がある場合は削除せず無効にします。",
+    "inactive": "無効"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "請求書をメールで送信",
+    "description": "請求書{{number}}がPDFとして指定のメールアドレスに送信されます。この変更は今回の送信のみに適用されます。",
+    "emailLabel": "送信先",
+    "emailHint": "保存済みのデータを変更せずに、今回の送信用に編集できます。",
+    "send": "送信",
+    "sending": "送信中…",
+    "errors": {
+      "emailRequired": "送信先のメールアドレスを入力してください",
+      "sendFailed": "請求書を送信できませんでした"
     }
   }
 }

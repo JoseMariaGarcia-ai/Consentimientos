@@ -1834,7 +1834,16 @@
     "colActions": "操作",
     "tabInvoices": "发票",
     "tabCertificate": "数字证书",
-    "testModeBanner": "测试模式 - 在此模式下生成的发票不会传送给真实的AEAT，且不具有税务效力"
+    "testModeBanner": "测试模式 - 在此模式下生成的发票不会传送给真实的AEAT，且不具有税务效力",
+    "tabClients": "客户",
+    "colType": "类型",
+    "recipientType": "收件人类型",
+    "recipientTypePaciente": "患者",
+    "recipientTypeCliente": "客户",
+    "recipientTypeManual": "手动",
+    "actionView": "查看 PDF",
+    "actionDownload": "下载",
+    "actionEmail": "通过电子邮件发送"
   },
   "certificateTab": {
     "unknownIssuer": "未知签发机构",
@@ -1876,7 +1885,12 @@
       "base": "计税基数",
       "vat": "增值税（{{rate}}%）",
       "total": "总计",
-      "issue": "开具发票"
+      "issue": "开具发票",
+      "whoAreYouBilling": "您要向谁开具发票？",
+      "billToPatient": "患者",
+      "billToClient": "客户（非患者）",
+      "client": "客户",
+      "selectClient": "选择已保存的客户"
     },
     "errors": {
       "recipientName": "收件人姓名为必填项",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "请选择本次就诊的负责医生",
       "saveFailed": "无法保存就诊记录"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "按姓名或税号搜索客户…",
+    "createNew": "创建新客户",
+    "no_results": "未找到客户"
+  },
+  "billingClientModal": {
+    "titleNew": "新客户",
+    "titleEdit": "编辑客户",
+    "fields": {
+      "fullName": "姓名 / 法定名称",
+      "taxId": "税号",
+      "address": "完整地址",
+      "postalCode": "邮政编码",
+      "city": "城市",
+      "province": "省份",
+      "phone": "电话",
+      "email": "电子邮件",
+      "emailHint": "如果您要通过电子邮件发送发票，则为必填项。",
+      "notes": "内部备注"
+    },
+    "errors": {
+      "fullName": "姓名 / 法定名称为必填项",
+      "taxId": "税号为必填项",
+      "address": "地址为必填项",
+      "saveFailed": "无法保存客户"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "按姓名或税号搜索",
+    "newClient": "新客户",
+    "noResults": "您还没有添加任何客户。",
+    "colName": "姓名",
+    "colTaxId": "税号",
+    "colEmail": "电子邮件",
+    "colPhone": "电话",
+    "colInvoices": "发票",
+    "colActions": "操作",
+    "confirmDelete": "删除此客户？如果已开具发票，将标记为非活动状态而不是删除。",
+    "inactive": "非活动"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "通过电子邮件发送发票",
+    "description": "发票 {{number}} 将以 PDF 形式发送到指定的电子邮件。此更改仅适用于本次发送。",
+    "emailLabel": "发送至",
+    "emailHint": "您可以为本次发送编辑此项，而不会更改已保存的数据。",
+    "send": "发送",
+    "sending": "发送中…",
+    "errors": {
+      "emailRequired": "请输入目标电子邮件",
+      "sendFailed": "无法发送发票"
     }
   }
 }

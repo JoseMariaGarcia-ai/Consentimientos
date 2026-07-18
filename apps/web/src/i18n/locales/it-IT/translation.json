@@ -1888,7 +1888,16 @@
     "colActions": "Azioni",
     "tabInvoices": "Fatture",
     "tabCertificate": "Certificato Digitale",
-    "testModeBanner": "MODALITÀ TEST - Le fatture generate in questa modalità NON vengono comunicate all’AEAT reale e non hanno validità fiscale"
+    "testModeBanner": "MODALITÀ TEST - Le fatture generate in questa modalità NON vengono comunicate all’AEAT reale e non hanno validità fiscale",
+    "tabClients": "Clienti",
+    "colType": "Tipo",
+    "recipientType": "Tipo di destinatario",
+    "recipientTypePaciente": "Paziente",
+    "recipientTypeCliente": "Cliente",
+    "recipientTypeManual": "Manuale",
+    "actionView": "Visualizza PDF",
+    "actionDownload": "Scarica",
+    "actionEmail": "Invia via email"
   },
   "certificateTab": {
     "unknownIssuer": "Ente emittente sconosciuto",
@@ -1930,7 +1939,12 @@
       "base": "Base imponibile",
       "vat": "IVA ({{rate}}%)",
       "total": "Totale",
-      "issue": "Emetti fattura"
+      "issue": "Emetti fattura",
+      "whoAreYouBilling": "A chi stai fatturando?",
+      "billToPatient": "Paziente",
+      "billToClient": "Cliente (non paziente)",
+      "client": "Cliente",
+      "selectClient": "Seleziona un cliente salvato"
     },
     "errors": {
       "recipientName": "Il nome del destinatario è obbligatorio",
@@ -2121,6 +2135,58 @@
     "errors": {
       "doctorRequired": "Seleziona il medico responsabile della visita",
       "saveFailed": "Impossibile salvare la visita"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Cerca cliente per nome o P.IVA…",
+    "createNew": "Crea nuovo cliente",
+    "no_results": "Nessun cliente trovato"
+  },
+  "billingClientModal": {
+    "titleNew": "Nuovo cliente",
+    "titleEdit": "Modifica cliente",
+    "fields": {
+      "fullName": "Nome / Ragione sociale",
+      "taxId": "P.IVA/NIF",
+      "address": "Indirizzo completo",
+      "postalCode": "CAP",
+      "city": "Città",
+      "province": "Provincia",
+      "phone": "Telefono",
+      "email": "Email",
+      "emailHint": "Necessaria se invierai le fatture via email.",
+      "notes": "Note interne"
+    },
+    "errors": {
+      "fullName": "Il nome / ragione sociale è obbligatorio",
+      "taxId": "La P.IVA/NIF è obbligatoria",
+      "address": "L’indirizzo è obbligatorio",
+      "saveFailed": "Impossibile salvare il cliente"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Cerca per nome o P.IVA",
+    "newClient": "Nuovo cliente",
+    "noResults": "Non hai ancora aggiunto nessun cliente.",
+    "colName": "Nome",
+    "colTaxId": "P.IVA",
+    "colEmail": "Email",
+    "colPhone": "Telefono",
+    "colInvoices": "Fatture",
+    "colActions": "Azioni",
+    "confirmDelete": "Eliminare questo cliente? Se ha fatture emesse, verrà contrassegnato come inattivo anziché eliminato.",
+    "inactive": "Inattivo"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Invia fattura via email",
+    "description": "La fattura {{number}} verrà inviata in PDF all’email indicata. Questa modifica vale solo per questo invio.",
+    "emailLabel": "Invia a",
+    "emailHint": "Puoi modificarla per questo invio senza cambiare il dato salvato.",
+    "send": "Invia",
+    "sending": "Invio…",
+    "errors": {
+      "emailRequired": "Indica un’email di destinazione",
+      "sendFailed": "Impossibile inviare la fattura"
     }
   }
 }

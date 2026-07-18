@@ -1834,7 +1834,16 @@
     "colActions": "Aktionen",
     "tabInvoices": "Rechnungen",
     "tabCertificate": "Digitales Zertifikat",
-    "testModeBanner": "TESTMODUS - In diesem Modus erstellte Rechnungen werden NICHT an die echte AEAT übermittelt und haben keine steuerliche Gültigkeit"
+    "testModeBanner": "TESTMODUS - In diesem Modus erstellte Rechnungen werden NICHT an die echte AEAT übermittelt und haben keine steuerliche Gültigkeit",
+    "tabClients": "Kunden",
+    "colType": "Typ",
+    "recipientType": "Empfängertyp",
+    "recipientTypePaciente": "Patient",
+    "recipientTypeCliente": "Kunde",
+    "recipientTypeManual": "Manuell",
+    "actionView": "PDF ansehen",
+    "actionDownload": "Herunterladen",
+    "actionEmail": "Per E-Mail senden"
   },
   "certificateTab": {
     "unknownIssuer": "Unbekannter Aussteller",
@@ -1876,7 +1885,12 @@
       "base": "Steuerbemessungsgrundlage",
       "vat": "MwSt. ({{rate}}%)",
       "total": "Gesamt",
-      "issue": "Rechnung ausstellen"
+      "issue": "Rechnung ausstellen",
+      "whoAreYouBilling": "Wem stellen Sie die Rechnung aus?",
+      "billToPatient": "Patient",
+      "billToClient": "Kunde (kein Patient)",
+      "client": "Kunde",
+      "selectClient": "Einen gespeicherten Kunden auswählen"
     },
     "errors": {
       "recipientName": "Der Name des Empfängers ist erforderlich",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Wählen Sie den verantwortlichen Arzt für den Besuch",
       "saveFailed": "Der Besuch konnte nicht gespeichert werden"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Kunde nach Name oder Steuernummer suchen…",
+    "createNew": "Neuen Kunden anlegen",
+    "no_results": "Keine Kunden gefunden"
+  },
+  "billingClientModal": {
+    "titleNew": "Neuer Kunde",
+    "titleEdit": "Kunde bearbeiten",
+    "fields": {
+      "fullName": "Name / Firma",
+      "taxId": "Steuernummer",
+      "address": "Vollständige Adresse",
+      "postalCode": "Postleitzahl",
+      "city": "Stadt",
+      "province": "Provinz",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "emailHint": "Erforderlich, wenn Sie Rechnungen per E-Mail senden möchten.",
+      "notes": "Interne Notizen"
+    },
+    "errors": {
+      "fullName": "Name / Firma ist erforderlich",
+      "taxId": "Die Steuernummer ist erforderlich",
+      "address": "Die Adresse ist erforderlich",
+      "saveFailed": "Der Kunde konnte nicht gespeichert werden"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Nach Name oder Steuernummer suchen",
+    "newClient": "Neuer Kunde",
+    "noResults": "Sie haben noch keinen Kunden hinzugefügt.",
+    "colName": "Name",
+    "colTaxId": "Steuernummer",
+    "colEmail": "E-Mail",
+    "colPhone": "Telefon",
+    "colInvoices": "Rechnungen",
+    "colActions": "Aktionen",
+    "confirmDelete": "Diesen Kunden löschen? Falls Rechnungen vorliegen, wird er als inaktiv markiert statt gelöscht.",
+    "inactive": "Inaktiv"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Rechnung per E-Mail senden",
+    "description": "Die Rechnung {{number}} wird als PDF an die angegebene E-Mail gesendet. Diese Änderung gilt nur für diesen Versand.",
+    "emailLabel": "Senden an",
+    "emailHint": "Sie können sie für diesen Versand bearbeiten, ohne die gespeicherten Daten zu ändern.",
+    "send": "Senden",
+    "sending": "Wird gesendet…",
+    "errors": {
+      "emailRequired": "Geben Sie eine Ziel-E-Mail an",
+      "sendFailed": "Die Rechnung konnte nicht gesendet werden"
     }
   }
 }

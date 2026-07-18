@@ -1834,7 +1834,16 @@
     "colActions": "Műveletek",
     "tabInvoices": "Számlák",
     "tabCertificate": "Digitális tanúsítvány",
-    "testModeBanner": "TESZT MÓD - Az ebben a módban létrehozott számlák NEM kerülnek jelentésre a valódi AEAT felé, és nincs adójogi érvényük"
+    "testModeBanner": "TESZT MÓD - Az ebben a módban létrehozott számlák NEM kerülnek jelentésre a valódi AEAT felé, és nincs adójogi érvényük",
+    "tabClients": "Ügyfelek",
+    "colType": "Típus",
+    "recipientType": "Címzett típusa",
+    "recipientTypePaciente": "Páciens",
+    "recipientTypeCliente": "Ügyfél",
+    "recipientTypeManual": "Kézi",
+    "actionView": "PDF megtekintése",
+    "actionDownload": "Letöltés",
+    "actionEmail": "Küldés e-mailben"
   },
   "certificateTab": {
     "unknownIssuer": "Ismeretlen kibocsátó",
@@ -1876,7 +1885,12 @@
       "base": "Adóalap",
       "vat": "ÁFA ({{rate}}%)",
       "total": "Összesen",
-      "issue": "Számla kiállítása"
+      "issue": "Számla kiállítása",
+      "whoAreYouBilling": "Kinek számláz?",
+      "billToPatient": "Páciens",
+      "billToClient": "Ügyfél (nem páciens)",
+      "client": "Ügyfél",
+      "selectClient": "Válasszon egy mentett ügyfelet"
     },
     "errors": {
       "recipientName": "A címzett neve kötelező",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Válassza ki a látogatásért felelős fogorvost",
       "saveFailed": "A látogatást nem sikerült menteni"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Ügyfél keresése név vagy adószám alapján…",
+    "createNew": "Új ügyfél létrehozása",
+    "no_results": "Nem található ügyfél"
+  },
+  "billingClientModal": {
+    "titleNew": "Új ügyfél",
+    "titleEdit": "Ügyfél szerkesztése",
+    "fields": {
+      "fullName": "Név / Cégnév",
+      "taxId": "Adószám",
+      "address": "Teljes cím",
+      "postalCode": "Irányítószám",
+      "city": "Város",
+      "province": "Megye",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "emailHint": "Szükséges, ha e-mailben küldi neki a számlákat.",
+      "notes": "Belső megjegyzések"
+    },
+    "errors": {
+      "fullName": "A név / cégnév megadása kötelező",
+      "taxId": "Az adószám megadása kötelező",
+      "address": "A cím megadása kötelező",
+      "saveFailed": "Az ügyfelet nem sikerült menteni"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Keresés név vagy adószám alapján",
+    "newClient": "Új ügyfél",
+    "noResults": "Még nem adott hozzá ügyfelet.",
+    "colName": "Név",
+    "colTaxId": "Adószám",
+    "colEmail": "E-mail",
+    "colPhone": "Telefon",
+    "colInvoices": "Számlák",
+    "colActions": "Műveletek",
+    "confirmDelete": "Törli ezt az ügyfelet? Ha vannak kiállított számlái, inaktívnak jelöljük törlés helyett.",
+    "inactive": "Inaktív"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Számla küldése e-mailben",
+    "description": "A(z) {{number}} számla PDF formátumban kerül elküldésre a megadott e-mail címre. Ez a módosítás csak erre a küldésre vonatkozik.",
+    "emailLabel": "Küldés ide",
+    "emailHint": "Szerkesztheti ehhez a küldéshez a mentett adat módosítása nélkül.",
+    "send": "Küldés",
+    "sending": "Küldés…",
+    "errors": {
+      "emailRequired": "Adjon meg egy célzott e-mail címet",
+      "sendFailed": "A számlát nem sikerült elküldeni"
     }
   }
 }

@@ -1834,7 +1834,16 @@
     "colActions": "Handlinger",
     "tabInvoices": "Fakturaer",
     "tabCertificate": "Digitalt sertifikat",
-    "testModeBanner": "TESTMODUS - Fakturaer generert i denne modusen blir IKKE rapportert til den virkelige AEAT og har ingen skattemessig gyldighet"
+    "testModeBanner": "TESTMODUS - Fakturaer generert i denne modusen blir IKKE rapportert til den virkelige AEAT og har ingen skattemessig gyldighet",
+    "tabClients": "Kunder",
+    "colType": "Type",
+    "recipientType": "Mottakertype",
+    "recipientTypePaciente": "Pasient",
+    "recipientTypeCliente": "Kunde",
+    "recipientTypeManual": "Manuell",
+    "actionView": "Se PDF",
+    "actionDownload": "Last ned",
+    "actionEmail": "Send på e-post"
   },
   "certificateTab": {
     "unknownIssuer": "Ukjent utsteder",
@@ -1876,7 +1885,12 @@
       "base": "Avgiftsgrunnlag",
       "vat": "MVA ({{rate}}%)",
       "total": "Totalt",
-      "issue": "Utsted faktura"
+      "issue": "Utsted faktura",
+      "whoAreYouBilling": "Hvem fakturerer du?",
+      "billToPatient": "Pasient",
+      "billToClient": "Kunde (ikke pasient)",
+      "client": "Kunde",
+      "selectClient": "Velg en lagret kunde"
     },
     "errors": {
       "recipientName": "Mottakerens navn er påkrevd",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Velg ansvarlig tannlege for besøket",
       "saveFailed": "Kunne ikke lagre besøket"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Søk kunde etter navn eller org.nr…",
+    "createNew": "Opprett ny kunde",
+    "no_results": "Ingen kunder funnet"
+  },
+  "billingClientModal": {
+    "titleNew": "Ny kunde",
+    "titleEdit": "Rediger kunde",
+    "fields": {
+      "fullName": "Navn / Firmanavn",
+      "taxId": "Org.nr/NIF",
+      "address": "Fullstendig adresse",
+      "postalCode": "Postnummer",
+      "city": "By",
+      "province": "Fylke",
+      "phone": "Telefon",
+      "email": "E-post",
+      "emailHint": "Nødvendig hvis du skal sende fakturaer på e-post.",
+      "notes": "Interne notater"
+    },
+    "errors": {
+      "fullName": "Navn / firmanavn er obligatorisk",
+      "taxId": "Org.nr/NIF er obligatorisk",
+      "address": "Adresse er obligatorisk",
+      "saveFailed": "Kunden kunne ikke lagres"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Søk etter navn eller org.nr",
+    "newClient": "Ny kunde",
+    "noResults": "Du har ikke lagt til noen kunder ennå.",
+    "colName": "Navn",
+    "colTaxId": "Org.nr",
+    "colEmail": "E-post",
+    "colPhone": "Telefon",
+    "colInvoices": "Fakturaer",
+    "colActions": "Handlinger",
+    "confirmDelete": "Slette denne kunden? Hvis kunden har utstedte fakturaer, merkes den som inaktiv i stedet for å slettes.",
+    "inactive": "Inaktiv"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Send faktura på e-post",
+    "description": "Fakturaen {{number}} sendes som PDF til den angitte e-posten. Denne endringen gjelder kun denne sendingen.",
+    "emailLabel": "Send til",
+    "emailHint": "Du kan redigere den for denne sendingen uten å endre den lagrede verdien.",
+    "send": "Send",
+    "sending": "Sender…",
+    "errors": {
+      "emailRequired": "Angi en mottaker-e-post",
+      "sendFailed": "Fakturaen kunne ikke sendes"
     }
   }
 }

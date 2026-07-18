@@ -1834,7 +1834,16 @@
     "colActions": "Acțiuni",
     "tabInvoices": "Facturi",
     "tabCertificate": "Certificat digital",
-    "testModeBanner": "MOD TEST - Facturile generate în acest mod NU sunt comunicate către AEAT reală și nu au valabilitate fiscală"
+    "testModeBanner": "MOD TEST - Facturile generate în acest mod NU sunt comunicate către AEAT reală și nu au valabilitate fiscală",
+    "tabClients": "Clienți",
+    "colType": "Tip",
+    "recipientType": "Tip destinatar",
+    "recipientTypePaciente": "Pacient",
+    "recipientTypeCliente": "Client",
+    "recipientTypeManual": "Manual",
+    "actionView": "Vezi PDF",
+    "actionDownload": "Descarcă",
+    "actionEmail": "Trimite prin email"
   },
   "certificateTab": {
     "unknownIssuer": "Emitent necunoscut",
@@ -1876,7 +1885,12 @@
       "base": "Bază impozabilă",
       "vat": "TVA ({{rate}}%)",
       "total": "Total",
-      "issue": "Emite factura"
+      "issue": "Emite factura",
+      "whoAreYouBilling": "Cui facturezi?",
+      "billToPatient": "Pacient",
+      "billToClient": "Client (nu pacient)",
+      "client": "Client",
+      "selectClient": "Selectează un client salvat"
     },
     "errors": {
       "recipientName": "Numele destinatarului este obligatoriu",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Selectează medicul responsabil de vizită",
       "saveFailed": "Vizita nu a putut fi salvată"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Caută client după nume sau CUI…",
+    "createNew": "Creează client nou",
+    "no_results": "Nu s-au găsit clienți"
+  },
+  "billingClientModal": {
+    "titleNew": "Client nou",
+    "titleEdit": "Editează clientul",
+    "fields": {
+      "fullName": "Nume / Denumire legală",
+      "taxId": "CUI/NIF",
+      "address": "Adresă completă",
+      "postalCode": "Cod poștal",
+      "city": "Oraș",
+      "province": "Județ",
+      "phone": "Telefon",
+      "email": "Email",
+      "emailHint": "Necesar dacă vei trimite facturile prin email.",
+      "notes": "Note interne"
+    },
+    "errors": {
+      "fullName": "Numele / denumirea legală este obligatorie",
+      "taxId": "CUI/NIF este obligatoriu",
+      "address": "Adresa este obligatorie",
+      "saveFailed": "Clientul nu a putut fi salvat"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Caută după nume sau CUI",
+    "newClient": "Client nou",
+    "noResults": "Nu ai adăugat încă niciun client.",
+    "colName": "Nume",
+    "colTaxId": "CUI",
+    "colEmail": "Email",
+    "colPhone": "Telefon",
+    "colInvoices": "Facturi",
+    "colActions": "Acțiuni",
+    "confirmDelete": "Ștergi acest client? Dacă are facturi emise, va fi marcat ca inactiv în loc să fie șters.",
+    "inactive": "Inactiv"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Trimite factura prin email",
+    "description": "Factura {{number}} va fi trimisă ca PDF la emailul indicat. Această modificare se aplică doar acestei trimiteri.",
+    "emailLabel": "Trimite la",
+    "emailHint": "O poți edita pentru această trimitere fără a schimba datele salvate.",
+    "send": "Trimite",
+    "sending": "Se trimite…",
+    "errors": {
+      "emailRequired": "Indică un email de destinație",
+      "sendFailed": "Factura nu a putut fi trimisă"
     }
   }
 }

@@ -1834,7 +1834,16 @@
     "colActions": "Accions",
     "tabInvoices": "Factures",
     "tabCertificate": "Certificat Digital",
-    "testModeBanner": "MODE PROVA - Les factures generades en aquest mode NO es comuniquen a l’AEAT real i no tenen validesa fiscal"
+    "testModeBanner": "MODE PROVA - Les factures generades en aquest mode NO es comuniquen a l’AEAT real i no tenen validesa fiscal",
+    "tabClients": "Clients",
+    "colType": "Tipus",
+    "recipientType": "Tipus de destinatari",
+    "recipientTypePaciente": "Pacient",
+    "recipientTypeCliente": "Client",
+    "recipientTypeManual": "Manual",
+    "actionView": "Veure PDF",
+    "actionDownload": "Descarregar",
+    "actionEmail": "Enviar per email"
   },
   "certificateTab": {
     "unknownIssuer": "Entitat emissora desconeguda",
@@ -1876,7 +1885,12 @@
       "base": "Base imposable",
       "vat": "IVA ({{rate}}%)",
       "total": "Total",
-      "issue": "Emet factura"
+      "issue": "Emet factura",
+      "whoAreYouBilling": "A qui factures?",
+      "billToPatient": "Pacient",
+      "billToClient": "Client (no pacient)",
+      "client": "Client",
+      "selectClient": "Selecciona un client desat"
     },
     "errors": {
       "recipientName": "El nom del destinatari és obligatori",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Selecciona el doctor responsable de la visita",
       "saveFailed": "No s'ha pogut desar la visita"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Cerca client per nom o NIF…",
+    "createNew": "Crear nou client",
+    "no_results": "No s’han trobat clients"
+  },
+  "billingClientModal": {
+    "titleNew": "Nou client",
+    "titleEdit": "Editar client",
+    "fields": {
+      "fullName": "Nom / Raó social",
+      "taxId": "NIF / CIF",
+      "address": "Adreça completa",
+      "postalCode": "Codi postal",
+      "city": "Ciutat",
+      "province": "Província",
+      "phone": "Telèfon",
+      "email": "Email",
+      "emailHint": "Necessari si li enviaràs les factures per email.",
+      "notes": "Notes internes"
+    },
+    "errors": {
+      "fullName": "El nom / raó social és obligatori",
+      "taxId": "El NIF/CIF és obligatori",
+      "address": "L’adreça és obligatòria",
+      "saveFailed": "No s’ha pogut desar el client"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Cerca per nom o NIF",
+    "newClient": "Nou client",
+    "noResults": "Encara no has afegit cap client.",
+    "colName": "Nom",
+    "colTaxId": "NIF",
+    "colEmail": "Email",
+    "colPhone": "Telèfon",
+    "colInvoices": "Factures",
+    "colActions": "Accions",
+    "confirmDelete": "Vols eliminar aquest client? Si té factures emeses es marcarà com a inactiu en lloc d’eliminar-se.",
+    "inactive": "Inactiu"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Enviar factura per email",
+    "description": "S’enviarà la factura {{number}} en PDF a l’email indicat. Aquest canvi és només per a aquest enviament.",
+    "emailLabel": "Enviar a",
+    "emailHint": "Pots editar-lo per a aquest enviament sense canviar la dada desada.",
+    "send": "Enviar",
+    "sending": "Enviant…",
+    "errors": {
+      "emailRequired": "Indica un email de destí",
+      "sendFailed": "No s’ha pogut enviar la factura"
     }
   }
 }

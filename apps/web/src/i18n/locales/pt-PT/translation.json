@@ -1834,7 +1834,16 @@
     "colActions": "Ações",
     "tabInvoices": "Faturas",
     "tabCertificate": "Certificado Digital",
-    "testModeBanner": "MODO DE TESTE - As faturas geradas neste modo NÃO são comunicadas à AEAT real e não têm validade fiscal"
+    "testModeBanner": "MODO DE TESTE - As faturas geradas neste modo NÃO são comunicadas à AEAT real e não têm validade fiscal",
+    "tabClients": "Clientes",
+    "colType": "Tipo",
+    "recipientType": "Tipo de destinatário",
+    "recipientTypePaciente": "Paciente",
+    "recipientTypeCliente": "Cliente",
+    "recipientTypeManual": "Manual",
+    "actionView": "Ver PDF",
+    "actionDownload": "Descarregar",
+    "actionEmail": "Enviar por email"
   },
   "certificateTab": {
     "unknownIssuer": "Entidade emissora desconhecida",
@@ -1876,7 +1885,12 @@
       "base": "Base tributável",
       "vat": "IVA ({{rate}}%)",
       "total": "Total",
-      "issue": "Emitir fatura"
+      "issue": "Emitir fatura",
+      "whoAreYouBilling": "A quem está a faturar?",
+      "billToPatient": "Paciente",
+      "billToClient": "Cliente (não paciente)",
+      "client": "Cliente",
+      "selectClient": "Selecione um cliente guardado"
     },
     "errors": {
       "recipientName": "O nome do destinatário é obrigatório",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Selecione o médico responsável pela visita",
       "saveFailed": "Não foi possível guardar a visita"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Pesquisar cliente por nome ou NIF…",
+    "createNew": "Criar novo cliente",
+    "no_results": "Não foram encontrados clientes"
+  },
+  "billingClientModal": {
+    "titleNew": "Novo cliente",
+    "titleEdit": "Editar cliente",
+    "fields": {
+      "fullName": "Nome / Firma",
+      "taxId": "NIF",
+      "address": "Morada completa",
+      "postalCode": "Código postal",
+      "city": "Cidade",
+      "province": "Distrito",
+      "phone": "Telefone",
+      "email": "Email",
+      "emailHint": "Necessário se for enviar as faturas por email.",
+      "notes": "Notas internas"
+    },
+    "errors": {
+      "fullName": "O nome / firma é obrigatório",
+      "taxId": "O NIF é obrigatório",
+      "address": "A morada é obrigatória",
+      "saveFailed": "Não foi possível guardar o cliente"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Pesquisar por nome ou NIF",
+    "newClient": "Novo cliente",
+    "noResults": "Ainda não adicionou nenhum cliente.",
+    "colName": "Nome",
+    "colTaxId": "NIF",
+    "colEmail": "Email",
+    "colPhone": "Telefone",
+    "colInvoices": "Faturas",
+    "colActions": "Ações",
+    "confirmDelete": "Eliminar este cliente? Se tiver faturas emitidas, será marcado como inativo em vez de eliminado.",
+    "inactive": "Inativo"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Enviar fatura por email",
+    "description": "A fatura {{number}} será enviada em PDF para o email indicado. Esta alteração aplica-se apenas a este envio.",
+    "emailLabel": "Enviar para",
+    "emailHint": "Pode editá-lo para este envio sem alterar o dado guardado.",
+    "send": "Enviar",
+    "sending": "A enviar…",
+    "errors": {
+      "emailRequired": "Indique um email de destino",
+      "sendFailed": "Não foi possível enviar a fatura"
     }
   }
 }

@@ -1796,7 +1796,16 @@
     "colActions": "الإجراءات",
     "tabInvoices": "الفواتير",
     "tabCertificate": "الشهادة الرقمية",
-    "testModeBanner": "وضع الاختبار - الفواتير الصادرة في هذا الوضع لا يتم إرسالها إلى AEAT الحقيقية وليس لها قيمة ضريبية"
+    "testModeBanner": "وضع الاختبار - الفواتير الصادرة في هذا الوضع لا يتم إرسالها إلى AEAT الحقيقية وليس لها قيمة ضريبية",
+    "tabClients": "العملاء",
+    "colType": "النوع",
+    "recipientType": "نوع المستلم",
+    "recipientTypePaciente": "مريض",
+    "recipientTypeCliente": "عميل",
+    "recipientTypeManual": "يدوي",
+    "actionView": "عرض PDF",
+    "actionDownload": "تنزيل",
+    "actionEmail": "إرسال بالبريد الإلكتروني"
   },
   "certificateTab": {
     "unknownIssuer": "جهة إصدار غير معروفة",
@@ -1838,7 +1847,12 @@
       "base": "الوعاء الضريبي",
       "vat": "الضريبة ({{rate}}%)",
       "total": "الإجمالي",
-      "issue": "إصدار الفاتورة"
+      "issue": "إصدار الفاتورة",
+      "whoAreYouBilling": "لمن تصدر الفاتورة؟",
+      "billToPatient": "مريض",
+      "billToClient": "عميل (غير مريض)",
+      "client": "عميل",
+      "selectClient": "اختر عميلاً محفوظًا"
     },
     "errors": {
       "recipientName": "اسم المستلم مطلوب",
@@ -2029,6 +2043,58 @@
     "errors": {
       "doctorRequired": "اختر الطبيب المسؤول عن الزيارة",
       "saveFailed": "تعذّر حفظ الزيارة"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "ابحث عن عميل بالاسم أو الرقم الضريبي…",
+    "createNew": "إنشاء عميل جديد",
+    "no_results": "لم يتم العثور على عملاء"
+  },
+  "billingClientModal": {
+    "titleNew": "عميل جديد",
+    "titleEdit": "تعديل العميل",
+    "fields": {
+      "fullName": "الاسم / الاسم القانوني",
+      "taxId": "الرقم الضريبي",
+      "address": "العنوان الكامل",
+      "postalCode": "الرمز البريدي",
+      "city": "المدينة",
+      "province": "المحافظة",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "emailHint": "ضروري إذا كنت سترسل له الفواتير بالبريد الإلكتروني.",
+      "notes": "ملاحظات داخلية"
+    },
+    "errors": {
+      "fullName": "الاسم / الاسم القانوني إلزامي",
+      "taxId": "الرقم الضريبي إلزامي",
+      "address": "العنوان إلزامي",
+      "saveFailed": "تعذر حفظ العميل"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "البحث بالاسم أو الرقم الضريبي",
+    "newClient": "عميل جديد",
+    "noResults": "لم تقم بإضافة أي عميل بعد.",
+    "colName": "الاسم",
+    "colTaxId": "الرقم الضريبي",
+    "colEmail": "البريد الإلكتروني",
+    "colPhone": "الهاتف",
+    "colInvoices": "الفواتير",
+    "colActions": "الإجراءات",
+    "confirmDelete": "هل تريد حذف هذا العميل؟ إذا كانت له فواتير صادرة سيُحدد كغير نشط بدلاً من حذفه.",
+    "inactive": "غير نشط"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "إرسال الفاتورة بالبريد الإلكتروني",
+    "description": "سيتم إرسال الفاتورة {{number}} بصيغة PDF إلى البريد الإلكتروني المحدد. هذا التغيير لهذا الإرسال فقط.",
+    "emailLabel": "إرسال إلى",
+    "emailHint": "يمكنك تعديله لهذا الإرسال دون تغيير البيانات المحفوظة.",
+    "send": "إرسال",
+    "sending": "جارٍ الإرسال…",
+    "errors": {
+      "emailRequired": "أدخل بريدًا إلكترونيًا للوجهة",
+      "sendFailed": "تعذر إرسال الفاتورة"
     }
   }
 }

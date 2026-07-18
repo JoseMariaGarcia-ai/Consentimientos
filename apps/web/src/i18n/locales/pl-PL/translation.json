@@ -1834,7 +1834,16 @@
     "colActions": "Akcje",
     "tabInvoices": "Faktury",
     "tabCertificate": "Certyfikat cyfrowy",
-    "testModeBanner": "TRYB TESTOWY - Faktury wygenerowane w tym trybie NIE są zgłaszane do rzeczywistego AEAT i nie mają ważności podatkowej"
+    "testModeBanner": "TRYB TESTOWY - Faktury wygenerowane w tym trybie NIE są zgłaszane do rzeczywistego AEAT i nie mają ważności podatkowej",
+    "tabClients": "Klienci",
+    "colType": "Typ",
+    "recipientType": "Typ odbiorcy",
+    "recipientTypePaciente": "Pacjent",
+    "recipientTypeCliente": "Klient",
+    "recipientTypeManual": "Ręcznie",
+    "actionView": "Zobacz PDF",
+    "actionDownload": "Pobierz",
+    "actionEmail": "Wyślij e-mailem"
   },
   "certificateTab": {
     "unknownIssuer": "Nieznany wystawca",
@@ -1876,7 +1885,12 @@
       "base": "Podstawa opodatkowania",
       "vat": "VAT ({{rate}}%)",
       "total": "Suma",
-      "issue": "Wystaw fakturę"
+      "issue": "Wystaw fakturę",
+      "whoAreYouBilling": "Komu wystawiasz fakturę?",
+      "billToPatient": "Pacjent",
+      "billToClient": "Klient (nie pacjent)",
+      "client": "Klient",
+      "selectClient": "Wybierz zapisanego klienta"
     },
     "errors": {
       "recipientName": "Nazwa odbiorcy jest wymagana",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Wybierz lekarza odpowiedzialnego za wizytę",
       "saveFailed": "Nie udało się zapisać wizyty"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Szukaj klienta po nazwie lub NIP…",
+    "createNew": "Utwórz nowego klienta",
+    "no_results": "Nie znaleziono klientów"
+  },
+  "billingClientModal": {
+    "titleNew": "Nowy klient",
+    "titleEdit": "Edytuj klienta",
+    "fields": {
+      "fullName": "Nazwa / Nazwa firmy",
+      "taxId": "NIP",
+      "address": "Pełny adres",
+      "postalCode": "Kod pocztowy",
+      "city": "Miasto",
+      "province": "Województwo",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "emailHint": "Wymagane, jeśli będziesz wysyłać faktury e-mailem.",
+      "notes": "Notatki wewnętrzne"
+    },
+    "errors": {
+      "fullName": "Nazwa / nazwa firmy jest wymagana",
+      "taxId": "NIP jest wymagany",
+      "address": "Adres jest wymagany",
+      "saveFailed": "Nie udało się zapisać klienta"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Szukaj po nazwie lub NIP",
+    "newClient": "Nowy klient",
+    "noResults": "Nie dodałeś jeszcze żadnego klienta.",
+    "colName": "Nazwa",
+    "colTaxId": "NIP",
+    "colEmail": "E-mail",
+    "colPhone": "Telefon",
+    "colInvoices": "Faktury",
+    "colActions": "Działania",
+    "confirmDelete": "Usunąć tego klienta? Jeśli ma wystawione faktury, zostanie oznaczony jako nieaktywny zamiast usunięcia.",
+    "inactive": "Nieaktywny"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Wyślij fakturę e-mailem",
+    "description": "Faktura {{number}} zostanie wysłana jako PDF na podany adres e-mail. Ta zmiana dotyczy tylko tej wysyłki.",
+    "emailLabel": "Wyślij do",
+    "emailHint": "Możesz go edytować na potrzeby tej wysyłki bez zmiany zapisanej wartości.",
+    "send": "Wyślij",
+    "sending": "Wysyłanie…",
+    "errors": {
+      "emailRequired": "Podaj docelowy adres e-mail",
+      "sendFailed": "Nie udało się wysłać faktury"
     }
   }
 }

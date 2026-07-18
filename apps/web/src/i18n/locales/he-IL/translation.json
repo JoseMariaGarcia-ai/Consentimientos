@@ -1790,7 +1790,16 @@
     "colActions": "פעולות",
     "tabInvoices": "חשבוניות",
     "tabCertificate": "תעודה דיגיטלית",
-    "testModeBanner": "מצב בדיקה - חשבוניות שנוצרו במצב זה אינן מדווחות ל-AEAT האמיתי ואין להן תוקף פיסקלי"
+    "testModeBanner": "מצב בדיקה - חשבוניות שנוצרו במצב זה אינן מדווחות ל-AEAT האמיתי ואין להן תוקף פיסקלי",
+    "tabClients": "לקוחות",
+    "colType": "סוג",
+    "recipientType": "סוג הנמען",
+    "recipientTypePaciente": "מטופל",
+    "recipientTypeCliente": "לקוח",
+    "recipientTypeManual": "ידני",
+    "actionView": "צפייה ב-PDF",
+    "actionDownload": "הורדה",
+    "actionEmail": "שליחה באימייל"
   },
   "certificateTab": {
     "unknownIssuer": "גורם מנפיק לא ידוע",
@@ -1832,7 +1841,12 @@
       "base": "בסיס המס",
       "vat": "מע\"מ ({{rate}}%)",
       "total": "סה\"כ",
-      "issue": "הפק חשבונית"
+      "issue": "הפק חשבונית",
+      "whoAreYouBilling": "למי אתה מפיק חשבונית?",
+      "billToPatient": "מטופל",
+      "billToClient": "לקוח (לא מטופל)",
+      "client": "לקוח",
+      "selectClient": "בחר לקוח שמור"
     },
     "errors": {
       "recipientName": "שם הנמען הוא שדה חובה",
@@ -2023,6 +2037,58 @@
     "errors": {
       "doctorRequired": "בחר/י את הרופא/ה האחראי/ת על הביקור",
       "saveFailed": "לא ניתן היה לשמור את הביקור"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "חיפוש לקוח לפי שם או מספר עוסק…",
+    "createNew": "יצירת לקוח חדש",
+    "no_results": "לא נמצאו לקוחות"
+  },
+  "billingClientModal": {
+    "titleNew": "לקוח חדש",
+    "titleEdit": "עריכת לקוח",
+    "fields": {
+      "fullName": "שם / שם משפטי",
+      "taxId": "מספר עוסק/ח.פ",
+      "address": "כתובת מלאה",
+      "postalCode": "מיקוד",
+      "city": "עיר",
+      "province": "מחוז",
+      "phone": "טלפון",
+      "email": "אימייל",
+      "emailHint": "נדרש אם תשלח לו חשבוניות באימייל.",
+      "notes": "הערות פנימיות"
+    },
+    "errors": {
+      "fullName": "שם / שם משפטי הוא שדה חובה",
+      "taxId": "מספר עוסק הוא שדה חובה",
+      "address": "כתובת היא שדה חובה",
+      "saveFailed": "לא ניתן היה לשמור את הלקוח"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "חיפוש לפי שם או מספר עוסק",
+    "newClient": "לקוח חדש",
+    "noResults": "עדיין לא הוספת אף לקוח.",
+    "colName": "שם",
+    "colTaxId": "מספר עוסק",
+    "colEmail": "אימייל",
+    "colPhone": "טלפון",
+    "colInvoices": "חשבוניות",
+    "colActions": "פעולות",
+    "confirmDelete": "למחוק לקוח זה? אם יש לו חשבוניות שהונפקו, הוא יסומן כלא פעיל במקום להימחק.",
+    "inactive": "לא פעיל"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "שליחת חשבונית באימייל",
+    "description": "חשבונית {{number}} תישלח כ-PDF לאימייל שצוין. שינוי זה חל רק על שליחה זו.",
+    "emailLabel": "שליחה אל",
+    "emailHint": "ניתן לערוך אותו עבור שליחה זו מבלי לשנות את הנתון השמור.",
+    "send": "שליחה",
+    "sending": "שולח…",
+    "errors": {
+      "emailRequired": "הזן אימייל יעד",
+      "sendFailed": "לא ניתן היה לשלוח את החשבונית"
     }
   }
 }

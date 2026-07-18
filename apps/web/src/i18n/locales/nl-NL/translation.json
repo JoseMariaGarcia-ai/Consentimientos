@@ -1834,7 +1834,16 @@
     "colActions": "Acties",
     "tabInvoices": "Facturen",
     "tabCertificate": "Digitaal certificaat",
-    "testModeBanner": "TESTMODUS - Facturen die in deze modus worden gegenereerd, worden NIET gemeld aan de echte AEAT en hebben geen fiscale geldigheid"
+    "testModeBanner": "TESTMODUS - Facturen die in deze modus worden gegenereerd, worden NIET gemeld aan de echte AEAT en hebben geen fiscale geldigheid",
+    "tabClients": "Klanten",
+    "colType": "Type",
+    "recipientType": "Type ontvanger",
+    "recipientTypePaciente": "Patiënt",
+    "recipientTypeCliente": "Klant",
+    "recipientTypeManual": "Handmatig",
+    "actionView": "PDF bekijken",
+    "actionDownload": "Downloaden",
+    "actionEmail": "Per e-mail verzenden"
   },
   "certificateTab": {
     "unknownIssuer": "Onbekende uitgever",
@@ -1876,7 +1885,12 @@
       "base": "Belastbaar bedrag",
       "vat": "Btw ({{rate}}%)",
       "total": "Totaal",
-      "issue": "Factuur uitgeven"
+      "issue": "Factuur uitgeven",
+      "whoAreYouBilling": "Aan wie factureer je?",
+      "billToPatient": "Patiënt",
+      "billToClient": "Klant (geen patiënt)",
+      "client": "Klant",
+      "selectClient": "Selecteer een opgeslagen klant"
     },
     "errors": {
       "recipientName": "Naam van de ontvanger is verplicht",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Selecteer de verantwoordelijke tandarts voor het bezoek",
       "saveFailed": "Het bezoek kon niet worden opgeslagen"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Klant zoeken op naam of btw-nummer…",
+    "createNew": "Nieuwe klant aanmaken",
+    "no_results": "Geen klanten gevonden"
+  },
+  "billingClientModal": {
+    "titleNew": "Nieuwe klant",
+    "titleEdit": "Klant bewerken",
+    "fields": {
+      "fullName": "Naam / Bedrijfsnaam",
+      "taxId": "Btw-nummer",
+      "address": "Volledig adres",
+      "postalCode": "Postcode",
+      "city": "Plaats",
+      "province": "Provincie",
+      "phone": "Telefoon",
+      "email": "E-mail",
+      "emailHint": "Nodig als je de facturen per e-mail wilt sturen.",
+      "notes": "Interne notities"
+    },
+    "errors": {
+      "fullName": "Naam / bedrijfsnaam is verplicht",
+      "taxId": "Btw-nummer is verplicht",
+      "address": "Adres is verplicht",
+      "saveFailed": "De klant kon niet worden opgeslagen"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Zoeken op naam of btw-nummer",
+    "newClient": "Nieuwe klant",
+    "noResults": "Je hebt nog geen klanten toegevoegd.",
+    "colName": "Naam",
+    "colTaxId": "Btw-nummer",
+    "colEmail": "E-mail",
+    "colPhone": "Telefoon",
+    "colInvoices": "Facturen",
+    "colActions": "Acties",
+    "confirmDelete": "Deze klant verwijderen? Als er facturen zijn uitgegeven, wordt de klant gemarkeerd als inactief in plaats van verwijderd.",
+    "inactive": "Inactief"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Factuur per e-mail verzenden",
+    "description": "Factuur {{number}} wordt als PDF naar het opgegeven e-mailadres verzonden. Deze wijziging geldt alleen voor deze verzending.",
+    "emailLabel": "Verzenden naar",
+    "emailHint": "Je kunt dit voor deze verzending aanpassen zonder de opgeslagen gegevens te wijzigen.",
+    "send": "Verzenden",
+    "sending": "Verzenden…",
+    "errors": {
+      "emailRequired": "Voer een bestemmings-e-mail in",
+      "sendFailed": "De factuur kon niet worden verzonden"
     }
   }
 }

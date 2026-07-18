@@ -1834,7 +1834,16 @@
     "colActions": "Åtgärder",
     "tabInvoices": "Fakturor",
     "tabCertificate": "Digitalt certifikat",
-    "testModeBanner": "TESTLÄGE - Fakturor som skapas i det här läget rapporteras INTE till den verkliga AEAT och saknar skatterättslig giltighet"
+    "testModeBanner": "TESTLÄGE - Fakturor som skapas i det här läget rapporteras INTE till den verkliga AEAT och saknar skatterättslig giltighet",
+    "tabClients": "Kunder",
+    "colType": "Typ",
+    "recipientType": "Mottagartyp",
+    "recipientTypePaciente": "Patient",
+    "recipientTypeCliente": "Kund",
+    "recipientTypeManual": "Manuell",
+    "actionView": "Visa PDF",
+    "actionDownload": "Ladda ner",
+    "actionEmail": "Skicka via e-post"
   },
   "certificateTab": {
     "unknownIssuer": "Okänd utfärdare",
@@ -1876,7 +1885,12 @@
       "base": "Beskattningsunderlag",
       "vat": "Moms ({{rate}}%)",
       "total": "Totalt",
-      "issue": "Utfärda faktura"
+      "issue": "Utfärda faktura",
+      "whoAreYouBilling": "Vem fakturerar du?",
+      "billToPatient": "Patient",
+      "billToClient": "Kund (ej patient)",
+      "client": "Kund",
+      "selectClient": "Välj en sparad kund"
     },
     "errors": {
       "recipientName": "Mottagarens namn krävs",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Välj ansvarig tandläkare för besöket",
       "saveFailed": "Det gick inte att spara besöket"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Sök kund efter namn eller org.nr…",
+    "createNew": "Skapa ny kund",
+    "no_results": "Inga kunder hittades"
+  },
+  "billingClientModal": {
+    "titleNew": "Ny kund",
+    "titleEdit": "Redigera kund",
+    "fields": {
+      "fullName": "Namn / Firmanamn",
+      "taxId": "Org.nr/NIF",
+      "address": "Fullständig adress",
+      "postalCode": "Postnummer",
+      "city": "Stad",
+      "province": "Län",
+      "phone": "Telefon",
+      "email": "E-post",
+      "emailHint": "Behövs om du ska skicka fakturor via e-post.",
+      "notes": "Interna anteckningar"
+    },
+    "errors": {
+      "fullName": "Namn / firmanamn krävs",
+      "taxId": "Org.nr/NIF krävs",
+      "address": "Adress krävs",
+      "saveFailed": "Kunden kunde inte sparas"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Sök efter namn eller org.nr",
+    "newClient": "Ny kund",
+    "noResults": "Du har inte lagt till några kunder än.",
+    "colName": "Namn",
+    "colTaxId": "Org.nr",
+    "colEmail": "E-post",
+    "colPhone": "Telefon",
+    "colInvoices": "Fakturor",
+    "colActions": "Åtgärder",
+    "confirmDelete": "Ta bort denna kund? Om kunden har utfärdade fakturor markeras den som inaktiv istället för att tas bort.",
+    "inactive": "Inaktiv"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Skicka faktura via e-post",
+    "description": "Fakturan {{number}} skickas som PDF till den angivna e-posten. Denna ändring gäller endast denna sändning.",
+    "emailLabel": "Skicka till",
+    "emailHint": "Du kan redigera den för denna sändning utan att ändra det sparade värdet.",
+    "send": "Skicka",
+    "sending": "Skickar…",
+    "errors": {
+      "emailRequired": "Ange en mottagar-e-post",
+      "sendFailed": "Fakturan kunde inte skickas"
     }
   }
 }

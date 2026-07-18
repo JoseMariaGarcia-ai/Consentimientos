@@ -1834,7 +1834,16 @@
     "colActions": "İşlemler",
     "tabInvoices": "Faturalar",
     "tabCertificate": "Dijital Sertifika",
-    "testModeBanner": "TEST MODU - Bu modda oluşturulan faturalar gerçek AEAT’a bildirilmez ve mali geçerliliği yoktur"
+    "testModeBanner": "TEST MODU - Bu modda oluşturulan faturalar gerçek AEAT’a bildirilmez ve mali geçerliliği yoktur",
+    "tabClients": "Müşteriler",
+    "colType": "Tür",
+    "recipientType": "Alıcı türü",
+    "recipientTypePaciente": "Hasta",
+    "recipientTypeCliente": "Müşteri",
+    "recipientTypeManual": "Manuel",
+    "actionView": "PDF Görüntüle",
+    "actionDownload": "İndir",
+    "actionEmail": "E-posta ile gönder"
   },
   "certificateTab": {
     "unknownIssuer": "Bilinmeyen düzenleyici",
@@ -1876,7 +1885,12 @@
       "base": "Vergi matrahı",
       "vat": "KDV (%{{rate}})",
       "total": "Toplam",
-      "issue": "Fatura düzenle"
+      "issue": "Fatura düzenle",
+      "whoAreYouBilling": "Kime fatura kesiyorsunuz?",
+      "billToPatient": "Hasta",
+      "billToClient": "Müşteri (hasta değil)",
+      "client": "Müşteri",
+      "selectClient": "Kayıtlı bir müşteri seçin"
     },
     "errors": {
       "recipientName": "Alıcı adı zorunludur",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Ziyaretten sorumlu diş hekimini seçin",
       "saveFailed": "Ziyaret kaydedilemedi"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "İsim veya vergi no ile müşteri ara…",
+    "createNew": "Yeni müşteri oluştur",
+    "no_results": "Müşteri bulunamadı"
+  },
+  "billingClientModal": {
+    "titleNew": "Yeni müşteri",
+    "titleEdit": "Müşteriyi düzenle",
+    "fields": {
+      "fullName": "Ad / Ticari unvan",
+      "taxId": "Vergi numarası",
+      "address": "Tam adres",
+      "postalCode": "Posta kodu",
+      "city": "Şehir",
+      "province": "İl",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "emailHint": "Faturaları e-posta ile göndereceksen gereklidir.",
+      "notes": "Dahili notlar"
+    },
+    "errors": {
+      "fullName": "Ad / ticari unvan zorunludur",
+      "taxId": "Vergi numarası zorunludur",
+      "address": "Adres zorunludur",
+      "saveFailed": "Müşteri kaydedilemedi"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Ad veya vergi no ile ara",
+    "newClient": "Yeni müşteri",
+    "noResults": "Henüz hiç müşteri eklemediniz.",
+    "colName": "Ad",
+    "colTaxId": "Vergi No",
+    "colEmail": "E-posta",
+    "colPhone": "Telefon",
+    "colInvoices": "Faturalar",
+    "colActions": "İşlemler",
+    "confirmDelete": "Bu müşteri silinsin mi? Kesilmiş faturaları varsa silinmek yerine pasif olarak işaretlenecek.",
+    "inactive": "Pasif"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Faturayı e-posta ile gönder",
+    "description": "{{number}} numaralı fatura belirtilen e-postaya PDF olarak gönderilecek. Bu değişiklik yalnızca bu gönderim için geçerlidir.",
+    "emailLabel": "Şuraya gönder",
+    "emailHint": "Kayıtlı veriyi değiştirmeden bu gönderim için düzenleyebilirsiniz.",
+    "send": "Gönder",
+    "sending": "Gönderiliyor…",
+    "errors": {
+      "emailRequired": "Bir hedef e-posta girin",
+      "sendFailed": "Fatura gönderilemedi"
     }
   }
 }

@@ -1834,7 +1834,16 @@
     "colActions": "Handlinger",
     "tabInvoices": "Fakturaer",
     "tabCertificate": "Digitalt certifikat",
-    "testModeBanner": "TESTTILSTAND - Fakturaer genereret i denne tilstand bliver IKKE indberettet til den rigtige AEAT og har ingen skattemæssig gyldighed"
+    "testModeBanner": "TESTTILSTAND - Fakturaer genereret i denne tilstand bliver IKKE indberettet til den rigtige AEAT og har ingen skattemæssig gyldighed",
+    "tabClients": "Kunder",
+    "colType": "Type",
+    "recipientType": "Modtagertype",
+    "recipientTypePaciente": "Patient",
+    "recipientTypeCliente": "Kunde",
+    "recipientTypeManual": "Manuel",
+    "actionView": "Se PDF",
+    "actionDownload": "Download",
+    "actionEmail": "Send via e-mail"
   },
   "certificateTab": {
     "unknownIssuer": "Ukendt udsteder",
@@ -1876,7 +1885,12 @@
       "base": "Afgiftsgrundlag",
       "vat": "Moms ({{rate}}%)",
       "total": "Total",
-      "issue": "Udsted faktura"
+      "issue": "Udsted faktura",
+      "whoAreYouBilling": "Hvem fakturerer du?",
+      "billToPatient": "Patient",
+      "billToClient": "Kunde (ikke patient)",
+      "client": "Kunde",
+      "selectClient": "Vælg en gemt kunde"
     },
     "errors": {
       "recipientName": "Modtagerens navn er påkrævet",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Vælg den ansvarlige tandlæge for besøget",
       "saveFailed": "Kunne ikke gemme besøget"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Søg kunde efter navn eller CVR…",
+    "createNew": "Opret ny kunde",
+    "no_results": "Ingen kunder fundet"
+  },
+  "billingClientModal": {
+    "titleNew": "Ny kunde",
+    "titleEdit": "Rediger kunde",
+    "fields": {
+      "fullName": "Navn / Firmanavn",
+      "taxId": "CVR/NIF",
+      "address": "Fuld adresse",
+      "postalCode": "Postnummer",
+      "city": "By",
+      "province": "Region",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "emailHint": "Nødvendig, hvis du vil sende fakturaer via e-mail.",
+      "notes": "Interne noter"
+    },
+    "errors": {
+      "fullName": "Navn / firmanavn er påkrævet",
+      "taxId": "CVR/NIF er påkrævet",
+      "address": "Adresse er påkrævet",
+      "saveFailed": "Kunden kunne ikke gemmes"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Søg efter navn eller CVR",
+    "newClient": "Ny kunde",
+    "noResults": "Du har endnu ikke tilføjet nogen kunder.",
+    "colName": "Navn",
+    "colTaxId": "CVR",
+    "colEmail": "E-mail",
+    "colPhone": "Telefon",
+    "colInvoices": "Fakturaer",
+    "colActions": "Handlinger",
+    "confirmDelete": "Slet denne kunde? Hvis kunden har udstedte fakturaer, markeres den som inaktiv i stedet for at blive slettet.",
+    "inactive": "Inaktiv"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Send faktura via e-mail",
+    "description": "Fakturaen {{number}} sendes som PDF til den angivne e-mail. Denne ændring gælder kun denne afsendelse.",
+    "emailLabel": "Send til",
+    "emailHint": "Du kan redigere den for denne afsendelse uden at ændre den gemte oplysning.",
+    "send": "Send",
+    "sending": "Sender…",
+    "errors": {
+      "emailRequired": "Angiv en modtager-e-mail",
+      "sendFailed": "Fakturaen kunne ikke sendes"
     }
   }
 }

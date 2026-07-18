@@ -1834,7 +1834,16 @@
     "colActions": "Hành động",
     "tabInvoices": "Hóa đơn",
     "tabCertificate": "Chứng chỉ số",
-    "testModeBanner": "CHẾ ĐỘ THỬ NGHIỆM - Các hóa đơn được tạo trong chế độ này KHÔNG được báo cáo cho AEAT thực và không có giá trị pháp lý về thuế"
+    "testModeBanner": "CHẾ ĐỘ THỬ NGHIỆM - Các hóa đơn được tạo trong chế độ này KHÔNG được báo cáo cho AEAT thực và không có giá trị pháp lý về thuế",
+    "tabClients": "Khách hàng",
+    "colType": "Loại",
+    "recipientType": "Loại người nhận",
+    "recipientTypePaciente": "Bệnh nhân",
+    "recipientTypeCliente": "Khách hàng",
+    "recipientTypeManual": "Thủ công",
+    "actionView": "Xem PDF",
+    "actionDownload": "Tải xuống",
+    "actionEmail": "Gửi qua email"
   },
   "certificateTab": {
     "unknownIssuer": "Đơn vị phát hành không xác định",
@@ -1876,7 +1885,12 @@
       "base": "Giá trị tính thuế",
       "vat": "VAT ({{rate}}%)",
       "total": "Tổng cộng",
-      "issue": "Phát hành hóa đơn"
+      "issue": "Phát hành hóa đơn",
+      "whoAreYouBilling": "Bạn đang lập hóa đơn cho ai?",
+      "billToPatient": "Bệnh nhân",
+      "billToClient": "Khách hàng (không phải bệnh nhân)",
+      "client": "Khách hàng",
+      "selectClient": "Chọn khách hàng đã lưu"
     },
     "errors": {
       "recipientName": "Tên người nhận là bắt buộc",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Chọn bác sĩ phụ trách lần khám",
       "saveFailed": "Không thể lưu lần khám"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Tìm khách hàng theo tên hoặc mã số thuế…",
+    "createNew": "Tạo khách hàng mới",
+    "no_results": "Không tìm thấy khách hàng nào"
+  },
+  "billingClientModal": {
+    "titleNew": "Khách hàng mới",
+    "titleEdit": "Chỉnh sửa khách hàng",
+    "fields": {
+      "fullName": "Tên / Tên pháp lý",
+      "taxId": "Mã số thuế",
+      "address": "Địa chỉ đầy đủ",
+      "postalCode": "Mã bưu điện",
+      "city": "Thành phố",
+      "province": "Tỉnh",
+      "phone": "Điện thoại",
+      "email": "Email",
+      "emailHint": "Cần thiết nếu bạn sẽ gửi hóa đơn qua email.",
+      "notes": "Ghi chú nội bộ"
+    },
+    "errors": {
+      "fullName": "Tên / tên pháp lý là bắt buộc",
+      "taxId": "Mã số thuế là bắt buộc",
+      "address": "Địa chỉ là bắt buộc",
+      "saveFailed": "Không thể lưu khách hàng"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Tìm theo tên hoặc mã số thuế",
+    "newClient": "Khách hàng mới",
+    "noResults": "Bạn chưa thêm khách hàng nào.",
+    "colName": "Tên",
+    "colTaxId": "Mã số thuế",
+    "colEmail": "Email",
+    "colPhone": "Điện thoại",
+    "colInvoices": "Hóa đơn",
+    "colActions": "Hành động",
+    "confirmDelete": "Xóa khách hàng này? Nếu đã có hóa đơn phát hành, khách hàng sẽ được đánh dấu không hoạt động thay vì bị xóa.",
+    "inactive": "Không hoạt động"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Gửi hóa đơn qua email",
+    "description": "Hóa đơn {{number}} sẽ được gửi dưới dạng PDF đến email đã chỉ định. Thay đổi này chỉ áp dụng cho lần gửi này.",
+    "emailLabel": "Gửi đến",
+    "emailHint": "Bạn có thể chỉnh sửa cho lần gửi này mà không thay đổi dữ liệu đã lưu.",
+    "send": "Gửi",
+    "sending": "Đang gửi…",
+    "errors": {
+      "emailRequired": "Nhập email đích",
+      "sendFailed": "Không thể gửi hóa đơn"
     }
   }
 }

@@ -1834,7 +1834,16 @@
     "colActions": "Actions",
     "tabInvoices": "Factures",
     "tabCertificate": "Certificat numérique",
-    "testModeBanner": "MODE TEST - Les factures générées dans ce mode ne sont PAS transmises à l’AEAT réelle et n’ont aucune valeur fiscale"
+    "testModeBanner": "MODE TEST - Les factures générées dans ce mode ne sont PAS transmises à l’AEAT réelle et n’ont aucune valeur fiscale",
+    "tabClients": "Clients",
+    "colType": "Type",
+    "recipientType": "Type de destinataire",
+    "recipientTypePaciente": "Patient",
+    "recipientTypeCliente": "Client",
+    "recipientTypeManual": "Manuel",
+    "actionView": "Voir le PDF",
+    "actionDownload": "Télécharger",
+    "actionEmail": "Envoyer par email"
   },
   "certificateTab": {
     "unknownIssuer": "Émetteur inconnu",
@@ -1876,7 +1885,12 @@
       "base": "Base imposable",
       "vat": "TVA ({{rate}}%)",
       "total": "Total",
-      "issue": "Émettre la facture"
+      "issue": "Émettre la facture",
+      "whoAreYouBilling": "À qui facturez-vous ?",
+      "billToPatient": "Patient",
+      "billToClient": "Client (non patient)",
+      "client": "Client",
+      "selectClient": "Sélectionnez un client enregistré"
     },
     "errors": {
       "recipientName": "Le nom du destinataire est obligatoire",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Sélectionnez le médecin responsable de la visite",
       "saveFailed": "Impossible d'enregistrer la visite"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Rechercher un client par nom ou SIRET…",
+    "createNew": "Créer un nouveau client",
+    "no_results": "Aucun client trouvé"
+  },
+  "billingClientModal": {
+    "titleNew": "Nouveau client",
+    "titleEdit": "Modifier le client",
+    "fields": {
+      "fullName": "Nom / Raison sociale",
+      "taxId": "SIRET/NIF",
+      "address": "Adresse complète",
+      "postalCode": "Code postal",
+      "city": "Ville",
+      "province": "Province",
+      "phone": "Téléphone",
+      "email": "Email",
+      "emailHint": "Nécessaire si vous comptez lui envoyer les factures par email.",
+      "notes": "Notes internes"
+    },
+    "errors": {
+      "fullName": "Le nom / raison sociale est obligatoire",
+      "taxId": "Le SIRET/NIF est obligatoire",
+      "address": "L’adresse est obligatoire",
+      "saveFailed": "Impossible d’enregistrer le client"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Rechercher par nom ou SIRET",
+    "newClient": "Nouveau client",
+    "noResults": "Vous n’avez encore ajouté aucun client.",
+    "colName": "Nom",
+    "colTaxId": "SIRET",
+    "colEmail": "Email",
+    "colPhone": "Téléphone",
+    "colInvoices": "Factures",
+    "colActions": "Actions",
+    "confirmDelete": "Supprimer ce client ? S’il a des factures émises, il sera marqué comme inactif au lieu d’être supprimé.",
+    "inactive": "Inactif"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Envoyer la facture par email",
+    "description": "La facture {{number}} sera envoyée en PDF à l’email indiqué. Ce changement ne concerne que cet envoi.",
+    "emailLabel": "Envoyer à",
+    "emailHint": "Vous pouvez le modifier pour cet envoi sans changer la donnée enregistrée.",
+    "send": "Envoyer",
+    "sending": "Envoi…",
+    "errors": {
+      "emailRequired": "Indiquez un email de destination",
+      "sendFailed": "Impossible d’envoyer la facture"
     }
   }
 }

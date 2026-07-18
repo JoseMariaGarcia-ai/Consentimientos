@@ -1834,7 +1834,16 @@
     "colActions": "Akce",
     "tabInvoices": "Faktury",
     "tabCertificate": "Digitální certifikát",
-    "testModeBanner": "TESTOVACÍ REŽIM - Faktury vytvořené v tomto režimu se NEPOSÍLAJÍ skutečnému úřadu AEAT a nemají daňovou platnost"
+    "testModeBanner": "TESTOVACÍ REŽIM - Faktury vytvořené v tomto režimu se NEPOSÍLAJÍ skutečnému úřadu AEAT a nemají daňovou platnost",
+    "tabClients": "Klienti",
+    "colType": "Typ",
+    "recipientType": "Typ příjemce",
+    "recipientTypePaciente": "Pacient",
+    "recipientTypeCliente": "Klient",
+    "recipientTypeManual": "Ručně",
+    "actionView": "Zobrazit PDF",
+    "actionDownload": "Stáhnout",
+    "actionEmail": "Odeslat e-mailem"
   },
   "certificateTab": {
     "unknownIssuer": "Neznámý vydavatel",
@@ -1876,7 +1885,12 @@
       "base": "Základ daně",
       "vat": "DPH ({{rate}}%)",
       "total": "Celkem",
-      "issue": "Vystavit fakturu"
+      "issue": "Vystavit fakturu",
+      "whoAreYouBilling": "Komu fakturujete?",
+      "billToPatient": "Pacient",
+      "billToClient": "Klient (ne pacient)",
+      "client": "Klient",
+      "selectClient": "Vyberte uloženého klienta"
     },
     "errors": {
       "recipientName": "Jméno příjemce je povinné",
@@ -2067,6 +2081,58 @@
     "errors": {
       "doctorRequired": "Vyberte lékaře zodpovědného za návštěvu",
       "saveFailed": "Návštěvu se nepodařilo uložit"
+    }
+  },
+  "billingClientCombobox": {
+    "placeholder": "Hledat klienta podle jména nebo DIČ…",
+    "createNew": "Vytvořit nového klienta",
+    "no_results": "Nebyli nalezeni žádní klienti"
+  },
+  "billingClientModal": {
+    "titleNew": "Nový klient",
+    "titleEdit": "Upravit klienta",
+    "fields": {
+      "fullName": "Jméno / Obchodní název",
+      "taxId": "DIČ / IČO",
+      "address": "Úplná adresa",
+      "postalCode": "PSČ",
+      "city": "Město",
+      "province": "Kraj",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "emailHint": "Nutné, pokud mu budete posílat faktury e-mailem.",
+      "notes": "Interní poznámky"
+    },
+    "errors": {
+      "fullName": "Jméno / obchodní název je povinné",
+      "taxId": "DIČ/IČO je povinné",
+      "address": "Adresa je povinná",
+      "saveFailed": "Klienta se nepodařilo uložit"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Hledat podle jména nebo DIČ",
+    "newClient": "Nový klient",
+    "noResults": "Zatím jste nepřidali žádného klienta.",
+    "colName": "Jméno",
+    "colTaxId": "DIČ",
+    "colEmail": "E-mail",
+    "colPhone": "Telefon",
+    "colInvoices": "Faktury",
+    "colActions": "Akce",
+    "confirmDelete": "Odstranit tohoto klienta? Pokud má vystavené faktury, bude označen jako neaktivní místo odstranění.",
+    "inactive": "Neaktivní"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Odeslat fakturu e-mailem",
+    "description": "Faktura {{number}} bude odeslána jako PDF na uvedený e-mail. Tato změna platí pouze pro toto odeslání.",
+    "emailLabel": "Odeslat na",
+    "emailHint": "Můžete jej upravit pro toto odeslání, aniž byste změnili uložený údaj.",
+    "send": "Odeslat",
+    "sending": "Odesílání…",
+    "errors": {
+      "emailRequired": "Zadejte cílový e-mail",
+      "sendFailed": "Fakturu se nepodařilo odeslat"
     }
   }
 }
