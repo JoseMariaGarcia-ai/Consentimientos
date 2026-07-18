@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BadgeEuro, Plus, Eye, FileDown, Mail, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical, Users } from 'lucide-react'
+import { BadgeEuro, Plus, Eye, FileDown, Mail, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical, Users, Wallet } from 'lucide-react'
 import { api } from '@/lib/api'
 import { InvoiceModal } from '@/components/invoicing/InvoiceModal'
 import { InvoiceView } from '@/components/invoicing/InvoiceView'
@@ -8,15 +8,22 @@ import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { CertificateTab } from '@/components/invoicing/CertificateTab'
 import { BillingClientsList } from '@/components/invoicing/BillingClientsList'
 import { SendInvoiceEmailModal } from '@/components/invoicing/SendInvoiceEmailModal'
+import { PaymentModal } from '@/components/invoicing/PaymentModal'
 import { invoicePdfBlob } from '@/components/invoicing/InvoicePdfButton'
 import { useAuth } from '@/lib/auth'
 
-const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '', recipient_type: '' }
+const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '', recipient_type: '', payment_status: '' }
 
 const STATUS_BADGE: Record<string, string> = {
   emitida: 'bg-emerald-50 text-emerald-700',
   anulada: 'bg-red-50 text-red-600',
   rectificada: 'bg-amber-50 text-amber-700',
+}
+
+const PAYMENT_BADGE: Record<string, string> = {
+  pendiente: 'bg-red-50 text-red-600',
+  parcial: 'bg-amber-50 text-amber-700',
+  cobrada: 'bg-emerald-50 text-emerald-700',
 }
 
 export default function Invoicing() {
@@ -34,6 +41,7 @@ export default function Invoicing() {
   const [modalOpen, setModalOpen] = useState(false)
   const [viewing, setViewing] = useState<any | null>(null)
   const [emailing, setEmailing] = useState<any | null>(null)
+  const [payingInvoice, setPayingInvoice] = useState<any | null>(null)
   const [error, setError] = useState('')
   const [integrityIssues, setIntegrityIssues] = useState<number | null>(null)
 
@@ -47,6 +55,7 @@ export default function Invoicing() {
       if (filters.status) params.set('status', filters.status)
       if (filters.series) params.set('series', filters.series)
       if (filters.recipient_type) params.set('recipient_type', filters.recipient_type)
+      if (filters.payment_status) params.set('payment_status', filters.payment_status)
       if (filters.q) params.set('q', filters.q)
       const data = await api.get(`/invoices?${params.toString()}`)
       setInvoices(Array.isArray(data) ? data : [])
@@ -235,6 +244,16 @@ export default function Invoicing() {
           </select>
         </div>
         <div className="flex flex-col gap-1">
+          <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.paymentStatus')}</label>
+          <select value={filters.payment_status} onChange={e => setFilters(f => ({ ...f, payment_status: e.target.value }))}
+            className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+            <option value="">{t('invoicing.all')}</option>
+            <option value="pendiente">{t('invoicing.paymentStatusPendiente')}</option>
+            <option value="parcial">{t('invoicing.paymentStatusParcial')}</option>
+            <option value="cobrada">{t('invoicing.paymentStatusCobrada')}</option>
+          </select>
+        </div>
+        <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.search')}</label>
           <input value={filters.q} onChange={e => setFilters(f => ({ ...f, q: e.target.value }))} placeholder={t('invoicing.searchPlaceholder')}
             className="px-3 py-2 border border-slate-300 rounded-lg text-sm" />
@@ -269,6 +288,7 @@ export default function Invoicing() {
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colType')}</th>
                   <th className="px-4 py-3 font-semibold text-right">{t('invoicing.colTotal')}</th>
                   <th className="px-4 py-3 font-semibold">{t('invoicing.colStatus')}</th>
+                  <th className="px-4 py-3 font-semibold">{t('invoicing.colPaymentStatus')}</th>
                   <th className="px-4 py-3 font-semibold text-center">{t('invoicing.colAeat')}</th>
                   <th className="px-4 py-3 font-semibold text-right">{t('invoicing.colActions')}</th>
                 </tr>
@@ -276,7 +296,14 @@ export default function Invoicing() {
               <tbody className="divide-y divide-slate-50">
                 {invoices.map(inv => (
                   <tr key={inv.id} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-medium text-slate-800">{inv.invoice_number}</td>
+                    <td className="px-4 py-3 font-medium text-slate-800">
+                      {inv.invoice_number}
+                      {inv.invoice_kind && inv.invoice_kind !== 'ordinaria' && (
+                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-violet-50 text-violet-700 align-middle">
+                          {t(`invoicing.invoiceKind${inv.invoice_kind.charAt(0).toUpperCase()}${inv.invoice_kind.slice(1)}`)}
+                        </span>
+                      )}
+                    </td>
                     <td className="px-4 py-3 text-slate-600 whitespace-nowrap">{fmtDate(inv.issue_date)}</td>
                     <td className="px-4 py-3 text-slate-600">{inv.recipient_name}</td>
                     <td className="px-4 py-3 text-slate-500 text-xs">{recipientTypeLabel(inv.recipient_type ?? 'manual')}</td>
@@ -285,6 +312,11 @@ export default function Invoicing() {
                       <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${STATUS_BADGE[inv.status] ?? 'bg-slate-100 text-slate-600'}`}>
                         {inv.status === 'anulada' && <Ban className="w-3 h-3" />}
                         {t(`invoicing.status${inv.status.charAt(0).toUpperCase()}${inv.status.slice(1)}`)}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${PAYMENT_BADGE[inv.payment_status] ?? 'bg-slate-100 text-slate-600'}`}>
+                        {t(`invoicing.paymentStatus${(inv.payment_status ?? 'pendiente').charAt(0).toUpperCase()}${(inv.payment_status ?? 'pendiente').slice(1)}`)}
                       </span>
                     </td>
                     <td className="px-4 py-3 text-center">
@@ -304,6 +336,9 @@ export default function Invoicing() {
                         </button>
                         <button onClick={() => openEmailModal(inv)} title={t('invoicing.actionEmail')} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
                           <Mail className="w-4 h-4" />
+                        </button>
+                        <button onClick={() => setPayingInvoice(inv)} title={t('invoicing.actionManagePayment')} className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50">
+                          <Wallet className="w-4 h-4" />
                         </button>
                       </div>
                     </td>
@@ -338,6 +373,14 @@ export default function Invoicing() {
           defaultEmail={defaultEmailFor(emailing)}
           onClose={() => setEmailing(null)}
           onSent={load}
+        />
+      )}
+
+      {payingInvoice && (
+        <PaymentModal
+          invoice={payingInvoice}
+          onClose={() => setPayingInvoice(null)}
+          onChanged={load}
         />
       )}
     </div>
