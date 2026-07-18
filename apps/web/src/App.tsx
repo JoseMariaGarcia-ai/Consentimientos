@@ -65,6 +65,7 @@ function AppShell() {
   const isLabPartnerRole = role === 'lab_partner'
   const [myModules, setMyModules] = useState<string[] | null>(null)
   const [myLabPartnerId, setMyLabPartnerId] = useState<string | null | undefined>(undefined)
+  const [sidebarOrder, setSidebarOrder] = useState<string[] | null>(null)
 
   useEffect(() => {
     document.documentElement.dir = ['ar-SA', 'he-IL'].includes(currentLanguage) ? 'rtl' : 'ltr'
@@ -95,6 +96,18 @@ function AppShell() {
     if (!isLabPartnerRole) { setMyLabPartnerId(null); return }
     api.get('/me').then((me: any) => setMyLabPartnerId(me.lab_partner_id ?? null)).catch(() => setMyLabPartnerId(null))
   }, [isLabPartnerRole])
+
+  // Per-user sidebar order — only applies to real staff shells (not the
+  // patient/lab-partner portals, which never render Sidebar.tsx at all).
+  useEffect(() => {
+    if (!isAuthenticated || role === 'patient' || isLabPartnerRole) { setSidebarOrder(null); return }
+    api.get('/me').then((me: any) => setSidebarOrder(Array.isArray(me.sidebar_order) ? me.sidebar_order : null)).catch(() => {})
+  }, [isAuthenticated, role, isLabPartnerRole])
+
+  const handleReorderSidebar = (order: string[]) => {
+    setSidebarOrder(order)
+    api.put('/me/sidebar-order', { order }).catch(() => {})
+  }
 
   // Public routes — no auth required
   if (window.location.pathname.startsWith('/portal/')) return <PatientPortal />
@@ -151,7 +164,14 @@ function AppShell() {
         {isClinicaPreview && <PreviewBanner role="clinica" planId={activePreview?.clinicaPlan} onExit={exitPreview} />}
         <Topbar onMenuClick={() => setSidebarOpen(o => !o)} />
         <div className="flex flex-1 overflow-hidden">
-          <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} allowedModules={allowedModules} isSuperAdmin={isSuperAdmin} />
+          <Sidebar
+            open={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
+            allowedModules={allowedModules}
+            isSuperAdmin={isSuperAdmin}
+            sidebarOrder={activePreview ? null : sidebarOrder}
+            onReorder={activePreview ? undefined : handleReorderSidebar}
+          />
           <WelcomeMediaModal />
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
