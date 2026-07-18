@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manual",
     "actionView": "Vezi PDF",
     "actionDownload": "Descarcă",
-    "actionEmail": "Trimite prin email"
+    "actionEmail": "Trimite prin email",
+    "actionManagePayment": "Gestionează plata",
+    "invoiceKindRectificativa": "Rectificativă",
+    "invoiceKindAbono": "Notă de credit",
+    "colPaymentStatus": "Stare plată",
+    "paymentStatus": "Stare plată",
+    "paymentStatusPendiente": "În așteptare",
+    "paymentStatusParcial": "Parțial",
+    "paymentStatusCobrada": "Achitată"
   },
   "certificateTab": {
     "unknownIssuer": "Emitent necunoscut",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Trimiterea către AEAT așteaptă conectarea",
     "aeatSent": "Trimisă către AEAT",
     "cancelInvoice": "Anulează factura",
-    "cancelling": "Se anulează…"
+    "cancelling": "Se anulează…",
+    "rectifiedNotice": "Această factură a fost corectată — vezi factura generată în corecții.",
+    "createRectificativa": "Creează rectificativă",
+    "createAbono": "Creează notă de credit",
+    "correctionsTitle": "Corecții",
+    "correctionType": {
+      "anulacion": "Anulare",
+      "rectificativa": "Rectificativă",
+      "abono": "Notă de credit"
+    },
+    "rectifiesReference": "Această factură corectează o factură anterioară."
   },
   "employeeModal": {
     "titleEdit": "Editează angajatul",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Indică un email de destinație",
       "sendFailed": "Factura nu a putut fi trimisă"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Anulează factura",
+    "description": "Vei anula factura {{number}}. Nu se va emite nicio factură nouă.",
+    "reasonLabel": "Motivul anulării",
+    "cancelling": "Se anulează…",
+    "confirm": "Anulează factura",
+    "errors": {
+      "reasonRequired": "Motivul anulării este obligatoriu",
+      "cancelFailed": "Factura nu a putut fi anulată"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Creează factură rectificativă",
+    "titleAbono": "Creează notă de credit",
+    "descriptionRectificativa": "Se va genera o factură nouă care corectează suma facturii {{number}}.",
+    "descriptionAbono": "Se va genera o notă de credit nouă (sumă negativă) pentru factura {{number}}.",
+    "reasonLabel": "Motiv",
+    "fullRefund": "Notă de credit totală ({{total}})",
+    "amountLabelRectificativa": "Sumă de corectat",
+    "amountLabelAbono": "Sumă de rambursat",
+    "amountHintRectificativa": "Poate fi pozitivă sau negativă.",
+    "confirm": "Creează factura",
+    "errors": {
+      "reasonRequired": "Motivul este obligatoriu",
+      "saveFailed": "Corecția nu a putut fi creată",
+      "amountPositive": "Indică o sumă mai mare de 0",
+      "amountNonZero": "Indică o sumă diferită de 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Plata facturii {{number}}",
+    "total": "Total",
+    "paid": "Achitat",
+    "pending": "În așteptare",
+    "overpaidNotice": "Suma achitată depășește totalul facturii.",
+    "registerPayment": "Înregistrează plata",
+    "amount": "Sumă",
+    "method": "Modalitate de plată",
+    "methods": {
+      "efectivo": "Numerar",
+      "transferencia": "Transfer bancar",
+      "bizum": "Bizum",
+      "tarjeta": "Card",
+      "stripe": "Stripe",
+      "otro": "Altele"
+    },
+    "date": "Data plății",
+    "notes": "Note",
+    "registerButton": "Înregistrează plata",
+    "history": "Plăți înregistrate",
+    "noPayments": "Nu a fost încă înregistrată nicio plată.",
+    "confirmDeletePayment": "Ștergi această plată?",
+    "errors": {
+      "amountRequired": "Indică o sumă mai mare de 0",
+      "saveFailed": "Plata nu a putut fi înregistrată"
     }
   }
 }

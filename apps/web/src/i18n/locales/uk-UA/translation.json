@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Вручну",
     "actionView": "Переглянути PDF",
     "actionDownload": "Завантажити",
-    "actionEmail": "Надіслати електронною поштою"
+    "actionEmail": "Надіслати електронною поштою",
+    "actionManagePayment": "Керувати оплатою",
+    "invoiceKindRectificativa": "Коригувальний",
+    "invoiceKindAbono": "Кредит-нота",
+    "colPaymentStatus": "Статус оплати",
+    "paymentStatus": "Статус оплати",
+    "paymentStatusPendiente": "Очікує",
+    "paymentStatusParcial": "Частково",
+    "paymentStatusCobrada": "Оплачено"
   },
   "certificateTab": {
     "unknownIssuer": "Невідомий видавець",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Надсилання до AEAT очікує на підключення",
     "aeatSent": "Надіслано до AEAT",
     "cancelInvoice": "Скасувати рахунок",
-    "cancelling": "Скасування…"
+    "cancelling": "Скасування…",
+    "rectifiedNotice": "Цей рахунок було виправлено — див. створений рахунок у виправленнях.",
+    "createRectificativa": "Створити коригувальний рахунок",
+    "createAbono": "Створити кредит-ноту",
+    "correctionsTitle": "Виправлення",
+    "correctionType": {
+      "anulacion": "Анулювання",
+      "rectificativa": "Коригувальний",
+      "abono": "Кредит-нота"
+    },
+    "rectifiesReference": "Цей рахунок виправляє попередній рахунок."
   },
   "employeeModal": {
     "titleEdit": "Редагувати співробітника",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Вкажіть email отримувача",
       "sendFailed": "Не вдалося надіслати рахунок"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Анулювати рахунок",
+    "description": "Ви збираєтеся анулювати рахунок {{number}}. Новий рахунок не буде видано.",
+    "reasonLabel": "Причина анулювання",
+    "cancelling": "Анулювання…",
+    "confirm": "Анулювати рахунок",
+    "errors": {
+      "reasonRequired": "Причина анулювання обов’язкова",
+      "cancelFailed": "Не вдалося анулювати рахунок"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Створити коригувальний рахунок",
+    "titleAbono": "Створити кредит-ноту",
+    "descriptionRectificativa": "Буде створено новий рахунок, що виправляє суму рахунку {{number}}.",
+    "descriptionAbono": "Буде створено нову кредит-ноту (від’ємна сума) для рахунку {{number}}.",
+    "reasonLabel": "Причина",
+    "fullRefund": "Повна кредит-нота ({{total}})",
+    "amountLabelRectificativa": "Сума для виправлення",
+    "amountLabelAbono": "Сума для повернення",
+    "amountHintRectificativa": "Може бути додатною або від’ємною.",
+    "confirm": "Створити рахунок",
+    "errors": {
+      "reasonRequired": "Причина обов’язкова",
+      "saveFailed": "Не вдалося створити виправлення",
+      "amountPositive": "Вкажіть суму більшу за 0",
+      "amountNonZero": "Вкажіть суму, відмінну від 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Оплата рахунку {{number}}",
+    "total": "Разом",
+    "paid": "Оплачено",
+    "pending": "Очікує",
+    "overpaidNotice": "Сплачена сума перевищує загальну суму рахунку.",
+    "registerPayment": "Зареєструвати платіж",
+    "amount": "Сума",
+    "method": "Спосіб оплати",
+    "methods": {
+      "efectivo": "Готівка",
+      "transferencia": "Банківський переказ",
+      "bizum": "Bizum",
+      "tarjeta": "Картка",
+      "stripe": "Stripe",
+      "otro": "Інше"
+    },
+    "date": "Дата оплати",
+    "notes": "Примітки",
+    "registerButton": "Зареєструвати платіж",
+    "history": "Зареєстровані платежі",
+    "noPayments": "Ще не зареєстровано жодного платежу.",
+    "confirmDeletePayment": "Видалити цей платіж?",
+    "errors": {
+      "amountRequired": "Вкажіть суму більшу за 0",
+      "saveFailed": "Не вдалося зареєструвати платіж"
     }
   }
 }

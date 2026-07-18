@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Χειροκίνητο",
     "actionView": "Προβολή PDF",
     "actionDownload": "Λήψη",
-    "actionEmail": "Αποστολή με email"
+    "actionEmail": "Αποστολή με email",
+    "actionManagePayment": "Διαχείριση πληρωμής",
+    "invoiceKindRectificativa": "Διορθωτικό",
+    "invoiceKindAbono": "Πιστωτικό",
+    "colPaymentStatus": "Κατάσταση πληρωμής",
+    "paymentStatus": "Κατάσταση πληρωμής",
+    "paymentStatusPendiente": "Εκκρεμεί",
+    "paymentStatusParcial": "Μερική",
+    "paymentStatusCobrada": "Εξοφλημένη"
   },
   "certificateTab": {
     "unknownIssuer": "Άγνωστος εκδότης",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Η αποστολή στην AEAT εκκρεμεί σύνδεση",
     "aeatSent": "Στάλθηκε στην AEAT",
     "cancelInvoice": "Ακύρωση τιμολογίου",
-    "cancelling": "Ακύρωση…"
+    "cancelling": "Ακύρωση…",
+    "rectifiedNotice": "Αυτό το τιμολόγιο έχει διορθωθεί — δείτε το τιμολόγιο που δημιουργήθηκε στις διορθώσεις.",
+    "createRectificativa": "Δημιουργία διορθωτικού τιμολογίου",
+    "createAbono": "Δημιουργία πιστωτικού τιμολογίου",
+    "correctionsTitle": "Διορθώσεις",
+    "correctionType": {
+      "anulacion": "Ακύρωση",
+      "rectificativa": "Διορθωτικό",
+      "abono": "Πιστωτικό"
+    },
+    "rectifiesReference": "Αυτό το τιμολόγιο διορθώνει ένα προηγούμενο τιμολόγιο."
   },
   "employeeModal": {
     "titleEdit": "Επεξεργασία υπαλλήλου",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Εισαγάγετε ένα email προορισμού",
       "sendFailed": "Δεν ήταν δυνατή η αποστολή του τιμολογίου"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Ακύρωση τιμολογίου",
+    "description": "Θα ακυρώσετε το τιμολόγιο {{number}}. Δεν θα εκδοθεί νέο τιμολόγιο.",
+    "reasonLabel": "Λόγος ακύρωσης",
+    "cancelling": "Ακύρωση…",
+    "confirm": "Ακύρωση τιμολογίου",
+    "errors": {
+      "reasonRequired": "Ο λόγος ακύρωσης είναι υποχρεωτικός",
+      "cancelFailed": "Δεν ήταν δυνατή η ακύρωση του τιμολογίου"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Δημιουργία διορθωτικού τιμολογίου",
+    "titleAbono": "Δημιουργία πιστωτικού τιμολογίου",
+    "descriptionRectificativa": "Θα δημιουργηθεί νέο τιμολόγιο που διορθώνει το ποσό του τιμολογίου {{number}}.",
+    "descriptionAbono": "Θα δημιουργηθεί νέο πιστωτικό τιμολόγιο (αρνητικό ποσό) για το τιμολόγιο {{number}}.",
+    "reasonLabel": "Λόγος",
+    "fullRefund": "Πλήρες πιστωτικό ({{total}})",
+    "amountLabelRectificativa": "Ποσό προς διόρθωση",
+    "amountLabelAbono": "Ποσό προς επιστροφή",
+    "amountHintRectificativa": "Μπορεί να είναι θετικό ή αρνητικό.",
+    "confirm": "Δημιουργία τιμολογίου",
+    "errors": {
+      "reasonRequired": "Ο λόγος είναι υποχρεωτικός",
+      "saveFailed": "Δεν ήταν δυνατή η δημιουργία της διόρθωσης",
+      "amountPositive": "Εισαγάγετε ποσό μεγαλύτερο από 0",
+      "amountNonZero": "Εισαγάγετε ποσό διαφορετικό από 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Πληρωμή τιμολογίου {{number}}",
+    "total": "Σύνολο",
+    "paid": "Εξοφλημένο",
+    "pending": "Εκκρεμεί",
+    "overpaidNotice": "Το πληρωμένο ποσό υπερβαίνει το σύνολο του τιμολογίου.",
+    "registerPayment": "Καταχώριση πληρωμής",
+    "amount": "Ποσό",
+    "method": "Τρόπος πληρωμής",
+    "methods": {
+      "efectivo": "Μετρητά",
+      "transferencia": "Τραπεζικό έμβασμα",
+      "bizum": "Bizum",
+      "tarjeta": "Κάρτα",
+      "stripe": "Stripe",
+      "otro": "Άλλο"
+    },
+    "date": "Ημερομηνία πληρωμής",
+    "notes": "Σημειώσεις",
+    "registerButton": "Καταχώριση πληρωμής",
+    "history": "Καταχωρισμένες πληρωμές",
+    "noPayments": "Δεν έχει καταχωριστεί ακόμη καμία πληρωμή.",
+    "confirmDeletePayment": "Διαγραφή αυτής της πληρωμής;",
+    "errors": {
+      "amountRequired": "Εισαγάγετε ποσό μεγαλύτερο από 0",
+      "saveFailed": "Δεν ήταν δυνατή η καταχώριση της πληρωμής"
     }
   }
 }

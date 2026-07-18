@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuaalinen",
     "actionView": "Näytä PDF",
     "actionDownload": "Lataa",
-    "actionEmail": "Lähetä sähköpostilla"
+    "actionEmail": "Lähetä sähköpostilla",
+    "actionManagePayment": "Hallinnoi maksua",
+    "invoiceKindRectificativa": "Korjaava",
+    "invoiceKindAbono": "Hyvityslasku",
+    "colPaymentStatus": "Maksun tila",
+    "paymentStatus": "Maksun tila",
+    "paymentStatusPendiente": "Odottaa",
+    "paymentStatusParcial": "Osittainen",
+    "paymentStatusCobrada": "Maksettu"
   },
   "certificateTab": {
     "unknownIssuer": "Tuntematon myöntäjä",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Lähetys AEAT:lle odottaa yhteyttä",
     "aeatSent": "Lähetetty AEAT:lle",
     "cancelInvoice": "Mitätöi lasku",
-    "cancelling": "Mitätöidään…"
+    "cancelling": "Mitätöidään…",
+    "rectifiedNotice": "Tämä lasku on korjattu — katso luotu lasku korjauksista.",
+    "createRectificativa": "Luo korjaava lasku",
+    "createAbono": "Luo hyvityslasku",
+    "correctionsTitle": "Korjaukset",
+    "correctionType": {
+      "anulacion": "Peruutus",
+      "rectificativa": "Korjaava",
+      "abono": "Hyvityslasku"
+    },
+    "rectifiesReference": "Tämä lasku korjaa aiemman laskun."
   },
   "employeeModal": {
     "titleEdit": "Muokkaa työntekijää",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Anna kohdesähköposti",
       "sendFailed": "Laskua ei voitu lähettää"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Peruuta lasku",
+    "description": "Olet peruuttamassa laskun {{number}}. Uutta laskua ei luoda.",
+    "reasonLabel": "Peruutuksen syy",
+    "cancelling": "Peruutetaan…",
+    "confirm": "Peruuta lasku",
+    "errors": {
+      "reasonRequired": "Peruutuksen syy on pakollinen",
+      "cancelFailed": "Laskua ei voitu peruuttaa"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Luo korjaava lasku",
+    "titleAbono": "Luo hyvityslasku",
+    "descriptionRectificativa": "Luodaan uusi lasku, joka korjaa laskun {{number}} summan.",
+    "descriptionAbono": "Luodaan uusi hyvityslasku (negatiivinen summa) laskulle {{number}}.",
+    "reasonLabel": "Syy",
+    "fullRefund": "Täysi hyvitys ({{total}})",
+    "amountLabelRectificativa": "Korjattava summa",
+    "amountLabelAbono": "Hyvitettävä summa",
+    "amountHintRectificativa": "Voi olla positiivinen tai negatiivinen.",
+    "confirm": "Luo lasku",
+    "errors": {
+      "reasonRequired": "Syy on pakollinen",
+      "saveFailed": "Korjausta ei voitu luoda",
+      "amountPositive": "Anna summa, joka on suurempi kuin 0",
+      "amountNonZero": "Anna summa, joka ei ole 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Laskun {{number}} maksu",
+    "total": "Yhteensä",
+    "paid": "Maksettu",
+    "pending": "Odottaa",
+    "overpaidNotice": "Maksettu summa ylittää laskun kokonaissumman.",
+    "registerPayment": "Rekisteröi maksu",
+    "amount": "Summa",
+    "method": "Maksutapa",
+    "methods": {
+      "efectivo": "Käteinen",
+      "transferencia": "Tilisiirto",
+      "bizum": "Bizum",
+      "tarjeta": "Kortti",
+      "stripe": "Stripe",
+      "otro": "Muu"
+    },
+    "date": "Maksupäivä",
+    "notes": "Muistiinpanot",
+    "registerButton": "Rekisteröi maksu",
+    "history": "Rekisteröidyt maksut",
+    "noPayments": "Yhtäkään maksua ei ole vielä rekisteröity.",
+    "confirmDeletePayment": "Poistetaanko tämä maksu?",
+    "errors": {
+      "amountRequired": "Anna summa, joka on suurempi kuin 0",
+      "saveFailed": "Maksua ei voitu rekisteröidä"
     }
   }
 }

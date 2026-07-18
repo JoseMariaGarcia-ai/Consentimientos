@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Вручную",
     "actionView": "Просмотреть PDF",
     "actionDownload": "Скачать",
-    "actionEmail": "Отправить по email"
+    "actionEmail": "Отправить по email",
+    "actionManagePayment": "Управление платежом",
+    "invoiceKindRectificativa": "Корректировочный",
+    "invoiceKindAbono": "Кредит-нота",
+    "colPaymentStatus": "Статус оплаты",
+    "paymentStatus": "Статус оплаты",
+    "paymentStatusPendiente": "Ожидает",
+    "paymentStatusParcial": "Частично",
+    "paymentStatusCobrada": "Оплачен"
   },
   "certificateTab": {
     "unknownIssuer": "Неизвестный издатель",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Отправка в AEAT ожидает подключения",
     "aeatSent": "Отправлено в AEAT",
     "cancelInvoice": "Отменить счёт",
-    "cancelling": "Отмена…"
+    "cancelling": "Отмена…",
+    "rectifiedNotice": "Этот счёт был исправлен — см. созданный счёт в исправлениях.",
+    "createRectificativa": "Создать корректировочный счёт",
+    "createAbono": "Создать кредит-ноту",
+    "correctionsTitle": "Исправления",
+    "correctionType": {
+      "anulacion": "Аннулирование",
+      "rectificativa": "Корректировочный",
+      "abono": "Кредит-нота"
+    },
+    "rectifiesReference": "Этот счёт исправляет предыдущий счёт."
   },
   "employeeModal": {
     "titleEdit": "Редактировать сотрудника",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Укажите email получателя",
       "sendFailed": "Не удалось отправить счёт"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Аннулировать счёт",
+    "description": "Вы собираетесь аннулировать счёт {{number}}. Новый счёт не будет выставлен.",
+    "reasonLabel": "Причина аннулирования",
+    "cancelling": "Аннулирование…",
+    "confirm": "Аннулировать счёт",
+    "errors": {
+      "reasonRequired": "Причина аннулирования обязательна",
+      "cancelFailed": "Не удалось аннулировать счёт"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Создать корректировочный счёт",
+    "titleAbono": "Создать кредит-ноту",
+    "descriptionRectificativa": "Будет создан новый счёт, исправляющий сумму счёта {{number}}.",
+    "descriptionAbono": "Будет создана новая кредит-нота (отрицательная сумма) для счёта {{number}}.",
+    "reasonLabel": "Причина",
+    "fullRefund": "Полная кредит-нота ({{total}})",
+    "amountLabelRectificativa": "Сумма для исправления",
+    "amountLabelAbono": "Сумма для возврата",
+    "amountHintRectificativa": "Может быть положительной или отрицательной.",
+    "confirm": "Создать счёт",
+    "errors": {
+      "reasonRequired": "Причина обязательна",
+      "saveFailed": "Не удалось создать исправление",
+      "amountPositive": "Укажите сумму больше 0",
+      "amountNonZero": "Укажите сумму, отличную от 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Оплата счёта {{number}}",
+    "total": "Итого",
+    "paid": "Оплачено",
+    "pending": "Ожидает",
+    "overpaidNotice": "Оплаченная сумма превышает итоговую сумму счёта.",
+    "registerPayment": "Зарегистрировать платёж",
+    "amount": "Сумма",
+    "method": "Способ оплаты",
+    "methods": {
+      "efectivo": "Наличные",
+      "transferencia": "Банковский перевод",
+      "bizum": "Bizum",
+      "tarjeta": "Карта",
+      "stripe": "Stripe",
+      "otro": "Другое"
+    },
+    "date": "Дата платежа",
+    "notes": "Примечания",
+    "registerButton": "Зарегистрировать платёж",
+    "history": "Зарегистрированные платежи",
+    "noPayments": "Платежи ещё не зарегистрированы.",
+    "confirmDeletePayment": "Удалить этот платёж?",
+    "errors": {
+      "amountRequired": "Укажите сумму больше 0",
+      "saveFailed": "Не удалось зарегистрировать платёж"
     }
   }
 }

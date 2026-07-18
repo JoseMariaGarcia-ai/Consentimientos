@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuel",
     "actionView": "PDF Görüntüle",
     "actionDownload": "İndir",
-    "actionEmail": "E-posta ile gönder"
+    "actionEmail": "E-posta ile gönder",
+    "actionManagePayment": "Ödemeyi yönet",
+    "invoiceKindRectificativa": "Düzeltme",
+    "invoiceKindAbono": "Alacak dekontu",
+    "colPaymentStatus": "Ödeme durumu",
+    "paymentStatus": "Ödeme durumu",
+    "paymentStatusPendiente": "Beklemede",
+    "paymentStatusParcial": "Kısmi",
+    "paymentStatusCobrada": "Ödendi"
   },
   "certificateTab": {
     "unknownIssuer": "Bilinmeyen düzenleyici",
@@ -1910,7 +1918,17 @@
     "aeatPending": "AEAT'a gönderim bağlantı bekliyor",
     "aeatSent": "AEAT'a gönderildi",
     "cancelInvoice": "Faturayı iptal et",
-    "cancelling": "İptal ediliyor…"
+    "cancelling": "İptal ediliyor…",
+    "rectifiedNotice": "Bu fatura düzeltildi — düzeltmelerde oluşturulan faturaya bakın.",
+    "createRectificativa": "Düzeltme faturası oluştur",
+    "createAbono": "Alacak dekontu oluştur",
+    "correctionsTitle": "Düzeltmeler",
+    "correctionType": {
+      "anulacion": "İptal",
+      "rectificativa": "Düzeltme",
+      "abono": "Alacak dekontu"
+    },
+    "rectifiesReference": "Bu fatura önceki bir faturayı düzeltir."
   },
   "employeeModal": {
     "titleEdit": "Çalışanı düzenle",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Bir hedef e-posta girin",
       "sendFailed": "Fatura gönderilemedi"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Faturayı iptal et",
+    "description": "{{number}} numaralı faturayı iptal etmek üzeresiniz. Yeni bir fatura düzenlenmeyecek.",
+    "reasonLabel": "İptal nedeni",
+    "cancelling": "İptal ediliyor…",
+    "confirm": "Faturayı iptal et",
+    "errors": {
+      "reasonRequired": "İptal nedeni zorunludur",
+      "cancelFailed": "Fatura iptal edilemedi"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Düzeltme faturası oluştur",
+    "titleAbono": "Alacak dekontu oluştur",
+    "descriptionRectificativa": "{{number}} numaralı faturanın tutarını düzelten yeni bir fatura oluşturulacak.",
+    "descriptionAbono": "{{number}} numaralı fatura için yeni bir alacak dekontu (negatif tutar) oluşturulacak.",
+    "reasonLabel": "Neden",
+    "fullRefund": "Tam alacak dekontu ({{total}})",
+    "amountLabelRectificativa": "Düzeltilecek tutar",
+    "amountLabelAbono": "İade edilecek tutar",
+    "amountHintRectificativa": "Pozitif veya negatif olabilir.",
+    "confirm": "Fatura oluştur",
+    "errors": {
+      "reasonRequired": "Neden zorunludur",
+      "saveFailed": "Düzeltme oluşturulamadı",
+      "amountPositive": "0’dan büyük bir tutar girin",
+      "amountNonZero": "0’dan farklı bir tutar girin"
+    }
+  },
+  "paymentModal": {
+    "title": "{{number}} numaralı fatura ödemesi",
+    "total": "Toplam",
+    "paid": "Ödendi",
+    "pending": "Beklemede",
+    "overpaidNotice": "Ödenen tutar fatura toplamını aşıyor.",
+    "registerPayment": "Ödemeyi kaydet",
+    "amount": "Tutar",
+    "method": "Ödeme yöntemi",
+    "methods": {
+      "efectivo": "Nakit",
+      "transferencia": "Havale",
+      "bizum": "Bizum",
+      "tarjeta": "Kart",
+      "stripe": "Stripe",
+      "otro": "Diğer"
+    },
+    "date": "Ödeme tarihi",
+    "notes": "Notlar",
+    "registerButton": "Ödemeyi kaydet",
+    "history": "Kaydedilen ödemeler",
+    "noPayments": "Henüz kaydedilmiş bir ödeme yok.",
+    "confirmDeletePayment": "Bu ödeme silinsin mi?",
+    "errors": {
+      "amountRequired": "0’dan büyük bir tutar girin",
+      "saveFailed": "Ödeme kaydedilemedi"
     }
   }
 }

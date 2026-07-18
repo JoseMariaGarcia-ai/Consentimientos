@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuel",
     "actionView": "Voir le PDF",
     "actionDownload": "Télécharger",
-    "actionEmail": "Envoyer par email"
+    "actionEmail": "Envoyer par email",
+    "actionManagePayment": "Gérer le paiement",
+    "invoiceKindRectificativa": "Rectificative",
+    "invoiceKindAbono": "Avoir",
+    "colPaymentStatus": "Statut du paiement",
+    "paymentStatus": "Statut du paiement",
+    "paymentStatusPendiente": "En attente",
+    "paymentStatusParcial": "Partiel",
+    "paymentStatusCobrada": "Payée"
   },
   "certificateTab": {
     "unknownIssuer": "Émetteur inconnu",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Envoi à l'AEAT en attente de connexion",
     "aeatSent": "Envoyée à l'AEAT",
     "cancelInvoice": "Annuler la facture",
-    "cancelling": "Annulation…"
+    "cancelling": "Annulation…",
+    "rectifiedNotice": "Cette facture a été corrigée — voir la facture générée dans les corrections.",
+    "createRectificativa": "Créer une rectificative",
+    "createAbono": "Créer un avoir",
+    "correctionsTitle": "Corrections",
+    "correctionType": {
+      "anulacion": "Annulation",
+      "rectificativa": "Rectificative",
+      "abono": "Avoir"
+    },
+    "rectifiesReference": "Cette facture corrige une facture antérieure."
   },
   "employeeModal": {
     "titleEdit": "Modifier l'employé",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Indiquez un email de destination",
       "sendFailed": "Impossible d’envoyer la facture"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Annuler la facture",
+    "description": "Vous allez annuler la facture {{number}}. Aucune nouvelle facture ne sera émise.",
+    "reasonLabel": "Motif de l’annulation",
+    "cancelling": "Annulation…",
+    "confirm": "Annuler la facture",
+    "errors": {
+      "reasonRequired": "Le motif de l’annulation est obligatoire",
+      "cancelFailed": "Impossible d’annuler la facture"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Créer une facture rectificative",
+    "titleAbono": "Créer un avoir",
+    "descriptionRectificativa": "Une nouvelle facture sera générée corrigeant le montant de la facture {{number}}.",
+    "descriptionAbono": "Un nouvel avoir (montant négatif) sera généré pour la facture {{number}}.",
+    "reasonLabel": "Motif",
+    "fullRefund": "Avoir total ({{total}})",
+    "amountLabelRectificativa": "Montant à corriger",
+    "amountLabelAbono": "Montant à rembourser",
+    "amountHintRectificativa": "Peut être positif ou négatif.",
+    "confirm": "Créer la facture",
+    "errors": {
+      "reasonRequired": "Le motif est obligatoire",
+      "saveFailed": "Impossible de créer la correction",
+      "amountPositive": "Indiquez un montant supérieur à 0",
+      "amountNonZero": "Indiquez un montant différent de 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Paiement de la facture {{number}}",
+    "total": "Total",
+    "paid": "Payé",
+    "pending": "En attente",
+    "overpaidNotice": "Le montant payé dépasse le total de la facture.",
+    "registerPayment": "Enregistrer le paiement",
+    "amount": "Montant",
+    "method": "Mode de paiement",
+    "methods": {
+      "efectivo": "Espèces",
+      "transferencia": "Virement",
+      "bizum": "Bizum",
+      "tarjeta": "Carte",
+      "stripe": "Stripe",
+      "otro": "Autre"
+    },
+    "date": "Date de paiement",
+    "notes": "Notes",
+    "registerButton": "Enregistrer le paiement",
+    "history": "Paiements enregistrés",
+    "noPayments": "Aucun paiement n’a encore été enregistré.",
+    "confirmDeletePayment": "Supprimer ce paiement ?",
+    "errors": {
+      "amountRequired": "Indiquez un montant supérieur à 0",
+      "saveFailed": "Impossible d’enregistrer le paiement"
     }
   }
 }

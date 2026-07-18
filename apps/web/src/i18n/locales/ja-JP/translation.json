@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "手入力",
     "actionView": "PDFを表示",
     "actionDownload": "ダウンロード",
-    "actionEmail": "メールで送信"
+    "actionEmail": "メールで送信",
+    "actionManagePayment": "支払いを管理",
+    "invoiceKindRectificativa": "訂正",
+    "invoiceKindAbono": "返金伝票",
+    "colPaymentStatus": "支払い状況",
+    "paymentStatus": "支払い状況",
+    "paymentStatusPendiente": "未払い",
+    "paymentStatusParcial": "一部支払い",
+    "paymentStatusCobrada": "支払い済み"
   },
   "certificateTab": {
     "unknownIssuer": "不明な発行者",
@@ -1910,7 +1918,17 @@
     "aeatPending": "AEATへの送信は接続待ちです",
     "aeatSent": "AEATに送信済み",
     "cancelInvoice": "請求書を取り消す",
-    "cancelling": "取り消し中…"
+    "cancelling": "取り消し中…",
+    "rectifiedNotice": "この請求書は訂正されました — 修正で生成された請求書をご覧ください。",
+    "createRectificativa": "訂正請求書を作成",
+    "createAbono": "返金伝票を作成",
+    "correctionsTitle": "修正",
+    "correctionType": {
+      "anulacion": "取消",
+      "rectificativa": "訂正",
+      "abono": "返金伝票"
+    },
+    "rectifiesReference": "この請求書は以前の請求書を訂正します。"
   },
   "employeeModal": {
     "titleEdit": "従業員を編集",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "送信先のメールアドレスを入力してください",
       "sendFailed": "請求書を送信できませんでした"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "請求書を取消",
+    "description": "請求書{{number}}を取り消そうとしています。新しい請求書は発行されません。",
+    "reasonLabel": "取消理由",
+    "cancelling": "取消中…",
+    "confirm": "請求書を取消",
+    "errors": {
+      "reasonRequired": "取消理由は必須です",
+      "cancelFailed": "請求書を取り消せませんでした"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "訂正請求書を作成",
+    "titleAbono": "返金伝票を作成",
+    "descriptionRectificativa": "請求書{{number}}の金額を訂正する新しい請求書が生成されます。",
+    "descriptionAbono": "請求書{{number}}に対する新しい返金伝票（マイナス金額）が生成されます。",
+    "reasonLabel": "理由",
+    "fullRefund": "全額返金 ({{total}})",
+    "amountLabelRectificativa": "訂正する金額",
+    "amountLabelAbono": "返金する金額",
+    "amountHintRectificativa": "プラスまたはマイナスにできます。",
+    "confirm": "請求書を作成",
+    "errors": {
+      "reasonRequired": "理由は必須です",
+      "saveFailed": "修正を作成できませんでした",
+      "amountPositive": "0より大きい金額を入力してください",
+      "amountNonZero": "0以外の金額を入力してください"
+    }
+  },
+  "paymentModal": {
+    "title": "請求書{{number}}の支払い",
+    "total": "合計",
+    "paid": "支払い済み",
+    "pending": "未払い",
+    "overpaidNotice": "支払い済み金額が請求書の合計を超えています。",
+    "registerPayment": "支払いを登録",
+    "amount": "金額",
+    "method": "支払い方法",
+    "methods": {
+      "efectivo": "現金",
+      "transferencia": "銀行振込",
+      "bizum": "Bizum",
+      "tarjeta": "カード",
+      "stripe": "Stripe",
+      "otro": "その他"
+    },
+    "date": "支払い日",
+    "notes": "備考",
+    "registerButton": "支払いを登録",
+    "history": "登録済みの支払い",
+    "noPayments": "まだ支払いが登録されていません。",
+    "confirmDeletePayment": "この支払いを削除しますか？",
+    "errors": {
+      "amountRequired": "0より大きい金額を入力してください",
+      "saveFailed": "支払いを登録できませんでした"
     }
   }
 }

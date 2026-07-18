@@ -1823,7 +1823,15 @@
     "recipientTypeManual": "Manual",
     "actionView": "Ver PDF",
     "actionDownload": "Descargar",
-    "actionEmail": "Enviar por email"
+    "actionEmail": "Enviar por email",
+    "actionManagePayment": "Gestionar cobro",
+    "invoiceKindRectificativa": "Rectificativa",
+    "invoiceKindAbono": "Nota de crédito",
+    "colPaymentStatus": "Estado de cobro",
+    "paymentStatus": "Estado de cobro",
+    "paymentStatusPendiente": "Pendiente",
+    "paymentStatusParcial": "Parcial",
+    "paymentStatusCobrada": "Cobrada"
   },
   "certificateTab": {
     "unknownIssuer": "Entidad emisora desconocida",
@@ -1890,7 +1898,17 @@
     "aeatPending": "Envío a la AEAT pendiente de conexión",
     "aeatSent": "Enviado a la AEAT",
     "cancelInvoice": "Anular factura",
-    "cancelling": "Anulando…"
+    "cancelling": "Anulando…",
+    "rectifiedNotice": "Esta factura ha sido corregida — consulta la factura generada en las correcciones.",
+    "createRectificativa": "Crear rectificativa",
+    "createAbono": "Crear nota de crédito",
+    "correctionsTitle": "Correcciones",
+    "correctionType": {
+      "anulacion": "Anulación",
+      "rectificativa": "Rectificativa",
+      "abono": "Nota de crédito"
+    },
+    "rectifiesReference": "Esta factura corrige a otra factura anterior."
   },
   "employeeModal": {
     "titleEdit": "Editar empleado",
@@ -2113,6 +2131,63 @@
     "errors": {
       "emailRequired": "Indica un email de destino",
       "sendFailed": "No se pudo enviar la factura"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Anular factura",
+    "description": "Vas a anular la factura {{number}}. No se emitirá ninguna factura nueva.",
+    "reasonLabel": "Motivo de la anulación",
+    "cancelling": "Anulando…",
+    "confirm": "Anular factura",
+    "errors": {
+      "reasonRequired": "El motivo de la anulación es obligatorio",
+      "cancelFailed": "No se pudo anular la factura"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Crear factura rectificativa",
+    "titleAbono": "Crear nota de crédito",
+    "descriptionRectificativa": "Se generará una nueva factura que corrige el importe de la factura {{number}}.",
+    "descriptionAbono": "Se generará una nueva nota de crédito (importe negativo) para la factura {{number}}.",
+    "reasonLabel": "Motivo",
+    "fullRefund": "Nota de crédito total ({{total}})",
+    "amountLabelRectificativa": "Importe a corregir",
+    "amountLabelAbono": "Importe a acreditar",
+    "amountHintRectificativa": "Puede ser positivo o negativo.",
+    "confirm": "Crear factura",
+    "errors": {
+      "reasonRequired": "El motivo es obligatorio",
+      "saveFailed": "No se pudo crear la corrección",
+      "amountPositive": "Indica un importe mayor que 0",
+      "amountNonZero": "Indica un importe distinto de 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Cobro de la factura {{number}}",
+    "total": "Total",
+    "paid": "Cobrado",
+    "pending": "Pendiente",
+    "overpaidNotice": "El importe cobrado supera el total de la factura.",
+    "registerPayment": "Registrar cobro",
+    "amount": "Importe",
+    "method": "Forma de pago",
+    "methods": {
+      "efectivo": "Efectivo",
+      "transferencia": "Transferencia",
+      "bizum": "Bizum",
+      "tarjeta": "Tarjeta",
+      "stripe": "Stripe",
+      "otro": "Otro"
+    },
+    "date": "Fecha de pago",
+    "notes": "Notas",
+    "registerButton": "Registrar cobro",
+    "history": "Pagos registrados",
+    "noPayments": "Todavía no se ha registrado ningún cobro.",
+    "confirmDeletePayment": "¿Eliminar este pago?",
+    "errors": {
+      "amountRequired": "Indica un importe mayor que 0",
+      "saveFailed": "No se pudo registrar el cobro"
     }
   }
 }

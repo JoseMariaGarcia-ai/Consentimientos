@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuell",
     "actionView": "Visa PDF",
     "actionDownload": "Ladda ner",
-    "actionEmail": "Skicka via e-post"
+    "actionEmail": "Skicka via e-post",
+    "actionManagePayment": "Hantera betalning",
+    "invoiceKindRectificativa": "Rättelse",
+    "invoiceKindAbono": "Kreditfaktura",
+    "colPaymentStatus": "Betalstatus",
+    "paymentStatus": "Betalstatus",
+    "paymentStatusPendiente": "Väntar",
+    "paymentStatusParcial": "Delvis",
+    "paymentStatusCobrada": "Betald"
   },
   "certificateTab": {
     "unknownIssuer": "Okänd utfärdare",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Inlämning till AEAT väntar på anslutning",
     "aeatSent": "Skickad till AEAT",
     "cancelInvoice": "Avbryt faktura",
-    "cancelling": "Avbryter…"
+    "cancelling": "Avbryter…",
+    "rectifiedNotice": "Denna faktura har korrigerats — se den genererade fakturan under rättelser.",
+    "createRectificativa": "Skapa rättelsefaktura",
+    "createAbono": "Skapa kreditfaktura",
+    "correctionsTitle": "Rättelser",
+    "correctionType": {
+      "anulacion": "Makulering",
+      "rectificativa": "Rättelse",
+      "abono": "Kreditfaktura"
+    },
+    "rectifiesReference": "Denna faktura rättar en tidigare faktura."
   },
   "employeeModal": {
     "titleEdit": "Redigera anställd",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Ange en mottagar-e-post",
       "sendFailed": "Fakturan kunde inte skickas"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Makulera faktura",
+    "description": "Du är på väg att makulera fakturan {{number}}. Ingen ny faktura kommer att utfärdas.",
+    "reasonLabel": "Anledning till makulering",
+    "cancelling": "Makulerar…",
+    "confirm": "Makulera faktura",
+    "errors": {
+      "reasonRequired": "Anledningen till makulering krävs",
+      "cancelFailed": "Fakturan kunde inte makuleras"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Skapa rättelsefaktura",
+    "titleAbono": "Skapa kreditfaktura",
+    "descriptionRectificativa": "En ny faktura genereras som rättar beloppet på fakturan {{number}}.",
+    "descriptionAbono": "En ny kreditfaktura (negativt belopp) genereras för fakturan {{number}}.",
+    "reasonLabel": "Anledning",
+    "fullRefund": "Full kreditfaktura ({{total}})",
+    "amountLabelRectificativa": "Belopp att rätta",
+    "amountLabelAbono": "Belopp att återbetala",
+    "amountHintRectificativa": "Kan vara positivt eller negativt.",
+    "confirm": "Skapa faktura",
+    "errors": {
+      "reasonRequired": "Anledningen krävs",
+      "saveFailed": "Rättelsen kunde inte skapas",
+      "amountPositive": "Ange ett belopp större än 0",
+      "amountNonZero": "Ange ett belopp som inte är 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Betalning för faktura {{number}}",
+    "total": "Totalt",
+    "paid": "Betalt",
+    "pending": "Väntar",
+    "overpaidNotice": "Det betalda beloppet överstiger fakturans totalbelopp.",
+    "registerPayment": "Registrera betalning",
+    "amount": "Belopp",
+    "method": "Betalningsmetod",
+    "methods": {
+      "efectivo": "Kontant",
+      "transferencia": "Banköverföring",
+      "bizum": "Bizum",
+      "tarjeta": "Kort",
+      "stripe": "Stripe",
+      "otro": "Annat"
+    },
+    "date": "Betaldatum",
+    "notes": "Anteckningar",
+    "registerButton": "Registrera betalning",
+    "history": "Registrerade betalningar",
+    "noPayments": "Ingen betalning har registrerats än.",
+    "confirmDeletePayment": "Ta bort denna betalning?",
+    "errors": {
+      "amountRequired": "Ange ett belopp större än 0",
+      "saveFailed": "Betalningen kunde inte registreras"
     }
   }
 }

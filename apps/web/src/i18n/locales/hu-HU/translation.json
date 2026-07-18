@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Kézi",
     "actionView": "PDF megtekintése",
     "actionDownload": "Letöltés",
-    "actionEmail": "Küldés e-mailben"
+    "actionEmail": "Küldés e-mailben",
+    "actionManagePayment": "Fizetés kezelése",
+    "invoiceKindRectificativa": "Helyesbítő",
+    "invoiceKindAbono": "Jóváíró",
+    "colPaymentStatus": "Fizetési állapot",
+    "paymentStatus": "Fizetési állapot",
+    "paymentStatusPendiente": "Függőben",
+    "paymentStatusParcial": "Részleges",
+    "paymentStatusCobrada": "Kifizetve"
   },
   "certificateTab": {
     "unknownIssuer": "Ismeretlen kibocsátó",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Az AEAT-nak történő beküldés kapcsolatra vár",
     "aeatSent": "Elküldve az AEAT-nak",
     "cancelInvoice": "Számla törlése",
-    "cancelling": "Törlés folyamatban…"
+    "cancelling": "Törlés folyamatban…",
+    "rectifiedNotice": "Ezt a számlát javították — lásd a generált számlát a javításoknál.",
+    "createRectificativa": "Helyesbítő számla létrehozása",
+    "createAbono": "Jóváíró számla létrehozása",
+    "correctionsTitle": "Javítások",
+    "correctionType": {
+      "anulacion": "Sztornó",
+      "rectificativa": "Helyesbítő",
+      "abono": "Jóváíró"
+    },
+    "rectifiesReference": "Ez a számla egy korábbi számlát helyesbít."
   },
   "employeeModal": {
     "titleEdit": "Alkalmazott szerkesztése",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Adjon meg egy célzott e-mail címet",
       "sendFailed": "A számlát nem sikerült elküldeni"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Számla sztornózása",
+    "description": "A(z) {{number}} számlát fogja sztornózni. Új számla nem kerül kiállításra.",
+    "reasonLabel": "Sztornózás oka",
+    "cancelling": "Sztornózás…",
+    "confirm": "Számla sztornózása",
+    "errors": {
+      "reasonRequired": "A sztornózás oka kötelező",
+      "cancelFailed": "A számlát nem sikerült sztornózni"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Helyesbítő számla létrehozása",
+    "titleAbono": "Jóváíró számla létrehozása",
+    "descriptionRectificativa": "Egy új számla jön létre, amely javítja a(z) {{number}} számla összegét.",
+    "descriptionAbono": "Egy új jóváíró számla (negatív összeg) jön létre a(z) {{number}} számlához.",
+    "reasonLabel": "Ok",
+    "fullRefund": "Teljes jóváírás ({{total}})",
+    "amountLabelRectificativa": "Javítandó összeg",
+    "amountLabelAbono": "Visszatérítendő összeg",
+    "amountHintRectificativa": "Lehet pozitív vagy negatív.",
+    "confirm": "Számla létrehozása",
+    "errors": {
+      "reasonRequired": "Az ok megadása kötelező",
+      "saveFailed": "A javítást nem sikerült létrehozni",
+      "amountPositive": "Adjon meg egy 0-nál nagyobb összeget",
+      "amountNonZero": "Adjon meg egy 0-tól eltérő összeget"
+    }
+  },
+  "paymentModal": {
+    "title": "A(z) {{number}} számla fizetése",
+    "total": "Összesen",
+    "paid": "Kifizetve",
+    "pending": "Függőben",
+    "overpaidNotice": "A kifizetett összeg meghaladja a számla teljes összegét.",
+    "registerPayment": "Fizetés rögzítése",
+    "amount": "Összeg",
+    "method": "Fizetési mód",
+    "methods": {
+      "efectivo": "Készpénz",
+      "transferencia": "Átutalás",
+      "bizum": "Bizum",
+      "tarjeta": "Kártya",
+      "stripe": "Stripe",
+      "otro": "Egyéb"
+    },
+    "date": "Fizetés dátuma",
+    "notes": "Megjegyzések",
+    "registerButton": "Fizetés rögzítése",
+    "history": "Rögzített fizetések",
+    "noPayments": "Még nem rögzítettek fizetést.",
+    "confirmDeletePayment": "Törli ezt a fizetést?",
+    "errors": {
+      "amountRequired": "Adjon meg egy 0-nál nagyobb összeget",
+      "saveFailed": "A fizetést nem sikerült rögzíteni"
     }
   }
 }

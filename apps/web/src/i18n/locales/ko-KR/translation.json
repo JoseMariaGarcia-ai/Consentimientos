@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "수동",
     "actionView": "PDF 보기",
     "actionDownload": "다운로드",
-    "actionEmail": "이메일로 보내기"
+    "actionEmail": "이메일로 보내기",
+    "actionManagePayment": "결제 관리",
+    "invoiceKindRectificativa": "정정",
+    "invoiceKindAbono": "credit note",
+    "colPaymentStatus": "결제 상태",
+    "paymentStatus": "결제 상태",
+    "paymentStatusPendiente": "대기 중",
+    "paymentStatusParcial": "부분 결제",
+    "paymentStatusCobrada": "결제 완료"
   },
   "certificateTab": {
     "unknownIssuer": "알 수 없는 발급 기관",
@@ -1910,7 +1918,17 @@
     "aeatPending": "AEAT로의 전송은 연결 대기 중입니다",
     "aeatSent": "AEAT로 전송됨",
     "cancelInvoice": "청구서 취소",
-    "cancelling": "취소 중…"
+    "cancelling": "취소 중…",
+    "rectifiedNotice": "이 청구서는 수정되었습니다 — 수정 내역에서 생성된 청구서를 확인하세요.",
+    "createRectificativa": "정정 청구서 생성",
+    "createAbono": "크레딧 노트 생성",
+    "correctionsTitle": "수정 내역",
+    "correctionType": {
+      "anulacion": "취소",
+      "rectificativa": "정정",
+      "abono": "크레딧 노트"
+    },
+    "rectifiesReference": "이 청구서는 이전 청구서를 정정합니다."
   },
   "employeeModal": {
     "titleEdit": "직원 수정",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "대상 이메일을 입력하세요",
       "sendFailed": "청구서를 보낼 수 없습니다"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "청구서 취소",
+    "description": "청구서 {{number}}를 취소하려고 합니다. 새 청구서는 발행되지 않습니다.",
+    "reasonLabel": "취소 사유",
+    "cancelling": "취소 중…",
+    "confirm": "청구서 취소",
+    "errors": {
+      "reasonRequired": "취소 사유는 필수입니다",
+      "cancelFailed": "청구서를 취소할 수 없습니다"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "정정 청구서 생성",
+    "titleAbono": "크레딧 노트 생성",
+    "descriptionRectificativa": "청구서 {{number}}의 금액을 정정하는 새 청구서가 생성됩니다.",
+    "descriptionAbono": "청구서 {{number}}에 대한 새 크레딧 노트(음수 금액)가 생성됩니다.",
+    "reasonLabel": "사유",
+    "fullRefund": "전액 크레딧 ({{total}})",
+    "amountLabelRectificativa": "정정할 금액",
+    "amountLabelAbono": "환불할 금액",
+    "amountHintRectificativa": "양수 또는 음수일 수 있습니다.",
+    "confirm": "청구서 생성",
+    "errors": {
+      "reasonRequired": "사유는 필수입니다",
+      "saveFailed": "정정을 생성할 수 없습니다",
+      "amountPositive": "0보다 큰 금액을 입력하세요",
+      "amountNonZero": "0이 아닌 금액을 입력하세요"
+    }
+  },
+  "paymentModal": {
+    "title": "청구서 {{number}} 결제",
+    "total": "합계",
+    "paid": "결제됨",
+    "pending": "대기 중",
+    "overpaidNotice": "결제된 금액이 청구서 합계를 초과합니다.",
+    "registerPayment": "결제 등록",
+    "amount": "금액",
+    "method": "결제 방법",
+    "methods": {
+      "efectivo": "현금",
+      "transferencia": "계좌이체",
+      "bizum": "Bizum",
+      "tarjeta": "카드",
+      "stripe": "Stripe",
+      "otro": "기타"
+    },
+    "date": "결제일",
+    "notes": "메모",
+    "registerButton": "결제 등록",
+    "history": "등록된 결제",
+    "noPayments": "아직 등록된 결제가 없습니다.",
+    "confirmDeletePayment": "이 결제를 삭제하시겠습니까?",
+    "errors": {
+      "amountRequired": "0보다 큰 금액을 입력하세요",
+      "saveFailed": "결제를 등록할 수 없습니다"
     }
   }
 }

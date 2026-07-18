@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Ręcznie",
     "actionView": "Zobacz PDF",
     "actionDownload": "Pobierz",
-    "actionEmail": "Wyślij e-mailem"
+    "actionEmail": "Wyślij e-mailem",
+    "actionManagePayment": "Zarządzaj płatnością",
+    "invoiceKindRectificativa": "Korygująca",
+    "invoiceKindAbono": "Nota kredytowa",
+    "colPaymentStatus": "Status płatności",
+    "paymentStatus": "Status płatności",
+    "paymentStatusPendiente": "Oczekująca",
+    "paymentStatusParcial": "Częściowa",
+    "paymentStatusCobrada": "Opłacona"
   },
   "certificateTab": {
     "unknownIssuer": "Nieznany wystawca",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Wysyłka do AEAT oczekuje na połączenie",
     "aeatSent": "Wysłano do AEAT",
     "cancelInvoice": "Anuluj fakturę",
-    "cancelling": "Anulowanie…"
+    "cancelling": "Anulowanie…",
+    "rectifiedNotice": "Ta faktura została skorygowana — zobacz wygenerowaną fakturę w korektach.",
+    "createRectificativa": "Utwórz fakturę korygującą",
+    "createAbono": "Utwórz notę kredytową",
+    "correctionsTitle": "Korekty",
+    "correctionType": {
+      "anulacion": "Anulowanie",
+      "rectificativa": "Korygująca",
+      "abono": "Nota kredytowa"
+    },
+    "rectifiesReference": "Ta faktura koryguje wcześniejszą fakturę."
   },
   "employeeModal": {
     "titleEdit": "Edytuj pracownika",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Podaj docelowy adres e-mail",
       "sendFailed": "Nie udało się wysłać faktury"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Anuluj fakturę",
+    "description": "Zamierzasz anulować fakturę {{number}}. Nie zostanie wystawiona żadna nowa faktura.",
+    "reasonLabel": "Powód anulowania",
+    "cancelling": "Anulowanie…",
+    "confirm": "Anuluj fakturę",
+    "errors": {
+      "reasonRequired": "Powód anulowania jest wymagany",
+      "cancelFailed": "Nie udało się anulować faktury"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Utwórz fakturę korygującą",
+    "titleAbono": "Utwórz notę kredytową",
+    "descriptionRectificativa": "Zostanie wygenerowana nowa faktura korygująca kwotę faktury {{number}}.",
+    "descriptionAbono": "Zostanie wygenerowana nowa nota kredytowa (kwota ujemna) dla faktury {{number}}.",
+    "reasonLabel": "Powód",
+    "fullRefund": "Pełna nota kredytowa ({{total}})",
+    "amountLabelRectificativa": "Kwota do skorygowania",
+    "amountLabelAbono": "Kwota do zwrotu",
+    "amountHintRectificativa": "Może być dodatnia lub ujemna.",
+    "confirm": "Utwórz fakturę",
+    "errors": {
+      "reasonRequired": "Powód jest wymagany",
+      "saveFailed": "Nie udało się utworzyć korekty",
+      "amountPositive": "Podaj kwotę większą niż 0",
+      "amountNonZero": "Podaj kwotę różną od 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Płatność za fakturę {{number}}",
+    "total": "Razem",
+    "paid": "Opłacono",
+    "pending": "Oczekująca",
+    "overpaidNotice": "Zapłacona kwota przekracza sumę faktury.",
+    "registerPayment": "Zarejestruj płatność",
+    "amount": "Kwota",
+    "method": "Forma płatności",
+    "methods": {
+      "efectivo": "Gotówka",
+      "transferencia": "Przelew",
+      "bizum": "Bizum",
+      "tarjeta": "Karta",
+      "stripe": "Stripe",
+      "otro": "Inne"
+    },
+    "date": "Data płatności",
+    "notes": "Uwagi",
+    "registerButton": "Zarejestruj płatność",
+    "history": "Zarejestrowane płatności",
+    "noPayments": "Nie zarejestrowano jeszcze żadnej płatności.",
+    "confirmDeletePayment": "Usunąć tę płatność?",
+    "errors": {
+      "amountRequired": "Podaj kwotę większą niż 0",
+      "saveFailed": "Nie udało się zarejestrować płatności"
     }
   }
 }

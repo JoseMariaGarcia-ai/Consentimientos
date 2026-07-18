@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuell",
     "actionView": "Se PDF",
     "actionDownload": "Last ned",
-    "actionEmail": "Send på e-post"
+    "actionEmail": "Send på e-post",
+    "actionManagePayment": "Administrer betaling",
+    "invoiceKindRectificativa": "Korrigering",
+    "invoiceKindAbono": "Kreditnota",
+    "colPaymentStatus": "Betalingsstatus",
+    "paymentStatus": "Betalingsstatus",
+    "paymentStatusPendiente": "Venter",
+    "paymentStatusParcial": "Delvis",
+    "paymentStatusCobrada": "Betalt"
   },
   "certificateTab": {
     "unknownIssuer": "Ukjent utsteder",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Innsending til AEAT venter på tilkobling",
     "aeatSent": "Sendt til AEAT",
     "cancelInvoice": "Kanseller faktura",
-    "cancelling": "Kansellerer…"
+    "cancelling": "Kansellerer…",
+    "rectifiedNotice": "Denne fakturaen er korrigert — se den genererte fakturaen under korrigeringer.",
+    "createRectificativa": "Opprett korrigeringsfaktura",
+    "createAbono": "Opprett kreditnota",
+    "correctionsTitle": "Korrigeringer",
+    "correctionType": {
+      "anulacion": "Annullering",
+      "rectificativa": "Korrigering",
+      "abono": "Kreditnota"
+    },
+    "rectifiesReference": "Denne fakturaen korrigerer en tidligere faktura."
   },
   "employeeModal": {
     "titleEdit": "Rediger ansatt",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Angi en mottaker-e-post",
       "sendFailed": "Fakturaen kunne ikke sendes"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Annuller faktura",
+    "description": "Du er i ferd med å annullere faktura {{number}}. Ingen ny faktura vil bli utstedt.",
+    "reasonLabel": "Årsak til annullering",
+    "cancelling": "Annullerer…",
+    "confirm": "Annuller faktura",
+    "errors": {
+      "reasonRequired": "Årsaken til annulleringen er påkrevd",
+      "cancelFailed": "Fakturaen kunne ikke annulleres"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Opprett korrigeringsfaktura",
+    "titleAbono": "Opprett kreditnota",
+    "descriptionRectificativa": "En ny faktura opprettes som korrigerer beløpet på faktura {{number}}.",
+    "descriptionAbono": "En ny kreditnota (negativt beløp) opprettes for faktura {{number}}.",
+    "reasonLabel": "Årsak",
+    "fullRefund": "Full kreditnota ({{total}})",
+    "amountLabelRectificativa": "Beløp som skal korrigeres",
+    "amountLabelAbono": "Beløp som skal krediteres",
+    "amountHintRectificativa": "Kan være positivt eller negativt.",
+    "confirm": "Opprett faktura",
+    "errors": {
+      "reasonRequired": "Årsaken er påkrevd",
+      "saveFailed": "Korrigeringen kunne ikke opprettes",
+      "amountPositive": "Angi et beløp større enn 0",
+      "amountNonZero": "Angi et beløp forskjellig fra 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Betaling av faktura {{number}}",
+    "total": "Totalt",
+    "paid": "Betalt",
+    "pending": "Venter",
+    "overpaidNotice": "Det betalte beløpet overstiger fakturaens totalbeløp.",
+    "registerPayment": "Registrer betaling",
+    "amount": "Beløp",
+    "method": "Betalingsmetode",
+    "methods": {
+      "efectivo": "Kontant",
+      "transferencia": "Bankoverføring",
+      "bizum": "Bizum",
+      "tarjeta": "Kort",
+      "stripe": "Stripe",
+      "otro": "Annet"
+    },
+    "date": "Betalingsdato",
+    "notes": "Notater",
+    "registerButton": "Registrer betaling",
+    "history": "Registrerte betalinger",
+    "noPayments": "Ingen betaling er registrert ennå.",
+    "confirmDeletePayment": "Slette denne betalingen?",
+    "errors": {
+      "amountRequired": "Angi et beløp større enn 0",
+      "saveFailed": "Betalingen kunne ikke registreres"
     }
   }
 }

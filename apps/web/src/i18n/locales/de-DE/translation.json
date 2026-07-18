@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manuell",
     "actionView": "PDF ansehen",
     "actionDownload": "Herunterladen",
-    "actionEmail": "Per E-Mail senden"
+    "actionEmail": "Per E-Mail senden",
+    "actionManagePayment": "Zahlung verwalten",
+    "invoiceKindRectificativa": "Berichtigung",
+    "invoiceKindAbono": "Gutschrift",
+    "colPaymentStatus": "Zahlungsstatus",
+    "paymentStatus": "Zahlungsstatus",
+    "paymentStatusPendiente": "Ausstehend",
+    "paymentStatusParcial": "Teilweise",
+    "paymentStatusCobrada": "Bezahlt"
   },
   "certificateTab": {
     "unknownIssuer": "Unbekannter Aussteller",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Übermittlung an die AEAT wartet auf Anbindung",
     "aeatSent": "An die AEAT übermittelt",
     "cancelInvoice": "Rechnung stornieren",
-    "cancelling": "Wird storniert…"
+    "cancelling": "Wird storniert…",
+    "rectifiedNotice": "Diese Rechnung wurde korrigiert — siehe die erzeugte Rechnung unter Korrekturen.",
+    "createRectificativa": "Berichtigungsrechnung erstellen",
+    "createAbono": "Gutschrift erstellen",
+    "correctionsTitle": "Korrekturen",
+    "correctionType": {
+      "anulacion": "Stornierung",
+      "rectificativa": "Berichtigung",
+      "abono": "Gutschrift"
+    },
+    "rectifiesReference": "Diese Rechnung korrigiert eine frühere Rechnung."
   },
   "employeeModal": {
     "titleEdit": "Mitarbeiter bearbeiten",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Geben Sie eine Ziel-E-Mail an",
       "sendFailed": "Die Rechnung konnte nicht gesendet werden"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Rechnung stornieren",
+    "description": "Sie stornieren die Rechnung {{number}}. Es wird keine neue Rechnung ausgestellt.",
+    "reasonLabel": "Grund der Stornierung",
+    "cancelling": "Wird storniert…",
+    "confirm": "Rechnung stornieren",
+    "errors": {
+      "reasonRequired": "Der Grund der Stornierung ist erforderlich",
+      "cancelFailed": "Die Rechnung konnte nicht storniert werden"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Berichtigungsrechnung erstellen",
+    "titleAbono": "Gutschrift erstellen",
+    "descriptionRectificativa": "Es wird eine neue Rechnung erstellt, die den Betrag der Rechnung {{number}} korrigiert.",
+    "descriptionAbono": "Es wird eine neue Gutschrift (negativer Betrag) für die Rechnung {{number}} erstellt.",
+    "reasonLabel": "Grund",
+    "fullRefund": "Vollständige Gutschrift ({{total}})",
+    "amountLabelRectificativa": "Zu korrigierender Betrag",
+    "amountLabelAbono": "Zu erstattender Betrag",
+    "amountHintRectificativa": "Kann positiv oder negativ sein.",
+    "confirm": "Rechnung erstellen",
+    "errors": {
+      "reasonRequired": "Der Grund ist erforderlich",
+      "saveFailed": "Die Korrektur konnte nicht erstellt werden",
+      "amountPositive": "Geben Sie einen Betrag größer als 0 an",
+      "amountNonZero": "Geben Sie einen Betrag ungleich 0 an"
+    }
+  },
+  "paymentModal": {
+    "title": "Zahlung der Rechnung {{number}}",
+    "total": "Gesamt",
+    "paid": "Bezahlt",
+    "pending": "Ausstehend",
+    "overpaidNotice": "Der bezahlte Betrag übersteigt den Gesamtbetrag der Rechnung.",
+    "registerPayment": "Zahlung registrieren",
+    "amount": "Betrag",
+    "method": "Zahlungsart",
+    "methods": {
+      "efectivo": "Bar",
+      "transferencia": "Überweisung",
+      "bizum": "Bizum",
+      "tarjeta": "Karte",
+      "stripe": "Stripe",
+      "otro": "Sonstiges"
+    },
+    "date": "Zahlungsdatum",
+    "notes": "Notizen",
+    "registerButton": "Zahlung registrieren",
+    "history": "Registrierte Zahlungen",
+    "noPayments": "Es wurde noch keine Zahlung registriert.",
+    "confirmDeletePayment": "Diese Zahlung löschen?",
+    "errors": {
+      "amountRequired": "Geben Sie einen Betrag größer als 0 an",
+      "saveFailed": "Die Zahlung konnte nicht registriert werden"
     }
   }
 }

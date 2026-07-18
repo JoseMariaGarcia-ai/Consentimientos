@@ -1799,7 +1799,15 @@
     "recipientTypeManual": "ידני",
     "actionView": "צפייה ב-PDF",
     "actionDownload": "הורדה",
-    "actionEmail": "שליחה באימייל"
+    "actionEmail": "שליחה באימייל",
+    "actionManagePayment": "ניהול תשלום",
+    "invoiceKindRectificativa": "תיקון",
+    "invoiceKindAbono": "זיכוי",
+    "colPaymentStatus": "סטטוס תשלום",
+    "paymentStatus": "סטטוס תשלום",
+    "paymentStatusPendiente": "ממתין",
+    "paymentStatusParcial": "חלקי",
+    "paymentStatusCobrada": "שולם"
   },
   "certificateTab": {
     "unknownIssuer": "גורם מנפיק לא ידוע",
@@ -1866,7 +1874,17 @@
     "aeatPending": "שליחה ל-AEAT ממתינה לחיבור",
     "aeatSent": "נשלחה ל-AEAT",
     "cancelInvoice": "בטל חשבונית",
-    "cancelling": "מבטל…"
+    "cancelling": "מבטל…",
+    "rectifiedNotice": "חשבונית זו תוקנה — ראה את החשבונית שנוצרה בתיקונים.",
+    "createRectificativa": "צור חשבונית מתקנת",
+    "createAbono": "צור חשבונית זיכוי",
+    "correctionsTitle": "תיקונים",
+    "correctionType": {
+      "anulacion": "ביטול",
+      "rectificativa": "תיקון",
+      "abono": "זיכוי"
+    },
+    "rectifiesReference": "חשבונית זו מתקנת חשבונית קודמת."
   },
   "employeeModal": {
     "titleEdit": "עריכת עובד",
@@ -2089,6 +2107,63 @@
     "errors": {
       "emailRequired": "הזן אימייל יעד",
       "sendFailed": "לא ניתן היה לשלוח את החשבונית"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "ביטול חשבונית",
+    "description": "אתה עומד לבטל את חשבונית {{number}}. לא תונפק חשבונית חדשה.",
+    "reasonLabel": "סיבת הביטול",
+    "cancelling": "מבטל…",
+    "confirm": "ביטול חשבונית",
+    "errors": {
+      "reasonRequired": "סיבת הביטול היא שדה חובה",
+      "cancelFailed": "לא ניתן היה לבטל את החשבונית"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "צור חשבונית מתקנת",
+    "titleAbono": "צור חשבונית זיכוי",
+    "descriptionRectificativa": "תיווצר חשבונית חדשה המתקנת את סכום חשבונית {{number}}.",
+    "descriptionAbono": "תיווצר חשבונית זיכוי חדשה (סכום שלילי) עבור חשבונית {{number}}.",
+    "reasonLabel": "סיבה",
+    "fullRefund": "זיכוי מלא ({{total}})",
+    "amountLabelRectificativa": "סכום לתיקון",
+    "amountLabelAbono": "סכום לזיכוי",
+    "amountHintRectificativa": "יכול להיות חיובי או שלילי.",
+    "confirm": "צור חשבונית",
+    "errors": {
+      "reasonRequired": "הסיבה היא שדה חובה",
+      "saveFailed": "לא ניתן היה ליצור את התיקון",
+      "amountPositive": "הזן סכום גדול מ-0",
+      "amountNonZero": "הזן סכום שונה מ-0"
+    }
+  },
+  "paymentModal": {
+    "title": "תשלום עבור חשבונית {{number}}",
+    "total": "סה\"כ",
+    "paid": "שולם",
+    "pending": "ממתין",
+    "overpaidNotice": "הסכום ששולם עולה על סך החשבונית.",
+    "registerPayment": "רישום תשלום",
+    "amount": "סכום",
+    "method": "אמצעי תשלום",
+    "methods": {
+      "efectivo": "מזומן",
+      "transferencia": "העברה בנקאית",
+      "bizum": "Bizum",
+      "tarjeta": "כרטיס",
+      "stripe": "Stripe",
+      "otro": "אחר"
+    },
+    "date": "תאריך תשלום",
+    "notes": "הערות",
+    "registerButton": "רישום תשלום",
+    "history": "תשלומים רשומים",
+    "noPayments": "טרם נרשם תשלום.",
+    "confirmDeletePayment": "למחוק תשלום זה?",
+    "errors": {
+      "amountRequired": "הזן סכום גדול מ-0",
+      "saveFailed": "לא ניתן היה לרשום את התשלום"
     }
   }
 }

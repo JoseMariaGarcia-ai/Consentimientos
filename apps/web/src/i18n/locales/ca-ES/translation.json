@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manual",
     "actionView": "Veure PDF",
     "actionDownload": "Descarregar",
-    "actionEmail": "Enviar per email"
+    "actionEmail": "Enviar per email",
+    "actionManagePayment": "Gestionar cobrament",
+    "invoiceKindRectificativa": "Rectificativa",
+    "invoiceKindAbono": "Abonament",
+    "colPaymentStatus": "Estat de cobrament",
+    "paymentStatus": "Estat de cobrament",
+    "paymentStatusPendiente": "Pendent",
+    "paymentStatusParcial": "Parcial",
+    "paymentStatusCobrada": "Cobrada"
   },
   "certificateTab": {
     "unknownIssuer": "Entitat emissora desconeguda",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Enviament a l'AEAT pendent de connexió",
     "aeatSent": "Enviada a l'AEAT",
     "cancelInvoice": "Anul·la factura",
-    "cancelling": "Anul·lant…"
+    "cancelling": "Anul·lant…",
+    "rectifiedNotice": "Aquesta factura ha estat corregida — consulta la factura generada a les correccions.",
+    "createRectificativa": "Crear rectificativa",
+    "createAbono": "Crear abonament",
+    "correctionsTitle": "Correccions",
+    "correctionType": {
+      "anulacion": "Anul·lació",
+      "rectificativa": "Rectificativa",
+      "abono": "Abonament"
+    },
+    "rectifiesReference": "Aquesta factura corregeix una factura anterior."
   },
   "employeeModal": {
     "titleEdit": "Edita empleat",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Indica un email de destí",
       "sendFailed": "No s’ha pogut enviar la factura"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Anul·lar factura",
+    "description": "Anul·laràs la factura {{number}}. No s’emetrà cap factura nova.",
+    "reasonLabel": "Motiu de l’anul·lació",
+    "cancelling": "Anul·lant…",
+    "confirm": "Anul·lar factura",
+    "errors": {
+      "reasonRequired": "El motiu de l’anul·lació és obligatori",
+      "cancelFailed": "No s’ha pogut anul·lar la factura"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Crear factura rectificativa",
+    "titleAbono": "Crear factura d’abonament",
+    "descriptionRectificativa": "Es generarà una nova factura que corregeix l’import de la factura {{number}}.",
+    "descriptionAbono": "Es generarà una nova factura d’abonament (import negatiu) per a la factura {{number}}.",
+    "reasonLabel": "Motiu",
+    "fullRefund": "Abonament total ({{total}})",
+    "amountLabelRectificativa": "Import a corregir",
+    "amountLabelAbono": "Import a abonar",
+    "amountHintRectificativa": "Pot ser positiu o negatiu.",
+    "confirm": "Crear factura",
+    "errors": {
+      "reasonRequired": "El motiu és obligatori",
+      "saveFailed": "No s’ha pogut crear la correcció",
+      "amountPositive": "Indica un import més gran que 0",
+      "amountNonZero": "Indica un import diferent de 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Cobrament de la factura {{number}}",
+    "total": "Total",
+    "paid": "Cobrat",
+    "pending": "Pendent",
+    "overpaidNotice": "L’import cobrat supera el total de la factura.",
+    "registerPayment": "Registrar cobrament",
+    "amount": "Import",
+    "method": "Forma de pagament",
+    "methods": {
+      "efectivo": "Efectiu",
+      "transferencia": "Transferència",
+      "bizum": "Bizum",
+      "tarjeta": "Targeta",
+      "stripe": "Stripe",
+      "otro": "Altres"
+    },
+    "date": "Data de pagament",
+    "notes": "Notes",
+    "registerButton": "Registrar cobrament",
+    "history": "Pagaments registrats",
+    "noPayments": "Encara no s’ha registrat cap cobrament.",
+    "confirmDeletePayment": "Eliminar aquest pagament?",
+    "errors": {
+      "amountRequired": "Indica un import més gran que 0",
+      "saveFailed": "No s’ha pogut registrar el cobrament"
     }
   }
 }

@@ -1805,7 +1805,15 @@
     "recipientTypeManual": "يدوي",
     "actionView": "عرض PDF",
     "actionDownload": "تنزيل",
-    "actionEmail": "إرسال بالبريد الإلكتروني"
+    "actionEmail": "إرسال بالبريد الإلكتروني",
+    "actionManagePayment": "إدارة التحصيل",
+    "invoiceKindRectificativa": "تصحيحية",
+    "invoiceKindAbono": "إشعار دائن",
+    "colPaymentStatus": "حالة التحصيل",
+    "paymentStatus": "حالة التحصيل",
+    "paymentStatusPendiente": "معلق",
+    "paymentStatusParcial": "جزئي",
+    "paymentStatusCobrada": "محصّل"
   },
   "certificateTab": {
     "unknownIssuer": "جهة إصدار غير معروفة",
@@ -1872,7 +1880,17 @@
     "aeatPending": "الإرسال إلى AEAT بانتظار الاتصال",
     "aeatSent": "تم الإرسال إلى AEAT",
     "cancelInvoice": "إلغاء الفاتورة",
-    "cancelling": "جارٍ الإلغاء…"
+    "cancelling": "جارٍ الإلغاء…",
+    "rectifiedNotice": "تم تصحيح هذه الفاتورة — راجع الفاتورة الناتجة في التصحيحات.",
+    "createRectificativa": "إنشاء فاتورة تصحيحية",
+    "createAbono": "إنشاء إشعار دائن",
+    "correctionsTitle": "التصحيحات",
+    "correctionType": {
+      "anulacion": "إلغاء",
+      "rectificativa": "تصحيحية",
+      "abono": "إشعار دائن"
+    },
+    "rectifiesReference": "هذه الفاتورة تصحح فاتورة سابقة."
   },
   "employeeModal": {
     "titleEdit": "تعديل الموظف",
@@ -2095,6 +2113,63 @@
     "errors": {
       "emailRequired": "أدخل بريدًا إلكترونيًا للوجهة",
       "sendFailed": "تعذر إرسال الفاتورة"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "إلغاء الفاتورة",
+    "description": "ستقوم بإلغاء الفاتورة {{number}}. لن يتم إصدار أي فاتورة جديدة.",
+    "reasonLabel": "سبب الإلغاء",
+    "cancelling": "جارٍ الإلغاء…",
+    "confirm": "إلغاء الفاتورة",
+    "errors": {
+      "reasonRequired": "سبب الإلغاء إلزامي",
+      "cancelFailed": "تعذر إلغاء الفاتورة"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "إنشاء فاتورة تصحيحية",
+    "titleAbono": "إنشاء إشعار دائن",
+    "descriptionRectificativa": "سيتم إنشاء فاتورة جديدة تصحح مبلغ الفاتورة {{number}}.",
+    "descriptionAbono": "سيتم إنشاء إشعار دائن جديد (مبلغ سالب) للفاتورة {{number}}.",
+    "reasonLabel": "السبب",
+    "fullRefund": "إشعار دائن كامل ({{total}})",
+    "amountLabelRectificativa": "المبلغ المراد تصحيحه",
+    "amountLabelAbono": "المبلغ المراد رده",
+    "amountHintRectificativa": "يمكن أن يكون موجبًا أو سالبًا.",
+    "confirm": "إنشاء الفاتورة",
+    "errors": {
+      "reasonRequired": "السبب إلزامي",
+      "saveFailed": "تعذر إنشاء التصحيح",
+      "amountPositive": "أدخل مبلغًا أكبر من 0",
+      "amountNonZero": "أدخل مبلغًا مختلفًا عن 0"
+    }
+  },
+  "paymentModal": {
+    "title": "تحصيل الفاتورة {{number}}",
+    "total": "الإجمالي",
+    "paid": "المحصّل",
+    "pending": "المعلق",
+    "overpaidNotice": "المبلغ المحصّل يتجاوز إجمالي الفاتورة.",
+    "registerPayment": "تسجيل تحصيل",
+    "amount": "المبلغ",
+    "method": "طريقة الدفع",
+    "methods": {
+      "efectivo": "نقدًا",
+      "transferencia": "تحويل بنكي",
+      "bizum": "Bizum",
+      "tarjeta": "بطاقة",
+      "stripe": "Stripe",
+      "otro": "أخرى"
+    },
+    "date": "تاريخ الدفع",
+    "notes": "ملاحظات",
+    "registerButton": "تسجيل التحصيل",
+    "history": "المدفوعات المسجلة",
+    "noPayments": "لم يتم تسجيل أي تحصيل بعد.",
+    "confirmDeletePayment": "حذف هذا الدفع؟",
+    "errors": {
+      "amountRequired": "أدخل مبلغًا أكبر من 0",
+      "saveFailed": "تعذر تسجيل التحصيل"
     }
   }
 }

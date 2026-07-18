@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Ručně",
     "actionView": "Zobrazit PDF",
     "actionDownload": "Stáhnout",
-    "actionEmail": "Odeslat e-mailem"
+    "actionEmail": "Odeslat e-mailem",
+    "actionManagePayment": "Spravovat platbu",
+    "invoiceKindRectificativa": "Opravná",
+    "invoiceKindAbono": "Dobropis",
+    "colPaymentStatus": "Stav platby",
+    "paymentStatus": "Stav platby",
+    "paymentStatusPendiente": "Čeká",
+    "paymentStatusParcial": "Částečně",
+    "paymentStatusCobrada": "Zaplaceno"
   },
   "certificateTab": {
     "unknownIssuer": "Neznámý vydavatel",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Odeslání na AEAT čeká na připojení",
     "aeatSent": "Odesláno na AEAT",
     "cancelInvoice": "Zrušit fakturu",
-    "cancelling": "Ruší se…"
+    "cancelling": "Ruší se…",
+    "rectifiedNotice": "Tato faktura byla opravena — viz vygenerovaná faktura v opravách.",
+    "createRectificativa": "Vytvořit opravnou fakturu",
+    "createAbono": "Vytvořit dobropis",
+    "correctionsTitle": "Opravy",
+    "correctionType": {
+      "anulacion": "Stornování",
+      "rectificativa": "Opravná",
+      "abono": "Dobropis"
+    },
+    "rectifiesReference": "Tato faktura opravuje předchozí fakturu."
   },
   "employeeModal": {
     "titleEdit": "Upravit zaměstnance",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Zadejte cílový e-mail",
       "sendFailed": "Fakturu se nepodařilo odeslat"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Stornovat fakturu",
+    "description": "Stornujete fakturu {{number}}. Nebude vystavena žádná nová faktura.",
+    "reasonLabel": "Důvod stornování",
+    "cancelling": "Stornování…",
+    "confirm": "Stornovat fakturu",
+    "errors": {
+      "reasonRequired": "Důvod stornování je povinný",
+      "cancelFailed": "Fakturu se nepodařilo stornovat"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Vytvořit opravnou fakturu",
+    "titleAbono": "Vytvořit dobropis",
+    "descriptionRectificativa": "Bude vytvořena nová faktura opravující částku faktury {{number}}.",
+    "descriptionAbono": "Bude vytvořen nový dobropis (záporná částka) k faktuře {{number}}.",
+    "reasonLabel": "Důvod",
+    "fullRefund": "Plný dobropis ({{total}})",
+    "amountLabelRectificativa": "Částka k opravě",
+    "amountLabelAbono": "Částka k vrácení",
+    "amountHintRectificativa": "Může být kladná nebo záporná.",
+    "confirm": "Vytvořit fakturu",
+    "errors": {
+      "reasonRequired": "Důvod je povinný",
+      "saveFailed": "Opravu se nepodařilo vytvořit",
+      "amountPositive": "Zadejte částku větší než 0",
+      "amountNonZero": "Zadejte částku různou od 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Platba faktury {{number}}",
+    "total": "Celkem",
+    "paid": "Zaplaceno",
+    "pending": "Čeká",
+    "overpaidNotice": "Zaplacená částka přesahuje celkovou částku faktury.",
+    "registerPayment": "Zaregistrovat platbu",
+    "amount": "Částka",
+    "method": "Způsob platby",
+    "methods": {
+      "efectivo": "Hotovost",
+      "transferencia": "Bankovní převod",
+      "bizum": "Bizum",
+      "tarjeta": "Karta",
+      "stripe": "Stripe",
+      "otro": "Jiné"
+    },
+    "date": "Datum platby",
+    "notes": "Poznámky",
+    "registerButton": "Zaregistrovat platbu",
+    "history": "Zaregistrované platby",
+    "noPayments": "Zatím nebyla zaregistrována žádná platba.",
+    "confirmDeletePayment": "Odstranit tuto platbu?",
+    "errors": {
+      "amountRequired": "Zadejte částku větší než 0",
+      "saveFailed": "Platbu se nepodařilo zaregistrovat"
     }
   }
 }

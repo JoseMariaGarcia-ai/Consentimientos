@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "मैनुअल",
     "actionView": "PDF देखें",
     "actionDownload": "डाउनलोड करें",
-    "actionEmail": "ईमेल से भेजें"
+    "actionEmail": "ईमेल से भेजें",
+    "actionManagePayment": "भुगतान प्रबंधित करें",
+    "invoiceKindRectificativa": "सुधारात्मक",
+    "invoiceKindAbono": "क्रेडिट नोट",
+    "colPaymentStatus": "भुगतान स्थिति",
+    "paymentStatus": "भुगतान स्थिति",
+    "paymentStatusPendiente": "लंबित",
+    "paymentStatusParcial": "आंशिक",
+    "paymentStatusCobrada": "भुगतान किया गया"
   },
   "certificateTab": {
     "unknownIssuer": "अज्ञात जारीकर्ता",
@@ -1910,7 +1918,17 @@
     "aeatPending": "AEAT को भेजना कनेक्शन की प्रतीक्षा में है",
     "aeatSent": "AEAT को भेजा गया",
     "cancelInvoice": "चालान रद्द करें",
-    "cancelling": "रद्द किया जा रहा है…"
+    "cancelling": "रद्द किया जा रहा है…",
+    "rectifiedNotice": "इस चालान में सुधार किया गया है — सुधारों में जनरेट किया गया चालान देखें।",
+    "createRectificativa": "सुधारात्मक चालान बनाएं",
+    "createAbono": "क्रेडिट नोट बनाएं",
+    "correctionsTitle": "सुधार",
+    "correctionType": {
+      "anulacion": "रद्दीकरण",
+      "rectificativa": "सुधारात्मक",
+      "abono": "क्रेडिट नोट"
+    },
+    "rectifiesReference": "यह चालान पहले के चालान को सुधारता है।"
   },
   "employeeModal": {
     "titleEdit": "कर्मचारी संपादित करें",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "गंतव्य ईमेल दर्ज करें",
       "sendFailed": "चालान नहीं भेजा जा सका"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "चालान रद्द करें",
+    "description": "आप चालान {{number}} रद्द करने जा रहे हैं। कोई नया चालान जारी नहीं किया जाएगा।",
+    "reasonLabel": "रद्दीकरण का कारण",
+    "cancelling": "रद्द किया जा रहा है…",
+    "confirm": "चालान रद्द करें",
+    "errors": {
+      "reasonRequired": "रद्दीकरण का कारण आवश्यक है",
+      "cancelFailed": "चालान रद्द नहीं किया जा सका"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "सुधारात्मक चालान बनाएं",
+    "titleAbono": "क्रेडिट नोट बनाएं",
+    "descriptionRectificativa": "एक नया चालान बनाया जाएगा जो चालान {{number}} की राशि को सुधारता है।",
+    "descriptionAbono": "चालान {{number}} के लिए एक नया क्रेडिट नोट (नकारात्मक राशि) बनाया जाएगा।",
+    "reasonLabel": "कारण",
+    "fullRefund": "पूर्ण क्रेडिट नोट ({{total}})",
+    "amountLabelRectificativa": "सुधारने के लिए राशि",
+    "amountLabelAbono": "वापस करने के लिए राशि",
+    "amountHintRectificativa": "धनात्मक या ऋणात्मक हो सकता है।",
+    "confirm": "चालान बनाएं",
+    "errors": {
+      "reasonRequired": "कारण आवश्यक है",
+      "saveFailed": "सुधार नहीं बनाया जा सका",
+      "amountPositive": "0 से अधिक राशि दर्ज करें",
+      "amountNonZero": "0 के अलावा राशि दर्ज करें"
+    }
+  },
+  "paymentModal": {
+    "title": "चालान {{number}} का भुगतान",
+    "total": "कुल",
+    "paid": "भुगतान किया गया",
+    "pending": "लंबित",
+    "overpaidNotice": "भुगतान की गई राशि चालान की कुल राशि से अधिक है।",
+    "registerPayment": "भुगतान दर्ज करें",
+    "amount": "राशि",
+    "method": "भुगतान का तरीका",
+    "methods": {
+      "efectivo": "नकद",
+      "transferencia": "बैंक हस्तांतरण",
+      "bizum": "Bizum",
+      "tarjeta": "कार्ड",
+      "stripe": "Stripe",
+      "otro": "अन्य"
+    },
+    "date": "भुगतान तिथि",
+    "notes": "टिप्पणियाँ",
+    "registerButton": "भुगतान दर्ज करें",
+    "history": "दर्ज किए गए भुगतान",
+    "noPayments": "अभी तक कोई भुगतान दर्ज नहीं किया गया है।",
+    "confirmDeletePayment": "यह भुगतान हटाएं?",
+    "errors": {
+      "amountRequired": "0 से अधिक राशि दर्ज करें",
+      "saveFailed": "भुगतान दर्ज नहीं किया जा सका"
     }
   }
 }

@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "手动",
     "actionView": "查看 PDF",
     "actionDownload": "下载",
-    "actionEmail": "通过电子邮件发送"
+    "actionEmail": "通过电子邮件发送",
+    "actionManagePayment": "管理收款",
+    "invoiceKindRectificativa": "更正发票",
+    "invoiceKindAbono": "贷记发票",
+    "colPaymentStatus": "收款状态",
+    "paymentStatus": "收款状态",
+    "paymentStatusPendiente": "待收款",
+    "paymentStatusParcial": "部分收款",
+    "paymentStatusCobrada": "已收款"
   },
   "certificateTab": {
     "unknownIssuer": "未知签发机构",
@@ -1910,7 +1918,17 @@
     "aeatPending": "向 AEAT 的提交正在等待连接",
     "aeatSent": "已提交至 AEAT",
     "cancelInvoice": "作废发票",
-    "cancelling": "作废中…"
+    "cancelling": "作废中…",
+    "rectifiedNotice": "此发票已被更正——请查看更正记录中生成的发票。",
+    "createRectificativa": "创建更正发票",
+    "createAbono": "创建贷记发票",
+    "correctionsTitle": "更正记录",
+    "correctionType": {
+      "anulacion": "作废",
+      "rectificativa": "更正发票",
+      "abono": "贷记发票"
+    },
+    "rectifiesReference": "此发票更正了之前的一张发票。"
   },
   "employeeModal": {
     "titleEdit": "编辑员工",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "请输入目标电子邮件",
       "sendFailed": "无法发送发票"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "作废发票",
+    "description": "您即将作废发票 {{number}}。不会开具新发票。",
+    "reasonLabel": "作废原因",
+    "cancelling": "正在作废…",
+    "confirm": "作废发票",
+    "errors": {
+      "reasonRequired": "作废原因为必填项",
+      "cancelFailed": "无法作废发票"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "创建更正发票",
+    "titleAbono": "创建贷记发票",
+    "descriptionRectificativa": "将生成一张新发票，更正发票 {{number}} 的金额。",
+    "descriptionAbono": "将为发票 {{number}} 生成一张新的贷记发票（负金额）。",
+    "reasonLabel": "原因",
+    "fullRefund": "全额贷记 ({{total}})",
+    "amountLabelRectificativa": "需更正的金额",
+    "amountLabelAbono": "需退还的金额",
+    "amountHintRectificativa": "可以为正数或负数。",
+    "confirm": "创建发票",
+    "errors": {
+      "reasonRequired": "原因为必填项",
+      "saveFailed": "无法创建更正",
+      "amountPositive": "请输入大于 0 的金额",
+      "amountNonZero": "请输入不等于 0 的金额"
+    }
+  },
+  "paymentModal": {
+    "title": "发票 {{number}} 的收款",
+    "total": "总计",
+    "paid": "已收款",
+    "pending": "待收款",
+    "overpaidNotice": "已收款金额超过发票总额。",
+    "registerPayment": "登记收款",
+    "amount": "金额",
+    "method": "付款方式",
+    "methods": {
+      "efectivo": "现金",
+      "transferencia": "银行转账",
+      "bizum": "Bizum",
+      "tarjeta": "刷卡",
+      "stripe": "Stripe",
+      "otro": "其他"
+    },
+    "date": "收款日期",
+    "notes": "备注",
+    "registerButton": "登记收款",
+    "history": "已登记的收款",
+    "noPayments": "尚未登记任何收款。",
+    "confirmDeletePayment": "删除此笔收款？",
+    "errors": {
+      "amountRequired": "请输入大于 0 的金额",
+      "saveFailed": "无法登记收款"
     }
   }
 }

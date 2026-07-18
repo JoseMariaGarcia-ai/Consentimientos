@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Manual",
     "actionView": "View PDF",
     "actionDownload": "Download",
-    "actionEmail": "Send by email"
+    "actionEmail": "Send by email",
+    "actionManagePayment": "Manage payment",
+    "invoiceKindRectificativa": "Corrective",
+    "invoiceKindAbono": "Credit note",
+    "colPaymentStatus": "Payment status",
+    "paymentStatus": "Payment status",
+    "paymentStatusPendiente": "Pending",
+    "paymentStatusParcial": "Partial",
+    "paymentStatusCobrada": "Paid"
   },
   "certificateTab": {
     "unknownIssuer": "Unknown issuer",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Submission to the AEAT pending connection",
     "aeatSent": "Submitted to the AEAT",
     "cancelInvoice": "Cancel invoice",
-    "cancelling": "Cancelling…"
+    "cancelling": "Cancelling…",
+    "rectifiedNotice": "This invoice has been corrected — see the generated invoice under corrections.",
+    "createRectificativa": "Create corrective invoice",
+    "createAbono": "Create credit note",
+    "correctionsTitle": "Corrections",
+    "correctionType": {
+      "anulacion": "Cancellation",
+      "rectificativa": "Corrective",
+      "abono": "Credit note"
+    },
+    "rectifiesReference": "This invoice corrects an earlier invoice."
   },
   "employeeModal": {
     "titleEdit": "Edit employee",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Enter a destination email",
       "sendFailed": "Could not send the invoice"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Cancel invoice",
+    "description": "You are about to cancel invoice {{number}}. No new invoice will be issued.",
+    "reasonLabel": "Reason for cancellation",
+    "cancelling": "Cancelling…",
+    "confirm": "Cancel invoice",
+    "errors": {
+      "reasonRequired": "The reason for cancellation is required",
+      "cancelFailed": "The invoice could not be cancelled"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Create corrective invoice",
+    "titleAbono": "Create credit note",
+    "descriptionRectificativa": "A new invoice will be generated correcting the amount of invoice {{number}}.",
+    "descriptionAbono": "A new credit note (negative amount) will be generated for invoice {{number}}.",
+    "reasonLabel": "Reason",
+    "fullRefund": "Full credit note ({{total}})",
+    "amountLabelRectificativa": "Amount to correct",
+    "amountLabelAbono": "Amount to refund",
+    "amountHintRectificativa": "Can be positive or negative.",
+    "confirm": "Create invoice",
+    "errors": {
+      "reasonRequired": "The reason is required",
+      "saveFailed": "The correction could not be created",
+      "amountPositive": "Enter an amount greater than 0",
+      "amountNonZero": "Enter an amount other than 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Payment for invoice {{number}}",
+    "total": "Total",
+    "paid": "Paid",
+    "pending": "Pending",
+    "overpaidNotice": "The amount paid exceeds the invoice total.",
+    "registerPayment": "Register payment",
+    "amount": "Amount",
+    "method": "Payment method",
+    "methods": {
+      "efectivo": "Cash",
+      "transferencia": "Bank transfer",
+      "bizum": "Bizum",
+      "tarjeta": "Card",
+      "stripe": "Stripe",
+      "otro": "Other"
+    },
+    "date": "Payment date",
+    "notes": "Notes",
+    "registerButton": "Register payment",
+    "history": "Registered payments",
+    "noPayments": "No payment has been registered yet.",
+    "confirmDeletePayment": "Delete this payment?",
+    "errors": {
+      "amountRequired": "Enter an amount greater than 0",
+      "saveFailed": "The payment could not be registered"
     }
   }
 }

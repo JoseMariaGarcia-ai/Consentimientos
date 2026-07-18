@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Handmatig",
     "actionView": "PDF bekijken",
     "actionDownload": "Downloaden",
-    "actionEmail": "Per e-mail verzenden"
+    "actionEmail": "Per e-mail verzenden",
+    "actionManagePayment": "Betaling beheren",
+    "invoiceKindRectificativa": "Correctie",
+    "invoiceKindAbono": "Creditnota",
+    "colPaymentStatus": "Betaalstatus",
+    "paymentStatus": "Betaalstatus",
+    "paymentStatusPendiente": "In afwachting",
+    "paymentStatusParcial": "Gedeeltelijk",
+    "paymentStatusCobrada": "Betaald"
   },
   "certificateTab": {
     "unknownIssuer": "Onbekende uitgever",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Verzending naar de AEAT wacht op koppeling",
     "aeatSent": "Verzonden naar de AEAT",
     "cancelInvoice": "Factuur annuleren",
-    "cancelling": "Bezig met annuleren…"
+    "cancelling": "Bezig met annuleren…",
+    "rectifiedNotice": "Deze factuur is gecorrigeerd — zie de gegenereerde factuur bij correcties.",
+    "createRectificativa": "Correctiefactuur aanmaken",
+    "createAbono": "Creditnota aanmaken",
+    "correctionsTitle": "Correcties",
+    "correctionType": {
+      "anulacion": "Annulering",
+      "rectificativa": "Correctie",
+      "abono": "Creditnota"
+    },
+    "rectifiesReference": "Deze factuur corrigeert een eerdere factuur."
   },
   "employeeModal": {
     "titleEdit": "Werknemer bewerken",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Voer een bestemmings-e-mail in",
       "sendFailed": "De factuur kon niet worden verzonden"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Factuur annuleren",
+    "description": "Je staat op het punt factuur {{number}} te annuleren. Er wordt geen nieuwe factuur uitgegeven.",
+    "reasonLabel": "Reden voor annulering",
+    "cancelling": "Annuleren…",
+    "confirm": "Factuur annuleren",
+    "errors": {
+      "reasonRequired": "De reden voor annulering is verplicht",
+      "cancelFailed": "De factuur kon niet worden geannuleerd"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Correctiefactuur aanmaken",
+    "titleAbono": "Creditnota aanmaken",
+    "descriptionRectificativa": "Er wordt een nieuwe factuur gegenereerd die het bedrag van factuur {{number}} corrigeert.",
+    "descriptionAbono": "Er wordt een nieuwe creditnota (negatief bedrag) gegenereerd voor factuur {{number}}.",
+    "reasonLabel": "Reden",
+    "fullRefund": "Volledige creditnota ({{total}})",
+    "amountLabelRectificativa": "Te corrigeren bedrag",
+    "amountLabelAbono": "Terug te betalen bedrag",
+    "amountHintRectificativa": "Kan positief of negatief zijn.",
+    "confirm": "Factuur aanmaken",
+    "errors": {
+      "reasonRequired": "De reden is verplicht",
+      "saveFailed": "De correctie kon niet worden aangemaakt",
+      "amountPositive": "Voer een bedrag groter dan 0 in",
+      "amountNonZero": "Voer een bedrag anders dan 0 in"
+    }
+  },
+  "paymentModal": {
+    "title": "Betaling van factuur {{number}}",
+    "total": "Totaal",
+    "paid": "Betaald",
+    "pending": "In afwachting",
+    "overpaidNotice": "Het betaalde bedrag overschrijdt het totaal van de factuur.",
+    "registerPayment": "Betaling registreren",
+    "amount": "Bedrag",
+    "method": "Betaalmethode",
+    "methods": {
+      "efectivo": "Contant",
+      "transferencia": "Overschrijving",
+      "bizum": "Bizum",
+      "tarjeta": "Kaart",
+      "stripe": "Stripe",
+      "otro": "Anders"
+    },
+    "date": "Betaaldatum",
+    "notes": "Notities",
+    "registerButton": "Betaling registreren",
+    "history": "Geregistreerde betalingen",
+    "noPayments": "Er is nog geen betaling geregistreerd.",
+    "confirmDeletePayment": "Deze betaling verwijderen?",
+    "errors": {
+      "amountRequired": "Voer een bedrag groter dan 0 in",
+      "saveFailed": "De betaling kon niet worden geregistreerd"
     }
   }
 }

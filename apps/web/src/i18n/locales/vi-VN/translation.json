@@ -1843,7 +1843,15 @@
     "recipientTypeManual": "Thủ công",
     "actionView": "Xem PDF",
     "actionDownload": "Tải xuống",
-    "actionEmail": "Gửi qua email"
+    "actionEmail": "Gửi qua email",
+    "actionManagePayment": "Quản lý thanh toán",
+    "invoiceKindRectificativa": "Hóa đơn điều chỉnh",
+    "invoiceKindAbono": "Hóa đơn hoàn tiền",
+    "colPaymentStatus": "Trạng thái thanh toán",
+    "paymentStatus": "Trạng thái thanh toán",
+    "paymentStatusPendiente": "Chờ xử lý",
+    "paymentStatusParcial": "Một phần",
+    "paymentStatusCobrada": "Đã thanh toán"
   },
   "certificateTab": {
     "unknownIssuer": "Đơn vị phát hành không xác định",
@@ -1910,7 +1918,17 @@
     "aeatPending": "Gửi tới AEAT đang chờ kết nối",
     "aeatSent": "Đã gửi tới AEAT",
     "cancelInvoice": "Hủy hóa đơn",
-    "cancelling": "Đang hủy…"
+    "cancelling": "Đang hủy…",
+    "rectifiedNotice": "Hóa đơn này đã được điều chỉnh — xem hóa đơn được tạo trong phần điều chỉnh.",
+    "createRectificativa": "Tạo hóa đơn điều chỉnh",
+    "createAbono": "Tạo hóa đơn hoàn tiền",
+    "correctionsTitle": "Điều chỉnh",
+    "correctionType": {
+      "anulacion": "Hủy bỏ",
+      "rectificativa": "Hóa đơn điều chỉnh",
+      "abono": "Hóa đơn hoàn tiền"
+    },
+    "rectifiesReference": "Hóa đơn này điều chỉnh một hóa đơn trước đó."
   },
   "employeeModal": {
     "titleEdit": "Chỉnh sửa nhân viên",
@@ -2133,6 +2151,63 @@
     "errors": {
       "emailRequired": "Nhập email đích",
       "sendFailed": "Không thể gửi hóa đơn"
+    }
+  },
+  "cancelInvoiceModal": {
+    "title": "Hủy hóa đơn",
+    "description": "Bạn sắp hủy hóa đơn {{number}}. Sẽ không có hóa đơn mới nào được phát hành.",
+    "reasonLabel": "Lý do hủy",
+    "cancelling": "Đang hủy…",
+    "confirm": "Hủy hóa đơn",
+    "errors": {
+      "reasonRequired": "Lý do hủy là bắt buộc",
+      "cancelFailed": "Không thể hủy hóa đơn"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Tạo hóa đơn điều chỉnh",
+    "titleAbono": "Tạo hóa đơn hoàn tiền",
+    "descriptionRectificativa": "Một hóa đơn mới sẽ được tạo để điều chỉnh số tiền của hóa đơn {{number}}.",
+    "descriptionAbono": "Một hóa đơn hoàn tiền mới (số tiền âm) sẽ được tạo cho hóa đơn {{number}}.",
+    "reasonLabel": "Lý do",
+    "fullRefund": "Hoàn tiền toàn bộ ({{total}})",
+    "amountLabelRectificativa": "Số tiền cần điều chỉnh",
+    "amountLabelAbono": "Số tiền cần hoàn",
+    "amountHintRectificativa": "Có thể dương hoặc âm.",
+    "confirm": "Tạo hóa đơn",
+    "errors": {
+      "reasonRequired": "Lý do là bắt buộc",
+      "saveFailed": "Không thể tạo điều chỉnh",
+      "amountPositive": "Nhập số tiền lớn hơn 0",
+      "amountNonZero": "Nhập số tiền khác 0"
+    }
+  },
+  "paymentModal": {
+    "title": "Thanh toán hóa đơn {{number}}",
+    "total": "Tổng cộng",
+    "paid": "Đã thanh toán",
+    "pending": "Chờ xử lý",
+    "overpaidNotice": "Số tiền đã thanh toán vượt quá tổng số tiền hóa đơn.",
+    "registerPayment": "Đăng ký thanh toán",
+    "amount": "Số tiền",
+    "method": "Phương thức thanh toán",
+    "methods": {
+      "efectivo": "Tiền mặt",
+      "transferencia": "Chuyển khoản",
+      "bizum": "Bizum",
+      "tarjeta": "Thẻ",
+      "stripe": "Stripe",
+      "otro": "Khác"
+    },
+    "date": "Ngày thanh toán",
+    "notes": "Ghi chú",
+    "registerButton": "Đăng ký thanh toán",
+    "history": "Các khoản thanh toán đã đăng ký",
+    "noPayments": "Chưa có khoản thanh toán nào được đăng ký.",
+    "confirmDeletePayment": "Xóa khoản thanh toán này?",
+    "errors": {
+      "amountRequired": "Nhập số tiền lớn hơn 0",
+      "saveFailed": "Không thể đăng ký thanh toán"
     }
   }
 }
