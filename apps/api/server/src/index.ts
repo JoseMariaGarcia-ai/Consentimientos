@@ -31,6 +31,7 @@ import budgetsRouter from './routes/budgets'
 import odontogramRouter from './routes/odontogram'
 import invoicesRouter from './routes/invoices'
 import clinicCertificatesRouter from './routes/clinicCertificates'
+import billingClientsRouter from './routes/billingClients'
 import timeTrackingRouter, { publicRouter as timeTrackingPublicRouter } from './routes/timeTracking'
 import workflowsRouter from './routes/workflows'
 import analyticsRouter, { publicRouter as analyticsPublicRouter } from './routes/analytics'
@@ -125,6 +126,7 @@ app.use('/api/budgets',         authMiddleware, budgetsRouter)
 app.use('/api/odontogram',      authMiddleware, odontogramRouter)
 app.use('/api/invoices',        authMiddleware, requireModuleAccess('invoicing'), invoicesRouter)
 app.use('/api/clinic-certificates', authMiddleware, requireModuleAccess('invoicing'), clinicCertificatesRouter)
+app.use('/api/billing-clients', authMiddleware, requireModuleAccess('invoicing'), billingClientsRouter)
 app.use('/api/timetracking',    authMiddleware, requireModuleAccess('time-tracking'), timeTrackingRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
