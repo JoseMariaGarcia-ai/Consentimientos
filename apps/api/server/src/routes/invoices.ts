@@ -6,6 +6,9 @@ import { submitToAeat } from '../lib/aeatSubmission'
 import { verifyClinicChain } from '../lib/invoiceIntegrity'
 import { sendInvoiceEmail } from '../lib/invoiceEmail'
 import { createInvoiceRecord } from '../lib/invoiceCreation'
+import { recalculatePaymentStatus } from '../lib/invoicePayments'
+
+const PAYMENT_METHODS = ['efectivo', 'transferencia', 'bizum', 'tarjeta', 'stripe', 'otro']
 
 const router = Router()
 
@@ -28,7 +31,7 @@ async function loadRecords(invoiceId: string) {
 // GET /api/invoices?date_from&date_to&patient_id&status&series&q&recipient_type
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
-  const { date_from, date_to, patient_id, status, series, q, recipient_type } = req.query
+  const { date_from, date_to, patient_id, status, series, q, recipient_type, payment_status } = req.query
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.json([])
@@ -51,6 +54,7 @@ router.get('/', async (req, res) => {
     if (status)    { params.push(status);     sql += ` AND i.status = $${params.length}` }
     if (series)    { params.push(series);     sql += ` AND i.series = $${params.length}` }
     if (recipient_type) { params.push(recipient_type); sql += ` AND i.recipient_type = $${params.length}` }
+    if (payment_status) { params.push(payment_status); sql += ` AND i.payment_status = $${params.length}` }
     if (q)         { params.push(`%${q}%`);   sql += ` AND (i.recipient_name ILIKE $${params.length} OR i.invoice_number ILIKE $${params.length} OR i.recipient_nif ILIKE $${params.length})` }
     sql += ' ORDER BY i.issue_date DESC, i.created_at DESC'
 
@@ -333,6 +337,64 @@ router.get('/:id/corrections', async (req, res) => {
       [invoice.id]
     )
     return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// GET /api/invoices/:id/payments — listado de pagos registrados
+router.get('/:id/payments', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.json([])
+    const invoice = await queryOne<{ id: string }>('SELECT id FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
+    const data = await query(
+      'SELECT * FROM invoice_payments WHERE invoice_id = $1 ORDER BY payment_date DESC, created_at DESC', [invoice.id]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// POST /api/invoices/:id/payments — { amount, payment_method, payment_date, notes? }
+// registra un cobro (total o parcial) y recalcula payment_status.
+router.post('/:id/payments', async (req, res) => {
+  const { userId } = (req as any).user
+  const { amount, payment_method, payment_date, notes } = req.body
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const invoice = await queryOne<{ id: string }>('SELECT id FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
+    const amt = Number(amount)
+    if (!(amt > 0)) return res.status(400).json({ error: 'El importe del cobro debe ser mayor que 0' })
+    if (!PAYMENT_METHODS.includes(payment_method)) return res.status(400).json({ error: 'Forma de pago no válida' })
+    const date = payment_date ? String(payment_date) : new Date().toISOString().slice(0, 10)
+
+    const payment = await queryOne(
+      `INSERT INTO invoice_payments (clinic_id, invoice_id, amount, payment_method, payment_date, notes, registered_by)
+       VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
+      [clinicId, invoice.id, amt, payment_method, date, notes || null, userId]
+    )
+    const payment_status = await recalculatePaymentStatus(invoice.id)
+    return res.status(201).json({ payment, payment_status })
+  } catch (err: any) { return res.status(400).json({ error: err.message }) }
+})
+
+// DELETE /api/invoices/:id/payments/:paymentId — elimina un pago registrado
+// por error y recalcula payment_status.
+router.delete('/:id/payments/:paymentId', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const invoice = await queryOne<{ id: string }>('SELECT id FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
+    const deleted = await queryOne<{ id: string }>(
+      'DELETE FROM invoice_payments WHERE id = $1 AND invoice_id = $2 RETURNING id', [req.params.paymentId, invoice.id]
+    )
+    if (!deleted) return res.status(404).json({ error: 'Pago no encontrado' })
+    const payment_status = await recalculatePaymentStatus(invoice.id)
+    return res.json({ deleted: true, payment_status })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
