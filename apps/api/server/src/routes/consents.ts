@@ -86,15 +86,14 @@ router.post('/', async (req, res) => {
     if (!ownsPatient) return res.status(404).json({ error: 'Paciente no encontrado' })
     await deductCredit(clinicId!, 'consents_available')
     const data = await queryOne(
-      `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status, sede)
-       VALUES ($1,$2,$3,$4,$5,'pending',$6) RETURNING *`,
+      `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status)
+       VALUES ($1,$2,$3,$4,$5,'pending') RETURNING *`,
       [
         patientId,
         b.doctor_id  ?? b.doctorId,
         b.template_id ?? b.templateId,
         b.language ?? 'es-ES',
         b.jurisdiction ?? null,
-        b.sede ?? null,
       ]
     )
     return res.status(201).json(data)

@@ -46,11 +46,11 @@ router.post('/', async (req, res) => {
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     await deductCredit(clinicRow!.clinic_id, 'photo_sessions_available')
-    const { doctor_id, branch } = req.body
+    const { doctor_id } = req.body
     const session = await queryOne(
-      `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date, branch)
-       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-      [clinicRow?.clinic_id, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString(), branch ?? null]
+      `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      [clinicRow?.clinic_id, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
     )
     return res.status(201).json({ ...session, photos: [] })
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }

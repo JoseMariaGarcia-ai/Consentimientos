@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { userId } = (req as any).user
-  const { patient_id, doctor_id, treatment_id, branch, start_time, notes } = req.body
+  const { patient_id, doctor_id, treatment_id, start_time, notes } = req.body
   if (!patient_id || !treatment_id || !start_time) {
     return res.status(400).json({ error: 'patient_id, treatment_id y start_time son obligatorios' })
   }
@@ -80,9 +80,9 @@ router.post('/', async (req, res) => {
     }
 
     const data = await queryOne(
-      `INSERT INTO appointments (clinic_id, patient_id, doctor_id, treatment_id, branch, start_time, end_time, notes)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *`,
-      [clinicId, patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null]
+      `INSERT INTO appointments (clinic_id, patient_id, doctor_id, treatment_id, start_time, end_time, notes)
+       VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
+      [clinicId, patient_id, doctor_id ?? null, treatment_id, start.toISOString(), end.toISOString(), notes ?? null]
     )
 
     // Fire-and-forget — never block the response on the workflow/email send.
@@ -99,7 +99,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { userId } = (req as any).user
-  const { patient_id, doctor_id, treatment_id, branch, start_time, notes, status } = req.body
+  const { patient_id, doctor_id, treatment_id, start_time, notes, status } = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
@@ -141,9 +141,9 @@ router.put('/:id', async (req, res) => {
     }
 
     const data = await queryOne(
-      `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, branch=$4, start_time=$5, end_time=$6, notes=$7, status=$8, updated_at=NOW()${timeChanged ? ', reminder_sent_at=NULL' : ''}
-       WHERE id=$9 AND clinic_id=$10 RETURNING *`,
-      [patient_id, doctor_id ?? null, treatment_id, branch ?? null, start.toISOString(), end.toISOString(), notes ?? null, status ?? 'scheduled', req.params.id, clinicId]
+      `UPDATE appointments SET patient_id=$1, doctor_id=$2, treatment_id=$3, start_time=$4, end_time=$5, notes=$6, status=$7, updated_at=NOW()${timeChanged ? ', reminder_sent_at=NULL' : ''}
+       WHERE id=$8 AND clinic_id=$9 RETURNING *`,
+      [patient_id, doctor_id ?? null, treatment_id, start.toISOString(), end.toISOString(), notes ?? null, status ?? 'scheduled', req.params.id, clinicId]
     )
 
     if (timeChanged) {

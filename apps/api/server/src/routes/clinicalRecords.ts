@@ -35,8 +35,8 @@ router.post('/', async (req, res) => {
     await deductCredit(clinicRow!.clinic_id, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
-        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, branch, is_pregnant, tobacco_use, alcohol_use, drug_use)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17) RETURNING *`,
+        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, is_pregnant, tobacco_use, alcohol_use, drug_use)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16) RETURNING *`,
       [
         clinicRow?.clinic_id,
         b.patient_id ?? b.patientId,
@@ -50,7 +50,6 @@ router.post('/', async (req, res) => {
         b.diagnosis ?? null,
         b.treatment_plan ?? b.treatmentPlan ?? null,
         b.notes ?? null,
-        b.branch ?? null,
         triBool(b.is_pregnant),
         triBool(b.tobacco_use),
         triBool(b.alcohol_use),
@@ -69,9 +68,9 @@ router.put('/:id', async (req, res) => {
       `UPDATE clinical_records SET
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
         current_medications=$6, allergies=$7, physical_exam=$8, diagnosis=$9,
-        treatment_plan=$10, notes=$11, branch=$12, is_pregnant=$13, tobacco_use=$14,
-        alcohol_use=$15, drug_use=$16, updated_at=NOW()
-       WHERE id=$17 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $18) RETURNING *`,
+        treatment_plan=$10, notes=$11, is_pregnant=$12, tobacco_use=$13,
+        alcohol_use=$14, drug_use=$15, updated_at=NOW()
+       WHERE id=$16 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $17) RETURNING *`,
       [
         b.patient_id ?? b.patientId,
         b.doctor_id  ?? b.doctorId  ?? null,
@@ -84,7 +83,6 @@ router.put('/:id', async (req, res) => {
         b.diagnosis ?? null,
         b.treatment_plan ?? b.treatmentPlan ?? null,
         b.notes ?? null,
-        b.branch ?? null,
         triBool(b.is_pregnant),
         triBool(b.tobacco_use),
         triBool(b.alcohol_use),
