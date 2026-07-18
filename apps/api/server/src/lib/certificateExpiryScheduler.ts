@@ -50,8 +50,13 @@ async function runCheck() {
       if (!column) continue
 
       const emails = await clinicAdminEmails(cert.clinic_id)
-      await notifyClinicCertificateExpiring(emails, cert.clinic_name, Math.max(daysLeft, 0), cert.valid_until, urgency)
-      await query(`UPDATE clinic_digital_certificates SET ${column} = NOW() WHERE id = $1`, [cert.id])
+      const sent = await notifyClinicCertificateExpiring(emails, cert.clinic_name, Math.max(daysLeft, 0), cert.valid_until, urgency)
+      // Si el envío falla (o no hay ningún admin 'clinica' todavía), no se
+      // marca como notificado — se reintenta en la siguiente pasada diaria
+      // en vez de perder para siempre el aviso de ese umbral.
+      if (sent) {
+        await query(`UPDATE clinic_digital_certificates SET ${column} = NOW() WHERE id = $1`, [cert.id])
+      }
     }
   } catch (err: any) {
     console.error('[certificateExpiryScheduler] fallo comprobando caducidad de certificados:', err.message)

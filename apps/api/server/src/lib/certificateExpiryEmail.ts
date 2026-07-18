@@ -5,10 +5,15 @@ type Urgency = 'aviso' | 'critico'
 // Avisa a los usuarios admin ('clinica') de la clínica titular del
 // certificado — nunca al equipo de ConsentsPro, es una obligación fiscal de
 // cada clínica, no de la plataforma.
+//
+// Devuelve si el envío se completó realmente — el llamador (el scheduler)
+// solo debe marcar el aviso como enviado si esto es true. Si se marcara
+// siempre, un fallo transitorio de Resend perdería para siempre el aviso de
+// ese umbral (30/15/0 días), justo en un recordatorio de un plazo legal.
 export async function notifyClinicCertificateExpiring(
   toEmails: string[], clinicName: string, daysLeft: number, validUntil: string, urgency: Urgency
-) {
-  if (toEmails.length === 0) return
+): Promise<boolean> {
+  if (toEmails.length === 0) return false
   const resend = new Resend(process.env.RESEND_API_KEY)
   const subject = urgency === 'critico'
     ? `⚠️ ConsentsPro: el certificado digital de ${clinicName} caduca hoy`
@@ -27,5 +32,9 @@ export async function notifyClinicCertificateExpiring(
   <p style="color:#64748b;font-size:13px">Este aviso es automático — no se necesita respuesta.</p>
 </body></html>`,
   })
-  if (error) console.error('[certificateExpiryEmail] fallo enviando aviso de caducidad:', error)
+  if (error) {
+    console.error('[certificateExpiryEmail] fallo enviando aviso de caducidad:', error)
+    return false
+  }
+  return true
 }
