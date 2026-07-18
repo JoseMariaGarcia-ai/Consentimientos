@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "未払い",
     "paymentStatusParcial": "一部支払い",
     "paymentStatusCobrada": "支払い済み",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "採番"
   },
   "certificateTab": {
     "unknownIssuer": "不明な発行者",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "各請求書シリーズの開始番号を設定します — 他のシステムから移行していて、1から再開するのではなく、中断した番号から続ける必要がある場合に便利です。",
+    "newSeries": "新しいシリーズ",
+    "noResults": "まだシリーズが設定されていません。最初に請求書を発行した時点で自動的に作成されるか、事前に「新しいシリーズ」で設定できます。",
+    "colSeries": "シリーズ",
+    "colNextNumber": "次の番号",
+    "colInvoiceCount": "発行済み請求書",
+    "colUpdatedAt": "更新日",
+    "colActions": "操作",
+    "lockedHint": "このシリーズにはすでに発行済みの請求書があります — 番号はもう編集できません。",
+    "newTitle": "新しいシリーズ",
+    "editTitle": "開始番号を編集",
+    "helpText": "開始番号は、シリーズに発行済みの請求書が1件もない間だけ設定・変更できます — 使用されると、採番は自動的かつ連続的になります。",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "シリーズ",
+      "nextNumber": "開始番号",
+      "nextNumberHint": "デフォルトは1です。このシリーズの最初の請求書はこの番号を使用します。"
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "シリーズは必須です",
+      "invalidNumber": "開始番号は1以上の整数である必要があります",
+      "saveFailed": "シリーズの設定を保存できませんでした"
     }
   }
 }

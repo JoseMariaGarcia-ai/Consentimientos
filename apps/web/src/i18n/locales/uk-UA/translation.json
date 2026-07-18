@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Очікує",
     "paymentStatusParcial": "Частково",
     "paymentStatusCobrada": "Оплачено",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Нумерація"
   },
   "certificateTab": {
     "unknownIssuer": "Невідомий видавець",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Налаштуйте початковий номер для кожної серії рахунків — корисно, якщо ви переходите з іншої системи і вам потрібно продовжити нумерацію з того місця, де зупинилися, замість того, щоб починати заново з 1.",
+    "newSeries": "Нова серія",
+    "noResults": "Поки що не налаштовано жодної серії. Вона створюється автоматично під час першого виставлення рахунку, або ви можете налаштувати її заздалегідь за допомогою \"Нова серія\".",
+    "colSeries": "Серія",
+    "colNextNumber": "Наступний номер",
+    "colInvoiceCount": "Виставлені рахунки",
+    "colUpdatedAt": "Оновлено",
+    "colActions": "Дії",
+    "lockedHint": "Ця серія вже має виставлені рахунки — її нумерацію більше не можна редагувати.",
+    "newTitle": "Нова серія",
+    "editTitle": "Редагувати початковий номер",
+    "helpText": "Початковий номер можна встановити або змінити лише доки серія не має жодного виставленого рахунку — після використання нумерація стає автоматичною та послідовною.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Серія",
+      "nextNumber": "Початковий номер",
+      "nextNumberHint": "За замовчуванням 1. Перший рахунок цієї серії використовуватиме цей номер."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Серія обов'язкова",
+      "invalidNumber": "Початковий номер має бути цілим числом, більшим або рівним 1",
+      "saveFailed": "Не вдалося зберегти налаштування серії"
     }
   }
 }

@@ -1789,7 +1789,7 @@
     "paymentStatusPendiente": "ממתין",
     "paymentStatusParcial": "חלקי",
     "paymentStatusCobrada": "שולם",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "מספור"
   },
   "certificateTab": {
     "unknownIssuer": "גורם מנפיק לא ידוע",
@@ -2149,27 +2149,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "הגדר את מספר ההתחלה של כל סדרת חשבוניות — שימושי אם אתה עובר ממערכת אחרת וצריך להמשיך את המספור מהמקום שבו הפסקת, במקום להתחיל מחדש מ-1.",
+    "newSeries": "סדרה חדשה",
+    "noResults": "עדיין לא הוגדרה שום סדרה. היא נוצרת אוטומטית בפעם הראשונה שתפיק חשבונית, או שתוכל להגדיר אותה מראש באמצעות \"סדרה חדשה\".",
+    "colSeries": "סדרה",
+    "colNextNumber": "מספר הבא",
+    "colInvoiceCount": "חשבוניות שהופקו",
+    "colUpdatedAt": "עודכן",
+    "colActions": "פעולות",
+    "lockedHint": "לסדרה זו כבר יש חשבוניות שהופקו — לא ניתן עוד לערוך את המספור שלה.",
+    "newTitle": "סדרה חדשה",
+    "editTitle": "עריכת מספר התחלה",
+    "helpText": "ניתן להגדיר או לשנות את מספר ההתחלה רק כל עוד לסדרה אין אף חשבונית שהופקה — ברגע שהיא בשימוש, המספור הופך לאוטומטי ורציף.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "סדרה",
+      "nextNumber": "מספר התחלה",
+      "nextNumberHint": "ברירת המחדל היא 1. החשבונית הראשונה בסדרה זו תשתמש במספר זה."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "נדרשת סדרה",
+      "invalidNumber": "מספר ההתחלה חייב להיות מספר שלם הגדול או שווה ל-1",
+      "saveFailed": "לא ניתן היה לשמור את הגדרות הסדרה"
     }
   }
 }

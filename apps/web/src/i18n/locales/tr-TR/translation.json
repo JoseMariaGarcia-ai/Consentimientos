@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Beklemede",
     "paymentStatusParcial": "Kısmi",
     "paymentStatusCobrada": "Ödendi",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numaralandırma"
   },
   "certificateTab": {
     "unknownIssuer": "Bilinmeyen düzenleyici",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Her fatura serisi için başlangıç numarasını yapılandırın — başka bir sistemden geçiş yapıyorsanız ve 1'den yeniden başlamak yerine kaldığınız yerden numaralandırmaya devam etmeniz gerekiyorsa kullanışlıdır.",
+    "newSeries": "Yeni seri",
+    "noResults": "Henüz yapılandırılmış bir seri yok. İlk faturalandırmanızda otomatik olarak oluşturulur veya \"Yeni seri\" ile önceden yapılandırabilirsiniz.",
+    "colSeries": "Seri",
+    "colNextNumber": "Sonraki numara",
+    "colInvoiceCount": "Kesilen faturalar",
+    "colUpdatedAt": "Güncellendi",
+    "colActions": "İşlemler",
+    "lockedHint": "Bu serinin zaten kesilmiş faturaları var — numaralandırması artık düzenlenemez.",
+    "newTitle": "Yeni seri",
+    "editTitle": "Başlangıç numarasını düzenle",
+    "helpText": "Başlangıç numarası yalnızca serinin hiç kesilmiş faturası yokken ayarlanabilir veya değiştirilebilir — bir kez kullanıldığında numaralandırma otomatik ve ardışık hale gelir.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Seri",
+      "nextNumber": "Başlangıç numarası",
+      "nextNumberHint": "Varsayılan 1'dir. Bu serinin ilk faturası bu numarayı kullanacaktır."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Seri zorunludur",
+      "invalidNumber": "Başlangıç numarası 1'e eşit veya büyük bir tam sayı olmalıdır",
+      "saveFailed": "Seri yapılandırması kaydedilemedi"
     }
   }
 }

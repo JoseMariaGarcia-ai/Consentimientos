@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Čeká",
     "paymentStatusParcial": "Částečně",
     "paymentStatusCobrada": "Zaplaceno",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Číslování"
   },
   "certificateTab": {
     "unknownIssuer": "Neznámý vydavatel",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Nastavte počáteční číslo pro každou fakturační řadu — užitečné při migraci z jiného systému, kdy chcete pokračovat v číslování tam, kde jste skončili, místo restartu na 1.",
+    "newSeries": "Nová řada",
+    "noResults": "Zatím není nastavena žádná řada. Vytvoří se automaticky při první fakturaci, nebo ji můžete nastavit předem pomocí \"Nová řada\".",
+    "colSeries": "Řada",
+    "colNextNumber": "Další číslo",
+    "colInvoiceCount": "Vystavené faktury",
+    "colUpdatedAt": "Aktualizováno",
+    "colActions": "Akce",
+    "lockedHint": "Tato řada už má vystavené faktury — její číslování už nelze upravit.",
+    "newTitle": "Nová řada",
+    "editTitle": "Upravit počáteční číslo",
+    "helpText": "Počáteční číslo lze nastavit nebo změnit pouze tehdy, pokud řada ještě nemá vystavenou žádnou fakturu — jakmile se použije, číslování se stane automatickým a postupným.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Řada",
+      "nextNumber": "Počáteční číslo",
+      "nextNumberHint": "Výchozí hodnota je 1. První faktura této řady použije toto číslo."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Řada je povinná",
+      "invalidNumber": "Počáteční číslo musí být celé číslo větší nebo rovné 1",
+      "saveFailed": "Nastavení řady se nepodařilo uložit"
     }
   }
 }

@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Pendente",
     "paymentStatusParcial": "Parcial",
     "paymentStatusCobrada": "Paga",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numeração"
   },
   "certificateTab": {
     "unknownIssuer": "Entidade emissora desconhecida",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
+    "intro": "Configura o número de partida de cada série de faturação — útil se estiveres a migrar de outro sistema e precisares de continuar a numeração onde a deixaste, em vez de reiniciar em 1.",
+    "newSeries": "Nova série",
+    "noResults": "Ainda não há nenhuma série configurada. É criada automaticamente na primeira vez que faturares, ou podes configurá-la antes com \"Nova série\".",
+    "colSeries": "Série",
     "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
+    "colInvoiceCount": "Faturas emitidas",
+    "colUpdatedAt": "Atualizado",
+    "colActions": "Ações",
+    "lockedHint": "Esta série já tem faturas emitidas — a sua numeração já não pode ser editada.",
+    "newTitle": "Nova série",
     "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "helpText": "O número de partida só pode ser definido ou alterado enquanto a série não tiver nenhuma fatura emitida — depois de usada, a numeração passa a ser automática e sequencial.",
     "form": {
-      "series": "Serie",
+      "series": "Série",
       "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "nextNumberHint": "Por defeito é 1. A primeira fatura desta série usará este número."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "A série é obrigatória",
+      "invalidNumber": "O número de partida deve ser um inteiro maior ou igual a 1",
+      "saveFailed": "Não foi possível guardar a configuração da série"
     }
   }
 }

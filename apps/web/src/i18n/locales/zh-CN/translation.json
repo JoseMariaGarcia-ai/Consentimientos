@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "待收款",
     "paymentStatusParcial": "部分收款",
     "paymentStatusCobrada": "已收款",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "编号"
   },
   "certificateTab": {
     "unknownIssuer": "未知签发机构",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "配置每个发票系列的起始编号——如果您正在从其他系统迁移，需要从中断处继续编号而不是从1重新开始，这将非常有用。",
+    "newSeries": "新建系列",
+    "noResults": "尚未配置任何系列。首次开具发票时会自动创建，或者您可以使用\"新建系列\"提前配置。",
+    "colSeries": "系列",
+    "colNextNumber": "下一个编号",
+    "colInvoiceCount": "已开具发票数",
+    "colUpdatedAt": "更新时间",
+    "colActions": "操作",
+    "lockedHint": "该系列已有已开具的发票——其编号无法再编辑。",
+    "newTitle": "新建系列",
+    "editTitle": "编辑起始编号",
+    "helpText": "只有当系列尚无已开具发票时，才能设置或更改起始编号——一旦使用后，编号将变为自动连续。",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "系列",
+      "nextNumber": "起始编号",
+      "nextNumberHint": "默认值为1。该系列的第一张发票将使用此编号。"
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "系列为必填项",
+      "invalidNumber": "起始编号必须是大于或等于1的整数",
+      "saveFailed": "无法保存系列配置"
     }
   }
 }

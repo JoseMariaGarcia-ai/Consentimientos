@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "In afwachting",
     "paymentStatusParcial": "Gedeeltelijk",
     "paymentStatusCobrada": "Betaald",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Nummering"
   },
   "certificateTab": {
     "unknownIssuer": "Onbekende uitgever",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Configureer het startnummer van elke factuurreeks — handig als je migreert vanuit een ander systeem en de nummering wilt voortzetten waar je gebleven was, in plaats van opnieuw te beginnen bij 1.",
+    "newSeries": "Nieuwe reeks",
+    "noResults": "Er is nog geen reeks geconfigureerd. Deze wordt automatisch aangemaakt bij de eerste factuur, of je kunt hem vooraf configureren met \"Nieuwe reeks\".",
+    "colSeries": "Reeks",
+    "colNextNumber": "Volgend nummer",
+    "colInvoiceCount": "Uitgegeven facturen",
+    "colUpdatedAt": "Bijgewerkt",
+    "colActions": "Acties",
+    "lockedHint": "Deze reeks heeft al uitgegeven facturen — de nummering kan niet meer worden bewerkt.",
+    "newTitle": "Nieuwe reeks",
+    "editTitle": "Startnummer bewerken",
+    "helpText": "Het startnummer kan alleen worden ingesteld of gewijzigd zolang de reeks geen uitgegeven facturen heeft — zodra deze wordt gebruikt, wordt de nummering automatisch en opeenvolgend.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Reeks",
+      "nextNumber": "Startnummer",
+      "nextNumberHint": "Standaard is 1. De eerste factuur van deze reeks gebruikt dit nummer."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Reeks is verplicht",
+      "invalidNumber": "Het startnummer moet een geheel getal groter dan of gelijk aan 1 zijn",
+      "saveFailed": "De reeksconfiguratie kon niet worden opgeslagen"
     }
   }
 }

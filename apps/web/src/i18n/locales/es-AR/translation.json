@@ -2165,9 +2165,9 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
+    "intro": "Configurá el número de partida de cada serie de facturación — útil si migrás desde otro sistema y necesitás continuar la numeración donde la dejaste, en lugar de reiniciar en 1.",
     "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
+    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o podés configurarla antes con \"Nueva serie\".",
     "colSeries": "Serie",
     "colNextNumber": "Próximo número",
     "colInvoiceCount": "Facturas emitidas",
@@ -2184,7 +2184,7 @@
     },
     "errors": {
       "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
+      "invalidNumber": "El número de partida debe ser un entero mayor o igual a 1",
       "saveFailed": "No se pudo guardar la configuración de la serie"
     }
   }

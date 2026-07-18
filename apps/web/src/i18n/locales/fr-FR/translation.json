@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "En attente",
     "paymentStatusParcial": "Partiel",
     "paymentStatusCobrada": "Payée",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numérotation"
   },
   "certificateTab": {
     "unknownIssuer": "Émetteur inconnu",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Configure le numéro de départ de chaque série de facturation — utile si tu migres depuis un autre système et dois continuer la numérotation là où tu l'as laissée, au lieu de repartir de 1.",
+    "newSeries": "Nouvelle série",
+    "noResults": "Aucune série configurée pour le moment. Elle est créée automatiquement à la première facture, ou tu peux la configurer à l'avance avec \"Nouvelle série\".",
+    "colSeries": "Série",
+    "colNextNumber": "Numéro suivant",
+    "colInvoiceCount": "Factures émises",
+    "colUpdatedAt": "Mis à jour",
+    "colActions": "Actions",
+    "lockedHint": "Cette série a déjà des factures émises — sa numérotation ne peut plus être modifiée.",
+    "newTitle": "Nouvelle série",
+    "editTitle": "Modifier le numéro de départ",
+    "helpText": "Le numéro de départ ne peut être défini ou modifié que tant que la série n'a aucune facture émise — une fois utilisée, la numérotation devient automatique et séquentielle.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Série",
+      "nextNumber": "Numéro de départ",
+      "nextNumberHint": "Par défaut, 1. La première facture de cette série utilisera ce numéro."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "La série est obligatoire",
+      "invalidNumber": "Le numéro de départ doit être un entier supérieur ou égal à 1",
+      "saveFailed": "Impossible d'enregistrer la configuration de la série"
     }
   }
 }

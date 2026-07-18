@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Odottaa",
     "paymentStatusParcial": "Osittainen",
     "paymentStatusCobrada": "Maksettu",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numerointi"
   },
   "certificateTab": {
     "unknownIssuer": "Tuntematon myöntäjä",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Määritä jokaisen laskusarjan aloitusnumero — hyödyllinen, jos siirryt toisesta järjestelmästä ja sinun täytyy jatkaa numerointia siitä, mihin jäit, sen sijaan että aloittaisit alusta numerosta 1.",
+    "newSeries": "Uusi sarja",
+    "noResults": "Sarjaa ei ole vielä määritetty. Se luodaan automaattisesti ensimmäisen laskun yhteydessä, tai voit määrittää sen etukäteen kohdasta \"Uusi sarja\".",
+    "colSeries": "Sarja",
+    "colNextNumber": "Seuraava numero",
+    "colInvoiceCount": "Lähetetyt laskut",
+    "colUpdatedAt": "Päivitetty",
+    "colActions": "Toiminnot",
+    "lockedHint": "Tällä sarjalla on jo lähetettyjä laskuja — sen numerointia ei voi enää muokata.",
+    "newTitle": "Uusi sarja",
+    "editTitle": "Muokkaa aloitusnumeroa",
+    "helpText": "Aloitusnumeron voi asettaa tai muuttaa vain, jos sarjalla ei vielä ole yhtään lähetettyä laskua — kun sitä käytetään, numeroinnista tulee automaattista ja juoksevaa.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Sarja",
+      "nextNumber": "Aloitusnumero",
+      "nextNumberHint": "Oletusarvo on 1. Tämän sarjan ensimmäinen lasku käyttää tätä numeroa."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Sarja on pakollinen",
+      "invalidNumber": "Aloitusnumeron on oltava kokonaisluku, joka on suurempi tai yhtä suuri kuin 1",
+      "saveFailed": "Sarjan asetuksia ei voitu tallentaa"
     }
   }
 }

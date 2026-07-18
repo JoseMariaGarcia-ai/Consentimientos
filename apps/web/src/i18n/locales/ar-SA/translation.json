@@ -1795,7 +1795,7 @@
     "paymentStatusPendiente": "معلق",
     "paymentStatusParcial": "جزئي",
     "paymentStatusCobrada": "محصّل",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "الترقيم"
   },
   "certificateTab": {
     "unknownIssuer": "جهة إصدار غير معروفة",
@@ -2155,27 +2155,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "حدد رقم البداية لكل سلسلة فوترة — مفيد إذا كنت تنتقل من نظام آخر وتحتاج إلى متابعة الترقيم من حيث توقفت، بدلاً من البدء من جديد من 1.",
+    "newSeries": "سلسلة جديدة",
+    "noResults": "لا توجد سلسلة مُهيأة بعد. تُنشأ تلقائياً عند أول فاتورة، أو يمكنك تهيئتها الآن باستخدام \"سلسلة جديدة\".",
+    "colSeries": "السلسلة",
+    "colNextNumber": "الرقم التالي",
+    "colInvoiceCount": "الفواتير الصادرة",
+    "colUpdatedAt": "آخر تحديث",
+    "colActions": "الإجراءات",
+    "lockedHint": "هذه السلسلة لديها فواتير صادرة بالفعل — لم يعد بالإمكان تعديل ترقيمها.",
+    "newTitle": "سلسلة جديدة",
+    "editTitle": "تعديل رقم البداية",
+    "helpText": "لا يمكن تحديد رقم البداية أو تغييره إلا إذا لم يكن للسلسلة أي فاتورة صادرة — بمجرد استخدامها، يصبح الترقيم تلقائياً ومتسلسلاً.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "السلسلة",
+      "nextNumber": "رقم البداية",
+      "nextNumberHint": "القيمة الافتراضية هي 1. ستستخدم أول فاتورة في هذه السلسلة هذا الرقم."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "السلسلة مطلوبة",
+      "invalidNumber": "يجب أن يكون رقم البداية عدداً صحيحاً أكبر من أو يساوي 1",
+      "saveFailed": "تعذر حفظ إعدادات السلسلة"
     }
   }
 }

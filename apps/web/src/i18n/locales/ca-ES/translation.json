@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Pendent",
     "paymentStatusParcial": "Parcial",
     "paymentStatusCobrada": "Cobrada",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numeració"
   },
   "certificateTab": {
     "unknownIssuer": "Entitat emissora desconeguda",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
+    "intro": "Configura el número de partida de cada sèrie de facturació — útil si migres des d'un altre sistema i necessites continuar la numeració on la vas deixar, en lloc de reiniciar a 1.",
+    "newSeries": "Nova sèrie",
+    "noResults": "Encara no hi ha cap sèrie configurada. Es crea automàticament la primera vegada que facturis, o la pots configurar abans amb \"Nova sèrie\".",
+    "colSeries": "Sèrie",
+    "colNextNumber": "Número següent",
+    "colInvoiceCount": "Factures emeses",
+    "colUpdatedAt": "Actualitzat",
+    "colActions": "Accions",
+    "lockedHint": "Aquesta sèrie ja té factures emeses — la seva numeració ja no es pot editar.",
+    "newTitle": "Nova sèrie",
     "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "helpText": "El número de partida només es pot fixar o canviar mentre la sèrie no tingui cap factura emesa — un cop s'utilitza, la numeració passa a ser automàtica i correlativa.",
     "form": {
-      "series": "Serie",
+      "series": "Sèrie",
       "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "nextNumberHint": "Per defecte és 1. La primera factura d'aquesta sèrie farà servir aquest número."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "La sèrie és obligatòria",
+      "invalidNumber": "El número de partida ha de ser un enter més gran o igual que 1",
+      "saveFailed": "No s'ha pogut desar la configuració de la sèrie"
     }
   }
 }

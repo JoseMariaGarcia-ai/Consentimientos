@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Ausstehend",
     "paymentStatusParcial": "Teilweise",
     "paymentStatusCobrada": "Bezahlt",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Nummerierung"
   },
   "certificateTab": {
     "unknownIssuer": "Unbekannter Aussteller",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
+    "intro": "Lege die Startnummer für jede Rechnungsserie fest — nützlich, wenn du von einem anderen System migrierst und die Nummerierung dort fortsetzen musst, wo du aufgehört hast, statt bei 1 neu zu beginnen.",
+    "newSeries": "Neue Serie",
+    "noResults": "Es ist noch keine Serie konfiguriert. Sie wird automatisch bei der ersten Rechnung erstellt, oder du kannst sie vorher mit \"Neue Serie\" konfigurieren.",
     "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "colNextNumber": "Nächste Nummer",
+    "colInvoiceCount": "Ausgestellte Rechnungen",
+    "colUpdatedAt": "Aktualisiert",
+    "colActions": "Aktionen",
+    "lockedHint": "Diese Serie hat bereits ausgestellte Rechnungen — ihre Nummerierung kann nicht mehr bearbeitet werden.",
+    "newTitle": "Neue Serie",
+    "editTitle": "Startnummer bearbeiten",
+    "helpText": "Die Startnummer kann nur festgelegt oder geändert werden, solange die Serie noch keine ausgestellte Rechnung hat — sobald sie verwendet wird, erfolgt die Nummerierung automatisch und fortlaufend.",
     "form": {
       "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "nextNumber": "Startnummer",
+      "nextNumberHint": "Standardmäßig 1. Die erste Rechnung dieser Serie verwendet diese Nummer."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Die Serie ist erforderlich",
+      "invalidNumber": "Die Startnummer muss eine ganze Zahl größer oder gleich 1 sein",
+      "saveFailed": "Die Serienkonfiguration konnte nicht gespeichert werden"
     }
   }
 }

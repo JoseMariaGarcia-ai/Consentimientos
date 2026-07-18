@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Ожидает",
     "paymentStatusParcial": "Частично",
     "paymentStatusCobrada": "Оплачен",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Нумерация"
   },
   "certificateTab": {
     "unknownIssuer": "Неизвестный издатель",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Настройте начальный номер для каждой серии счетов — полезно, если вы переходите с другой системы и вам нужно продолжить нумерацию с того места, где остановились, а не начинать заново с 1.",
+    "newSeries": "Новая серия",
+    "noResults": "Пока не настроено ни одной серии. Она создаётся автоматически при первом выставлении счёта, или вы можете настроить её заранее с помощью \"Новая серия\".",
+    "colSeries": "Серия",
+    "colNextNumber": "Следующий номер",
+    "colInvoiceCount": "Выставленные счета",
+    "colUpdatedAt": "Обновлено",
+    "colActions": "Действия",
+    "lockedHint": "В этой серии уже есть выставленные счета — её нумерацию больше нельзя редактировать.",
+    "newTitle": "Новая серия",
+    "editTitle": "Изменить начальный номер",
+    "helpText": "Начальный номер можно задать или изменить только пока в серии нет ни одного выставленного счёта — после использования нумерация становится автоматической и последовательной.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Серия",
+      "nextNumber": "Начальный номер",
+      "nextNumberHint": "По умолчанию 1. Первый счёт этой серии будет использовать этот номер."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Серия обязательна",
+      "invalidNumber": "Начальный номер должен быть целым числом больше или равным 1",
+      "saveFailed": "Не удалось сохранить настройки серии"
     }
   }
 }

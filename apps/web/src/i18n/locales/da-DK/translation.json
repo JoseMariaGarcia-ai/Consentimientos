@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Afventer",
     "paymentStatusParcial": "Delvis",
     "paymentStatusCobrada": "Betalt",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Nummerering"
   },
   "certificateTab": {
     "unknownIssuer": "Ukendt udsteder",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
+    "intro": "Konfigurer startnummeret for hver faktureringsserie — nyttigt hvis du migrerer fra et andet system og skal fortsætte nummereringen der, hvor du slap, i stedet for at starte forfra ved 1.",
+    "newSeries": "Ny serie",
+    "noResults": "Der er endnu ikke konfigureret nogen serie. Den oprettes automatisk, når du fakturerer første gang, eller du kan konfigurere den på forhånd med \"Ny serie\".",
     "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "colNextNumber": "Næste nummer",
+    "colInvoiceCount": "Udstedte fakturaer",
+    "colUpdatedAt": "Opdateret",
+    "colActions": "Handlinger",
+    "lockedHint": "Denne serie har allerede udstedte fakturaer — dens nummerering kan ikke længere redigeres.",
+    "newTitle": "Ny serie",
+    "editTitle": "Rediger startnummer",
+    "helpText": "Startnummeret kan kun angives eller ændres, så længe serien ikke har nogen udstedte fakturaer — når den først er brugt, bliver nummereringen automatisk og fortløbende.",
     "form": {
       "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "nextNumber": "Startnummer",
+      "nextNumberHint": "Standard er 1. Den første faktura i denne serie bruger dette nummer."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Serien er påkrævet",
+      "invalidNumber": "Startnummeret skal være et heltal større end eller lig med 1",
+      "saveFailed": "Kunne ikke gemme seriekonfigurationen"
     }
   }
 }

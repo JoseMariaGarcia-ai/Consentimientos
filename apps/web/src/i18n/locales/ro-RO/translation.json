@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "În așteptare",
     "paymentStatusParcial": "Parțial",
     "paymentStatusCobrada": "Achitată",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Numerotare"
   },
   "certificateTab": {
     "unknownIssuer": "Emitent necunoscut",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
+    "intro": "Configurează numărul de pornire pentru fiecare serie de facturare — util dacă migrezi de la alt sistem și trebuie să continui numerotarea de unde ai rămas, în loc să reîncepi de la 1.",
+    "newSeries": "Serie nouă",
+    "noResults": "Încă nu este configurată nicio serie. Se creează automat la prima factură, sau o poți configura din timp cu \"Serie nouă\".",
     "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "colNextNumber": "Numărul următor",
+    "colInvoiceCount": "Facturi emise",
+    "colUpdatedAt": "Actualizat",
+    "colActions": "Acțiuni",
+    "lockedHint": "Această serie are deja facturi emise — numerotarea ei nu mai poate fi editată.",
+    "newTitle": "Serie nouă",
+    "editTitle": "Editează numărul de pornire",
+    "helpText": "Numărul de pornire poate fi setat sau schimbat doar cât timp seria nu are nicio factură emisă — odată folosită, numerotarea devine automată și secvențială.",
     "form": {
       "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "nextNumber": "Numărul de pornire",
+      "nextNumberHint": "Valoarea implicită este 1. Prima factură din această serie va folosi acest număr."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Seria este obligatorie",
+      "invalidNumber": "Numărul de pornire trebuie să fie un întreg mai mare sau egal cu 1",
+      "saveFailed": "Nu s-a putut salva configurația seriei"
     }
   }
 }

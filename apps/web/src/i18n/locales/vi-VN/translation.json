@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Chờ xử lý",
     "paymentStatusParcial": "Một phần",
     "paymentStatusCobrada": "Đã thanh toán",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Đánh số"
   },
   "certificateTab": {
     "unknownIssuer": "Đơn vị phát hành không xác định",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Định cấu hình số bắt đầu cho mỗi chuỗi hóa đơn — hữu ích nếu bạn đang chuyển từ hệ thống khác và cần tiếp tục đánh số từ nơi bạn đã dừng lại, thay vì bắt đầu lại từ 1.",
+    "newSeries": "Chuỗi mới",
+    "noResults": "Chưa có chuỗi nào được cấu hình. Chuỗi được tạo tự động lần đầu bạn xuất hóa đơn, hoặc bạn có thể cấu hình trước bằng \"Chuỗi mới\".",
+    "colSeries": "Chuỗi",
+    "colNextNumber": "Số tiếp theo",
+    "colInvoiceCount": "Hóa đơn đã phát hành",
+    "colUpdatedAt": "Đã cập nhật",
+    "colActions": "Hành động",
+    "lockedHint": "Chuỗi này đã có hóa đơn được phát hành — không thể chỉnh sửa số thứ tự nữa.",
+    "newTitle": "Chuỗi mới",
+    "editTitle": "Chỉnh sửa số bắt đầu",
+    "helpText": "Số bắt đầu chỉ có thể được đặt hoặc thay đổi khi chuỗi chưa có hóa đơn nào được phát hành — sau khi sử dụng, việc đánh số trở thành tự động và tuần tự.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Chuỗi",
+      "nextNumber": "Số bắt đầu",
+      "nextNumberHint": "Mặc định là 1. Hóa đơn đầu tiên của chuỗi này sẽ sử dụng số này."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Chuỗi là bắt buộc",
+      "invalidNumber": "Số bắt đầu phải là số nguyên lớn hơn hoặc bằng 1",
+      "saveFailed": "Không thể lưu cấu hình chuỗi"
     }
   }
 }

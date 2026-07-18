@@ -1833,7 +1833,7 @@
     "paymentStatusPendiente": "Εκκρεμεί",
     "paymentStatusParcial": "Μερική",
     "paymentStatusCobrada": "Εξοφλημένη",
-    "tabNumbering": "Numeración"
+    "tabNumbering": "Αρίθμηση"
   },
   "certificateTab": {
     "unknownIssuer": "Άγνωστος εκδότης",
@@ -2193,27 +2193,27 @@
     }
   },
   "invoiceSeriesConfig": {
-    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
-    "newSeries": "Nueva serie",
-    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
-    "colSeries": "Serie",
-    "colNextNumber": "Próximo número",
-    "colInvoiceCount": "Facturas emitidas",
-    "colUpdatedAt": "Actualizado",
-    "colActions": "Acciones",
-    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
-    "newTitle": "Nueva serie",
-    "editTitle": "Editar número de partida",
-    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "intro": "Ρύθμισε τον αρχικό αριθμό κάθε σειράς τιμολόγησης — χρήσιμο αν μεταναστεύεις από άλλο σύστημα και χρειάζεται να συνεχίσεις την αρίθμηση από εκεί που έμεινες, αντί να ξεκινήσεις ξανά από το 1.",
+    "newSeries": "Νέα σειρά",
+    "noResults": "Δεν έχει ρυθμιστεί ακόμα καμία σειρά. Δημιουργείται αυτόματα με το πρώτο τιμολόγιο, ή μπορείς να τη ρυθμίσεις εκ των προτέρων με \"Νέα σειρά\".",
+    "colSeries": "Σειρά",
+    "colNextNumber": "Επόμενος αριθμός",
+    "colInvoiceCount": "Εκδοθέντα τιμολόγια",
+    "colUpdatedAt": "Ενημερώθηκε",
+    "colActions": "Ενέργειες",
+    "lockedHint": "Αυτή η σειρά έχει ήδη εκδοθέντα τιμολόγια — η αρίθμησή της δεν μπορεί πλέον να τροποποιηθεί.",
+    "newTitle": "Νέα σειρά",
+    "editTitle": "Επεξεργασία αρχικού αριθμού",
+    "helpText": "Ο αρχικός αριθμός μπορεί να οριστεί ή να αλλάξει μόνο όσο η σειρά δεν έχει κανένα εκδοθέν τιμολόγιο — μόλις χρησιμοποιηθεί, η αρίθμηση γίνεται αυτόματη και διαδοχική.",
     "form": {
-      "series": "Serie",
-      "nextNumber": "Número de partida",
-      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+      "series": "Σειρά",
+      "nextNumber": "Αρχικός αριθμός",
+      "nextNumberHint": "Η προεπιλογή είναι 1. Το πρώτο τιμολόγιο αυτής της σειράς θα χρησιμοποιήσει αυτόν τον αριθμό."
     },
     "errors": {
-      "seriesRequired": "La serie es obligatoria",
-      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
-      "saveFailed": "No se pudo guardar la configuración de la serie"
+      "seriesRequired": "Η σειρά είναι υποχρεωτική",
+      "invalidNumber": "Ο αρχικός αριθμός πρέπει να είναι ακέραιος μεγαλύτερος ή ίσος του 1",
+      "saveFailed": "Δεν ήταν δυνατή η αποθήκευση της ρύθμισης της σειράς"
     }
   }
 }
