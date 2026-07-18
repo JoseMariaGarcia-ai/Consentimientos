@@ -36,13 +36,20 @@ async function belongsToClinic(table: string, id: string, clinicId: string): Pro
 async function insertClockRecord(client: any, params: {
   clinicId: string; employeeId: string; recordType: string; method: string
   latitude: number | null; longitude: number | null; ipAddress: string | null; deviceInfo: string | null
+  timestampUtc?: string | Date
 }) {
   await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [params.employeeId])
   const { rows: prevRows } = await client.query(
     'SELECT record_hash FROM time_records WHERE employee_id = $1 ORDER BY created_at DESC LIMIT 1', [params.employeeId]
   )
   const previousHash: string | null = prevRows[0]?.record_hash ?? null
-  const timestampUtc = new Date().toISOString()
+  // params.timestampUtc puede llegar como Date (p. ej. una columna TIMESTAMPTZ
+  // leída de vuelta de Postgres, como incident.proposed_timestamp) — hay que
+  // normalizarlo SIEMPRE a string ISO antes de hashear: computeTimeRecordHash
+  // interpola el valor en un template literal, y `${Date}` usa .toString()
+  // (formato distinto de .toISOString()), lo que generaría un hash
+  // irreproducible en verifyClinicTimeChain().
+  const timestampUtc = params.timestampUtc ? new Date(params.timestampUtc).toISOString() : new Date().toISOString()
   const recordHash = computeTimeRecordHash({
     employeeId: params.employeeId,
     recordType: params.recordType as any,
@@ -321,6 +328,132 @@ router.post('/records/:id/correct', async (req, res) => {
       [original.id, clinicId, userId, String(reason).trim(), original.timestamp_utc, new_timestamp]
     )
     return res.status(201).json(edit)
+  } catch (err: any) { return res.status(400).json({ error: err.message }) }
+})
+
+// ---- Incidencias: olvido de fichaje y ausencias -----------------------------
+//
+// Dos naturalezas distintas a propósito, ver migración 074:
+// - olvido_entrada/olvido_salida: el día SÍ se trabajó, solo falta el
+//   fichaje — al aprobarse se crea el registro que faltaba (method='manual').
+// - ausencia_justificada/ausencia_injustificada/otro: el día NO se trabajó
+//   (o no aplica) — al aprobarse NUNCA se crea un fichaje, para no simular
+//   horas trabajadas que no existieron. Solo queda documentada.
+//
+// El empleado puede reportar sus propias incidencias, pero solo un
+// responsable de la clínica puede resolverlas (aprobar/rechazar) — ningún
+// empleado se autoaprueba, igual que las correcciones de fichajes.
+
+const INCIDENT_TYPES = ['olvido_entrada', 'olvido_salida', 'ausencia_justificada', 'ausencia_injustificada', 'otro']
+const FORGOTTEN_PUNCH_TYPES: Record<string, string> = { olvido_entrada: 'entrada', olvido_salida: 'salida' }
+
+router.get('/incidents', async (req, res) => {
+  const { userId } = (req as any).user
+  const { employee_id, status } = req.query
+  try {
+    const me = await getUser(userId)
+    if (!me?.clinic_id) return res.json([])
+    const isManager = MANAGER_ROLES.includes(me.role)
+    let targetEmployeeId = employee_id as string | undefined
+    if (!isManager) {
+      const own = await ownEmployee(userId, me.clinic_id)
+      if (!own) return res.json([])
+      targetEmployeeId = own.id
+    } else if (targetEmployeeId && !(await belongsToClinic('employees', targetEmployeeId, me.clinic_id))) {
+      return res.status(404).json({ error: 'Empleado no encontrado' })
+    }
+
+    let sql = `SELECT i.*, e.full_name AS employee_name
+       FROM time_incidents i JOIN employees e ON e.id = i.employee_id
+       WHERE i.clinic_id = $1`
+    const params: any[] = [me.clinic_id]
+    if (targetEmployeeId) { params.push(targetEmployeeId); sql += ` AND i.employee_id = $${params.length}` }
+    if (status) { params.push(status); sql += ` AND i.status = $${params.length}` }
+    sql += ' ORDER BY i.created_at DESC'
+
+    return res.json(await query(sql, params))
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.post('/incidents', async (req, res) => {
+  const { userId } = (req as any).user
+  const { employee_id, incident_type, proposed_timestamp, date_from, date_to, reason } = req.body
+  try {
+    const me = await getUser(userId)
+    if (!me?.clinic_id) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const isManager = MANAGER_ROLES.includes(me.role)
+
+    let targetEmployeeId: string
+    if (isManager) {
+      if (!employee_id) return res.status(400).json({ error: 'employee_id requerido' })
+      if (!(await belongsToClinic('employees', employee_id, me.clinic_id))) return res.status(404).json({ error: 'Empleado no encontrado' })
+      targetEmployeeId = employee_id
+    } else {
+      const own = await ownEmployee(userId, me.clinic_id)
+      if (!own) return res.status(404).json({ error: 'No hay un empleado de fichaje vinculado a tu usuario' })
+      targetEmployeeId = own.id
+    }
+
+    if (!INCIDENT_TYPES.includes(incident_type)) return res.status(400).json({ error: 'Tipo de incidencia no válido' })
+    if (!reason || !String(reason).trim()) return res.status(400).json({ error: 'El motivo es obligatorio' })
+    if (incident_type in FORGOTTEN_PUNCH_TYPES && !proposed_timestamp) {
+      return res.status(400).json({ error: 'Indica la fecha/hora en la que ocurrió el fichaje olvidado' })
+    }
+    if (incident_type.startsWith('ausencia') && !date_from) {
+      return res.status(400).json({ error: 'Indica la fecha (o rango) de la ausencia' })
+    }
+
+    const incident = await queryOne(
+      `INSERT INTO time_incidents (clinic_id, employee_id, incident_type, proposed_timestamp, date_from, date_to, reason, reported_by)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *`,
+      [
+        me.clinic_id, targetEmployeeId, incident_type,
+        incident_type in FORGOTTEN_PUNCH_TYPES ? proposed_timestamp : null,
+        incident_type.startsWith('ausencia') ? date_from : null,
+        incident_type.startsWith('ausencia') ? (date_to || date_from) : null,
+        String(reason).trim(), userId,
+      ]
+    )
+    return res.status(201).json(incident)
+  } catch (err: any) { return res.status(400).json({ error: err.message }) }
+})
+
+router.post('/incidents/:id/resolve', async (req, res) => {
+  const { userId } = (req as any).user
+  const { approve, resolution_notes } = req.body
+  try {
+    const clinicId = await requireManager(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Solo el responsable de la clínica puede resolver incidencias' })
+    const incident = await queryOne<any>(
+      'SELECT * FROM time_incidents WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId]
+    )
+    if (!incident) return res.status(404).json({ error: 'Incidencia no encontrada' })
+    if (incident.status !== 'pendiente') return res.status(400).json({ error: 'Esta incidencia ya ha sido resuelta' })
+
+    let createdRecordId: string | null = null
+    if (approve) {
+      const forgottenType = FORGOTTEN_PUNCH_TYPES[incident.incident_type]
+      if (forgottenType) {
+        // Olvido de fichaje: SÍ se crea el registro que faltaba, con la
+        // hora propuesta y aprobada — encadenado igual que cualquier otro,
+        // marcado como 'manual' para distinguirlo de un fichaje en vivo.
+        const record = await withTransaction(client => insertClockRecord(client, {
+          clinicId, employeeId: incident.employee_id, recordType: forgottenType, method: 'manual',
+          latitude: null, longitude: null, ipAddress: null, deviceInfo: null,
+          timestampUtc: incident.proposed_timestamp,
+        }))
+        createdRecordId = record.id
+      }
+      // Ausencias y "otro": nunca se crea un fichaje — ver nota de diseño arriba.
+    }
+
+    const resolved = await queryOne(
+      `UPDATE time_incidents SET
+         status = $1, resolved_by = $2, resolved_at = NOW(), resolution_notes = $3, created_record_id = $4
+       WHERE id = $5 RETURNING *`,
+      [approve ? 'aprobada' : 'rechazada', userId, resolution_notes ?? null, createdRecordId, incident.id]
+    )
+    return res.json(resolved)
   } catch (err: any) { return res.status(400).json({ error: err.message }) }
 })
 
