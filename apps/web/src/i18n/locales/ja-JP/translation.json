@@ -1832,7 +1832,8 @@
     "paymentStatus": "支払い状況",
     "paymentStatusPendiente": "未払い",
     "paymentStatusParcial": "一部支払い",
-    "paymentStatusCobrada": "支払い済み"
+    "paymentStatusCobrada": "支払い済み",
+    "tabNumbering": "Numeración"
   },
   "certificateTab": {
     "unknownIssuer": "不明な発行者",
@@ -2189,6 +2190,30 @@
     "errors": {
       "amountRequired": "0より大きい金額を入力してください",
       "saveFailed": "支払いを登録できませんでした"
+    }
+  },
+  "invoiceSeriesConfig": {
+    "intro": "Configura el número de partida de cada serie de facturación — útil si migras desde otro sistema y necesitas continuar la numeración donde la dejaste, en vez de reiniciar en 1.",
+    "newSeries": "Nueva serie",
+    "noResults": "Todavía no hay ninguna serie configurada. Se crea automáticamente la primera vez que factures, o puedes configurarla antes con \"Nueva serie\".",
+    "colSeries": "Serie",
+    "colNextNumber": "Próximo número",
+    "colInvoiceCount": "Facturas emitidas",
+    "colUpdatedAt": "Actualizado",
+    "colActions": "Acciones",
+    "lockedHint": "Esta serie ya tiene facturas emitidas — su numeración ya no se puede editar.",
+    "newTitle": "Nueva serie",
+    "editTitle": "Editar número de partida",
+    "helpText": "El número de partida solo se puede fijar o cambiar mientras la serie no tenga ninguna factura emitida — una vez que se usa, la numeración pasa a ser automática y correlativa.",
+    "form": {
+      "series": "Serie",
+      "nextNumber": "Número de partida",
+      "nextNumberHint": "Por defecto es 1. La primera factura de esta serie usará este número."
+    },
+    "errors": {
+      "seriesRequired": "La serie es obligatoria",
+      "invalidNumber": "El número de partida debe ser un entero mayor o igual que 1",
+      "saveFailed": "No se pudo guardar la configuración de la serie"
     }
   }
 }

@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BadgeEuro, Plus, Eye, FileDown, Mail, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical, Users, Wallet } from 'lucide-react'
+import { BadgeEuro, Plus, Eye, FileDown, Mail, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical, Users, Wallet, Hash } from 'lucide-react'
 import { api } from '@/lib/api'
 import { InvoiceModal } from '@/components/invoicing/InvoiceModal'
 import { InvoiceView } from '@/components/invoicing/InvoiceView'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { CertificateTab } from '@/components/invoicing/CertificateTab'
 import { BillingClientsList } from '@/components/invoicing/BillingClientsList'
+import { InvoiceSeriesConfig } from '@/components/invoicing/InvoiceSeriesConfig'
 import { SendInvoiceEmailModal } from '@/components/invoicing/SendInvoiceEmailModal'
 import { PaymentModal } from '@/components/invoicing/PaymentModal'
 import { invoicePdfBlob } from '@/components/invoicing/InvoicePdfButton'
@@ -30,7 +31,7 @@ export default function Invoicing() {
   const { t } = useTranslation()
   const { role } = useAuth()
   const canManageCertificate = role === 'clinica' || role === 'superadmin'
-  const [tab, setTab] = useState<'invoices' | 'certificate' | 'clients'>('invoices')
+  const [tab, setTab] = useState<'invoices' | 'certificate' | 'clients' | 'numbering'>('invoices')
   const [aeatMode, setAeatMode] = useState<'test' | 'production'>('test')
   const [invoices, setInvoices] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
@@ -181,6 +182,14 @@ export default function Invoicing() {
         </button>
         {canManageCertificate && (
           <button
+            onClick={() => setTab('numbering')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'numbering' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <Hash className="w-4 h-4" />{t('invoicing.tabNumbering')}
+          </button>
+        )}
+        {canManageCertificate && (
+          <button
             onClick={() => setTab('certificate')}
             className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'certificate' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
           >
@@ -192,6 +201,8 @@ export default function Invoicing() {
       {tab === 'certificate' && <CertificateTab />}
 
       {tab === 'clients' && <BillingClientsList onViewInvoices={handleViewClientInvoices} />}
+
+      {tab === 'numbering' && <InvoiceSeriesConfig />}
 
       {tab === 'invoices' && (
       <>
