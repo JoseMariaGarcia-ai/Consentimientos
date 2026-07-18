@@ -48,7 +48,9 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
     setSaving(true)
     setSaveError('')
     try {
-      await onSave(form)
+      // doctor_id/branch vacíos deben ir como undefined, no como "" — un
+      // UUID vacío rompe la columna doctor_id en el backend.
+      await onSave({ ...form, doctor_id: form.doctor_id || undefined, branch: form.branch || undefined })
       triggerWelcome('clinical')
       onClose()
     } catch (err: any) {
