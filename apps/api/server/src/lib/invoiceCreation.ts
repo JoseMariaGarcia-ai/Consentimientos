@@ -47,10 +47,24 @@ export async function createInvoiceRecord(input: CreateInvoiceInput) {
     // no pueden leer el mismo "último hash" y bifurcar la cadena.
     await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [input.clinicId])
 
-    const { rows: countRows } = await client.query(
-      'SELECT COUNT(*) FROM invoices WHERE clinic_id = $1 AND series = $2', [input.clinicId, input.series]
+    // El número de partida de cada serie es configurable (por defecto 1,
+    // ver invoice_series y PUT /invoices/series/:series) — aquí solo se
+    // consume e incrementa de forma atómica bajo el lock de arriba, nunca
+    // se recalcula por COUNT (eso rompería la correlatividad si alguna
+    // factura se anula/rectifica más adelante).
+    await client.query(
+      `INSERT INTO invoice_series (clinic_id, series, next_number)
+       VALUES ($1, $2, 1)
+       ON CONFLICT (clinic_id, series) DO NOTHING`,
+      [input.clinicId, input.series]
     )
-    const seq = Number(countRows[0]?.count ?? 0) + 1
+    const { rows: seriesRows } = await client.query(
+      `UPDATE invoice_series SET next_number = next_number + 1, updated_at = NOW()
+       WHERE clinic_id = $1 AND series = $2
+       RETURNING next_number - 1 AS seq`,
+      [input.clinicId, input.series]
+    )
+    const seq = Number(seriesRows[0].seq)
     const invoiceNumber = `${input.series}-${String(seq).padStart(4, '0')}`
 
     const { rows: invRows } = await client.query(
