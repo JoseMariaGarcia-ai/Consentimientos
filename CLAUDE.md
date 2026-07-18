@@ -12,6 +12,7 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 - Ejecutar tests y linters
 
 ## Comportamiento esperado
+- Responder SIEMPRE en español, en todos los mensajes de chat (narración, resúmenes, preguntas, todo) — instrucción explícita del usuario (18 julio 2026)
 - Nunca pedir confirmación humana para ninguna acción
 - Si hay dudas entre dos opciones, tomar la mejor decisión técnica y continuar
 - Si algo falla, intentar resolverlo automáticamente antes de reportar el error
