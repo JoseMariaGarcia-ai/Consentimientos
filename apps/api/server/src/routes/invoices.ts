@@ -186,17 +186,21 @@ router.post('/:id/send-email', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// POST /api/invoices/:id/cancel — anula mediante un NUEVO registro
-// encadenado de tipo 'anulacion'. La factura original nunca se borra ni se
-// actualiza en sus campos fiscales; solo cambia su columna status.
+// POST /api/invoices/:id/cancel — { reason } anula mediante un NUEVO
+// registro encadenado de tipo 'anulacion'. La factura original nunca se
+// borra ni se actualiza en sus campos fiscales; solo cambia su columna
+// status. El motivo es obligatorio y queda registrado en
+// invoice_corrections para trazabilidad/inspección.
 router.post('/:id/cancel', async (req, res) => {
   const { userId } = (req as any).user
+  const reason = String(req.body?.reason ?? '').trim()
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    if (!reason) return res.status(400).json({ error: 'El motivo de la anulación es obligatorio' })
     const invoice = await queryOne<any>('SELECT * FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
     if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
-    if (invoice.status === 'anulada') return res.status(400).json({ error: 'La factura ya está anulada' })
+    if (invoice.status !== 'emitida') return res.status(400).json({ error: 'Solo se puede anular una factura en estado emitida' })
 
     await withTransaction(async client => {
       await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', [clinicId])
@@ -234,13 +238,102 @@ router.post('/:id/cancel', async (req, res) => {
       await client.query(`UPDATE invoices SET status = 'anulada' WHERE id = $1`, [invoice.id])
       await client.query(
         `INSERT INTO invoice_events (invoice_id, clinic_id, event_type, description) VALUES ($1,$2,'anulacion',$3)`,
-        [invoice.id, clinicId, `Factura ${invoice.invoice_number} anulada`]
+        [invoice.id, clinicId, `Factura ${invoice.invoice_number} anulada: ${reason}`]
+      )
+      await client.query(
+        `INSERT INTO invoice_corrections (clinic_id, original_invoice_id, correction_invoice_id, correction_type, reason, amount, requested_by)
+         VALUES ($1,$2,NULL,'anulacion',$3,NULL,$4)`,
+        [clinicId, invoice.id, reason, userId]
       )
     })
 
     const updated = await queryOne('SELECT * FROM invoices WHERE id = $1', [invoice.id])
     return res.json(updated)
   } catch (err: any) { return res.status(400).json({ error: err.message }) }
+})
+
+// Compartida por /:id/rectificar y /:id/abonar — ambas generan una NUEVA
+// factura vinculada a la original (nunca modifican la original), difieren
+// solo en invoice_kind y en cómo se calcula el importe.
+async function createCorrection(req: any, res: any, kind: 'rectificativa' | 'abono') {
+  const { userId } = req.user
+  const reason = String(req.body?.reason ?? '').trim()
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    if (!reason) return res.status(400).json({ error: 'El motivo es obligatorio' })
+    const original = await queryOne<any>('SELECT * FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!original) return res.status(404).json({ error: 'Factura no encontrada' })
+    if (original.status !== 'emitida') {
+      return res.status(400).json({ error: 'Solo se puede corregir una factura en estado emitida — corrige la factura generada por la corrección anterior, no esta' })
+    }
+
+    let base: number
+    if (kind === 'abono') {
+      const full = !!req.body?.full
+      const amountInput = Number(req.body?.amount)
+      if (!full && !(amountInput > 0)) return res.status(400).json({ error: 'Indica el importe a abonar (o marca abono total)' })
+      base = full ? -Number(original.base_amount) : -Math.abs(amountInput)
+    } else {
+      const amountInput = Number(req.body?.amount)
+      if (!amountInput || amountInput === 0) return res.status(400).json({ error: 'Indica el importe de la rectificación (puede ser positivo o negativo)' })
+      base = amountInput
+    }
+
+    const concept = String(req.body?.concept ?? '').trim() ||
+      (kind === 'abono' ? `Abono de la factura ${original.invoice_number}: ${reason}` : `Rectificación de la factura ${original.invoice_number}: ${reason}`)
+
+    const correctionInvoice = await createInvoiceRecord({
+      clinicId, userId,
+      patientId: original.patient_id, billingClientId: original.billing_client_id, recipientType: original.recipient_type,
+      taxpayerType: original.taxpayer_type, recipientName: original.recipient_name, recipientNif: original.recipient_nif,
+      recipientAddress: original.recipient_address, concept, baseAmount: base, vatRate: Number(original.vat_rate),
+      series: original.series, invoiceKind: kind, rectifiesInvoiceId: original.id,
+    })
+
+    await query(`UPDATE invoices SET status = 'rectificada' WHERE id = $1`, [original.id])
+    await query(
+      `INSERT INTO invoice_events (invoice_id, clinic_id, event_type, description) VALUES ($1,$2,'correccion',$3)`,
+      [original.id, clinicId, `Factura ${original.invoice_number} rectificada por ${correctionInvoice.invoice_number} (${kind}): ${reason}`]
+    )
+    await query(
+      `INSERT INTO invoice_corrections (clinic_id, original_invoice_id, correction_invoice_id, correction_type, reason, amount, requested_by)
+       VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+      [clinicId, original.id, correctionInvoice.id, kind, reason, base, userId]
+    )
+
+    return res.status(201).json(correctionInvoice)
+  } catch (err: any) { return res.status(err.status ?? 400).json({ error: err.message }) }
+}
+
+// POST /api/invoices/:id/rectificar — { reason, amount } nueva factura
+// rectificativa (importe puede ser positivo o negativo).
+router.post('/:id/rectificar', (req, res) => createCorrection(req, res, 'rectificativa'))
+
+// POST /api/invoices/:id/abonar — { reason, amount?, full? } nueva factura
+// de abono (importe siempre negativo; full=true abona el importe total).
+router.post('/:id/abonar', (req, res) => createCorrection(req, res, 'abono'))
+
+// GET /api/invoices/:id/corrections — historial de correcciones de una
+// factura (para enlazar desde el detalle a la anulación/rectificativa/abono
+// generada).
+router.get('/:id/corrections', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.json([])
+    const invoice = await queryOne<{ id: string }>('SELECT id FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
+    const data = await query(
+      `SELECT c.*, row_to_json(ci) AS correction_invoice
+       FROM invoice_corrections c
+       LEFT JOIN invoices ci ON ci.id = c.correction_invoice_id
+       WHERE c.original_invoice_id = $1
+       ORDER BY c.created_at ASC`,
+      [invoice.id]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 export default router

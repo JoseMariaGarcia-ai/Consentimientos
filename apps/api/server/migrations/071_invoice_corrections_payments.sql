@@ -59,6 +59,13 @@ CREATE TABLE IF NOT EXISTS invoice_payments (
 CREATE INDEX IF NOT EXISTS idx_inv_payments_invoice ON invoice_payments(invoice_id);
 CREATE INDEX IF NOT EXISTS idx_inv_payments_clinic ON invoice_payments(clinic_id, payment_date DESC);
 
+-- Las rectificativas/abonos generan un evento propio en la factura
+-- ORIGINAL para dejar constancia de qué corrección la reemplazó, distinto
+-- de 'anulacion' (que es la anulación simple, sin factura nueva).
+ALTER TABLE invoice_events DROP CONSTRAINT IF EXISTS invoice_events_event_type_check;
+ALTER TABLE invoice_events ADD CONSTRAINT invoice_events_event_type_check
+  CHECK (event_type IN ('creacion', 'envio_aeat', 'anulacion', 'alarma_integridad', 'envio_manual_email', 'correccion'));
+
 ALTER TABLE invoice_corrections ENABLE ROW LEVEL SECURITY;
 ALTER TABLE invoice_payments    ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS "Service key full access on invoice_corrections" ON invoice_corrections;
