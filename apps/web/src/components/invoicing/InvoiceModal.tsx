@@ -2,21 +2,28 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BadgeEuro, X } from 'lucide-react'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { BillingClientCombobox } from './BillingClientCombobox'
+import { BillingClientModal } from './BillingClientModal'
+import { api } from '@/lib/api'
 
-const MANUAL = '__manual__'
 const VAT_RATES = [21, 10, 4, 0]
 
 interface Props {
   patients: any[]
+  billingClients?: any[]
+  onBillingClientCreated?: (client: any) => void
   onSave: (data: any) => Promise<void>
   onClose: () => void
 }
 
 const patientLabel = (p: any) => p.full_name ?? p.fullName ?? `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim()
 
-export function InvoiceModal({ patients, onSave, onClose }: Props) {
+export function InvoiceModal({ patients, billingClients = [], onBillingClientCreated = () => {}, onSave, onClose }: Props) {
   const { t } = useTranslation()
+  const [recipientMode, setRecipientMode] = useState<'paciente' | 'cliente'>('paciente')
   const [patientId, setPatientId] = useState('')
+  const [billingClientId, setBillingClientId] = useState('')
+  const [showNewClientModal, setShowNewClientModal] = useState(false)
   const [taxpayerType, setTaxpayerType] = useState<'empresa' | 'autonomo'>('autonomo')
   const [recipientName, setRecipientName] = useState('')
   const [recipientNif, setRecipientNif] = useState('')
@@ -32,15 +39,42 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
   const vatAmount = Math.round(base * vatRate) / 100
   const total = Math.round((base + vatAmount) * 100) / 100
 
+  const switchMode = (mode: 'paciente' | 'cliente') => {
+    setRecipientMode(mode)
+    setPatientId('')
+    setBillingClientId('')
+    setRecipientName('')
+    setRecipientNif('')
+    setRecipientAddress('')
+  }
+
   const handlePatientSelect = (value: string) => {
     setPatientId(value)
-    if (value === MANUAL || value === '') { setPatientId(''); return }
+    if (!value) { setRecipientName(''); setRecipientNif(''); setRecipientAddress(''); return }
     const p = patients.find(pt => pt.id === value)
     if (p) {
       setRecipientName(patientLabel(p))
       setRecipientNif(p.id_document ?? '')
       setRecipientAddress((p.address ?? '').split('|')[0] ?? '')
     }
+  }
+
+  const handleClientSelect = (value: string) => {
+    setBillingClientId(value)
+    const c = billingClients.find(bc => bc.id === value)
+    if (c) {
+      setRecipientName(c.full_name)
+      setRecipientNif(c.tax_id)
+      setRecipientAddress(c.address ?? '')
+    } else {
+      setRecipientName(''); setRecipientNif(''); setRecipientAddress('')
+    }
+  }
+
+  const handleCreateClient = async (data: any) => {
+    const created = await api.post('/billing-clients', data)
+    onBillingClientCreated(created)
+    handleClientSelect(created.id)
   }
 
   const handleSave = async () => {
@@ -52,7 +86,8 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
     setSaving(true)
     try {
       await onSave({
-        patient_id: patientId || null,
+        patient_id: recipientMode === 'paciente' ? (patientId || null) : null,
+        billing_client_id: recipientMode === 'cliente' ? (billingClientId || null) : null,
         taxpayer_type: taxpayerType,
         recipient_name: recipientName.trim(),
         recipient_nif: recipientNif.trim(),
@@ -70,6 +105,8 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
     }
   }
 
+  const clientLocked = recipientMode === 'cliente' && !!billingClientId
+
   return (
     <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -84,16 +121,49 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
         </div>
 
         <div className="p-6 flex flex-col gap-5">
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.patient')}</label>
-            <PatientCombobox
-              patients={patients}
-              value={patientId}
-              onChange={handlePatientSelect}
-              placeholder={t('invoiceModal.form.selectPatientOrManual')}
-            />
-            <p className="text-[11px] text-slate-400">{t('invoiceModal.form.manualHint')}</p>
+          <div className="flex flex-col gap-2">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.whoAreYouBilling')}</label>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => switchMode('paciente')}
+                className={`px-4 py-2.5 rounded-xl border-2 text-sm font-medium transition-colors ${recipientMode === 'paciente' ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+              >
+                {t('invoiceModal.form.billToPatient')}
+              </button>
+              <button
+                type="button"
+                onClick={() => switchMode('cliente')}
+                className={`px-4 py-2.5 rounded-xl border-2 text-sm font-medium transition-colors ${recipientMode === 'cliente' ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+              >
+                {t('invoiceModal.form.billToClient')}
+              </button>
+            </div>
           </div>
+
+          {recipientMode === 'paciente' ? (
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.patient')}</label>
+              <PatientCombobox
+                patients={patients}
+                value={patientId}
+                onChange={handlePatientSelect}
+                placeholder={t('invoiceModal.form.selectPatientOrManual')}
+              />
+              <p className="text-[11px] text-slate-400">{t('invoiceModal.form.manualHint')}</p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.client')}</label>
+              <BillingClientCombobox
+                clients={billingClients}
+                value={billingClientId}
+                onChange={handleClientSelect}
+                onCreateNew={() => setShowNewClientModal(true)}
+                placeholder={t('invoiceModal.form.selectClient')}
+              />
+            </div>
+          )}
 
           <div className="flex flex-col gap-2">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.taxpayerType')}</label>
@@ -121,7 +191,8 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
               <input
                 value={recipientName}
                 onChange={e => setRecipientName(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                disabled={clientLocked}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -129,7 +200,8 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
               <input
                 value={recipientNif}
                 onChange={e => setRecipientNif(e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                disabled={clientLocked}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
               />
             </div>
           </div>
@@ -139,7 +211,8 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
             <input
               value={recipientAddress}
               onChange={e => setRecipientAddress(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              disabled={clientLocked}
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:bg-slate-50 disabled:text-slate-500"
             />
           </div>
 
@@ -220,6 +293,13 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
           </button>
         </div>
       </div>
+
+      {showNewClientModal && (
+        <BillingClientModal
+          onSave={handleCreateClient}
+          onClose={() => setShowNewClientModal(false)}
+        />
+      )}
     </div>
   )
 }
