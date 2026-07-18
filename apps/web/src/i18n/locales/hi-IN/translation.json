@@ -113,7 +113,17 @@
     "unknown_error": "अज्ञात त्रुटि",
     "cancel": "रद्द करें",
     "saving": "सहेजा जा रहा है…",
-    "save_record": "रिकॉर्ड सहेजें"
+    "save_record": "रिकॉर्ड सहेजें",
+    "habits_title": "गर्भावस्था और आदतें",
+    "is_pregnant": "गर्भावस्था",
+    "tobacco_use": "तंबाकू का सेवन",
+    "alcohol_use": "शराब का सेवन",
+    "drug_use": "नशीली दवाओं का सेवन",
+    "tri_state": {
+      "unspecified": "अनिर्दिष्ट",
+      "no": "नहीं",
+      "yes": "हाँ"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "फ़ाइल {{maxSize}} MB की सीमा से अधिक है",
@@ -898,6 +908,10 @@
       "osteopatia": "ऑस्टियोपैथी और काइरोप्रैक्टिक",
       "laboratorio_clinico": "क्लिनिकल प्रयोगशाला"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "नाम, फ़ोन या पहचान पत्र से खोजें…",
+    "no_results": "कोई परिणाम नहीं"
   },
   "patientDetail": {
     "confirm_delete_clinical": "क्या इस क्लिनिकल रिकॉर्ड को हटाना है?",

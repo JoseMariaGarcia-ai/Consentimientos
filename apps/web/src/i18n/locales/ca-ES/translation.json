@@ -113,7 +113,17 @@
     "unknown_error": "Error desconegut",
     "cancel": "Cancel·lar",
     "saving": "Desant…",
-    "save_record": "Desar història"
+    "save_record": "Desar història",
+    "habits_title": "Embaràs i hàbits",
+    "is_pregnant": "Embaràs",
+    "tobacco_use": "Tabaquisme",
+    "alcohol_use": "Consum d’alcohol",
+    "drug_use": "Consum de drogues",
+    "tri_state": {
+      "unspecified": "Sense especificar",
+      "no": "No",
+      "yes": "Sí"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "L'arxiu supera el límit de {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopatia i Quiropràxia",
       "laboratorio_clinico": "Laboratori Clínic"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Cerca per nom, telèfon o DNI…",
+    "no_results": "Sense resultats"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Vols eliminar aquesta història clínica?",

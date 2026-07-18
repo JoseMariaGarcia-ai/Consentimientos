@@ -5,6 +5,7 @@ import { Syringe, Plus, Pencil, Trash2, FilterX, PenLine, FileCheck, Eye } from 
 import { api } from '@/lib/api'
 import { ToxinModal } from '@/components/toxin/ToxinModal'
 import { ToxinPdfButton } from '@/components/toxin/ToxinPdfButton'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 const EMPTY_FILTERS = { date_from: '', date_to: '', doctor_id: '', patient_id: '', lot_number: '' }
 
@@ -150,11 +151,12 @@ export default function Toxina() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('toxin.patient')}</label>
-          <select value={filters.patient_id} onChange={e => setFilters(f => ({ ...f, patient_id: e.target.value }))}
-            className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
-            <option value="">{t('toxin.all')}</option>
-            {patients.map(p => <option key={p.id} value={p.id}>{patientName(p)}</option>)}
-          </select>
+          <PatientCombobox
+            patients={patients}
+            value={filters.patient_id}
+            onChange={id => setFilters(f => ({ ...f, patient_id: id }))}
+            placeholder={t('toxin.all')}
+          />
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('toxin.lot_number')}</label>

@@ -113,7 +113,17 @@
     "unknown_error": "Tuntematon virhe",
     "cancel": "Peruuta",
     "saving": "Tallennetaan…",
-    "save_record": "Tallenna kertomus"
+    "save_record": "Tallenna kertomus",
+    "habits_title": "Raskaus ja tavat",
+    "is_pregnant": "Raskaus",
+    "tobacco_use": "Tupakointi",
+    "alcohol_use": "Alkoholinkäyttö",
+    "drug_use": "Huumeidenkäyttö",
+    "tri_state": {
+      "unspecified": "Ei määritetty",
+      "no": "Ei",
+      "yes": "Kyllä"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Tiedosto ylittää {{maxSize}} Mt:n rajan",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopatia ja Kiropraktiikka",
       "laboratorio_clinico": "Kliininen Laboratorio"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Hae nimellä, puhelimella tai henkilötunnuksella…",
+    "no_results": "Ei tuloksia"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Poistetaanko tämä potilaskertomus?",

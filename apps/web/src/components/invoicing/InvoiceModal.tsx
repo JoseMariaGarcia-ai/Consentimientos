@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BadgeEuro, X } from 'lucide-react'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 const MANUAL = '__manual__'
 const VAT_RATES = [21, 10, 4, 0]
@@ -85,14 +86,12 @@ export function InvoiceModal({ patients, onSave, onClose }: Props) {
         <div className="p-6 flex flex-col gap-5">
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('invoiceModal.form.patient')}</label>
-            <select
+            <PatientCombobox
+              patients={patients}
               value={patientId}
-              onChange={e => handlePatientSelect(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">{t('invoiceModal.form.selectPatientOrManual')}</option>
-              {patients.map(p => <option key={p.id} value={p.id}>{patientLabel(p)}</option>)}
-            </select>
+              onChange={handlePatientSelect}
+              placeholder={t('invoiceModal.form.selectPatientOrManual')}
+            />
             <p className="text-[11px] text-slate-400">{t('invoiceModal.form.manualHint')}</p>
           </div>
 

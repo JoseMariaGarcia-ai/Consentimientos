@@ -113,7 +113,17 @@
     "unknown_error": "Lỗi không xác định",
     "cancel": "Hủy",
     "saving": "Đang lưu…",
-    "save_record": "Lưu hồ sơ"
+    "save_record": "Lưu hồ sơ",
+    "habits_title": "Mang thai và thói quen",
+    "is_pregnant": "Mang thai",
+    "tobacco_use": "Hút thuốc",
+    "alcohol_use": "Sử dụng rượu bia",
+    "drug_use": "Sử dụng ma túy",
+    "tri_state": {
+      "unspecified": "Chưa xác định",
+      "no": "Không",
+      "yes": "Có"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Tệp vượt quá giới hạn {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Nắn Khớp Xương và Trị Liệu Thần Kinh Cột Sống",
       "laboratorio_clinico": "Phòng Xét Nghiệm Lâm Sàng"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Tìm theo tên, số điện thoại hoặc CMND…",
+    "no_results": "Không có kết quả"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Xóa hồ sơ bệnh án này?",

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Camera } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 interface Props {
   patients: any[]
@@ -58,17 +59,12 @@ export function NewSessionModal({ patients, doctors = [], branches = [], onSave,
           {/* Paciente */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('newSessionModal.patient_label')} <span className="text-red-500">*</span></label>
-            <select
+            <PatientCombobox
+              patients={patients}
               value={form.patient_id}
-              onChange={e => set('patient_id', e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
-            >
-              <option value="">{t('newSessionModal.select_patient_placeholder')}</option>
-              {patients.map(p => {
-                const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? '')
-                return <option key={p.id} value={p.id}>{name}</option>
-              })}
-            </select>
+              onChange={id => set('patient_id', id)}
+              placeholder={t('newSessionModal.select_patient_placeholder')}
+            />
           </div>
 
           {/* Doctor */}

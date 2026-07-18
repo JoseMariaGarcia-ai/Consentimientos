@@ -4,6 +4,7 @@ import { BadgeEuro, Plus, Eye, FilterX, ShieldAlert, CheckCircle2, Clock, Ban } 
 import { api } from '@/lib/api'
 import { InvoiceModal } from '@/components/invoicing/InvoiceModal'
 import { InvoiceView } from '@/components/invoicing/InvoiceView'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '' }
 
@@ -78,7 +79,6 @@ export default function Invoicing() {
     await load()
   }
 
-  const patientName = (p: any) => p ? (p.full_name ?? p.fullName ?? `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim()) : '—'
   const fmtDate = (d?: string) => d ? new Date(d).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—'
   const fmtMoney = (n: number) => (Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'
 
@@ -123,11 +123,12 @@ export default function Invoicing() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.patient')}</label>
-          <select value={filters.patient_id} onChange={e => setFilters(f => ({ ...f, patient_id: e.target.value }))}
-            className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
-            <option value="">{t('invoicing.all')}</option>
-            {patients.map(p => <option key={p.id} value={p.id}>{patientName(p)}</option>)}
-          </select>
+          <PatientCombobox
+            patients={patients}
+            value={filters.patient_id}
+            onChange={id => setFilters(f => ({ ...f, patient_id: id }))}
+            placeholder={t('invoicing.all')}
+          />
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('invoicing.status')}</label>

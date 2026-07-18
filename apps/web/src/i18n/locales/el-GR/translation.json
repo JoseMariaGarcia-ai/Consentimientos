@@ -113,7 +113,17 @@
     "unknown_error": "Άγνωστο σφάλμα",
     "cancel": "Ακύρωση",
     "saving": "Αποθήκευση…",
-    "save_record": "Αποθήκευση ιστορικού"
+    "save_record": "Αποθήκευση ιστορικού",
+    "habits_title": "Εγκυμοσύνη και συνήθειες",
+    "is_pregnant": "Εγκυμοσύνη",
+    "tobacco_use": "Κάπνισμα",
+    "alcohol_use": "Κατανάλωση αλκοόλ",
+    "drug_use": "Χρήση ναρκωτικών",
+    "tri_state": {
+      "unspecified": "Μη καθορισμένο",
+      "no": "Όχι",
+      "yes": "Ναι"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Το αρχείο υπερβαίνει το όριο των {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Οστεοπαθητική και Χειροπρακτική",
       "laboratorio_clinico": "Κλινικό Εργαστήριο"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Αναζήτηση με όνομα, τηλέφωνο ή ταυτότητα…",
+    "no_results": "Κανένα αποτέλεσμα"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Διαγραφή αυτού του κλινικού ιστορικού;",

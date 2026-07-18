@@ -8,6 +8,7 @@ import { useLanguageStore } from '@/store/languageStore'
 import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
 import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
 import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -229,14 +230,12 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('consents.patient')}</label>
-                <select
+                <PatientCombobox
+                  patients={patients}
                   value={patientId}
-                  onChange={e => setPatientId(e.target.value)}
-                  className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">{t('consents.select_patient')}</option>
-                  {patients.map(p => <option key={p.id} value={p.id}>{(p as any).firstName && (p as any).lastName ? `${(p as any).firstName} ${(p as any).lastName}` : p.fullName}</option>)}
-                </select>
+                  onChange={setPatientId}
+                  placeholder={t('consents.select_patient')}
+                />
               </div>
 
               <div className="flex flex-col gap-1.5">

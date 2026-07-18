@@ -113,7 +113,17 @@
     "unknown_error": "Erreur inconnue",
     "cancel": "Annuler",
     "saving": "Enregistrement…",
-    "save_record": "Enregistrer le dossier"
+    "save_record": "Enregistrer le dossier",
+    "habits_title": "Grossesse et habitudes",
+    "is_pregnant": "Grossesse",
+    "tobacco_use": "Tabagisme",
+    "alcohol_use": "Consommation d’alcool",
+    "drug_use": "Consommation de drogues",
+    "tri_state": {
+      "unspecified": "Non précisé",
+      "no": "Non",
+      "yes": "Oui"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Le fichier dépasse la limite de {{maxSize}} Mo",
@@ -898,6 +908,10 @@
       "osteopatia": "Ostéopathie et Chiropraxie",
       "laboratorio_clinico": "Laboratoire Clinique"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Rechercher par nom, téléphone ou pièce d’identité…",
+    "no_results": "Aucun résultat"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Supprimer ce dossier clinique ?",

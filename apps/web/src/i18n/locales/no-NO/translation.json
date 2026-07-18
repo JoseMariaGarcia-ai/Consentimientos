@@ -113,7 +113,17 @@
     "unknown_error": "Ukjent feil",
     "cancel": "Avbryt",
     "saving": "Lagrer…",
-    "save_record": "Lagre journal"
+    "save_record": "Lagre journal",
+    "habits_title": "Graviditet og vaner",
+    "is_pregnant": "Graviditet",
+    "tobacco_use": "Tobakksbruk",
+    "alcohol_use": "Alkoholbruk",
+    "drug_use": "Rusmiddelbruk",
+    "tri_state": {
+      "unspecified": "Ikke angitt",
+      "no": "Nei",
+      "yes": "Ja"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Filen overskrider grensen på {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopati og Kiropraktikk",
       "laboratorio_clinico": "Klinisk Laboratorium"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Søk etter navn, telefon eller ID…",
+    "no_results": "Ingen resultater"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Slette denne kliniske journalen?",

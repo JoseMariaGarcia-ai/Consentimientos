@@ -113,7 +113,17 @@
     "unknown_error": "خطأ غير معروف",
     "cancel": "إلغاء",
     "saving": "جارٍ الحفظ…",
-    "save_record": "حفظ السجل"
+    "save_record": "حفظ السجل",
+    "habits_title": "الحمل والعادات",
+    "is_pregnant": "الحمل",
+    "tobacco_use": "التدخين",
+    "alcohol_use": "تعاطي الكحول",
+    "drug_use": "تعاطي المخدرات",
+    "tri_state": {
+      "unspecified": "غير محدد",
+      "no": "لا",
+      "yes": "نعم"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "حجم الملف يتجاوز الحد الأقصى وهو {{maxSize}} ميجابايت",
@@ -860,6 +870,10 @@
       "osteopatia": "العلاج بالتقويم العظمي والعمود الفقري",
       "laboratorio_clinico": "المختبر السريري"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "ابحث بالاسم أو الهاتف أو رقم الهوية…",
+    "no_results": "لا توجد نتائج"
   },
   "patientDetail": {
     "confirm_delete_clinical": "هل تريد حذف هذا السجل الطبي؟",

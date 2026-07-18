@@ -113,7 +113,17 @@
     "unknown_error": "Neznámá chyba",
     "cancel": "Zrušit",
     "saving": "Ukládání…",
-    "save_record": "Uložit záznam"
+    "save_record": "Uložit záznam",
+    "habits_title": "Těhotenství a návyky",
+    "is_pregnant": "Těhotenství",
+    "tobacco_use": "Kouření",
+    "alcohol_use": "Konzumace alkoholu",
+    "drug_use": "Užívání drog",
+    "tri_state": {
+      "unspecified": "Neuvedeno",
+      "no": "Ne",
+      "yes": "Ano"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Soubor překračuje limit {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopatie a chiropraxe",
       "laboratorio_clinico": "Klinická laboratoř"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Hledat podle jména, telefonu nebo OP…",
+    "no_results": "Žádné výsledky"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Smazat tento klinický záznam?",

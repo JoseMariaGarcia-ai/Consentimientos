@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Syringe, X, Plus, Trash2, PenLine } from 'lucide-react'
 import { BOTOX_ZONES } from '@/constants/botoxZones'
 import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { api } from '@/lib/api'
 
 const ZONE_SLUGS: Record<string, string> = {
@@ -64,7 +65,6 @@ function toDateInputValue(iso?: string) {
   return String(iso).slice(0, 10)
 }
 
-const patientLabel = (p: any) => p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
 
 export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClose }: Props) {
   const { t } = useTranslation()
@@ -186,11 +186,12 @@ export function ToxinModal({ initial, patients, doctors, onSave, onDelete, onClo
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col gap-1 col-span-2">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('toxinModal.patient')} <span className="text-red-500">*</span></label>
-              <select value={form.patient_id} onChange={e => set('patient_id', e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="">{t('toxinModal.select_patient')}</option>
-                {patients.map(p => <option key={p.id} value={p.id}>{patientLabel(p)}</option>)}
-              </select>
+              <PatientCombobox
+                patients={patients}
+                value={form.patient_id}
+                onChange={id => set('patient_id', id)}
+                placeholder={t('toxinModal.select_patient')}
+              />
             </div>
 
             {/* Consentimiento vinculado — solo aparece tras elegir paciente */}

@@ -16,8 +16,22 @@ function Field({ label, value, highlight }: { label: string; value: string; high
   )
 }
 
+function triLabel(t: (key: string) => string, v: boolean | null | undefined) {
+  if (v === true) return t('clinicalRecordForm.tri_state.yes')
+  if (v === false) return t('clinicalRecordForm.tri_state.no')
+  return null
+}
+
 export function ClinicalRecordViewModal({ record: r, onEdit, onClose }: Props) {
   const { t } = useTranslation()
+  const habits = ([
+    ['is_pregnant', t('clinicalRecordForm.is_pregnant')],
+    ['tobacco_use', t('clinicalRecordForm.tobacco_use')],
+    ['alcohol_use', t('clinicalRecordForm.alcohol_use')],
+    ['drug_use', t('clinicalRecordForm.drug_use')],
+  ] as const)
+    .map(([key, label]) => ({ label, value: triLabel(t, r[key]), alert: r[key] === true }))
+    .filter((h): h is { label: string; value: string; alert: boolean } => h.value !== null)
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden" onClick={e => e.stopPropagation()}>
@@ -34,14 +48,28 @@ export function ClinicalRecordViewModal({ record: r, onEdit, onClose }: Props) {
             <button onClick={onClose} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100"><X className="w-5 h-5" /></button>
           </div>
         </div>
-        <div className="px-6 py-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-          {r.anamnesis && <Field label={t('patientDetail.fields.anamnesis')} value={r.anamnesis} />}
-          {r.allergies && <Field label={t('patientDetail.fields.allergies')} value={r.allergies} highlight />}
-          {r.current_medications && <Field label={t('patientDetail.fields.current_medications')} value={r.current_medications} />}
-          {r.physical_exam && <Field label={t('patientDetail.fields.physical_exam')} value={r.physical_exam} />}
-          {r.diagnosis && <Field label={t('patientDetail.fields.diagnosis')} value={r.diagnosis} />}
-          {r.treatment_plan && <Field label={t('patientDetail.fields.treatment_plan')} value={r.treatment_plan} />}
-          {r.notes && <Field label={t('patientDetail.fields.notes')} value={r.notes} />}
+        <div className="px-6 py-5 overflow-y-auto flex flex-col gap-4 text-sm">
+          {habits.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {habits.map(h => (
+                <span
+                  key={h.label}
+                  className={`text-xs font-medium px-2 py-1 rounded-full ${h.alert ? 'bg-amber-50 text-amber-700' : 'bg-slate-100 text-slate-500'}`}
+                >
+                  {h.label}: {h.value}
+                </span>
+              ))}
+            </div>
+          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {r.anamnesis && <Field label={t('patientDetail.fields.anamnesis')} value={r.anamnesis} />}
+            {r.allergies && <Field label={t('patientDetail.fields.allergies')} value={r.allergies} highlight />}
+            {r.current_medications && <Field label={t('patientDetail.fields.current_medications')} value={r.current_medications} />}
+            {r.physical_exam && <Field label={t('patientDetail.fields.physical_exam')} value={r.physical_exam} />}
+            {r.diagnosis && <Field label={t('patientDetail.fields.diagnosis')} value={r.diagnosis} />}
+            {r.treatment_plan && <Field label={t('patientDetail.fields.treatment_plan')} value={r.treatment_plan} />}
+            {r.notes && <Field label={t('patientDetail.fields.notes')} value={r.notes} />}
+          </div>
         </div>
       </div>
     </div>

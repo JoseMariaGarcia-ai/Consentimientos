@@ -113,7 +113,17 @@
     "unknown_error": "Unbekannter Fehler",
     "cancel": "Abbrechen",
     "saving": "Wird gespeichert…",
-    "save_record": "Eintrag speichern"
+    "save_record": "Eintrag speichern",
+    "habits_title": "Schwangerschaft und Gewohnheiten",
+    "is_pregnant": "Schwangerschaft",
+    "tobacco_use": "Tabakkonsum",
+    "alcohol_use": "Alkoholkonsum",
+    "drug_use": "Drogenkonsum",
+    "tri_state": {
+      "unspecified": "Nicht angegeben",
+      "no": "Nein",
+      "yes": "Ja"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Die Datei überschreitet das Limit von {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopathie und Chiropraktik",
       "laboratorio_clinico": "Klinisches Labor"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Suche nach Name, Telefon oder Ausweis…",
+    "no_results": "Keine Ergebnisse"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Diese Krankenakte löschen?",

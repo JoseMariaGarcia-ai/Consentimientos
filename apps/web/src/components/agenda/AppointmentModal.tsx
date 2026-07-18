@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CalendarClock, X } from 'lucide-react'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 interface Treatment {
   id: string
@@ -118,17 +119,12 @@ export function AppointmentModal({ initial, defaultStartTime, patients, doctors,
           {/* Paciente */}
           <div className="flex flex-col gap-1">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('appointmentModal.form.patient')} <span className="text-red-500">*</span></label>
-            <select
+            <PatientCombobox
+              patients={patients}
               value={form.patient_id}
-              onChange={e => set('patient_id', e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">{t('appointmentModal.form.select_patient')}</option>
-              {patients.map(p => {
-                const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
-                return <option key={p.id} value={p.id}>{name}</option>
-              })}
-            </select>
+              onChange={id => set('patient_id', id)}
+              placeholder={t('appointmentModal.form.select_patient')}
+            />
           </div>
 
           {/* Doctor */}

@@ -113,7 +113,17 @@
     "unknown_error": "שגיאה לא ידועה",
     "cancel": "ביטול",
     "saving": "שומר…",
-    "save_record": "שמור רשומה"
+    "save_record": "שמור רשומה",
+    "habits_title": "הריון והרגלים",
+    "is_pregnant": "הריון",
+    "tobacco_use": "עישון",
+    "alcohol_use": "צריכת אלכוהול",
+    "drug_use": "שימוש בסמים",
+    "tri_state": {
+      "unspecified": "לא צוין",
+      "no": "לא",
+      "yes": "כן"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "הקובץ חורג מהמגבלה של {{maxSize}} מ\"ב",
@@ -854,6 +864,10 @@
       "osteopatia": "אוסטאופתיה וכירופרקטיקה",
       "laboratorio_clinico": "מעבדה קלינית"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "חיפוש לפי שם, טלפון או ת\"ז…",
+    "no_results": "אין תוצאות"
   },
   "patientDetail": {
     "confirm_delete_clinical": "למחוק רשומה רפואית זו?",

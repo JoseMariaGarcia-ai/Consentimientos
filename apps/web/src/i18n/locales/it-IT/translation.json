@@ -113,7 +113,17 @@
     "unknown_error": "Errore sconosciuto",
     "cancel": "Annulla",
     "saving": "Salvataggio…",
-    "save_record": "Salva cartella"
+    "save_record": "Salva cartella",
+    "habits_title": "Gravidanza e abitudini",
+    "is_pregnant": "Gravidanza",
+    "tobacco_use": "Fumo",
+    "alcohol_use": "Consumo di alcol",
+    "drug_use": "Uso di droghe",
+    "tri_state": {
+      "unspecified": "Non specificato",
+      "no": "No",
+      "yes": "Sì"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Il file supera il limite di {{maxSize}} MB",
@@ -952,6 +962,10 @@
       "osteopatia": "Osteopatia e Chiropratica",
       "laboratorio_clinico": "Laboratorio Clinico"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Cerca per nome, telefono o documento…",
+    "no_results": "Nessun risultato"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Eliminare questa cartella clinica?",

@@ -4,6 +4,7 @@ import { Receipt, Plus, Pencil, Trash2, FilterX, Eye } from 'lucide-react'
 import { api } from '@/lib/api'
 import { BudgetModal } from '@/components/budgets/BudgetModal'
 import { BudgetView } from '@/components/budgets/BudgetView'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', q: '' }
 
@@ -120,11 +121,12 @@ export default function Budgets() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('budgets.patient')}</label>
-          <select value={filters.patient_id} onChange={e => setFilters(f => ({ ...f, patient_id: e.target.value }))}
-            className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
-            <option value="">{t('budgets.all')}</option>
-            {patients.map(p => <option key={p.id} value={p.id}>{patientName(p)}</option>)}
-          </select>
+          <PatientCombobox
+            patients={patients}
+            value={filters.patient_id}
+            onChange={id => setFilters(f => ({ ...f, patient_id: id }))}
+            placeholder={t('budgets.all')}
+          />
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('budgets.search')}</label>

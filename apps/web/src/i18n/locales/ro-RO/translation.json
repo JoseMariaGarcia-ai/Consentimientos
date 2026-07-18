@@ -113,7 +113,17 @@
     "unknown_error": "Eroare necunoscută",
     "cancel": "Anulare",
     "saving": "Se salvează…",
-    "save_record": "Salvează istoricul"
+    "save_record": "Salvează istoricul",
+    "habits_title": "Sarcină și obiceiuri",
+    "is_pregnant": "Sarcină",
+    "tobacco_use": "Fumat",
+    "alcohol_use": "Consum de alcool",
+    "drug_use": "Consum de droguri",
+    "tri_state": {
+      "unspecified": "Nespecificat",
+      "no": "Nu",
+      "yes": "Da"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Fișierul depășește limita de {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopatie și Chiropractică",
       "laboratorio_clinico": "Laborator Clinic"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Caută după nume, telefon sau CI…",
+    "no_results": "Niciun rezultat"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Ștergeți acest istoric medical?",

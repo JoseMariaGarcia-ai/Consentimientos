@@ -113,7 +113,17 @@
     "unknown_error": "Невідома помилка",
     "cancel": "Скасувати",
     "saving": "Збереження…",
-    "save_record": "Зберегти карту"
+    "save_record": "Зберегти карту",
+    "habits_title": "Вагітність і звички",
+    "is_pregnant": "Вагітність",
+    "tobacco_use": "Куріння",
+    "alcohol_use": "Вживання алкоголю",
+    "drug_use": "Вживання наркотиків",
+    "tri_state": {
+      "unspecified": "Не вказано",
+      "no": "Ні",
+      "yes": "Так"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Файл перевищує ліміт {{maxSize}} МБ",
@@ -898,6 +908,10 @@
       "osteopatia": "Остеопатія та хіропрактика",
       "laboratorio_clinico": "Клінічна лабораторія"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Пошук за іменем, телефоном або документом…",
+    "no_results": "Немає результатів"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Видалити цю клінічну карту?",

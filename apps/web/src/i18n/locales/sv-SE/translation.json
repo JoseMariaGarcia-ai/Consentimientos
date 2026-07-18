@@ -113,7 +113,17 @@
     "unknown_error": "Okänt fel",
     "cancel": "Avbryt",
     "saving": "Sparar…",
-    "save_record": "Spara journal"
+    "save_record": "Spara journal",
+    "habits_title": "Graviditet och vanor",
+    "is_pregnant": "Graviditet",
+    "tobacco_use": "Tobaksbruk",
+    "alcohol_use": "Alkoholkonsumtion",
+    "drug_use": "Droganvändning",
+    "tri_state": {
+      "unspecified": "Ej angivet",
+      "no": "Nej",
+      "yes": "Ja"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Filen överskrider gränsen på {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopati och Kiropraktik",
       "laboratorio_clinico": "Kliniskt Laboratorium"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Sök efter namn, telefon eller ID…",
+    "no_results": "Inga resultat"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Ta bort denna journal?",

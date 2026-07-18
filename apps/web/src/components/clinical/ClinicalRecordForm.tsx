@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { Doctor } from '@consentspro/shared-types'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
+import { PatientCombobox } from '@/components/patients/PatientCombobox'
 
 interface ClinicalRecordFormProps {
   initial?: any
@@ -28,12 +29,18 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
     diagnosis:           (initial.diagnosis            ?? '').toUpperCase(),
     treatment_plan:      (initial.treatment_plan       ?? initial.treatmentPlan     ?? '').toUpperCase(),
     notes:               (initial.notes                ?? '').toUpperCase(),
+    is_pregnant:         (initial.is_pregnant ?? null) as boolean | null,
+    tobacco_use:         (initial.tobacco_use ?? null) as boolean | null,
+    alcohol_use:         (initial.alcohol_use ?? null) as boolean | null,
+    drug_use:            (initial.drug_use    ?? null) as boolean | null,
   })
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState('')
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
   const setRaw = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
+  const setTriState = (k: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', v: boolean | null) =>
+    setForm(f => ({ ...f, [k]: v }))
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,6 +57,21 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
       setSaving(false)
     }
   }
+
+  const triSelect = (key: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', label: string) => (
+    <div className="flex flex-col gap-1">
+      <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{label}</label>
+      <select
+        value={form[key] === null ? '' : form[key] ? 'yes' : 'no'}
+        onChange={e => setTriState(key, e.target.value === '' ? null : e.target.value === 'yes')}
+        className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="">{t('clinicalRecordForm.tri_state.unspecified')}</option>
+        <option value="no">{t('clinicalRecordForm.tri_state.no')}</option>
+        <option value="yes">{t('clinicalRecordForm.tri_state.yes')}</option>
+      </select>
+    </div>
+  )
 
   const textarea = (key: string, label: string, rows = 2) => (
     <div className="flex flex-col gap-1">
@@ -79,17 +101,12 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.patient')} <span className="text-red-500">*</span></label>
-              <select
+              <PatientCombobox
+                patients={patients}
                 value={form.patient_id}
-                onChange={e => setRaw('patient_id', e.target.value)}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">{t('clinicalRecordForm.select_patient')}</option>
-                {patients.map((p: any) => {
-                  const name = p.firstName && p.lastName ? `${p.firstName} ${p.lastName}` : (p.fullName ?? p.full_name ?? '')
-                  return <option key={p.id} value={p.id}>{name}</option>
-                })}
-              </select>
+                onChange={id => setRaw('patient_id', id)}
+                placeholder={t('clinicalRecordForm.select_patient')}
+              />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.doctor')}</label>
@@ -137,6 +154,17 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, branches =
                 onChange={e => set('reason_for_visit', e.target.value)}
                 className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+            </div>
+          </div>
+
+          {/* Embarazo y hábitos */}
+          <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.habits_title')}</label>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {triSelect('is_pregnant', t('clinicalRecordForm.is_pregnant'))}
+              {triSelect('tobacco_use', t('clinicalRecordForm.tobacco_use'))}
+              {triSelect('alcohol_use', t('clinicalRecordForm.alcohol_use'))}
+              {triSelect('drug_use', t('clinicalRecordForm.drug_use'))}
             </div>
           </div>
 

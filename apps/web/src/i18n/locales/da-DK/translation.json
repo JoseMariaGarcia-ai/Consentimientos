@@ -113,7 +113,17 @@
     "unknown_error": "Ukendt fejl",
     "cancel": "Annuller",
     "saving": "Gemmer…",
-    "save_record": "Gem journal"
+    "save_record": "Gem journal",
+    "habits_title": "Graviditet og vaner",
+    "is_pregnant": "Graviditet",
+    "tobacco_use": "Tobaksrygning",
+    "alcohol_use": "Alkoholforbrug",
+    "drug_use": "Stofbrug",
+    "tri_state": {
+      "unspecified": "Ikke angivet",
+      "no": "Nej",
+      "yes": "Ja"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Filen overstiger grænsen på {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopati og Kiropraktik",
       "laboratorio_clinico": "Klinisk Laboratorium"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Søg efter navn, telefon eller ID…",
+    "no_results": "Ingen resultater"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Slet denne kliniske journal?",

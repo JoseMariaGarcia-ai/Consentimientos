@@ -113,7 +113,17 @@
     "unknown_error": "Error desconocido",
     "cancel": "Cancelar",
     "saving": "Guardando…",
-    "save_record": "Guardar historia"
+    "save_record": "Guardar historia",
+    "habits_title": "Embarazo y hábitos",
+    "is_pregnant": "Embarazo",
+    "tobacco_use": "Tabaquismo",
+    "alcohol_use": "Consumo de alcohol",
+    "drug_use": "Consumo de drogas",
+    "tri_state": {
+      "unspecified": "Sin especificar",
+      "no": "No",
+      "yes": "Sí"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "El archivo supera el límite de {{maxSize}} MB",
@@ -878,6 +888,10 @@
       "osteopatia": "Osteopatía y Quiropraxia",
       "laboratorio_clinico": "Laboratorio Clínico"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Buscar por nombre, teléfono o INE/DNI…",
+    "no_results": "Sin resultados"
   },
   "patientDetail": {
     "confirm_delete_clinical": "¿Eliminar esta historia clínica?",

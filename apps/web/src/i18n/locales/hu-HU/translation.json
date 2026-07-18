@@ -113,7 +113,17 @@
     "unknown_error": "Ismeretlen hiba",
     "cancel": "Mégse",
     "saving": "Mentés…",
-    "save_record": "Napló mentése"
+    "save_record": "Napló mentése",
+    "habits_title": "Terhesség és szokások",
+    "is_pregnant": "Terhesség",
+    "tobacco_use": "Dohányzás",
+    "alcohol_use": "Alkoholfogyasztás",
+    "drug_use": "Drogfogyasztás",
+    "tri_state": {
+      "unspecified": "Nincs megadva",
+      "no": "Nem",
+      "yes": "Igen"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "A fájl meghaladja a(z) {{maxSize}} MB-os korlátot",
@@ -898,6 +908,10 @@
       "osteopatia": "Oszteopátia és Kiropraktika",
       "laboratorio_clinico": "Klinikai Laboratórium"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Keresés név, telefon vagy igazolvány alapján…",
+    "no_results": "Nincs találat"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Törli ezt a klinikai naplót?",

@@ -113,7 +113,17 @@
     "unknown_error": "Неизвестная ошибка",
     "cancel": "Отмена",
     "saving": "Сохранение…",
-    "save_record": "Сохранить карту"
+    "save_record": "Сохранить карту",
+    "habits_title": "Беременность и привычки",
+    "is_pregnant": "Беременность",
+    "tobacco_use": "Курение",
+    "alcohol_use": "Употребление алкоголя",
+    "drug_use": "Употребление наркотиков",
+    "tri_state": {
+      "unspecified": "Не указано",
+      "no": "Нет",
+      "yes": "Да"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Файл превышает лимит {{maxSize}} МБ",
@@ -898,6 +908,10 @@
       "osteopatia": "Остеопатия и хиропрактика",
       "laboratorio_clinico": "Клиническая лаборатория"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Поиск по имени, телефону или паспорту…",
+    "no_results": "Нет результатов"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Удалить эту медицинскую карту?",

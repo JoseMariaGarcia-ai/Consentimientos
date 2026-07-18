@@ -113,7 +113,17 @@
     "unknown_error": "Nieznany błąd",
     "cancel": "Anuluj",
     "saving": "Zapisywanie…",
-    "save_record": "Zapisz historię"
+    "save_record": "Zapisz historię",
+    "habits_title": "Ciąża i nawyki",
+    "is_pregnant": "Ciąża",
+    "tobacco_use": "Palenie tytoniu",
+    "alcohol_use": "Spożycie alkoholu",
+    "drug_use": "Zażywanie narkotyków",
+    "tri_state": {
+      "unspecified": "Nieokreślone",
+      "no": "Nie",
+      "yes": "Tak"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Plik przekracza limit {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopatia i Chiropraktyka",
       "laboratorio_clinico": "Laboratorium Kliniczne"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Szukaj po imieniu, telefonie lub dowodzie…",
+    "no_results": "Brak wyników"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Usunąć tę historię choroby?",

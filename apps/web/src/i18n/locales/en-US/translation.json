@@ -113,7 +113,17 @@
     "unknown_error": "Unknown error",
     "cancel": "Cancel",
     "saving": "Saving…",
-    "save_record": "Save record"
+    "save_record": "Save record",
+    "habits_title": "Pregnancy and habits",
+    "is_pregnant": "Pregnancy",
+    "tobacco_use": "Tobacco use",
+    "alcohol_use": "Alcohol use",
+    "drug_use": "Drug use",
+    "tri_state": {
+      "unspecified": "Unspecified",
+      "no": "No",
+      "yes": "Yes"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "The file exceeds the {{maxSize}} MB limit",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopathy & Chiropractic",
       "laboratorio_clinico": "Clinical Laboratory"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Search by name, phone or ID…",
+    "no_results": "No results"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Delete this clinical record?",

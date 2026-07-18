@@ -113,7 +113,17 @@
     "unknown_error": "Onbekende fout",
     "cancel": "Annuleren",
     "saving": "Opslaan…",
-    "save_record": "Dossier opslaan"
+    "save_record": "Dossier opslaan",
+    "habits_title": "Zwangerschap en gewoontes",
+    "is_pregnant": "Zwangerschap",
+    "tobacco_use": "Tabaksgebruik",
+    "alcohol_use": "Alcoholgebruik",
+    "drug_use": "Druggebruik",
+    "tri_state": {
+      "unspecified": "Niet gespecificeerd",
+      "no": "Nee",
+      "yes": "Ja"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "Het bestand overschrijdt de limiet van {{maxSize}} MB",
@@ -898,6 +908,10 @@
       "osteopatia": "Osteopathie en Chiropraxie",
       "laboratorio_clinico": "Klinisch Laboratorium"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "Zoek op naam, telefoon of ID…",
+    "no_results": "Geen resultaten"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Dit klinisch dossier verwijderen?",

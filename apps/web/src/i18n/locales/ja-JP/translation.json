@@ -113,7 +113,17 @@
     "unknown_error": "不明なエラー",
     "cancel": "キャンセル",
     "saving": "保存中…",
-    "save_record": "カルテを保存"
+    "save_record": "カルテを保存",
+    "habits_title": "妊娠と習慣",
+    "is_pregnant": "妊娠",
+    "tobacco_use": "喫煙",
+    "alcohol_use": "飲酒",
+    "drug_use": "薬物使用",
+    "tri_state": {
+      "unspecified": "未指定",
+      "no": "いいえ",
+      "yes": "はい"
+    }
   },
   "mediaUploadSlot": {
     "file_too_large": "ファイルが{{maxSize}}MBの上限を超えています",
@@ -898,6 +908,10 @@
       "osteopatia": "オステオパシー・カイロプラクティック",
       "laboratorio_clinico": "臨床検査室"
     }
+  },
+  "patientCombobox": {
+    "placeholder": "名前、電話番号、身分証明書で検索…",
+    "no_results": "結果なし"
   },
   "patientDetail": {
     "confirm_delete_clinical": "このカルテを削除しますか？",
