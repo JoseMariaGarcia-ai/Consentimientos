@@ -64,3 +64,22 @@ Desde el módulo de Control Horario (10 julio 2026):
 Desde el módulo de Códigos promocionales / Meta Ads (10 julio 2026):
 - [ ] Crear el código promocional real (Configuración > Códigos promocionales) y pegar el
       enlace generado como URL de destino del anuncio de Meta.
+
+Desde el módulo de Certificado Digital / ampliación VeriFactu (18 julio 2026):
+- [ ] Generar y configurar en Railway `CERTIFICATE_FILE_ENCRYPTION_KEY` y
+      `CERTIFICATE_PASSWORD_ENCRYPTION_KEY` (dos claves DISTINTAS, cada una con
+      `openssl rand -hex 32`) antes de que ninguna clínica suba su certificado real —
+      sin ellas el backend rechaza cualquier subida. **Una vez fijadas en producción, no
+      rotarlas sin plan de migración**: los certificados ya cifrados con la clave antigua
+      dejarían de poder descifrarse.
+- [ ] Rellenar y firmar la Declaración Responsable en `docs/DECLARACION_RESPONSABLE_VERIFACTU.md`
+      (CIF de ConsentsPro, representante legal, firma) — Claude Code ha dejado la plantilla
+      con la parte técnica, pero los datos legales de la empresa no se pueden inventar.
+- [ ] Antes de pasar `AEAT_MODE` a `production` en Railway: verificar la documentación
+      técnica vigente de la AEAT (ver aviso en `aeatSubmission.ts`), completar la
+      integración real de envío, y subir el certificado de prueba a nivel de sistema
+      (`environment='test'`, `clinic_id` NULL en `clinic_digital_certificates`) para las
+      pruebas del punto 6.5 del documento de ampliación del certificado digital.
+- [ ] Cada clínica real deberá subir su propio certificado .p12/.pfx desde
+      Facturación > Certificado Digital (rol admin de esa clínica) antes de que
+      `AEAT_MODE=production` bloquee la emisión sin él.

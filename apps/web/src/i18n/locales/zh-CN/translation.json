@@ -1831,7 +1831,30 @@
     "colTotal": "总计",
     "colStatus": "状态",
     "colAeat": "AEAT",
-    "colActions": "操作"
+    "colActions": "操作",
+    "tabInvoices": "发票",
+    "tabCertificate": "数字证书",
+    "testModeBanner": "测试模式 - 在此模式下生成的发票不会传送给真实的AEAT，且不具有税务效力"
+  },
+  "certificateTab": {
+    "unknownIssuer": "未知签发机构",
+    "validFrom": "生效日期",
+    "validUntil": "到期日期",
+    "expiresIn": "将在{{days}}天后到期",
+    "expired": "已过期",
+    "replaceButton": "更换证书",
+    "form": {
+      "introNoCertificate": "您的诊所尚未设置数字证书。没有它，ConsentsPro 无法以 VERI*FACTU 模式向 AEAT 报送您的发票。",
+      "securityNotice": "您的证书经过加密并安全存储。ConsentsPro 团队和其他诊所均无法访问它。",
+      "fileLabel": "证书文件 (.p12 / .pfx)",
+      "passwordLabel": "证书密码",
+      "submit": "上传证书",
+      "errors": {
+        "fileRequired": "证书文件为必填项",
+        "passwordRequired": "证书密码为必填项",
+        "saveFailed": "无法上传证书"
+      }
+    }
   },
   "invoiceModal": {
     "title": "新建发票",

@@ -1831,7 +1831,30 @@
     "colTotal": "Total",
     "colStatus": "Stare",
     "colAeat": "AEAT",
-    "colActions": "Acțiuni"
+    "colActions": "Acțiuni",
+    "tabInvoices": "Facturi",
+    "tabCertificate": "Certificat digital",
+    "testModeBanner": "MOD TEST - Facturile generate în acest mod NU sunt comunicate către AEAT reală și nu au valabilitate fiscală"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Emitent necunoscut",
+    "validFrom": "Valabil din",
+    "validUntil": "Valabil până la",
+    "expiresIn": "Expiră în {{days}} zile",
+    "expired": "Expirat",
+    "replaceButton": "Înlocuiește certificatul",
+    "form": {
+      "introNoCertificate": "Clinica ta nu a configurat încă un certificat digital. Fără el, ConsentsPro nu poate comunica facturile tale către AEAT în modul VERI*FACTU.",
+      "securityNotice": "Certificatul tău este criptat și stocat în siguranță. Nici echipa ConsentsPro, nici alte clinici nu îl pot accesa.",
+      "fileLabel": "Fișier certificat (.p12 / .pfx)",
+      "passwordLabel": "Parola certificatului",
+      "submit": "Încarcă certificatul",
+      "errors": {
+        "fileRequired": "Fișierul certificatului este obligatoriu",
+        "passwordRequired": "Parola certificatului este obligatorie",
+        "saveFailed": "Certificatul nu a putut fi încărcat"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Factură nouă",

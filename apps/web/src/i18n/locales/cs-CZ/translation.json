@@ -1831,7 +1831,30 @@
     "colTotal": "Celkem",
     "colStatus": "Stav",
     "colAeat": "AEAT",
-    "colActions": "Akce"
+    "colActions": "Akce",
+    "tabInvoices": "Faktury",
+    "tabCertificate": "Digitální certifikát",
+    "testModeBanner": "TESTOVACÍ REŽIM - Faktury vytvořené v tomto režimu se NEPOSÍLAJÍ skutečnému úřadu AEAT a nemají daňovou platnost"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Neznámý vydavatel",
+    "validFrom": "Platný od",
+    "validUntil": "Platný do",
+    "expiresIn": "Vyprší za {{days}} dní",
+    "expired": "Vypršel",
+    "replaceButton": "Nahradit certifikát",
+    "form": {
+      "introNoCertificate": "Vaše klinika zatím nemá nastavený digitální certifikát. Bez něj nemůže ConsentsPro odesílat vaše faktury úřadu AEAT v režimu VERI*FACTU.",
+      "securityNotice": "Váš certifikát je bezpečně zašifrován a uložen. Nemá k němu přístup ani tým ConsentsPro, ani jiné kliniky.",
+      "fileLabel": "Soubor certifikátu (.p12 / .pfx)",
+      "passwordLabel": "Heslo certifikátu",
+      "submit": "Nahrát certifikát",
+      "errors": {
+        "fileRequired": "Soubor certifikátu je povinný",
+        "passwordRequired": "Heslo certifikátu je povinné",
+        "saveFailed": "Certifikát se nepodařilo nahrát"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Nová faktura",

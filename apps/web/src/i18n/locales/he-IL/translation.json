@@ -1787,7 +1787,30 @@
     "colTotal": "סה\"כ",
     "colStatus": "סטטוס",
     "colAeat": "AEAT",
-    "colActions": "פעולות"
+    "colActions": "פעולות",
+    "tabInvoices": "חשבוניות",
+    "tabCertificate": "תעודה דיגיטלית",
+    "testModeBanner": "מצב בדיקה - חשבוניות שנוצרו במצב זה אינן מדווחות ל-AEAT האמיתי ואין להן תוקף פיסקלי"
+  },
+  "certificateTab": {
+    "unknownIssuer": "גורם מנפיק לא ידוע",
+    "validFrom": "בתוקף מ",
+    "validUntil": "בתוקף עד",
+    "expiresIn": "פג תוקף בעוד {{days}} ימים",
+    "expired": "פג תוקף",
+    "replaceButton": "החלף תעודה",
+    "form": {
+      "introNoCertificate": "המרפאה שלך עדיין לא הגדירה תעודה דיגיטלית. בלעדיה, ConsentsPro אינה יכולה לדווח על החשבוניות שלך ל-AEAT במצב VERI*FACTU.",
+      "securityNotice": "התעודה שלך מוצפנת ומאוחסנת בצורה מאובטחת. לא לצוות ConsentsPro ולא למרפאות אחרות יש גישה אליה.",
+      "fileLabel": "קובץ התעודה (.p12 / .pfx)",
+      "passwordLabel": "סיסמת התעודה",
+      "submit": "העלה תעודה",
+      "errors": {
+        "fileRequired": "קובץ התעודה הוא שדה חובה",
+        "passwordRequired": "סיסמת התעודה היא שדה חובה",
+        "saveFailed": "לא ניתן היה להעלות את התעודה"
+      }
+    }
   },
   "invoiceModal": {
     "title": "חשבונית חדשה",

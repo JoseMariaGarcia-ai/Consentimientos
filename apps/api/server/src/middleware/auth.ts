@@ -53,6 +53,26 @@ export async function requireSuperAdmin(req: Request, res: Response, next: NextF
   }
 }
 
+// El certificado digital de una clínica (Facturación > Certificado Digital)
+// solo debe poder gestionarlo el propio titular de la clínica (role
+// 'clinica'), nunca doctor/receptionist/lab_partner de esa misma clínica —
+// a diferencia de requireAdmin/requireSuperAdmin (que son para el personal
+// de ConsentsPro), aquí "admin" significa "dueño de la cuenta de la
+// clínica". superadmin conserva acceso, igual que en el resto de la app.
+export async function requireClinicaAdmin(req: Request, res: Response, next: NextFunction) {
+  const userId = (req as any).user?.userId
+  if (!userId) return res.status(403).json({ error: 'Solo el administrador de la clínica puede acceder' })
+  try {
+    const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+    if (me?.role !== 'clinica' && me?.role !== 'superadmin') {
+      return res.status(403).json({ error: 'Solo el administrador de la clínica puede gestionar el certificado digital' })
+    }
+    next()
+  } catch (err: any) {
+    return res.status(500).json({ error: err.message })
+  }
+}
+
 // Los módulos de pago (facturación, control horario, etc.) hasta ahora solo
 // se ocultaban en el frontend según el plan de la clínica (App.tsx guard()),
 // pero la API no comprobaba nada — una clínica sin el módulo contratado

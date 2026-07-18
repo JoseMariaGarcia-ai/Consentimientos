@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BadgeEuro, Plus, Eye, FilterX, ShieldAlert, CheckCircle2, Clock, Ban } from 'lucide-react'
+import { BadgeEuro, Plus, Eye, FilterX, ShieldAlert, CheckCircle2, Clock, Ban, ShieldCheck, FlaskConical } from 'lucide-react'
 import { api } from '@/lib/api'
 import { InvoiceModal } from '@/components/invoicing/InvoiceModal'
 import { InvoiceView } from '@/components/invoicing/InvoiceView'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { CertificateTab } from '@/components/invoicing/CertificateTab'
+import { useAuth } from '@/lib/auth'
 
 const EMPTY_FILTERS = { date_from: '', date_to: '', patient_id: '', status: '', series: '', q: '' }
 
@@ -16,6 +18,10 @@ const STATUS_BADGE: Record<string, string> = {
 
 export default function Invoicing() {
   const { t } = useTranslation()
+  const { role } = useAuth()
+  const canManageCertificate = role === 'clinica' || role === 'superadmin'
+  const [tab, setTab] = useState<'invoices' | 'certificate'>('invoices')
+  const [aeatMode, setAeatMode] = useState<'test' | 'production'>('test')
   const [invoices, setInvoices] = useState<any[]>([])
   const [patients, setPatients] = useState<any[]>([])
   const [clinic, setClinic] = useState<any>(null)
@@ -56,6 +62,7 @@ export default function Invoicing() {
       setClinic(c)
     })
     api.get('/invoices/integrity/check').then((r: any) => setIntegrityIssues(Array.isArray(r?.issues) ? r.issues.length : 0)).catch(() => {})
+    api.get('/clinic-certificates/mode').then((r: any) => setAeatMode(r?.mode === 'production' ? 'production' : 'test')).catch(() => {})
   }, [])
 
   const handleSave = async (data: any) => {
@@ -94,14 +101,44 @@ export default function Invoicing() {
             <p className="text-sm text-slate-500">{t('invoicing.subtitle')}</p>
           </div>
         </div>
-        <button
-          onClick={() => setModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-medium hover:bg-emerald-700 shadow-sm"
-        >
-          <Plus className="w-4 h-4" />{t('invoicing.newInvoice')}
-        </button>
+        {tab === 'invoices' && (
+          <button
+            onClick={() => setModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-medium hover:bg-emerald-700 shadow-sm"
+          >
+            <Plus className="w-4 h-4" />{t('invoicing.newInvoice')}
+          </button>
+        )}
       </div>
 
+      {aeatMode === 'test' && (
+        <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+          <FlaskConical className="w-5 h-5 text-amber-600 flex-shrink-0" />
+          <p className="text-sm text-amber-800 flex-1">{t('invoicing.testModeBanner')}</p>
+        </div>
+      )}
+
+      {canManageCertificate && (
+        <div className="flex items-center gap-1 border-b border-slate-200">
+          <button
+            onClick={() => setTab('invoices')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'invoices' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <BadgeEuro className="w-4 h-4" />{t('invoicing.tabInvoices')}
+          </button>
+          <button
+            onClick={() => setTab('certificate')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium border-b-2 -mb-px ${tab === 'certificate' ? 'border-emerald-600 text-emerald-700' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+          >
+            <ShieldCheck className="w-4 h-4" />{t('invoicing.tabCertificate')}
+          </button>
+        </div>
+      )}
+
+      {tab === 'certificate' ? (
+        <CertificateTab />
+      ) : (
+      <>
       {integrityIssues !== null && integrityIssues > 0 && (
         <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-2xl p-4">
           <ShieldAlert className="w-5 h-5 text-red-600 flex-shrink-0" />
@@ -212,6 +249,8 @@ export default function Invoicing() {
           </div>
         )}
       </div>
+      </>
+      )}
 
       {modalOpen && (
         <InvoiceModal

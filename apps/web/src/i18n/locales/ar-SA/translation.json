@@ -1793,7 +1793,30 @@
     "colTotal": "الإجمالي",
     "colStatus": "الحالة",
     "colAeat": "AEAT",
-    "colActions": "الإجراءات"
+    "colActions": "الإجراءات",
+    "tabInvoices": "الفواتير",
+    "tabCertificate": "الشهادة الرقمية",
+    "testModeBanner": "وضع الاختبار - الفواتير الصادرة في هذا الوضع لا يتم إرسالها إلى AEAT الحقيقية وليس لها قيمة ضريبية"
+  },
+  "certificateTab": {
+    "unknownIssuer": "جهة إصدار غير معروفة",
+    "validFrom": "صالحة من",
+    "validUntil": "صالحة حتى",
+    "expiresIn": "تنتهي خلال {{days}} يومًا",
+    "expired": "منتهية الصلاحية",
+    "replaceButton": "استبدال الشهادة",
+    "form": {
+      "introNoCertificate": "لم تقم عيادتك بعد بإعداد شهادة رقمية. بدونها، لا يمكن لـ ConsentsPro إرسال فواتيرك إلى AEAT بنظام VERI*FACTU.",
+      "securityNotice": "يتم تشفير شهادتك وتخزينها بشكل آمن. لا يمكن لفريق ConsentsPro ولا لأي عيادة أخرى الوصول إليها.",
+      "fileLabel": "ملف الشهادة (.p12 / .pfx)",
+      "passwordLabel": "كلمة مرور الشهادة",
+      "submit": "تحميل الشهادة",
+      "errors": {
+        "fileRequired": "ملف الشهادة إلزامي",
+        "passwordRequired": "كلمة مرور الشهادة إلزامية",
+        "saveFailed": "تعذر تحميل الشهادة"
+      }
+    }
   },
   "invoiceModal": {
     "title": "فاتورة جديدة",

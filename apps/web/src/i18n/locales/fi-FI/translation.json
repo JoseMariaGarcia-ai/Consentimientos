@@ -1831,7 +1831,30 @@
     "colTotal": "Yhteensä",
     "colStatus": "Tila",
     "colAeat": "AEAT",
-    "colActions": "Toiminnot"
+    "colActions": "Toiminnot",
+    "tabInvoices": "Laskut",
+    "tabCertificate": "Digitaalinen varmenne",
+    "testModeBanner": "TESTITILA - Tässä tilassa luotuja laskuja EI ilmoiteta oikealle AEAT:lle, eikä niillä ole verotuksellista pätevyyttä"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Tuntematon myöntäjä",
+    "validFrom": "Voimassa alkaen",
+    "validUntil": "Voimassa asti",
+    "expiresIn": "Vanhenee {{days}} päivän kuluttua",
+    "expired": "Vanhentunut",
+    "replaceButton": "Korvaa varmenne",
+    "form": {
+      "introNoCertificate": "Klinikallasi ei ole vielä digitaalista varmennetta. Ilman sitä ConsentsPro ei voi ilmoittaa laskujasi AEAT:lle VERI*FACTU-tilassa.",
+      "securityNotice": "Varmenteesi salataan ja tallennetaan turvallisesti. Kumpikaan, ei ConsentsPro-tiimi eikä muut klinikat, pääse siihen käsiksi.",
+      "fileLabel": "Varmennetiedosto (.p12 / .pfx)",
+      "passwordLabel": "Varmenteen salasana",
+      "submit": "Lataa varmenne",
+      "errors": {
+        "fileRequired": "Varmennetiedosto on pakollinen",
+        "passwordRequired": "Varmenteen salasana on pakollinen",
+        "saveFailed": "Varmennetta ei voitu ladata"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Uusi lasku",

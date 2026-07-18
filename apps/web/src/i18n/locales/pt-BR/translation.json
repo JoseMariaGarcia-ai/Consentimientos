@@ -1831,7 +1831,30 @@
     "colTotal": "Total",
     "colStatus": "Status",
     "colAeat": "AEAT",
-    "colActions": "Ações"
+    "colActions": "Ações",
+    "tabInvoices": "Faturas",
+    "tabCertificate": "Certificado Digital",
+    "testModeBanner": "MODO TESTE - As faturas geradas neste modo NÃO são comunicadas à AEAT real e não têm validade fiscal"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Entidade emissora desconhecida",
+    "validFrom": "Válido a partir de",
+    "validUntil": "Válido até",
+    "expiresIn": "Expira em {{days}} dias",
+    "expired": "Expirado",
+    "replaceButton": "Substituir certificado",
+    "form": {
+      "introNoCertificate": "Sua clínica ainda não configurou um certificado digital. Sem ele, o ConsentsPro não pode comunicar suas faturas à AEAT no modo VERI*FACTU.",
+      "securityNotice": "Seu certificado é criptografado e armazenado com segurança. Nem a equipe do ConsentsPro nem outras clínicas podem acessá-lo.",
+      "fileLabel": "Arquivo do certificado (.p12 / .pfx)",
+      "passwordLabel": "Senha do certificado",
+      "submit": "Enviar certificado",
+      "errors": {
+        "fileRequired": "O arquivo do certificado é obrigatório",
+        "passwordRequired": "A senha do certificado é obrigatória",
+        "saveFailed": "Não foi possível enviar o certificado"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Nova fatura",

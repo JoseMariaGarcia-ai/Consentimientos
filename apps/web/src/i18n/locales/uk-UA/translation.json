@@ -1831,7 +1831,30 @@
     "colTotal": "Разом",
     "colStatus": "Статус",
     "colAeat": "AEAT",
-    "colActions": "Дії"
+    "colActions": "Дії",
+    "tabInvoices": "Рахунки",
+    "tabCertificate": "Цифровий сертифікат",
+    "testModeBanner": "ТЕСТОВИЙ РЕЖИМ - Рахунки, створені в цьому режимі, НЕ передаються до реального AEAT і не мають податкової сили"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Невідомий видавець",
+    "validFrom": "Дійсний з",
+    "validUntil": "Дійсний до",
+    "expiresIn": "Спливає через {{days}} дн.",
+    "expired": "Прострочено",
+    "replaceButton": "Замінити сертифікат",
+    "form": {
+      "introNoCertificate": "Ваша клініка ще не налаштувала цифровий сертифікат. Без нього ConsentsPro не може передавати ваші рахунки до AEAT у режимі VERI*FACTU.",
+      "securityNotice": "Ваш сертифікат шифрується та надійно зберігається. Ні команда ConsentsPro, ні інші клініки не мають до нього доступу.",
+      "fileLabel": "Файл сертифіката (.p12 / .pfx)",
+      "passwordLabel": "Пароль сертифіката",
+      "submit": "Завантажити сертифікат",
+      "errors": {
+        "fileRequired": "Файл сертифіката обов’язковий",
+        "passwordRequired": "Пароль сертифіката обов’язковий",
+        "saveFailed": "Не вдалося завантажити сертифікат"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Новий рахунок",

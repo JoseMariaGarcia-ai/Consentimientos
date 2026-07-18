@@ -1831,7 +1831,30 @@
     "colTotal": "Toplam",
     "colStatus": "Durum",
     "colAeat": "AEAT",
-    "colActions": "İşlemler"
+    "colActions": "İşlemler",
+    "tabInvoices": "Faturalar",
+    "tabCertificate": "Dijital Sertifika",
+    "testModeBanner": "TEST MODU - Bu modda oluşturulan faturalar gerçek AEAT’a bildirilmez ve mali geçerliliği yoktur"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Bilinmeyen düzenleyici",
+    "validFrom": "Geçerlilik başlangıcı",
+    "validUntil": "Geçerlilik bitişi",
+    "expiresIn": "{{days}} gün içinde sona erecek",
+    "expired": "Süresi doldu",
+    "replaceButton": "Sertifikayı değiştir",
+    "form": {
+      "introNoCertificate": "Kliniğiniz henüz bir dijital sertifika ayarlamadı. Bu olmadan ConsentsPro, faturalarınızı VERI*FACTU modunda AEAT’a bildiremez.",
+      "securityNotice": "Sertifikanız şifrelenerek güvenli bir şekilde saklanır. Ne ConsentsPro ekibi ne de diğer klinikler ona erişemez.",
+      "fileLabel": "Sertifika dosyası (.p12 / .pfx)",
+      "passwordLabel": "Sertifika şifresi",
+      "submit": "Sertifikayı yükle",
+      "errors": {
+        "fileRequired": "Sertifika dosyası zorunludur",
+        "passwordRequired": "Sertifika şifresi zorunludur",
+        "saveFailed": "Sertifika yüklenemedi"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Yeni fatura",

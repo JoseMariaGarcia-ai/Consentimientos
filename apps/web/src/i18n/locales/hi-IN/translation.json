@@ -1831,7 +1831,30 @@
     "colTotal": "कुल",
     "colStatus": "स्थिति",
     "colAeat": "AEAT",
-    "colActions": "कार्रवाइयां"
+    "colActions": "कार्रवाइयां",
+    "tabInvoices": "चालान",
+    "tabCertificate": "डिजिटल प्रमाणपत्र",
+    "testModeBanner": "परीक्षण मोड - इस मोड में बनाए गए चालान वास्तविक AEAT को नहीं भेजे जाते और इनका कोई कर मूल्य नहीं है"
+  },
+  "certificateTab": {
+    "unknownIssuer": "अज्ञात जारीकर्ता",
+    "validFrom": "से मान्य",
+    "validUntil": "तक मान्य",
+    "expiresIn": "{{days}} दिनों में समाप्त होगा",
+    "expired": "समाप्त हो गया",
+    "replaceButton": "प्रमाणपत्र बदलें",
+    "form": {
+      "introNoCertificate": "आपके क्लिनिक ने अभी तक डिजिटल प्रमाणपत्र सेट नहीं किया है। इसके बिना, ConsentsPro आपके चालान AEAT को VERI*FACTU मोड में नहीं भेज सकता।",
+      "securityNotice": "आपका प्रमाणपत्र सुरक्षित रूप से एन्क्रिप्ट करके संग्रहीत किया जाता है। न तो ConsentsPro टीम और न ही अन्य क्लिनिक इसे एक्सेस कर सकते हैं।",
+      "fileLabel": "प्रमाणपत्र फ़ाइल (.p12 / .pfx)",
+      "passwordLabel": "प्रमाणपत्र पासवर्ड",
+      "submit": "प्रमाणपत्र अपलोड करें",
+      "errors": {
+        "fileRequired": "प्रमाणपत्र फ़ाइल आवश्यक है",
+        "passwordRequired": "प्रमाणपत्र पासवर्ड आवश्यक है",
+        "saveFailed": "प्रमाणपत्र अपलोड नहीं हो सका"
+      }
+    }
   },
   "invoiceModal": {
     "title": "नया चालान",

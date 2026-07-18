@@ -1831,7 +1831,30 @@
     "colTotal": "Total",
     "colStatus": "Status",
     "colAeat": "AEAT",
-    "colActions": "Handlinger"
+    "colActions": "Handlinger",
+    "tabInvoices": "Fakturaer",
+    "tabCertificate": "Digitalt certifikat",
+    "testModeBanner": "TESTTILSTAND - Fakturaer genereret i denne tilstand bliver IKKE indberettet til den rigtige AEAT og har ingen skattemæssig gyldighed"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Ukendt udsteder",
+    "validFrom": "Gyldig fra",
+    "validUntil": "Gyldig til",
+    "expiresIn": "Udløber om {{days}} dage",
+    "expired": "Udløbet",
+    "replaceButton": "Udskift certifikat",
+    "form": {
+      "introNoCertificate": "Din klinik har endnu ikke konfigureret et digitalt certifikat. Uden det kan ConsentsPro ikke indberette dine fakturaer til AEAT i VERI*FACTU-tilstand.",
+      "securityNotice": "Dit certifikat krypteres og opbevares sikkert. Hverken ConsentsPro-teamet eller andre klinikker kan få adgang til det.",
+      "fileLabel": "Certifikatfil (.p12 / .pfx)",
+      "passwordLabel": "Certifikatets adgangskode",
+      "submit": "Upload certifikat",
+      "errors": {
+        "fileRequired": "Certifikatfilen er obligatorisk",
+        "passwordRequired": "Certifikatets adgangskode er obligatorisk",
+        "saveFailed": "Certifikatet kunne ikke uploades"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Ny faktura",

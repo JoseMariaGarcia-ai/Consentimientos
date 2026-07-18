@@ -1831,7 +1831,30 @@
     "colTotal": "合計",
     "colStatus": "ステータス",
     "colAeat": "AEAT",
-    "colActions": "操作"
+    "colActions": "操作",
+    "tabInvoices": "請求書",
+    "tabCertificate": "デジタル証明書",
+    "testModeBanner": "テストモード - このモードで作成された請求書は実際のAEATには送信されず、税務上の有効性はありません"
+  },
+  "certificateTab": {
+    "unknownIssuer": "不明な発行者",
+    "validFrom": "有効開始日",
+    "validUntil": "有効期限",
+    "expiresIn": "あと{{days}}日で失効します",
+    "expired": "失効済み",
+    "replaceButton": "証明書を交換",
+    "form": {
+      "introNoCertificate": "このクリニックはまだデジタル証明書を設定していません。証明書がないと、ConsentsProはVERI*FACTUモードで請求書をAEATに送信できません。",
+      "securityNotice": "証明書は暗号化されて安全に保管されます。ConsentsProチームも他のクリニックもアクセスできません。",
+      "fileLabel": "証明書ファイル (.p12 / .pfx)",
+      "passwordLabel": "証明書のパスワード",
+      "submit": "証明書をアップロード",
+      "errors": {
+        "fileRequired": "証明書ファイルは必須です",
+        "passwordRequired": "証明書のパスワードは必須です",
+        "saveFailed": "証明書をアップロードできませんでした"
+      }
+    }
   },
   "invoiceModal": {
     "title": "新規請求書",

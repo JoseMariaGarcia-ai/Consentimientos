@@ -1831,7 +1831,30 @@
     "colTotal": "Gesamt",
     "colStatus": "Status",
     "colAeat": "AEAT",
-    "colActions": "Aktionen"
+    "colActions": "Aktionen",
+    "tabInvoices": "Rechnungen",
+    "tabCertificate": "Digitales Zertifikat",
+    "testModeBanner": "TESTMODUS - In diesem Modus erstellte Rechnungen werden NICHT an die echte AEAT übermittelt und haben keine steuerliche Gültigkeit"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Unbekannter Aussteller",
+    "validFrom": "Gültig ab",
+    "validUntil": "Gültig bis",
+    "expiresIn": "Läuft in {{days}} Tagen ab",
+    "expired": "Abgelaufen",
+    "replaceButton": "Zertifikat ersetzen",
+    "form": {
+      "introNoCertificate": "Ihre Klinik hat noch kein digitales Zertifikat eingerichtet. Ohne dieses kann ConsentsPro Ihre Rechnungen nicht im VERI*FACTU-Modus an die AEAT übermitteln.",
+      "securityNotice": "Ihr Zertifikat wird sicher verschlüsselt gespeichert. Weder das ConsentsPro-Team noch andere Kliniken haben Zugriff darauf.",
+      "fileLabel": "Zertifikatsdatei (.p12 / .pfx)",
+      "passwordLabel": "Zertifikatspasswort",
+      "submit": "Zertifikat hochladen",
+      "errors": {
+        "fileRequired": "Die Zertifikatsdatei ist erforderlich",
+        "passwordRequired": "Das Zertifikatspasswort ist erforderlich",
+        "saveFailed": "Das Zertifikat konnte nicht hochgeladen werden"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Neue Rechnung",

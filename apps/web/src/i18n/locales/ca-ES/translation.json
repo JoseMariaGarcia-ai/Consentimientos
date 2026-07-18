@@ -1831,7 +1831,30 @@
     "colTotal": "Total",
     "colStatus": "Estat",
     "colAeat": "AEAT",
-    "colActions": "Accions"
+    "colActions": "Accions",
+    "tabInvoices": "Factures",
+    "tabCertificate": "Certificat Digital",
+    "testModeBanner": "MODE PROVA - Les factures generades en aquest mode NO es comuniquen a l’AEAT real i no tenen validesa fiscal"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Entitat emissora desconeguda",
+    "validFrom": "Vàlid des de",
+    "validUntil": "Vàlid fins a",
+    "expiresIn": "Caduca en {{days}} dies",
+    "expired": "Caducat",
+    "replaceButton": "Substituir certificat",
+    "form": {
+      "introNoCertificate": "La teva clínica encara no té un certificat digital configurat. Sense ell, ConsentsPro no pot comunicar les teves factures a l’AEAT en modalitat VERI*FACTU.",
+      "securityNotice": "El teu certificat es xifra i s’emmagatzema de forma segura. Ni l’equip de ConsentsPro ni altres clíniques hi poden accedir.",
+      "fileLabel": "Arxiu del certificat (.p12 / .pfx)",
+      "passwordLabel": "Contrasenya del certificat",
+      "submit": "Carregar certificat",
+      "errors": {
+        "fileRequired": "L’arxiu del certificat és obligatori",
+        "passwordRequired": "La contrasenya del certificat és obligatòria",
+        "saveFailed": "No s’ha pogut carregar el certificat"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Nova factura",

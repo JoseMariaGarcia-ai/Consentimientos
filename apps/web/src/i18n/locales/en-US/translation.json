@@ -1831,7 +1831,30 @@
     "colTotal": "Total",
     "colStatus": "Status",
     "colAeat": "AEAT",
-    "colActions": "Actions"
+    "colActions": "Actions",
+    "tabInvoices": "Invoices",
+    "tabCertificate": "Digital Certificate",
+    "testModeBanner": "TEST MODE - Invoices generated in this mode are NOT reported to the real AEAT and have no fiscal validity"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Unknown issuer",
+    "validFrom": "Valid from",
+    "validUntil": "Valid until",
+    "expiresIn": "Expires in {{days}} days",
+    "expired": "Expired",
+    "replaceButton": "Replace certificate",
+    "form": {
+      "introNoCertificate": "Your clinic hasn’t set up a digital certificate yet. Without it, ConsentsPro can’t report your invoices to the AEAT in VERI*FACTU mode.",
+      "securityNotice": "Your certificate is encrypted and stored securely. Neither the ConsentsPro team nor other clinics can access it.",
+      "fileLabel": "Certificate file (.p12 / .pfx)",
+      "passwordLabel": "Certificate password",
+      "submit": "Upload certificate",
+      "errors": {
+        "fileRequired": "The certificate file is required",
+        "passwordRequired": "The certificate password is required",
+        "saveFailed": "The certificate could not be uploaded"
+      }
+    }
   },
   "invoiceModal": {
     "title": "New invoice",

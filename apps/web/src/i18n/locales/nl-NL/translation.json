@@ -1831,7 +1831,30 @@
     "colTotal": "Totaal",
     "colStatus": "Status",
     "colAeat": "AEAT",
-    "colActions": "Acties"
+    "colActions": "Acties",
+    "tabInvoices": "Facturen",
+    "tabCertificate": "Digitaal certificaat",
+    "testModeBanner": "TESTMODUS - Facturen die in deze modus worden gegenereerd, worden NIET gemeld aan de echte AEAT en hebben geen fiscale geldigheid"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Onbekende uitgever",
+    "validFrom": "Geldig vanaf",
+    "validUntil": "Geldig tot",
+    "expiresIn": "Verloopt over {{days}} dagen",
+    "expired": "Verlopen",
+    "replaceButton": "Certificaat vervangen",
+    "form": {
+      "introNoCertificate": "Je kliniek heeft nog geen digitaal certificaat ingesteld. Zonder dit kan ConsentsPro je facturen niet in VERI*FACTU-modus aan de AEAT melden.",
+      "securityNotice": "Je certificaat wordt versleuteld en veilig opgeslagen. Noch het ConsentsPro-team, noch andere klinieken hebben er toegang toe.",
+      "fileLabel": "Certificaatbestand (.p12 / .pfx)",
+      "passwordLabel": "Certificaatwachtwoord",
+      "submit": "Certificaat uploaden",
+      "errors": {
+        "fileRequired": "Het certificaatbestand is verplicht",
+        "passwordRequired": "Het certificaatwachtwoord is verplicht",
+        "saveFailed": "Het certificaat kon niet worden geüpload"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Nieuwe factuur",

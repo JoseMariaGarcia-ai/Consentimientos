@@ -1831,7 +1831,30 @@
     "colTotal": "Tổng cộng",
     "colStatus": "Trạng thái",
     "colAeat": "AEAT",
-    "colActions": "Hành động"
+    "colActions": "Hành động",
+    "tabInvoices": "Hóa đơn",
+    "tabCertificate": "Chứng chỉ số",
+    "testModeBanner": "CHẾ ĐỘ THỬ NGHIỆM - Các hóa đơn được tạo trong chế độ này KHÔNG được báo cáo cho AEAT thực và không có giá trị pháp lý về thuế"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Đơn vị phát hành không xác định",
+    "validFrom": "Có hiệu lực từ",
+    "validUntil": "Có hiệu lực đến",
+    "expiresIn": "Hết hạn sau {{days}} ngày",
+    "expired": "Đã hết hạn",
+    "replaceButton": "Thay thế chứng chỉ",
+    "form": {
+      "introNoCertificate": "Phòng khám của bạn chưa thiết lập chứng chỉ số. Nếu không có nó, ConsentsPro không thể báo cáo hóa đơn của bạn cho AEAT ở chế độ VERI*FACTU.",
+      "securityNotice": "Chứng chỉ của bạn được mã hóa và lưu trữ an toàn. Cả đội ngũ ConsentsPro và các phòng khám khác đều không thể truy cập vào nó.",
+      "fileLabel": "Tệp chứng chỉ (.p12 / .pfx)",
+      "passwordLabel": "Mật khẩu chứng chỉ",
+      "submit": "Tải lên chứng chỉ",
+      "errors": {
+        "fileRequired": "Tệp chứng chỉ là bắt buộc",
+        "passwordRequired": "Mật khẩu chứng chỉ là bắt buộc",
+        "saveFailed": "Không thể tải lên chứng chỉ"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Hóa đơn mới",

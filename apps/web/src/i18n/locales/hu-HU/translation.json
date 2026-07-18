@@ -1831,7 +1831,30 @@
     "colTotal": "Összesen",
     "colStatus": "Állapot",
     "colAeat": "AEAT",
-    "colActions": "Műveletek"
+    "colActions": "Műveletek",
+    "tabInvoices": "Számlák",
+    "tabCertificate": "Digitális tanúsítvány",
+    "testModeBanner": "TESZT MÓD - Az ebben a módban létrehozott számlák NEM kerülnek jelentésre a valódi AEAT felé, és nincs adójogi érvényük"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Ismeretlen kibocsátó",
+    "validFrom": "Érvényes ettől",
+    "validUntil": "Érvényes eddig",
+    "expiresIn": "{{days}} nap múlva lejár",
+    "expired": "Lejárt",
+    "replaceButton": "Tanúsítvány cseréje",
+    "form": {
+      "introNoCertificate": "A klinikája még nem állított be digitális tanúsítványt. Enélkül a ConsentsPro nem tudja jelenteni a számláit az AEAT felé VERI*FACTU módban.",
+      "securityNotice": "A tanúsítványát biztonságosan titkosítva tároljuk. Sem a ConsentsPro csapat, sem más klinikák nem férhetnek hozzá.",
+      "fileLabel": "Tanúsítványfájl (.p12 / .pfx)",
+      "passwordLabel": "Tanúsítvány jelszava",
+      "submit": "Tanúsítvány feltöltése",
+      "errors": {
+        "fileRequired": "A tanúsítványfájl megadása kötelező",
+        "passwordRequired": "A tanúsítvány jelszavának megadása kötelező",
+        "saveFailed": "A tanúsítványt nem sikerült feltölteni"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Új számla",

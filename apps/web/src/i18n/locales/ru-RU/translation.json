@@ -1831,7 +1831,30 @@
     "colTotal": "Итого",
     "colStatus": "Статус",
     "colAeat": "AEAT",
-    "colActions": "Действия"
+    "colActions": "Действия",
+    "tabInvoices": "Счета",
+    "tabCertificate": "Цифровой сертификат",
+    "testModeBanner": "ТЕСТОВЫЙ РЕЖИМ - Счета, созданные в этом режиме, НЕ передаются в реальный AEAT и не имеют налоговой силы"
+  },
+  "certificateTab": {
+    "unknownIssuer": "Неизвестный издатель",
+    "validFrom": "Действителен с",
+    "validUntil": "Действителен до",
+    "expiresIn": "Истекает через {{days}} дн.",
+    "expired": "Истёк",
+    "replaceButton": "Заменить сертификат",
+    "form": {
+      "introNoCertificate": "В вашей клинике ещё не настроен цифровой сертификат. Без него ConsentsPro не может передавать ваши счета в AEAT в режиме VERI*FACTU.",
+      "securityNotice": "Ваш сертификат шифруется и надёжно хранится. Ни команда ConsentsPro, ни другие клиники не имеют к нему доступа.",
+      "fileLabel": "Файл сертификата (.p12 / .pfx)",
+      "passwordLabel": "Пароль сертификата",
+      "submit": "Загрузить сертификат",
+      "errors": {
+        "fileRequired": "Файл сертификата обязателен",
+        "passwordRequired": "Пароль сертификата обязателен",
+        "saveFailed": "Не удалось загрузить сертификат"
+      }
+    }
   },
   "invoiceModal": {
     "title": "Новый счёт",
