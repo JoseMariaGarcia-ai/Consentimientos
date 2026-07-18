@@ -541,7 +541,8 @@
     "workflows": "工作流",
     "tickets": "问题反馈",
     "invoicing": "开票",
-    "timeTracking": "考勤管理"
+    "timeTracking": "考勤管理",
+    "reorderHandle": "拖动以重新排序"
   },
   "topbar": {
     "tagline": "数字知情同意书 · 生物特征签名",

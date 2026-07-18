@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Chamados",
     "invoicing": "Faturamento",
-    "timeTracking": "Controle de ponto"
+    "timeTracking": "Controle de ponto",
+    "reorderHandle": "Arraste para reordenar"
   },
   "topbar": {
     "tagline": "Consentimentos Digitais · Assinatura Biométrica",

@@ -541,7 +541,8 @@
     "workflows": "ワークフロー",
     "tickets": "不具合報告",
     "invoicing": "請求書発行",
-    "timeTracking": "勤怠管理"
+    "timeTracking": "勤怠管理",
+    "reorderHandle": "ドラッグして並べ替え"
   },
   "topbar": {
     "tagline": "デジタル同意書 · 生体認証署名",

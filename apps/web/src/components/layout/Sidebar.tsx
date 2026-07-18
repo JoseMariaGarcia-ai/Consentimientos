@@ -1,6 +1,7 @@
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro, Clock, Sparkles, TrendingUp } from 'lucide-react'
+import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro, Clock, Sparkles, TrendingUp, GripVertical } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 import { useOpenTickets } from '@/hooks/useOpenTickets'
@@ -36,14 +37,78 @@ interface SidebarProps {
   allowedModules?: string[]
   /** Workflows is a role-based section (superadmin only) — it's never part of the plan/module permission model. */
   isSuperAdmin?: boolean
+  /** User's saved order for the main nav list (moduleKey[]), null/undefined = default order. */
+  sidebarOrder?: string[] | null
+  /** Called after a drag ends with the new full moduleKey order — persisted by the caller. */
+  onReorder?: (order: string[]) => void
 }
 
-export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: SidebarProps) {
+export function Sidebar({ open, onClose, allowedModules, isSuperAdmin, sidebarOrder, onReorder }: SidebarProps) {
   const { t } = useTranslation()
   const { low } = useCredits()
   const { count: openTickets } = useOpenTickets()
   const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
   const visibleBottomItems = allowedModules ? bottomNavItems.filter(i => allowedModules.includes(i.moduleKey)) : bottomNavItems
+
+  // Reordenación por arrastre — solo del bloque principal de navItems (no
+  // de Settings, ni de Recargar, ni del bloque superadmin de Workflows,
+  // que viven fuera de este array por diseño). dragOrder es la lista de
+  // moduleKey en el orden que se está mostrando/arrastrando; se resincroniza
+  // con la preferencia guardada cuando cambia, pero nunca en medio de un
+  // arrastre en curso (evitaría que el orden "salte" bajo el dedo/ratón).
+  const navRef = useRef<HTMLDivElement>(null)
+  const dragKeyRef = useRef<string | null>(null)
+  const [dragOrder, setDragOrder] = useState<string[]>(() => visibleNavItems.map(i => i.moduleKey))
+  const dragOrderRef = useRef(dragOrder)
+  useEffect(() => { dragOrderRef.current = dragOrder }, [dragOrder])
+
+  useEffect(() => {
+    if (dragKeyRef.current) return
+    const keys = visibleNavItems.map(i => i.moduleKey)
+    const saved = sidebarOrder ?? []
+    const next = saved.length > 0
+      ? [...saved.filter(k => keys.includes(k)), ...keys.filter(k => !saved.includes(k))]
+      : keys
+    setDragOrder(next)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visibleNavItems.map(i => i.moduleKey).join(','), (sidebarOrder ?? []).join(',')])
+
+  const orderedNavItems = dragOrder
+    .map(key => visibleNavItems.find(i => i.moduleKey === key))
+    .filter((i): i is typeof visibleNavItems[number] => !!i)
+
+  const handleGripPointerDown = (key: string) => (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.button !== 0 && e.pointerType === 'mouse') return
+    e.currentTarget.setPointerCapture(e.pointerId)
+    dragKeyRef.current = key
+  }
+
+  const handleGripPointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const key = dragKeyRef.current
+    if (!key || !navRef.current) return
+    const els = Array.from(navRef.current.querySelectorAll<HTMLElement>('[data-nav-key]'))
+    const overEl = els.find(el => {
+      const r = el.getBoundingClientRect()
+      return e.clientY >= r.top && e.clientY <= r.bottom
+    })
+    const overKey = overEl?.dataset.navKey
+    if (!overKey || overKey === key) return
+    setDragOrder(prev => {
+      const from = prev.indexOf(key)
+      const to = prev.indexOf(overKey)
+      if (from === -1 || to === -1 || from === to) return prev
+      const next = [...prev]
+      next.splice(from, 1)
+      next.splice(to, 0, key)
+      return next
+    })
+  }
+
+  const handleGripPointerUp = () => {
+    const key = dragKeyRef.current
+    dragKeyRef.current = null
+    if (key) onReorder?.(dragOrderRef.current)
+  }
 
   return (
     <>
@@ -61,27 +126,41 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin }: Sidebar
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <nav className="flex-1">
-          {visibleNavItems.map(({ to, icon: Icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              onClick={onClose}
-              className={({ isActive }) =>
-                `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
-                }`
-              }
-            >
-              <Icon className="w-4 h-4" />
-              {t(label)}
-              {to === '/tickets' && openTickets > 0 && (
-                <span className="ml-auto min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">
-                  {openTickets}
-                </span>
-              )}
-            </NavLink>
+        <nav className="flex-1" ref={navRef}>
+          {orderedNavItems.map(({ to, icon: Icon, label, moduleKey }) => (
+            <div key={moduleKey} data-nav-key={moduleKey} className="flex items-center mx-2">
+              <button
+                type="button"
+                onPointerDown={handleGripPointerDown(moduleKey)}
+                onPointerMove={handleGripPointerMove}
+                onPointerUp={handleGripPointerUp}
+                onPointerCancel={handleGripPointerUp}
+                title={t('nav.reorderHandle')}
+                aria-label={t('nav.reorderHandle')}
+                className="p-1 -mr-1 text-slate-300 hover:text-slate-500 cursor-grab active:cursor-grabbing flex-shrink-0"
+                style={{ touchAction: 'none' }}
+              >
+                <GripVertical className="w-3.5 h-3.5" />
+              </button>
+              <NavLink
+                to={to}
+                end={to === '/'}
+                onClick={onClose}
+                className={({ isActive }) =>
+                  `flex-1 min-w-0 flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    isActive ? 'bg-blue-50 text-brand' : 'text-slate-600 hover:bg-slate-50'
+                  }`
+                }
+              >
+                <Icon className="w-4 h-4" />
+                {t(label)}
+                {to === '/tickets' && openTickets > 0 && (
+                  <span className="ml-auto min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">
+                    {openTickets}
+                  </span>
+                )}
+              </NavLink>
+            </div>
           ))}
 
           {/* Recargar — highlighted when credits are low */}

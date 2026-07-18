@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Fejlrapporter",
     "invoicing": "Fakturering",
-    "timeTracking": "Tidsregistrering"
+    "timeTracking": "Tidsregistrering",
+    "reorderHandle": "Træk for at ændre rækkefølge"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digital Signatur",

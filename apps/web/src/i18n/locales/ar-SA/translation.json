@@ -541,7 +541,8 @@
     "workflows": "سير العمل",
     "tickets": "الحوادث",
     "invoicing": "الفوترة",
-    "timeTracking": "تسجيل الحضور"
+    "timeTracking": "تسجيل الحضور",
+    "reorderHandle": "اسحب لإعادة الترتيب"
   },
   "topbar": {
     "tagline": "نماذج الموافقة الرقمية · التوقيع البيومتري",

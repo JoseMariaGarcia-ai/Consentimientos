@@ -541,7 +541,8 @@
     "workflows": "İş Akışları",
     "tickets": "Arıza kayıtları",
     "invoicing": "Faturalama",
-    "timeTracking": "Zaman Takibi"
+    "timeTracking": "Zaman Takibi",
+    "reorderHandle": "Sıralamak için sürükleyin"
   },
   "topbar": {
     "tagline": "Dijital Onaylar · Biyometrik İmza",

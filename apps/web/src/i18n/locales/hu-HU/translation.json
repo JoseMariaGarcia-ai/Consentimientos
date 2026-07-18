@@ -541,7 +541,8 @@
     "workflows": "Munkafolyamatok",
     "tickets": "Hibajegyek",
     "invoicing": "Számlázás",
-    "timeTracking": "Munkaidő-nyilvántartás"
+    "timeTracking": "Munkaidő-nyilvántartás",
+    "reorderHandle": "Húzd az átrendezéshez"
   },
   "topbar": {
     "tagline": "Digitális Beleegyezések · Digitális Aláírás",

@@ -541,7 +541,8 @@
     "workflows": "Przepływy pracy",
     "tickets": "Zgłoszenia",
     "invoicing": "Fakturowanie",
-    "timeTracking": "Kontrola czasu pracy"
+    "timeTracking": "Kontrola czasu pracy",
+    "reorderHandle": "Przeciągnij, aby zmienić kolejność"
   },
   "topbar": {
     "tagline": "Cyfrowe Zgody · Podpis Biometryczny",

@@ -547,7 +547,8 @@
     "invoicing": "Facturación",
     "timeTracking": "Control horario",
     "aiCredits": "Bono IA",
-    "aiRevenue": "Bono IA — Ingresos"
+    "aiRevenue": "Bono IA — Ingresos",
+    "reorderHandle": "Arrastra para reordenar"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",

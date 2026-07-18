@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Support tickets",
     "invoicing": "Invoicing",
-    "timeTracking": "Time Tracking"
+    "timeTracking": "Time Tracking",
+    "reorderHandle": "Drag to reorder"
   },
   "topbar": {
     "tagline": "Digital Consents · Biometric Signature",

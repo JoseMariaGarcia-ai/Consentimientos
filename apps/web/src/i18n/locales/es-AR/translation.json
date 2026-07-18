@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Incidencias",
     "invoicing": "Facturación",
-    "timeTracking": "Control horario"
+    "timeTracking": "Control horario",
+    "reorderHandle": "Arrastrá para reordenar"
   },
   "topbar": {
     "tagline": "Consentimientos Digitales · Huella Digital",

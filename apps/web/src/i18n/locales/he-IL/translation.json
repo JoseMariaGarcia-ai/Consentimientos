@@ -541,7 +541,8 @@
     "workflows": "תהליכי עבודה",
     "tickets": "תקלות",
     "invoicing": "חשבוניות",
-    "timeTracking": "בקרת נוכחות"
+    "timeTracking": "בקרת נוכחות",
+    "reorderHandle": "גרור כדי לסדר מחדש"
   },
   "topbar": {
     "tagline": "הסכמות דיגיטליות · חתימה דיגיטלית",

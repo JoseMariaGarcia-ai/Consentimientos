@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Meldingen",
     "invoicing": "Facturatie",
-    "timeTracking": "Tijdregistratie"
+    "timeTracking": "Tijdregistratie",
+    "reorderHandle": "Sleep om te herschikken"
   },
   "topbar": {
     "tagline": "Digitale Toestemmingen · Biometrische Handtekening",

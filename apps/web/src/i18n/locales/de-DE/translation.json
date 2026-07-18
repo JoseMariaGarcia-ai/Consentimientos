@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Störungen",
     "invoicing": "Rechnungsstellung",
-    "timeTracking": "Arbeitszeiterfassung"
+    "timeTracking": "Arbeitszeiterfassung",
+    "reorderHandle": "Zum Sortieren ziehen"
   },
   "topbar": {
     "tagline": "Digitale Einwilligungen · Biometrische Unterschrift",

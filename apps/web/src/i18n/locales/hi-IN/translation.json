@@ -541,7 +541,8 @@
     "workflows": "वर्कफ़्लो",
     "tickets": "समस्या रिपोर्ट",
     "invoicing": "बिलिंग",
-    "timeTracking": "उपस्थिति नियंत्रण"
+    "timeTracking": "उपस्थिति नियंत्रण",
+    "reorderHandle": "क्रम बदलने के लिए खींचें"
   },
   "topbar": {
     "tagline": "डिजिटल सहमति · डिजिटल हस्ताक्षर",

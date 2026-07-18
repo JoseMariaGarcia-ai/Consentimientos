@@ -541,7 +541,8 @@
     "workflows": "Fluxuri de lucru",
     "tickets": "Incidente",
     "invoicing": "Facturare",
-    "timeTracking": "Pontaj"
+    "timeTracking": "Pontaj",
+    "reorderHandle": "Trage pentru a reordona"
   },
   "topbar": {
     "tagline": "Consimțăminte Digitale · Amprentă Digitală",

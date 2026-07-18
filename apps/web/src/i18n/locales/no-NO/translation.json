@@ -541,7 +541,8 @@
     "workflows": "Arbeidsflyter",
     "tickets": "Feilmeldinger",
     "invoicing": "Fakturering",
-    "timeTracking": "Timeregistrering"
+    "timeTracking": "Timeregistrering",
+    "reorderHandle": "Dra for å endre rekkefølge"
   },
   "topbar": {
     "tagline": "Digitale Samtykker · Digitalt Fingeravtrykk",

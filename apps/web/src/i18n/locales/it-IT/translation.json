@@ -541,7 +541,8 @@
     "workflows": "Workflow",
     "tickets": "Segnalazioni",
     "invoicing": "Fatturazione",
-    "timeTracking": "Controllo orario"
+    "timeTracking": "Controllo orario",
+    "reorderHandle": "Trascina per riordinare"
   },
   "topbar": {
     "tagline": "Consensi Digitali · Firma Biometrica",

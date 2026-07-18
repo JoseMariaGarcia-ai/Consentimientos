@@ -541,7 +541,8 @@
     "workflows": "Fluxos de treball",
     "tickets": "Incidències",
     "invoicing": "Facturació",
-    "timeTracking": "Control horari"
+    "timeTracking": "Control horari",
+    "reorderHandle": "Arrossega per reordenar"
   },
   "topbar": {
     "tagline": "Consentiments Digitals · Signatura Digital",

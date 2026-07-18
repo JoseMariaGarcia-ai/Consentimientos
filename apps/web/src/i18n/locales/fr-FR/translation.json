@@ -541,7 +541,8 @@
     "workflows": "Workflows",
     "tickets": "Incidents",
     "invoicing": "Facturation",
-    "timeTracking": "Contrôle horaire"
+    "timeTracking": "Contrôle horaire",
+    "reorderHandle": "Faites glisser pour réorganiser"
   },
   "topbar": {
     "tagline": "Consentements Numériques · Signature Biométrique",

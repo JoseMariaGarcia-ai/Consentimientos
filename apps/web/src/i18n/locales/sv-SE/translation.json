@@ -541,7 +541,8 @@
     "workflows": "Arbetsflöden",
     "tickets": "Ärenden",
     "invoicing": "Fakturering",
-    "timeTracking": "Tidrapportering"
+    "timeTracking": "Tidrapportering",
+    "reorderHandle": "Dra för att ändra ordning"
   },
   "topbar": {
     "tagline": "Digitala Samtycken · Biometrisk Signatur",

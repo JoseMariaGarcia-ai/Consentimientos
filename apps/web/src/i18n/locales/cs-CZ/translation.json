@@ -541,7 +541,8 @@
     "workflows": "Automatizace",
     "tickets": "Incidenty",
     "invoicing": "Fakturace",
-    "timeTracking": "Docházka"
+    "timeTracking": "Docházka",
+    "reorderHandle": "Přetažením změníte pořadí"
   },
   "topbar": {
     "tagline": "Digitální Souhlasy · Digitální Podpis",

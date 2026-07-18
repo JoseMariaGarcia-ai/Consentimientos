@@ -541,7 +541,8 @@
     "workflows": "워크플로우",
     "tickets": "오류 신고",
     "invoicing": "청구서 발행",
-    "timeTracking": "근태 관리"
+    "timeTracking": "근태 관리",
+    "reorderHandle": "드래그하여 순서 변경"
   },
   "topbar": {
     "tagline": "디지털 동의서 · 생체 인식 서명",

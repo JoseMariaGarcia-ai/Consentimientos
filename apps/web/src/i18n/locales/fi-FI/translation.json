@@ -541,7 +541,8 @@
     "workflows": "Työnkulut",
     "tickets": "Vikailmoitukset",
     "invoicing": "Laskutus",
-    "timeTracking": "Työajanseuranta"
+    "timeTracking": "Työajanseuranta",
+    "reorderHandle": "Järjestä vetämällä"
   },
   "topbar": {
     "tagline": "Digitaaliset Suostumukset · Digitaalinen Allekirjoitus",

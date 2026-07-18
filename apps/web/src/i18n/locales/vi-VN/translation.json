@@ -541,7 +541,8 @@
     "workflows": "Quy trình tự động",
     "tickets": "Phản ánh sự cố",
     "invoicing": "Hóa đơn",
-    "timeTracking": "Chấm công"
+    "timeTracking": "Chấm công",
+    "reorderHandle": "Kéo để sắp xếp lại"
   },
   "topbar": {
     "tagline": "Chấp Thuận Kỹ Thuật Số · Chữ Ký Số",
