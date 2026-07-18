@@ -2047,7 +2047,30 @@
     "compensationNotes": "Note",
     "compensationSave": "Salva compensazione",
     "compensationSaved": "Salvato",
-    "integrityAlarm": "Sono state rilevate {{count}} discrepanze nella catena hash delle timbrature. Contatta l'assistenza."
+    "integrityAlarm": "Sono state rilevate {{count}} discrepanze nella catena hash delle timbrature. Contatta l'assistenza.",
+    "quickFilterToday": "Oggi",
+    "quickFilterYesterday": "Ieri",
+    "quickFilterWeek": "Questa settimana",
+    "quickFilterMonth": "Questo mese",
+    "incidentsTitle": "Incidenti",
+    "reportIncident": "Segnala incidente",
+    "noIncidents": "Non è ancora stato segnalato nessun incidente.",
+    "incidentType": {
+      "olvido_entrada": "Timbratura di entrata dimenticata",
+      "olvido_salida": "Timbratura di uscita dimenticata",
+      "ausencia_justificada": "Assenza giustificata",
+      "ausencia_injustificada": "Assenza ingiustificata",
+      "otro": "Altro"
+    },
+    "incidentStatus": {
+      "pendiente": "In attesa",
+      "aprobada": "Approvata",
+      "rechazada": "Respinta"
+    },
+    "resolutionNotesPlaceholder": "Note sulla risoluzione (facoltativo)",
+    "resolutionNotesLabel": "Note",
+    "approve": "Approva",
+    "reject": "Respingi"
   },
   "odontogram": {
     "lastVisit": "Ultima visita",
@@ -2268,6 +2291,28 @@
       "seriesRequired": "La serie è obbligatoria",
       "invalidNumber": "Il numero di partenza deve essere un intero maggiore o uguale a 1",
       "saveFailed": "Impossibile salvare la configurazione della serie"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Segnala incidente",
+    "submit": "Invia",
+    "form": {
+      "employee": "Dipendente",
+      "selectEmployee": "Seleziona un dipendente",
+      "type": "Tipo di incidente",
+      "proposedTimestamp": "Data e ora della timbratura dimenticata",
+      "proposedTimestampHint": "L'orario reale in cui è avvenuto, anche se non è stato timbrato in quel momento.",
+      "dateFrom": "Dal",
+      "dateTo": "Al",
+      "dateToHint": "Lascia vuoto se è un unico giorno.",
+      "reason": "Motivo"
+    },
+    "errors": {
+      "employeeRequired": "Seleziona un dipendente",
+      "reasonRequired": "Il motivo è obbligatorio",
+      "timestampRequired": "Indica data e ora della timbratura dimenticata",
+      "dateRequired": "Indica la data dell'assenza",
+      "saveFailed": "Impossibile inviare l'incidente"
     }
   }
 }

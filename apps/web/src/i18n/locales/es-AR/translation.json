@@ -1965,7 +1965,30 @@
     "compensationNotes": "Notas",
     "compensationSave": "Guardar compensación",
     "compensationSaved": "Guardado",
-    "integrityAlarm": "Se han detectado {{count}} discrepancias en la cadena de hashes de los fichajes. Contacta con soporte."
+    "integrityAlarm": "Se han detectado {{count}} discrepancias en la cadena de hashes de los fichajes. Contacta con soporte.",
+    "quickFilterToday": "Hoy",
+    "quickFilterYesterday": "Ayer",
+    "quickFilterWeek": "Esta semana",
+    "quickFilterMonth": "Este mes",
+    "incidentsTitle": "Incidencias",
+    "reportIncident": "Reportar incidencia",
+    "noIncidents": "Todavía no hay ninguna incidencia reportada.",
+    "incidentType": {
+      "olvido_entrada": "Olvido de fichaje de entrada",
+      "olvido_salida": "Olvido de fichaje de salida",
+      "ausencia_justificada": "Ausencia justificada",
+      "ausencia_injustificada": "Ausencia injustificada",
+      "otro": "Otro"
+    },
+    "incidentStatus": {
+      "pendiente": "Pendiente",
+      "aprobada": "Aprobada",
+      "rechazada": "Rechazada"
+    },
+    "resolutionNotesPlaceholder": "Notas de la resolución (opcional)",
+    "resolutionNotesLabel": "Notas",
+    "approve": "Aprobar",
+    "reject": "Rechazar"
   },
   "odontogram": {
     "lastVisit": "Última visita",
@@ -2186,6 +2209,28 @@
       "seriesRequired": "La serie es obligatoria",
       "invalidNumber": "El número de partida debe ser un entero mayor o igual a 1",
       "saveFailed": "No se pudo guardar la configuración de la serie"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Reportar incidencia",
+    "submit": "Enviar",
+    "form": {
+      "employee": "Empleado",
+      "selectEmployee": "Seleccioná un empleado",
+      "type": "Tipo de incidencia",
+      "proposedTimestamp": "Fecha y hora del fichaje olvidado",
+      "proposedTimestampHint": "La hora real en la que ocurrió, aunque no se haya fichado en ese momento.",
+      "dateFrom": "Desde",
+      "dateTo": "Hasta",
+      "dateToHint": "Dejalo vacío si es un único día.",
+      "reason": "Motivo"
+    },
+    "errors": {
+      "employeeRequired": "Seleccioná un empleado",
+      "reasonRequired": "El motivo es obligatorio",
+      "timestampRequired": "Indicá la fecha y hora del fichaje olvidado",
+      "dateRequired": "Indicá la fecha de la ausencia",
+      "saveFailed": "No se pudo enviar la incidencia"
     }
   }
 }

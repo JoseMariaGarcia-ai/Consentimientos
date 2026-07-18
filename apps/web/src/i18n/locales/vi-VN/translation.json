@@ -1993,7 +1993,30 @@
     "compensationNotes": "Ghi chú",
     "compensationSave": "Lưu khoản bù đắp",
     "compensationSaved": "Đã lưu",
-    "integrityAlarm": "Đã phát hiện {{count}} sai lệch trong chuỗi hash của các lượt chấm công. Liên hệ hỗ trợ."
+    "integrityAlarm": "Đã phát hiện {{count}} sai lệch trong chuỗi hash của các lượt chấm công. Liên hệ hỗ trợ.",
+    "quickFilterToday": "Hôm nay",
+    "quickFilterYesterday": "Hôm qua",
+    "quickFilterWeek": "Tuần này",
+    "quickFilterMonth": "Tháng này",
+    "incidentsTitle": "Sự cố",
+    "reportIncident": "Báo cáo sự cố",
+    "noIncidents": "Chưa có sự cố nào được báo cáo.",
+    "incidentType": {
+      "olvido_entrada": "Quên chấm công vào",
+      "olvido_salida": "Quên chấm công ra",
+      "ausencia_justificada": "Vắng mặt có lý do",
+      "ausencia_injustificada": "Vắng mặt không có lý do",
+      "otro": "Khác"
+    },
+    "incidentStatus": {
+      "pendiente": "Đang chờ",
+      "aprobada": "Đã duyệt",
+      "rechazada": "Đã từ chối"
+    },
+    "resolutionNotesPlaceholder": "Ghi chú giải quyết (tùy chọn)",
+    "resolutionNotesLabel": "Ghi chú",
+    "approve": "Duyệt",
+    "reject": "Từ chối"
   },
   "odontogram": {
     "lastVisit": "Lần khám gần nhất",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Chuỗi là bắt buộc",
       "invalidNumber": "Số bắt đầu phải là số nguyên lớn hơn hoặc bằng 1",
       "saveFailed": "Không thể lưu cấu hình chuỗi"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Báo cáo sự cố",
+    "submit": "Gửi",
+    "form": {
+      "employee": "Nhân viên",
+      "selectEmployee": "Chọn một nhân viên",
+      "type": "Loại sự cố",
+      "proposedTimestamp": "Ngày và giờ của lần chấm công bị quên",
+      "proposedTimestampHint": "Thời gian thực tế xảy ra, ngay cả khi không được chấm công vào lúc đó.",
+      "dateFrom": "Từ",
+      "dateTo": "Đến",
+      "dateToHint": "Để trống nếu chỉ là một ngày.",
+      "reason": "Lý do"
+    },
+    "errors": {
+      "employeeRequired": "Chọn một nhân viên",
+      "reasonRequired": "Lý do là bắt buộc",
+      "timestampRequired": "Nhập ngày và giờ của lần chấm công bị quên",
+      "dateRequired": "Nhập ngày vắng mặt",
+      "saveFailed": "Không thể gửi sự cố"
     }
   }
 }

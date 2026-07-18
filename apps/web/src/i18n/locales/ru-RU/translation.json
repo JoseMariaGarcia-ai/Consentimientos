@@ -1993,7 +1993,30 @@
     "compensationNotes": "Примечания",
     "compensationSave": "Сохранить компенсацию",
     "compensationSaved": "Сохранено",
-    "integrityAlarm": "В цепочке хешей отметок времени обнаружено {{count}} несоответствий. Свяжитесь с поддержкой."
+    "integrityAlarm": "В цепочке хешей отметок времени обнаружено {{count}} несоответствий. Свяжитесь с поддержкой.",
+    "quickFilterToday": "Сегодня",
+    "quickFilterYesterday": "Вчера",
+    "quickFilterWeek": "На этой неделе",
+    "quickFilterMonth": "В этом месяце",
+    "incidentsTitle": "Инциденты",
+    "reportIncident": "Сообщить об инциденте",
+    "noIncidents": "Пока не сообщено ни об одном инциденте.",
+    "incidentType": {
+      "olvido_entrada": "Забытая отметка о приходе",
+      "olvido_salida": "Забытая отметка об уходе",
+      "ausencia_justificada": "Уважительное отсутствие",
+      "ausencia_injustificada": "Неуважительное отсутствие",
+      "otro": "Другое"
+    },
+    "incidentStatus": {
+      "pendiente": "В ожидании",
+      "aprobada": "Одобрено",
+      "rechazada": "Отклонено"
+    },
+    "resolutionNotesPlaceholder": "Примечания к решению (необязательно)",
+    "resolutionNotesLabel": "Примечания",
+    "approve": "Одобрить",
+    "reject": "Отклонить"
   },
   "odontogram": {
     "lastVisit": "Последний визит",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Серия обязательна",
       "invalidNumber": "Начальный номер должен быть целым числом больше или равным 1",
       "saveFailed": "Не удалось сохранить настройки серии"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Сообщить об инциденте",
+    "submit": "Отправить",
+    "form": {
+      "employee": "Сотрудник",
+      "selectEmployee": "Выберите сотрудника",
+      "type": "Тип инцидента",
+      "proposedTimestamp": "Дата и время забытой отметки",
+      "proposedTimestampHint": "Фактическое время, когда это произошло, даже если отметка не была сделана в тот момент.",
+      "dateFrom": "С",
+      "dateTo": "По",
+      "dateToHint": "Оставьте пустым, если это один день.",
+      "reason": "Причина"
+    },
+    "errors": {
+      "employeeRequired": "Выберите сотрудника",
+      "reasonRequired": "Причина обязательна",
+      "timestampRequired": "Укажите дату и время забытой отметки",
+      "dateRequired": "Укажите дату отсутствия",
+      "saveFailed": "Не удалось отправить инцидент"
     }
   }
 }

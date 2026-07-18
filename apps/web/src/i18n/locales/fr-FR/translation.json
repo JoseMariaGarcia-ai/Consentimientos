@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notes",
     "compensationSave": "Enregistrer la compensation",
     "compensationSaved": "Enregistré",
-    "integrityAlarm": "{{count}} incohérences ont été détectées dans la chaîne de hash des pointages. Contactez le support."
+    "integrityAlarm": "{{count}} incohérences ont été détectées dans la chaîne de hash des pointages. Contactez le support.",
+    "quickFilterToday": "Aujourd'hui",
+    "quickFilterYesterday": "Hier",
+    "quickFilterWeek": "Cette semaine",
+    "quickFilterMonth": "Ce mois-ci",
+    "incidentsTitle": "Incidents",
+    "reportIncident": "Signaler un incident",
+    "noIncidents": "Aucun incident n'a encore été signalé.",
+    "incidentType": {
+      "olvido_entrada": "Oubli de pointage d'entrée",
+      "olvido_salida": "Oubli de pointage de sortie",
+      "ausencia_justificada": "Absence justifiée",
+      "ausencia_injustificada": "Absence injustifiée",
+      "otro": "Autre"
+    },
+    "incidentStatus": {
+      "pendiente": "En attente",
+      "aprobada": "Approuvé",
+      "rechazada": "Rejeté"
+    },
+    "resolutionNotesPlaceholder": "Notes de résolution (facultatif)",
+    "resolutionNotesLabel": "Notes",
+    "approve": "Approuver",
+    "reject": "Rejeter"
   },
   "odontogram": {
     "lastVisit": "Dernière visite",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "La série est obligatoire",
       "invalidNumber": "Le numéro de départ doit être un entier supérieur ou égal à 1",
       "saveFailed": "Impossible d'enregistrer la configuration de la série"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Signaler un incident",
+    "submit": "Envoyer",
+    "form": {
+      "employee": "Employé",
+      "selectEmployee": "Sélectionner un employé",
+      "type": "Type d'incident",
+      "proposedTimestamp": "Date et heure du pointage oublié",
+      "proposedTimestampHint": "L'heure réelle à laquelle c'est arrivé, même si le pointage n'a pas été fait à ce moment-là.",
+      "dateFrom": "Du",
+      "dateTo": "Au",
+      "dateToHint": "Laisse vide s'il s'agit d'un seul jour.",
+      "reason": "Motif"
+    },
+    "errors": {
+      "employeeRequired": "Sélectionne un employé",
+      "reasonRequired": "Le motif est obligatoire",
+      "timestampRequired": "Indique la date et l'heure du pointage oublié",
+      "dateRequired": "Indique la date de l'absence",
+      "saveFailed": "Impossible d'envoyer l'incident"
     }
   }
 }

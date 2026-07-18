@@ -1993,7 +1993,30 @@
     "compensationNotes": "Megjegyzések",
     "compensationSave": "Kompenzáció mentése",
     "compensationSaved": "Mentve",
-    "integrityAlarm": "A regisztrációk hash-láncában {{count}} eltérést találtunk. Vegye fel a kapcsolatot az ügyfélszolgálattal."
+    "integrityAlarm": "A regisztrációk hash-láncában {{count}} eltérést találtunk. Vegye fel a kapcsolatot az ügyfélszolgálattal.",
+    "quickFilterToday": "Ma",
+    "quickFilterYesterday": "Tegnap",
+    "quickFilterWeek": "Ezen a héten",
+    "quickFilterMonth": "Ebben a hónapban",
+    "incidentsTitle": "Incidensek",
+    "reportIncident": "Incidens bejelentése",
+    "noIncidents": "Még nincs bejelentett incidens.",
+    "incidentType": {
+      "olvido_entrada": "Elfelejtett bejelentkezés",
+      "olvido_salida": "Elfelejtett kijelentkezés",
+      "ausencia_justificada": "Igazolt távollét",
+      "ausencia_injustificada": "Igazolatlan távollét",
+      "otro": "Egyéb"
+    },
+    "incidentStatus": {
+      "pendiente": "Függőben",
+      "aprobada": "Jóváhagyva",
+      "rechazada": "Elutasítva"
+    },
+    "resolutionNotesPlaceholder": "Elbírálási megjegyzések (opcionális)",
+    "resolutionNotesLabel": "Megjegyzések",
+    "approve": "Jóváhagyás",
+    "reject": "Elutasítás"
   },
   "odontogram": {
     "lastVisit": "Utolsó látogatás",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "A sorozat megadása kötelező",
       "invalidNumber": "A kezdőszámnak 1-nél nagyobb vagy azzal egyenlő egész számnak kell lennie",
       "saveFailed": "A sorozat beállításait nem sikerült menteni"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Incidens bejelentése",
+    "submit": "Küldés",
+    "form": {
+      "employee": "Alkalmazott",
+      "selectEmployee": "Válassz egy alkalmazottat",
+      "type": "Incidens típusa",
+      "proposedTimestamp": "Az elfelejtett bejegyzés dátuma és időpontja",
+      "proposedTimestampHint": "A tényleges időpont, amikor történt, még akkor is, ha akkor nem regisztrálták.",
+      "dateFrom": "Ettől",
+      "dateTo": "Eddig",
+      "dateToHint": "Hagyd üresen, ha csak egy napról van szó.",
+      "reason": "Indok"
+    },
+    "errors": {
+      "employeeRequired": "Válassz egy alkalmazottat",
+      "reasonRequired": "Az indok megadása kötelező",
+      "timestampRequired": "Add meg az elfelejtett bejegyzés dátumát és időpontját",
+      "dateRequired": "Add meg a távollét dátumát",
+      "saveFailed": "Az incidenst nem sikerült elküldeni"
     }
   }
 }

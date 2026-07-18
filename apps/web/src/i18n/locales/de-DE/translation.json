@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notizen",
     "compensationSave": "Ausgleich speichern",
     "compensationSaved": "Gespeichert",
-    "integrityAlarm": "In der Hash-Kette der Zeiterfassungen wurden {{count}} Unstimmigkeiten festgestellt. Wenden Sie sich an den Support."
+    "integrityAlarm": "In der Hash-Kette der Zeiterfassungen wurden {{count}} Unstimmigkeiten festgestellt. Wenden Sie sich an den Support.",
+    "quickFilterToday": "Heute",
+    "quickFilterYesterday": "Gestern",
+    "quickFilterWeek": "Diese Woche",
+    "quickFilterMonth": "Dieser Monat",
+    "incidentsTitle": "Vorfälle",
+    "reportIncident": "Vorfall melden",
+    "noIncidents": "Es wurde noch kein Vorfall gemeldet.",
+    "incidentType": {
+      "olvido_entrada": "Vergessene Einstempelung",
+      "olvido_salida": "Vergessene Ausstempelung",
+      "ausencia_justificada": "Gerechtfertigte Abwesenheit",
+      "ausencia_injustificada": "Ungerechtfertigte Abwesenheit",
+      "otro": "Sonstiges"
+    },
+    "incidentStatus": {
+      "pendiente": "Ausstehend",
+      "aprobada": "Genehmigt",
+      "rechazada": "Abgelehnt"
+    },
+    "resolutionNotesPlaceholder": "Anmerkungen zur Entscheidung (optional)",
+    "resolutionNotesLabel": "Anmerkungen",
+    "approve": "Genehmigen",
+    "reject": "Ablehnen"
   },
   "odontogram": {
     "lastVisit": "Letzter Besuch",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Die Serie ist erforderlich",
       "invalidNumber": "Die Startnummer muss eine ganze Zahl größer oder gleich 1 sein",
       "saveFailed": "Die Serienkonfiguration konnte nicht gespeichert werden"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Vorfall melden",
+    "submit": "Senden",
+    "form": {
+      "employee": "Mitarbeiter",
+      "selectEmployee": "Mitarbeiter auswählen",
+      "type": "Art des Vorfalls",
+      "proposedTimestamp": "Datum und Uhrzeit der vergessenen Buchung",
+      "proposedTimestampHint": "Der tatsächliche Zeitpunkt, auch wenn zu dieser Zeit nicht gestempelt wurde.",
+      "dateFrom": "Von",
+      "dateTo": "Bis",
+      "dateToHint": "Leer lassen, wenn es sich um einen einzelnen Tag handelt.",
+      "reason": "Grund"
+    },
+    "errors": {
+      "employeeRequired": "Mitarbeiter auswählen",
+      "reasonRequired": "Der Grund ist erforderlich",
+      "timestampRequired": "Gib Datum und Uhrzeit der vergessenen Buchung an",
+      "dateRequired": "Gib das Datum der Abwesenheit an",
+      "saveFailed": "Der Vorfall konnte nicht gesendet werden"
     }
   }
 }

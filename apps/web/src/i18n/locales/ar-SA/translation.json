@@ -1955,7 +1955,30 @@
     "compensationNotes": "ملاحظات",
     "compensationSave": "حفظ التعويض",
     "compensationSaved": "تم الحفظ",
-    "integrityAlarm": "تم اكتشاف {{count}} تناقضات في سلسلة تجزئة سجلات الحضور. تواصل مع الدعم."
+    "integrityAlarm": "تم اكتشاف {{count}} تناقضات في سلسلة تجزئة سجلات الحضور. تواصل مع الدعم.",
+    "quickFilterToday": "اليوم",
+    "quickFilterYesterday": "أمس",
+    "quickFilterWeek": "هذا الأسبوع",
+    "quickFilterMonth": "هذا الشهر",
+    "incidentsTitle": "الحوادث",
+    "reportIncident": "الإبلاغ عن حادثة",
+    "noIncidents": "لا توجد أي حادثة مُبلَّغ عنها.",
+    "incidentType": {
+      "olvido_entrada": "نسيان تسجيل الدخول",
+      "olvido_salida": "نسيان تسجيل الخروج",
+      "ausencia_justificada": "غياب مبرر",
+      "ausencia_injustificada": "غياب غير مبرر",
+      "otro": "أخرى"
+    },
+    "incidentStatus": {
+      "pendiente": "معلّقة",
+      "aprobada": "موافَق عليها",
+      "rechazada": "مرفوضة"
+    },
+    "resolutionNotesPlaceholder": "ملاحظات الحل (اختياري)",
+    "resolutionNotesLabel": "ملاحظات",
+    "approve": "موافقة",
+    "reject": "رفض"
   },
   "odontogram": {
     "lastVisit": "آخر زيارة",
@@ -2176,6 +2199,28 @@
       "seriesRequired": "السلسلة مطلوبة",
       "invalidNumber": "يجب أن يكون رقم البداية عدداً صحيحاً أكبر من أو يساوي 1",
       "saveFailed": "تعذر حفظ إعدادات السلسلة"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "الإبلاغ عن حادثة",
+    "submit": "إرسال",
+    "form": {
+      "employee": "الموظف",
+      "selectEmployee": "اختر موظفاً",
+      "type": "نوع الحادثة",
+      "proposedTimestamp": "تاريخ ووقت التسجيل المنسي",
+      "proposedTimestampHint": "الوقت الفعلي الذي حدث فيه، حتى لو لم يُسجَّل في حينه.",
+      "dateFrom": "من",
+      "dateTo": "إلى",
+      "dateToHint": "اتركه فارغاً إذا كان يوماً واحداً.",
+      "reason": "السبب"
+    },
+    "errors": {
+      "employeeRequired": "اختر موظفاً",
+      "reasonRequired": "السبب مطلوب",
+      "timestampRequired": "حدد تاريخ ووقت التسجيل المنسي",
+      "dateRequired": "حدد تاريخ الغياب",
+      "saveFailed": "تعذر إرسال الحادثة"
     }
   }
 }

@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { LogIn, LogOut, Pause, Play, Clock, FileDown, Loader2 } from 'lucide-react'
+import { LogIn, LogOut, Pause, Play, Clock, FileDown, Loader2, AlertTriangle } from 'lucide-react'
 import { api } from '@/lib/api'
 import { timeTrackingPdfBlob } from '@/lib/pdf/timeTrackingPdf'
+import { TimeIncidentModal } from './TimeIncidentModal'
 
 type Status = 'dentro' | 'fuera' | 'en_pausa'
 
@@ -28,6 +29,7 @@ export function OwnClockPanel() {
   const [weekHours, setWeekHours] = useState(0)
   const [monthHours, setMonthHours] = useState(0)
   const [downloading, setDownloading] = useState(false)
+  const [incidentModalOpen, setIncidentModalOpen] = useState(false)
 
   const loadHours = useCallback(async () => {
     try {
@@ -94,6 +96,10 @@ export function OwnClockPanel() {
     }
   }
 
+  const handleReportIncident = async (data: any) => {
+    await api.post('/timetracking/incidents', data)
+  }
+
   const STATUS_LABEL: Record<Status, string> = {
     dentro: t('timeTracking.statusIn'),
     fuera: t('timeTracking.statusOut'),
@@ -158,14 +164,29 @@ export function OwnClockPanel() {
           <p className="text-lg font-bold text-slate-800">{monthHours.toFixed(2)} h</p>
         </div>
         <button
+          onClick={() => setIncidentModalOpen(true)}
+          className="ml-auto flex items-center gap-2 px-3 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs font-medium hover:bg-slate-50"
+        >
+          <AlertTriangle className="w-3.5 h-3.5" />
+          {t('timeTracking.reportIncident')}
+        </button>
+        <button
           onClick={handleDownload}
           disabled={downloading}
-          className="ml-auto flex items-center gap-2 px-3 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs font-medium hover:bg-slate-50 disabled:opacity-50"
+          className="flex items-center gap-2 px-3 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs font-medium hover:bg-slate-50 disabled:opacity-50"
         >
           {downloading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <FileDown className="w-3.5 h-3.5" />}
           {t('timeTracking.downloadMyReport')}
         </button>
       </div>
+
+      {incidentModalOpen && (
+        <TimeIncidentModal
+          isManager={false}
+          onSave={handleReportIncident}
+          onClose={() => setIncidentModalOpen(false)}
+        />
+      )}
     </div>
   )
 }

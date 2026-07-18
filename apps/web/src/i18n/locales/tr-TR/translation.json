@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notlar",
     "compensationSave": "Telafiyi kaydet",
     "compensationSaved": "Kaydedildi",
-    "integrityAlarm": "Zaman kayıtlarının hash zincirinde {{count}} tutarsızlık tespit edildi. Destek ile iletişime geçin."
+    "integrityAlarm": "Zaman kayıtlarının hash zincirinde {{count}} tutarsızlık tespit edildi. Destek ile iletişime geçin.",
+    "quickFilterToday": "Bugün",
+    "quickFilterYesterday": "Dün",
+    "quickFilterWeek": "Bu hafta",
+    "quickFilterMonth": "Bu ay",
+    "incidentsTitle": "Olaylar",
+    "reportIncident": "Olay bildir",
+    "noIncidents": "Henüz bildirilen bir olay yok.",
+    "incidentType": {
+      "olvido_entrada": "Unutulan giriş kaydı",
+      "olvido_salida": "Unutulan çıkış kaydı",
+      "ausencia_justificada": "Mazeretli devamsızlık",
+      "ausencia_injustificada": "Mazeretsiz devamsızlık",
+      "otro": "Diğer"
+    },
+    "incidentStatus": {
+      "pendiente": "Beklemede",
+      "aprobada": "Onaylandı",
+      "rechazada": "Reddedildi"
+    },
+    "resolutionNotesPlaceholder": "Çözüm notları (isteğe bağlı)",
+    "resolutionNotesLabel": "Notlar",
+    "approve": "Onayla",
+    "reject": "Reddet"
   },
   "odontogram": {
     "lastVisit": "Son ziyaret",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Seri zorunludur",
       "invalidNumber": "Başlangıç numarası 1'e eşit veya büyük bir tam sayı olmalıdır",
       "saveFailed": "Seri yapılandırması kaydedilemedi"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Olay bildir",
+    "submit": "Gönder",
+    "form": {
+      "employee": "Çalışan",
+      "selectEmployee": "Bir çalışan seçin",
+      "type": "Olay türü",
+      "proposedTimestamp": "Unutulan kaydın tarihi ve saati",
+      "proposedTimestampHint": "O anda kaydedilmemiş olsa bile gerçekleştiği asıl zaman.",
+      "dateFrom": "Başlangıç",
+      "dateTo": "Bitiş",
+      "dateToHint": "Tek bir günse boş bırakın.",
+      "reason": "Neden"
+    },
+    "errors": {
+      "employeeRequired": "Bir çalışan seçin",
+      "reasonRequired": "Neden zorunludur",
+      "timestampRequired": "Unutulan kaydın tarihini ve saatini belirtin",
+      "dateRequired": "Devamsızlık tarihini belirtin",
+      "saveFailed": "Olay gönderilemedi"
     }
   }
 }

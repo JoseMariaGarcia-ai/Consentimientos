@@ -1993,7 +1993,30 @@
     "compensationNotes": "备注",
     "compensationSave": "保存补偿",
     "compensationSaved": "已保存",
-    "integrityAlarm": "在打卡哈希链中检测到{{count}}处差异。请联系支持人员。"
+    "integrityAlarm": "在打卡哈希链中检测到{{count}}处差异。请联系支持人员。",
+    "quickFilterToday": "今天",
+    "quickFilterYesterday": "昨天",
+    "quickFilterWeek": "本周",
+    "quickFilterMonth": "本月",
+    "incidentsTitle": "事件",
+    "reportIncident": "报告事件",
+    "noIncidents": "尚未报告任何事件。",
+    "incidentType": {
+      "olvido_entrada": "忘记打卡上班",
+      "olvido_salida": "忘记打卡下班",
+      "ausencia_justificada": "有正当理由的缺勤",
+      "ausencia_injustificada": "无正当理由的缺勤",
+      "otro": "其他"
+    },
+    "incidentStatus": {
+      "pendiente": "待处理",
+      "aprobada": "已批准",
+      "rechazada": "已拒绝"
+    },
+    "resolutionNotesPlaceholder": "处理备注（可选）",
+    "resolutionNotesLabel": "备注",
+    "approve": "批准",
+    "reject": "拒绝"
   },
   "odontogram": {
     "lastVisit": "上次就诊",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "系列为必填项",
       "invalidNumber": "起始编号必须是大于或等于1的整数",
       "saveFailed": "无法保存系列配置"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "报告事件",
+    "submit": "提交",
+    "form": {
+      "employee": "员工",
+      "selectEmployee": "选择一名员工",
+      "type": "事件类型",
+      "proposedTimestamp": "忘记打卡的日期和时间",
+      "proposedTimestampHint": "实际发生的时间，即使当时未打卡。",
+      "dateFrom": "起始日期",
+      "dateTo": "结束日期",
+      "dateToHint": "如果只是一天，请留空。",
+      "reason": "原因"
+    },
+    "errors": {
+      "employeeRequired": "请选择一名员工",
+      "reasonRequired": "原因为必填项",
+      "timestampRequired": "请填写忘记打卡的日期和时间",
+      "dateRequired": "请填写缺勤日期",
+      "saveFailed": "无法提交事件"
     }
   }
 }

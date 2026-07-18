@@ -1993,7 +1993,30 @@
     "compensationNotes": "Muistiinpanot",
     "compensationSave": "Tallenna korvaus",
     "compensationSaved": "Tallennettu",
-    "integrityAlarm": "Leimausten hash-ketjussa havaittiin {{count}} poikkeamaa. Ota yhteyttä tukeen."
+    "integrityAlarm": "Leimausten hash-ketjussa havaittiin {{count}} poikkeamaa. Ota yhteyttä tukeen.",
+    "quickFilterToday": "Tänään",
+    "quickFilterYesterday": "Eilen",
+    "quickFilterWeek": "Tällä viikolla",
+    "quickFilterMonth": "Tässä kuussa",
+    "incidentsTitle": "Poikkeamat",
+    "reportIncident": "Ilmoita poikkeama",
+    "noIncidents": "Poikkeamia ei ole vielä ilmoitettu.",
+    "incidentType": {
+      "olvido_entrada": "Unohtunut sisäänkirjaus",
+      "olvido_salida": "Unohtunut uloskirjaus",
+      "ausencia_justificada": "Perusteltu poissaolo",
+      "ausencia_injustificada": "Perusteeton poissaolo",
+      "otro": "Muu"
+    },
+    "incidentStatus": {
+      "pendiente": "Odottaa",
+      "aprobada": "Hyväksytty",
+      "rechazada": "Hylätty"
+    },
+    "resolutionNotesPlaceholder": "Ratkaisun huomautukset (valinnainen)",
+    "resolutionNotesLabel": "Huomautukset",
+    "approve": "Hyväksy",
+    "reject": "Hylkää"
   },
   "odontogram": {
     "lastVisit": "Viimeisin käynti",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Sarja on pakollinen",
       "invalidNumber": "Aloitusnumeron on oltava kokonaisluku, joka on suurempi tai yhtä suuri kuin 1",
       "saveFailed": "Sarjan asetuksia ei voitu tallentaa"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Ilmoita poikkeama",
+    "submit": "Lähetä",
+    "form": {
+      "employee": "Työntekijä",
+      "selectEmployee": "Valitse työntekijä",
+      "type": "Poikkeaman tyyppi",
+      "proposedTimestamp": "Unohtuneen kirjauksen päivämäärä ja kellonaika",
+      "proposedTimestampHint": "Todellinen tapahtuma-aika, vaikka kirjausta ei tehty silloin.",
+      "dateFrom": "Alkaen",
+      "dateTo": "Päättyen",
+      "dateToHint": "Jätä tyhjäksi, jos kyseessä on yksi päivä.",
+      "reason": "Syy"
+    },
+    "errors": {
+      "employeeRequired": "Valitse työntekijä",
+      "reasonRequired": "Syy on pakollinen",
+      "timestampRequired": "Ilmoita unohtuneen kirjauksen päivämäärä ja kellonaika",
+      "dateRequired": "Ilmoita poissaolon päivämäärä",
+      "saveFailed": "Poikkeamaa ei voitu lähettää"
     }
   }
 }

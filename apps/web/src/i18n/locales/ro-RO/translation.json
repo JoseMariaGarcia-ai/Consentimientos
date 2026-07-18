@@ -1993,7 +1993,30 @@
     "compensationNotes": "Note",
     "compensationSave": "Salvează compensarea",
     "compensationSaved": "Salvat",
-    "integrityAlarm": "S-au detectat {{count}} discrepanțe în lanțul de hash al pontajelor. Contactează asistența."
+    "integrityAlarm": "S-au detectat {{count}} discrepanțe în lanțul de hash al pontajelor. Contactează asistența.",
+    "quickFilterToday": "Astăzi",
+    "quickFilterYesterday": "Ieri",
+    "quickFilterWeek": "Săptămâna aceasta",
+    "quickFilterMonth": "Luna aceasta",
+    "incidentsTitle": "Incidente",
+    "reportIncident": "Raportează incident",
+    "noIncidents": "Nu a fost raportat încă niciun incident.",
+    "incidentType": {
+      "olvido_entrada": "Uitare pontaj de intrare",
+      "olvido_salida": "Uitare pontaj de ieșire",
+      "ausencia_justificada": "Absență motivată",
+      "ausencia_injustificada": "Absență nemotivată",
+      "otro": "Altul"
+    },
+    "incidentStatus": {
+      "pendiente": "În așteptare",
+      "aprobada": "Aprobat",
+      "rechazada": "Respins"
+    },
+    "resolutionNotesPlaceholder": "Note privind rezolvarea (opțional)",
+    "resolutionNotesLabel": "Note",
+    "approve": "Aprobă",
+    "reject": "Respinge"
   },
   "odontogram": {
     "lastVisit": "Ultima vizită",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Seria este obligatorie",
       "invalidNumber": "Numărul de pornire trebuie să fie un întreg mai mare sau egal cu 1",
       "saveFailed": "Nu s-a putut salva configurația seriei"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Raportează incident",
+    "submit": "Trimite",
+    "form": {
+      "employee": "Angajat",
+      "selectEmployee": "Selectează un angajat",
+      "type": "Tipul incidentului",
+      "proposedTimestamp": "Data și ora pontajului uitat",
+      "proposedTimestampHint": "Ora reală la care s-a întâmplat, chiar dacă nu s-a pontat atunci.",
+      "dateFrom": "De la",
+      "dateTo": "Până la",
+      "dateToHint": "Lasă necompletat dacă e o singură zi.",
+      "reason": "Motiv"
+    },
+    "errors": {
+      "employeeRequired": "Selectează un angajat",
+      "reasonRequired": "Motivul este obligatoriu",
+      "timestampRequired": "Indică data și ora pontajului uitat",
+      "dateRequired": "Indică data absenței",
+      "saveFailed": "Incidentul nu a putut fi trimis"
     }
   }
 }

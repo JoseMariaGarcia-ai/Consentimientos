@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notatki",
     "compensationSave": "Zapisz rekompensatę",
     "compensationSaved": "Zapisano",
-    "integrityAlarm": "Wykryto {{count}} rozbieżności w łańcuchu hashy rejestracji czasu pracy. Skontaktuj się z pomocą techniczną."
+    "integrityAlarm": "Wykryto {{count}} rozbieżności w łańcuchu hashy rejestracji czasu pracy. Skontaktuj się z pomocą techniczną.",
+    "quickFilterToday": "Dzisiaj",
+    "quickFilterYesterday": "Wczoraj",
+    "quickFilterWeek": "W tym tygodniu",
+    "quickFilterMonth": "W tym miesiącu",
+    "incidentsTitle": "Zdarzenia",
+    "reportIncident": "Zgłoś zdarzenie",
+    "noIncidents": "Nie zgłoszono jeszcze żadnego zdarzenia.",
+    "incidentType": {
+      "olvido_entrada": "Zapomniane rozpoczęcie pracy",
+      "olvido_salida": "Zapomniane zakończenie pracy",
+      "ausencia_justificada": "Usprawiedliwiona nieobecność",
+      "ausencia_injustificada": "Nieusprawiedliwiona nieobecność",
+      "otro": "Inne"
+    },
+    "incidentStatus": {
+      "pendiente": "Oczekujące",
+      "aprobada": "Zatwierdzone",
+      "rechazada": "Odrzucone"
+    },
+    "resolutionNotesPlaceholder": "Uwagi do rozstrzygnięcia (opcjonalnie)",
+    "resolutionNotesLabel": "Uwagi",
+    "approve": "Zatwierdź",
+    "reject": "Odrzuć"
   },
   "odontogram": {
     "lastVisit": "Ostatnia wizyta",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Seria jest wymagana",
       "invalidNumber": "Numer początkowy musi być liczbą całkowitą większą lub równą 1",
       "saveFailed": "Nie udało się zapisać konfiguracji serii"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Zgłoś zdarzenie",
+    "submit": "Wyślij",
+    "form": {
+      "employee": "Pracownik",
+      "selectEmployee": "Wybierz pracownika",
+      "type": "Typ zdarzenia",
+      "proposedTimestamp": "Data i godzina zapomnianego wpisu",
+      "proposedTimestampHint": "Rzeczywisty czas, kiedy to się wydarzyło, nawet jeśli nie odbito wtedy karty.",
+      "dateFrom": "Od",
+      "dateTo": "Do",
+      "dateToHint": "Pozostaw puste, jeśli chodzi o jeden dzień.",
+      "reason": "Powód"
+    },
+    "errors": {
+      "employeeRequired": "Wybierz pracownika",
+      "reasonRequired": "Powód jest wymagany",
+      "timestampRequired": "Podaj datę i godzinę zapomnianego wpisu",
+      "dateRequired": "Podaj datę nieobecności",
+      "saveFailed": "Nie udało się wysłać zdarzenia"
     }
   }
 }

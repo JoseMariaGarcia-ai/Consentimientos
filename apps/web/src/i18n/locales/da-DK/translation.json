@@ -1993,7 +1993,30 @@
     "compensationNotes": "Noter",
     "compensationSave": "Gem kompensation",
     "compensationSaved": "Gemt",
-    "integrityAlarm": "Der blev fundet {{count}} uoverensstemmelser i stemplingernes hashkæde. Kontakt support."
+    "integrityAlarm": "Der blev fundet {{count}} uoverensstemmelser i stemplingernes hashkæde. Kontakt support.",
+    "quickFilterToday": "I dag",
+    "quickFilterYesterday": "I går",
+    "quickFilterWeek": "Denne uge",
+    "quickFilterMonth": "Denne måned",
+    "incidentsTitle": "Hændelser",
+    "reportIncident": "Rapportér hændelse",
+    "noIncidents": "Der er endnu ikke rapporteret nogen hændelse.",
+    "incidentType": {
+      "olvido_entrada": "Glemt indstempling",
+      "olvido_salida": "Glemt udstempling",
+      "ausencia_justificada": "Berettiget fravær",
+      "ausencia_injustificada": "Uberettiget fravær",
+      "otro": "Andet"
+    },
+    "incidentStatus": {
+      "pendiente": "Afventer",
+      "aprobada": "Godkendt",
+      "rechazada": "Afvist"
+    },
+    "resolutionNotesPlaceholder": "Bemærkninger til afgørelsen (valgfrit)",
+    "resolutionNotesLabel": "Bemærkninger",
+    "approve": "Godkend",
+    "reject": "Afvis"
   },
   "odontogram": {
     "lastVisit": "Seneste besøg",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Serien er påkrævet",
       "invalidNumber": "Startnummeret skal være et heltal større end eller lig med 1",
       "saveFailed": "Kunne ikke gemme seriekonfigurationen"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Rapportér hændelse",
+    "submit": "Send",
+    "form": {
+      "employee": "Medarbejder",
+      "selectEmployee": "Vælg en medarbejder",
+      "type": "Type af hændelse",
+      "proposedTimestamp": "Dato og klokkeslæt for den glemte stempling",
+      "proposedTimestampHint": "Det faktiske tidspunkt det skete, selvom der ikke blev stemplet ind da.",
+      "dateFrom": "Fra",
+      "dateTo": "Til",
+      "dateToHint": "Lad stå tomt, hvis det kun er én dag.",
+      "reason": "Årsag"
+    },
+    "errors": {
+      "employeeRequired": "Vælg en medarbejder",
+      "reasonRequired": "Årsag er påkrævet",
+      "timestampRequired": "Angiv dato og klokkeslæt for den glemte stempling",
+      "dateRequired": "Angiv dato for fraværet",
+      "saveFailed": "Kunne ikke sende hændelsen"
     }
   }
 }

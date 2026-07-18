@@ -1949,7 +1949,30 @@
     "compensationNotes": "הערות",
     "compensationSave": "שמור פיצוי",
     "compensationSaved": "נשמר",
-    "integrityAlarm": "זוהו {{count}} אי-התאמות בשרשרת הגיבוב של ההחתמות. פנה לתמיכה."
+    "integrityAlarm": "זוהו {{count}} אי-התאמות בשרשרת הגיבוב של ההחתמות. פנה לתמיכה.",
+    "quickFilterToday": "היום",
+    "quickFilterYesterday": "אתמול",
+    "quickFilterWeek": "השבוע",
+    "quickFilterMonth": "החודש",
+    "incidentsTitle": "אירועים",
+    "reportIncident": "דיווח על אירוע",
+    "noIncidents": "עדיין לא דווח על אף אירוע.",
+    "incidentType": {
+      "olvido_entrada": "שכחת החתמת כניסה",
+      "olvido_salida": "שכחת החתמת יציאה",
+      "ausencia_justificada": "היעדרות מוצדקת",
+      "ausencia_injustificada": "היעדרות לא מוצדקת",
+      "otro": "אחר"
+    },
+    "incidentStatus": {
+      "pendiente": "ממתין",
+      "aprobada": "אושר",
+      "rechazada": "נדחה"
+    },
+    "resolutionNotesPlaceholder": "הערות לפתרון (אופציונלי)",
+    "resolutionNotesLabel": "הערות",
+    "approve": "אשר",
+    "reject": "דחה"
   },
   "odontogram": {
     "lastVisit": "ביקור אחרון",
@@ -2170,6 +2193,28 @@
       "seriesRequired": "נדרשת סדרה",
       "invalidNumber": "מספר ההתחלה חייב להיות מספר שלם הגדול או שווה ל-1",
       "saveFailed": "לא ניתן היה לשמור את הגדרות הסדרה"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "דיווח על אירוע",
+    "submit": "שליחה",
+    "form": {
+      "employee": "עובד",
+      "selectEmployee": "בחר עובד",
+      "type": "סוג האירוע",
+      "proposedTimestamp": "תאריך ושעה של ההחתמה שנשכחה",
+      "proposedTimestampHint": "השעה בפועל שבה זה קרה, גם אם לא הוחתם באותו רגע.",
+      "dateFrom": "מתאריך",
+      "dateTo": "עד תאריך",
+      "dateToHint": "השאר ריק אם מדובר ביום בודד.",
+      "reason": "סיבה"
+    },
+    "errors": {
+      "employeeRequired": "בחר עובד",
+      "reasonRequired": "נדרשת סיבה",
+      "timestampRequired": "ציין תאריך ושעה של ההחתמה שנשכחה",
+      "dateRequired": "ציין את תאריך ההיעדרות",
+      "saveFailed": "לא ניתן היה לשלוח את האירוע"
     }
   }
 }

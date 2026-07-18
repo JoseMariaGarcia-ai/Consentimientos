@@ -1993,7 +1993,30 @@
     "compensationNotes": "Примітки",
     "compensationSave": "Зберегти компенсацію",
     "compensationSaved": "Збережено",
-    "integrityAlarm": "У ланцюзі хешів відміток часу виявлено {{count}} розбіжностей. Зверніться до підтримки."
+    "integrityAlarm": "У ланцюзі хешів відміток часу виявлено {{count}} розбіжностей. Зверніться до підтримки.",
+    "quickFilterToday": "Сьогодні",
+    "quickFilterYesterday": "Учора",
+    "quickFilterWeek": "Цього тижня",
+    "quickFilterMonth": "Цього місяця",
+    "incidentsTitle": "Інциденти",
+    "reportIncident": "Повідомити про інцидент",
+    "noIncidents": "Поки що не повідомлено про жоден інцидент.",
+    "incidentType": {
+      "olvido_entrada": "Забута відмітка про прихід",
+      "olvido_salida": "Забута відмітка про вихід",
+      "ausencia_justificada": "Поважна відсутність",
+      "ausencia_injustificada": "Неповажна відсутність",
+      "otro": "Інше"
+    },
+    "incidentStatus": {
+      "pendiente": "Очікує",
+      "aprobada": "Схвалено",
+      "rechazada": "Відхилено"
+    },
+    "resolutionNotesPlaceholder": "Примітки щодо вирішення (необов'язково)",
+    "resolutionNotesLabel": "Примітки",
+    "approve": "Схвалити",
+    "reject": "Відхилити"
   },
   "odontogram": {
     "lastVisit": "Останній візит",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Серія обов'язкова",
       "invalidNumber": "Початковий номер має бути цілим числом, більшим або рівним 1",
       "saveFailed": "Не вдалося зберегти налаштування серії"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Повідомити про інцидент",
+    "submit": "Надіслати",
+    "form": {
+      "employee": "Співробітник",
+      "selectEmployee": "Виберіть співробітника",
+      "type": "Тип інциденту",
+      "proposedTimestamp": "Дата і час забутої відмітки",
+      "proposedTimestampHint": "Фактичний час, коли це сталося, навіть якщо відмітку не було зроблено тоді.",
+      "dateFrom": "Від",
+      "dateTo": "До",
+      "dateToHint": "Залиште порожнім, якщо це один день.",
+      "reason": "Причина"
+    },
+    "errors": {
+      "employeeRequired": "Виберіть співробітника",
+      "reasonRequired": "Причина обов'язкова",
+      "timestampRequired": "Вкажіть дату і час забутої відмітки",
+      "dateRequired": "Вкажіть дату відсутності",
+      "saveFailed": "Не вдалося надіслати інцидент"
     }
   }
 }

@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notes",
     "compensationSave": "Save compensation",
     "compensationSaved": "Saved",
-    "integrityAlarm": "{{count}} discrepancies were found in the clock-in hash chain. Contact support."
+    "integrityAlarm": "{{count}} discrepancies were found in the clock-in hash chain. Contact support.",
+    "quickFilterToday": "Today",
+    "quickFilterYesterday": "Yesterday",
+    "quickFilterWeek": "This week",
+    "quickFilterMonth": "This month",
+    "incidentsTitle": "Incidents",
+    "reportIncident": "Report incident",
+    "noIncidents": "No incident has been reported yet.",
+    "incidentType": {
+      "olvido_entrada": "Forgotten clock-in",
+      "olvido_salida": "Forgotten clock-out",
+      "ausencia_justificada": "Justified absence",
+      "ausencia_injustificada": "Unjustified absence",
+      "otro": "Other"
+    },
+    "incidentStatus": {
+      "pendiente": "Pending",
+      "aprobada": "Approved",
+      "rechazada": "Rejected"
+    },
+    "resolutionNotesPlaceholder": "Resolution notes (optional)",
+    "resolutionNotesLabel": "Notes",
+    "approve": "Approve",
+    "reject": "Reject"
   },
   "odontogram": {
     "lastVisit": "Last visit",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Series is required",
       "invalidNumber": "The starting number must be an integer greater than or equal to 1",
       "saveFailed": "Could not save the series configuration"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Report incident",
+    "submit": "Submit",
+    "form": {
+      "employee": "Employee",
+      "selectEmployee": "Select an employee",
+      "type": "Incident type",
+      "proposedTimestamp": "Date and time of the forgotten punch",
+      "proposedTimestampHint": "The actual time it happened, even if it wasn't punched in at that moment.",
+      "dateFrom": "From",
+      "dateTo": "To",
+      "dateToHint": "Leave empty if it's a single day.",
+      "reason": "Reason"
+    },
+    "errors": {
+      "employeeRequired": "Select an employee",
+      "reasonRequired": "Reason is required",
+      "timestampRequired": "Enter the date and time of the forgotten punch",
+      "dateRequired": "Enter the date of the absence",
+      "saveFailed": "Could not submit the incident"
     }
   }
 }

@@ -1993,7 +1993,30 @@
     "compensationNotes": "Poznámky",
     "compensationSave": "Uložit kompenzaci",
     "compensationSaved": "Uloženo",
-    "integrityAlarm": "V řetězci hashů docházky bylo zjištěno {{count}} nesrovnalostí. Kontaktujte podporu."
+    "integrityAlarm": "V řetězci hashů docházky bylo zjištěno {{count}} nesrovnalostí. Kontaktujte podporu.",
+    "quickFilterToday": "Dnes",
+    "quickFilterYesterday": "Včera",
+    "quickFilterWeek": "Tento týden",
+    "quickFilterMonth": "Tento měsíc",
+    "incidentsTitle": "Incidenty",
+    "reportIncident": "Nahlásit incident",
+    "noIncidents": "Zatím nebyl nahlášen žádný incident.",
+    "incidentType": {
+      "olvido_entrada": "Zapomenutý příchod",
+      "olvido_salida": "Zapomenutý odchod",
+      "ausencia_justificada": "Omluvená absence",
+      "ausencia_injustificada": "Neomluvená absence",
+      "otro": "Jiné"
+    },
+    "incidentStatus": {
+      "pendiente": "Čeká na vyřízení",
+      "aprobada": "Schváleno",
+      "rechazada": "Zamítnuto"
+    },
+    "resolutionNotesPlaceholder": "Poznámky k vyřízení (volitelné)",
+    "resolutionNotesLabel": "Poznámky",
+    "approve": "Schválit",
+    "reject": "Zamítnout"
   },
   "odontogram": {
     "lastVisit": "Poslední návštěva",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Řada je povinná",
       "invalidNumber": "Počáteční číslo musí být celé číslo větší nebo rovné 1",
       "saveFailed": "Nastavení řady se nepodařilo uložit"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Nahlásit incident",
+    "submit": "Odeslat",
+    "form": {
+      "employee": "Zaměstnanec",
+      "selectEmployee": "Vyberte zaměstnance",
+      "type": "Typ incidentu",
+      "proposedTimestamp": "Datum a čas zapomenutého záznamu",
+      "proposedTimestampHint": "Skutečný čas, kdy k tomu došlo, i když se v tu chvíli nezaznamenalo.",
+      "dateFrom": "Od",
+      "dateTo": "Do",
+      "dateToHint": "Nechte prázdné, pokud jde o jeden den.",
+      "reason": "Důvod"
+    },
+    "errors": {
+      "employeeRequired": "Vyberte zaměstnance",
+      "reasonRequired": "Důvod je povinný",
+      "timestampRequired": "Uveďte datum a čas zapomenutého záznamu",
+      "dateRequired": "Uveďte datum absence",
+      "saveFailed": "Incident se nepodařilo odeslat"
     }
   }
 }

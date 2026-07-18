@@ -1993,7 +1993,30 @@
     "compensationNotes": "टिप्पणियाँ",
     "compensationSave": "मुआवज़ा सहेजें",
     "compensationSaved": "सहेजा गया",
-    "integrityAlarm": "उपस्थिति की हैश श्रृंखला में {{count}} विसंगतियां पाई गईं। सहायता से संपर्क करें।"
+    "integrityAlarm": "उपस्थिति की हैश श्रृंखला में {{count}} विसंगतियां पाई गईं। सहायता से संपर्क करें।",
+    "quickFilterToday": "आज",
+    "quickFilterYesterday": "कल",
+    "quickFilterWeek": "इस सप्ताह",
+    "quickFilterMonth": "इस महीने",
+    "incidentsTitle": "घटनाएँ",
+    "reportIncident": "घटना रिपोर्ट करें",
+    "noIncidents": "अभी तक कोई घटना रिपोर्ट नहीं की गई है।",
+    "incidentType": {
+      "olvido_entrada": "प्रवेश पंच भूल जाना",
+      "olvido_salida": "निकास पंच भूल जाना",
+      "ausencia_justificada": "उचित अनुपस्थिति",
+      "ausencia_injustificada": "अनुचित अनुपस्थिति",
+      "otro": "अन्य"
+    },
+    "incidentStatus": {
+      "pendiente": "लंबित",
+      "aprobada": "स्वीकृत",
+      "rechazada": "अस्वीकृत"
+    },
+    "resolutionNotesPlaceholder": "समाधान टिप्पणियाँ (वैकल्पिक)",
+    "resolutionNotesLabel": "टिप्पणियाँ",
+    "approve": "स्वीकृत करें",
+    "reject": "अस्वीकार करें"
   },
   "odontogram": {
     "lastVisit": "अंतिम विज़िट",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "सीरीज़ आवश्यक है",
       "invalidNumber": "प्रारंभिक संख्या 1 या उससे अधिक की पूर्णांक होनी चाहिए",
       "saveFailed": "सीरीज़ की सेटिंग सहेजी नहीं जा सकी"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "घटना रिपोर्ट करें",
+    "submit": "भेजें",
+    "form": {
+      "employee": "कर्मचारी",
+      "selectEmployee": "एक कर्मचारी चुनें",
+      "type": "घटना का प्रकार",
+      "proposedTimestamp": "भूली हुई पंच की तारीख और समय",
+      "proposedTimestampHint": "वास्तविक समय जब यह हुआ, भले ही उस समय पंच न किया गया हो।",
+      "dateFrom": "से",
+      "dateTo": "तक",
+      "dateToHint": "यदि यह एक ही दिन है तो खाली छोड़ दें।",
+      "reason": "कारण"
+    },
+    "errors": {
+      "employeeRequired": "एक कर्मचारी चुनें",
+      "reasonRequired": "कारण आवश्यक है",
+      "timestampRequired": "भूली हुई पंच की तारीख और समय बताएं",
+      "dateRequired": "अनुपस्थिति की तारीख बताएं",
+      "saveFailed": "घटना नहीं भेजी जा सकी"
     }
   }
 }

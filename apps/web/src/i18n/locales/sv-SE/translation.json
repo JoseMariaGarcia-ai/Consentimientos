@@ -1993,7 +1993,30 @@
     "compensationNotes": "Anteckningar",
     "compensationSave": "Spara kompensation",
     "compensationSaved": "Sparat",
-    "integrityAlarm": "{{count}} avvikelser hittades i stämplingarnas hashkedja. Kontakta support."
+    "integrityAlarm": "{{count}} avvikelser hittades i stämplingarnas hashkedja. Kontakta support.",
+    "quickFilterToday": "Idag",
+    "quickFilterYesterday": "Igår",
+    "quickFilterWeek": "Denna vecka",
+    "quickFilterMonth": "Denna månad",
+    "incidentsTitle": "Incidenter",
+    "reportIncident": "Rapportera incident",
+    "noIncidents": "Ingen incident har rapporterats än.",
+    "incidentType": {
+      "olvido_entrada": "Glömd instämpling",
+      "olvido_salida": "Glömd utstämpling",
+      "ausencia_justificada": "Berättigad frånvaro",
+      "ausencia_injustificada": "Obehörig frånvaro",
+      "otro": "Annat"
+    },
+    "incidentStatus": {
+      "pendiente": "Väntande",
+      "aprobada": "Godkänd",
+      "rechazada": "Avvisad"
+    },
+    "resolutionNotesPlaceholder": "Anteckningar om beslutet (valfritt)",
+    "resolutionNotesLabel": "Anteckningar",
+    "approve": "Godkänn",
+    "reject": "Avvisa"
   },
   "odontogram": {
     "lastVisit": "Senaste besök",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Serie krävs",
       "invalidNumber": "Startnumret måste vara ett heltal större än eller lika med 1",
       "saveFailed": "Kunde inte spara serieinställningarna"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Rapportera incident",
+    "submit": "Skicka",
+    "form": {
+      "employee": "Anställd",
+      "selectEmployee": "Välj en anställd",
+      "type": "Typ av incident",
+      "proposedTimestamp": "Datum och tid för den glömda stämplingen",
+      "proposedTimestampHint": "Den faktiska tidpunkten det hände, även om det inte stämplades då.",
+      "dateFrom": "Från",
+      "dateTo": "Till",
+      "dateToHint": "Lämna tomt om det gäller en enda dag.",
+      "reason": "Anledning"
+    },
+    "errors": {
+      "employeeRequired": "Välj en anställd",
+      "reasonRequired": "Anledning krävs",
+      "timestampRequired": "Ange datum och tid för den glömda stämplingen",
+      "dateRequired": "Ange datum för frånvaron",
+      "saveFailed": "Det gick inte att skicka incidenten"
     }
   }
 }

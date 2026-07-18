@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notes",
     "compensationSave": "Desa la compensació",
     "compensationSaved": "Desat",
-    "integrityAlarm": "S'han detectat {{count}} discrepàncies a la cadena de hashos dels fitxatges. Contacta amb suport."
+    "integrityAlarm": "S'han detectat {{count}} discrepàncies a la cadena de hashos dels fitxatges. Contacta amb suport.",
+    "quickFilterToday": "Avui",
+    "quickFilterYesterday": "Ahir",
+    "quickFilterWeek": "Aquesta setmana",
+    "quickFilterMonth": "Aquest mes",
+    "incidentsTitle": "Incidències",
+    "reportIncident": "Reportar incidència",
+    "noIncidents": "Encara no hi ha cap incidència reportada.",
+    "incidentType": {
+      "olvido_entrada": "Oblit de fitxatge d'entrada",
+      "olvido_salida": "Oblit de fitxatge de sortida",
+      "ausencia_justificada": "Absència justificada",
+      "ausencia_injustificada": "Absència injustificada",
+      "otro": "Altra"
+    },
+    "incidentStatus": {
+      "pendiente": "Pendent",
+      "aprobada": "Aprovada",
+      "rechazada": "Rebutjada"
+    },
+    "resolutionNotesPlaceholder": "Notes de la resolució (opcional)",
+    "resolutionNotesLabel": "Notes",
+    "approve": "Aprovar",
+    "reject": "Rebutjar"
   },
   "odontogram": {
     "lastVisit": "Última visita",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "La sèrie és obligatòria",
       "invalidNumber": "El número de partida ha de ser un enter més gran o igual que 1",
       "saveFailed": "No s'ha pogut desar la configuració de la sèrie"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Reportar incidència",
+    "submit": "Enviar",
+    "form": {
+      "employee": "Empleat",
+      "selectEmployee": "Selecciona un empleat",
+      "type": "Tipus d'incidència",
+      "proposedTimestamp": "Data i hora del fitxatge oblidat",
+      "proposedTimestampHint": "L'hora real en què va passar, encara que no es fitxés en aquell moment.",
+      "dateFrom": "Des de",
+      "dateTo": "Fins a",
+      "dateToHint": "Deixa-ho buit si és un únic dia.",
+      "reason": "Motiu"
+    },
+    "errors": {
+      "employeeRequired": "Selecciona un empleat",
+      "reasonRequired": "El motiu és obligatori",
+      "timestampRequired": "Indica la data i hora del fitxatge oblidat",
+      "dateRequired": "Indica la data de l'absència",
+      "saveFailed": "No s'ha pogut enviar la incidència"
     }
   }
 }

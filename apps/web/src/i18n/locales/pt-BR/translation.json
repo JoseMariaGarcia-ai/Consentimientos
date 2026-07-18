@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notas",
     "compensationSave": "Salvar compensação",
     "compensationSaved": "Salvo",
-    "integrityAlarm": "Foram detectadas {{count}} discrepâncias na cadeia de hashes dos registros de ponto. Entre em contato com o suporte."
+    "integrityAlarm": "Foram detectadas {{count}} discrepâncias na cadeia de hashes dos registros de ponto. Entre em contato com o suporte.",
+    "quickFilterToday": "Hoje",
+    "quickFilterYesterday": "Ontem",
+    "quickFilterWeek": "Esta semana",
+    "quickFilterMonth": "Este mês",
+    "incidentsTitle": "Ocorrências",
+    "reportIncident": "Reportar ocorrência",
+    "noIncidents": "Ainda não há nenhuma ocorrência reportada.",
+    "incidentType": {
+      "olvido_entrada": "Esquecimento de registro de entrada",
+      "olvido_salida": "Esquecimento de registro de saída",
+      "ausencia_justificada": "Falta justificada",
+      "ausencia_injustificada": "Falta injustificada",
+      "otro": "Outro"
+    },
+    "incidentStatus": {
+      "pendiente": "Pendente",
+      "aprobada": "Aprovada",
+      "rechazada": "Rejeitada"
+    },
+    "resolutionNotesPlaceholder": "Notas da resolução (opcional)",
+    "resolutionNotesLabel": "Notas",
+    "approve": "Aprovar",
+    "reject": "Rejeitar"
   },
   "odontogram": {
     "lastVisit": "Última visita",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "A série é obrigatória",
       "invalidNumber": "O número inicial deve ser um inteiro maior ou igual a 1",
       "saveFailed": "Não foi possível salvar a configuração da série"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Reportar ocorrência",
+    "submit": "Enviar",
+    "form": {
+      "employee": "Funcionário",
+      "selectEmployee": "Selecione um funcionário",
+      "type": "Tipo de ocorrência",
+      "proposedTimestamp": "Data e hora do registro esquecido",
+      "proposedTimestampHint": "O horário real em que aconteceu, mesmo que não tenha sido registrado naquele momento.",
+      "dateFrom": "De",
+      "dateTo": "Até",
+      "dateToHint": "Deixe em branco se for um único dia.",
+      "reason": "Motivo"
+    },
+    "errors": {
+      "employeeRequired": "Selecione um funcionário",
+      "reasonRequired": "O motivo é obrigatório",
+      "timestampRequired": "Informe a data e hora do registro esquecido",
+      "dateRequired": "Informe a data da falta",
+      "saveFailed": "Não foi possível enviar a ocorrência"
     }
   }
 }

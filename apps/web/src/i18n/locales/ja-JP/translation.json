@@ -1993,7 +1993,30 @@
     "compensationNotes": "メモ",
     "compensationSave": "補償を保存",
     "compensationSaved": "保存しました",
-    "integrityAlarm": "打刻のハッシュチェーンに{{count}}件の不整合が見つかりました。サポートにお問い合わせください。"
+    "integrityAlarm": "打刻のハッシュチェーンに{{count}}件の不整合が見つかりました。サポートにお問い合わせください。",
+    "quickFilterToday": "今日",
+    "quickFilterYesterday": "昨日",
+    "quickFilterWeek": "今週",
+    "quickFilterMonth": "今月",
+    "incidentsTitle": "インシデント",
+    "reportIncident": "インシデントを報告",
+    "noIncidents": "まだ報告されたインシデントはありません。",
+    "incidentType": {
+      "olvido_entrada": "出勤打刻忘れ",
+      "olvido_salida": "退勤打刻忘れ",
+      "ausencia_justificada": "正当な欠勤",
+      "ausencia_injustificada": "無断欠勤",
+      "otro": "その他"
+    },
+    "incidentStatus": {
+      "pendiente": "保留中",
+      "aprobada": "承認済み",
+      "rechazada": "却下"
+    },
+    "resolutionNotesPlaceholder": "解決に関するメモ（任意）",
+    "resolutionNotesLabel": "メモ",
+    "approve": "承認",
+    "reject": "却下"
   },
   "odontogram": {
     "lastVisit": "前回の来院",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "シリーズは必須です",
       "invalidNumber": "開始番号は1以上の整数である必要があります",
       "saveFailed": "シリーズの設定を保存できませんでした"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "インシデントを報告",
+    "submit": "送信",
+    "form": {
+      "employee": "従業員",
+      "selectEmployee": "従業員を選択",
+      "type": "インシデントの種類",
+      "proposedTimestamp": "打刻忘れの日時",
+      "proposedTimestampHint": "実際に打刻すべきだった時刻（その時点で打刻されていなくても）。",
+      "dateFrom": "開始日",
+      "dateTo": "終了日",
+      "dateToHint": "1日のみの場合は空欄のままにしてください。",
+      "reason": "理由"
+    },
+    "errors": {
+      "employeeRequired": "従業員を選択してください",
+      "reasonRequired": "理由は必須です",
+      "timestampRequired": "打刻忘れの日時を入力してください",
+      "dateRequired": "欠勤の日付を入力してください",
+      "saveFailed": "インシデントを送信できませんでした"
     }
   }
 }

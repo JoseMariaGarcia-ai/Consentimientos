@@ -1993,7 +1993,30 @@
     "compensationNotes": "Σημειώσεις",
     "compensationSave": "Αποθήκευση αποζημίωσης",
     "compensationSaved": "Αποθηκεύτηκε",
-    "integrityAlarm": "Εντοπίστηκαν {{count}} αποκλίσεις στην αλυσίδα κατακερματισμού των καταγραφών. Επικοινωνήστε με την υποστήριξη."
+    "integrityAlarm": "Εντοπίστηκαν {{count}} αποκλίσεις στην αλυσίδα κατακερματισμού των καταγραφών. Επικοινωνήστε με την υποστήριξη.",
+    "quickFilterToday": "Σήμερα",
+    "quickFilterYesterday": "Χθες",
+    "quickFilterWeek": "Αυτή την εβδομάδα",
+    "quickFilterMonth": "Αυτόν τον μήνα",
+    "incidentsTitle": "Συμβάντα",
+    "reportIncident": "Αναφορά συμβάντος",
+    "noIncidents": "Δεν έχει αναφερθεί ακόμα κανένα συμβάν.",
+    "incidentType": {
+      "olvido_entrada": "Ξεχασμένη καταγραφή εισόδου",
+      "olvido_salida": "Ξεχασμένη καταγραφή εξόδου",
+      "ausencia_justificada": "Δικαιολογημένη απουσία",
+      "ausencia_injustificada": "Αδικαιολόγητη απουσία",
+      "otro": "Άλλο"
+    },
+    "incidentStatus": {
+      "pendiente": "Εκκρεμεί",
+      "aprobada": "Εγκρίθηκε",
+      "rechazada": "Απορρίφθηκε"
+    },
+    "resolutionNotesPlaceholder": "Σημειώσεις επίλυσης (προαιρετικό)",
+    "resolutionNotesLabel": "Σημειώσεις",
+    "approve": "Έγκριση",
+    "reject": "Απόρριψη"
   },
   "odontogram": {
     "lastVisit": "Τελευταία επίσκεψη",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Η σειρά είναι υποχρεωτική",
       "invalidNumber": "Ο αρχικός αριθμός πρέπει να είναι ακέραιος μεγαλύτερος ή ίσος του 1",
       "saveFailed": "Δεν ήταν δυνατή η αποθήκευση της ρύθμισης της σειράς"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Αναφορά συμβάντος",
+    "submit": "Αποστολή",
+    "form": {
+      "employee": "Υπάλληλος",
+      "selectEmployee": "Επίλεξε έναν υπάλληλο",
+      "type": "Τύπος συμβάντος",
+      "proposedTimestamp": "Ημερομηνία και ώρα της ξεχασμένης καταγραφής",
+      "proposedTimestampHint": "Η πραγματική ώρα που συνέβη, ακόμα κι αν δεν έγινε καταγραφή τότε.",
+      "dateFrom": "Από",
+      "dateTo": "Έως",
+      "dateToHint": "Άφησέ το κενό αν είναι μία μόνο ημέρα.",
+      "reason": "Αιτία"
+    },
+    "errors": {
+      "employeeRequired": "Επίλεξε έναν υπάλληλο",
+      "reasonRequired": "Η αιτία είναι υποχρεωτική",
+      "timestampRequired": "Υπόδειξε ημερομηνία και ώρα της ξεχασμένης καταγραφής",
+      "dateRequired": "Υπόδειξε την ημερομηνία της απουσίας",
+      "saveFailed": "Δεν ήταν δυνατή η αποστολή του συμβάντος"
     }
   }
 }

@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notas",
     "compensationSave": "Guardar compensação",
     "compensationSaved": "Guardado",
-    "integrityAlarm": "Foram detetadas {{count}} discrepâncias na cadeia de hashes dos registos. Contacte o suporte."
+    "integrityAlarm": "Foram detetadas {{count}} discrepâncias na cadeia de hashes dos registos. Contacte o suporte.",
+    "quickFilterToday": "Hoje",
+    "quickFilterYesterday": "Ontem",
+    "quickFilterWeek": "Esta semana",
+    "quickFilterMonth": "Este mês",
+    "incidentsTitle": "Ocorrências",
+    "reportIncident": "Reportar ocorrência",
+    "noIncidents": "Ainda não há nenhuma ocorrência reportada.",
+    "incidentType": {
+      "olvido_entrada": "Esquecimento de picagem de entrada",
+      "olvido_salida": "Esquecimento de picagem de saída",
+      "ausencia_justificada": "Falta justificada",
+      "ausencia_injustificada": "Falta injustificada",
+      "otro": "Outro"
+    },
+    "incidentStatus": {
+      "pendiente": "Pendente",
+      "aprobada": "Aprovada",
+      "rechazada": "Rejeitada"
+    },
+    "resolutionNotesPlaceholder": "Notas da resolução (opcional)",
+    "resolutionNotesLabel": "Notas",
+    "approve": "Aprovar",
+    "reject": "Rejeitar"
   },
   "odontogram": {
     "lastVisit": "Última visita",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "A série é obrigatória",
       "invalidNumber": "O número de partida deve ser um inteiro maior ou igual a 1",
       "saveFailed": "Não foi possível guardar a configuração da série"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Reportar ocorrência",
+    "submit": "Enviar",
+    "form": {
+      "employee": "Funcionário",
+      "selectEmployee": "Seleciona um funcionário",
+      "type": "Tipo de ocorrência",
+      "proposedTimestamp": "Data e hora da picagem esquecida",
+      "proposedTimestampHint": "A hora real a que aconteceu, mesmo que não tenha sido picada nesse momento.",
+      "dateFrom": "De",
+      "dateTo": "Até",
+      "dateToHint": "Deixa em branco se for um único dia.",
+      "reason": "Motivo"
+    },
+    "errors": {
+      "employeeRequired": "Seleciona um funcionário",
+      "reasonRequired": "O motivo é obrigatório",
+      "timestampRequired": "Indica a data e hora da picagem esquecida",
+      "dateRequired": "Indica a data da falta",
+      "saveFailed": "Não foi possível enviar a ocorrência"
     }
   }
 }

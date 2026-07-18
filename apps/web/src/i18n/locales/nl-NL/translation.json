@@ -1993,7 +1993,30 @@
     "compensationNotes": "Notities",
     "compensationSave": "Compensatie opslaan",
     "compensationSaved": "Opgeslagen",
-    "integrityAlarm": "Er zijn {{count}} afwijkingen gevonden in de hashketen van de registraties. Neem contact op met support."
+    "integrityAlarm": "Er zijn {{count}} afwijkingen gevonden in de hashketen van de registraties. Neem contact op met support.",
+    "quickFilterToday": "Vandaag",
+    "quickFilterYesterday": "Gisteren",
+    "quickFilterWeek": "Deze week",
+    "quickFilterMonth": "Deze maand",
+    "incidentsTitle": "Incidenten",
+    "reportIncident": "Incident melden",
+    "noIncidents": "Er is nog geen incident gemeld.",
+    "incidentType": {
+      "olvido_entrada": "Vergeten in te klokken",
+      "olvido_salida": "Vergeten uit te klokken",
+      "ausencia_justificada": "Gerechtvaardigde afwezigheid",
+      "ausencia_injustificada": "Ongerechtvaardigde afwezigheid",
+      "otro": "Anders"
+    },
+    "incidentStatus": {
+      "pendiente": "In behandeling",
+      "aprobada": "Goedgekeurd",
+      "rechazada": "Afgewezen"
+    },
+    "resolutionNotesPlaceholder": "Opmerkingen bij de afhandeling (optioneel)",
+    "resolutionNotesLabel": "Opmerkingen",
+    "approve": "Goedkeuren",
+    "reject": "Afwijzen"
   },
   "odontogram": {
     "lastVisit": "Laatste bezoek",
@@ -2214,6 +2237,28 @@
       "seriesRequired": "Reeks is verplicht",
       "invalidNumber": "Het startnummer moet een geheel getal groter dan of gelijk aan 1 zijn",
       "saveFailed": "De reeksconfiguratie kon niet worden opgeslagen"
+    }
+  },
+  "timeIncidentModal": {
+    "title": "Incident melden",
+    "submit": "Verzenden",
+    "form": {
+      "employee": "Werknemer",
+      "selectEmployee": "Selecteer een werknemer",
+      "type": "Type incident",
+      "proposedTimestamp": "Datum en tijd van de vergeten registratie",
+      "proposedTimestampHint": "Het werkelijke tijdstip waarop het gebeurde, ook al werd er toen niet geklokt.",
+      "dateFrom": "Van",
+      "dateTo": "Tot",
+      "dateToHint": "Laat leeg als het om één dag gaat.",
+      "reason": "Reden"
+    },
+    "errors": {
+      "employeeRequired": "Selecteer een werknemer",
+      "reasonRequired": "Reden is verplicht",
+      "timestampRequired": "Geef datum en tijd van de vergeten registratie op",
+      "dateRequired": "Geef de datum van de afwezigheid op",
+      "saveFailed": "Het incident kon niet worden verzonden"
     }
   }
 }

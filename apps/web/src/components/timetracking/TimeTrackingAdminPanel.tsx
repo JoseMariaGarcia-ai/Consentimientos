@@ -2,10 +2,11 @@ import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   Users, Plus, Copy, Check, ShieldAlert, FileDown, Loader2, Pencil,
-  ToggleLeft, ToggleRight, Link as LinkIcon,
+  ToggleLeft, ToggleRight, Link as LinkIcon, AlertTriangle, CheckCircle2, XCircle,
 } from 'lucide-react'
 import { api } from '@/lib/api'
 import { EmployeeModal } from './EmployeeModal'
+import { TimeIncidentModal } from './TimeIncidentModal'
 import { timeTrackingPdfBlob } from '@/lib/pdf/timeTrackingPdf'
 import { downloadTimeTrackingCsv } from '@/lib/timeTrackingCsv'
 
@@ -15,9 +16,28 @@ const STATUS_BADGE: Record<string, string> = {
   fuera: 'bg-slate-100 text-slate-600',
   en_pausa: 'bg-amber-100 text-amber-700',
 }
+const INCIDENT_STATUS_BADGE: Record<string, string> = {
+  pendiente: 'bg-amber-100 text-amber-700',
+  aprobada: 'bg-emerald-100 text-emerald-700',
+  rechazada: 'bg-red-100 text-red-600',
+}
 const APP_URL = import.meta.env.VITE_APP_URL ?? window.location.origin
 
 function toDateStr(d: Date) { return d.toISOString().slice(0, 10) }
+function startOfWeek(d: Date) {
+  const day = d.getDay() === 0 ? 7 : d.getDay()
+  const monday = new Date(d)
+  monday.setDate(d.getDate() - day + 1)
+  return monday
+}
+function endOfWeek(d: Date) {
+  const monday = startOfWeek(d)
+  const sunday = new Date(monday)
+  sunday.setDate(monday.getDate() + 6)
+  return sunday
+}
+function startOfMonth(d: Date) { return new Date(d.getFullYear(), d.getMonth(), 1) }
+function endOfMonth(d: Date) { return new Date(d.getFullYear(), d.getMonth() + 1, 0) }
 
 export function TimeTrackingAdminPanel() {
   const { t, i18n } = useTranslation()
@@ -41,6 +61,11 @@ export function TimeTrackingAdminPanel() {
   const [compNotes, setCompNotes] = useState('')
   const [compSaving, setCompSaving] = useState(false)
   const [compSaved, setCompSaved] = useState(false)
+
+  const [incidents, setIncidents] = useState<any[]>([])
+  const [incidentModalOpen, setIncidentModalOpen] = useState(false)
+  const [resolvingId, setResolvingId] = useState<string | null>(null)
+  const [resolutionNotes, setResolutionNotes] = useState<Record<string, string>>({})
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -79,6 +104,42 @@ export function TimeTrackingAdminPanel() {
   }, [selectedEmployee, dateFrom, dateTo])
 
   useEffect(() => { loadHours() }, [loadHours])
+
+  const loadIncidents = useCallback(async () => {
+    const data = await api.get('/timetracking/incidents').catch(() => [])
+    setIncidents(Array.isArray(data) ? data : [])
+  }, [])
+
+  useEffect(() => { loadIncidents() }, [loadIncidents])
+
+  const applyQuickFilter = (range: 'today' | 'yesterday' | 'week' | 'month') => {
+    const now = new Date()
+    if (range === 'today') { setDateFrom(toDateStr(now)); setDateTo(toDateStr(now)); return }
+    if (range === 'yesterday') {
+      const y = new Date(now); y.setDate(now.getDate() - 1)
+      setDateFrom(toDateStr(y)); setDateTo(toDateStr(y)); return
+    }
+    if (range === 'week') { setDateFrom(toDateStr(startOfWeek(now))); setDateTo(toDateStr(endOfWeek(now))); return }
+    setDateFrom(toDateStr(startOfMonth(now))); setDateTo(toDateStr(endOfMonth(now)))
+  }
+
+  const handleReportIncident = async (data: any) => {
+    await api.post('/timetracking/incidents', data)
+    await loadIncidents()
+  }
+
+  const resolveIncident = async (id: string, approve: boolean) => {
+    setResolvingId(id)
+    try {
+      await api.post(`/timetracking/incidents/${id}/resolve`, { approve, resolution_notes: resolutionNotes[id] || null })
+      await Promise.all([loadIncidents(), loadHours()])
+      setResolutionNotes(n => ({ ...n, [id]: '' }))
+    } catch (e: any) {
+      setError(e.message)
+    } finally {
+      setResolvingId(null)
+    }
+  }
 
   const handleSaveEmployee = async (data: any) => {
     if (modal.initial?.id) await api.put(`/timetracking/employees/${modal.initial.id}`, data)
@@ -243,6 +304,12 @@ export function TimeTrackingAdminPanel() {
       {/* Horas y exportación */}
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
         <p className="text-sm font-bold text-slate-700">{t('timeTracking.hoursTitle')}</p>
+        <div className="flex flex-wrap gap-2">
+          <button onClick={() => applyQuickFilter('today')} className="px-3 py-1.5 text-xs font-medium border border-slate-300 rounded-lg hover:bg-slate-50">{t('timeTracking.quickFilterToday')}</button>
+          <button onClick={() => applyQuickFilter('yesterday')} className="px-3 py-1.5 text-xs font-medium border border-slate-300 rounded-lg hover:bg-slate-50">{t('timeTracking.quickFilterYesterday')}</button>
+          <button onClick={() => applyQuickFilter('week')} className="px-3 py-1.5 text-xs font-medium border border-slate-300 rounded-lg hover:bg-slate-50">{t('timeTracking.quickFilterWeek')}</button>
+          <button onClick={() => applyQuickFilter('month')} className="px-3 py-1.5 text-xs font-medium border border-slate-300 rounded-lg hover:bg-slate-50">{t('timeTracking.quickFilterMonth')}</button>
+        </div>
         <div className="flex flex-wrap items-end gap-3">
           <div className="flex flex-col gap-1">
             <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">{t('timeTracking.employee')}</label>
@@ -325,7 +392,78 @@ export function TimeTrackingAdminPanel() {
         )}
       </div>
 
+      {/* Incidencias */}
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-slate-500" />
+            <h3 className="text-sm font-bold text-slate-700">{t('timeTracking.incidentsTitle')}</h3>
+          </div>
+          <button onClick={() => setIncidentModalOpen(true)} className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-lg hover:bg-blue-700">
+            <Plus className="w-3.5 h-3.5" />{t('timeTracking.reportIncident')}
+          </button>
+        </div>
+        {incidents.length === 0 ? (
+          <div className="p-8 text-center text-slate-400 text-sm">{t('timeTracking.noIncidents')}</div>
+        ) : (
+          <div className="divide-y divide-slate-50">
+            {incidents.map(inc => (
+              <div key={inc.id} className="flex flex-col gap-2 px-5 py-4">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-sm font-semibold text-slate-800">{inc.employee_name}</span>
+                  <span className="text-xs text-slate-400">{t(`timeTracking.incidentType.${inc.incident_type}`)}</span>
+                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${INCIDENT_STATUS_BADGE[inc.status]}`}>
+                    {t(`timeTracking.incidentStatus.${inc.status}`)}
+                  </span>
+                  <span className="text-xs text-slate-400 ml-auto">
+                    {inc.proposed_timestamp
+                      ? new Date(inc.proposed_timestamp).toLocaleString(i18n.language)
+                      : `${new Date(inc.date_from).toLocaleDateString(i18n.language)} — ${new Date(inc.date_to).toLocaleDateString(i18n.language)}`}
+                  </span>
+                </div>
+                <p className="text-sm text-slate-600">{inc.reason}</p>
+                {inc.status === 'pendiente' ? (
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <input
+                      value={resolutionNotes[inc.id] ?? ''}
+                      onChange={e => setResolutionNotes(n => ({ ...n, [inc.id]: e.target.value }))}
+                      placeholder={t('timeTracking.resolutionNotesPlaceholder')}
+                      className="flex-1 min-w-[160px] px-3 py-1.5 border border-slate-300 rounded-lg text-xs"
+                    />
+                    <button
+                      onClick={() => resolveIncident(inc.id, true)}
+                      disabled={resolvingId === inc.id}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-lg hover:bg-emerald-700 disabled:opacity-50"
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5" />{t('timeTracking.approve')}
+                    </button>
+                    <button
+                      onClick={() => resolveIncident(inc.id, false)}
+                      disabled={resolvingId === inc.id}
+                      className="flex items-center gap-1.5 px-3 py-1.5 border border-red-300 text-red-600 text-xs font-medium rounded-lg hover:bg-red-50 disabled:opacity-50"
+                    >
+                      <XCircle className="w-3.5 h-3.5" />{t('timeTracking.reject')}
+                    </button>
+                  </div>
+                ) : inc.resolution_notes ? (
+                  <p className="text-xs text-slate-400">{t('timeTracking.resolutionNotesLabel')}: {inc.resolution_notes}</p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       {error && <p className="text-sm text-red-600">{error}</p>}
+
+      {incidentModalOpen && (
+        <TimeIncidentModal
+          employees={employees}
+          isManager
+          onSave={handleReportIncident}
+          onClose={() => setIncidentModalOpen(false)}
+        />
+      )}
 
       {modal.open && (
         <EmployeeModal
