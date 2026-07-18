@@ -1884,7 +1884,15 @@
     "recipientTypeManual": "Manual",
     "actionView": "Ver PDF",
     "actionDownload": "Descargar",
-    "actionEmail": "Enviar por email"
+    "actionEmail": "Enviar por email",
+    "actionManagePayment": "Gestionar cobro",
+    "invoiceKindRectificativa": "Rectificativa",
+    "invoiceKindAbono": "Abono",
+    "colPaymentStatus": "Estado de cobro",
+    "paymentStatus": "Estado de cobro",
+    "paymentStatusPendiente": "Pendiente",
+    "paymentStatusParcial": "Parcial",
+    "paymentStatusCobrada": "Cobrada"
   },
   "billingClientCombobox": {
     "placeholder": "Buscar cliente por nombre o NIF…",
@@ -1998,12 +2006,79 @@
     "confirmCancel": "¿Seguro que quieres anular esta factura? Se creará un registro de anulación encadenado; la factura original no se modifica.",
     "cancelFailed": "No se pudo anular la factura",
     "cancelledNotice": "Esta factura está anulada.",
+    "rectifiedNotice": "Esta factura ha sido corregida — ver la factura generada en las correcciones.",
     "recipient": "Destinatario",
     "concept": "Concepto",
     "aeatPending": "Envío a la AEAT pendiente de conexión",
     "aeatSent": "Enviado a la AEAT",
     "cancelInvoice": "Anular factura",
-    "cancelling": "Anulando…"
+    "cancelling": "Anulando…",
+    "createRectificativa": "Crear rectificativa",
+    "createAbono": "Crear abono",
+    "correctionsTitle": "Correcciones",
+    "correctionType": {
+      "anulacion": "Anulación",
+      "rectificativa": "Rectificativa",
+      "abono": "Abono"
+    },
+    "rectifiesReference": "Esta factura corrige a otra factura anterior."
+  },
+  "cancelInvoiceModal": {
+    "title": "Anular factura",
+    "description": "Vas a anular la factura {{number}}. No se emitirá ninguna factura nueva — se considera que esta nunca debió existir.",
+    "reasonLabel": "Motivo de la anulación",
+    "cancelling": "Anulando…",
+    "confirm": "Anular factura",
+    "errors": {
+      "reasonRequired": "El motivo de la anulación es obligatorio",
+      "cancelFailed": "No se pudo anular la factura"
+    }
+  },
+  "invoiceCorrectionModal": {
+    "titleRectificativa": "Crear factura rectificativa",
+    "titleAbono": "Crear factura de abono",
+    "descriptionRectificativa": "Se generará una nueva factura que corrige el importe de la factura {{number}}. La original pasará a estado \"rectificada\" y nunca se modifica.",
+    "descriptionAbono": "Se generará una nueva factura de abono (importe negativo) para la factura {{number}}. La original pasará a estado \"rectificada\" y nunca se modifica.",
+    "reasonLabel": "Motivo",
+    "fullRefund": "Abono total ({{total}})",
+    "amountLabelRectificativa": "Importe a corregir",
+    "amountLabelAbono": "Importe a abonar",
+    "amountHintRectificativa": "Puede ser positivo (corrige al alza) o negativo (corrige a la baja).",
+    "confirm": "Crear factura",
+    "errors": {
+      "reasonRequired": "El motivo es obligatorio",
+      "saveFailed": "No se pudo crear la corrección",
+      "amountPositive": "Indica el importe a abonar (mayor que 0)",
+      "amountNonZero": "Indica el importe de la rectificación (distinto de 0)"
+    }
+  },
+  "paymentModal": {
+    "title": "Cobro de la factura {{number}}",
+    "total": "Total",
+    "paid": "Cobrado",
+    "pending": "Pendiente",
+    "overpaidNotice": "El importe cobrado supera el total de la factura — puede ser un anticipo legítimo o un abono posterior.",
+    "registerPayment": "Registrar cobro",
+    "amount": "Importe",
+    "method": "Forma de pago",
+    "methods": {
+      "efectivo": "Efectivo",
+      "transferencia": "Transferencia",
+      "bizum": "Bizum",
+      "tarjeta": "Tarjeta",
+      "stripe": "Stripe",
+      "otro": "Otro"
+    },
+    "date": "Fecha de pago",
+    "notes": "Notas",
+    "registerButton": "Registrar cobro",
+    "history": "Pagos registrados",
+    "noPayments": "Todavía no se ha registrado ningún cobro.",
+    "confirmDeletePayment": "¿Eliminar este pago? El estado de cobro se recalculará.",
+    "errors": {
+      "amountRequired": "Indica un importe mayor que 0",
+      "saveFailed": "No se pudo registrar el cobro"
+    }
   },
   "employeeModal": {
     "titleEdit": "Editar empleado",
