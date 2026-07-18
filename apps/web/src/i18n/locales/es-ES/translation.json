@@ -1875,7 +1875,68 @@
     "colActions": "Acciones",
     "tabInvoices": "Facturas",
     "tabCertificate": "Certificado Digital",
-    "testModeBanner": "MODO PRUEBA - Las facturas generadas en este modo NO se comunican a la AEAT real y no tienen validez fiscal"
+    "tabClients": "Clientes",
+    "testModeBanner": "MODO PRUEBA - Las facturas generadas en este modo NO se comunican a la AEAT real y no tienen validez fiscal",
+    "colType": "Tipo",
+    "recipientType": "Tipo de destinatario",
+    "recipientTypePaciente": "Paciente",
+    "recipientTypeCliente": "Cliente",
+    "recipientTypeManual": "Manual",
+    "actionView": "Ver PDF",
+    "actionDownload": "Descargar",
+    "actionEmail": "Enviar por email"
+  },
+  "billingClientCombobox": {
+    "placeholder": "Buscar cliente por nombre o NIF…",
+    "createNew": "Crear nuevo cliente",
+    "no_results": "No se han encontrado clientes"
+  },
+  "billingClientModal": {
+    "titleNew": "Nuevo cliente",
+    "titleEdit": "Editar cliente",
+    "fields": {
+      "fullName": "Nombre / Razón social",
+      "taxId": "NIF / CIF",
+      "address": "Dirección completa",
+      "postalCode": "Código postal",
+      "city": "Ciudad",
+      "province": "Provincia",
+      "phone": "Teléfono",
+      "email": "Email",
+      "emailHint": "Necesario si vas a enviarle las facturas por email.",
+      "notes": "Notas internas"
+    },
+    "errors": {
+      "fullName": "El nombre / razón social es obligatorio",
+      "taxId": "El NIF/CIF es obligatorio",
+      "address": "La dirección es obligatoria",
+      "saveFailed": "No se pudo guardar el cliente"
+    }
+  },
+  "billingClientsList": {
+    "searchPlaceholder": "Buscar por nombre o NIF",
+    "newClient": "Nuevo cliente",
+    "noResults": "Todavía no has añadido ningún cliente.",
+    "colName": "Nombre",
+    "colTaxId": "NIF",
+    "colEmail": "Email",
+    "colPhone": "Teléfono",
+    "colInvoices": "Facturas",
+    "colActions": "Acciones",
+    "confirmDelete": "¿Eliminar este cliente? Si tiene facturas emitidas se marcará como inactivo en lugar de borrarse.",
+    "inactive": "Inactivo"
+  },
+  "sendInvoiceEmailModal": {
+    "title": "Enviar factura por email",
+    "description": "Se enviará la factura {{number}} en PDF al email indicado. Este cambio es solo para este envío — no modifica el email guardado.",
+    "emailLabel": "Enviar a",
+    "emailHint": "Puedes editarlo para este envío sin cambiar el dato guardado.",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "errors": {
+      "emailRequired": "Indica un email de destino",
+      "sendFailed": "No se pudo enviar la factura"
+    }
   },
   "certificateTab": {
     "unknownIssuer": "Entidad emisora desconocida",
@@ -1900,6 +1961,11 @@
   "invoiceModal": {
     "title": "Nueva factura",
     "form": {
+      "whoAreYouBilling": "¿A quién facturas?",
+      "billToPatient": "Paciente",
+      "billToClient": "Cliente (no paciente)",
+      "client": "Cliente",
+      "selectClient": "Selecciona un cliente guardado",
       "patient": "Paciente",
       "selectPatientOrManual": "Selecciona un paciente o rellena a mano",
       "manualHint": "También puedes facturar a un tercero sin seleccionar paciente, rellenando los datos manualmente.",
