@@ -4,6 +4,7 @@ import { computeRecordHash } from '../lib/invoiceHash'
 import { buildQrContent } from '../lib/invoiceQr'
 import { submitToAeat } from '../lib/aeatSubmission'
 import { verifyClinicChain } from '../lib/invoiceIntegrity'
+import { sendInvoiceEmail } from '../lib/invoiceEmail'
 
 const router = Router()
 
@@ -23,22 +24,23 @@ async function loadRecords(invoiceId: string) {
   return query('SELECT * FROM invoice_records WHERE invoice_id = $1 ORDER BY created_at ASC', [invoiceId])
 }
 
-// GET /api/invoices?date_from&date_to&patient_id&status&series&q
+// GET /api/invoices?date_from&date_to&patient_id&status&series&q&recipient_type
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
-  const { date_from, date_to, patient_id, status, series, q } = req.query
+  const { date_from, date_to, patient_id, status, series, q, recipient_type } = req.query
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.json([])
 
     let sql = `
-      SELECT i.*, row_to_json(p) AS patient,
+      SELECT i.*, row_to_json(p) AS patient, row_to_json(bc) AS billing_client,
         (SELECT r.aeat_response_status FROM invoice_records r
          WHERE r.invoice_id = i.id AND r.record_type = 'alta' LIMIT 1) AS aeat_status,
         (SELECT r.aeat_sent_at FROM invoice_records r
          WHERE r.invoice_id = i.id AND r.record_type = 'alta' LIMIT 1) AS aeat_sent_at
       FROM invoices i
       LEFT JOIN patients p ON p.id = i.patient_id
+      LEFT JOIN billing_clients bc ON bc.id = i.billing_client_id
       WHERE i.clinic_id = $1
     `
     const params: any[] = [clinicId]
@@ -47,7 +49,8 @@ router.get('/', async (req, res) => {
     if (patient_id){ params.push(patient_id); sql += ` AND i.patient_id = $${params.length}` }
     if (status)    { params.push(status);     sql += ` AND i.status = $${params.length}` }
     if (series)    { params.push(series);     sql += ` AND i.series = $${params.length}` }
-    if (q)         { params.push(`%${q}%`);   sql += ` AND (i.recipient_name ILIKE $${params.length} OR i.invoice_number ILIKE $${params.length})` }
+    if (recipient_type) { params.push(recipient_type); sql += ` AND i.recipient_type = $${params.length}` }
+    if (q)         { params.push(`%${q}%`);   sql += ` AND (i.recipient_name ILIKE $${params.length} OR i.invoice_number ILIKE $${params.length} OR i.recipient_nif ILIKE $${params.length})` }
     sql += ' ORDER BY i.issue_date DESC, i.created_at DESC'
 
     const data = await query(sql, params)
@@ -80,8 +83,9 @@ router.get('/:id', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     const invoice = await queryOne<any>(
-      `SELECT i.*, row_to_json(p) AS patient FROM invoices i
+      `SELECT i.*, row_to_json(p) AS patient, row_to_json(bc) AS billing_client FROM invoices i
        LEFT JOIN patients p ON p.id = i.patient_id
+       LEFT JOIN billing_clients bc ON bc.id = i.billing_client_id
        WHERE i.id = $1 AND i.clinic_id = $2`,
       [req.params.id, clinicId]
     )
@@ -96,20 +100,39 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const { userId } = (req as any).user
   const {
-    patient_id, taxpayer_type, recipient_name, recipient_nif, recipient_address,
+    patient_id, billing_client_id, taxpayer_type, recipient_name, recipient_nif, recipient_address,
     concept, base_amount, vat_rate, series,
   } = req.body
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    if (patient_id && billing_client_id) {
+      return res.status(400).json({ error: 'Una factura no puede tener paciente y cliente a la vez' })
+    }
     if (patient_id && !(await belongsToClinic('patients', patient_id, clinicId))) {
       return res.status(404).json({ error: 'Paciente no encontrado' })
     }
+    let billingClient: { full_name: string; tax_id: string; address: string; email: string | null } | null = null
+    if (billing_client_id) {
+      billingClient = await queryOne(
+        'SELECT full_name, tax_id, address, email FROM billing_clients WHERE id = $1 AND clinic_id = $2',
+        [billing_client_id, clinicId]
+      )
+      if (!billingClient) return res.status(404).json({ error: 'Cliente no encontrado' })
+    }
+    const recipientType: 'paciente' | 'cliente' | 'manual' = billing_client_id ? 'cliente' : patient_id ? 'paciente' : 'manual'
+
     if (!['empresa', 'autonomo'].includes(taxpayer_type)) {
       return res.status(400).json({ error: 'Tipo de contribuyente no válido' })
     }
-    const name = String(recipient_name ?? '').trim()
-    const nif = String(recipient_nif ?? '').trim()
+    // Si se factura a un cliente guardado, sus datos fiscales tienen
+    // prioridad sobre lo que venga en el cuerpo (evita que un valor manual
+    // desincronizado en el formulario contradiga el registro real del
+    // cliente) — igual que el emisor siempre se toma de la clínica, nunca
+    // del formulario.
+    const name = String(billingClient?.full_name ?? recipient_name ?? '').trim()
+    const nif = String(billingClient?.tax_id ?? recipient_nif ?? '').trim()
+    const address = billingClient?.address ?? recipient_address ?? null
     const conceptText = String(concept ?? '').trim()
     if (!name) return res.status(400).json({ error: 'El nombre del destinatario es obligatorio' })
     if (!nif) return res.status(400).json({ error: 'El NIF del destinatario es obligatorio' })
@@ -149,14 +172,14 @@ router.post('/', async (req, res) => {
 
       const { rows: invRows } = await client.query(
         `INSERT INTO invoices (
-           clinic_id, patient_id, series, invoice_number, issue_date, taxpayer_type,
+           clinic_id, patient_id, billing_client_id, recipient_type, series, invoice_number, issue_date, taxpayer_type,
            issuer_name, issuer_nif, recipient_name, recipient_nif, recipient_address,
            concept, base_amount, vat_rate, vat_amount, total_amount, created_by
-         ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)
+         ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19)
          RETURNING *`,
         [
-          clinicId, patient_id ?? null, invoiceSeries, invoiceNumber, issueDateIso, taxpayer_type,
-          issuerName, issuerNif, name, nif, recipient_address ?? null,
+          clinicId, patient_id ?? null, billing_client_id ?? null, recipientType, invoiceSeries, invoiceNumber, issueDateIso, taxpayer_type,
+          issuerName, issuerNif, name, nif, address,
           conceptText, base, rate, vatAmount, totalAmount, userId,
         ]
       )
@@ -206,6 +229,37 @@ router.post('/', async (req, res) => {
     invoice.records = await loadRecords(invoice.id)
     return res.status(201).json(invoice)
   } catch (err: any) { return res.status(400).json({ error: err.message }) }
+})
+
+// POST /api/invoices/:id/send-email — { pdfBase64, email? } el PDF se
+// genera en el cliente (igual que en budgets.ts) y se sube en base64; email
+// permite sobrescribir puntualmente el destinatario para este envío sin
+// modificar el dato guardado en el paciente o en el billing_client.
+router.post('/:id/send-email', async (req, res) => {
+  const { userId } = (req as any).user
+  const { pdfBase64, email } = req.body
+  try {
+    const clinicId = await getClinicId(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    if (!pdfBase64) return res.status(400).json({ error: 'pdfBase64 requerido' })
+    const invoice = await queryOne<{ id: string }>('SELECT id FROM invoices WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!invoice) return res.status(404).json({ error: 'Factura no encontrada' })
+
+    const pdfBuffer = Buffer.from(pdfBase64, 'base64')
+    const result = await sendInvoiceEmail({ invoiceId: invoice.id, clinicId, pdfBuffer, overrideEmail: email || null })
+    if (!result.email) {
+      return res.status(400).json({ error: 'No hay ningún email al que enviar la factura — indícalo manualmente' })
+    }
+    if (!result.sent) {
+      return res.status(502).json({ error: `No se pudo enviar el email a ${result.email} — inténtalo de nuevo` })
+    }
+
+    await query(
+      `INSERT INTO invoice_events (invoice_id, clinic_id, event_type, description) VALUES ($1,$2,'envio_manual_email',$3)`,
+      [invoice.id, clinicId, `Factura reenviada manualmente a ${result.email}`]
+    )
+    return res.json({ sent: true, email: result.email })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
 // POST /api/invoices/:id/cancel — anula mediante un NUEVO registro
