@@ -87,25 +87,35 @@ export async function sendInvoiceEmail({ invoiceId, clinicId, pdfBuffer, overrid
 </body>
 </html>`
 
-  const { Resend } = await import('resend')
-  const resend = new Resend(process.env.RESEND_API_KEY)
-  const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
-    to: toEmail,
-    ...(invoice.clinic_email ? { replyTo: invoice.clinic_email } : {}),
-    subject: `Tu factura ${invoice.invoice_number} — ${clinicName}`,
-    html,
-    attachments: [
-      {
-        filename: `factura_${invoice.invoice_number}.pdf`,
-        content: pdfBuffer.toString('base64'),
-        contentType: 'application/pdf',
-      },
-    ],
-  })
-  if (error) {
-    console.error(`[invoiceEmail] fallo enviando factura a ${toEmail}:`, error)
+  try {
+    const { Resend } = await import('resend')
+    const resend = new Resend(process.env.RESEND_API_KEY)
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
+      to: toEmail,
+      ...(invoice.clinic_email ? { replyTo: invoice.clinic_email } : {}),
+      subject: `Tu factura ${invoice.invoice_number} — ${clinicName}`,
+      html,
+      attachments: [
+        {
+          filename: `factura_${invoice.invoice_number}.pdf`,
+          content: pdfBuffer.toString('base64'),
+          contentType: 'application/pdf',
+        },
+      ],
+    })
+    if (error) {
+      console.error(`[invoiceEmail] fallo enviando factura a ${toEmail}:`, error)
+      return { email: toEmail, sent: false }
+    }
+    return { email: toEmail, sent: true }
+  } catch (err: any) {
+    // Este endpoint responde a una acción síncrona del usuario (no es
+    // fire-and-forget) — cualquier excepción del SDK de Resend (API key
+    // ausente, timeout de red, etc.) debe traducirse al mismo {sent:false}
+    // que ya maneja la ruta, en vez de propagarse como un 500 con detalles
+    // internos de la librería.
+    console.error(`[invoiceEmail] excepción enviando factura a ${toEmail}:`, err.message)
     return { email: toEmail, sent: false }
   }
-  return { email: toEmail, sent: true }
 }
