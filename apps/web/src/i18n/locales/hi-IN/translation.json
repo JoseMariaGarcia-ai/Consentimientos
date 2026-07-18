@@ -98,7 +98,6 @@
     "select_patient": "मरीज़ चुनें…",
     "doctor": "डॉक्टर",
     "unassigned": "सौंपा नहीं गया",
-    "branch": "क्लिनिक / शाखा",
     "unspecified": "निर्दिष्ट नहीं",
     "visit_date": "विज़िट की तिथि",
     "reason_for_visit": "परामर्श का कारण",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "मरीज़ चुनें…",
     "doctor_label": "डॉक्टर",
     "no_doctor_assigned": "सौंपा नहीं गया",
-    "branch_label": "क्लिनिक / शाखा",
-    "no_branch_specified": "निर्दिष्ट नहीं",
     "session_name_label": "सत्र का नाम",
     "session_name_placeholder": "उदा: चेहरे का उपचार सत्र 1",
     "date_label": "तिथि और समय",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "परीक्षण डेटा जांचने में त्रुटि",
       "createPatientFailed": "परीक्षण मरीज़ नहीं बनाया जा सका",
-      "createBranchFailed": "परीक्षण शाखा नहीं बनाई जा सकी",
       "createLabFailed": "परीक्षण प्रयोगशाला नहीं बनाई जा सकी"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "मरीज़ का दृश्य",
         "description": "उस पोर्टल का अनुकरण करें जो एक मरीज़ देखता है: उनकी सहमतियाँ, क्लिनिकल रिकॉर्ड और फ़ोटो।"
       },
-      "branch": {
-        "title": "क्लिनिक का दृश्य",
-        "description": "क्लिनिक स्टाफ द्वारा देखे जाने वाले पैनल का अनुकरण करता है, जिसमें मेनू चुनी गई योजना की अनुमतियों तक सीमित है।"
-      },
       "lab": {
         "title": "प्रयोगशाला का दृश्य",
         "description": "सहयोगी प्रयोगशाला के पैनल का अनुकरण करें: उसकी प्रोफ़ाइल, जुड़े क्लिनिक और अभियान।"
+      },
+      "clinica": {
+        "title": "क्लिनिक का दृश्य",
+        "description": "क्लिनिक स्टाफ द्वारा देखे जाने वाले पैनल का अनुकरण करता है, जिसमें मेनू चुनी गई योजना की अनुमतियों तक सीमित है।"
       }
     },
     "testDataCreated": "परीक्षण डेटा बनाया गया",
     "viewAs": "{{role}} के रूप में देखें",
     "roleNames": {
       "patient": "मरीज़",
-      "branch": "क्लिनिक",
-      "lab": "प्रयोगशाला"
+      "lab": "प्रयोगशाला",
+      "clinica": "क्लिनिक"
     },
     "creating": "बनाया जा रहा है…",
     "createTestData": "परीक्षण डेटा बनाएं",
@@ -373,8 +369,6 @@
       "select_patient": "मरीज़ चुनें…",
       "doctor": "डॉक्टर",
       "unassigned": "सौंपा नहीं गया",
-      "branch": "क्लिनिक / शाखा",
-      "main_branch": "मुख्य शाखा",
       "treatment": "उपचार",
       "select_treatment": "उपचार चुनें…",
       "treatment_option": "{{name}} — {{duration}} मिनट — {{price}} €",
@@ -744,8 +738,6 @@
       "मरीज़ के हस्ताक्षर",
       "पूर्ण"
     ],
-    "branch_label": "शाखा",
-    "main_branch": "मुख्य शाखा",
     "select_patient": "मरीज़ चुनें…",
     "select_doctor": "डॉक्टर चुनें…",
     "select_treatment": "उपचार चुनें…",
@@ -785,7 +777,6 @@
     "no_results": "कोई सहमति नहीं",
     "confirm_delete": "क्या इस सहमति को हटाना है?",
     "stats": "{{total}} कुल · {{signed}} हस्ताक्षरित · {{pending}} लंबित",
-    "branch": "शाखा",
     "created_at": "निर्माण तिथि",
     "status_header": "स्थिति",
     "continue_signature": "हस्ताक्षर जारी रखें",
@@ -812,21 +803,11 @@
     "tax_id": "जीएसटी नंबर",
     "logo": "लोगो",
     "save": "कॉन्फ़िगरेशन सहेजें",
-    "branches": "अतिरिक्त शाखाएं",
-    "branches_desc": "अपने क्लिनिक के एकाधिक स्थानों का प्रबंधन करें",
-    "add_branch": "शाखा जोड़ें",
-    "no_branches": "कोई अतिरिक्त शाखा नहीं",
-    "branch_name": "शाखा का नाम",
-    "save_branches": "शाखाएं सहेजें",
-    "edit_branch": "शाखा संपादित करें",
-    "new_branch": "नई शाखा",
-    "save_branch": "शाखा सहेजें",
     "subtitle": "क्लिनिक की सामान्य सेटिंग्स",
     "trade_name": "व्यापारिक नाम",
     "legal_name": "कानूनी नाम / फर्म का नाम",
     "nika_number": "NIKA नंबर",
     "save_success": "सफलतापूर्वक सहेजा गया",
-    "confirm_delete_branch": "क्या इस शाखा को हटाना है?",
     "directions_url": "दिशा-निर्देश URL"
   },
   "language": {

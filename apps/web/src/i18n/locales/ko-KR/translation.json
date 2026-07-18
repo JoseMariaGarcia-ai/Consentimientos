@@ -98,7 +98,6 @@
     "select_patient": "환자 선택…",
     "doctor": "의사",
     "unassigned": "미배정",
-    "branch": "클리닉 / 지점",
     "unspecified": "지정 안 됨",
     "visit_date": "방문 날짜",
     "reason_for_visit": "방문 사유",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "환자 선택…",
     "doctor_label": "의사",
     "no_doctor_assigned": "미배정",
-    "branch_label": "클리닉 / 지점",
-    "no_branch_specified": "지정 안 됨",
     "session_name_label": "세션 이름",
     "session_name_placeholder": "예: 얼굴 치료 세션 1",
     "date_label": "날짜 및 시간",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "테스트 데이터 확인 오류",
       "createPatientFailed": "테스트 환자를 생성할 수 없습니다",
-      "createBranchFailed": "테스트 지점을 생성할 수 없습니다",
       "createLabFailed": "테스트 실험실을 생성할 수 없습니다"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "환자 보기",
         "description": "환자가 보는 포털을 시뮬레이션합니다: 동의서, 진료 기록 및 사진."
       },
-      "branch": {
-        "title": "클리닉 보기",
-        "description": "선택한 플랜의 권한으로 제한된 메뉴를 사용하여 클리닉 직원이 보는 패널을 시뮬레이션합니다."
-      },
       "lab": {
         "title": "실험실 보기",
         "description": "협력 실험실의 패널을 시뮬레이션합니다: 프로필, 연결된 클리닉 및 캠페인."
+      },
+      "clinica": {
+        "title": "클리닉 보기",
+        "description": "선택한 플랜의 권한으로 제한된 메뉴를 사용하여 클리닉 직원이 보는 패널을 시뮬레이션합니다."
       }
     },
     "testDataCreated": "테스트 데이터가 생성되었습니다",
     "viewAs": "{{role}}(으)로 보기",
     "roleNames": {
       "patient": "환자",
-      "branch": "클리닉",
-      "lab": "실험실"
+      "lab": "실험실",
+      "clinica": "클리닉"
     },
     "creating": "생성 중…",
     "createTestData": "테스트 데이터 생성",
@@ -373,8 +369,6 @@
       "select_patient": "환자 선택…",
       "doctor": "의사",
       "unassigned": "미배정",
-      "branch": "클리닉 / 지점",
-      "main_branch": "본점",
       "treatment": "치료",
       "select_treatment": "치료 선택…",
       "treatment_option": "{{name}} — {{duration}}분 — {{price}}€",
@@ -744,8 +738,6 @@
       "환자 서명",
       "완료"
     ],
-    "branch_label": "지점",
-    "main_branch": "본점",
     "select_patient": "환자 선택…",
     "select_doctor": "의사 선택…",
     "select_treatment": "치료 선택…",
@@ -785,7 +777,6 @@
     "no_results": "동의서가 없습니다",
     "confirm_delete": "이 동의서를 삭제하시겠습니까?",
     "stats": "총 {{total}}건 · 서명 {{signed}}건 · 대기 {{pending}}건",
-    "branch": "지점",
     "created_at": "생성 날짜",
     "status_header": "상태",
     "continue_signature": "서명 계속",
@@ -812,21 +803,11 @@
     "tax_id": "사업자등록번호",
     "logo": "로고",
     "save": "설정 저장",
-    "branches": "추가 지점",
-    "branches_desc": "클리닉의 여러 위치를 관리하세요",
-    "add_branch": "지점 추가",
-    "no_branches": "추가 지점 없음",
-    "branch_name": "지점 이름",
-    "save_branches": "지점 저장",
-    "edit_branch": "지점 편집",
-    "new_branch": "새 지점",
-    "save_branch": "지점 저장",
     "subtitle": "클리닉 일반 설정",
     "trade_name": "상호명",
     "legal_name": "법인명 / 상호",
     "nika_number": "NIKA 번호",
     "save_success": "성공적으로 저장되었습니다",
-    "confirm_delete_branch": "이 지점을 삭제하시겠습니까?",
     "directions_url": "오시는 길 URL"
   },
   "language": {

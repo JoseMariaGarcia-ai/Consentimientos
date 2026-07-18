@@ -98,7 +98,6 @@
     "select_patient": "בחר מטופל…",
     "doctor": "רופא",
     "unassigned": "לא הוקצה",
-    "branch": "קליניקה / סניף",
     "unspecified": "לא צוין",
     "visit_date": "תאריך ביקור",
     "reason_for_visit": "סיבת הביקור",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "בחר מטופל…",
     "doctor_label": "רופא",
     "no_doctor_assigned": "לא הוקצה",
-    "branch_label": "קליניקה / סניף",
-    "no_branch_specified": "לא צוין",
     "session_name_label": "שם הסשן",
     "session_name_placeholder": "לדוגמה: טיפול פנים סשן 1",
     "date_label": "תאריך ושעה",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "שגיאה בבדיקת נתוני הבדיקה",
       "createPatientFailed": "לא ניתן היה ליצור מטופל לדוגמה",
-      "createBranchFailed": "לא ניתן היה ליצור סניף לדוגמה",
       "createLabFailed": "לא ניתן היה ליצור מעבדה לדוגמה"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "תצוגת מטופל",
         "description": "מדמה את הפורטל שרואה מטופל: ההסכמות, ההיסטוריה הרפואית והתמונות שלו."
       },
-      "branch": {
-        "title": "תצוגת קליניקה",
-        "description": "מדמה את הפאנל שרואה צוות הקליניקה, כאשר התפריט מוגבל להרשאות של התוכנית שנבחרה."
-      },
       "lab": {
         "title": "תצוגת מעבדה",
         "description": "מדמה את פאנל המעבדה השותפה: הפרופיל שלה, הקליניקות המקושרות והקמפיינים."
+      },
+      "clinica": {
+        "title": "תצוגת קליניקה",
+        "description": "מדמה את הפאנל שרואה צוות הקליניקה, כאשר התפריט מוגבל להרשאות של התוכנית שנבחרה."
       }
     },
     "testDataCreated": "נתוני בדיקה נוצרו",
     "viewAs": "צפה כ{{role}}",
     "roleNames": {
       "patient": "מטופל",
-      "branch": "קליניקה",
-      "lab": "מעבדה"
+      "lab": "מעבדה",
+      "clinica": "קליניקה"
     },
     "creating": "יוצר…",
     "createTestData": "צור נתוני בדיקה",
@@ -373,8 +369,6 @@
       "select_patient": "בחר מטופל…",
       "doctor": "רופא",
       "unassigned": "לא הוקצה",
-      "branch": "קליניקה / סניף",
-      "main_branch": "סניף ראשי",
       "treatment": "טיפול",
       "select_treatment": "בחר טיפול…",
       "treatment_option": "{{name}} — {{duration}} דק' — {{price}} ₪",
@@ -700,8 +694,6 @@
       "חתימת מטופל",
       "הושלם"
     ],
-    "branch_label": "סניף",
-    "main_branch": "סניף ראשי",
     "select_patient": "בחר מטופל…",
     "select_doctor": "בחר רופא…",
     "select_treatment": "בחר טיפול…",
@@ -741,7 +733,6 @@
     "no_results": "אין הסכמות",
     "confirm_delete": "למחוק הסכמה זו?",
     "stats": "{{total}} סה\"כ · {{signed}} חתומות · {{pending}} ממתינות",
-    "branch": "סניף",
     "created_at": "תאריך יצירה",
     "status_header": "סטטוס",
     "continue_signature": "המשך חתימה",
@@ -768,21 +759,11 @@
     "tax_id": "מספר עוסק / ח.פ.",
     "logo": "לוגו",
     "save": "שמור הגדרות",
-    "branches": "סניפים נוספים",
-    "branches_desc": "נהל מיקומים מרובים של הקליניקה שלך",
-    "add_branch": "הוסף סניף",
-    "no_branches": "אין סניפים נוספים",
-    "branch_name": "שם הסניף",
-    "save_branches": "שמור סניפים",
-    "edit_branch": "ערוך סניף",
-    "new_branch": "סניף חדש",
-    "save_branch": "שמור סניף",
     "subtitle": "הגדרות כלליות של הקליניקה",
     "trade_name": "שם מסחרי",
     "legal_name": "שם משפטי / רשום",
     "nika_number": "מספר עוסק מורשה",
     "save_success": "נשמר בהצלחה",
-    "confirm_delete_branch": "למחוק סניף זה?",
     "directions_url": "כתובת URL להגעה"
   },
   "language": {

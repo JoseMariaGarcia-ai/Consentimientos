@@ -98,7 +98,6 @@
     "select_patient": "Hasta seçin…",
     "doctor": "Doktor",
     "unassigned": "Atanmadı",
-    "branch": "Klinik / Şube",
     "unspecified": "Belirtilmedi",
     "visit_date": "Ziyaret tarihi",
     "reason_for_visit": "Başvuru nedeni",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Hasta seçin…",
     "doctor_label": "Doktor",
     "no_doctor_assigned": "Atanmadı",
-    "branch_label": "Klinik / Şube",
-    "no_branch_specified": "Belirtilmedi",
     "session_name_label": "Seans adı",
     "session_name_placeholder": "Örn: Yüz bakımı seans 1",
     "date_label": "Tarih ve saat",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Test verileri kontrol edilirken hata oluştu",
       "createPatientFailed": "Test hastası oluşturulamadı",
-      "createBranchFailed": "Test şubesi oluşturulamadı",
       "createLabFailed": "Test laboratuvarı oluşturulamadı"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Hasta Görünümü",
         "description": "Bir hastanın gördüğü portalı simüle eder: onamları, klinik kaydı ve fotoğrafları."
       },
-      "branch": {
-        "title": "Klinik Görünümü",
-        "description": "Klinik personelinin gördüğü paneli, seçilen planın izinleriyle sınırlı menüyle simüle eder."
-      },
       "lab": {
         "title": "Laboratuvar Görünümü",
         "description": "İş birliği yapan bir laboratuvarın panelini simüle eder: profili, bağlantılı klinikleri ve kampanyaları."
+      },
+      "clinica": {
+        "title": "Klinik Görünümü",
+        "description": "Klinik personelinin gördüğü paneli, seçilen planın izinleriyle sınırlı menüyle simüle eder."
       }
     },
     "testDataCreated": "Test verisi oluşturuldu",
     "viewAs": "{{role}} olarak görüntüle",
     "roleNames": {
       "patient": "hasta",
-      "branch": "klinik",
-      "lab": "laboratuvar"
+      "lab": "laboratuvar",
+      "clinica": "klinik"
     },
     "creating": "Oluşturuluyor…",
     "createTestData": "Test verisi oluştur",
@@ -373,8 +369,6 @@
       "select_patient": "Hasta seçin…",
       "doctor": "Doktor",
       "unassigned": "Atanmadı",
-      "branch": "Klinik / Şube",
-      "main_branch": "Ana şube",
       "treatment": "Tedavi",
       "select_treatment": "Tedavi seçin…",
       "treatment_option": "{{name}} — {{duration}} dk — {{price}} €",
@@ -744,8 +738,6 @@
       "Hasta imzası",
       "Tamamlandı"
     ],
-    "branch_label": "Şube",
-    "main_branch": "Ana şube",
     "select_patient": "Hasta seçin…",
     "select_doctor": "Doktor seçin…",
     "select_treatment": "Tedavi seçin…",
@@ -785,7 +777,6 @@
     "no_results": "Onay yok",
     "confirm_delete": "Bu onay silinsin mi?",
     "stats": "{{total}} toplam · {{signed}} imzalandı · {{pending}} beklemede",
-    "branch": "Şube",
     "created_at": "Oluşturulma tarihi",
     "status_header": "Durum",
     "continue_signature": "İmzaya devam et",
@@ -812,21 +803,11 @@
     "tax_id": "Vergi numarası",
     "logo": "Logo",
     "save": "Ayarları kaydet",
-    "branches": "Ek şubeler",
-    "branches_desc": "Kliniğinizin birden fazla lokasyonunu yönetin",
-    "add_branch": "Şube ekle",
-    "no_branches": "Ek şube yok",
-    "branch_name": "Şube adı",
-    "save_branches": "Şubeleri kaydet",
-    "edit_branch": "Şubeyi düzenle",
-    "new_branch": "Yeni şube",
-    "save_branch": "Şubeyi kaydet",
     "subtitle": "Kliniğin genel ayarları",
     "trade_name": "Ticari unvan",
     "legal_name": "Vergi unvanı / tüzel kişilik adı",
     "nika_number": "NIKA numarası",
     "save_success": "Başarıyla kaydedildi",
-    "confirm_delete_branch": "Bu şube silinsin mi?",
     "directions_url": "Yol tarifi URL'si"
   },
   "language": {

@@ -98,7 +98,6 @@
     "select_patient": "Valitse potilas…",
     "doctor": "Lääkäri",
     "unassigned": "Ei määritetty",
-    "branch": "Klinikka / Toimipiste",
     "unspecified": "Ei määritetty",
     "visit_date": "Käyntipäivä",
     "reason_for_visit": "Käynnin syy",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Valitse potilas…",
     "doctor_label": "Lääkäri",
     "no_doctor_assigned": "Ei määritetty",
-    "branch_label": "Klinikka / Toimipiste",
-    "no_branch_specified": "Ei määritetty",
     "session_name_label": "Istunnon nimi",
     "session_name_placeholder": "Esim: Kasvohoito istunto 1",
     "date_label": "Päivämäärä ja aika",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Virhe testidatan tarkistuksessa",
       "createPatientFailed": "Testipotilasta ei voitu luoda",
-      "createBranchFailed": "Testitoimipistettä ei voitu luoda",
       "createLabFailed": "Testilaboratoriota ei voitu luoda"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Potilaan näkymä",
         "description": "Simuloi portaalia, jonka potilas näkee: hänen suostumuksensa, potilaskertomuksensa ja kuvansa."
       },
-      "branch": {
-        "title": "Klinikan näkymä",
-        "description": "Simuloi näkymää, jonka klinikan henkilökunta näkee, valikko rajattuna valitun suunnitelman oikeuksiin."
-      },
       "lab": {
         "title": "Laboratorion näkymä",
         "description": "Simuloi yhteistyölaboratorion paneelia: profiili, liitetyt klinikat ja kampanjat."
+      },
+      "clinica": {
+        "title": "Klinikan näkymä",
+        "description": "Simuloi näkymää, jonka klinikan henkilökunta näkee, valikko rajattuna valitun suunnitelman oikeuksiin."
       }
     },
     "testDataCreated": "Testidata luotu",
     "viewAs": "Näytä roolina {{role}}",
     "roleNames": {
       "patient": "potilas",
-      "branch": "klinikka",
-      "lab": "laboratorio"
+      "lab": "laboratorio",
+      "clinica": "klinikka"
     },
     "creating": "Luodaan…",
     "createTestData": "Luo testidata",
@@ -373,8 +369,6 @@
       "select_patient": "Valitse potilas…",
       "doctor": "Lääkäri",
       "unassigned": "Ei määritetty",
-      "branch": "Klinikka / Toimipiste",
-      "main_branch": "Pääklinikka",
       "treatment": "Hoito",
       "select_treatment": "Valitse hoito…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Potilaan allekirjoitus",
       "Valmis"
     ],
-    "branch_label": "Toimipiste",
-    "main_branch": "Pääklinikka",
     "select_patient": "Valitse potilas…",
     "select_doctor": "Valitse lääkäri…",
     "select_treatment": "Valitse hoito…",
@@ -785,7 +777,6 @@
     "no_results": "Ei suostumuksia",
     "confirm_delete": "Poistetaanko tämä suostumus?",
     "stats": "{{total}} yhteensä · {{signed}} allekirjoitettu · {{pending}} odottaa",
-    "branch": "Toimipiste",
     "created_at": "Luontipäivä",
     "status_header": "Tila",
     "continue_signature": "Jatka allekirjoitusta",
@@ -812,21 +803,11 @@
     "tax_id": "Y-tunnus",
     "logo": "Logo",
     "save": "Tallenna asetukset",
-    "branches": "Lisätoimipisteet",
-    "branches_desc": "Hallinnoi useita toimipisteitä",
-    "add_branch": "Lisää toimipiste",
-    "no_branches": "Ei lisätoimipisteitä",
-    "branch_name": "Toimipisteen nimi",
-    "save_branches": "Tallenna toimipisteet",
-    "edit_branch": "Muokkaa toimipistettä",
-    "new_branch": "Uusi toimipiste",
-    "save_branch": "Tallenna toimipiste",
     "subtitle": "Klinikan yleiset asetukset",
     "trade_name": "Toiminimi",
     "legal_name": "Virallinen nimi / y-tunnus",
     "nika_number": "NIKA-numero",
     "save_success": "Tallennettu onnistuneesti",
-    "confirm_delete_branch": "Poistetaanko tämä toimipiste?",
     "directions_url": "Reittiohjeiden URL"
   },
   "language": {

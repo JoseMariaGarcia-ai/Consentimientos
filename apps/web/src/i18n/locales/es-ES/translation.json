@@ -98,7 +98,6 @@
     "select_patient": "Seleccionar paciente…",
     "doctor": "Doctor",
     "unassigned": "Sin asignar",
-    "branch": "Clínica / Sede",
     "unspecified": "Sin especificar",
     "visit_date": "Fecha de visita",
     "reason_for_visit": "Motivo de consulta",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Seleccionar paciente…",
     "doctor_label": "Doctor",
     "no_doctor_assigned": "Sin asignar",
-    "branch_label": "Clínica / Sede",
-    "no_branch_specified": "Sin especificar",
     "session_name_label": "Nombre de la sesión",
     "session_name_placeholder": "Ej: Tratamiento facial sesión 1",
     "date_label": "Fecha y hora",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Error al comprobar los datos de prueba",
       "createPatientFailed": "No se pudo crear el paciente de prueba",
-      "createBranchFailed": "No se pudo crear la sede de prueba",
       "createLabFailed": "No se pudo crear el laboratorio de prueba"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Vista de Paciente",
         "description": "Simula el portal que ve un paciente: sus consentimientos, historia clínica y fotos."
       },
-      "branch": {
-        "title": "Vista de Clínica",
-        "description": "Simula el panel que ve el personal de la clínica, con el menú restringido a los permisos del plan que elijas."
-      },
       "lab": {
         "title": "Vista de Laboratorio",
         "description": "Simula el panel de un laboratorio colaborador: su perfil, clínicas vinculadas y campañas."
+      },
+      "clinica": {
+        "title": "Vista de Clínica",
+        "description": "Simula el panel que ve el personal de la clínica, con el menú restringido a los permisos del plan que elijas."
       }
     },
     "testDataCreated": "Dato de prueba creado",
     "viewAs": "Ver como {{role}}",
     "roleNames": {
       "patient": "paciente",
-      "branch": "clínica",
-      "lab": "laboratorio"
+      "lab": "laboratorio",
+      "clinica": "clínica"
     },
     "creating": "Creando…",
     "createTestData": "Crear dato de prueba",
@@ -373,8 +369,6 @@
       "select_patient": "Seleccionar paciente…",
       "doctor": "Doctor",
       "unassigned": "Sin asignar",
-      "branch": "Clínica / Sede",
-      "main_branch": "Sede principal",
       "treatment": "Tratamiento",
       "select_treatment": "Seleccionar tratamiento…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -750,8 +744,6 @@
       "Firma paciente",
       "Hecho"
     ],
-    "branch_label": "Sede",
-    "main_branch": "Sede principal",
     "select_patient": "Seleccionar paciente…",
     "select_doctor": "Seleccionar doctor…",
     "select_treatment": "Seleccionar tratamiento…",
@@ -796,7 +788,6 @@
     "no_results": "No hay consentimientos",
     "confirm_delete": "¿Eliminar este consentimiento?",
     "stats": "{{total}} total · {{signed}} firmados · {{pending}} pendientes",
-    "branch": "Sede",
     "created_at": "Fecha creación",
     "status_header": "Estado",
     "continue_signature": "Continuar firma"
@@ -818,22 +809,12 @@
     "tax_id": "CIF / NIF",
     "logo": "Logo",
     "save": "Guardar configuración",
-    "branches": "Sedes adicionales",
-    "branches_desc": "Gestiona múltiples ubicaciones de tu clínica",
-    "add_branch": "Añadir sede",
-    "no_branches": "Sin sedes adicionales",
-    "branch_name": "Nombre de sede",
-    "save_branches": "Guardar sedes",
-    "edit_branch": "Editar sede",
-    "new_branch": "Nueva sede",
-    "save_branch": "Guardar sede",
     "subtitle": "Configuración general de la clínica",
     "trade_name": "Nombre comercial",
     "legal_name": "Nombre fiscal / razón social",
     "nika_number": "Número NIKA",
     "directions_url": "URL de cómo llegar",
-    "save_success": "Guardado correctamente",
-    "confirm_delete_branch": "¿Eliminar esta sede?"
+    "save_success": "Guardado correctamente"
   },
   "language": {
     "select": "Idioma",

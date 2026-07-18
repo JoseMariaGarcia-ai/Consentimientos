@@ -98,7 +98,6 @@
     "select_patient": "Wybierz pacjenta…",
     "doctor": "Lekarz",
     "unassigned": "Nieprzypisany",
-    "branch": "Klinika / Oddział",
     "unspecified": "Nieokreślone",
     "visit_date": "Data wizyty",
     "reason_for_visit": "Powód wizyty",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Wybierz pacjenta…",
     "doctor_label": "Lekarz",
     "no_doctor_assigned": "Nieprzypisany",
-    "branch_label": "Klinika / Oddział",
-    "no_branch_specified": "Nieokreślone",
     "session_name_label": "Nazwa sesji",
     "session_name_placeholder": "Np: Zabieg twarzy sesja 1",
     "date_label": "Data i godzina",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Błąd sprawdzania danych testowych",
       "createPatientFailed": "Nie udało się utworzyć pacjenta testowego",
-      "createBranchFailed": "Nie udało się utworzyć oddziału testowego",
       "createLabFailed": "Nie udało się utworzyć laboratorium testowego"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Widok Pacjenta",
         "description": "Symuluje portal, który widzi pacjent: jego zgody, historię choroby i zdjęcia."
       },
-      "branch": {
-        "title": "Widok Kliniki",
-        "description": "Symuluje panel, który widzi personel kliniki, z menu ograniczonym do uprawnień wybranego planu."
-      },
       "lab": {
         "title": "Widok Laboratorium",
         "description": "Symuluje panel współpracującego laboratorium: jego profil, powiązane kliniki i kampanie."
+      },
+      "clinica": {
+        "title": "Widok Kliniki",
+        "description": "Symuluje panel, który widzi personel kliniki, z menu ograniczonym do uprawnień wybranego planu."
       }
     },
     "testDataCreated": "Dane testowe utworzone",
     "viewAs": "Zobacz jako {{role}}",
     "roleNames": {
       "patient": "pacjent",
-      "branch": "klinika",
-      "lab": "laboratorium"
+      "lab": "laboratorium",
+      "clinica": "klinika"
     },
     "creating": "Tworzenie…",
     "createTestData": "Utwórz dane testowe",
@@ -373,8 +369,6 @@
       "select_patient": "Wybierz pacjenta…",
       "doctor": "Lekarz",
       "unassigned": "Nieprzypisany",
-      "branch": "Klinika / Oddział",
-      "main_branch": "Oddział główny",
       "treatment": "Zabieg",
       "select_treatment": "Wybierz zabieg…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Podpis pacjenta",
       "Gotowe"
     ],
-    "branch_label": "Oddział",
-    "main_branch": "Oddział główny",
     "select_patient": "Wybierz pacjenta…",
     "select_doctor": "Wybierz lekarza…",
     "select_treatment": "Wybierz zabieg…",
@@ -785,7 +777,6 @@
     "no_results": "Brak zgód",
     "confirm_delete": "Usunąć tę zgodę?",
     "stats": "{{total}} łącznie · {{signed}} podpisanych · {{pending}} oczekujących",
-    "branch": "Oddział",
     "created_at": "Data utworzenia",
     "status_header": "Status",
     "continue_signature": "Kontynuuj podpis",
@@ -812,21 +803,11 @@
     "tax_id": "NIP / REGON",
     "logo": "Logo",
     "save": "Zapisz ustawienia",
-    "branches": "Dodatkowe oddziały",
-    "branches_desc": "Zarządzaj wieloma lokalizacjami swojej kliniki",
-    "add_branch": "Dodaj oddział",
-    "no_branches": "Brak dodatkowych oddziałów",
-    "branch_name": "Nazwa oddziału",
-    "save_branches": "Zapisz oddziały",
-    "edit_branch": "Edytuj oddział",
-    "new_branch": "Nowy oddział",
-    "save_branch": "Zapisz oddział",
     "subtitle": "Ogólne ustawienia kliniki",
     "trade_name": "Nazwa handlowa",
     "legal_name": "Nazwa prawna / firma",
     "nika_number": "Numer NIKA",
     "save_success": "Zapisano pomyślnie",
-    "confirm_delete_branch": "Usunąć ten oddział?",
     "directions_url": "URL dojazdu"
   },
   "language": {

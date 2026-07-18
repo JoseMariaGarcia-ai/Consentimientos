@@ -98,7 +98,6 @@
     "select_patient": "Selectați pacientul…",
     "doctor": "Medic",
     "unassigned": "Neatribuit",
-    "branch": "Clinică / Sediu",
     "unspecified": "Nespecificat",
     "visit_date": "Data vizitei",
     "reason_for_visit": "Motivul consultației",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Selectați pacientul…",
     "doctor_label": "Medic",
     "no_doctor_assigned": "Neatribuit",
-    "branch_label": "Clinică / Sediu",
-    "no_branch_specified": "Nespecificat",
     "session_name_label": "Numele sesiunii",
     "session_name_placeholder": "Ex: Tratament facial sesiunea 1",
     "date_label": "Dată și oră",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Eroare la verificarea datelor de test",
       "createPatientFailed": "Nu s-a putut crea pacientul de test",
-      "createBranchFailed": "Nu s-a putut crea sediul de test",
       "createLabFailed": "Nu s-a putut crea laboratorul de test"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Vizualizare Pacient",
         "description": "Simulează portalul văzut de un pacient: consimțămintele, istoricul medical și fotografiile sale."
       },
-      "branch": {
-        "title": "Vizualizare Clinică",
-        "description": "Simulează panoul pe care îl vede personalul clinicii, cu meniul limitat la permisiunile planului ales."
-      },
       "lab": {
         "title": "Vizualizare Laborator",
         "description": "Simulează panoul unui laborator partener: profilul său, clinicile asociate și campaniile."
+      },
+      "clinica": {
+        "title": "Vizualizare Clinică",
+        "description": "Simulează panoul pe care îl vede personalul clinicii, cu meniul limitat la permisiunile planului ales."
       }
     },
     "testDataCreated": "Date de test create",
     "viewAs": "Vizualizează ca {{role}}",
     "roleNames": {
       "patient": "pacient",
-      "branch": "clinică",
-      "lab": "laborator"
+      "lab": "laborator",
+      "clinica": "clinică"
     },
     "creating": "Se creează…",
     "createTestData": "Creează date de test",
@@ -373,8 +369,6 @@
       "select_patient": "Selectați pacientul…",
       "doctor": "Medic",
       "unassigned": "Neatribuit",
-      "branch": "Clinică / Sediu",
-      "main_branch": "Sediul principal",
       "treatment": "Tratament",
       "select_treatment": "Selectați tratamentul…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Semnătură pacient",
       "Finalizat"
     ],
-    "branch_label": "Sediu",
-    "main_branch": "Sediul principal",
     "select_patient": "Selectați pacientul…",
     "select_doctor": "Selectați medicul…",
     "select_treatment": "Selectați tratamentul…",
@@ -785,7 +777,6 @@
     "no_results": "Nu există consimțăminte",
     "confirm_delete": "Ștergeți acest consimțământ?",
     "stats": "{{total}} total · {{signed}} semnate · {{pending}} în așteptare",
-    "branch": "Sediu",
     "created_at": "Data creării",
     "status_header": "Stare",
     "continue_signature": "Continuă semnătura",
@@ -812,21 +803,11 @@
     "tax_id": "CUI / CIF",
     "logo": "Logo",
     "save": "Salvează setările",
-    "branches": "Sedii suplimentare",
-    "branches_desc": "Gestionați mai multe locații ale clinicii dvs.",
-    "add_branch": "Adaugă sediu",
-    "no_branches": "Fără sedii suplimentare",
-    "branch_name": "Numele sediului",
-    "save_branches": "Salvează sediile",
-    "edit_branch": "Editează sediul",
-    "new_branch": "Sediu nou",
-    "save_branch": "Salvează sediul",
     "subtitle": "Configurația generală a clinicii",
     "trade_name": "Nume comercial",
     "legal_name": "Denumire fiscală / rațiune socială",
     "nika_number": "Număr NIKA",
     "save_success": "Salvat cu succes",
-    "confirm_delete_branch": "Ștergeți acest sediu?",
     "directions_url": "URL indicații de acces"
   },
   "language": {

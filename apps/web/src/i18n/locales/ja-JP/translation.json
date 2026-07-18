@@ -98,7 +98,6 @@
     "select_patient": "患者を選択…",
     "doctor": "医師",
     "unassigned": "未割当",
-    "branch": "クリニック／院",
     "unspecified": "未指定",
     "visit_date": "来院日",
     "reason_for_visit": "受診理由",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "患者を選択…",
     "doctor_label": "医師",
     "no_doctor_assigned": "未割当",
-    "branch_label": "クリニック／院",
-    "no_branch_specified": "未指定",
     "session_name_label": "セッション名",
     "session_name_placeholder": "例：フェイシャル治療セッション1",
     "date_label": "日時",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "テストデータの確認に失敗しました",
       "createPatientFailed": "テスト患者を作成できませんでした",
-      "createBranchFailed": "テスト院を作成できませんでした",
       "createLabFailed": "テストラボを作成できませんでした"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "患者ビュー",
         "description": "患者が見るポータルをシミュレートします：同意書、カルテ、写真。"
       },
-      "branch": {
-        "title": "クリニックビュー",
-        "description": "選択したプランの権限に制限されたメニューで、クリニックスタッフに表示されるパネルをシミュレートします。"
-      },
       "lab": {
         "title": "ラボビュー",
         "description": "提携ラボのパネルをシミュレートします：プロフィール、連携クリニック、キャンペーン。"
+      },
+      "clinica": {
+        "title": "クリニックビュー",
+        "description": "選択したプランの権限に制限されたメニューで、クリニックスタッフに表示されるパネルをシミュレートします。"
       }
     },
     "testDataCreated": "テストデータを作成しました",
     "viewAs": "{{role}}として表示",
     "roleNames": {
       "patient": "患者",
-      "branch": "クリニック",
-      "lab": "ラボ"
+      "lab": "ラボ",
+      "clinica": "クリニック"
     },
     "creating": "作成中…",
     "createTestData": "テストデータを作成",
@@ -373,8 +369,6 @@
       "select_patient": "患者を選択…",
       "doctor": "医師",
       "unassigned": "未割当",
-      "branch": "クリニック／院",
-      "main_branch": "本院",
       "treatment": "治療",
       "select_treatment": "治療を選択…",
       "treatment_option": "{{name}} — {{duration}}分 — {{price}}€",
@@ -744,8 +738,6 @@
       "患者署名",
       "完了"
     ],
-    "branch_label": "院",
-    "main_branch": "本院",
     "select_patient": "患者を選択…",
     "select_doctor": "医師を選択…",
     "select_treatment": "治療を選択…",
@@ -785,7 +777,6 @@
     "no_results": "同意書はありません",
     "confirm_delete": "この同意書を削除しますか？",
     "stats": "合計{{total}}件 · 署名済み{{signed}}件 · 保留中{{pending}}件",
-    "branch": "院",
     "created_at": "作成日",
     "status_header": "ステータス",
     "continue_signature": "署名を続ける",
@@ -812,21 +803,11 @@
     "tax_id": "法人番号／適格請求書発行事業者番号",
     "logo": "ロゴ",
     "save": "設定を保存",
-    "branches": "追加の院",
-    "branches_desc": "クリニックの複数拠点を管理します",
-    "add_branch": "院を追加",
-    "no_branches": "追加の院はありません",
-    "branch_name": "院の名前",
-    "save_branches": "院を保存",
-    "edit_branch": "院を編集",
-    "new_branch": "新規院",
-    "save_branch": "院を保存",
     "subtitle": "クリニックの全般設定",
     "trade_name": "屋号",
     "legal_name": "法人名／正式名称",
     "nika_number": "NIKA番号",
     "save_success": "正常に保存されました",
-    "confirm_delete_branch": "この院を削除しますか？",
     "directions_url": "アクセス案内URL"
   },
   "language": {

@@ -98,7 +98,6 @@
     "select_patient": "Velg pasient…",
     "doctor": "Lege",
     "unassigned": "Ikke tildelt",
-    "branch": "Klinikk / Avdeling",
     "unspecified": "Ikke angitt",
     "visit_date": "Besøksdato",
     "reason_for_visit": "Årsak til besøk",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Velg pasient…",
     "doctor_label": "Lege",
     "no_doctor_assigned": "Ikke tildelt",
-    "branch_label": "Klinikk / Avdeling",
-    "no_branch_specified": "Ikke angitt",
     "session_name_label": "Øktens navn",
     "session_name_placeholder": "F.eks: Ansiktsbehandling økt 1",
     "date_label": "Dato og klokkeslett",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Feil ved kontroll av testdata",
       "createPatientFailed": "Kunne ikke opprette testpasient",
-      "createBranchFailed": "Kunne ikke opprette testklinikk",
       "createLabFailed": "Kunne ikke opprette testlaboratorium"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Pasientvisning",
         "description": "Simulerer portalen en pasient ser: samtykker, klinisk journal og bilder."
       },
-      "branch": {
-        "title": "Klinikkvisning",
-        "description": "Simulerer panelet klinikkpersonalet ser, med menyen begrenset til rettighetene til planen du velger."
-      },
       "lab": {
         "title": "Laboratorievisning",
         "description": "Simulerer panelet til et samarbeidende laboratorium: profil, tilknyttede klinikker og kampanjer."
+      },
+      "clinica": {
+        "title": "Klinikkvisning",
+        "description": "Simulerer panelet klinikkpersonalet ser, med menyen begrenset til rettighetene til planen du velger."
       }
     },
     "testDataCreated": "Testdata opprettet",
     "viewAs": "Vis som {{role}}",
     "roleNames": {
       "patient": "pasient",
-      "branch": "klinikk",
-      "lab": "laboratorium"
+      "lab": "laboratorium",
+      "clinica": "klinikk"
     },
     "creating": "Oppretter…",
     "createTestData": "Opprett testdata",
@@ -373,8 +369,6 @@
       "select_patient": "Velg pasient…",
       "doctor": "Lege",
       "unassigned": "Ikke tildelt",
-      "branch": "Klinikk / Avdeling",
-      "main_branch": "Hovedklinikk",
       "treatment": "Behandling",
       "select_treatment": "Velg behandling…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Pasientsignatur",
       "Ferdig"
     ],
-    "branch_label": "Klinikk",
-    "main_branch": "Hovedklinikk",
     "select_patient": "Velg pasient…",
     "select_doctor": "Velg lege…",
     "select_treatment": "Velg behandling…",
@@ -785,7 +777,6 @@
     "no_results": "Ingen samtykker",
     "confirm_delete": "Slette dette samtykket?",
     "stats": "{{total}} totalt · {{signed}} signert · {{pending}} venter",
-    "branch": "Klinikk",
     "created_at": "Opprettelsesdato",
     "status_header": "Status",
     "continue_signature": "Fortsett signering",
@@ -812,21 +803,11 @@
     "tax_id": "Organisasjonsnummer / MVA",
     "logo": "Logo",
     "save": "Lagre innstillinger",
-    "branches": "Ytterligere avdelinger",
-    "branches_desc": "Administrer flere lokasjoner for klinikken din",
-    "add_branch": "Legg til avdeling",
-    "no_branches": "Ingen ytterligere avdelinger",
-    "branch_name": "Avdelingsnavn",
-    "save_branches": "Lagre avdelinger",
-    "edit_branch": "Rediger avdeling",
-    "new_branch": "Ny avdeling",
-    "save_branch": "Lagre avdeling",
     "subtitle": "Generelle klinikkinnstillinger",
     "trade_name": "Handelsnavn",
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Lagret",
-    "confirm_delete_branch": "Slette denne avdelingen?",
     "directions_url": "URL for veibeskrivelse"
   },
   "language": {

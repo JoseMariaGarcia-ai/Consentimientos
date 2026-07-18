@@ -98,7 +98,6 @@
     "select_patient": "Vybrat pacienta…",
     "doctor": "Lékař",
     "unassigned": "Nepřiřazeno",
-    "branch": "Klinika / Pobočka",
     "unspecified": "Neurčeno",
     "visit_date": "Datum návštěvy",
     "reason_for_visit": "Důvod návštěvy",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Vybrat pacienta…",
     "doctor_label": "Lékař",
     "no_doctor_assigned": "Nepřiřazeno",
-    "branch_label": "Klinika / Pobočka",
-    "no_branch_specified": "Neurčeno",
     "session_name_label": "Název sezení",
     "session_name_placeholder": "Např.: Ošetření obličeje – sezení 1",
     "date_label": "Datum a čas",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Chyba při kontrole testovacích dat",
       "createPatientFailed": "Nepodařilo se vytvořit testovacího pacienta",
-      "createBranchFailed": "Nepodařilo se vytvořit testovací pobočku",
       "createLabFailed": "Nepodařilo se vytvořit testovací laboratoř"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Náhled pacienta",
         "description": "Simuluje portál, který vidí pacient: jeho souhlasy, klinický záznam a fotografie."
       },
-      "branch": {
-        "title": "Náhled kliniky",
-        "description": "Simuluje panel, který vidí personál kliniky, s nabídkou omezenou na oprávnění zvoleného plánu."
-      },
       "lab": {
         "title": "Náhled laboratoře",
         "description": "Simuluje panel spolupracující laboratoře: její profil, propojené kliniky a kampaně."
+      },
+      "clinica": {
+        "title": "Náhled kliniky",
+        "description": "Simuluje panel, který vidí personál kliniky, s nabídkou omezenou na oprávnění zvoleného plánu."
       }
     },
     "testDataCreated": "Testovací data vytvořena",
     "viewAs": "Zobrazit jako {{role}}",
     "roleNames": {
       "patient": "pacient",
-      "branch": "klinika",
-      "lab": "laboratoř"
+      "lab": "laboratoř",
+      "clinica": "klinika"
     },
     "creating": "Vytváření…",
     "createTestData": "Vytvořit testovací data",
@@ -373,8 +369,6 @@
       "select_patient": "Vybrat pacienta…",
       "doctor": "Lékař",
       "unassigned": "Nepřiřazeno",
-      "branch": "Klinika / Pobočka",
-      "main_branch": "Hlavní pobočka",
       "treatment": "Léčba",
       "select_treatment": "Vybrat léčbu…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Podpis pacienta",
       "Hotovo"
     ],
-    "branch_label": "Pobočka",
-    "main_branch": "Hlavní pobočka",
     "select_patient": "Vybrat pacienta…",
     "select_doctor": "Vybrat lékaře…",
     "select_treatment": "Vybrat léčbu…",
@@ -785,7 +777,6 @@
     "no_results": "Žádné souhlasy",
     "confirm_delete": "Smazat tento souhlas?",
     "stats": "{{total}} celkem · {{signed}} podepsáno · {{pending}} čeká",
-    "branch": "Pobočka",
     "created_at": "Datum vytvoření",
     "status_header": "Stav",
     "continue_signature": "Pokračovat v podpisu",
@@ -812,21 +803,11 @@
     "tax_id": "IČO / DIČ",
     "logo": "Logo",
     "save": "Uložit konfiguraci",
-    "branches": "Pobočky",
-    "branches_desc": "Spravujte více poboček",
-    "add_branch": "Přidat pobočku",
-    "no_branches": "Žádné pobočky",
-    "branch_name": "Název pobočky",
-    "save_branches": "Uložit pobočky",
-    "edit_branch": "Upravit pobočku",
-    "new_branch": "Nová pobočka",
-    "save_branch": "Uložit pobočku",
     "subtitle": "Obecné nastavení kliniky",
     "trade_name": "Obchodní název",
     "legal_name": "Právní název / obchodní firma",
     "nika_number": "Číslo NIKA",
     "save_success": "Úspěšně uloženo",
-    "confirm_delete_branch": "Smazat tuto pobočku?",
     "directions_url": "URL trasy"
   },
   "language": {

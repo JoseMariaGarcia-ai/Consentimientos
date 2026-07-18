@@ -98,7 +98,6 @@
     "select_patient": "Välj patient…",
     "doctor": "Läkare",
     "unassigned": "Ej tilldelad",
-    "branch": "Klinik / Filial",
     "unspecified": "Ej angivet",
     "visit_date": "Besöksdatum",
     "reason_for_visit": "Anledning till besök",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Välj patient…",
     "doctor_label": "Läkare",
     "no_doctor_assigned": "Ej tilldelad",
-    "branch_label": "Klinik / Filial",
-    "no_branch_specified": "Ej angivet",
     "session_name_label": "Sessionens namn",
     "session_name_placeholder": "Ex: Ansiktsbehandling session 1",
     "date_label": "Datum och tid",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Fel vid kontroll av testdata",
       "createPatientFailed": "Kunde inte skapa testpatienten",
-      "createBranchFailed": "Kunde inte skapa testfilialen",
       "createLabFailed": "Kunde inte skapa testlaboratoriet"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Patientvy",
         "description": "Simulerar portalen som en patient ser: dess samtycken, journal och foton."
       },
-      "branch": {
-        "title": "Klinikvy",
-        "description": "Simulerar panelen som klinikpersonalen ser, med menyn begränsad till behörigheterna för den valda planen."
-      },
       "lab": {
         "title": "Laboratorievy",
         "description": "Simulerar panelen för ett samarbetande laboratorium: dess profil, kopplade kliniker och kampanjer."
+      },
+      "clinica": {
+        "title": "Klinikvy",
+        "description": "Simulerar panelen som klinikpersonalen ser, med menyn begränsad till behörigheterna för den valda planen."
       }
     },
     "testDataCreated": "Testdata skapad",
     "viewAs": "Visa som {{role}}",
     "roleNames": {
       "patient": "patient",
-      "branch": "klinik",
-      "lab": "laboratorium"
+      "lab": "laboratorium",
+      "clinica": "klinik"
     },
     "creating": "Skapar…",
     "createTestData": "Skapa testdata",
@@ -373,8 +369,6 @@
       "select_patient": "Välj patient…",
       "doctor": "Läkare",
       "unassigned": "Ej tilldelad",
-      "branch": "Klinik / Filial",
-      "main_branch": "Huvudklinik",
       "treatment": "Behandling",
       "select_treatment": "Välj behandling…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} kr",
@@ -744,8 +738,6 @@
       "Patientsignatur",
       "Klart"
     ],
-    "branch_label": "Filial",
-    "main_branch": "Huvudklinik",
     "select_patient": "Välj patient…",
     "select_doctor": "Välj läkare…",
     "select_treatment": "Välj behandling…",
@@ -785,7 +777,6 @@
     "no_results": "Inga samtycken",
     "confirm_delete": "Ta bort detta samtycke?",
     "stats": "{{total}} totalt · {{signed}} signerade · {{pending}} väntande",
-    "branch": "Filial",
     "created_at": "Skapandedatum",
     "status_header": "Status",
     "continue_signature": "Fortsätt signering",
@@ -812,21 +803,11 @@
     "tax_id": "Organisationsnummer",
     "logo": "Logotyp",
     "save": "Spara inställningar",
-    "branches": "Ytterligare filialer",
-    "branches_desc": "Hantera flera platser för din klinik",
-    "add_branch": "Lägg till filial",
-    "no_branches": "Inga ytterligare filialer",
-    "branch_name": "Filialens namn",
-    "save_branches": "Spara filialer",
-    "edit_branch": "Redigera filial",
-    "new_branch": "Ny filial",
-    "save_branch": "Spara filial",
     "subtitle": "Allmänna klinikinställningar",
     "trade_name": "Handelsnamn",
     "legal_name": "Juridiskt namn / firmanamn",
     "nika_number": "NIKA-nummer",
     "save_success": "Sparat",
-    "confirm_delete_branch": "Ta bort denna filial?",
     "directions_url": "URL för vägbeskrivning"
   },
   "language": {

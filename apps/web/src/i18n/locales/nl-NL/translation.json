@@ -98,7 +98,6 @@
     "select_patient": "Patiënt selecteren…",
     "doctor": "Arts",
     "unassigned": "Niet toegewezen",
-    "branch": "Kliniek / Vestiging",
     "unspecified": "Niet gespecificeerd",
     "visit_date": "Bezoekdatum",
     "reason_for_visit": "Reden van consult",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Patiënt selecteren…",
     "doctor_label": "Arts",
     "no_doctor_assigned": "Niet toegewezen",
-    "branch_label": "Kliniek / Vestiging",
-    "no_branch_specified": "Niet gespecificeerd",
     "session_name_label": "Naam van de sessie",
     "session_name_placeholder": "Bijv.: Gezichtsbehandeling sessie 1",
     "date_label": "Datum en tijd",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Fout bij het controleren van de testgegevens",
       "createPatientFailed": "De testpatiënt kon niet worden aangemaakt",
-      "createBranchFailed": "De testvestiging kon niet worden aangemaakt",
       "createLabFailed": "Het testlaboratorium kon niet worden aangemaakt"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Patiëntweergave",
         "description": "Simuleert het portaal dat een patiënt ziet: zijn toestemmingen, klinisch dossier en foto's."
       },
-      "branch": {
-        "title": "Kliniekweergave",
-        "description": "Simuleert het paneel dat het kliniekpersoneel ziet, met het menu beperkt tot de rechten van het gekozen abonnement."
-      },
       "lab": {
         "title": "Laboratoriumweergave",
         "description": "Simuleert het paneel van een samenwerkend laboratorium: hun profiel, gekoppelde klinieken en campagnes."
+      },
+      "clinica": {
+        "title": "Kliniekweergave",
+        "description": "Simuleert het paneel dat het kliniekpersoneel ziet, met het menu beperkt tot de rechten van het gekozen abonnement."
       }
     },
     "testDataCreated": "Testgegevens aangemaakt",
     "viewAs": "Bekijken als {{role}}",
     "roleNames": {
       "patient": "patiënt",
-      "branch": "kliniek",
-      "lab": "laboratorium"
+      "lab": "laboratorium",
+      "clinica": "kliniek"
     },
     "creating": "Aanmaken…",
     "createTestData": "Testgegevens aanmaken",
@@ -373,8 +369,6 @@
       "select_patient": "Patiënt selecteren…",
       "doctor": "Arts",
       "unassigned": "Niet toegewezen",
-      "branch": "Kliniek / Vestiging",
-      "main_branch": "Hoofdvestiging",
       "treatment": "Behandeling",
       "select_treatment": "Behandeling selecteren…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Handtekening patiënt",
       "Klaar"
     ],
-    "branch_label": "Vestiging",
-    "main_branch": "Hoofdvestiging",
     "select_patient": "Patiënt selecteren…",
     "select_doctor": "Arts selecteren…",
     "select_treatment": "Behandeling selecteren…",
@@ -785,7 +777,6 @@
     "no_results": "Geen toestemmingen",
     "confirm_delete": "Deze toestemming verwijderen?",
     "stats": "{{total}} totaal · {{signed}} ondertekend · {{pending}} in behandeling",
-    "branch": "Vestiging",
     "created_at": "Aanmaakdatum",
     "status_header": "Status",
     "continue_signature": "Ondertekening voortzetten",
@@ -812,21 +803,11 @@
     "tax_id": "KvK-nummer / BTW-nummer",
     "logo": "Logo",
     "save": "Instellingen opslaan",
-    "branches": "Extra vestigingen",
-    "branches_desc": "Beheer meerdere locaties van uw kliniek",
-    "add_branch": "Vestiging toevoegen",
-    "no_branches": "Geen extra vestigingen",
-    "branch_name": "Naam vestiging",
-    "save_branches": "Vestigingen opslaan",
-    "edit_branch": "Vestiging bewerken",
-    "new_branch": "Nieuwe vestiging",
-    "save_branch": "Vestiging opslaan",
     "subtitle": "Algemene instellingen van de kliniek",
     "trade_name": "Handelsnaam",
     "legal_name": "Fiscale naam / bedrijfsnaam",
     "nika_number": "NIKA-nummer",
     "save_success": "Succesvol opgeslagen",
-    "confirm_delete_branch": "Deze vestiging verwijderen?",
     "directions_url": "URL routebeschrijving"
   },
   "language": {

@@ -98,7 +98,6 @@
     "select_patient": "اختر المريض…",
     "doctor": "الطبيب",
     "unassigned": "غير معيّن",
-    "branch": "العيادة / الفرع",
     "unspecified": "غير محدد",
     "visit_date": "تاريخ الزيارة",
     "reason_for_visit": "سبب الزيارة",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "اختر المريض…",
     "doctor_label": "الطبيب",
     "no_doctor_assigned": "غير معيّن",
-    "branch_label": "العيادة / الفرع",
-    "no_branch_specified": "غير محدد",
     "session_name_label": "اسم الجلسة",
     "session_name_placeholder": "مثال: جلسة علاج الوجه 1",
     "date_label": "التاريخ والوقت",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "خطأ أثناء التحقق من البيانات التجريبية",
       "createPatientFailed": "تعذّر إنشاء المريض التجريبي",
-      "createBranchFailed": "تعذّر إنشاء الفرع التجريبي",
       "createLabFailed": "تعذّر إنشاء المختبر التجريبي"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "عرض المريض",
         "description": "يحاكي البوابة التي يراها المريض: نماذج الموافقة والسجل الطبي والصور الخاصة به."
       },
-      "branch": {
-        "title": "عرض العيادة",
-        "description": "يحاكي اللوحة التي يراها فريق العيادة، مع تقييد القائمة بصلاحيات الخطة المختارة."
-      },
       "lab": {
         "title": "عرض المختبر",
         "description": "يحاكي لوحة مختبر متعاون: ملفه الشخصي والعيادات المرتبطة به والحملات."
+      },
+      "clinica": {
+        "title": "عرض العيادة",
+        "description": "يحاكي اللوحة التي يراها فريق العيادة، مع تقييد القائمة بصلاحيات الخطة المختارة."
       }
     },
     "testDataCreated": "تم إنشاء بيانات تجريبية",
     "viewAs": "عرض كـ {{role}}",
     "roleNames": {
       "patient": "مريض",
-      "branch": "عيادة",
-      "lab": "مختبر"
+      "lab": "مختبر",
+      "clinica": "عيادة"
     },
     "creating": "جارٍ الإنشاء…",
     "createTestData": "إنشاء بيانات تجريبية",
@@ -373,8 +369,6 @@
       "select_patient": "اختر المريض…",
       "doctor": "الطبيب",
       "unassigned": "غير معيّن",
-      "branch": "العيادة / الفرع",
-      "main_branch": "الفرع الرئيسي",
       "treatment": "العلاج",
       "select_treatment": "اختر العلاج…",
       "treatment_option": "{{name}} — {{duration}} دقيقة — {{price}} ريال",
@@ -706,8 +700,6 @@
       "توقيع المريض",
       "تم"
     ],
-    "branch_label": "الفرع",
-    "main_branch": "الفرع الرئيسي",
     "select_patient": "اختر المريض…",
     "select_doctor": "اختر الطبيب…",
     "select_treatment": "اختر العلاج…",
@@ -747,7 +739,6 @@
     "no_results": "لا توجد نماذج موافقة",
     "confirm_delete": "هل تريد حذف نموذج الموافقة هذا؟",
     "stats": "{{total}} الإجمالي · {{signed}} موقّع · {{pending}} قيد الانتظار",
-    "branch": "الفرع",
     "created_at": "تاريخ الإنشاء",
     "status_header": "الحالة",
     "continue_signature": "متابعة التوقيع",
@@ -774,21 +765,11 @@
     "tax_id": "السجل التجاري / الرقم الضريبي",
     "logo": "الشعار",
     "save": "حفظ الإعدادات",
-    "branches": "الفروع الإضافية",
-    "branches_desc": "إدارة عدة مواقع لعيادتك",
-    "add_branch": "إضافة فرع",
-    "no_branches": "لا توجد فروع إضافية",
-    "branch_name": "اسم الفرع",
-    "save_branches": "حفظ الفروع",
-    "edit_branch": "تعديل الفرع",
-    "new_branch": "فرع جديد",
-    "save_branch": "حفظ الفرع",
     "subtitle": "الإعدادات العامة للعيادة",
     "trade_name": "الاسم التجاري",
     "legal_name": "الاسم القانوني / التجاري المسجل",
     "nika_number": "رقم NIKA",
     "save_success": "تم الحفظ بنجاح",
-    "confirm_delete_branch": "هل تريد حذف هذا الفرع؟",
     "directions_url": "رابط كيفية الوصول"
   },
   "language": {

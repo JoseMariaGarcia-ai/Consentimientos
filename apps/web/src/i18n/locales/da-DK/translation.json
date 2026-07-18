@@ -98,7 +98,6 @@
     "select_patient": "Vælg patient…",
     "doctor": "Læge",
     "unassigned": "Ikke tildelt",
-    "branch": "Klinik / Lokation",
     "unspecified": "Ikke angivet",
     "visit_date": "Besøgsdato",
     "reason_for_visit": "Årsag til besøg",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Vælg patient…",
     "doctor_label": "Læge",
     "no_doctor_assigned": "Ikke tildelt",
-    "branch_label": "Klinik / Lokation",
-    "no_branch_specified": "Ikke angivet",
     "session_name_label": "Sessionens navn",
     "session_name_placeholder": "F.eks.: Ansigtsbehandling session 1",
     "date_label": "Dato og klokkeslæt",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Fejl ved kontrol af testdata",
       "createPatientFailed": "Kunne ikke oprette testpatienten",
-      "createBranchFailed": "Kunne ikke oprette testlokationen",
       "createLabFailed": "Kunne ikke oprette testlaboratoriet"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Patientvisning",
         "description": "Simulerer den portal, en patient ser: deres samtykker, kliniske journal og fotos."
       },
-      "branch": {
-        "title": "Klinikvisning",
-        "description": "Simulerer panelet, som klinikpersonalet ser, med menuen begrænset til rettighederne for den valgte plan."
-      },
       "lab": {
         "title": "Laboratorievisning",
         "description": "Simulerer panelet for et samarbejdende laboratorium: deres profil, tilknyttede klinikker og kampagner."
+      },
+      "clinica": {
+        "title": "Klinikvisning",
+        "description": "Simulerer panelet, som klinikpersonalet ser, med menuen begrænset til rettighederne for den valgte plan."
       }
     },
     "testDataCreated": "Testdata oprettet",
     "viewAs": "Se som {{role}}",
     "roleNames": {
       "patient": "patient",
-      "branch": "klinik",
-      "lab": "laboratorium"
+      "lab": "laboratorium",
+      "clinica": "klinik"
     },
     "creating": "Opretter…",
     "createTestData": "Opret testdata",
@@ -373,8 +369,6 @@
       "select_patient": "Vælg patient…",
       "doctor": "Læge",
       "unassigned": "Ikke tildelt",
-      "branch": "Klinik / Lokation",
-      "main_branch": "Hovedlokation",
       "treatment": "Behandling",
       "select_treatment": "Vælg behandling…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Patientens underskrift",
       "Færdig"
     ],
-    "branch_label": "Lokation",
-    "main_branch": "Hovedlokation",
     "select_patient": "Vælg patient…",
     "select_doctor": "Vælg læge…",
     "select_treatment": "Vælg behandling…",
@@ -785,7 +777,6 @@
     "no_results": "Ingen samtykker",
     "confirm_delete": "Slet dette samtykke?",
     "stats": "{{total}} i alt · {{signed}} underskrevet · {{pending}} afventer",
-    "branch": "Lokation",
     "created_at": "Oprettelsesdato",
     "status_header": "Status",
     "continue_signature": "Fortsæt underskrift",
@@ -812,21 +803,11 @@
     "tax_id": "CVR-nr.",
     "logo": "Logo",
     "save": "Gem konfiguration",
-    "branches": "Yderligere lokationer",
-    "branches_desc": "Administrer flere lokationer for din klinik",
-    "add_branch": "Tilføj lokation",
-    "no_branches": "Ingen yderligere lokationer",
-    "branch_name": "Lokationsnavn",
-    "save_branches": "Gem lokationer",
-    "edit_branch": "Rediger lokation",
-    "new_branch": "Ny lokation",
-    "save_branch": "Gem lokation",
     "subtitle": "Generel klinikkonfiguration",
     "trade_name": "Handelsnavn",
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Gemt korrekt",
-    "confirm_delete_branch": "Slet denne lokation?",
     "directions_url": "URL til vejbeskrivelse"
   },
   "language": {

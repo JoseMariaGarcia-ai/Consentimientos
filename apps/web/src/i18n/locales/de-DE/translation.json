@@ -98,7 +98,6 @@
     "select_patient": "Patient auswählen…",
     "doctor": "Arzt",
     "unassigned": "Nicht zugewiesen",
-    "branch": "Klinik / Standort",
     "unspecified": "Nicht angegeben",
     "visit_date": "Besuchsdatum",
     "reason_for_visit": "Grund des Besuchs",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Patient auswählen…",
     "doctor_label": "Arzt",
     "no_doctor_assigned": "Nicht zugewiesen",
-    "branch_label": "Klinik / Standort",
-    "no_branch_specified": "Nicht angegeben",
     "session_name_label": "Name der Sitzung",
     "session_name_placeholder": "Z. B.: Gesichtsbehandlung Sitzung 1",
     "date_label": "Datum und Uhrzeit",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Fehler beim Prüfen der Testdaten",
       "createPatientFailed": "Der Testpatient konnte nicht erstellt werden",
-      "createBranchFailed": "Der Teststandort konnte nicht erstellt werden",
       "createLabFailed": "Das Testlabor konnte nicht erstellt werden"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Patientenansicht",
         "description": "Simuliert das Portal, das ein Patient sieht: seine Einwilligungen, Krankenakte und Fotos."
       },
-      "branch": {
-        "title": "Klinikansicht",
-        "description": "Simuliert die Ansicht, die das Klinikpersonal sieht, mit dem Menü beschränkt auf die Berechtigungen des gewählten Plans."
-      },
       "lab": {
         "title": "Laboransicht",
         "description": "Simuliert das Dashboard eines Partnerlabors: sein Profil, verknüpfte Kliniken und Kampagnen."
+      },
+      "clinica": {
+        "title": "Klinikansicht",
+        "description": "Simuliert die Ansicht, die das Klinikpersonal sieht, mit dem Menü beschränkt auf die Berechtigungen des gewählten Plans."
       }
     },
     "testDataCreated": "Testdaten erstellt",
     "viewAs": "Anzeigen als {{role}}",
     "roleNames": {
       "patient": "Patient",
-      "branch": "Klinik",
-      "lab": "Labor"
+      "lab": "Labor",
+      "clinica": "Klinik"
     },
     "creating": "Wird erstellt…",
     "createTestData": "Testdaten erstellen",
@@ -373,8 +369,6 @@
       "select_patient": "Patient auswählen…",
       "doctor": "Arzt",
       "unassigned": "Nicht zugewiesen",
-      "branch": "Klinik / Standort",
-      "main_branch": "Hauptstandort",
       "treatment": "Behandlung",
       "select_treatment": "Behandlung auswählen…",
       "treatment_option": "{{name}} — {{duration}} Min. — {{price}} €",
@@ -744,8 +738,6 @@
       "Unterschrift Patient",
       "Fertig"
     ],
-    "branch_label": "Standort",
-    "main_branch": "Hauptstandort",
     "select_patient": "Patient auswählen…",
     "select_doctor": "Arzt auswählen…",
     "select_treatment": "Behandlung auswählen…",
@@ -785,7 +777,6 @@
     "no_results": "Keine Einwilligungen",
     "confirm_delete": "Diese Einwilligung löschen?",
     "stats": "{{total}} gesamt · {{signed}} unterzeichnet · {{pending}} ausstehend",
-    "branch": "Standort",
     "created_at": "Erstellt am",
     "status_header": "Status",
     "continue_signature": "Unterschrift fortsetzen",
@@ -812,21 +803,11 @@
     "tax_id": "Steuernummer / USt-IdNr.",
     "logo": "Logo",
     "save": "Einstellungen speichern",
-    "branches": "Zusätzliche Standorte",
-    "branches_desc": "Verwalten Sie mehrere Standorte Ihrer Klinik",
-    "add_branch": "Standort hinzufügen",
-    "no_branches": "Keine zusätzlichen Standorte",
-    "branch_name": "Standortname",
-    "save_branches": "Standorte speichern",
-    "edit_branch": "Standort bearbeiten",
-    "new_branch": "Neuer Standort",
-    "save_branch": "Standort speichern",
     "subtitle": "Allgemeine Klinikeinstellungen",
     "trade_name": "Handelsname",
     "legal_name": "Rechtlicher Name / Firmenname",
     "nika_number": "NIKA-Nummer",
     "save_success": "Erfolgreich gespeichert",
-    "confirm_delete_branch": "Diesen Standort löschen?",
     "directions_url": "URL für Anfahrt"
   },
   "language": {

@@ -8,7 +8,6 @@ import { ALL_MODULES, DEFAULT_CLINICA_MODULES } from '@/lib/modules'
 import { PLAN_KEY } from '@/pages/Recharge'
 
 const DEMO_PATIENT_NAME = 'Paciente Demo (Prueba)'
-const DEMO_BRANCH_NAME  = 'Sede Demo (Prueba)'
 const DEMO_LAB_NAME     = 'Laboratorio Demo (Prueba)'
 
 // Mismo conjunto que Configuración > Planes y el selector de plan al invitar
@@ -17,7 +16,6 @@ const CLINICA_PLAN_IDS = ['base', 'pro', 'ia', 'ia-plus']
 
 interface DemoState {
   patientId: string | null
-  branchId: string | null
   labId: string | null
 }
 
@@ -25,7 +23,7 @@ export function DemoPreviewPanel() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { enterPreview } = usePreview()
-  const [demo, setDemo] = useState<DemoState>({ patientId: null, branchId: null, labId: null })
+  const [demo, setDemo] = useState<DemoState>({ patientId: null, labId: null })
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState<string | null>(null)
   const [error, setError] = useState('')
@@ -36,16 +34,14 @@ export function DemoPreviewPanel() {
     setLoading(true)
     setError('')
     try {
-      const [patients, clinic, labs, permissions] = await Promise.all([
+      const [patients, labs, permissions] = await Promise.all([
         api.get('/patients').catch(() => []),
-        api.get('/clinic').catch(() => ({})),
         api.get('/lab-partners').catch(() => []),
         api.get('/plan-permissions').catch(() => ({})),
       ])
       const patient = Array.isArray(patients) ? patients.find((p: any) => (p.full_name ?? p.fullName) === DEMO_PATIENT_NAME) : null
-      const branch = Array.isArray(clinic?.branches) ? clinic.branches.find((b: any) => b.name === DEMO_BRANCH_NAME) : null
       const lab = Array.isArray(labs) ? labs.find((l: any) => l.name === DEMO_LAB_NAME) : null
-      setDemo({ patientId: patient?.id ?? null, branchId: branch?.id ?? null, labId: lab?.id ?? null })
+      setDemo({ patientId: patient?.id ?? null, labId: lab?.id ?? null })
       setPlanMatrix(permissions ?? {})
     } catch (e: any) {
       setError(e.message ?? t('demoPreviewPanel.errors.checkFailed'))
@@ -81,27 +77,6 @@ export function DemoPreviewPanel() {
     }
   }
 
-  const createBranch = async () => {
-    setCreating('branch')
-    setError('')
-    try {
-      const clinic = await api.get('/clinic')
-      const branches = Array.isArray(clinic?.branches) ? clinic.branches : []
-      const newBranch = {
-        id: crypto.randomUUID(),
-        name: DEMO_BRANCH_NAME,
-        address: 'Avenida de Prueba 22, 28002 Madrid',
-        phone: '+34 900 000 000',
-      }
-      await api.put('/clinic', { ...clinic, branches: [...branches, newBranch] })
-      setDemo(d => ({ ...d, branchId: newBranch.id }))
-    } catch (e: any) {
-      setError(e.message ?? t('demoPreviewPanel.errors.createBranchFailed'))
-    } finally {
-      setCreating(null)
-    }
-  }
-
   const createLab = async () => {
     setCreating('lab')
     setError('')
@@ -124,7 +99,6 @@ export function DemoPreviewPanel() {
 
   const createAll = async () => {
     if (!demo.patientId) await createPatient()
-    if (!demo.branchId) await createBranch()
     if (!demo.labId) await createLab()
   }
 
@@ -161,17 +135,21 @@ export function DemoPreviewPanel() {
       title: t('demoPreviewPanel.cards.patient.title'),
       description: t('demoPreviewPanel.cards.patient.description'),
       exists: !!demo.patientId,
+      alwaysAvailable: false,
       onCreate: createPatient,
       onView: viewAsPatient,
     },
     {
-      key: 'branch',
+      key: 'clinica',
       icon: Building2,
       color: 'emerald',
-      title: t('demoPreviewPanel.cards.branch.title'),
-      description: t('demoPreviewPanel.cards.branch.description'),
-      exists: !!demo.branchId,
-      onCreate: createBranch,
+      title: t('demoPreviewPanel.cards.clinica.title'),
+      description: t('demoPreviewPanel.cards.clinica.description'),
+      // Ver como Clínica solo depende del plan elegido más abajo, no de
+      // ningún dato de prueba — está disponible siempre, sin paso previo.
+      exists: true,
+      alwaysAvailable: true,
+      onCreate: undefined,
       onView: viewAsClinica,
     },
     {
@@ -181,6 +159,7 @@ export function DemoPreviewPanel() {
       title: t('demoPreviewPanel.cards.lab.title'),
       description: t('demoPreviewPanel.cards.lab.description'),
       exists: !!demo.labId,
+      alwaysAvailable: false,
       onCreate: createLab,
       onView: viewAsLab,
     },
@@ -206,7 +185,7 @@ export function DemoPreviewPanel() {
         </div>
         <button
           onClick={createAll}
-          disabled={loading || creating !== null || (!!demo.patientId && !!demo.branchId && !!demo.labId)}
+          disabled={loading || creating !== null || (!!demo.patientId && !!demo.labId)}
           className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
         >
           <Sparkles className="w-3.5 h-3.5" />
@@ -230,7 +209,7 @@ export function DemoPreviewPanel() {
                 <p className="text-sm font-semibold text-slate-800">{card.title}</p>
               </div>
               <p className="text-xs text-slate-500 flex-1">{card.description}</p>
-              {card.key === 'branch' && !loading && (
+              {card.key === 'clinica' && !loading && (
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[10px] font-semibold text-slate-400 uppercase tracking-wide">
                     {t('demoPreviewPanel.planLabel')}
@@ -252,9 +231,11 @@ export function DemoPreviewPanel() {
                 <div className="h-8 rounded-lg bg-slate-100 animate-pulse" />
               ) : card.exists ? (
                 <div className="flex flex-col gap-2">
-                  <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2 py-1 w-fit">
-                    <Check className="w-3 h-3" />{t('demoPreviewPanel.testDataCreated')}
-                  </span>
+                  {!card.alwaysAvailable && (
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 rounded-full px-2 py-1 w-fit">
+                      <Check className="w-3 h-3" />{t('demoPreviewPanel.testDataCreated')}
+                    </span>
+                  )}
                   <button
                     onClick={card.onView}
                     className="flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-700"

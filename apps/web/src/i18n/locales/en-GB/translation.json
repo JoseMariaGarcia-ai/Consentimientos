@@ -98,7 +98,6 @@
     "select_patient": "Select patient…",
     "doctor": "Doctor",
     "unassigned": "Unassigned",
-    "branch": "Clinic / Branch",
     "unspecified": "Unspecified",
     "visit_date": "Visit date",
     "reason_for_visit": "Reason for visit",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Select patient…",
     "doctor_label": "Doctor",
     "no_doctor_assigned": "Unassigned",
-    "branch_label": "Clinic / Branch",
-    "no_branch_specified": "Unspecified",
     "session_name_label": "Session name",
     "session_name_placeholder": "E.g.: Facial treatment session 1",
     "date_label": "Date and time",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Error checking test data",
       "createPatientFailed": "Could not create the test patient",
-      "createBranchFailed": "Could not create the test branch",
       "createLabFailed": "Could not create the test lab"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Patient view",
         "description": "Simulates the portal a patient sees: their consents, clinical record and photos."
       },
-      "branch": {
-        "title": "Clinic view",
-        "description": "Simulates the panel clinic staff see, with the menu restricted to the permissions of the plan you choose."
-      },
       "lab": {
         "title": "Lab view",
         "description": "Simulates a partner lab's dashboard: its profile, linked clinics and campaigns."
+      },
+      "clinica": {
+        "title": "Clinic view",
+        "description": "Simulates the panel clinic staff see, with the menu restricted to the permissions of the plan you choose."
       }
     },
     "testDataCreated": "Test data created",
     "viewAs": "View as {{role}}",
     "roleNames": {
       "patient": "patient",
-      "branch": "clinic",
-      "lab": "lab"
+      "lab": "lab",
+      "clinica": "clinic"
     },
     "creating": "Creating…",
     "createTestData": "Create test data",
@@ -373,8 +369,6 @@
       "select_patient": "Select patient…",
       "doctor": "Doctor",
       "unassigned": "Unassigned",
-      "branch": "Clinic / Branch",
-      "main_branch": "Main branch",
       "treatment": "Treatment",
       "select_treatment": "Select treatment…",
       "treatment_option": "{{name}} — {{duration}} min — £{{price}}",
@@ -744,8 +738,6 @@
       "Patient signature",
       "Done"
     ],
-    "branch_label": "Branch",
-    "main_branch": "Main branch",
     "select_patient": "Select patient…",
     "select_doctor": "Select doctor…",
     "select_treatment": "Select treatment…",
@@ -785,7 +777,6 @@
     "no_results": "No consents",
     "confirm_delete": "Delete this consent?",
     "stats": "{{total}} total · {{signed}} signed · {{pending}} pending",
-    "branch": "Branch",
     "created_at": "Created at",
     "status_header": "Status",
     "continue_signature": "Continue signature",
@@ -812,21 +803,11 @@
     "tax_id": "Company number / VAT",
     "logo": "Logo",
     "save": "Save settings",
-    "branches": "Additional branches",
-    "branches_desc": "Manage multiple locations for your clinic",
-    "add_branch": "Add branch",
-    "no_branches": "No additional branches",
-    "branch_name": "Branch name",
-    "save_branches": "Save branches",
-    "edit_branch": "Edit branch",
-    "new_branch": "New branch",
-    "save_branch": "Save branch",
     "subtitle": "General clinic settings",
     "trade_name": "Trading name",
     "legal_name": "Legal / registered name",
     "nika_number": "NIKA number",
     "save_success": "Saved successfully",
-    "confirm_delete_branch": "Delete this branch?",
     "directions_url": "Directions URL"
   },
   "language": {

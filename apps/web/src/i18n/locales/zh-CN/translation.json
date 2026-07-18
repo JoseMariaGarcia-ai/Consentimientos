@@ -98,7 +98,6 @@
     "select_patient": "选择患者…",
     "doctor": "医生",
     "unassigned": "未指定",
-    "branch": "诊所 / 分院",
     "unspecified": "未指定",
     "visit_date": "就诊日期",
     "reason_for_visit": "就诊原因",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "选择患者…",
     "doctor_label": "医生",
     "no_doctor_assigned": "未指定",
-    "branch_label": "诊所 / 分院",
-    "no_branch_specified": "未指定",
     "session_name_label": "场次名称",
     "session_name_placeholder": "例如：面部治疗第1次",
     "date_label": "日期和时间",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "检查测试数据时出错",
       "createPatientFailed": "无法创建测试患者",
-      "createBranchFailed": "无法创建测试分院",
       "createLabFailed": "无法创建测试实验室"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "患者视图",
         "description": "模拟患者所看到的门户：其知情同意书、病历和照片。"
       },
-      "branch": {
-        "title": "诊所视图",
-        "description": "模拟诊所员工看到的面板，菜单仅限于所选套餐的权限。"
-      },
       "lab": {
         "title": "实验室视图",
         "description": "模拟合作实验室的面板：其资料、关联诊所和推广活动。"
+      },
+      "clinica": {
+        "title": "诊所视图",
+        "description": "模拟诊所员工看到的面板，菜单仅限于所选套餐的权限。"
       }
     },
     "testDataCreated": "测试数据已创建",
     "viewAs": "以{{role}}身份查看",
     "roleNames": {
       "patient": "患者",
-      "branch": "诊所",
-      "lab": "实验室"
+      "lab": "实验室",
+      "clinica": "诊所"
     },
     "creating": "正在创建…",
     "createTestData": "创建测试数据",
@@ -373,8 +369,6 @@
       "select_patient": "选择患者…",
       "doctor": "医生",
       "unassigned": "未指定",
-      "branch": "诊所 / 分院",
-      "main_branch": "主诊所",
       "treatment": "治疗项目",
       "select_treatment": "选择治疗项目…",
       "treatment_option": "{{name}} — {{duration}} 分钟 — {{price}} €",
@@ -744,8 +738,6 @@
       "患者签名",
       "完成"
     ],
-    "branch_label": "分院",
-    "main_branch": "主诊所",
     "select_patient": "选择患者…",
     "select_doctor": "选择医生…",
     "select_treatment": "选择治疗项目…",
@@ -785,7 +777,6 @@
     "no_results": "暂无同意书",
     "confirm_delete": "确定要删除此知情同意书吗？",
     "stats": "共 {{total}} 份 · 已签署 {{signed}} 份 · 待处理 {{pending}} 份",
-    "branch": "分院",
     "created_at": "创建日期",
     "status_header": "状态",
     "continue_signature": "继续签署",
@@ -812,21 +803,11 @@
     "tax_id": "统一社会信用代码",
     "logo": "Logo",
     "save": "保存设置",
-    "branches": "其他分院",
-    "branches_desc": "管理您诊所的多个地点",
-    "add_branch": "添加分院",
-    "no_branches": "暂无其他分院",
-    "branch_name": "分院名称",
-    "save_branches": "保存分院",
-    "edit_branch": "编辑分院",
-    "new_branch": "新建分院",
-    "save_branch": "保存分院",
     "subtitle": "诊所常规设置",
     "trade_name": "商用名称",
     "legal_name": "法定名称 / 公司名称",
     "nika_number": "NIKA 编号",
     "save_success": "保存成功",
-    "confirm_delete_branch": "确定要删除此分院吗？",
     "directions_url": "到达路线 URL"
   },
   "language": {

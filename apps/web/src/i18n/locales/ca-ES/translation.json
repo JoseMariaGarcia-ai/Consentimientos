@@ -98,7 +98,6 @@
     "select_patient": "Seleccionar pacient…",
     "doctor": "Metge",
     "unassigned": "Sense assignar",
-    "branch": "Clínica / Seu",
     "unspecified": "Sense especificar",
     "visit_date": "Data de visita",
     "reason_for_visit": "Motiu de consulta",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Seleccionar pacient…",
     "doctor_label": "Metge",
     "no_doctor_assigned": "Sense assignar",
-    "branch_label": "Clínica / Seu",
-    "no_branch_specified": "Sense especificar",
     "session_name_label": "Nom de la sessió",
     "session_name_placeholder": "Ex: Tractament facial sessió 1",
     "date_label": "Data i hora",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Error en comprovar les dades de prova",
       "createPatientFailed": "No s'ha pogut crear el pacient de prova",
-      "createBranchFailed": "No s'ha pogut crear la seu de prova",
       "createLabFailed": "No s'ha pogut crear el laboratori de prova"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Vista de Pacient",
         "description": "Simula el portal que veu un pacient: els seus consentiments, història clínica i fotos."
       },
-      "branch": {
-        "title": "Vista de Clínica",
-        "description": "Simula el panell que veu el personal de la clínica, amb el menú restringit als permisos del pla que triïs."
-      },
       "lab": {
         "title": "Vista de Laboratori",
         "description": "Simula el panell d'un laboratori col·laborador: el seu perfil, clíniques vinculades i campanyes."
+      },
+      "clinica": {
+        "title": "Vista de Clínica",
+        "description": "Simula el panell que veu el personal de la clínica, amb el menú restringit als permisos del pla que triïs."
       }
     },
     "testDataCreated": "Dada de prova creada",
     "viewAs": "Veure com {{role}}",
     "roleNames": {
       "patient": "pacient",
-      "branch": "clínica",
-      "lab": "laboratori"
+      "lab": "laboratori",
+      "clinica": "clínica"
     },
     "creating": "Creant…",
     "createTestData": "Crear dada de prova",
@@ -373,8 +369,6 @@
       "select_patient": "Seleccionar pacient…",
       "doctor": "Metge",
       "unassigned": "Sense assignar",
-      "branch": "Clínica / Seu",
-      "main_branch": "Seu principal",
       "treatment": "Tractament",
       "select_treatment": "Seleccionar tractament…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Signatura pacient",
       "Fet"
     ],
-    "branch_label": "Seu",
-    "main_branch": "Seu principal",
     "select_patient": "Seleccionar pacient…",
     "select_doctor": "Seleccionar metge…",
     "select_treatment": "Seleccionar tractament…",
@@ -785,7 +777,6 @@
     "no_results": "No hi ha consentiments",
     "confirm_delete": "Vols eliminar aquest consentiment?",
     "stats": "{{total}} total · {{signed}} signats · {{pending}} pendents",
-    "branch": "Seu",
     "created_at": "Data de creació",
     "status_header": "Estat",
     "continue_signature": "Continuar signatura",
@@ -812,21 +803,11 @@
     "tax_id": "CIF / NIF",
     "logo": "Logotip",
     "save": "Desar configuració",
-    "branches": "Seus addicionals",
-    "branches_desc": "Gestiona múltiples ubicacions de la teva clínica",
-    "add_branch": "Afegir seu",
-    "no_branches": "Sense seus addicionals",
-    "branch_name": "Nom de la seu",
-    "save_branches": "Desar seus",
-    "edit_branch": "Editar seu",
-    "new_branch": "Nova seu",
-    "save_branch": "Desar seu",
     "subtitle": "Configuració general de la clínica",
     "trade_name": "Nom comercial",
     "legal_name": "Nom fiscal / raó social",
     "nika_number": "Número NIKA",
     "save_success": "Desat correctament",
-    "confirm_delete_branch": "Vols eliminar aquesta seu?",
     "directions_url": "URL de com arribar-hi"
   },
   "language": {

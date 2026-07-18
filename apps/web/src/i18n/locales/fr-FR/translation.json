@@ -98,7 +98,6 @@
     "select_patient": "Sélectionner un patient…",
     "doctor": "Médecin",
     "unassigned": "Non attribué",
-    "branch": "Clinique / Site",
     "unspecified": "Non précisé",
     "visit_date": "Date de la visite",
     "reason_for_visit": "Motif de consultation",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Sélectionner un patient…",
     "doctor_label": "Médecin",
     "no_doctor_assigned": "Non attribué",
-    "branch_label": "Clinique / Site",
-    "no_branch_specified": "Non précisé",
     "session_name_label": "Nom de la séance",
     "session_name_placeholder": "Ex. : Traitement facial séance 1",
     "date_label": "Date et heure",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Erreur lors de la vérification des données de test",
       "createPatientFailed": "Impossible de créer le patient de test",
-      "createBranchFailed": "Impossible de créer le site de test",
       "createLabFailed": "Impossible de créer le laboratoire de test"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Vue Patient",
         "description": "Simule le portail que voit un patient : ses consentements, son dossier clinique et ses photos."
       },
-      "branch": {
-        "title": "Vue Clinique",
-        "description": "Simule le panneau que voit le personnel de la clinique, avec le menu limité aux permissions du forfait que vous choisissez."
-      },
       "lab": {
         "title": "Vue Laboratoire",
         "description": "Simule le panneau d'un laboratoire partenaire : son profil, ses cliniques liées et ses campagnes."
+      },
+      "clinica": {
+        "title": "Vue Clinique",
+        "description": "Simule le panneau que voit le personnel de la clinique, avec le menu limité aux permissions du forfait que vous choisissez."
       }
     },
     "testDataCreated": "Donnée de test créée",
     "viewAs": "Voir en tant que {{role}}",
     "roleNames": {
       "patient": "patient",
-      "branch": "clinique",
-      "lab": "laboratoire"
+      "lab": "laboratoire",
+      "clinica": "clinique"
     },
     "creating": "Création…",
     "createTestData": "Créer une donnée de test",
@@ -373,8 +369,6 @@
       "select_patient": "Sélectionner un patient…",
       "doctor": "Médecin",
       "unassigned": "Non attribué",
-      "branch": "Clinique / Site",
-      "main_branch": "Site principal",
       "treatment": "Traitement",
       "select_treatment": "Sélectionner un traitement…",
       "treatment_option": "{{name}} — {{duration}} min — {{price}} €",
@@ -744,8 +738,6 @@
       "Signature patient",
       "Terminé"
     ],
-    "branch_label": "Site",
-    "main_branch": "Site principal",
     "select_patient": "Sélectionner un patient…",
     "select_doctor": "Sélectionner un médecin…",
     "select_treatment": "Sélectionner un traitement…",
@@ -785,7 +777,6 @@
     "no_results": "Aucun consentement",
     "confirm_delete": "Supprimer ce consentement ?",
     "stats": "{{total}} au total · {{signed}} signés · {{pending}} en attente",
-    "branch": "Site",
     "created_at": "Date de création",
     "status_header": "Statut",
     "continue_signature": "Continuer la signature",
@@ -812,21 +803,11 @@
     "tax_id": "SIRET / N° TVA",
     "logo": "Logo",
     "save": "Enregistrer les paramètres",
-    "branches": "Sites supplémentaires",
-    "branches_desc": "Gérez plusieurs sites de votre clinique",
-    "add_branch": "Ajouter un site",
-    "no_branches": "Aucun site supplémentaire",
-    "branch_name": "Nom du site",
-    "save_branches": "Enregistrer les sites",
-    "edit_branch": "Modifier le site",
-    "new_branch": "Nouveau site",
-    "save_branch": "Enregistrer le site",
     "subtitle": "Paramètres généraux de la clinique",
     "trade_name": "Nom commercial",
     "legal_name": "Raison sociale",
     "nika_number": "Numéro NIKA",
     "save_success": "Enregistré avec succès",
-    "confirm_delete_branch": "Supprimer ce site ?",
     "directions_url": "URL de l'itinéraire"
   },
   "language": {

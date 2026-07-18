@@ -98,7 +98,6 @@
     "select_patient": "Beteg kiválasztása…",
     "doctor": "Orvos",
     "unassigned": "Nincs hozzárendelve",
-    "branch": "Klinika / Telephely",
     "unspecified": "Nincs megadva",
     "visit_date": "Látogatás dátuma",
     "reason_for_visit": "Konzultáció oka",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Beteg kiválasztása…",
     "doctor_label": "Orvos",
     "no_doctor_assigned": "Nincs hozzárendelve",
-    "branch_label": "Klinika / Telephely",
-    "no_branch_specified": "Nincs megadva",
     "session_name_label": "A fotósorozat neve",
     "session_name_placeholder": "Pl.: Arckezelés 1. ülés",
     "date_label": "Dátum és időpont",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Hiba a tesztadatok ellenőrzésekor",
       "createPatientFailed": "Nem sikerült létrehozni a teszt beteget",
-      "createBranchFailed": "Nem sikerült létrehozni a teszt telephelyet",
       "createLabFailed": "Nem sikerült létrehozni a teszt laboratóriumot"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Beteg nézet",
         "description": "Szimulálja azt a portált, amelyet a beteg lát: beleegyezéseit, klinikai naplóját és fotóit."
       },
-      "branch": {
-        "title": "Klinika nézet",
-        "description": "Szimulálja a klinikai személyzet által látott panelt, a menüt a kiválasztott csomag jogosultságaira korlátozva."
-      },
       "lab": {
         "title": "Laboratórium nézet",
         "description": "Szimulálja egy együttműködő laboratórium panelét: profilját, kapcsolt klinikáit és kampányait."
+      },
+      "clinica": {
+        "title": "Klinika nézet",
+        "description": "Szimulálja a klinikai személyzet által látott panelt, a menüt a kiválasztott csomag jogosultságaira korlátozva."
       }
     },
     "testDataCreated": "Tesztadat létrehozva",
     "viewAs": "Megtekintés mint {{role}}",
     "roleNames": {
       "patient": "beteg",
-      "branch": "klinika",
-      "lab": "laboratórium"
+      "lab": "laboratórium",
+      "clinica": "klinika"
     },
     "creating": "Létrehozás…",
     "createTestData": "Tesztadat létrehozása",
@@ -373,8 +369,6 @@
       "select_patient": "Beteg kiválasztása…",
       "doctor": "Orvos",
       "unassigned": "Nincs hozzárendelve",
-      "branch": "Klinika / Telephely",
-      "main_branch": "Fő telephely",
       "treatment": "Kezelés",
       "select_treatment": "Kezelés kiválasztása…",
       "treatment_option": "{{name}} — {{duration}} perc — {{price}} €",
@@ -744,8 +738,6 @@
       "Betegaláírás",
       "Kész"
     ],
-    "branch_label": "Telephely",
-    "main_branch": "Fő telephely",
     "select_patient": "Beteg kiválasztása…",
     "select_doctor": "Orvos kiválasztása…",
     "select_treatment": "Kezelés kiválasztása…",
@@ -785,7 +777,6 @@
     "no_results": "Nincsenek beleegyezések",
     "confirm_delete": "Törli ezt a beleegyezést?",
     "stats": "{{total}} összesen · {{signed}} aláírva · {{pending}} függőben",
-    "branch": "Telephely",
     "created_at": "Létrehozás dátuma",
     "status_header": "Állapot",
     "continue_signature": "Aláírás folytatása",
@@ -812,21 +803,11 @@
     "tax_id": "Adószám",
     "logo": "Logó",
     "save": "Konfiguráció mentése",
-    "branches": "További telephelyek",
-    "branches_desc": "Több telephely kezelése",
-    "add_branch": "Telephely hozzáadása",
-    "no_branches": "Nincsenek további telephelyek",
-    "branch_name": "Telephely neve",
-    "save_branches": "Telephelyek mentése",
-    "edit_branch": "Telephely szerkesztése",
-    "new_branch": "Új telephely",
-    "save_branch": "Telephely mentése",
     "subtitle": "A klinika általános beállításai",
     "trade_name": "Kereskedelmi név",
     "legal_name": "Cégnév / jogi név",
     "nika_number": "NIKA-szám",
     "save_success": "Sikeresen mentve",
-    "confirm_delete_branch": "Törli ezt a telephelyet?",
     "directions_url": "Útvonal URL"
   },
   "language": {

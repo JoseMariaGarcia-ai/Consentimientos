@@ -98,7 +98,6 @@
     "select_patient": "Chọn bệnh nhân…",
     "doctor": "Bác sĩ",
     "unassigned": "Chưa chỉ định",
-    "branch": "Phòng khám / Chi nhánh",
     "unspecified": "Chưa xác định",
     "visit_date": "Ngày khám",
     "reason_for_visit": "Lý do khám",
@@ -161,8 +160,6 @@
     "select_patient_placeholder": "Chọn bệnh nhân…",
     "doctor_label": "Bác sĩ",
     "no_doctor_assigned": "Chưa chỉ định",
-    "branch_label": "Phòng khám / Chi nhánh",
-    "no_branch_specified": "Chưa xác định",
     "session_name_label": "Tên phiên",
     "session_name_placeholder": "Ví dụ: Điều trị mặt buổi 1",
     "date_label": "Ngày và giờ",
@@ -300,7 +297,6 @@
     "errors": {
       "checkFailed": "Lỗi khi kiểm tra dữ liệu thử nghiệm",
       "createPatientFailed": "Không thể tạo bệnh nhân thử nghiệm",
-      "createBranchFailed": "Không thể tạo chi nhánh thử nghiệm",
       "createLabFailed": "Không thể tạo phòng thí nghiệm thử nghiệm"
     },
     "cards": {
@@ -308,21 +304,21 @@
         "title": "Xem như Bệnh nhân",
         "description": "Mô phỏng cổng thông tin mà một bệnh nhân nhìn thấy: các đơn chấp thuận, hồ sơ bệnh án và ảnh của họ."
       },
-      "branch": {
-        "title": "Xem như Phòng khám",
-        "description": "Mô phỏng bảng điều khiển mà nhân viên phòng khám nhìn thấy, với menu bị giới hạn theo quyền của gói đã chọn."
-      },
       "lab": {
         "title": "Xem như Phòng thí nghiệm",
         "description": "Mô phỏng bảng điều khiển của phòng thí nghiệm đối tác: hồ sơ, các phòng khám liên kết và chiến dịch của họ."
+      },
+      "clinica": {
+        "title": "Xem như Phòng khám",
+        "description": "Mô phỏng bảng điều khiển mà nhân viên phòng khám nhìn thấy, với menu bị giới hạn theo quyền của gói đã chọn."
       }
     },
     "testDataCreated": "Đã tạo dữ liệu thử nghiệm",
     "viewAs": "Xem như {{role}}",
     "roleNames": {
       "patient": "bệnh nhân",
-      "branch": "phòng khám",
-      "lab": "phòng thí nghiệm"
+      "lab": "phòng thí nghiệm",
+      "clinica": "phòng khám"
     },
     "creating": "Đang tạo…",
     "createTestData": "Tạo dữ liệu thử nghiệm",
@@ -373,8 +369,6 @@
       "select_patient": "Chọn bệnh nhân…",
       "doctor": "Bác sĩ",
       "unassigned": "Chưa chỉ định",
-      "branch": "Phòng khám / Chi nhánh",
-      "main_branch": "Chi nhánh chính",
       "treatment": "Điều trị",
       "select_treatment": "Chọn điều trị…",
       "treatment_option": "{{name}} — {{duration}} phút — {{price}} €",
@@ -744,8 +738,6 @@
       "Chữ ký bệnh nhân",
       "Hoàn tất"
     ],
-    "branch_label": "Chi nhánh",
-    "main_branch": "Chi nhánh chính",
     "select_patient": "Chọn bệnh nhân…",
     "select_doctor": "Chọn bác sĩ…",
     "select_treatment": "Chọn điều trị…",
@@ -785,7 +777,6 @@
     "no_results": "Không có chấp thuận nào",
     "confirm_delete": "Xóa đơn chấp thuận này?",
     "stats": "Tổng {{total}} · {{signed}} đã ký · {{pending}} đang chờ",
-    "branch": "Chi nhánh",
     "created_at": "Ngày tạo",
     "status_header": "Trạng thái",
     "continue_signature": "Tiếp tục ký",
@@ -812,21 +803,11 @@
     "tax_id": "Mã số thuế",
     "logo": "Logo",
     "save": "Lưu cấu hình",
-    "branches": "Chi nhánh bổ sung",
-    "branches_desc": "Quản lý nhiều địa điểm của phòng khám bạn",
-    "add_branch": "Thêm chi nhánh",
-    "no_branches": "Không có chi nhánh bổ sung",
-    "branch_name": "Tên chi nhánh",
-    "save_branches": "Lưu chi nhánh",
-    "edit_branch": "Chỉnh sửa chi nhánh",
-    "new_branch": "Chi nhánh mới",
-    "save_branch": "Lưu chi nhánh",
     "subtitle": "Cấu hình chung của phòng khám",
     "trade_name": "Tên thương mại",
     "legal_name": "Tên pháp lý",
     "nika_number": "Số NIKA",
     "save_success": "Đã lưu thành công",
-    "confirm_delete_branch": "Xóa chi nhánh này?",
     "directions_url": "URL chỉ đường"
   },
   "language": {
