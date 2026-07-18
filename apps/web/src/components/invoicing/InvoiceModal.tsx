@@ -74,7 +74,14 @@ export function InvoiceModal({ patients, billingClients = [], onBillingClientCre
   const handleCreateClient = async (data: any) => {
     const created = await api.post('/billing-clients', data)
     onBillingClientCreated(created)
-    handleClientSelect(created.id)
+    // No usar handleClientSelect aquí: busca en la prop billingClients, que
+    // todavía no incluye a "created" porque el setBillingClients del padre
+    // (onBillingClientCreated) es asíncrono — se rellenaba con el cliente
+    // recién creado en blanco. Usamos directamente los datos ya conocidos.
+    setBillingClientId(created.id)
+    setRecipientName(created.full_name)
+    setRecipientNif(created.tax_id)
+    setRecipientAddress(created.address ?? '')
   }
 
   const handleSave = async () => {
