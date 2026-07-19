@@ -23,7 +23,7 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 ## Proyecto
 - Nombre: ConsentsPro
 - Tipo: SaaS de consentimientos informados digitales para medicina estética
-- Stack actual: React + TypeScript + Tailwind + Express + PostgreSQL, desplegado en Railway (backend) y Netlify/Railway (frontend estático)
+- Stack actual: React + TypeScript + Tailwind + Express + PostgreSQL, todo desplegado en Railway (backend y frontend estático, cada uno como servicio propio). El proyecto NO usa Netlify — `netlify.toml` en la raíz es un vestigio de la Fase 1 histórica y no dirige ningún despliegue real.
 - Nota histórica: el proyecto arrancó como Fase 1 (Netlify Functions + Supabase); ese stack ya no se usa, se migró por completo a Railway. No añadir dependencias de Supabase.
 
 ## Estructura
