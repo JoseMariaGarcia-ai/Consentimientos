@@ -785,7 +785,11 @@
     "send_to_tablet": "Assinar no tablet da clínica",
     "waiting_tablet_title": "Assinando no tablet…",
     "waiting_tablet_description": "Assim que o médico e o paciente assinarem no tablet, esta tela continuará sozinha automaticamente.",
-    "sign_here_instead": "Assinar aqui em vez disso"
+    "sign_here_instead": "Assinar aqui em vez disso",
+    "revoke": "Revogar",
+    "errors": {
+      "deleteFailed": "Não foi possível excluir o consentimento"
+    }
   },
   "signature": {
     "title": "Assinatura do paciente",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Informe a data e hora do registro esquecido",
       "dateRequired": "Informe a data da falta",
       "saveFailed": "Não foi possível enviar a ocorrência"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revogar consentimento",
+    "description": "Você vai revogar o consentimento assinado de {{name}}. O documento original assinado é mantido sem alterações, mas seu status muda para \"revogado\".",
+    "notice": "Esta revogação não pode ser desfeita. Se o paciente autorizar o tratamento novamente, ele precisará assinar um novo consentimento.",
+    "reasonLabel": "Motivo da revogação",
+    "revoking": "Revogando…",
+    "confirm": "Revogar consentimento",
+    "errors": {
+      "reasonRequired": "O motivo da revogação é obrigatório",
+      "revokeFailed": "Não foi possível revogar o consentimento"
     }
   }
 }

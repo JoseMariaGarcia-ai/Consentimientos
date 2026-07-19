@@ -785,7 +785,11 @@
     "send_to_tablet": "Ký trên máy tính bảng của phòng khám",
     "waiting_tablet_title": "Đang ký trên máy tính bảng…",
     "waiting_tablet_description": "Ngay khi bác sĩ và bệnh nhân ký trên máy tính bảng, màn hình này sẽ tự động tiếp tục.",
-    "sign_here_instead": "Ký ở đây thay thế"
+    "sign_here_instead": "Ký ở đây thay thế",
+    "revoke": "Thu hồi",
+    "errors": {
+      "deleteFailed": "Không thể xóa sự đồng ý"
+    }
   },
   "signature": {
     "title": "Chữ ký bệnh nhân",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Nhập ngày và giờ của lần chấm công bị quên",
       "dateRequired": "Nhập ngày vắng mặt",
       "saveFailed": "Không thể gửi sự cố"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Thu hồi sự đồng ý",
+    "description": "Bạn sắp thu hồi sự đồng ý đã ký của {{name}}. Tài liệu gốc đã ký được giữ nguyên không thay đổi, nhưng trạng thái của nó chuyển thành \"đã thu hồi\".",
+    "notice": "Việc thu hồi này không thể hoàn tác. Nếu bệnh nhân cho phép điều trị lại, họ sẽ cần ký một bản đồng ý mới.",
+    "reasonLabel": "Lý do thu hồi",
+    "revoking": "Đang thu hồi…",
+    "confirm": "Thu hồi sự đồng ý",
+    "errors": {
+      "reasonRequired": "Lý do thu hồi là bắt buộc",
+      "revokeFailed": "Không thể thu hồi sự đồng ý"
     }
   }
 }

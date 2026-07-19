@@ -785,7 +785,11 @@
     "send_to_tablet": "Aláírás a rendelő tabletjén",
     "waiting_tablet_title": "Aláírás a tableten…",
     "waiting_tablet_description": "Amint az orvos és a páciens aláírt a tableten, ez a képernyő automatikusan folytatódik.",
-    "sign_here_instead": "Inkább itt írom alá"
+    "sign_here_instead": "Inkább itt írom alá",
+    "revoke": "Visszavonás",
+    "errors": {
+      "deleteFailed": "A hozzájárulást nem sikerült törölni"
+    }
   },
   "signature": {
     "title": "Beteg aláírása",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Add meg az elfelejtett bejegyzés dátumát és időpontját",
       "dateRequired": "Add meg a távollét dátumát",
       "saveFailed": "Az incidenst nem sikerült elküldeni"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Hozzájárulás visszavonása",
+    "description": "{{name}} aláírt hozzájárulását fogja visszavonni. Az eredeti aláírt dokumentum változatlanul megmarad, de státusza „visszavontra” módosul.",
+    "notice": "Ez a visszavonás nem vonható vissza. Ha a páciens ismét jóváhagyja a kezelést, új hozzájárulást kell aláírnia.",
+    "reasonLabel": "A visszavonás oka",
+    "revoking": "Visszavonás…",
+    "confirm": "Hozzájárulás visszavonása",
+    "errors": {
+      "reasonRequired": "A visszavonás oka kötelező",
+      "revokeFailed": "A hozzájárulást nem sikerült visszavonni"
     }
   }
 }

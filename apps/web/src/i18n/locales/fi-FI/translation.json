@@ -785,7 +785,11 @@
     "send_to_tablet": "Allekirjoita klinikan tabletilla",
     "waiting_tablet_title": "Allekirjoitetaan tabletilla…",
     "waiting_tablet_description": "Heti kun lääkäri ja potilas ovat allekirjoittaneet tabletilla, tämä näyttö jatkuu automaattisesti.",
-    "sign_here_instead": "Allekirjoita tässä sen sijaan"
+    "sign_here_instead": "Allekirjoita tässä sen sijaan",
+    "revoke": "Peru",
+    "errors": {
+      "deleteFailed": "Suostumusta ei voitu poistaa"
+    }
   },
   "signature": {
     "title": "Potilaan allekirjoitus",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Ilmoita unohtuneen kirjauksen päivämäärä ja kellonaika",
       "dateRequired": "Ilmoita poissaolon päivämäärä",
       "saveFailed": "Poikkeamaa ei voitu lähettää"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Peru suostumus",
+    "description": "Olet peruuttamassa {{name}}n allekirjoitettua suostumusta. Alkuperäinen allekirjoitettu asiakirja säilytetään muuttumattomana, mutta sen tila muuttuu \"peruutetuksi\".",
+    "notice": "Tätä peruutusta ei voi kumota. Jos potilas hyväksyy hoidon uudelleen, hänen on allekirjoitettava uusi suostumus.",
+    "reasonLabel": "Peruutuksen syy",
+    "revoking": "Peruutetaan…",
+    "confirm": "Peru suostumus",
+    "errors": {
+      "reasonRequired": "Peruutuksen syy on pakollinen",
+      "revokeFailed": "Suostumusta ei voitu peruuttaa"
     }
   }
 }

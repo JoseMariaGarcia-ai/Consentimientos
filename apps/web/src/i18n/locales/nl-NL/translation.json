@@ -785,7 +785,11 @@
     "send_to_tablet": "Ondertekenen op de kliniektablet",
     "waiting_tablet_title": "Bezig met ondertekenen op de tablet…",
     "waiting_tablet_description": "Zodra de arts en de patiënt op de tablet hebben getekend, gaat dit scherm automatisch verder.",
-    "sign_here_instead": "Hier in plaats daarvan ondertekenen"
+    "sign_here_instead": "Hier in plaats daarvan ondertekenen",
+    "revoke": "Intrekken",
+    "errors": {
+      "deleteFailed": "De toestemming kon niet worden verwijderd"
+    }
   },
   "signature": {
     "title": "Handtekening patiënt",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Geef datum en tijd van de vergeten registratie op",
       "dateRequired": "Geef de datum van de afwezigheid op",
       "saveFailed": "Het incident kon niet worden verzonden"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Toestemming intrekken",
+    "description": "Je staat op het punt de ondertekende toestemming van {{name}} in te trekken. Het originele ondertekende document blijft ongewijzigd bewaard, maar de status wijzigt naar \"ingetrokken\".",
+    "notice": "Deze intrekking kan niet ongedaan worden gemaakt. Als de patiënt de behandeling opnieuw toestaat, moet hij/zij een nieuwe toestemming ondertekenen.",
+    "reasonLabel": "Reden van intrekking",
+    "revoking": "Intrekken…",
+    "confirm": "Toestemming intrekken",
+    "errors": {
+      "reasonRequired": "De reden voor intrekking is verplicht",
+      "revokeFailed": "De toestemming kon niet worden ingetrokken"
     }
   }
 }

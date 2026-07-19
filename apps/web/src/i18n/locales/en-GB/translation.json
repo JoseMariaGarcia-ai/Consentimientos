@@ -785,7 +785,11 @@
     "send_to_tablet": "Sign on the clinic tablet",
     "waiting_tablet_title": "Signing on the tablet…",
     "waiting_tablet_description": "As soon as the doctor and patient sign on the tablet, this screen will move on automatically.",
-    "sign_here_instead": "Sign here instead"
+    "sign_here_instead": "Sign here instead",
+    "revoke": "Revoke",
+    "errors": {
+      "deleteFailed": "Could not delete the consent"
+    }
   },
   "signature": {
     "title": "Patient signature",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Enter the date and time of the forgotten punch",
       "dateRequired": "Enter the date of the absence",
       "saveFailed": "Could not submit the incident"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revoke consent",
+    "description": "You're about to revoke the signed consent of {{name}}. The original signed document is kept unchanged, but its status changes to \"revoked\".",
+    "notice": "This revocation cannot be undone. If the patient authorises the treatment again, they will need to sign a new consent form.",
+    "reasonLabel": "Reason for revocation",
+    "revoking": "Revoking…",
+    "confirm": "Revoke consent",
+    "errors": {
+      "reasonRequired": "The reason for revocation is required",
+      "revokeFailed": "Could not revoke the consent"
     }
   }
 }

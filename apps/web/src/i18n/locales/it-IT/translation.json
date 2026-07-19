@@ -839,7 +839,11 @@
     "send_to_tablet": "Firma sul tablet dello studio",
     "waiting_tablet_title": "Firma in corso sul tablet…",
     "waiting_tablet_description": "Non appena il medico e il paziente firmano sul tablet, questa schermata proseguirà automaticamente.",
-    "sign_here_instead": "Firma qui invece"
+    "sign_here_instead": "Firma qui invece",
+    "revoke": "Revoca",
+    "errors": {
+      "deleteFailed": "Impossibile eliminare il consenso"
+    }
   },
   "signature": {
     "title": "Firma del paziente",
@@ -2314,6 +2318,18 @@
       "timestampRequired": "Indica data e ora della timbratura dimenticata",
       "dateRequired": "Indica la data dell'assenza",
       "saveFailed": "Impossibile inviare l'incidente"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revoca consenso",
+    "description": "Stai per revocare il consenso firmato di {{name}}. Il documento originale firmato viene conservato invariato, ma il suo stato cambia in \"revocato\".",
+    "notice": "Questa revoca non può essere annullata. Se il paziente autorizza nuovamente il trattamento, dovrà firmare un nuovo consenso.",
+    "reasonLabel": "Motivo della revoca",
+    "revoking": "Revoca in corso…",
+    "confirm": "Revoca consenso",
+    "errors": {
+      "reasonRequired": "Il motivo della revoca è obbligatorio",
+      "revokeFailed": "Impossibile revocare il consenso"
     }
   }
 }

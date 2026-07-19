@@ -785,7 +785,11 @@
     "send_to_tablet": "Klinik tabletinde imzala",
     "waiting_tablet_title": "Tablette imzalanıyor…",
     "waiting_tablet_description": "Doktor ve hasta tablette imzaladığında bu ekran otomatik olarak devam edecek.",
-    "sign_here_instead": "Bunun yerine burada imzala"
+    "sign_here_instead": "Bunun yerine burada imzala",
+    "revoke": "İptal et",
+    "errors": {
+      "deleteFailed": "Onay silinemedi"
+    }
   },
   "signature": {
     "title": "Hasta imzası",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Unutulan kaydın tarihini ve saatini belirtin",
       "dateRequired": "Devamsızlık tarihini belirtin",
       "saveFailed": "Olay gönderilemedi"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Onayı iptal et",
+    "description": "{{name}} adlı hastanın imzalı onamını iptal etmek üzeresiniz. Orijinal imzalı belge değişmeden saklanır, ancak durumu \"iptal edildi\" olarak değişir.",
+    "notice": "Bu iptal işlemi geri alınamaz. Hasta tedaviyi tekrar onaylarsa, yeni bir onam formu imzalaması gerekir.",
+    "reasonLabel": "İptal nedeni",
+    "revoking": "İptal ediliyor…",
+    "confirm": "Onayı iptal et",
+    "errors": {
+      "reasonRequired": "İptal nedeni zorunludur",
+      "revokeFailed": "Onay iptal edilemedi"
     }
   }
 }

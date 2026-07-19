@@ -785,7 +785,11 @@
     "send_to_tablet": "Auf Praxis-Tablet unterschreiben",
     "waiting_tablet_title": "Wird auf dem Tablet unterschrieben…",
     "waiting_tablet_description": "Sobald Arzt und Patient auf dem Tablet unterschrieben haben, geht dieser Bildschirm automatisch weiter.",
-    "sign_here_instead": "Stattdessen hier unterschreiben"
+    "sign_here_instead": "Stattdessen hier unterschreiben",
+    "revoke": "Widerrufen",
+    "errors": {
+      "deleteFailed": "Die Einwilligung konnte nicht gelöscht werden"
+    }
   },
   "signature": {
     "title": "Patientenunterschrift",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Gib Datum und Uhrzeit der vergessenen Buchung an",
       "dateRequired": "Gib das Datum der Abwesenheit an",
       "saveFailed": "Der Vorfall konnte nicht gesendet werden"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Einwilligung widerrufen",
+    "description": "Sie widerrufen die unterschriebene Einwilligung von {{name}}. Das ursprüngliche unterschriebene Dokument bleibt unverändert erhalten, erhält aber den Status „widerrufen\".",
+    "notice": "Dieser Widerruf kann nicht rückgängig gemacht werden. Wenn der Patient die Behandlung erneut genehmigt, muss er eine neue Einwilligung unterschreiben.",
+    "reasonLabel": "Grund des Widerrufs",
+    "revoking": "Wird widerrufen…",
+    "confirm": "Einwilligung widerrufen",
+    "errors": {
+      "reasonRequired": "Der Grund des Widerrufs ist erforderlich",
+      "revokeFailed": "Die Einwilligung konnte nicht widerrufen werden"
     }
   }
 }

@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { Search, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, PenLine, Trash2 } from 'lucide-react'
+import { Search, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, PenLine, Trash2, Ban } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ConsentModal } from '@/components/consents/ConsentModal'
 import { ConsentPdfButton } from '@/components/consents/ConsentPdfButton'
+import { RevokeConsentModal } from '@/components/consents/RevokeConsentModal'
 
 const STATUS_CONFIG = {
   signed:  { icon: CheckCircle,   color: 'text-emerald-600', bg: 'bg-emerald-50',  label: 'consents.status.signed'  },
@@ -23,12 +24,24 @@ export default function Consents() {
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [modalOpen, setModalOpen] = useState(false)
   const [continueConsent, setContinueConsent] = useState<any>(null)
+  const [revokingConsent, setRevokingConsent] = useState<any>(null)
+  const [actionError, setActionError] = useState('')
 
   const initialPatient = searchParams.get('patient') ?? undefined
 
   const handleDelete = async (id: string) => {
     if (!confirm(t('consents.confirm_delete'))) return
-    await api.delete(`/consents/${id}`)
+    setActionError('')
+    try {
+      await api.delete(`/consents/${id}`)
+      await load()
+    } catch (err: any) {
+      setActionError(err.message ?? t('consents.errors.deleteFailed'))
+    }
+  }
+
+  const handleRevoke = async (reason: string) => {
+    await api.post(`/consents/${revokingConsent.id}/revoke`, { reason })
     await load()
   }
 
@@ -111,6 +124,10 @@ export default function Consents() {
         </div>
       </div>
 
+      {actionError && (
+        <div className="px-4 py-2.5 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">{actionError}</div>
+      )}
+
       {/* Table */}
       <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
         {loading ? (
@@ -160,13 +177,24 @@ export default function Consents() {
                             </button>
                           )}
                           <ConsentPdfButton consent={c} clinic={clinic} />
-                          <button
-                            onClick={() => handleDelete(c.id)}
-                            className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
-                            title={t('common.delete')}
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
+                          {c.status === 'signed' && (
+                            <button
+                              onClick={() => setRevokingConsent(c)}
+                              className="p-1.5 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50"
+                              title={t('consents.revoke')}
+                            >
+                              <Ban className="w-4 h-4" />
+                            </button>
+                          )}
+                          {c.status !== 'signed' && c.status !== 'revoked' && (
+                            <button
+                              onClick={() => handleDelete(c.id)}
+                              className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"
+                              title={t('common.delete')}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -184,6 +212,14 @@ export default function Consents() {
           continueRecord={continueConsent}
           onClose={() => { setModalOpen(false); setContinueConsent(null) }}
           onSaved={() => { setModalOpen(false); setContinueConsent(null); load() }}
+        />
+      )}
+
+      {revokingConsent && (
+        <RevokeConsentModal
+          patientName={revokingConsent.patient?.full_name ?? revokingConsent.patient?.fullName ?? ''}
+          onConfirm={handleRevoke}
+          onClose={() => setRevokingConsent(null)}
         />
       )}
     </div>

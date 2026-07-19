@@ -785,7 +785,11 @@
     "send_to_tablet": "Signer sur la tablette du cabinet",
     "waiting_tablet_title": "Signature sur la tablette…",
     "waiting_tablet_description": "Dès que le médecin et le patient auront signé sur la tablette, cet écran continuera automatiquement.",
-    "sign_here_instead": "Signer ici à la place"
+    "sign_here_instead": "Signer ici à la place",
+    "revoke": "Révoquer",
+    "errors": {
+      "deleteFailed": "Impossible de supprimer le consentement"
+    }
   },
   "signature": {
     "title": "Signature du patient",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Indique la date et l'heure du pointage oublié",
       "dateRequired": "Indique la date de l'absence",
       "saveFailed": "Impossible d'envoyer l'incident"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Révoquer le consentement",
+    "description": "Vous allez révoquer le consentement signé de {{name}}. Le document original signé est conservé sans modification, mais son statut passe à « révoqué ».",
+    "notice": "Cette révocation est irréversible. Si le patient autorise à nouveau le traitement, il devra signer un nouveau consentement.",
+    "reasonLabel": "Motif de la révocation",
+    "revoking": "Révocation…",
+    "confirm": "Révoquer le consentement",
+    "errors": {
+      "reasonRequired": "Le motif de la révocation est obligatoire",
+      "revokeFailed": "Impossible de révoquer le consentement"
     }
   }
 }

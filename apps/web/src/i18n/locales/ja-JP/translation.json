@@ -785,7 +785,11 @@
     "send_to_tablet": "クリニックのタブレットで署名",
     "waiting_tablet_title": "タブレットで署名中…",
     "waiting_tablet_description": "医師と患者がタブレットで署名すると、この画面は自動的に進みます。",
-    "sign_here_instead": "代わりにここで署名する"
+    "sign_here_instead": "代わりにここで署名する",
+    "revoke": "取り消す",
+    "errors": {
+      "deleteFailed": "同意を削除できませんでした"
+    }
   },
   "signature": {
     "title": "患者の署名",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "打刻忘れの日時を入力してください",
       "dateRequired": "欠勤の日付を入力してください",
       "saveFailed": "インシデントを送信できませんでした"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "同意を取り消す",
+    "description": "{{name}}さんの署名済み同意書を取り消そうとしています。元の署名済み文書はそのまま保持されますが、ステータスは「取り消し済み」に変更されます。",
+    "notice": "この取り消しは元に戻せません。患者が再度治療に同意する場合は、新しい同意書に署名する必要があります。",
+    "reasonLabel": "取り消しの理由",
+    "revoking": "取り消し中…",
+    "confirm": "同意を取り消す",
+    "errors": {
+      "reasonRequired": "取り消しの理由は必須です",
+      "revokeFailed": "同意を取り消せませんでした"
     }
   }
 }

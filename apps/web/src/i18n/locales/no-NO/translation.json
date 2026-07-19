@@ -785,7 +785,11 @@
     "send_to_tablet": "Signer på klinikkens nettbrett",
     "waiting_tablet_title": "Signerer på nettbrettet…",
     "waiting_tablet_description": "Så snart legen og pasienten har signert på nettbrettet, fortsetter denne skjermen automatisk.",
-    "sign_here_instead": "Signer her i stedet"
+    "sign_here_instead": "Signer her i stedet",
+    "revoke": "Tilbakekall",
+    "errors": {
+      "deleteFailed": "Kunne ikke slette samtykket"
+    }
   },
   "signature": {
     "title": "Pasientens signatur",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Angi dato og klokkeslett for den glemte stemplingen",
       "dateRequired": "Angi dato for fraværet",
       "saveFailed": "Kunne ikke sende hendelsen"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Tilbakekall samtykke",
+    "description": "Du er i ferd med å tilbakekalle {{name}}s signerte samtykke. Det opprinnelige signerte dokumentet bevares uendret, men statusen endres til \"tilbakekalt\".",
+    "notice": "Denne tilbakekallingen kan ikke angres. Hvis pasienten godkjenner behandlingen på nytt, må et nytt samtykke signeres.",
+    "reasonLabel": "Årsak til tilbakekalling",
+    "revoking": "Tilbakekaller…",
+    "confirm": "Tilbakekall samtykke",
+    "errors": {
+      "reasonRequired": "Årsak til tilbakekalling er påkrevd",
+      "revokeFailed": "Kunne ikke tilbakekalle samtykket"
     }
   }
 }

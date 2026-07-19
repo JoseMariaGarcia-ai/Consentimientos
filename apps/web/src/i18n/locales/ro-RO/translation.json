@@ -785,7 +785,11 @@
     "send_to_tablet": "Semnează pe tableta clinicii",
     "waiting_tablet_title": "Se semnează pe tabletă…",
     "waiting_tablet_description": "De îndată ce medicul și pacientul semnează pe tabletă, acest ecran va continua automat.",
-    "sign_here_instead": "Semnează aici în schimb"
+    "sign_here_instead": "Semnează aici în schimb",
+    "revoke": "Revocă",
+    "errors": {
+      "deleteFailed": "Nu s-a putut șterge consimțământul"
+    }
   },
   "signature": {
     "title": "Semnătura pacientului",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Indică data și ora pontajului uitat",
       "dateRequired": "Indică data absenței",
       "saveFailed": "Incidentul nu a putut fi trimis"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revocare consimțământ",
+    "description": "Vei revoca consimțământul semnat al lui {{name}}. Documentul original semnat este păstrat neschimbat, dar starea sa devine „revocat”.",
+    "notice": "Această revocare nu poate fi anulată. Dacă pacientul autorizează din nou tratamentul, va trebui să semneze un nou consimțământ.",
+    "reasonLabel": "Motivul revocării",
+    "revoking": "Se revocă…",
+    "confirm": "Revocă consimțământul",
+    "errors": {
+      "reasonRequired": "Motivul revocării este obligatoriu",
+      "revokeFailed": "Nu s-a putut revoca consimțământul"
     }
   }
 }

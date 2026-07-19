@@ -791,7 +791,11 @@
     "stats": "{{total}} total · {{signed}} firmados · {{pending}} pendientes",
     "created_at": "Fecha creación",
     "status_header": "Estado",
-    "continue_signature": "Continuar firma"
+    "continue_signature": "Continuar firma",
+    "revoke": "Revocar",
+    "errors": {
+      "deleteFailed": "No se pudo eliminar el consentimiento"
+    }
   },
   "signature": {
     "title": "Firma del paciente",
@@ -2005,6 +2009,18 @@
       "abono": "Abono"
     },
     "rectifiesReference": "Esta factura corrige a otra factura anterior."
+  },
+  "revokeConsentModal": {
+    "title": "Revocar consentimiento",
+    "description": "Vas a revocar el consentimiento firmado de {{name}}. El documento original firmado se conserva sin cambios, pero pasa a estado \"revocado\".",
+    "notice": "La revocación no se puede deshacer. Si el paciente vuelve a autorizar el tratamiento, deberá firmar un nuevo consentimiento.",
+    "reasonLabel": "Motivo de la revocación",
+    "revoking": "Revocando…",
+    "confirm": "Revocar consentimiento",
+    "errors": {
+      "reasonRequired": "El motivo de la revocación es obligatorio",
+      "revokeFailed": "No se pudo revocar el consentimiento"
+    }
   },
   "cancelInvoiceModal": {
     "title": "Anular factura",

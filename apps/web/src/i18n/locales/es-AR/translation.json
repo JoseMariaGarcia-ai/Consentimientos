@@ -757,7 +757,11 @@
     "send_to_tablet": "Firmar en tablet del consultorio",
     "waiting_tablet_title": "Firmando en la tablet…",
     "waiting_tablet_description": "En cuanto el médico y el paciente firmen en la tablet, esta pantalla va a continuar sola automáticamente.",
-    "sign_here_instead": "Firmar acá en su lugar"
+    "sign_here_instead": "Firmar acá en su lugar",
+    "revoke": "Revocar",
+    "errors": {
+      "deleteFailed": "No se pudo eliminar el consentimiento"
+    }
   },
   "signature": {
     "title": "Firma del paciente",
@@ -2232,6 +2236,18 @@
       "timestampRequired": "Indicá la fecha y hora del fichaje olvidado",
       "dateRequired": "Indicá la fecha de la ausencia",
       "saveFailed": "No se pudo enviar la incidencia"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revocar consentimiento",
+    "description": "Vas a revocar el consentimiento firmado de {{name}}. El documento original firmado se conserva sin cambios, pero pasa a estado \"revocado\".",
+    "notice": "La revocación no se puede deshacer. Si el paciente vuelve a autorizar el tratamiento, deberá firmar un nuevo consentimiento.",
+    "reasonLabel": "Motivo de la revocación",
+    "revoking": "Revocando…",
+    "confirm": "Revocar consentimiento",
+    "errors": {
+      "reasonRequired": "El motivo de la revocación es obligatorio",
+      "revokeFailed": "No se pudo revocar el consentimiento"
     }
   }
 }

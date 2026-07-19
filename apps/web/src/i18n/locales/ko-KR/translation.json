@@ -785,7 +785,11 @@
     "send_to_tablet": "진료실 태블릿에서 서명",
     "waiting_tablet_title": "태블릿에서 서명 중…",
     "waiting_tablet_description": "의사와 환자가 태블릿에서 서명하면 이 화면은 자동으로 진행됩니다.",
-    "sign_here_instead": "대신 여기서 서명"
+    "sign_here_instead": "대신 여기서 서명",
+    "revoke": "철회",
+    "errors": {
+      "deleteFailed": "동의를 삭제할 수 없습니다"
+    }
   },
   "signature": {
     "title": "환자 서명",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "누락된 기록의 날짜와 시간을 입력하세요",
       "dateRequired": "결근 날짜를 입력하세요",
       "saveFailed": "사건을 제출할 수 없습니다"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "동의 철회",
+    "description": "{{name}}님의 서명된 동의서를 철회하려고 합니다. 원본 서명 문서는 변경 없이 그대로 보관되지만, 상태는 \"철회됨\"으로 변경됩니다.",
+    "notice": "이 철회는 취소할 수 없습니다. 환자가 치료를 다시 승인하면 새로운 동의서에 서명해야 합니다.",
+    "reasonLabel": "철회 사유",
+    "revoking": "철회 중…",
+    "confirm": "동의 철회",
+    "errors": {
+      "reasonRequired": "철회 사유는 필수입니다",
+      "revokeFailed": "동의를 철회할 수 없습니다"
     }
   }
 }

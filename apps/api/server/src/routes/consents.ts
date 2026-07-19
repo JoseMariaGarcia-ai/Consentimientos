@@ -100,6 +100,38 @@ router.post('/', async (req, res) => {
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })
 
+// Revoca un consentimiento firmado. No se borra ni se modifica el documento
+// firmado original (firma, hash, PDF) — solo se marca como revocado con
+// motivo y autoría, preservando el valor probatorio del consentimiento.
+router.post('/:id/revoke', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const reason = String(req.body?.reason ?? '').trim()
+    if (!reason) return res.status(400).json({ error: 'Debes indicar el motivo de la revocación' })
+    const current = await queryOne<{ status: string }>(
+      `SELECT cr.status FROM consent_records cr
+       JOIN patients p ON p.id = cr.patient_id
+       WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
+      [req.params.id, userId]
+    )
+    if (!current) return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    if (current.status !== 'signed') {
+      return res.status(400).json({ error: 'Solo se pueden revocar consentimientos firmados' })
+    }
+    const data = await queryOne(
+      `UPDATE consent_records
+       SET status = 'revoked', revoked_at = NOW(), revoked_by = $1, revocation_reason = $2
+       WHERE id = $3
+       RETURNING *`,
+      [userId, reason, req.params.id]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// Solo se permite eliminar consentimientos que nunca llegaron a firmarse
+// (pending/expired). Un consentimiento firmado es un documento legal: para
+// invalidarlo se usa /revoke, que conserva el registro y su trazabilidad.
 router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
@@ -107,10 +139,20 @@ router.delete('/:id', async (req, res) => {
       `DELETE FROM consent_records cr
        USING patients p
        WHERE cr.id = $1 AND cr.patient_id = p.id AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)
+         AND cr.status <> 'signed' AND cr.status <> 'revoked'
        RETURNING cr.id`,
       [req.params.id, userId]
     )
-    if (!data) return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    if (!data) {
+      const exists = await queryOne(
+        `SELECT cr.status FROM consent_records cr
+         JOIN patients p ON p.id = cr.patient_id
+         WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
+        [req.params.id, userId]
+      )
+      if (exists) return res.status(400).json({ error: 'No se puede eliminar un consentimiento firmado o revocado — usa la opción de revocar' })
+      return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    }
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

@@ -785,7 +785,11 @@
     "send_to_tablet": "Signar en tablet de la consulta",
     "waiting_tablet_title": "Signant a la tablet…",
     "waiting_tablet_description": "En quant el metge i el pacient signin a la tablet, aquesta pantalla continuarà sola automàticament.",
-    "sign_here_instead": "Signar aquí en el seu lloc"
+    "sign_here_instead": "Signar aquí en el seu lloc",
+    "revoke": "Revocar",
+    "errors": {
+      "deleteFailed": "No s'ha pogut eliminar el consentiment"
+    }
   },
   "signature": {
     "title": "Signatura del pacient",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Indica la data i hora del fitxatge oblidat",
       "dateRequired": "Indica la data de l'absència",
       "saveFailed": "No s'ha pogut enviar la incidència"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Revocar consentiment",
+    "description": "Revocaràs el consentiment signat de {{name}}. El document original signat es conserva sense canvis, però el seu estat passa a \"revocat\".",
+    "notice": "Aquesta revocació no es pot desfer. Si el pacient torna a autoritzar el tractament, haurà de signar un nou consentiment.",
+    "reasonLabel": "Motiu de la revocació",
+    "revoking": "Revocant…",
+    "confirm": "Revocar consentiment",
+    "errors": {
+      "reasonRequired": "El motiu de la revocació és obligatori",
+      "revokeFailed": "No s'ha pogut revocar el consentiment"
     }
   }
 }

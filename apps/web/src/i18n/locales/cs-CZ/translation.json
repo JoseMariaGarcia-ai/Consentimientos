@@ -785,7 +785,11 @@
     "send_to_tablet": "Podepsat na tabletu ordinace",
     "waiting_tablet_title": "Podepisuje se na tabletu…",
     "waiting_tablet_description": "Jakmile lékař a pacient podepíší na tabletu, tato obrazovka bude automaticky pokračovat.",
-    "sign_here_instead": "Podepsat zde místo toho"
+    "sign_here_instead": "Podepsat zde místo toho",
+    "revoke": "Odvolat",
+    "errors": {
+      "deleteFailed": "Souhlas se nepodařilo smazat"
+    }
   },
   "signature": {
     "title": "Podpis pacienta",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Uveďte datum a čas zapomenutého záznamu",
       "dateRequired": "Uveďte datum absence",
       "saveFailed": "Incident se nepodařilo odeslat"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Odvolat souhlas",
+    "description": "Chystáte se odvolat podepsaný souhlas pacienta {{name}}. Původní podepsaný dokument zůstává beze změny, ale jeho stav se změní na „odvolaný\".",
+    "notice": "Toto odvolání nelze vrátit zpět. Pokud pacient léčbu znovu schválí, bude muset podepsat nový souhlas.",
+    "reasonLabel": "Důvod odvolání",
+    "revoking": "Odvolávání…",
+    "confirm": "Odvolat souhlas",
+    "errors": {
+      "reasonRequired": "Důvod odvolání je povinný",
+      "revokeFailed": "Souhlas se nepodařilo odvolat"
     }
   }
 }

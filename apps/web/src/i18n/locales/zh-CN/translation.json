@@ -785,7 +785,11 @@
     "send_to_tablet": "在诊所平板电脑上签署",
     "waiting_tablet_title": "正在平板电脑上签署…",
     "waiting_tablet_description": "医生和患者在平板电脑上签署后，该屏幕将自动继续。",
-    "sign_here_instead": "改为在此处签署"
+    "sign_here_instead": "改为在此处签署",
+    "revoke": "撤销",
+    "errors": {
+      "deleteFailed": "无法删除同意书"
+    }
   },
   "signature": {
     "title": "患者签名",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "请填写忘记打卡的日期和时间",
       "dateRequired": "请填写缺勤日期",
       "saveFailed": "无法提交事件"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "撤销同意书",
+    "description": "您即将撤销 {{name}} 已签署的同意书。原始签署文件将保持不变，但其状态将变为“已撤销”。",
+    "notice": "此撤销操作无法撤回。如果患者再次同意治疗，需要重新签署一份新的同意书。",
+    "reasonLabel": "撤销原因",
+    "revoking": "正在撤销…",
+    "confirm": "撤销同意书",
+    "errors": {
+      "reasonRequired": "必须填写撤销原因",
+      "revokeFailed": "无法撤销同意书"
     }
   }
 }

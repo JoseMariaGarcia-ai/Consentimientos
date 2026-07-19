@@ -785,7 +785,11 @@
     "send_to_tablet": "Podpisz na tablecie kliniki",
     "waiting_tablet_title": "Podpisywanie na tablecie…",
     "waiting_tablet_description": "Gdy tylko lekarz i pacjent podpiszą na tablecie, ten ekran automatycznie przejdzie dalej.",
-    "sign_here_instead": "Podpisz tutaj zamiast tego"
+    "sign_here_instead": "Podpisz tutaj zamiast tego",
+    "revoke": "Odwołaj",
+    "errors": {
+      "deleteFailed": "Nie udało się usunąć zgody"
+    }
   },
   "signature": {
     "title": "Podpis pacjenta",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Podaj datę i godzinę zapomnianego wpisu",
       "dateRequired": "Podaj datę nieobecności",
       "saveFailed": "Nie udało się wysłać zdarzenia"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Odwołaj zgodę",
+    "description": "Zamierzasz odwołać podpisaną zgodę pacjenta {{name}}. Oryginalny podpisany dokument pozostaje niezmieniony, ale jego status zmienia się na \"odwołana\".",
+    "notice": "Tego odwołania nie można cofnąć. Jeśli pacjent ponownie zaakceptuje leczenie, będzie musiał podpisać nową zgodę.",
+    "reasonLabel": "Powód odwołania",
+    "revoking": "Odwoływanie…",
+    "confirm": "Odwołaj zgodę",
+    "errors": {
+      "reasonRequired": "Powód odwołania jest wymagany",
+      "revokeFailed": "Nie udało się odwołać zgody"
     }
   }
 }

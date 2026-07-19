@@ -785,7 +785,11 @@
     "send_to_tablet": "Signera på klinikens surfplatta",
     "waiting_tablet_title": "Signerar på surfplattan…",
     "waiting_tablet_description": "Så snart läkaren och patienten har signerat på surfplattan fortsätter denna skärm automatiskt.",
-    "sign_here_instead": "Signera här istället"
+    "sign_here_instead": "Signera här istället",
+    "revoke": "Återkalla",
+    "errors": {
+      "deleteFailed": "Kunde inte ta bort samtycket"
+    }
   },
   "signature": {
     "title": "Patientens signatur",
@@ -2260,6 +2264,18 @@
       "timestampRequired": "Ange datum och tid för den glömda stämplingen",
       "dateRequired": "Ange datum för frånvaron",
       "saveFailed": "Det gick inte att skicka incidenten"
+    }
+  },
+  "revokeConsentModal": {
+    "title": "Återkalla samtycke",
+    "description": "Du är på väg att återkalla {{name}}s undertecknade samtycke. Det ursprungliga undertecknade dokumentet bevaras oförändrat, men dess status ändras till \"återkallat\".",
+    "notice": "Denna återkallelse kan inte ångras. Om patienten godkänner behandlingen igen måste ett nytt samtycke undertecknas.",
+    "reasonLabel": "Anledning till återkallelse",
+    "revoking": "Återkallar…",
+    "confirm": "Återkalla samtycke",
+    "errors": {
+      "reasonRequired": "Anledning till återkallelse krävs",
+      "revokeFailed": "Kunde inte återkalla samtycket"
     }
   }
 }
