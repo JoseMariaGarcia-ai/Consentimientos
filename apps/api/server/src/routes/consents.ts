@@ -3,6 +3,7 @@ import crypto from 'crypto'
 import { query, queryOne } from '../lib/db'
 import { deductCredit } from '../lib/credits'
 import { requireSuperAdmin } from '../middleware/auth'
+import { notifyConsentRevoked } from '../lib/consentRevocationEmail'
 
 const router = Router()
 
@@ -109,11 +110,13 @@ router.post('/:id/revoke', async (req, res) => {
   try {
     const reason = String(req.body?.reason ?? '').trim()
     if (!reason) return res.status(400).json({ error: 'Debes indicar el motivo de la revocación' })
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const clinicId = clinicRow?.clinic_id
     const current = await queryOne<{ status: string; document_hash: string | null }>(
       `SELECT cr.status, cr.document_hash FROM consent_records cr
        JOIN patients p ON p.id = cr.patient_id
-       WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
-      [req.params.id, userId]
+       WHERE cr.id = $1 AND p.clinic_id = $2`,
+      [req.params.id, clinicId]
     )
     if (!current) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     if (current.status !== 'signed') {
@@ -133,6 +136,9 @@ router.post('/:id/revoke', async (req, res) => {
        WHERE id = $5
        RETURNING *`,
       [revokedAt, userId, reason, revocationHash, req.params.id]
+    )
+    notifyConsentRevoked(req.params.id, clinicId!).catch(err =>
+      console.error(`[consents] fallo notificando revocación ${req.params.id}:`, err.message)
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
