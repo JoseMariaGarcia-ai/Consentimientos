@@ -1076,7 +1076,10 @@
     "signed_date": "Allekirjoituspäivä",
     "hash_label": "SHA-256-tiiviste",
     "document_id_label": "Asiakirjatunnus:",
-    "verified_on": "Tarkistettu {{date}}. Tämä asiakirja on pätevä ja sähköisesti allekirjoitettu eIDAS-asetuksen (EU) 910/2014 mukaisesti."
+    "verified_on": "Tarkistettu {{date}}. Tämä asiakirja on pätevä ja sähköisesti allekirjoitettu eIDAS-asetuksen (EU) 910/2014 mukaisesti.",
+    "revoked_date": "Peruutuspäivä",
+    "revocation_reason": "Peruutuksen syy",
+    "revocation_hash_label": "Peruutuksen sormenjälki (SHA-256)"
   },
   "recharge": {
     "title": "Tilaussuunnitelmat",

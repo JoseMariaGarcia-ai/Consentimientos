@@ -1076,7 +1076,10 @@
     "signed_date": "Data de signatura",
     "hash_label": "Hash SHA-256",
     "document_id_label": "ID de document:",
-    "verified_on": "Verificat el {{date}}. Aquest document és vàlid d'acord amb la Llei 41/2002 i signat electrònicament segons el Reglament eIDAS (UE) 910/2014."
+    "verified_on": "Verificat el {{date}}. Aquest document és vàlid d'acord amb la Llei 41/2002 i signat electrònicament segons el Reglament eIDAS (UE) 910/2014.",
+    "revoked_date": "Data de revocació",
+    "revocation_reason": "Motiu de la revocació",
+    "revocation_hash_label": "Empremta de la revocació (SHA-256)"
   },
   "recharge": {
     "title": "Plans de subscripció",

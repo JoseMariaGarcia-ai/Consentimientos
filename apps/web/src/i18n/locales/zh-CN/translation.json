@@ -1076,7 +1076,10 @@
     "signed_date": "签署日期",
     "hash_label": "SHA-256 哈希值",
     "document_id_label": "文件ID：",
-    "verified_on": "验证于 {{date}}。根据41/2002法，本文件合法有效，并根据欧盟eIDAS法规（910/2014）完成电子签署。"
+    "verified_on": "验证于 {{date}}。根据41/2002法，本文件合法有效，并根据欧盟eIDAS法规（910/2014）完成电子签署。",
+    "revoked_date": "撤销日期",
+    "revocation_reason": "撤销原因",
+    "revocation_hash_label": "撤销指纹 (SHA-256)"
   },
   "recharge": {
     "title": "订阅套餐",

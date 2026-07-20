@@ -1076,7 +1076,10 @@
     "signed_date": "署名日",
     "hash_label": "SHA-256ハッシュ",
     "document_id_label": "書類ID：",
-    "verified_on": "{{date}}に検証済み。この書類はスペイン法41/2002に基づき有効であり、eIDAS規則（EU）910/2014に従って電子署名されています。"
+    "verified_on": "{{date}}に検証済み。この書類はスペイン法41/2002に基づき有効であり、eIDAS規則（EU）910/2014に従って電子署名されています。",
+    "revoked_date": "取り消し日",
+    "revocation_reason": "取り消しの理由",
+    "revocation_hash_label": "取り消しのフィンガープリント (SHA-256)"
   },
   "recharge": {
     "title": "サブスクリプションプラン",

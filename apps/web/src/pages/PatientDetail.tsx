@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, FileText, Stethoscope, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, Pencil, Trash2, Camera, Plus, Smile, CalendarClock, Phone, Mail, IdCard } from 'lucide-react'
+import { ArrowLeft, FileText, Stethoscope, FilePlus, CheckCircle, Clock, XCircle, AlertCircle, Pencil, Trash2, Camera, Plus, Smile, CalendarClock, Phone, Mail, IdCard, Ban } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ClinicalRecordForm } from '@/components/clinical/ClinicalRecordForm'
 import { ClinicalRecordViewModal } from '@/components/clinical/ClinicalRecordViewModal'
@@ -9,6 +9,7 @@ import { PhotoSessionPanel } from '@/components/photos/PhotoSessionPanel'
 import { NewSessionModal } from '@/components/photos/NewSessionModal'
 import { OdontogramTab } from '@/components/odontogram/OdontogramTab'
 import { ConsentViewModal } from '@/components/consents/ConsentViewModal'
+import { RevokeConsentModal } from '@/components/consents/RevokeConsentModal'
 import { AppointmentModal } from '@/components/agenda/AppointmentModal'
 import { treatmentColorStyle } from '@/lib/treatmentColors'
 import type { Doctor } from '@consentspro/shared-types'
@@ -47,6 +48,7 @@ export default function PatientDetail() {
   const [viewingRecord, setViewingRecord]   = useState<any>(null)
   const [newSessionOpen, setNewSessionOpen] = useState(false)
   const [viewingConsent, setViewingConsent] = useState<any>(null)
+  const [revokingConsent, setRevokingConsent] = useState<any>(null)
   const [apptModal, setApptModal]           = useState<{ open: boolean; initial?: any }>({ open: false })
   const [allDataOpen, setAllDataOpen]       = useState(false)
 
@@ -112,6 +114,11 @@ export default function PatientDetail() {
   const handleDeleteAppointment = async () => {
     if (!apptModal.initial?.id) return
     await api.delete(`/appointments/${apptModal.initial.id}`)
+    await load()
+  }
+
+  const handleRevokeConsent = async (reason: string) => {
+    await api.post(`/consents/${revokingConsent.id}/revoke`, { reason })
     await load()
   }
 
@@ -304,20 +311,34 @@ export default function PatientDetail() {
             const cfg = STATUS_CONFIG[statusKey]
             const Icon = cfg.icon
             return (
-              <button
+              <div
                 key={c.id}
-                type="button"
-                onClick={() => setViewingConsent(c)}
-                className="text-left bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-blue-200 transition-shadow flex items-center justify-between gap-3"
+                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-blue-200 transition-shadow flex items-center justify-between gap-3"
               >
-                <div className="min-w-0">
+                <button
+                  type="button"
+                  onClick={() => setViewingConsent(c)}
+                  className="text-left min-w-0 flex-1"
+                >
                   <p className="font-semibold text-slate-800 truncate">{c.template?.treatmentType ?? c.template?.treatment_type ?? '—'}</p>
                   <p className="text-xs text-slate-400 mt-0.5">{c.doctor?.name ?? '—'} · {c.created_at ? new Date(c.created_at).toLocaleDateString('es-ES') : '—'}</p>
+                </button>
+                <div className="flex-shrink-0 flex items-center gap-2">
+                  <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${cfg.bg} ${cfg.color}`}>
+                    <Icon className="w-3 h-3" />{t(`patientDetail.status.${statusKey}`)}
+                  </span>
+                  {statusKey === 'signed' && (
+                    <button
+                      type="button"
+                      onClick={() => setRevokingConsent(c)}
+                      className="p-1.5 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50"
+                      title={t('consents.revoke')}
+                    >
+                      <Ban className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
-                <span className={`flex-shrink-0 inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${cfg.bg} ${cfg.color}`}>
-                  <Icon className="w-3 h-3" />{t(`patientDetail.status.${statusKey}`)}
-                </span>
-              </button>
+              </div>
             )
           })}
         </div>
@@ -360,6 +381,14 @@ export default function PatientDetail() {
           consent={viewingConsent}
           clinic={clinic}
           onClose={() => setViewingConsent(null)}
+        />
+      )}
+
+      {revokingConsent && (
+        <RevokeConsentModal
+          patientName={patient?.fullName ?? ''}
+          onConfirm={handleRevokeConsent}
+          onClose={() => setRevokingConsent(null)}
         />
       )}
 

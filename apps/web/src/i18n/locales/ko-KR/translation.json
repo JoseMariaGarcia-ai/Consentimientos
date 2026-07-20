@@ -1076,7 +1076,10 @@
     "signed_date": "서명 날짜",
     "hash_label": "SHA-256 해시",
     "document_id_label": "문서 ID:",
-    "verified_on": "{{date}}에 확인됨. 이 문서는 의료법 41/2002에 따라 유효하며 eIDAS 규정 (EU) 910/2014에 따라 전자 서명되었습니다."
+    "verified_on": "{{date}}에 확인됨. 이 문서는 의료법 41/2002에 따라 유효하며 eIDAS 규정 (EU) 910/2014에 따라 전자 서명되었습니다.",
+    "revoked_date": "철회 날짜",
+    "revocation_reason": "철회 사유",
+    "revocation_hash_label": "철회 지문 (SHA-256)"
   },
   "recharge": {
     "title": "구독 플랜",

@@ -1076,7 +1076,10 @@
     "signed_date": "Signeringsdatum",
     "hash_label": "SHA-256-hash",
     "document_id_label": "Dokument-ID:",
-    "verified_on": "Verifierad {{date}}. Detta dokument är giltigt enligt gällande lagstiftning och elektroniskt signerat enligt eIDAS-förordningen (EU) 910/2014."
+    "verified_on": "Verifierad {{date}}. Detta dokument är giltigt enligt gällande lagstiftning och elektroniskt signerat enligt eIDAS-förordningen (EU) 910/2014.",
+    "revoked_date": "Datum för återkallelse",
+    "revocation_reason": "Anledning till återkallelse",
+    "revocation_hash_label": "Fingeravtryck för återkallelsen (SHA-256)"
   },
   "recharge": {
     "title": "Prenumerationsplaner",

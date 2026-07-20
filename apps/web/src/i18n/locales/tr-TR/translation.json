@@ -1076,7 +1076,10 @@
     "signed_date": "İmzalanma tarihi",
     "hash_label": "SHA-256 Hash",
     "document_id_label": "Belge ID'si:",
-    "verified_on": "{{date}} tarihinde doğrulandı. Bu belge Hasta Hakları Yönetmeliği'ne uygundur ve eIDAS Tüzüğü'ne (AB) 910/2014 göre elektronik olarak imzalanmıştır."
+    "verified_on": "{{date}} tarihinde doğrulandı. Bu belge Hasta Hakları Yönetmeliği'ne uygundur ve eIDAS Tüzüğü'ne (AB) 910/2014 göre elektronik olarak imzalanmıştır.",
+    "revoked_date": "İptal tarihi",
+    "revocation_reason": "İptal nedeni",
+    "revocation_hash_label": "İptal parmak izi (SHA-256)"
   },
   "recharge": {
     "title": "Abonelik Planları",

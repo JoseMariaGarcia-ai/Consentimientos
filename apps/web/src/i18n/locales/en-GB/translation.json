@@ -1076,7 +1076,10 @@
     "signed_date": "Signed date",
     "hash_label": "SHA-256 hash",
     "document_id_label": "Document ID:",
-    "verified_on": "Verified on {{date}}. This document is valid under the Mental Capacity Act 2005 and electronically signed under the eIDAS Regulation (EU) 910/2014."
+    "verified_on": "Verified on {{date}}. This document is valid under the Mental Capacity Act 2005 and electronically signed under the eIDAS Regulation (EU) 910/2014.",
+    "revoked_date": "Revocation date",
+    "revocation_reason": "Reason for revocation",
+    "revocation_hash_label": "Revocation fingerprint (SHA-256)"
   },
   "recharge": {
     "title": "Subscription plans",

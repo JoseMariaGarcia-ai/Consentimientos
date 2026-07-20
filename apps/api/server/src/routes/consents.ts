@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import crypto from 'crypto'
 import { query, queryOne } from '../lib/db'
 import { deductCredit } from '../lib/credits'
 import { requireSuperAdmin } from '../middleware/auth'
@@ -108,8 +109,8 @@ router.post('/:id/revoke', async (req, res) => {
   try {
     const reason = String(req.body?.reason ?? '').trim()
     if (!reason) return res.status(400).json({ error: 'Debes indicar el motivo de la revocación' })
-    const current = await queryOne<{ status: string }>(
-      `SELECT cr.status FROM consent_records cr
+    const current = await queryOne<{ status: string; document_hash: string | null }>(
+      `SELECT cr.status, cr.document_hash FROM consent_records cr
        JOIN patients p ON p.id = cr.patient_id
        WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
       [req.params.id, userId]
@@ -118,12 +119,20 @@ router.post('/:id/revoke', async (req, res) => {
     if (current.status !== 'signed') {
       return res.status(400).json({ error: 'Solo se pueden revocar consentimientos firmados' })
     }
+    // Huella de la revocación: encadena el hash del documento firmado original
+    // con los datos de la revocación, para poder detectar si revoked_at o
+    // revocation_reason se alteran después de guardarse.
+    const revokedAt = new Date().toISOString()
+    const revocationHash = crypto
+      .createHash('sha256')
+      .update(`${req.params.id}|${current.document_hash ?? ''}|${revokedAt}|${userId}|${reason}`)
+      .digest('hex')
     const data = await queryOne(
       `UPDATE consent_records
-       SET status = 'revoked', revoked_at = NOW(), revoked_by = $1, revocation_reason = $2
-       WHERE id = $3
+       SET status = 'revoked', revoked_at = $1, revoked_by = $2, revocation_reason = $3, revocation_hash = $4
+       WHERE id = $5
        RETURNING *`,
-      [userId, reason, req.params.id]
+      [revokedAt, userId, reason, revocationHash, req.params.id]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

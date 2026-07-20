@@ -1076,7 +1076,10 @@
     "signed_date": "Datum podpisu",
     "hash_label": "Hash SHA-256",
     "document_id_label": "ID dokumentu:",
-    "verified_on": "Ověřeno {{date}}. Tento dokument je platný v souladu se zákonem č. 372/2011 Sb. a elektronicky podepsán podle nařízení eIDAS (EU) č. 910/2014."
+    "verified_on": "Ověřeno {{date}}. Tento dokument je platný v souladu se zákonem č. 372/2011 Sb. a elektronicky podepsán podle nařízení eIDAS (EU) č. 910/2014.",
+    "revoked_date": "Datum odvolání",
+    "revocation_reason": "Důvod odvolání",
+    "revocation_hash_label": "Otisk odvolání (SHA-256)"
   },
   "recharge": {
     "title": "Plány předplatného",

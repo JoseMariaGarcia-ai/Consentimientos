@@ -1032,7 +1032,10 @@
     "signed_date": "תאריך חתימה",
     "hash_label": "Hash SHA-256",
     "document_id_label": "מזהה מסמך:",
-    "verified_on": "אומת בתאריך {{date}}. מסמך זה תקף בהתאם לתקנות המקומיות וחתום אלקטרונית בהתאם לתקנת eIDAS (EU) 910/2014."
+    "verified_on": "אומת בתאריך {{date}}. מסמך זה תקף בהתאם לתקנות המקומיות וחתום אלקטרונית בהתאם לתקנת eIDAS (EU) 910/2014.",
+    "revoked_date": "תאריך הביטול",
+    "revocation_reason": "סיבת הביטול",
+    "revocation_hash_label": "טביעת אצבע של הביטול (SHA-256)"
   },
   "recharge": {
     "title": "תוכניות מנוי",

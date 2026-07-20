@@ -1076,7 +1076,10 @@
     "signed_date": "Data de assinatura",
     "hash_label": "Hash SHA-256",
     "document_id_label": "ID do documento:",
-    "verified_on": "Verificado em {{date}}. Este documento é válido nos termos da Lei 15/2014 e assinado eletronicamente de acordo com o Regulamento eIDAS (UE) 910/2014."
+    "verified_on": "Verificado em {{date}}. Este documento é válido nos termos da Lei 15/2014 e assinado eletronicamente de acordo com o Regulamento eIDAS (UE) 910/2014.",
+    "revoked_date": "Data da revogação",
+    "revocation_reason": "Motivo da revogação",
+    "revocation_hash_label": "Impressão digital da revogação (SHA-256)"
   },
   "recharge": {
     "title": "Planos de Subscrição",

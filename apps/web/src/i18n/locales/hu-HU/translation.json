@@ -1076,7 +1076,10 @@
     "signed_date": "Aláírás dátuma",
     "hash_label": "SHA-256 hash",
     "document_id_label": "Dokumentum azonosító:",
-    "verified_on": "Ellenőrizve: {{date}}. Ez a dokumentum érvényes az 1997. évi CLIV. törvény szerint, és elektronikusan alá van írva az eIDAS rendelet (EU) 910/2014 szerint."
+    "verified_on": "Ellenőrizve: {{date}}. Ez a dokumentum érvényes az 1997. évi CLIV. törvény szerint, és elektronikusan alá van írva az eIDAS rendelet (EU) 910/2014 szerint.",
+    "revoked_date": "Visszavonás dátuma",
+    "revocation_reason": "A visszavonás oka",
+    "revocation_hash_label": "A visszavonás ujjlenyomata (SHA-256)"
   },
   "recharge": {
     "title": "Előfizetési csomagok",

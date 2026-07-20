@@ -1076,7 +1076,10 @@
     "signed_date": "Signature date",
     "hash_label": "SHA-256 Hash",
     "document_id_label": "Document ID:",
-    "verified_on": "Verified on {{date}}. This document is valid under Law 41/2002 and electronically signed in accordance with eIDAS Regulation (EU) 910/2014."
+    "verified_on": "Verified on {{date}}. This document is valid under Law 41/2002 and electronically signed in accordance with eIDAS Regulation (EU) 910/2014.",
+    "revoked_date": "Revocation date",
+    "revocation_reason": "Reason for revocation",
+    "revocation_hash_label": "Revocation fingerprint (SHA-256)"
   },
   "recharge": {
     "title": "Subscription Plans",

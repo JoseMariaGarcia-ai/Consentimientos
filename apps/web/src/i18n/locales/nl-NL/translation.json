@@ -1076,7 +1076,10 @@
     "signed_date": "Ondertekeningsdatum",
     "hash_label": "SHA-256 Hash",
     "document_id_label": "Document-ID:",
-    "verified_on": "Geverifieerd op {{date}}. Dit document is geldig conform de WGBO en elektronisch ondertekend volgens de eIDAS-verordening (EU) 910/2014."
+    "verified_on": "Geverifieerd op {{date}}. Dit document is geldig conform de WGBO en elektronisch ondertekend volgens de eIDAS-verordening (EU) 910/2014.",
+    "revoked_date": "Datum van intrekking",
+    "revocation_reason": "Reden van intrekking",
+    "revocation_hash_label": "Vingerafdruk van de intrekking (SHA-256)"
   },
   "recharge": {
     "title": "Abonnementen",

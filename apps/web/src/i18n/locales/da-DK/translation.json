@@ -1076,7 +1076,10 @@
     "signed_date": "Underskriftsdato",
     "hash_label": "Hash SHA-256",
     "document_id_label": "Dokument-ID:",
-    "verified_on": "Verificeret den {{date}}. Dette dokument er gyldigt i henhold til Sundhedsloven og elektronisk underskrevet i henhold til eIDAS-forordningen (EU) 910/2014."
+    "verified_on": "Verificeret den {{date}}. Dette dokument er gyldigt i henhold til Sundhedsloven og elektronisk underskrevet i henhold til eIDAS-forordningen (EU) 910/2014.",
+    "revoked_date": "Dato for tilbagekaldelse",
+    "revocation_reason": "Årsag til tilbagekaldelse",
+    "revocation_hash_label": "Fingeraftryk for tilbagekaldelsen (SHA-256)"
   },
   "recharge": {
     "title": "Abonnementsplaner",

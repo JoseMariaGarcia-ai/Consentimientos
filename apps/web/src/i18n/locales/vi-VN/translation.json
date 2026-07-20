@@ -1076,7 +1076,10 @@
     "signed_date": "Ngày ký",
     "hash_label": "Mã băm SHA-256",
     "document_id_label": "ID tài liệu:",
-    "verified_on": "Đã xác minh vào {{date}}. Tài liệu này hợp lệ theo Luật Khám bệnh, chữa bệnh và được ký điện tử theo Quy định eIDAS (EU) 910/2014."
+    "verified_on": "Đã xác minh vào {{date}}. Tài liệu này hợp lệ theo Luật Khám bệnh, chữa bệnh và được ký điện tử theo Quy định eIDAS (EU) 910/2014.",
+    "revoked_date": "Ngày thu hồi",
+    "revocation_reason": "Lý do thu hồi",
+    "revocation_hash_label": "Dấu vân tay thu hồi (SHA-256)"
   },
   "recharge": {
     "title": "Gói đăng ký",

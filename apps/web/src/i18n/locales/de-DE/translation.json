@@ -1076,7 +1076,10 @@
     "signed_date": "Unterschriftsdatum",
     "hash_label": "SHA-256-Hash",
     "document_id_label": "Dokument-ID:",
-    "verified_on": "Überprüft am {{date}}. Dieses Dokument ist gemäß dem Patientenrechtegesetz gültig und elektronisch gemäß der eIDAS-Verordnung (EU) 910/2014 unterzeichnet."
+    "verified_on": "Überprüft am {{date}}. Dieses Dokument ist gemäß dem Patientenrechtegesetz gültig und elektronisch gemäß der eIDAS-Verordnung (EU) 910/2014 unterzeichnet.",
+    "revoked_date": "Datum des Widerrufs",
+    "revocation_reason": "Grund des Widerrufs",
+    "revocation_hash_label": "Fingerabdruck des Widerrufs (SHA-256)"
   },
   "recharge": {
     "title": "Abo-Pläne",

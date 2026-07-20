@@ -1076,7 +1076,10 @@
     "signed_date": "Date de signature",
     "hash_label": "Hachage SHA-256",
     "document_id_label": "ID du document :",
-    "verified_on": "Vérifié le {{date}}. Ce document est valide conformément à la loi n° 2002-303 et signé électroniquement selon le règlement eIDAS (UE) 910/2014."
+    "verified_on": "Vérifié le {{date}}. Ce document est valide conformément à la loi n° 2002-303 et signé électroniquement selon le règlement eIDAS (UE) 910/2014.",
+    "revoked_date": "Date de révocation",
+    "revocation_reason": "Motif de la révocation",
+    "revocation_hash_label": "Empreinte de la révocation (SHA-256)"
   },
   "recharge": {
     "title": "Formules d'abonnement",

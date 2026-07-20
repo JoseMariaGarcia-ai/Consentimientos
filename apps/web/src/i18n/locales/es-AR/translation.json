@@ -1048,7 +1048,10 @@
     "signed_date": "Fecha de firma",
     "hash_label": "Hash SHA-256",
     "document_id_label": "ID de documento:",
-    "verified_on": "Verificado el {{date}}. Este documento es válido conforme a la Ley 26.529 y firmado electrónicamente según la Ley de Firma Digital 25.506."
+    "verified_on": "Verificado el {{date}}. Este documento es válido conforme a la Ley 26.529 y firmado electrónicamente según la Ley de Firma Digital 25.506.",
+    "revoked_date": "Fecha de revocación",
+    "revocation_reason": "Motivo de la revocación",
+    "revocation_hash_label": "Huella de la revocación (SHA-256)"
   },
   "recharge": {
     "title": "Planes de suscripción",

@@ -1076,7 +1076,10 @@
     "signed_date": "Signeringsdato",
     "hash_label": "Hash SHA-256",
     "document_id_label": "Dokument-ID:",
-    "verified_on": "Verifisert {{date}}. Dette dokumentet er gyldig i henhold til lov 41/2002 og elektronisk signert i henhold til eIDAS-forordningen (EU) 910/2014."
+    "verified_on": "Verifisert {{date}}. Dette dokumentet er gyldig i henhold til lov 41/2002 og elektronisk signert i henhold til eIDAS-forordningen (EU) 910/2014.",
+    "revoked_date": "Dato for tilbakekalling",
+    "revocation_reason": "Årsak til tilbakekalling",
+    "revocation_hash_label": "Fingeravtrykk for tilbakekallingen (SHA-256)"
   },
   "recharge": {
     "title": "Abonnementsplaner",

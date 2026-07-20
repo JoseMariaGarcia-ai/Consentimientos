@@ -11,6 +11,9 @@ interface ConsentVerification {
   document_hash: string
   signed_at: string | null
   server_timestamp: string | null
+  revoked_at: string | null
+  revocation_reason: string | null
+  revocation_hash: string | null
   patient: { full_name: string } | null
   doctor: { name: string } | null
   template: { treatment_type: string } | null
@@ -112,6 +115,33 @@ export default function VerifyConsent() {
                   {data.document_hash}
                 </p>
               </div>
+            )}
+            {data.status === 'revoked' && data.revoked_at && (
+              <>
+                <Row
+                  icon={<XCircle className="w-4 h-4 text-red-500" />}
+                  label={t('verifyConsent.revoked_date')}
+                  value={new Date(data.revoked_at).toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })}
+                />
+                {data.revocation_reason && (
+                  <Row
+                    icon={<FileText className="w-4 h-4 text-red-400" />}
+                    label={t('verifyConsent.revocation_reason')}
+                    value={data.revocation_reason}
+                  />
+                )}
+                {data.revocation_hash && (
+                  <div className="mt-2">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <Hash className="w-4 h-4 text-red-400" />
+                      <span className="text-xs font-semibold text-red-400 uppercase tracking-wide">{t('verifyConsent.revocation_hash_label')}</span>
+                    </div>
+                    <p className="font-mono text-[10px] text-slate-400 break-all bg-red-50 rounded-lg p-3 leading-relaxed">
+                      {data.revocation_hash}
+                    </p>
+                  </div>
+                )}
+              </>
             )}
             <div className="mt-2 pt-4 border-t border-slate-100">
               <p className="text-[10px] text-slate-400 leading-relaxed">
