@@ -48,6 +48,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
   const portalUrl = consent.user_id
     ? await buildPatientPortalLink(consent.user_id)
     : `${appUrl}/patient/portal`
+  const portalHost = appUrl.replace(/^https?:\/\//, '')
 
   // Get patient media (advertising) for this clinic — resolved to whichever
   // clinic or lab partner actually owns it (see resolveMediaOwner above).
@@ -197,6 +198,15 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
                      style="display:inline-block;padding:10px 24px;background:#C9A84C;color:#0D1B2E;font-size:13px;font-weight:700;text-decoration:none;border-radius:8px">
                     Ir a mi portal →
                   </a>
+                  <p style="margin:14px 0 0;font-size:11px;color:#94a3b8;line-height:1.6">
+                    O copia y pega este enlace en tu navegador:<br>
+                    <span style="color:#2563eb;word-break:break-all">${portalUrl}</span>
+                  </p>
+                  <p style="margin:10px 0 0;font-size:11px;color:#94a3b8;line-height:1.6">
+                    Este enlace es de un solo uso y caduca en 7 días. ¿Necesitas entrar más adelante?
+                    Ve a <a href="${appUrl}/patient/portal" style="color:#2563eb">${portalHost}/patient/portal</a>
+                    e introduce tu email — te enviaremos un nuevo enlace de acceso al momento.
+                  </p>
                 </td>
               </tr>
             </table>

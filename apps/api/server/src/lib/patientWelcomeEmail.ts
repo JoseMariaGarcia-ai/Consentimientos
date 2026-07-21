@@ -18,6 +18,7 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
 
   const appUrl = process.env.APP_URL ?? 'http://localhost:5173'
   const link = `${appUrl}/auth/verify?token=${rawToken}`
+  const portalHost = appUrl.replace(/^https?:\/\//, '')
   const firstName = patient.first_name ?? patient.full_name?.split(' ')[0] ?? 'Paciente'
 
   const html = `<!DOCTYPE html>
@@ -72,7 +73,6 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
                   <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#C2410C;text-transform:uppercase;letter-spacing:0.5px">¿Cómo acceder?</p>
                   <p style="margin:4px 0;font-size:14px;color:#334155">1. Pulsa el botón de abajo</p>
                   <p style="margin:4px 0;font-size:14px;color:#334155">2. El enlace te llevará directamente a tu portal personal</p>
-                  <p style="margin:4px 0;font-size:14px;color:#334155">3. En próximos accesos puedes usar huella o Face ID en tu dispositivo</p>
                 </td>
               </tr>
             </table>
@@ -89,9 +89,15 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
               </tr>
             </table>
 
+            <p style="margin:0 0 20px;font-size:12px;color:#94a3b8;text-align:center;line-height:1.6">
+              O copia y pega este enlace en tu navegador:<br>
+              <span style="color:#2563eb;word-break:break-all;font-size:11px">${link}</span>
+            </p>
+
             <p style="margin:0 0 24px;font-size:12px;color:#94a3b8;text-align:center;line-height:1.6">
-              ⏱ Este enlace es válido durante 24 horas<br>
-              ⚠️ Si no solicitaste este acceso, ignora este email.
+              ⏱ Este enlace es válido durante 24 horas · ⚠️ Si no solicitaste este acceso, ignora este email.<br><br>
+              ¿Necesitas entrar más adelante? Ve a <a href="${appUrl}/patient/portal" style="color:#2563eb">${portalHost}/patient/portal</a>
+              e introduce tu email — te enviaremos un nuevo enlace de acceso al momento.
             </p>
           </td>
         </tr>
