@@ -54,8 +54,12 @@ export function MonthView({ year, month, availability, appointmentCounts, todayK
         {weeks.flat().map((key, i) => {
           if (!key) return <div key={i} className="aspect-square border-b border-r border-slate-50 bg-slate-50/40" />
           const day = Number(key.slice(-2))
-          const isOpen = availability[key]?.is_open
           const isToday = key === todayKey
+          const isPast = key < todayKey
+          // Un día pasado ya no se puede reservar, se pinte como cerrado o
+          // abierto en la Planificación de Agenda — mismo color que "cerrado"
+          // para que se vea de un vistazo que no admite citas nuevas.
+          const isOpen = availability[key]?.is_open && !isPast
           const count = appointmentCounts[key] ?? 0
           return (
             <button
