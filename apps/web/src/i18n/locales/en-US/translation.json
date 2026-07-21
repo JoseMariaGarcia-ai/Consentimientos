@@ -350,7 +350,9 @@
       "available": "Available",
       "outside_hours": "Outside hours",
       "scheduled": "Appointment scheduled"
-    }
+    },
+    "past_day_no_create": "You can’t book appointments on past days",
+    "past_day_no_drag": "You can’t move appointments to past days — tap to view/edit"
   },
   "appointmentModal": {
     "title_edit": "Edit appointment",

@@ -350,7 +350,9 @@
       "available": "Disponibile",
       "outside_hours": "Fuori orario",
       "scheduled": "Appuntamento fissato"
-    }
+    },
+    "past_day_no_create": "Non è possibile prenotare appuntamenti in giorni passati",
+    "past_day_no_drag": "Non è possibile spostare gli appuntamenti a giorni passati — tocca per vedere/modificare"
   },
   "appointmentModal": {
     "title_edit": "Modifica appuntamento",

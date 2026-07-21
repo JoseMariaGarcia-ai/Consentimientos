@@ -350,7 +350,9 @@
       "available": "예약 가능",
       "outside_hours": "영업시간 외",
       "scheduled": "예약됨"
-    }
+    },
+    "past_day_no_create": "지난 날짜에는 예약할 수 없습니다",
+    "past_day_no_drag": "지난 날짜로 예약을 이동할 수 없습니다 — 눌러서 보기/수정"
   },
   "appointmentModal": {
     "title_edit": "예약 수정",

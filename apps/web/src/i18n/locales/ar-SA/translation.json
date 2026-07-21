@@ -350,7 +350,9 @@
       "available": "متاح",
       "outside_hours": "خارج الدوام",
       "scheduled": "موعد محجوز"
-    }
+    },
+    "past_day_no_create": "لا يمكن حجز مواعيد في أيام ماضية",
+    "past_day_no_drag": "لا يمكن نقل المواعيد إلى أيام ماضية — اضغط للعرض/التعديل"
   },
   "appointmentModal": {
     "title_edit": "تعديل الموعد",

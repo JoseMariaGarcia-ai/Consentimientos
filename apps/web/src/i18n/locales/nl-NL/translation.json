@@ -350,7 +350,9 @@
       "available": "Beschikbaar",
       "outside_hours": "Buiten openingstijden",
       "scheduled": "Afspraak gepland"
-    }
+    },
+    "past_day_no_create": "Je kunt geen afspraken boeken op dagen die al voorbij zijn",
+    "past_day_no_drag": "Je kunt afspraken niet naar dagen in het verleden verplaatsen — tik om te bekijken/bewerken"
   },
   "appointmentModal": {
     "title_edit": "Afspraak bewerken",

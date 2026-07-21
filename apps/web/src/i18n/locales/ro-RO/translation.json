@@ -350,7 +350,9 @@
       "available": "Disponibil",
       "outside_hours": "În afara programului",
       "scheduled": "Programare stabilită"
-    }
+    },
+    "past_day_no_create": "Nu se pot programa întâlniri în zile trecute",
+    "past_day_no_drag": "Nu se pot muta programările în zile trecute — atinge pentru a vedea/edita"
   },
   "appointmentModal": {
     "title_edit": "Editare programare",

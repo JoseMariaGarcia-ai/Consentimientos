@@ -350,7 +350,9 @@
       "available": "予約可能",
       "outside_hours": "営業時間外",
       "scheduled": "予約あり"
-    }
+    },
+    "past_day_no_create": "過去の日付には予約できません",
+    "past_day_no_drag": "予約を過去の日付に移動することはできません — タップして表示/編集"
   },
   "appointmentModal": {
     "title_edit": "予約を編集",

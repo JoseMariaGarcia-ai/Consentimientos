@@ -350,7 +350,9 @@
       "available": "זמין",
       "outside_hours": "מחוץ לשעות",
       "scheduled": "תור קבוע"
-    }
+    },
+    "past_day_no_create": "לא ניתן לקבוע תורים בימים שכבר עברו",
+    "past_day_no_drag": "לא ניתן להעביר תורים לימים שכבר עברו — הקש כדי לצפות/לערוך"
   },
   "appointmentModal": {
     "title_edit": "עריכת תור",

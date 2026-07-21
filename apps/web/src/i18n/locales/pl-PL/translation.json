@@ -350,7 +350,9 @@
       "available": "Dostępne",
       "outside_hours": "Poza godzinami",
       "scheduled": "Umówiona wizyta"
-    }
+    },
+    "past_day_no_create": "Nie można umawiać wizyt w minionych dniach",
+    "past_day_no_drag": "Nie można przenosić wizyt na miniony dzień — dotknij, aby zobaczyć/edytować"
   },
   "appointmentModal": {
     "title_edit": "Edytuj wizytę",

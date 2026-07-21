@@ -350,7 +350,9 @@
       "available": "Müsait",
       "outside_hours": "Mesai saatleri dışında",
       "scheduled": "Randevu planlandı"
-    }
+    },
+    "past_day_no_create": "Geçmiş günlere randevu alınamaz",
+    "past_day_no_drag": "Randevular geçmiş günlere taşınamaz — görüntülemek/düzenlemek için dokunun"
   },
   "appointmentModal": {
     "title_edit": "Randevuyu düzenle",

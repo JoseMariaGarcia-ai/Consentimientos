@@ -350,7 +350,9 @@
       "available": "Disponible",
       "outside_hours": "Hors horaires",
       "scheduled": "Rendez-vous planifié"
-    }
+    },
+    "past_day_no_create": "Impossible de prendre des rendez-vous à des dates passées",
+    "past_day_no_drag": "Impossible de déplacer un rendez-vous vers une date passée — appuyez pour voir/modifier"
   },
   "appointmentModal": {
     "title_edit": "Modifier le rendez-vous",

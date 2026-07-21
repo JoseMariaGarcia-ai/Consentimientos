@@ -350,7 +350,9 @@
       "available": "Disponible",
       "outside_hours": "Fuera de horario",
       "scheduled": "Cita agendada"
-    }
+    },
+    "past_day_no_create": "No se pueden agendar citas en días pasados",
+    "past_day_no_drag": "No se pueden mover citas a días pasados — pulsa para ver/editar"
   },
   "appointmentModal": {
     "title_edit": "Editar cita",

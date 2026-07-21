@@ -350,7 +350,9 @@
       "available": "可预约",
       "outside_hours": "非工作时间",
       "scheduled": "已预约"
-    }
+    },
+    "past_day_no_create": "无法在已过去的日期预约",
+    "past_day_no_drag": "无法将预约移动到已过去的日期 — 点击查看/编辑"
   },
   "appointmentModal": {
     "title_edit": "编辑预约",

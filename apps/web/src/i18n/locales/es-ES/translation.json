@@ -344,6 +344,8 @@
     "day_closed_notice": "Este día está marcado como cerrado en la Planificación de Agenda. Puedes revisarlo o abrirlo desde esa pestaña.",
     "slot_aria_label": "Agendar a las {{time}}",
     "outside_availability": "Fuera del horario disponible",
+    "past_day_no_create": "No se pueden agendar citas en días pasados",
+    "past_day_no_drag": "No se pueden mover citas a días pasados — pulsa para ver/editar",
     "treatment_fallback": "Tratamiento",
     "doctor_prefix": "Dr. {{name}}",
     "legend": {

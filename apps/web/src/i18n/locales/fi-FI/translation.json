@@ -350,7 +350,9 @@
       "available": "Vapaa",
       "outside_hours": "Aukioloajan ulkopuolella",
       "scheduled": "Varattu käynti"
-    }
+    },
+    "past_day_no_create": "Menneille päiville ei voi varata aikoja",
+    "past_day_no_drag": "Aikoja ei voi siirtää menneille päiville — napauta nähdäksesi/muokataksesi"
   },
   "appointmentModal": {
     "title_edit": "Muokkaa käyntiä",

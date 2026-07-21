@@ -350,7 +350,9 @@
       "available": "Tilgjengelig",
       "outside_hours": "Utenfor åpningstid",
       "scheduled": "Bestilt time"
-    }
+    },
+    "past_day_no_create": "Du kan ikke booke avtaler på dager som allerede har passert",
+    "past_day_no_drag": "Du kan ikke flytte avtaler til dager som allerede har passert — trykk for å vise/redigere"
   },
   "appointmentModal": {
     "title_edit": "Rediger time",

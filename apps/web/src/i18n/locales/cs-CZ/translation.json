@@ -350,7 +350,9 @@
       "available": "Dostupné",
       "outside_hours": "Mimo otevírací dobu",
       "scheduled": "Naplánovaná schůzka"
-    }
+    },
+    "past_day_no_create": "Na uplynulé dny nelze objednávat schůzky",
+    "past_day_no_drag": "Schůzky nelze přesouvat na uplynulé dny — klepnutím zobrazíte/upravíte"
   },
   "appointmentModal": {
     "title_edit": "Upravit schůzku",

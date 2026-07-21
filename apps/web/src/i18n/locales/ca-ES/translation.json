@@ -350,7 +350,9 @@
       "available": "Disponible",
       "outside_hours": "Fora d'horari",
       "scheduled": "Cita programada"
-    }
+    },
+    "past_day_no_create": "No es poden agendar cites en dies passats",
+    "past_day_no_drag": "No es poden moure cites a dies passats — prem per veure/editar"
   },
   "appointmentModal": {
     "title_edit": "Editar cita",

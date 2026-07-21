@@ -350,7 +350,9 @@
       "available": "Tillgänglig",
       "outside_hours": "Utanför öppettider",
       "scheduled": "Bokad tid"
-    }
+    },
+    "past_day_no_create": "Det går inte att boka tider på dagar som redan passerat",
+    "past_day_no_drag": "Det går inte att flytta tider till dagar som redan passerat — tryck för att visa/redigera"
   },
   "appointmentModal": {
     "title_edit": "Redigera bokning",

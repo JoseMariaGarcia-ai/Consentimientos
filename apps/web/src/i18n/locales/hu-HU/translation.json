@@ -350,7 +350,9 @@
       "available": "Elérhető",
       "outside_hours": "Nyitvatartási időn kívül",
       "scheduled": "Foglalt időpont"
-    }
+    },
+    "past_day_no_create": "Múltbeli napra nem foglalható időpont",
+    "past_day_no_drag": "Az időpontok nem helyezhetők át múltbeli napra — koppintson a megtekintéshez/szerkesztéshez"
   },
   "appointmentModal": {
     "title_edit": "Időpont szerkesztése",

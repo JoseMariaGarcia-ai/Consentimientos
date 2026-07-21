@@ -91,11 +91,12 @@ interface DraggableAppointmentBlockProps {
   leftPct: number
   widthPct: number
   patientName: string
+  dragDisabled: boolean
   onOpen: () => void
   onMove: (deltaMinutes: number) => void
 }
 
-function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, patientName, onOpen, onMove }: DraggableAppointmentBlockProps) {
+function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, patientName, dragDisabled, onOpen, onMove }: DraggableAppointmentBlockProps) {
   const { t } = useTranslation()
   const statusClass = STATUS_CLASS[a.status] ?? STATUS_CLASS.scheduled
   const colorStyle = treatmentColorStyle(a.treatment?.color)
@@ -109,7 +110,13 @@ function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, pa
     dragRef.current = { startY: e.clientY, deltaSlots: 0, dragging: false }
   }
 
+  // Un día ya pasado no admite mover citas dentro de él (el backend lo
+  // rechazaría igualmente vía isPastDay) — se desactiva el gesto de arrastre
+  // aquí para no dejar "flotando" la tarjeta y mostrar luego un alert() de
+  // error; un toque simple sigue abriendo la cita para poder verla/editar
+  // notas.
   const handlePointerMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (dragDisabled) return
     const drag = dragRef.current
     if (!drag) return
     const deltaY = e.clientY - drag.startY
@@ -140,7 +147,7 @@ function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, pa
       onPointerMove={handlePointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm transition-shadow ${isDragging ? 'shadow-lg cursor-grabbing' : 'hover:shadow-md cursor-grab'} ${statusClass}`}
+      className={`absolute rounded-lg border px-2 py-1 text-left overflow-hidden shadow-sm transition-shadow ${isDragging ? 'shadow-lg cursor-grabbing' : dragDisabled ? 'hover:shadow-md cursor-pointer' : 'hover:shadow-md cursor-grab'} ${statusClass}`}
       style={{
         top: top + 1 + dragOffsetPx,
         height,
@@ -150,7 +157,7 @@ function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, pa
         zIndex: isDragging ? 20 : undefined,
         ...colorStyle,
       }}
-      title={t('appointmentCalendar.drag_hint')}
+      title={dragDisabled ? t('appointmentCalendar.past_day_no_drag') : t('appointmentCalendar.drag_hint')}
     >
       <p className="text-xs font-semibold truncate flex items-center gap-1">
         {a.status === 'completed' && <CheckCircle2 className="w-3 h-3 flex-shrink-0" />}
@@ -238,6 +245,7 @@ export function AppointmentCalendar() {
 
   const slots = buildSlots(date)
   const positioned = assignLanes(appointments)
+  const isPastViewedDay = date < today
   const todayRanges = dayAvailability[date]?.time_ranges ?? []
   const dayIsOpen = dayAvailability[date]?.is_open
 
@@ -338,7 +346,9 @@ export function AppointmentCalendar() {
         )}
         <button
           onClick={() => setModal({ open: true, defaultStartTime: slots[0]?.iso })}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 shadow-sm"
+          disabled={isPastViewedDay}
+          title={isPastViewedDay ? t('appointmentCalendar.past_day_no_create') : undefined}
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 shadow-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
         >
           <Plus className="w-4 h-4" />{t('appointmentCalendar.new_appointment')}
         </button>
@@ -383,7 +393,7 @@ export function AppointmentCalendar() {
               {/* Slots + appointments */}
               <div className="relative flex-1" style={{ height: slots.length * ROW_HEIGHT }}>
                 {slots.map((s, i) => {
-                  const open = slotIsOpen(s, todayRanges)
+                  const open = slotIsOpen(s, todayRanges) && !isPastViewedDay
                   return open ? (
                     <button
                       key={s.label}
@@ -398,7 +408,7 @@ export function AppointmentCalendar() {
                       key={s.label}
                       className={`absolute left-0 right-0 bg-slate-100 cursor-not-allowed ${s.minute === 0 ? 'border-t border-slate-200' : 'border-t border-slate-100'}`}
                       style={{ top: i * ROW_HEIGHT, height: ROW_HEIGHT }}
-                      title={t('appointmentCalendar.outside_availability')}
+                      title={isPastViewedDay ? t('appointmentCalendar.past_day_no_create') : t('appointmentCalendar.outside_availability')}
                     />
                   )
                 })}
@@ -418,6 +428,7 @@ export function AppointmentCalendar() {
                       leftPct={leftPct}
                       widthPct={widthPct}
                       patientName={patientName(a.patient)}
+                      dragDisabled={isPastViewedDay}
                       onOpen={() => openEdit(a)}
                       onMove={deltaMinutes => handleMoveAppointment(a, deltaMinutes)}
                     />

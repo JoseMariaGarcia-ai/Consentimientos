@@ -350,7 +350,9 @@
       "available": "Disponível",
       "outside_hours": "Fora de horário",
       "scheduled": "Consulta marcada"
-    }
+    },
+    "past_day_no_create": "Não é possível marcar consultas em dias passados",
+    "past_day_no_drag": "Não é possível mover consultas para dias passados — toque para ver/editar"
   },
   "appointmentModal": {
     "title_edit": "Editar marcação",

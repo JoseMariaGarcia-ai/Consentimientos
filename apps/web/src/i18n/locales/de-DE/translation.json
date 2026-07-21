@@ -350,7 +350,9 @@
       "available": "Verfügbar",
       "outside_hours": "Außerhalb der Öffnungszeiten",
       "scheduled": "Termin gebucht"
-    }
+    },
+    "past_day_no_create": "Termine an vergangenen Tagen können nicht gebucht werden",
+    "past_day_no_drag": "Termine können nicht auf vergangene Tage verschoben werden — tippen zum Ansehen/Bearbeiten"
   },
   "appointmentModal": {
     "title_edit": "Termin bearbeiten",

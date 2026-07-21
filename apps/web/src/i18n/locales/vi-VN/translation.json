@@ -350,7 +350,9 @@
       "available": "Còn trống",
       "outside_hours": "Ngoài giờ làm việc",
       "scheduled": "Đã đặt lịch"
-    }
+    },
+    "past_day_no_create": "Không thể đặt lịch hẹn vào những ngày đã qua",
+    "past_day_no_drag": "Không thể chuyển lịch hẹn sang ngày đã qua — chạm để xem/chỉnh sửa"
   },
   "appointmentModal": {
     "title_edit": "Chỉnh sửa lịch hẹn",
