@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import crypto from 'crypto'
 import { query, queryOne } from '../lib/db'
+import { sendConsentEmail } from '../lib/consentEmail'
 
 const router = Router()
 
@@ -100,6 +101,11 @@ router.post('/consents/:id/patient-signature', async (req, res) => {
       `UPDATE consent_signing_handoffs SET status='completed', completed_at=NOW() WHERE consent_id=$1 AND device_id=$2 AND status='claimed'`,
       [id, deviceId]
     )
+    // Mismo aviso inmediato que en la firma directa (ver routes/signature.ts)
+    // — no depender de que el escritorio que hace polling siga abierto para
+    // generar y subir el PDF.
+    sendConsentEmail({ consentId: id, clinicId })
+      .catch(err => console.error('[consentEmail] fallo enviando aviso inmediato (tablet):', err.message))
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

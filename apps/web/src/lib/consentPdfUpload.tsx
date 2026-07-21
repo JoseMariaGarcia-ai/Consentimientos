@@ -15,14 +15,13 @@ function blobToBase64(blob: Blob): Promise<string> {
   })
 }
 
-// Genera el PDF del consentimiento ya firmado y lo sube al servidor, que a
-// su vez dispara el email al paciente con el documento adjunto (ver
-// POST /api/pdf/upload → sendConsentEmail). Se llama justo después de
-// firmar, tanto en la firma directa como en la firma por tablet (el
-// escritorio que hace polling detecta el "signed" y llama aquí) y en el
-// portal remoto del paciente (pasando su propio token de sesión). Es un
-// "mejor esfuerzo": si falla, el consentimiento ya quedó firmado
-// igualmente — solo se pierde el envío automático del PDF por email.
+// Genera el PDF del consentimiento ya firmado y lo sube al servidor para
+// guardarlo (ver POST /api/pdf/upload) — el aviso por email ya lo manda el
+// propio endpoint de firma en cuanto se guarda la firma (routes/signature.ts
+// y routes/signingKiosk.ts), así que aquí se pide skipEmail para no duplicar
+// el correo; esta subida solo deja el PDF real guardado para consultarlo
+// más adelante. Es un "mejor esfuerzo": si falla, el consentimiento ya
+// quedó firmado y el paciente ya fue avisado igualmente.
 export async function generateAndEmailConsentPdf(consentId: string, authToken?: string) {
   const token = authToken ?? getToken()
   if (!token) return
@@ -78,7 +77,7 @@ export async function generateAndEmailConsentPdf(consentId: string, authToken?: 
     await fetch(`${BASE_URL}/pdf/upload`, {
       method: 'POST',
       headers,
-      body: JSON.stringify({ consentId, pdfBase64 }),
+      body: JSON.stringify({ consentId, pdfBase64, skipEmail: true }),
     })
   } catch (err) {
     console.error('[consentPdfUpload] no se pudo generar/enviar el PDF del consentimiento:', err)

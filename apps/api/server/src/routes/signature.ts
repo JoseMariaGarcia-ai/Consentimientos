@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import crypto from 'crypto'
 import { queryOne, query } from '../lib/db'
+import { sendConsentEmail } from '../lib/consentEmail'
 
 const router = Router()
 
@@ -50,6 +51,19 @@ router.post('/:id', async (req, res) => {
       `INSERT INTO audit_logs (consent_id, log_json) VALUES ($1, $2) ON CONFLICT (consent_id) DO UPDATE SET log_json=$2`,
       [id, JSON.stringify({ ...data, signed_at: new Date() })]
     )
+    // Aviso inmediato al paciente, sin esperar a que el navegador genere y
+    // suba el PDF (ver POST /pdf/upload) — así el email nunca depende de un
+    // segundo paso en el cliente que podía fallar en silencio o no llegar a
+    // ejecutarse (pestaña cerrada, red, etc.). Cuando el PDF se sube después,
+    // sendConsentEmail se llama de nuevo con el adjunto real.
+    queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+      .then(row => {
+        if (row?.clinic_id) {
+          sendConsentEmail({ consentId: id, clinicId: row.clinic_id })
+            .catch(err => console.error('[consentEmail] fallo enviando aviso inmediato:', err.message))
+        }
+      })
+      .catch(() => {})
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

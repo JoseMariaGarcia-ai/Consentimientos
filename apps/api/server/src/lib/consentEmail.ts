@@ -3,7 +3,7 @@ import { downloadFile } from './r2'
 
 interface ConsentEmailData {
   consentId: string
-  pdfBuffer: Buffer
+  pdfBuffer?: Buffer | null
   clinicId: string
 }
 
@@ -160,14 +160,14 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
             <p style="margin:0 0 6px;font-size:20px;font-weight:700;color:#0D1B2E">Hola, ${firstName} 👋</p>
             <p style="margin:0 0 24px;font-size:15px;color:#475569;line-height:1.7">
               La clínica <strong>${clinicName}</strong> ha generado un consentimiento informado
-              para tu tratamiento. Encontrarás el documento adjunto en este email en formato PDF.
+              para tu tratamiento. ${pdfBuffer ? 'Encontrarás el documento adjunto en este email en formato PDF.' : 'Puedes consultarlo y descargarlo en cualquier momento desde tu portal personal.'}
             </p>
 
             <!-- Document info box -->
             <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px">
               <tr>
                 <td style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:18px 22px">
-                  <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#15803D;text-transform:uppercase;letter-spacing:0.5px">Documento adjunto</p>
+                  <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#15803D;text-transform:uppercase;letter-spacing:0.5px">${pdfBuffer ? 'Documento adjunto' : 'Consentimiento firmado'}</p>
                   <p style="margin:0 0 3px;font-size:15px;font-weight:700;color:#0D1B2E">${treatmentType}</p>
                   <p style="margin:0;font-size:12px;color:#64748b">
                     ${consent.signed_at
@@ -220,13 +220,13 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
 </body>
 </html>`
 
-  const attachments: any[] = [
-    {
-      filename: `consentimiento_${treatmentType.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`,
-      content: pdfBuffer.toString('base64'),
-      contentType: 'application/pdf',
-    },
-  ]
+  const attachments: any[] = pdfBuffer
+    ? [{
+        filename: `consentimiento_${treatmentType.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`,
+        content: pdfBuffer.toString('base64'),
+        contentType: 'application/pdf',
+      }]
+    : []
 
   if (adAttachment) {
     attachments.push({
