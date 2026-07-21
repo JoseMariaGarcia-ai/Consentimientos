@@ -905,7 +905,8 @@
   },
   "patientCombobox": {
     "placeholder": "Buscar por nombre, teléfono o DNI…",
-    "no_results": "Sin resultados"
+    "no_results": "Sin resultados",
+    "createNew": "Crear nuevo paciente"
   },
   "patientDetail": {
     "confirm_delete_clinical": "¿Eliminar esta historia clínica?",

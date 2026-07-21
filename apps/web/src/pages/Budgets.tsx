@@ -198,6 +198,7 @@ export default function Budgets() {
           onSave={handleSave}
           onDelete={modal.initial?.id ? () => deleteBudget(modal.initial.id) : undefined}
           onClose={() => setModal({ open: false })}
+          onPatientCreated={p => setPatients(ps => [...ps, p])}
         />
       )}
 

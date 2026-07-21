@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "이름, 전화번호 또는 신분증으로 검색…",
-    "no_results": "결과 없음"
+    "no_results": "결과 없음",
+    "createNew": "새 환자 만들기"
   },
   "patientDetail": {
     "confirm_delete_clinical": "이 진료 기록을 삭제하시겠습니까?",

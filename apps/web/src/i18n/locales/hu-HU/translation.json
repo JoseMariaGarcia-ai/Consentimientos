@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Keresés név, telefon vagy igazolvány alapján…",
-    "no_results": "Nincs találat"
+    "no_results": "Nincs találat",
+    "createNew": "Új páciens létrehozása"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Törli ezt a klinikai naplót?",

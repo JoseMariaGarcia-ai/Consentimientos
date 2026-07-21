@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BadgeEuro, X } from 'lucide-react'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { PatientForm } from '@/components/patients/PatientForm'
 import { BillingClientCombobox } from './BillingClientCombobox'
 import { BillingClientModal } from './BillingClientModal'
 import { api } from '@/lib/api'
@@ -12,18 +13,20 @@ interface Props {
   patients: any[]
   billingClients?: any[]
   onBillingClientCreated?: (client: any) => void
+  onPatientCreated?: (patient: any) => void
   onSave: (data: any) => Promise<void>
   onClose: () => void
 }
 
 const patientLabel = (p: any) => p.full_name ?? p.fullName ?? `${p.first_name ?? ''} ${p.last_name ?? ''}`.trim()
 
-export function InvoiceModal({ patients, billingClients = [], onBillingClientCreated = () => {}, onSave, onClose }: Props) {
+export function InvoiceModal({ patients, billingClients = [], onBillingClientCreated = () => {}, onPatientCreated, onSave, onClose }: Props) {
   const { t } = useTranslation()
   const [recipientMode, setRecipientMode] = useState<'paciente' | 'cliente'>('paciente')
   const [patientId, setPatientId] = useState('')
   const [billingClientId, setBillingClientId] = useState('')
   const [showNewClientModal, setShowNewClientModal] = useState(false)
+  const [showNewPatientModal, setShowNewPatientModal] = useState(false)
   const [taxpayerType, setTaxpayerType] = useState<'empresa' | 'autonomo'>('autonomo')
   const [recipientName, setRecipientName] = useState('')
   const [recipientNif, setRecipientNif] = useState('')
@@ -69,6 +72,18 @@ export function InvoiceModal({ patients, billingClients = [], onBillingClientCre
     } else {
       setRecipientName(''); setRecipientNif(''); setRecipientAddress('')
     }
+  }
+
+  const handleCreatePatient = async (data: any) => {
+    const created = await api.post('/patients', data)
+    onPatientCreated?.(created)
+    // No usar handlePatientSelect aquí: busca en la prop patients, que todavía
+    // no incluye a "created" porque el setPatients del padre (onPatientCreated)
+    // es asíncrono — mismo motivo que handleCreateClient más abajo.
+    setPatientId(created.id)
+    setRecipientName(patientLabel(created))
+    setRecipientNif(created.id_document ?? created.idDocument ?? '')
+    setRecipientAddress((created.address ?? '').split('|')[0] ?? '')
   }
 
   const handleCreateClient = async (data: any) => {
@@ -155,6 +170,7 @@ export function InvoiceModal({ patients, billingClients = [], onBillingClientCre
                 patients={patients}
                 value={patientId}
                 onChange={handlePatientSelect}
+                onCreateNew={() => setShowNewPatientModal(true)}
                 placeholder={t('invoiceModal.form.selectPatientOrManual')}
               />
               <p className="text-[11px] text-slate-400">{t('invoiceModal.form.manualHint')}</p>
@@ -305,6 +321,13 @@ export function InvoiceModal({ patients, billingClients = [], onBillingClientCre
         <BillingClientModal
           onSave={handleCreateClient}
           onClose={() => setShowNewClientModal(false)}
+        />
+      )}
+
+      {showNewPatientModal && (
+        <PatientForm
+          onSave={handleCreatePatient}
+          onClose={() => setShowNewPatientModal(false)}
         />
       )}
     </div>

@@ -368,6 +368,7 @@ export default function Invoicing() {
           patients={patients}
           billingClients={billingClients}
           onBillingClientCreated={client => setBillingClients(bcs => [...bcs, client])}
+          onPatientCreated={p => setPatients(ps => [...ps, p])}
           onSave={handleSave}
           onClose={() => setModalOpen(false)}
         />

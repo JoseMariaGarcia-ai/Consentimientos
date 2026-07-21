@@ -853,7 +853,8 @@
   },
   "patientCombobox": {
     "placeholder": "חיפוש לפי שם, טלפון או ת\"ז…",
-    "no_results": "אין תוצאות"
+    "no_results": "אין תוצאות",
+    "createNew": "יצירת מטופל חדש"
   },
   "patientDetail": {
     "confirm_delete_clinical": "למחוק רשומה רפואית זו?",

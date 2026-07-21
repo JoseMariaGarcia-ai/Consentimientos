@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Поиск по имени, телефону или паспорту…",
-    "no_results": "Нет результатов"
+    "no_results": "Нет результатов",
+    "createNew": "Создать нового пациента"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Удалить эту медицинскую карту?",

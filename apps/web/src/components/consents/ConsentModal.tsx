@@ -9,6 +9,7 @@ import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
 import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
 import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { PatientForm } from '@/components/patients/PatientForm'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -39,6 +40,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [saving, setSaving] = useState(false)
   const [translating, setTranslating] = useState(false)
   const [handoffError, setHandoffError] = useState('')
+  const [showNewPatientModal, setShowNewPatientModal] = useState(false)
 
   const selectedTemplate = templates.find(t => t.id === templateId)
   const templatesByCategory = useMemo(() => {
@@ -74,6 +76,17 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
       setTemplates(Array.isArray(t) ? t : [])
     })
   }, [])
+
+  const handleCreatePatient = async (data: any) => {
+    const created = await api.post('/patients', data)
+    setPatients(ps => [...ps, {
+      ...created,
+      firstName: created.firstName ?? created.first_name,
+      lastName:  created.lastName  ?? created.last_name,
+      fullName:  created.fullName  ?? created.full_name ?? [created.first_name, created.last_name].filter(Boolean).join(' '),
+    }])
+    setPatientId(created.id)
+  }
 
   const handleCreate = async () => {
     if (!patientId || !doctorId || !templateId) return
@@ -210,6 +223,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                   patients={patients}
                   value={patientId}
                   onChange={setPatientId}
+                  onCreateNew={() => setShowNewPatientModal(true)}
                   placeholder={t('consents.select_patient')}
                 />
               </div>
@@ -431,6 +445,13 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           )}
         </div>
       </div>
+
+      {showNewPatientModal && (
+        <PatientForm
+          onSave={handleCreatePatient}
+          onClose={() => setShowNewPatientModal(false)}
+        />
+      )}
     </div>
   )
 }

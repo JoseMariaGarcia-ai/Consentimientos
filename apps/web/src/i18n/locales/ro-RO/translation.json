@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Caută după nume, telefon sau CI…",
-    "no_results": "Niciun rezultat"
+    "no_results": "Niciun rezultat",
+    "createNew": "Creează pacient nou"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Ștergeți acest istoric medical?",

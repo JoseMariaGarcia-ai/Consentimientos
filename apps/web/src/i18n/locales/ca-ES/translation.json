@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Cerca per nom, telèfon o DNI…",
-    "no_results": "Sense resultats"
+    "no_results": "Sense resultats",
+    "createNew": "Crear nou pacient"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Vols eliminar aquesta història clínica?",

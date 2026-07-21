@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Rechercher par nom, téléphone ou pièce d’identité…",
-    "no_results": "Aucun résultat"
+    "no_results": "Aucun résultat",
+    "createNew": "Créer un nouveau patient"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Supprimer ce dossier clinique ?",

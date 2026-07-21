@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "İsim, telefon veya kimlikle ara…",
-    "no_results": "Sonuç yok"
+    "no_results": "Sonuç yok",
+    "createNew": "Yeni hasta oluştur"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Bu klinik kayıt silinsin mi?",

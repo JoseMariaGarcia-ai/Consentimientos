@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Search by name, phone or ID…",
-    "no_results": "No results"
+    "no_results": "No results",
+    "createNew": "Create new patient"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Delete this clinical record?",

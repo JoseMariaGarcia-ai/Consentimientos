@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "按姓名、电话或身份证搜索…",
-    "no_results": "无结果"
+    "no_results": "无结果",
+    "createNew": "创建新患者"
   },
   "patientDetail": {
     "confirm_delete_clinical": "确定要删除此病历吗？",

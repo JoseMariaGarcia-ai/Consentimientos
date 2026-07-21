@@ -2,15 +2,18 @@ import { useState } from 'react'
 import { Camera } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { PatientForm } from '@/components/patients/PatientForm'
+import { api } from '@/lib/api'
 
 interface Props {
   patients: any[]
   doctors?: any[]
   onSave: (data: { patient_id: string; doctor_id?: string; name: string; notes: string; session_date: string }) => Promise<void>
   onClose: () => void
+  onPatientCreated?: (patient: any) => void
 }
 
-export function NewSessionModal({ patients, doctors = [], onSave, onClose }: Props) {
+export function NewSessionModal({ patients, doctors = [], onSave, onClose, onPatientCreated }: Props) {
   const { t } = useTranslation()
   const now = new Date()
   const localISO = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16)
@@ -20,8 +23,15 @@ export function NewSessionModal({ patients, doctors = [], onSave, onClose }: Pro
   const [form, setForm] = useState({ patient_id: patients.length === 1 ? patients[0].id : '', doctor_id: '', name: '', notes: '', session_date: localISO })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [showNewPatientModal, setShowNewPatientModal] = useState(false)
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
+
+  const handleCreatePatient = async (data: any) => {
+    const created = await api.post('/patients', data)
+    onPatientCreated?.(created)
+    set('patient_id', created.id)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -61,6 +71,7 @@ export function NewSessionModal({ patients, doctors = [], onSave, onClose }: Pro
               patients={patients}
               value={form.patient_id}
               onChange={id => set('patient_id', id)}
+              onCreateNew={() => setShowNewPatientModal(true)}
               placeholder={t('newSessionModal.select_patient_placeholder')}
             />
           </div>
@@ -133,6 +144,13 @@ export function NewSessionModal({ patients, doctors = [], onSave, onClose }: Pro
           </div>
         </form>
       </div>
+
+      {showNewPatientModal && (
+        <PatientForm
+          onSave={handleCreatePatient}
+          onClose={() => setShowNewPatientModal(false)}
+        />
+      )}
     </div>
   )
 }

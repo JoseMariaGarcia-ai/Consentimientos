@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "नाम, फ़ोन या पहचान पत्र से खोजें…",
-    "no_results": "कोई परिणाम नहीं"
+    "no_results": "कोई परिणाम नहीं",
+    "createNew": "नया रोगी बनाएं"
   },
   "patientDetail": {
     "confirm_delete_clinical": "क्या इस क्लिनिकल रिकॉर्ड को हटाना है?",

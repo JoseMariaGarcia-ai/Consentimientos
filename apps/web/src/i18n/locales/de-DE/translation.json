@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Suche nach Name, Telefon oder Ausweis…",
-    "no_results": "Keine Ergebnisse"
+    "no_results": "Keine Ergebnisse",
+    "createNew": "Neuen Patienten anlegen"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Diese Krankenakte löschen?",

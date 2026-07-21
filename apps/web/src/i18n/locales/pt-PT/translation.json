@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Pesquisar por nome, telefone ou documento…",
-    "no_results": "Sem resultados"
+    "no_results": "Sem resultados",
+    "createNew": "Criar novo paciente"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Eliminar este historial clínico?",

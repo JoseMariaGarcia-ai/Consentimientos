@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Søk etter navn, telefon eller ID…",
-    "no_results": "Ingen resultater"
+    "no_results": "Ingen resultater",
+    "createNew": "Opprett ny pasient"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Slette denne kliniske journalen?",

@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Szukaj po imieniu, telefonie lub dowodzie…",
-    "no_results": "Brak wyników"
+    "no_results": "Brak wyników",
+    "createNew": "Utwórz nowego pacjenta"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Usunąć tę historię choroby?",

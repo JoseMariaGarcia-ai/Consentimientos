@@ -859,7 +859,8 @@
   },
   "patientCombobox": {
     "placeholder": "ابحث بالاسم أو الهاتف أو رقم الهوية…",
-    "no_results": "لا توجد نتائج"
+    "no_results": "لا توجد نتائج",
+    "createNew": "إنشاء مريض جديد"
   },
   "patientDetail": {
     "confirm_delete_clinical": "هل تريد حذف هذا السجل الطبي؟",

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, X } from 'lucide-react'
+import { Search, X, Plus } from 'lucide-react'
 
 interface PatientLike {
   id: string
@@ -26,6 +26,7 @@ interface PatientComboboxProps {
   patients: PatientLike[]
   value: string
   onChange: (id: string) => void
+  onCreateNew?: () => void
   placeholder?: string
   allowClear?: boolean
   error?: boolean
@@ -34,8 +35,10 @@ interface PatientComboboxProps {
 
 // Combina el desplegable clásico (lista completa al enfocar) con una
 // búsqueda por nombre, teléfono o DNI — sustituye a los <select> de
-// paciente usados en formularios y filtros de toda la app.
-export function PatientCombobox({ patients, value, onChange, placeholder, allowClear = true, error, className }: PatientComboboxProps) {
+// paciente usados en formularios y filtros de toda la app. Si se pasa
+// onCreateNew, añade una fila "Crear nuevo paciente" al principio de la
+// lista para poder darlo de alta sin salir del formulario actual.
+export function PatientCombobox({ patients, value, onChange, onCreateNew, placeholder, allowClear = true, error, className }: PatientComboboxProps) {
   const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
@@ -83,6 +86,15 @@ export function PatientCombobox({ patients, value, onChange, placeholder, allowC
       </div>
       {open && (
         <div className="absolute z-30 mt-1 w-full max-h-56 overflow-y-auto bg-white border border-slate-200 rounded-lg shadow-lg">
+          {onCreateNew && (
+            <button
+              type="button"
+              onClick={() => { setOpen(false); setQuery(''); onCreateNew() }}
+              className="w-full text-left px-3 py-2 text-sm text-blue-700 font-medium hover:bg-blue-50 flex items-center gap-1.5 border-b border-slate-100"
+            >
+              <Plus className="w-3.5 h-3.5" />{t('patientCombobox.createNew')}
+            </button>
+          )}
           {filtered.length === 0 ? (
             <div className="px-3 py-2 text-sm text-slate-400">{t('patientCombobox.no_results')}</div>
           ) : filtered.map(p => {

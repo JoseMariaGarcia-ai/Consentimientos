@@ -951,7 +951,8 @@
   },
   "patientCombobox": {
     "placeholder": "Cerca per nome, telefono o documento…",
-    "no_results": "Nessun risultato"
+    "no_results": "Nessun risultato",
+    "createNew": "Crea nuovo paziente"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Eliminare questa cartella clinica?",

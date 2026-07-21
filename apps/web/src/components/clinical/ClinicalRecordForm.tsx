@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import type { Doctor } from '@consentspro/shared-types'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { PatientForm } from '@/components/patients/PatientForm'
+import { api } from '@/lib/api'
 
 interface ClinicalRecordFormProps {
   initial?: any
@@ -10,11 +12,13 @@ interface ClinicalRecordFormProps {
   doctors: Doctor[]
   onSave: (data: any) => Promise<void>
   onClose: () => void
+  onPatientCreated?: (patient: any) => void
 }
 
-export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, onClose }: ClinicalRecordFormProps) {
+export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, onClose, onPatientCreated }: ClinicalRecordFormProps) {
   const { t } = useTranslation()
   const { trigger: triggerWelcome } = useWelcomeMedia()
+  const [showNewPatientModal, setShowNewPatientModal] = useState(false)
   const [form, setForm] = useState({
     patient_id:          initial.patient_id  ?? initial.patientId  ?? '',
     doctor_id:           initial.doctor_id   ?? initial.doctorId   ?? '',
@@ -39,6 +43,12 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
   const setRaw = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
   const setTriState = (k: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', v: boolean | null) =>
     setForm(f => ({ ...f, [k]: v }))
+
+  const handleCreatePatient = async (data: any) => {
+    const created = await api.post('/patients', data)
+    onPatientCreated?.(created)
+    setRaw('patient_id', created.id)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -105,6 +115,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
                 patients={patients}
                 value={form.patient_id}
                 onChange={id => setRaw('patient_id', id)}
+                onCreateNew={() => setShowNewPatientModal(true)}
                 placeholder={t('clinicalRecordForm.select_patient')}
               />
             </div>
@@ -182,6 +193,13 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
           </div>
         </form>
       </div>
+
+      {showNewPatientModal && (
+        <PatientForm
+          onSave={handleCreatePatient}
+          onClose={() => setShowNewPatientModal(false)}
+        />
+      )}
     </div>
   )
 }

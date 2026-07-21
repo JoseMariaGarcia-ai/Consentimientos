@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Αναζήτηση με όνομα, τηλέφωνο ή ταυτότητα…",
-    "no_results": "Κανένα αποτέλεσμα"
+    "no_results": "Κανένα αποτέλεσμα",
+    "createNew": "Δημιουργία νέου ασθενή"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Διαγραφή αυτού του κλινικού ιστορικού;",

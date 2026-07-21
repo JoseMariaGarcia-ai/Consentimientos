@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Hae nimellä, puhelimella tai henkilötunnuksella…",
-    "no_results": "Ei tuloksia"
+    "no_results": "Ei tuloksia",
+    "createNew": "Luo uusi potilas"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Poistetaanko tämä potilaskertomus?",

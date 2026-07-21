@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Tìm theo tên, số điện thoại hoặc CMND…",
-    "no_results": "Không có kết quả"
+    "no_results": "Không có kết quả",
+    "createNew": "Tạo bệnh nhân mới"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Xóa hồ sơ bệnh án này?",

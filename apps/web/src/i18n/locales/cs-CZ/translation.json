@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Hledat podle jména, telefonu nebo OP…",
-    "no_results": "Žádné výsledky"
+    "no_results": "Žádné výsledky",
+    "createNew": "Vytvořit nového pacienta"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Smazat tento klinický záznam?",

@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Zoek op naam, telefoon of ID…",
-    "no_results": "Geen resultaten"
+    "no_results": "Geen resultaten",
+    "createNew": "Nieuwe patiënt aanmaken"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Dit klinisch dossier verwijderen?",

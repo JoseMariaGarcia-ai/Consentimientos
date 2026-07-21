@@ -124,6 +124,12 @@ export default function PhotoSessions() {
           doctors={doctors}
           onSave={handleCreate}
           onClose={() => setNewOpen(false)}
+          onPatientCreated={p => setPatients(ps => [...ps, {
+            ...p,
+            firstName: p.first_name ?? p.firstName,
+            lastName:  p.last_name  ?? p.lastName,
+            fullName:  p.full_name  ?? p.fullName ?? [p.first_name, p.last_name].filter(Boolean).join(' '),
+          }])}
         />
       )}
     </div>

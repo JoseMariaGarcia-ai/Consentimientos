@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Receipt, X, Plus, Trash2 } from 'lucide-react'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
+import { PatientForm } from '@/components/patients/PatientForm'
+import { api } from '@/lib/api'
 
 const MANUAL = '__manual__'
 
@@ -20,6 +22,7 @@ interface Props {
   onSave: (data: any) => Promise<void>
   onDelete?: () => Promise<void>
   onClose: () => void
+  onPatientCreated?: (patient: any) => void
 }
 
 function emptyItem(): BudgetItem {
@@ -31,7 +34,7 @@ function toDateInputValue(iso?: string) {
   return String(iso).slice(0, 10)
 }
 
-export function BudgetModal({ initial, patients, treatments, onSave, onDelete, onClose }: Props) {
+export function BudgetModal({ initial, patients, treatments, onSave, onDelete, onClose, onPatientCreated }: Props) {
   const { t } = useTranslation()
   const isEdit = !!initial?.id
   const [patientId, setPatientId] = useState(initial?.patient_id ?? '')
@@ -40,6 +43,13 @@ export function BudgetModal({ initial, patients, treatments, onSave, onDelete, o
   const [validUntil, setValidUntil] = useState(toDateInputValue(initial?.valid_until))
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [showNewPatientModal, setShowNewPatientModal] = useState(false)
+
+  const handleCreatePatient = async (data: any) => {
+    const created = await api.post('/patients', data)
+    onPatientCreated?.(created)
+    setPatientId(created.id)
+  }
 
   const total = items.reduce((sum, it) => sum + (Number(it.price) || 0), 0)
 
@@ -101,6 +111,7 @@ export function BudgetModal({ initial, patients, treatments, onSave, onDelete, o
               patients={patients}
               value={patientId}
               onChange={setPatientId}
+              onCreateNew={() => setShowNewPatientModal(true)}
               placeholder={t('budgetModal.form.select_patient')}
             />
           </div>
@@ -210,6 +221,13 @@ export function BudgetModal({ initial, patients, treatments, onSave, onDelete, o
           </div>
         </div>
       </div>
+
+      {showNewPatientModal && (
+        <PatientForm
+          onSave={handleCreatePatient}
+          onClose={() => setShowNewPatientModal(false)}
+        />
+      )}
     </div>
   )
 }

@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "Пошук за іменем, телефоном або документом…",
-    "no_results": "Немає результатів"
+    "no_results": "Немає результатів",
+    "createNew": "Створити нового пацієнта"
   },
   "patientDetail": {
     "confirm_delete_clinical": "Видалити цю клінічну карту?",

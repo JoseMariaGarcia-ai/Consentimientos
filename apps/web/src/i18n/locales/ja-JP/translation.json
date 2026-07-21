@@ -897,7 +897,8 @@
   },
   "patientCombobox": {
     "placeholder": "名前、電話番号、身分証明書で検索…",
-    "no_results": "結果なし"
+    "no_results": "結果なし",
+    "createNew": "新しい患者を作成"
   },
   "patientDetail": {
     "confirm_delete_clinical": "このカルテを削除しますか？",
