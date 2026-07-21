@@ -359,12 +359,44 @@ async function provisionSignupClinic(sub: Stripe.Subscription, planId: string): 
     }
     const email = customer.email.toLowerCase()
 
-    // Si ya existe un usuario con ese email (p. ej. alguien ya registrado
-    // que compró desde la web pública por error), reutiliza su clínica en
-    // vez de crear una nueva.
-    const existingUser = await queryOne<{ clinic_id: string | null }>(
-      'SELECT clinic_id FROM app_users WHERE lower(email) = $1', [email]
+    // Si ya existe un usuario "clinica" con ese email (p. ej. alguien ya
+    // registrado que compró desde la web pública por error), reutiliza su
+    // clínica en vez de crear una nueva. Si el email ya existe pero con OTRO
+    // rol (p. ej. es paciente o doctor de una clínica distinta), NUNCA se
+    // reutiliza esa clínica — eso le daría a un desconocido acceso de
+    // "clinica" (prácticamente admin) a los pacientes e historiales de una
+    // clínica que no es la suya. En ese caso se aborta el alta automática y
+    // se avisa para revisarlo a mano (el email es único en toda la
+    // plataforma, así que esta persona no puede autoprovisionarse una
+    // clínica nueva con ese mismo email).
+    const existingUser = await queryOne<{ clinic_id: string | null; role: string }>(
+      'SELECT clinic_id, role FROM app_users WHERE lower(email) = $1', [email]
     )
+
+    if (existingUser && existingUser.role !== 'clinica') {
+      console.error(
+        `[billing/webhook] alta automática abortada: el email ${email} ya existe con rol "${existingUser.role}" ` +
+        `en otra clínica (${existingUser.clinic_id}) — no se reutiliza para evitar fuga de datos entre clínicas. Suscripción: ${sub.id}`
+      )
+      const alertTo = process.env.BILLING_NOTIFICATION_EMAIL
+      if (alertTo) {
+        try {
+          const { Resend } = await import('resend')
+          const resend = new Resend(process.env.RESEND_API_KEY)
+          await resend.emails.send({
+            from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
+            to: alertTo,
+            subject: 'ConsentsPro — Alta automática de clínica bloqueada (revisar a mano)',
+            html: `<p>Se ha bloqueado el alta automática de una clínica nueva porque el email <strong>${email}</strong> ya existe en la plataforma con el rol "<strong>${existingUser.role}</strong>" en otra clínica.</p>
+                   <p>Suscripción de Stripe: ${sub.id}</p>
+                   <p>Hay que resolverlo a mano (p. ej. crear la clínica con otro email de contacto, o confirmar con el cliente qué cuenta quiere usar) antes de darle acceso.</p>`,
+          })
+        } catch (err: any) {
+          console.error('[billing/webhook] no se pudo enviar el aviso de conflicto:', err.message)
+        }
+      }
+      return null
+    }
 
     let clinicId: string
     let isNewClinic = false
