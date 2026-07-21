@@ -2285,5 +2285,9 @@
       "reasonRequired": "Anledning till återkallelse krävs",
       "revokeFailed": "Kunde inte återkalla samtycket"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Sök efter kategori eller namn…",
+    "no_results": "Inga resultat"
   }
 }

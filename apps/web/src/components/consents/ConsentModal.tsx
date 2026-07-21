@@ -10,6 +10,7 @@ import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
 import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { PatientForm } from '@/components/patients/PatientForm'
+import { TreatmentCombobox } from '@/components/consents/TreatmentCombobox'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -242,18 +243,12 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('consents.treatment')}</label>
-                <select
+                <TreatmentCombobox
+                  templatesByCategory={templatesByCategory}
                   value={templateId}
-                  onChange={e => setTemplateId(e.target.value)}
-                  className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">{t('consents.select_treatment')}</option>
-                  {templatesByCategory.map(([category, items]) => (
-                    <optgroup key={category} label={t(`templates.categories.${category}`)}>
-                      {items.map(tmpl => <option key={tmpl.id} value={tmpl.id}>{tmpl.treatmentType}</option>)}
-                    </optgroup>
-                  ))}
-                </select>
+                  onChange={setTemplateId}
+                  placeholder={t('consents.select_treatment')}
+                />
               </div>
 
               {selectedTemplate && (

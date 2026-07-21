@@ -2339,5 +2339,9 @@
       "reasonRequired": "Il motivo della revoca è obbligatorio",
       "revokeFailed": "Impossibile revocare il consenso"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Cerca per categoria o nome…",
+    "no_results": "Nessun risultato"
   }
 }

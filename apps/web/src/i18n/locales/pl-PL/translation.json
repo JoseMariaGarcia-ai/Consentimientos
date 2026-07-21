@@ -2285,5 +2285,9 @@
       "reasonRequired": "Powód odwołania jest wymagany",
       "revokeFailed": "Nie udało się odwołać zgody"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Szukaj według kategorii lub nazwy…",
+    "no_results": "Brak wyników"
   }
 }

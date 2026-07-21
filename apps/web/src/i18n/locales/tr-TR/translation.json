@@ -2285,5 +2285,9 @@
       "reasonRequired": "İptal nedeni zorunludur",
       "revokeFailed": "Onay iptal edilemedi"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Kategoriye veya isme göre ara…",
+    "no_results": "Sonuç yok"
   }
 }

@@ -2285,5 +2285,9 @@
       "reasonRequired": "取り消しの理由は必須です",
       "revokeFailed": "同意を取り消せませんでした"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "カテゴリまたは名前で検索…",
+    "no_results": "該当なし"
   }
 }

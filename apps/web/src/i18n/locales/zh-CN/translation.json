@@ -2285,5 +2285,9 @@
       "reasonRequired": "必须填写撤销原因",
       "revokeFailed": "无法撤销同意书"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "按类别或名称搜索…",
+    "no_results": "无结果"
   }
 }

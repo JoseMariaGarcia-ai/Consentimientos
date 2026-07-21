@@ -2285,5 +2285,9 @@
       "reasonRequired": "The reason for revocation is required",
       "revokeFailed": "Could not revoke the consent"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Search by category or name…",
+    "no_results": "No results"
   }
 }

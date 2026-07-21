@@ -2285,5 +2285,9 @@
       "reasonRequired": "Důvod odvolání je povinný",
       "revokeFailed": "Souhlas se nepodařilo odvolat"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Hledat podle kategorie nebo názvu…",
+    "no_results": "Žádné výsledky"
   }
 }

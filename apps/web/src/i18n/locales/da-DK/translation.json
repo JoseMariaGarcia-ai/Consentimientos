@@ -2285,5 +2285,9 @@
       "reasonRequired": "Årsag til tilbagekaldelse er påkrævet",
       "revokeFailed": "Kunne ikke tilbagekalde samtykket"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Søg efter kategori eller navn…",
+    "no_results": "Ingen resultater"
   }
 }

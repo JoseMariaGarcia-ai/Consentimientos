@@ -2285,5 +2285,9 @@
       "reasonRequired": "Lý do thu hồi là bắt buộc",
       "revokeFailed": "Không thể thu hồi sự đồng ý"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Tìm theo danh mục hoặc tên…",
+    "no_results": "Không có kết quả"
   }
 }

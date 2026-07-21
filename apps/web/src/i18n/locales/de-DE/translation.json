@@ -2285,5 +2285,9 @@
       "reasonRequired": "Der Grund des Widerrufs ist erforderlich",
       "revokeFailed": "Die Einwilligung konnte nicht widerrufen werden"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Nach Kategorie oder Namen suchen…",
+    "no_results": "Keine Ergebnisse"
   }
 }

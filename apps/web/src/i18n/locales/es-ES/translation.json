@@ -908,6 +908,10 @@
     "no_results": "Sin resultados",
     "createNew": "Crear nuevo paciente"
   },
+  "treatmentCombobox": {
+    "placeholder": "Buscar por categoría o nombre…",
+    "no_results": "Sin resultados"
+  },
   "patientDetail": {
     "confirm_delete_clinical": "¿Eliminar esta historia clínica?",
     "confirm_delete_session": "¿Eliminar esta sesión y todas sus fotos?",

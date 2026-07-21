@@ -2285,5 +2285,9 @@
       "reasonRequired": "O motivo da revogação é obrigatório",
       "revokeFailed": "Não foi possível revogar o consentimento"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Pesquisar por categoria ou nome…",
+    "no_results": "Sem resultados"
   }
 }

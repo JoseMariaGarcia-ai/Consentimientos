@@ -2285,5 +2285,9 @@
       "reasonRequired": "De reden voor intrekking is verplicht",
       "revokeFailed": "De toestemming kon niet worden ingetrokken"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Zoeken op categorie of naam…",
+    "no_results": "Geen resultaten"
   }
 }

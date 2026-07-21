@@ -2247,5 +2247,9 @@
       "reasonRequired": "سبب الإلغاء مطلوب",
       "revokeFailed": "تعذر إلغاء الموافقة"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "بحث حسب الفئة أو الاسم…",
+    "no_results": "لا توجد نتائج"
   }
 }

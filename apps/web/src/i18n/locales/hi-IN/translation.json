@@ -2285,5 +2285,9 @@
       "reasonRequired": "रद्द करने का कारण आवश्यक है",
       "revokeFailed": "सहमति रद्द नहीं की जा सकी"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "श्रेणी या नाम से खोजें…",
+    "no_results": "कोई परिणाम नहीं"
   }
 }

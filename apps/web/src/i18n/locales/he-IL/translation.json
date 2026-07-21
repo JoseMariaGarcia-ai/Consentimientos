@@ -2241,5 +2241,9 @@
       "reasonRequired": "יש לציין את סיבת הביטול",
       "revokeFailed": "לא ניתן היה לבטל את ההסכמה"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "חיפוש לפי קטגוריה או שם…",
+    "no_results": "אין תוצאות"
   }
 }

@@ -2285,5 +2285,9 @@
       "reasonRequired": "El motiu de la revocació és obligatori",
       "revokeFailed": "No s'ha pogut revocar el consentiment"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Cerca per categoria o nom…",
+    "no_results": "Sense resultats"
   }
 }

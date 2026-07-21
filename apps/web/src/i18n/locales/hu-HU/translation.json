@@ -2285,5 +2285,9 @@
       "reasonRequired": "A visszavonás oka kötelező",
       "revokeFailed": "A hozzájárulást nem sikerült visszavonni"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Keresés kategória vagy név szerint…",
+    "no_results": "Nincs találat"
   }
 }

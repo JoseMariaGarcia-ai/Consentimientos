@@ -2285,5 +2285,9 @@
       "reasonRequired": "Peruutuksen syy on pakollinen",
       "revokeFailed": "Suostumusta ei voitu peruuttaa"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Hae luokan tai nimen mukaan…",
+    "no_results": "Ei tuloksia"
   }
 }

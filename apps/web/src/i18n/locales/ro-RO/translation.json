@@ -2285,5 +2285,9 @@
       "reasonRequired": "Motivul revocării este obligatoriu",
       "revokeFailed": "Nu s-a putut revoca consimțământul"
     }
+  },
+  "treatmentCombobox": {
+    "placeholder": "Caută după categorie sau nume…",
+    "no_results": "Niciun rezultat"
   }
 }
