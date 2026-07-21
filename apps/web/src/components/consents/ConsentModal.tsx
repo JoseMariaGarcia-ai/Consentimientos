@@ -11,6 +11,7 @@ import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageA
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { PatientForm } from '@/components/patients/PatientForm'
 import { TreatmentCombobox } from '@/components/consents/TreatmentCombobox'
+import { generateAndEmailConsentPdf } from '@/lib/consentPdfUpload'
 
 interface ConsentModalProps {
   initialPatientId?: string
@@ -146,6 +147,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
           clearInterval(interval)
           setStep('done')
           triggerWelcome('consent')
+          generateAndEmailConsentPdf(consentId)
           onSaved()
         }
       } catch {
@@ -177,6 +179,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
       })
       setStep('done')
       triggerWelcome('consent')
+      generateAndEmailConsentPdf(consentId)
       onSaved()
     } finally {
       setSaving(false)

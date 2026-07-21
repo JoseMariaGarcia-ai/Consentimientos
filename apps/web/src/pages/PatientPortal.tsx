@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import { useLanguageStore } from '@/store/languageStore'
+import { generateAndEmailConsentPdf } from '@/lib/consentPdfUpload'
 
 const API = import.meta.env.VITE_API_URL ?? ''
 type PortalStep = 'loading' | 'auth' | 'review' | 'sign' | 'done' | 'error'
@@ -15,6 +16,7 @@ export default function PatientPortal() {
   const [consent, setConsent] = useState<any>(null)
   const [accepted, setAccepted] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [portalToken, setPortalToken] = useState('')
 
   const consentId = window.location.pathname.split('/portal/')[1]
 
@@ -41,7 +43,7 @@ export default function PatientPortal() {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await r.json()
-      if (r.ok) { setConsent(data); setStep('review') }
+      if (r.ok) { setConsent(data); setPortalToken(token); setStep('review') }
       else setStep('error')
     } catch { setStep('error') }
   }
@@ -64,12 +66,14 @@ export default function PatientPortal() {
       const encoder = new TextEncoder()
       const hashBuffer = await crypto.subtle.digest('SHA-256', encoder.encode(consent.id + dataUrl))
       const hash = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('')
-      await fetch(`${API}/signature/${consent.id}`, {
+      const r = await fetch(`${API}/signature/${consent.id}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${portalToken}` },
         body: JSON.stringify({ signature_data_url: dataUrl, biometric_json: points, document_hash: hash, client_timestamp: new Date().toISOString() }),
       })
+      if (!r.ok) { setStep('error'); return }
       setStep('done')
+      generateAndEmailConsentPdf(consent.id, portalToken)
     } finally { setSaving(false) }
   }
 

@@ -8,7 +8,7 @@ function emailHtml(opts: {
   revokedAt: string
   patientUrl: string
 }): string {
-  const revokedDate = new Date(opts.revokedAt).toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })
+  const revokedDate = new Date(opts.revokedAt).toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short', timeZone: 'Europe/Madrid' })
   return `<!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">

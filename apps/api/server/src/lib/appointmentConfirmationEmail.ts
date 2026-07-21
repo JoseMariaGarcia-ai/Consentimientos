@@ -7,11 +7,14 @@ interface AppointmentConfirmationData {
   kind?: 'created' | 'rescheduled'
 }
 
+// El servidor corre en UTC (Railway) — sin timeZone explícito, estas
+// funciones mostrarían la hora UTC en vez de la hora real de la cita en
+// España, desplazada 1-2h según horario de invierno/verano.
 function fmtDate(d: Date) {
-  return d.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })
+  return d.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric', timeZone: 'Europe/Madrid' })
 }
 function fmtTime(d: Date) {
-  return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
+  return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' })
 }
 function fmtMoney(n: number) {
   return (Number(n) || 0).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'

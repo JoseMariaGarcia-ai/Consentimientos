@@ -65,7 +65,7 @@ publicRouter.get('/cancel', async (req, res) => {
     }
 
     const dateStr = sub.current_period_end
-      ? new Date(sub.current_period_end).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+      ? new Date(sub.current_period_end).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Madrid' })
       : 'la fecha de renovación'
 
     return res.send(page(

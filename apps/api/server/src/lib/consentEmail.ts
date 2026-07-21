@@ -171,7 +171,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
                   <p style="margin:0 0 3px;font-size:15px;font-weight:700;color:#0D1B2E">${treatmentType}</p>
                   <p style="margin:0;font-size:12px;color:#64748b">
                     ${consent.signed_at
-                      ? `Firmado el ${new Date(consent.signed_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}`
+                      ? `Firmado el ${new Date(consent.signed_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric', timeZone: 'Europe/Madrid' })}`
                       : 'Pendiente de firma'}
                   </p>
                 </td>
