@@ -27,11 +27,18 @@ FROM nginx:alpine
 
 COPY --from=builder /app/apps/web/dist /usr/share/nginx/html
 
-# SPA fallback: all routes → index.html
+# SPA fallback: all routes → index.html. index.html itself is never cached
+# by the browser — its filename never changes between deploys (unlike the
+# hashed JS/CSS it references), so a cached copy from before a deploy would
+# keep pointing at asset files that no longer exist, leaving the app stuck
+# on a blank page until the user manually hard-refreshes.
 RUN printf 'server {\n\
   listen 80;\n\
   root /usr/share/nginx/html;\n\
   index index.html;\n\
+  location = /index.html {\n\
+    add_header Cache-Control "no-cache, no-store, must-revalidate";\n\
+  }\n\
   location / {\n\
     try_files $uri $uri/ /index.html;\n\
   }\n\
