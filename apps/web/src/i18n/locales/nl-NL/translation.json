@@ -820,7 +820,11 @@
     "legal_name": "Fiscale naam / bedrijfsnaam",
     "nika_number": "NIKA-nummer",
     "save_success": "Succesvol opgeslagen",
-    "directions_url": "URL routebeschrijving"
+    "directions_url": "URL routebeschrijving",
+    "city": "Plaats",
+    "province": "Provincie",
+    "province_placeholder": "— Provincie selecteren —",
+    "province_hint": "Wordt gebruikt zodat patiënten die via WhatsApp vanaf een nieuw nummer schrijven jouw kliniek op provincie kunnen vinden."
   },
   "language": {
     "select": "Taal",

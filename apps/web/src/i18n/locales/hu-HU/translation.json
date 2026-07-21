@@ -820,7 +820,11 @@
     "legal_name": "Cégnév / jogi név",
     "nika_number": "NIKA-szám",
     "save_success": "Sikeresen mentve",
-    "directions_url": "Útvonal URL"
+    "directions_url": "Útvonal URL",
+    "city": "Település",
+    "province": "Tartomány",
+    "province_placeholder": "— Válassz tartományt —",
+    "province_hint": "Arra szolgál, hogy az új számról WhatsAppon író páciensek tartomány szerint megtalálják a klinikádat."
   },
   "language": {
     "select": "Nyelv",

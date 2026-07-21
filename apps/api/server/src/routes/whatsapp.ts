@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { hasPositiveBalance, chargeCredit } from '../lib/creditService'
 import { generateAiReply, type ChatMessage } from '../lib/aiProviders'
-import { resolveIncomingConversation, generateDirectLink } from '../lib/whatsappRouting'
+import { resolveIncomingConversation, generateDirectLink, type InteractiveListPayload } from '../lib/whatsappRouting'
 
 const router = Router()
 export const webhookRouter = Router()
@@ -155,6 +155,33 @@ async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
     })
   } catch (err: any) {
     console.error('[whatsapp] fallo enviando pregunta de aclaración de clínica:', err.message)
+  }
+}
+
+// Envía una lista interactiva (selector de provincia / clínica) siguiendo
+// el formato estándar de mensajes interactivos de WhatsApp Cloud API, que
+// YCloud replica — ⚠️ no verificado todavía contra tráfico real de YCloud
+// (su documentación no ha podido consultarse desde este entorno); revisar
+// el primer envío real en logs por si el formato exacto difiriera.
+async function sendInteractiveListViaYCloud(apiKey: string, phone: string, payload: InteractiveListPayload) {
+  try {
+    const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
+      method: 'POST',
+      headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: process.env.YCLOUD_WA_NUMBER ?? undefined,
+        to: phone,
+        type: 'interactive',
+        interactive: {
+          type: 'list',
+          body: { text: payload.bodyText },
+          action: { button: payload.buttonText, sections: payload.sections },
+        },
+      }),
+    })
+    if (!resp.ok) console.error('[whatsapp] YCloud rechazó la lista interactiva:', await resp.text().catch(() => resp.statusText))
+  } catch (err: any) {
+    console.error('[whatsapp] fallo enviando lista interactiva:', err.message)
   }
 }
 
@@ -328,7 +355,13 @@ webhookRouter.post('/', async (req, res) => {
   const payload = req.body
   const msg = payload?.whatsappInboundMessage ?? payload
   const phone = msg?.from
-  const text = msg?.text?.body ?? msg?.body ?? ''
+  // Respuesta a una lista interactiva (provincia/clínica) — llega como
+  // interactive.list_reply.id, no como texto normal. Formato asumido de
+  // WhatsApp Cloud API (ver nota en sendInteractiveListViaYCloud).
+  const interactiveReplyId: string | null = msg?.interactive?.list_reply?.id ?? null
+  // Si es una respuesta de lista, se guarda el título elegido como "texto"
+  // del mensaje (lo que ve el personal en la conversación), no el id interno.
+  const text = msg?.text?.body ?? msg?.interactive?.list_reply?.title ?? msg?.body ?? ''
 
   // Se responde ya a YCloud (evita reintentos por timeout); el resto se
   // procesa después, sin bloquear la respuesta al webhook.
@@ -342,8 +375,12 @@ webhookRouter.post('/', async (req, res) => {
       return
     }
 
-    const route = await resolveIncomingConversation(phone, text)
+    const route = await resolveIncomingConversation(phone, text, interactiveReplyId)
 
+    if (route.clarificationInteractive) {
+      await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
+      return
+    }
     if (route.clarificationMessage) {
       // Ambigüedad (Caso A sin coincidencia, o Caso C tras >90 días sin
       // coincidencia): se pregunta directamente, SIN pasar por el agente de

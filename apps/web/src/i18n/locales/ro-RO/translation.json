@@ -820,7 +820,11 @@
     "legal_name": "Denumire fiscală / rațiune socială",
     "nika_number": "Număr NIKA",
     "save_success": "Salvat cu succes",
-    "directions_url": "URL indicații de acces"
+    "directions_url": "URL indicații de acces",
+    "city": "Localitate",
+    "province": "Provincie",
+    "province_placeholder": "— Selectează provincia —",
+    "province_hint": "Se folosește pentru ca pacienții care scriu pe WhatsApp de la un număr nou să-ți poată găsi clinica după provincie."
   },
   "language": {
     "select": "Limbă",

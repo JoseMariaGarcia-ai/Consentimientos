@@ -776,7 +776,11 @@
     "legal_name": "שם משפטי / רשום",
     "nika_number": "מספר עוסק מורשה",
     "save_success": "נשמר בהצלחה",
-    "directions_url": "כתובת URL להגעה"
+    "directions_url": "כתובת URL להגעה",
+    "city": "עיר",
+    "province": "מחוז",
+    "province_placeholder": "— בחר מחוז —",
+    "province_hint": "משמש כדי שמטופלים הכותבים בוואטסאפ ממספר חדש יוכלו למצוא את המרפאה שלך לפי מחוז."
   },
   "language": {
     "select": "שפה",

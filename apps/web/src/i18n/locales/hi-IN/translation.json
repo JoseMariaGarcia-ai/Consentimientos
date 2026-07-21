@@ -820,7 +820,11 @@
     "legal_name": "कानूनी नाम / फर्म का नाम",
     "nika_number": "NIKA नंबर",
     "save_success": "सफलतापूर्वक सहेजा गया",
-    "directions_url": "दिशा-निर्देश URL"
+    "directions_url": "दिशा-निर्देश URL",
+    "city": "शहर",
+    "province": "प्रांत",
+    "province_placeholder": "— प्रांत चुनें —",
+    "province_hint": "इसका उपयोग तब होता है जब नए नंबर से व्हाट्सएप पर लिखने वाले मरीज़ आपकी क्लिनिक को प्रांत के अनुसार ढूंढ सकें।"
   },
   "language": {
     "select": "भाषा",

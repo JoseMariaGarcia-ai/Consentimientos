@@ -820,7 +820,11 @@
     "legal_name": "Legal / registered name",
     "nika_number": "NIKA number",
     "save_success": "Saved successfully",
-    "directions_url": "Directions URL"
+    "directions_url": "Directions URL",
+    "city": "Town/City",
+    "province": "Province",
+    "province_placeholder": "— Select province —",
+    "province_hint": "Used so patients messaging on WhatsApp from a new number can find your clinic by province."
   },
   "language": {
     "select": "Language",

@@ -820,7 +820,11 @@
     "legal_name": "Právní název / obchodní firma",
     "nika_number": "Číslo NIKA",
     "save_success": "Úspěšně uloženo",
-    "directions_url": "URL trasy"
+    "directions_url": "URL trasy",
+    "city": "Obec",
+    "province": "Provincie",
+    "province_placeholder": "— Vybrat provincii —",
+    "province_hint": "Používá se, aby pacienti, kteří píší přes WhatsApp z nového čísla, mohli najít vaši kliniku podle provincie."
   },
   "language": {
     "select": "Jazyk",

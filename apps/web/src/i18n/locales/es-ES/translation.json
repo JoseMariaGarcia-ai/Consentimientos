@@ -826,6 +826,10 @@
     "legal_name": "Nombre fiscal / razón social",
     "nika_number": "Número NIKA",
     "directions_url": "URL de cómo llegar",
+    "city": "Localidad",
+    "province": "Provincia",
+    "province_placeholder": "— Seleccionar provincia —",
+    "province_hint": "Se usa para que los pacientes que escriban por WhatsApp desde un número nuevo puedan encontrar tu clínica por provincia.",
     "save_success": "Guardado correctamente"
   },
   "language": {

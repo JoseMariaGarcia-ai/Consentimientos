@@ -874,7 +874,11 @@
     "legal_name": "Ragione sociale",
     "nika_number": "Numero NIKA",
     "save_success": "Salvato correttamente",
-    "directions_url": "URL indicazioni stradali"
+    "directions_url": "URL indicazioni stradali",
+    "city": "Località",
+    "province": "Provincia",
+    "province_placeholder": "— Seleziona provincia —",
+    "province_hint": "Serve affinché i pazienti che scrivono su WhatsApp da un numero nuovo possano trovare la tua clinica per provincia."
   },
   "language": {
     "select": "Lingua",

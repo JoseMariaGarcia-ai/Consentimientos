@@ -820,7 +820,11 @@
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Gemt korrekt",
-    "directions_url": "URL til vejbeskrivelse"
+    "directions_url": "URL til vejbeskrivelse",
+    "city": "By",
+    "province": "Provins",
+    "province_placeholder": "— Vælg provins —",
+    "province_hint": "Bruges så patienter, der skriver via WhatsApp fra et nyt nummer, kan finde din klinik efter provins."
   },
   "language": {
     "select": "Sprog",

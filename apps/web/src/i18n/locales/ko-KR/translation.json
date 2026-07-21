@@ -820,7 +820,11 @@
     "legal_name": "법인명 / 상호",
     "nika_number": "NIKA 번호",
     "save_success": "성공적으로 저장되었습니다",
-    "directions_url": "오시는 길 URL"
+    "directions_url": "오시는 길 URL",
+    "city": "지역",
+    "province": "주(도)",
+    "province_placeholder": "— 주(도) 선택 —",
+    "province_hint": "새 번호로 WhatsApp에 메시지를 보내는 환자가 지역별로 병원을 찾을 수 있도록 사용됩니다."
   },
   "language": {
     "select": "언어",

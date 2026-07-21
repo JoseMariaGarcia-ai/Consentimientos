@@ -820,7 +820,11 @@
     "legal_name": "Nazwa prawna / firma",
     "nika_number": "Numer NIKA",
     "save_success": "Zapisano pomyślnie",
-    "directions_url": "URL dojazdu"
+    "directions_url": "URL dojazdu",
+    "city": "Miejscowość",
+    "province": "Prowincja",
+    "province_placeholder": "— Wybierz prowincję —",
+    "province_hint": "Używane, aby pacjenci piszący na WhatsApp z nowego numeru mogli znaleźć Twoją klinikę według prowincji."
   },
   "language": {
     "select": "Język",

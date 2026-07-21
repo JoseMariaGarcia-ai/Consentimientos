@@ -820,7 +820,11 @@
     "legal_name": "Juridisk navn / firmanavn",
     "nika_number": "NIKA-nummer",
     "save_success": "Lagret",
-    "directions_url": "URL for veibeskrivelse"
+    "directions_url": "URL for veibeskrivelse",
+    "city": "By",
+    "province": "Provins",
+    "province_placeholder": "— Velg provins —",
+    "province_hint": "Brukes slik at pasienter som skriver via WhatsApp fra et nytt nummer kan finne klinikken din etter provins."
   },
   "language": {
     "select": "Språk",

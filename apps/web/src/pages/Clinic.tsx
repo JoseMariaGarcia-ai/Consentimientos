@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Save, Building2 } from 'lucide-react'
 import { api } from '@/lib/api'
 import type { Clinic } from '@consentspro/shared-types'
+import { PROVINCIAS_ES } from '@/constants/provinces'
 
 function Field({ label, value, onChange, type = 'text' }: { label: string; value: string; onChange: (v: string) => void; type?: string }) {
   return (
@@ -24,6 +25,7 @@ export default function ClinicPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const provinceLabels = t('patients.form.provinces', { returnObjects: true }) as string[]
 
   useEffect(() => {
     api.get('/clinic').then(data => {
@@ -66,6 +68,21 @@ export default function ClinicPage() {
           <Field label={t('clinic.legal_name')} value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />
         </div>
         <Field label={t('clinic.address')} value={(form.address as string) ?? ''} onChange={v => set('address', v)} />
+        <div className="grid grid-cols-2 gap-4">
+          <Field label={t('clinic.city')} value={(form as any).city ?? ''} onChange={v => set('city', v)} />
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('clinic.province')}</label>
+            <select
+              value={(form as any).province ?? ''}
+              onChange={e => setForm(f => ({ ...f, province: e.target.value }))}
+              className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+            >
+              <option value="">{t('clinic.province_placeholder')}</option>
+              {PROVINCIAS_ES.map((p, i) => <option key={p} value={p}>{provinceLabels[i] ?? p}</option>)}
+            </select>
+          </div>
+        </div>
+        <p className="text-xs text-slate-400 -mt-2">{t('clinic.province_hint')}</p>
         <Field label={t('clinic.directions_url')} value={(form as any).directions_url ?? ''} onChange={v => set('directions_url', v)} type="url" />
         <div className="grid grid-cols-2 gap-4">
           <Field label={t('clinic.phone')} value={(form.phone as string) ?? ''} onChange={v => set('phone', v)} type="tel" />

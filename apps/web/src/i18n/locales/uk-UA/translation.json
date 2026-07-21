@@ -820,7 +820,11 @@
     "legal_name": "Юридична назва",
     "nika_number": "Номер НІКА",
     "save_success": "Успішно збережено",
-    "directions_url": "URL маршруту проїзду"
+    "directions_url": "URL маршруту проїзду",
+    "city": "Населений пункт",
+    "province": "Провінція",
+    "province_placeholder": "— Обрати провінцію —",
+    "province_hint": "Використовується, щоб пацієнти, які пишуть у WhatsApp з нового номера, могли знайти вашу клініку за провінцією."
   },
   "language": {
     "select": "Мова",

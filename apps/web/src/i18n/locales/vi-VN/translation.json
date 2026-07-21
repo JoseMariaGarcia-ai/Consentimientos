@@ -820,7 +820,11 @@
     "legal_name": "Tên pháp lý",
     "nika_number": "Số NIKA",
     "save_success": "Đã lưu thành công",
-    "directions_url": "URL chỉ đường"
+    "directions_url": "URL chỉ đường",
+    "city": "Thành phố",
+    "province": "Tỉnh",
+    "province_placeholder": "— Chọn tỉnh —",
+    "province_hint": "Dùng để bệnh nhân nhắn tin qua WhatsApp từ số mới có thể tìm phòng khám của bạn theo tỉnh."
   },
   "language": {
     "select": "Ngôn ngữ",

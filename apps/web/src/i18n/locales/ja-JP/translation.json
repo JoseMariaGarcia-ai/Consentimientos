@@ -820,7 +820,11 @@
     "legal_name": "法人名／正式名称",
     "nika_number": "NIKA番号",
     "save_success": "正常に保存されました",
-    "directions_url": "アクセス案内URL"
+    "directions_url": "アクセス案内URL",
+    "city": "市区町村",
+    "province": "県",
+    "province_placeholder": "— 県を選択 —",
+    "province_hint": "新しい番号からWhatsAppでメッセージを送る患者が、県ごとにクリニックを見つけられるようにするために使用されます。"
   },
   "language": {
     "select": "言語",

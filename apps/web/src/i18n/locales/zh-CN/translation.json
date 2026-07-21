@@ -820,7 +820,11 @@
     "legal_name": "法定名称 / 公司名称",
     "nika_number": "NIKA 编号",
     "save_success": "保存成功",
-    "directions_url": "到达路线 URL"
+    "directions_url": "到达路线 URL",
+    "city": "城市",
+    "province": "省份",
+    "province_placeholder": "— 选择省份 —",
+    "province_hint": "用于让使用新号码通过WhatsApp联系的患者可以按省份找到您的诊所。"
   },
   "language": {
     "select": "语言",

@@ -820,7 +820,11 @@
     "legal_name": "Vergi unvanı / tüzel kişilik adı",
     "nika_number": "NIKA numarası",
     "save_success": "Başarıyla kaydedildi",
-    "directions_url": "Yol tarifi URL'si"
+    "directions_url": "Yol tarifi URL'si",
+    "city": "Şehir",
+    "province": "İl",
+    "province_placeholder": "— İl seçin —",
+    "province_hint": "Yeni bir numaradan WhatsApp üzerinden yazan hastaların kliniğinizi ile göre bulabilmesi için kullanılır."
   },
   "language": {
     "select": "Dil",

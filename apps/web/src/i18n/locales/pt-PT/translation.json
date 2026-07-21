@@ -820,7 +820,11 @@
     "legal_name": "Nome fiscal / razão social",
     "nika_number": "Número NIKA",
     "save_success": "Guardado com sucesso",
-    "directions_url": "URL de como chegar"
+    "directions_url": "URL de como chegar",
+    "city": "Localidade",
+    "province": "Distrito",
+    "province_placeholder": "— Selecionar distrito —",
+    "province_hint": "Usado para que os doentes que escrevem pelo WhatsApp a partir de um número novo possam encontrar a sua clínica por distrito."
   },
   "language": {
     "select": "Idioma",

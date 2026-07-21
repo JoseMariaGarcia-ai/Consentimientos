@@ -792,7 +792,11 @@
     "legal_name": "Razón social",
     "nika_number": "Número de habilitación",
     "save_success": "Guardado correctamente",
-    "directions_url": "URL de cómo llegar"
+    "directions_url": "URL de cómo llegar",
+    "city": "Localidad",
+    "province": "Provincia",
+    "province_placeholder": "— Seleccionar provincia —",
+    "province_hint": "Se usa para que los pacientes que escriban por WhatsApp desde un número nuevo puedan encontrar tu clínica por provincia."
   },
   "language": {
     "select": "Idioma",

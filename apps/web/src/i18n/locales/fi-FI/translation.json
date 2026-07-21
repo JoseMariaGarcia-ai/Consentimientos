@@ -820,7 +820,11 @@
     "legal_name": "Virallinen nimi / y-tunnus",
     "nika_number": "NIKA-numero",
     "save_success": "Tallennettu onnistuneesti",
-    "directions_url": "Reittiohjeiden URL"
+    "directions_url": "Reittiohjeiden URL",
+    "city": "Paikkakunta",
+    "province": "Provinssi",
+    "province_placeholder": "— Valitse provinssi —",
+    "province_hint": "Käytetään, jotta uudesta numerosta WhatsAppissa kirjoittavat potilaat löytävät klinikkasi provinssin mukaan."
   },
   "language": {
     "select": "Kieli",
