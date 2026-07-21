@@ -1,5 +1,6 @@
 import { query, queryOne } from './db'
 import { downloadFile } from './r2'
+import { buildPatientPortalLink } from './patientMagicLink'
 
 interface ConsentEmailData {
   consentId: string
@@ -41,7 +42,12 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
   const treatmentType = consent.treatment_type ?? 'Consentimiento informado'
   const clinicName = consent.clinic_name ?? 'Tu clínica'
   const appUrl = process.env.APP_URL ?? 'http://localhost:5173'
-  const portalUrl = `${appUrl}/patient/portal`
+  // Enlace de un solo uso que entra directamente al portal — sin esto, el
+  // paciente aterrizaba en la pantalla de login (pensada para el personal
+  // de la clínica) sin sesión iniciada y sin ver nada de su portal.
+  const portalUrl = consent.user_id
+    ? await buildPatientPortalLink(consent.user_id)
+    : `${appUrl}/patient/portal`
 
   // Get patient media (advertising) for this clinic — resolved to whichever
   // clinic or lab partner actually owns it (see resolveMediaOwner above).
