@@ -4,6 +4,11 @@ import { deductCredit } from '../lib/credits'
 
 const router = Router()
 
+async function belongsToClinic(table: string, id: string, clinicId: string): Promise<boolean> {
+  const row = await queryOne(`SELECT id FROM ${table} WHERE id = $1 AND clinic_id = $2`, [id, clinicId])
+  return !!row
+}
+
 // Tri-estado: true/false explícitos, o null si no se ha preguntado/consta.
 function triBool(v: unknown): boolean | null {
   return v === true || v === false ? v : null
@@ -32,15 +37,24 @@ router.post('/', async (req, res) => {
   const b = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    await deductCredit(clinicRow!.clinic_id, 'clinical_records_available')
+    const clinicId = clinicRow!.clinic_id
+    const patientId = b.patient_id ?? b.patientId
+    const doctorId  = b.doctor_id  ?? b.doctorId  ?? null
+    if (!(await belongsToClinic('patients', patientId, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId))) {
+      return res.status(404).json({ error: 'Doctor no encontrado' })
+    }
+    await deductCredit(clinicId, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
         (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, is_pregnant, tobacco_use, alcohol_use, drug_use)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16) RETURNING *`,
       [
-        clinicRow?.clinic_id,
-        b.patient_id ?? b.patientId,
-        b.doctor_id  ?? b.doctorId  ?? null,
+        clinicId,
+        patientId,
+        doctorId,
         b.date ?? new Date().toISOString().split('T')[0],
         b.reason_for_visit ?? b.reasonForVisit ?? null,
         b.anamnesis ?? null,
@@ -64,6 +78,16 @@ router.put('/:id', async (req, res) => {
   const { userId } = (req as any).user
   const b = req.body
   try {
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const clinicId = clinicRow!.clinic_id
+    const patientId = b.patient_id ?? b.patientId
+    const doctorId  = b.doctor_id  ?? b.doctorId  ?? null
+    if (!(await belongsToClinic('patients', patientId, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId))) {
+      return res.status(404).json({ error: 'Doctor no encontrado' })
+    }
     const data = await queryOne(
       `UPDATE clinical_records SET
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
@@ -72,8 +96,8 @@ router.put('/:id', async (req, res) => {
         alcohol_use=$14, drug_use=$15, updated_at=NOW()
        WHERE id=$16 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $17) RETURNING *`,
       [
-        b.patient_id ?? b.patientId,
-        b.doctor_id  ?? b.doctorId  ?? null,
+        patientId,
+        doctorId,
         b.date,
         b.reason_for_visit ?? b.reasonForVisit ?? null,
         b.anamnesis ?? null,

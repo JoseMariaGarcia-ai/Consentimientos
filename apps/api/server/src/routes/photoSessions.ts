@@ -6,6 +6,11 @@ import { deductCredit } from '../lib/credits'
 const router = Router()
 const MAX_PHOTOS_PER_SESSION = 10
 
+async function belongsToClinic(table: string, id: string, clinicId: string): Promise<boolean> {
+  const row = await queryOne(`SELECT id FROM ${table} WHERE id = $1 AND clinic_id = $2`, [id, clinicId])
+  return !!row
+}
+
 async function enrichSession(session: any) {
   const photos = await query<any>(
     'SELECT * FROM photos WHERE session_id = $1 ORDER BY order_index, created_at',
@@ -45,12 +50,19 @@ router.post('/', async (req, res) => {
   const { patient_id, name, notes, session_date } = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    await deductCredit(clinicRow!.clinic_id, 'photo_sessions_available')
+    const clinicId = clinicRow!.clinic_id
     const { doctor_id } = req.body
+    if (!(await belongsToClinic('patients', patient_id, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (doctor_id && !(await belongsToClinic('doctors', doctor_id, clinicId))) {
+      return res.status(404).json({ error: 'Doctor no encontrado' })
+    }
+    await deductCredit(clinicId, 'photo_sessions_available')
     const session = await queryOne(
       `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date)
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-      [clinicRow?.clinic_id, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
+      [clinicId, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
     )
     return res.status(201).json({ ...session, photos: [] })
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
