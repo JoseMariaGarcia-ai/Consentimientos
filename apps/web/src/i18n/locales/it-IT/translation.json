@@ -1398,7 +1398,11 @@
       "plan": "Piano",
       "plan_hint": "I permessi di accesso vengono applicati automaticamente in base al piano selezionato. Puoi modificarli in Impostazioni → Piani di Abbonamento.",
       "plan_required": "Seleziona un piano",
-      "delete_error": "Impossibile eliminare l'utente"
+      "delete_error": "Impossibile eliminare l'utente",
+      "clinic_name": "Nome della clinica",
+      "clinic_name_placeholder": "Nome della nuova clinica",
+      "clinic_name_hint": "Verrà creata una nuova clinica, completamente isolata, per questo utente.",
+      "clinic_name_required": "Indica il nome della nuova clinica"
     },
     "media": {
       "title": "Gestione dei contenuti pubblicitari",

@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Erişim izinleri, seçilen plana göre otomatik olarak uygulanır. Bunları Ayarlar → Abonelik Planları bölümünden ayarlayabilirsiniz.",
       "plan_required": "Bir plan seçin",
-      "delete_error": "Kullanıcı silinemedi"
+      "delete_error": "Kullanıcı silinemedi",
+      "clinic_name": "Klinik adı",
+      "clinic_name_placeholder": "Yeni kliniğin adı",
+      "clinic_name_hint": "Bu kullanıcı için tamamen yeni ve izole bir klinik oluşturulacak.",
+      "clinic_name_required": "Yeni kliniğin adını girin"
     },
     "media": {
       "title": "Reklam medyası yönetimi",

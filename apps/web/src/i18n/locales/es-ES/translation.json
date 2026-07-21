@@ -1361,7 +1361,11 @@
       "admin_only_hint": "Configuración es exclusivo de administradores y nunca se puede delegar a una clínica.",
       "load_error": "No se pudo cargar la lista de usuarios",
       "delete_error": "No se pudo eliminar el usuario",
-      "retry": "Reintentar"
+      "retry": "Reintentar",
+      "clinic_name": "Nombre de la clínica",
+      "clinic_name_placeholder": "Nombre de la clínica nueva",
+      "clinic_name_hint": "Se creará una clínica nueva, completamente aislada, para este usuario.",
+      "clinic_name_required": "Indica el nombre de la clínica nueva"
     },
     "media": {
       "title": "Gestión de medios publicitarios",

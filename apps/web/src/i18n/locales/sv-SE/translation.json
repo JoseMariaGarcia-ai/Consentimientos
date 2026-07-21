@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Åtkomstbehörigheter tillämpas automatiskt utifrån den valda planen. Du kan justera dem under Inställningar → Abonnemangsplaner.",
       "plan_required": "Välj en plan",
-      "delete_error": "Det gick inte att ta bort användaren"
+      "delete_error": "Det gick inte att ta bort användaren",
+      "clinic_name": "Klinikens namn",
+      "clinic_name_placeholder": "Namn på den nya kliniken",
+      "clinic_name_hint": "En helt ny, fullständigt isolerad klinik skapas för den här användaren.",
+      "clinic_name_required": "Ange namnet på den nya kliniken"
     },
     "media": {
       "title": "Hantering av reklammedia",

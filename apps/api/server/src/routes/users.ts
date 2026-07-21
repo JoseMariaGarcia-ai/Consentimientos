@@ -37,14 +37,28 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { email, full_name, role, lab_partner_id, permissions, plan } = req.body
+  const { email, full_name, role, lab_partner_id, permissions, plan, clinic_name } = req.body
   try {
     const { userId } = (req as any).user
     const me = await queryOne<{ clinic_id: string; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [userId])
     if (role === 'superadmin' && me?.role !== 'superadmin') {
       return res.status(403).json({ error: 'Solo un superadmin puede crear otro superadmin' })
     }
-    const clinic_id = me?.clinic_id ?? null
+    // Un superadmin gestiona toda la plataforma, no una clínica concreta —
+    // si invita a un usuario "clinica", siempre es para darle de alta una
+    // clínica NUEVA, nunca para colarlo dentro de la clínica personal del
+    // superadmin (que además puede tener datos de pruebas). El resto de
+    // casos (una clínica invitando a alguien a su propio equipo) sigue
+    // usando la clínica del que invita, como siempre.
+    let clinic_id: string | null = me?.clinic_id ?? null
+    if ((role ?? 'clinica') === 'clinica' && me?.role === 'superadmin') {
+      const newClinic = await queryOne<{ id: string }>(
+        'INSERT INTO clinics (name, email) VALUES ($1, $2) RETURNING id',
+        [(clinic_name && String(clinic_name).trim()) || 'Nueva clínica', email]
+      )
+      if (!newClinic) return res.status(500).json({ error: 'No se pudo crear la clínica' })
+      clinic_id = newClinic.id
+    }
     const user = await queryOne<{ id: string }>(
       `INSERT INTO app_users (email, full_name, role, clinic_id, lab_partner_id) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
       [email, full_name, role ?? 'clinica', clinic_id, lab_partner_id ?? null]

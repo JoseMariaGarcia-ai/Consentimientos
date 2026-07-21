@@ -93,6 +93,7 @@ interface UserModalProps {
 
 function UserModal({ user, onClose, onSaved }: UserModalProps) {
   const { t } = useTranslation()
+  const { role: myRole } = useAuth()
   const isEdit = !!user
   const [form, setForm] = useState({
     email:          user?.email ?? '',
@@ -100,6 +101,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
     role:           user?.role ?? 'clinica',
     lab_partner_id: (user as any)?.lab_partner_id ?? '',
     plan:           '',
+    clinic_name:    '',
   })
   const [planMatrix, setPlanMatrix] = useState<Record<string, Record<string, boolean>>>({})
   const [labs, setLabs] = useState<LabPartner[]>([])
@@ -117,9 +119,14 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
     }).catch(() => {})
   }, [])
 
+  // Un superadmin no pertenece a ninguna clínica concreta — si invita a un
+  // usuario "clinica" es siempre para dar de alta una clínica nueva.
+  const isCreatingNewClinic = !isEdit && form.role === 'clinica' && myRole === 'superadmin'
+
   const handleSave = async () => {
     if (!form.email || !form.full_name) { setError(t('common.required')); return }
     if (form.role === 'clinica' && !form.plan) { setError(t('settings.users.plan_required')); return }
+    if (isCreatingNewClinic && !form.clinic_name.trim()) { setError(t('settings.users.clinic_name_required')); return }
     setSaving(true)
     setError('')
     try {
@@ -128,6 +135,7 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
         role:           form.role,
         lab_partner_id: form.role === 'lab_partner' ? (form.lab_partner_id || null) : null,
         plan:           form.role === 'clinica' ? form.plan : undefined,
+        clinic_name:    isCreatingNewClinic ? form.clinic_name.trim() : undefined,
       }
       if (isEdit) {
         await api.put(`/users/${user.id}`, { ...payload, is_active: user.is_active })
@@ -215,6 +223,20 @@ function UserModal({ user, onClose, onSaved }: UserModalProps) {
                 {labs.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
               </select>
               <p className="text-xs text-slate-400">{t('settings.users.lab_hint')}</p>
+            </div>
+          )}
+
+          {/* Clinic name — only when a superadmin invites a brand-new "clinica" owner */}
+          {isCreatingNewClinic && (
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('settings.users.clinic_name')}</label>
+              <input
+                value={form.clinic_name}
+                onChange={e => setForm(f => ({ ...f, clinic_name: e.target.value }))}
+                placeholder={t('settings.users.clinic_name_placeholder')}
+                className="px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <p className="text-xs text-slate-400">{t('settings.users.clinic_name_hint')}</p>
             </div>
           )}
 

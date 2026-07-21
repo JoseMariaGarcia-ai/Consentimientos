@@ -1316,7 +1316,11 @@
       "plan": "Plan",
       "plan_hint": "Los permisos de acceso se aplican automáticamente según el plan seleccionado. Podés ajustarlos en Configuración → Planes Suscripción.",
       "plan_required": "Seleccioná un plan",
-      "delete_error": "No se pudo eliminar el usuario"
+      "delete_error": "No se pudo eliminar el usuario",
+      "clinic_name": "Nombre de la clínica",
+      "clinic_name_placeholder": "Nombre de la clínica nueva",
+      "clinic_name_hint": "Se creará una clínica nueva, completamente aislada, para este usuario.",
+      "clinic_name_required": "Indica el nombre de la clínica nueva"
     },
     "media": {
       "title": "Gestión de medios publicitarios",

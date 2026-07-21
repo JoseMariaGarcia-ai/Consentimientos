@@ -1344,7 +1344,11 @@
       "plan": "套餐",
       "plan_hint": "访问权限会根据所选套餐自动应用。您可以在\"设置 → 订阅套餐\"中进行调整。",
       "plan_required": "请选择一个套餐",
-      "delete_error": "无法删除该用户"
+      "delete_error": "无法删除该用户",
+      "clinic_name": "诊所名称",
+      "clinic_name_placeholder": "新诊所名称",
+      "clinic_name_hint": "将为该用户创建一个全新的、完全独立的诊所。",
+      "clinic_name_required": "请输入新诊所的名称"
     },
     "media": {
       "title": "推广媒体管理",

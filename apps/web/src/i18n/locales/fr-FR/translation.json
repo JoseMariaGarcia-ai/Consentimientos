@@ -1344,7 +1344,11 @@
       "plan": "Formule",
       "plan_hint": "Les permissions d'accès sont appliquées automatiquement selon la formule sélectionnée. Vous pouvez les ajuster dans Paramètres → Formules d'abonnement.",
       "plan_required": "Sélectionnez une formule",
-      "delete_error": "Impossible de supprimer l'utilisateur"
+      "delete_error": "Impossible de supprimer l'utilisateur",
+      "clinic_name": "Nom de la clinique",
+      "clinic_name_placeholder": "Nom de la nouvelle clinique",
+      "clinic_name_hint": "Une nouvelle clinique, entièrement isolée, sera créée pour cet utilisateur.",
+      "clinic_name_required": "Indiquez le nom de la nouvelle clinique"
     },
     "media": {
       "title": "Gestion des supports publicitaires",

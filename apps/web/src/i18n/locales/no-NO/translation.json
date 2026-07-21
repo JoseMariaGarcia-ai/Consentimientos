@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Tilgangstillatelser brukes automatisk basert på den valgte planen. Du kan justere dem under Innstillinger → Abonnementsplaner.",
       "plan_required": "Velg en plan",
-      "delete_error": "Kunne ikke slette brukeren"
+      "delete_error": "Kunne ikke slette brukeren",
+      "clinic_name": "Klinikkens navn",
+      "clinic_name_placeholder": "Navn på den nye klinikken",
+      "clinic_name_hint": "En helt ny, fullstendig isolert klinikk opprettes for denne brukeren.",
+      "clinic_name_required": "Angi navnet på den nye klinikken"
     },
     "media": {
       "title": "Administrasjon av reklamemateriell",

@@ -1344,7 +1344,11 @@
       "plan": "Suunnitelma",
       "plan_hint": "Käyttöoikeudet otetaan käyttöön automaattisesti valitun suunnitelman mukaan. Voit muokata niitä kohdassa Asetukset → Tilaussuunnitelmat.",
       "plan_required": "Valitse suunnitelma",
-      "delete_error": "Käyttäjää ei voitu poistaa"
+      "delete_error": "Käyttäjää ei voitu poistaa",
+      "clinic_name": "Klinikan nimi",
+      "clinic_name_placeholder": "Uuden klinikan nimi",
+      "clinic_name_hint": "Tälle käyttäjälle luodaan täysin uusi, eristetty klinikka.",
+      "clinic_name_required": "Anna uuden klinikan nimi"
     },
     "media": {
       "title": "Mainosmedian hallinta",

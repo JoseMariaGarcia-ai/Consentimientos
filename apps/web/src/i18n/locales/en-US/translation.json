@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Access permissions are applied automatically based on the selected plan. You can adjust them in Settings → Subscription Plans.",
       "plan_required": "Select a plan",
-      "delete_error": "Could not delete the user"
+      "delete_error": "Could not delete the user",
+      "clinic_name": "Clinic name",
+      "clinic_name_placeholder": "New clinic name",
+      "clinic_name_hint": "A brand-new, fully isolated clinic will be created for this user.",
+      "clinic_name_required": "Enter the new clinic’s name"
     },
     "media": {
       "title": "Ad media management",

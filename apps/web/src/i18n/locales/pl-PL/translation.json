@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Uprawnienia dostępu są stosowane automatycznie w zależności od wybranego planu. Możesz je dostosować w Ustawienia → Plany Subskrypcji.",
       "plan_required": "Wybierz plan",
-      "delete_error": "Nie udało się usunąć użytkownika"
+      "delete_error": "Nie udało się usunąć użytkownika",
+      "clinic_name": "Nazwa kliniki",
+      "clinic_name_placeholder": "Nazwa nowej kliniki",
+      "clinic_name_hint": "Dla tego użytkownika zostanie utworzona zupełnie nowa, w pełni odizolowana klinika.",
+      "clinic_name_required": "Podaj nazwę nowej kliniki"
     },
     "media": {
       "title": "Zarządzanie mediami reklamowymi",

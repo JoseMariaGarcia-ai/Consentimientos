@@ -1344,7 +1344,11 @@
       "plan": "Plano",
       "plan_hint": "As permissões de acesso são aplicadas automaticamente de acordo com o plano selecionado. Você pode ajustá-las em Configurações → Planos de Assinatura.",
       "plan_required": "Selecione um plano",
-      "delete_error": "Não foi possível excluir o usuário"
+      "delete_error": "Não foi possível excluir o usuário",
+      "clinic_name": "Nome da clínica",
+      "clinic_name_placeholder": "Nome da nova clínica",
+      "clinic_name_hint": "Será criada uma clínica nova, totalmente isolada, para este usuário.",
+      "clinic_name_required": "Informe o nome da nova clínica"
     },
     "media": {
       "title": "Gestão de mídias publicitárias",

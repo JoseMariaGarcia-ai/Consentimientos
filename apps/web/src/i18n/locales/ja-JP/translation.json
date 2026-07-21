@@ -1344,7 +1344,11 @@
       "plan": "プラン",
       "plan_hint": "アクセス権限は選択したプランに応じて自動的に適用されます。設定 → サブスクリプションプランで調整できます。",
       "plan_required": "プランを選択してください",
-      "delete_error": "ユーザーを削除できませんでした"
+      "delete_error": "ユーザーを削除できませんでした",
+      "clinic_name": "クリニック名",
+      "clinic_name_placeholder": "新しいクリニック名",
+      "clinic_name_hint": "このユーザー用に、完全に独立した新しいクリニックが作成されます。",
+      "clinic_name_required": "新しいクリニックの名前を入力してください"
     },
     "media": {
       "title": "広告メディア管理",

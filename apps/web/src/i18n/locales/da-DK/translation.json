@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Adgangstilladelser anvendes automatisk baseret på den valgte plan. Du kan justere dem under Indstillinger → Abonnementsplaner.",
       "plan_required": "Vælg en plan",
-      "delete_error": "Kunne ikke slette brugeren"
+      "delete_error": "Kunne ikke slette brugeren",
+      "clinic_name": "Klinikkens navn",
+      "clinic_name_placeholder": "Navn på den nye klinik",
+      "clinic_name_hint": "Der oprettes en helt ny, fuldt isoleret klinik til denne bruger.",
+      "clinic_name_required": "Angiv navnet på den nye klinik"
     },
     "media": {
       "title": "Administration af reklamemedier",

@@ -1344,7 +1344,11 @@
       "plan": "Plán",
       "plan_hint": "Přístupová oprávnění se aplikují automaticky podle vybraného plánu. Můžete je upravit v Nastavení → Předplatné plány.",
       "plan_required": "Vyberte plán",
-      "delete_error": "Uživatele se nepodařilo odstranit"
+      "delete_error": "Uživatele se nepodařilo odstranit",
+      "clinic_name": "Název kliniky",
+      "clinic_name_placeholder": "Název nové kliniky",
+      "clinic_name_hint": "Pro tohoto uživatele bude vytvořena zcela nová, plně izolovaná klinika.",
+      "clinic_name_required": "Zadejte název nové kliniky"
     },
     "media": {
       "title": "Správa reklamních médií",

@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Die Zugriffsberechtigungen werden automatisch entsprechend dem gewählten Plan angewendet. Sie können sie unter Einstellungen → Abo-Pläne anpassen.",
       "plan_required": "Wählen Sie einen Plan aus",
-      "delete_error": "Der Benutzer konnte nicht gelöscht werden"
+      "delete_error": "Der Benutzer konnte nicht gelöscht werden",
+      "clinic_name": "Name der Klinik",
+      "clinic_name_placeholder": "Name der neuen Klinik",
+      "clinic_name_hint": "Für diesen Nutzer wird eine komplett neue, isolierte Klinik angelegt.",
+      "clinic_name_required": "Bitte geben Sie den Namen der neuen Klinik ein"
     },
     "media": {
       "title": "Verwaltung der Werbemedien",

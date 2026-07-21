@@ -1344,7 +1344,11 @@
       "plan": "Pla",
       "plan_hint": "Els permisos d'accés s'apliquen automàticament segons el pla seleccionat. Els pots ajustar a Configuració → Plans de Subscripció.",
       "plan_required": "Selecciona un pla",
-      "delete_error": "No s’ha pogut eliminar l’usuari"
+      "delete_error": "No s’ha pogut eliminar l’usuari",
+      "clinic_name": "Nom de la clínica",
+      "clinic_name_placeholder": "Nom de la clínica nova",
+      "clinic_name_hint": "Es crearà una clínica nova, completament aïllada, per a aquest usuari.",
+      "clinic_name_required": "Indica el nom de la clínica nova"
     },
     "media": {
       "title": "Gestió de mitjans publicitaris",

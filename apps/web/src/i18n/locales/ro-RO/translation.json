@@ -1344,7 +1344,11 @@
       "plan": "Plan",
       "plan_hint": "Permisiunile de acces sunt aplicate automat în funcție de planul selectat. Le poți ajusta din Configurare → Planuri de Abonament.",
       "plan_required": "Selectează un plan",
-      "delete_error": "Utilizatorul nu a putut fi șters"
+      "delete_error": "Utilizatorul nu a putut fi șters",
+      "clinic_name": "Numele clinicii",
+      "clinic_name_placeholder": "Numele clinicii noi",
+      "clinic_name_hint": "Se va crea o clinică nouă, complet izolată, pentru acest utilizator.",
+      "clinic_name_required": "Introduceți numele noii clinici"
     },
     "media": {
       "title": "Gestionarea materialelor publicitare",

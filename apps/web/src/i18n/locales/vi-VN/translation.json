@@ -1344,7 +1344,11 @@
       "plan": "Gói",
       "plan_hint": "Quyền truy cập được áp dụng tự động theo gói đã chọn. Bạn có thể điều chỉnh trong Cài đặt → Gói Đăng Ký.",
       "plan_required": "Chọn một gói",
-      "delete_error": "Không thể xóa người dùng"
+      "delete_error": "Không thể xóa người dùng",
+      "clinic_name": "Tên phòng khám",
+      "clinic_name_placeholder": "Tên phòng khám mới",
+      "clinic_name_hint": "Một phòng khám hoàn toàn mới, tách biệt hoàn toàn sẽ được tạo cho người dùng này.",
+      "clinic_name_required": "Nhập tên phòng khám mới"
     },
     "media": {
       "title": "Quản lý nội dung quảng cáo",

@@ -1344,7 +1344,11 @@
       "plan": "Csomag",
       "plan_hint": "A hozzáférési jogosultságok automatikusan érvénybe lépnek a kiválasztott csomag alapján. Ezeket a Beállítások → Előfizetési Csomagok menüben módosíthatja.",
       "plan_required": "Válasszon csomagot",
-      "delete_error": "A felhasználót nem sikerült törölni"
+      "delete_error": "A felhasználót nem sikerült törölni",
+      "clinic_name": "Klinika neve",
+      "clinic_name_placeholder": "Az új klinika neve",
+      "clinic_name_hint": "Ehhez a felhasználóhoz egy teljesen új, elkülönített klinika jön létre.",
+      "clinic_name_required": "Add meg az új klinika nevét"
     },
     "media": {
       "title": "Reklámmédia-kezelés",
