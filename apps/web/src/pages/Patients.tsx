@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, UserPlus, Pencil, Trash2, FileText, Images } from 'lucide-react'
+import { Search, UserPlus, Pencil, Trash2, FileText, Images, Mail } from 'lucide-react'
 import { api } from '@/lib/api'
 import { PatientForm } from '@/components/patients/PatientForm'
 import { PatientGallery } from '@/components/patients/PatientGallery'
@@ -23,6 +23,8 @@ export default function Patients() {
   const [editing, setEditing] = useState<Patient | null>(null)
   const [deleting, setDeleting] = useState<string | null>(null)
   const [galleryPatient, setGalleryPatient] = useState<Patient | null>(null)
+  const [resendingId, setResendingId] = useState<string | null>(null)
+  const [notice, setNotice] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   const normalize = (p: any): Patient => ({
     ...p,
@@ -79,6 +81,23 @@ export default function Patients() {
     }
   }
 
+  const handleResendWelcome = async (p: Patient) => {
+    if (!p.email) {
+      setNotice({ type: 'error', text: t('patients.resend_welcome_no_email') })
+      return
+    }
+    setResendingId(p.id)
+    try {
+      await api.post(`/patients/${p.id}/resend-welcome`, {})
+      setNotice({ type: 'success', text: t('patients.resend_welcome_sent') })
+    } catch {
+      setNotice({ type: 'error', text: t('patients.resend_welcome_error') })
+    } finally {
+      setResendingId(null)
+      setTimeout(() => setNotice(null), 4000)
+    }
+  }
+
   const openNew = () => { setEditing(null); setFormOpen(true) }
   const openEdit = (p: Patient) => { setEditing(p); setFormOpen(true) }
 
@@ -98,6 +117,12 @@ export default function Patients() {
           {t('patients.add')}
         </button>
       </div>
+
+      {notice && (
+        <div className={`px-4 py-2.5 rounded-xl text-sm font-medium ${notice.type === 'success' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+          {notice.text}
+        </div>
+      )}
 
       {/* Search */}
       <div className="relative">
@@ -149,6 +174,16 @@ export default function Patients() {
                         >
                           <Images className="w-4 h-4" />
                         </button>
+                        {p.email && (
+                          <button
+                            onClick={() => handleResendWelcome(p)}
+                            disabled={resendingId === p.id}
+                            className="p-1.5 text-slate-400 hover:text-amber-600 rounded-lg hover:bg-amber-50 disabled:opacity-40"
+                            title={t('patients.resend_welcome')}
+                          >
+                            <Mail className="w-4 h-4" />
+                          </button>
+                        )}
                         <button
                           onClick={() => navigate(`/consents?patient=${p.id}`)}
                           className="p-1.5 text-slate-400 hover:text-blue-600 rounded-lg hover:bg-blue-50"

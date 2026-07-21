@@ -16,7 +16,7 @@ function parseBody(b: any) {
     id_document:   b.id_document   ?? b.idDocument      ?? null,
     id_doc_type:   b.id_doc_type   ?? b.idDocType       ?? 'DNI',
     phone:         b.phone         ?? null,
-    email:         b.email         ?? null,
+    email:         (b.email ?? '').trim() || null,
     address:       b.address       ?? null,
     allergies:     b.allergies     ?? null,
     medications:   b.medications   ?? null,
@@ -67,13 +67,53 @@ router.post('/', async (req, res) => {
         const clinic = await queryOne<{ name: string }>('SELECT name FROM clinics WHERE id = $1', [clinicRow?.clinic_id])
         await sendPatientWelcomeEmail({ ...data, user_id: patientUserId }, clinic?.name ?? 'Tu clínica')
       } catch (emailErr: any) {
-        console.error('Error creating patient user or sending email:', emailErr.message)
+        console.error(`[patients] welcome email failed for patient ${data.id} (${f.email}):`, emailErr.message)
         // Don't fail the request if email fails
       }
     }
 
     return res.status(201).json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// Reintento manual: por si el envío automático al crear el paciente falló
+// (SMTP caído, email con typo corregido después, etc.) sin dejar rastro
+// visible para el usuario.
+router.post('/:id/resend-welcome', async (req, res) => {
+  const { userId } = (req as any).user
+  const { id } = req.params
+  try {
+    const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const patient = await queryOne<any>(
+      'SELECT * FROM patients WHERE id = $1 AND clinic_id = $2',
+      [id, clinicRow?.clinic_id]
+    )
+    if (!patient) return res.status(404).json({ error: 'Paciente no encontrado' })
+    const email = (patient.email ?? '').trim()
+    if (!email) return res.status(400).json({ error: 'El paciente no tiene email' })
+
+    const existing = await queryOne<{ id: string }>('SELECT id FROM app_users WHERE lower(email) = lower($1)', [email])
+    let patientUserId: string
+    if (existing) {
+      patientUserId = existing.id
+    } else {
+      const newUser = await queryOne<{ id: string }>(
+        `INSERT INTO app_users (email, full_name, role, clinic_id) VALUES ($1, $2, 'patient', $3) RETURNING id`,
+        [email, patient.full_name, clinicRow?.clinic_id]
+      )
+      patientUserId = newUser!.id
+    }
+    if (patient.user_id !== patientUserId) {
+      await query('UPDATE patients SET user_id = $1 WHERE id = $2', [patientUserId, patient.id])
+    }
+
+    const clinic = await queryOne<{ name: string }>('SELECT name FROM clinics WHERE id = $1', [clinicRow?.clinic_id])
+    await sendPatientWelcomeEmail({ ...patient, email, user_id: patientUserId }, clinic?.name ?? 'Tu clínica')
+    return res.json({ sent: true })
+  } catch (err: any) {
+    console.error(`[patients] resend-welcome failed for patient ${id}:`, err.message)
+    return res.status(500).json({ error: err.message })
+  }
 })
 
 router.put('/:id', async (req, res) => {
