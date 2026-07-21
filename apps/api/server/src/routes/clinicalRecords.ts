@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
         clinicId,
         patientId,
         doctorId,
-        b.date ?? new Date().toISOString().split('T')[0],
+        b.date || new Date().toISOString().split('T')[0],
         b.reason_for_visit ?? b.reasonForVisit ?? null,
         b.anamnesis ?? null,
         b.current_medications ?? b.currentMedications ?? null,
@@ -98,7 +98,7 @@ router.put('/:id', async (req, res) => {
       [
         patientId,
         doctorId,
-        b.date,
+        b.date || new Date().toISOString().split('T')[0],
         b.reason_for_visit ?? b.reasonForVisit ?? null,
         b.anamnesis ?? null,
         b.current_medications ?? b.currentMedications ?? null,

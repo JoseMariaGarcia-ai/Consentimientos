@@ -12,7 +12,7 @@ function parseBody(b: any) {
     first_name:    firstName,
     last_name:     lastName,
     full_name:     b.full_name ?? b.fullName ?? [firstName, lastName].filter(Boolean).join(' '),
-    date_of_birth: b.date_of_birth ?? b.dateOfBirth     ?? null,
+    date_of_birth: (b.date_of_birth ?? b.dateOfBirth) || null,
     id_document:   b.id_document   ?? b.idDocument      ?? null,
     id_doc_type:   b.id_doc_type   ?? b.idDocType       ?? 'DNI',
     phone:         b.phone         ?? null,

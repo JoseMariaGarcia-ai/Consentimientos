@@ -197,8 +197,8 @@ router.post('/:id/campaigns', requireLabAccess, async (req, res) => {
         b.trigger_rule ?? b.triggerRule ?? 'on_login',
         b.trigger_interval_minutes ?? b.triggerIntervalMinutes ?? null,
         b.is_active ?? true,
-        b.starts_at ?? b.startsAt ?? null,
-        b.ends_at ?? b.endsAt ?? null,
+        (b.starts_at ?? b.startsAt) || null,
+        (b.ends_at ?? b.endsAt) || null,
       ]
     )
     return res.status(201).json(data)
@@ -220,8 +220,8 @@ router.put('/:id/campaigns/:cid', requireLabAccess, async (req, res) => {
         b.trigger_rule ?? b.triggerRule ?? 'on_login',
         b.trigger_interval_minutes ?? b.triggerIntervalMinutes ?? null,
         b.is_active ?? true,
-        b.starts_at ?? b.startsAt ?? null,
-        b.ends_at ?? b.endsAt ?? null,
+        (b.starts_at ?? b.startsAt) || null,
+        (b.ends_at ?? b.endsAt) || null,
         req.params.cid,
         req.params.id,
       ]

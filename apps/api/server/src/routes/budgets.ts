@@ -96,7 +96,7 @@ router.post('/', async (req, res) => {
     const budget = await queryOne<any>(
       `INSERT INTO budgets (clinic_id, patient_id, budget_number, notes, valid_until, created_by)
        VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
-      [clinicId, patient_id ?? null, budgetNumber, notes ?? null, valid_until ?? null, userId]
+      [clinicId, patient_id ?? null, budgetNumber, notes ?? null, valid_until || null, userId]
     )
     for (let i = 0; i < validatedItems.length; i++) {
       const it = validatedItems[i]
@@ -125,7 +125,7 @@ router.put('/:id', async (req, res) => {
     const budget = await queryOne<any>(
       `UPDATE budgets SET patient_id=$1, notes=$2, valid_until=$3, updated_at=NOW()
        WHERE id=$4 AND clinic_id=$5 RETURNING *`,
-      [patient_id ?? null, notes ?? null, valid_until ?? null, req.params.id, clinicId]
+      [patient_id ?? null, notes ?? null, valid_until || null, req.params.id, clinicId]
     )
     await query(`DELETE FROM budget_items WHERE budget_id = $1`, [req.params.id])
     for (let i = 0; i < validatedItems.length; i++) {

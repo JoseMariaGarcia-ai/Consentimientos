@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
         Number(trial_days) || 10,
         campaign_name ?? null,
         max_uses ? Number(max_uses) : null,
-        expires_at ?? null,
+        expires_at || null,
         userId,
       ]
     )
@@ -51,7 +51,7 @@ router.put('/:id', async (req, res) => {
         Number(trial_days) || 10,
         campaign_name ?? null,
         max_uses ? Number(max_uses) : null,
-        expires_at ?? null,
+        expires_at || null,
         is_active ?? true,
         req.params.id,
       ]

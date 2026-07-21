@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
     const session = await queryOne(
       `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date)
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-      [clinicId, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date ?? new Date().toISOString()]
+      [clinicId, patient_id, doctor_id ?? null, name ?? null, notes ?? null, session_date || new Date().toISOString()]
     )
     return res.status(201).json({ ...session, photos: [] })
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
@@ -76,7 +76,7 @@ router.put('/:id', async (req, res) => {
     const session = await queryOne(
       `UPDATE photo_sessions SET name=$1, notes=$2, session_date=$3
        WHERE id=$4 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $5) RETURNING *`,
-      [name ?? null, notes ?? null, session_date, req.params.id, userId]
+      [name ?? null, notes ?? null, session_date || new Date().toISOString(), req.params.id, userId]
     )
     if (!session) return res.status(404).json({ error: 'Sesión no encontrada' })
     return res.json(session)
