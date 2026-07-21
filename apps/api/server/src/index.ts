@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { authMiddleware, requireAdmin, requireSuperAdmin, requireModuleAccess } from './middleware/auth'
+import { authMiddleware, requireAdmin, requireSuperAdmin, requireModuleAccess, requireStaffRole } from './middleware/auth'
 import { deviceAuthMiddleware } from './middleware/deviceAuth'
 import authRouter from './routes/auth'
 import patientsRouter from './routes/patients'
@@ -99,38 +99,43 @@ app.use('/api/timetracking', timeTrackingPublicRouter)
 app.use('/api/retell-webhook', retellWebhookRouter)
 
 // Protected
-app.use('/api/patients',  authMiddleware, patientsRouter)
-app.use('/api/doctors',   authMiddleware, doctorsRouter)
-app.use('/api/consents',  authMiddleware, consentsRouter)
-app.use('/api/clinic',    authMiddleware, clinicRouter)
+// requireStaffRole bloquea a 'patient' y 'lab_partner': ambos tienen su
+// propio clinic_id (o relación con una clínica), así que sin este chequeo
+// también pasarían el filtro de clinic_id de cada ruta y podrían ver o
+// modificar los datos de CUALQUIER paciente de esa clínica, no solo los
+// suyos. Los pacientes tienen su propia API de solo lectura en /api/patient.
+app.use('/api/patients',  authMiddleware, requireStaffRole, patientsRouter)
+app.use('/api/doctors',   authMiddleware, requireStaffRole, doctorsRouter)
+app.use('/api/consents',  authMiddleware, requireStaffRole, consentsRouter)
+app.use('/api/clinic',    authMiddleware, requireStaffRole, clinicRouter)
 app.use('/api/signature', authMiddleware, signatureRouter)
 app.use('/api/translate', authMiddleware, translateRouter)
 app.use('/api/users',     authMiddleware, requireAdmin, usersRouter)
-app.use('/api/photos',           authMiddleware, photosRouter)
+app.use('/api/photos',           authMiddleware, requireStaffRole, photosRouter)
 app.use('/api/pdf',              authMiddleware, pdfRouter)
-app.use('/api/clinical-records', authMiddleware, clinicalRecordsRouter)
-app.use('/api/photo-sessions',  authMiddleware, photoSessionsRouter)
-app.use('/api/credits',         authMiddleware, creditsRouter)
+app.use('/api/clinical-records', authMiddleware, requireStaffRole, clinicalRecordsRouter)
+app.use('/api/photo-sessions',  authMiddleware, requireStaffRole, photoSessionsRouter)
+app.use('/api/credits',         authMiddleware, requireStaffRole, creditsRouter)
 app.use('/api/media',           authMiddleware, mediaRouter)
 app.use('/api/lab-partners',    authMiddleware, labPartnersRouter)
 app.use('/api/patient',         authMiddleware, patientPortalRouter)
-app.use('/api/treatments',      authMiddleware, treatmentsRouter)
-app.use('/api/appointments',    authMiddleware, appointmentsRouter)
-app.use('/api/schedule',        authMiddleware, scheduleRouter)
+app.use('/api/treatments',      authMiddleware, requireStaffRole, treatmentsRouter)
+app.use('/api/appointments',    authMiddleware, requireStaffRole, appointmentsRouter)
+app.use('/api/schedule',        authMiddleware, requireStaffRole, scheduleRouter)
 app.use('/api/me',              authMiddleware, meRouter)
-app.use('/api/toxin',           authMiddleware, toxinRouter)
-app.use('/api/clinic-config',   authMiddleware, clinicConfigRouter)
-app.use('/api/whatsapp',        authMiddleware, whatsappRouter)
+app.use('/api/toxin',           authMiddleware, requireStaffRole, toxinRouter)
+app.use('/api/clinic-config',   authMiddleware, requireStaffRole, clinicConfigRouter)
+app.use('/api/whatsapp',        authMiddleware, requireStaffRole, whatsappRouter)
 app.use('/api/plan-permissions', authMiddleware, requireAdmin, planPermissionsRouter)
-app.use('/api/budgets',         authMiddleware, budgetsRouter)
-app.use('/api/odontogram',      authMiddleware, odontogramRouter)
-app.use('/api/invoices',        authMiddleware, requireModuleAccess('invoicing'), invoicesRouter)
-app.use('/api/clinic-certificates', authMiddleware, requireModuleAccess('invoicing'), clinicCertificatesRouter)
-app.use('/api/billing-clients', authMiddleware, requireModuleAccess('invoicing'), billingClientsRouter)
-app.use('/api/timetracking',    authMiddleware, requireModuleAccess('time-tracking'), timeTrackingRouter)
+app.use('/api/budgets',         authMiddleware, requireStaffRole, budgetsRouter)
+app.use('/api/odontogram',      authMiddleware, requireStaffRole, odontogramRouter)
+app.use('/api/invoices',        authMiddleware, requireStaffRole, requireModuleAccess('invoicing'), invoicesRouter)
+app.use('/api/clinic-certificates', authMiddleware, requireStaffRole, requireModuleAccess('invoicing'), clinicCertificatesRouter)
+app.use('/api/billing-clients', authMiddleware, requireStaffRole, requireModuleAccess('invoicing'), billingClientsRouter)
+app.use('/api/timetracking',    authMiddleware, requireStaffRole, requireModuleAccess('time-tracking'), timeTrackingRouter)
 app.use('/api/workflows',       authMiddleware, requireSuperAdmin, workflowsRouter)
 app.use('/api/analytics',       authMiddleware, requireSuperAdmin, analyticsRouter)
-app.use('/api/tickets',         authMiddleware, ticketsRouter)
+app.use('/api/tickets',         authMiddleware, requireStaffRole, ticketsRouter)
 app.use('/api/signing-devices', authMiddleware, requireAdmin, signingDevicesRouter)
 app.use('/api/consent-handoff', authMiddleware, consentHandoffRouter)
 app.use('/api/billing',         authMiddleware, billingRouter)

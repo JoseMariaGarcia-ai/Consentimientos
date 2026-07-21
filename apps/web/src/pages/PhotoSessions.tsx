@@ -18,9 +18,9 @@ export default function PhotoSessions() {
     setLoading(true)
     try {
       const [s, p, d] = await Promise.all([
-        api.get('/photo-sessions'),
-        api.get('/patients'),
-        api.get('/doctors'),
+        api.get('/photo-sessions').catch(() => []),
+        api.get('/patients').catch(() => []),
+        api.get('/doctors').catch(() => []),
       ])
       setSessions(Array.isArray(s) ? s : [])
       setPatients(Array.isArray(p) ? p.map((x: any) => ({

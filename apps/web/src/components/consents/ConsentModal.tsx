@@ -64,9 +64,9 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
   useEffect(() => {
     Promise.all([
-      api.get('/patients'),
-      api.get('/doctors'),
-      api.get('/consents/templates'),
+      api.get('/patients').catch(() => []),
+      api.get('/doctors').catch(() => []),
+      api.get('/consents/templates').catch(() => []),
     ]).then(([p, d, t]) => {
       setPatients(Array.isArray(p) ? p.map((x: any) => ({
         ...x,

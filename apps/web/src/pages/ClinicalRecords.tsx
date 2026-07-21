@@ -19,9 +19,9 @@ export default function ClinicalRecords() {
     setLoading(true)
     try {
       const [r, p, d] = await Promise.all([
-        api.get('/clinical-records'),
-        api.get('/patients'),
-        api.get('/doctors'),
+        api.get('/clinical-records').catch(() => []),
+        api.get('/patients').catch(() => []),
+        api.get('/doctors').catch(() => []),
       ])
       setRecords(Array.isArray(r) ? r : [])
       setPatients(Array.isArray(p) ? p.map((x: any) => ({

@@ -7,6 +7,11 @@ import { notifyConsentRevoked } from '../lib/consentRevocationEmail'
 
 const router = Router()
 
+async function belongsToClinic(table: string, id: string, clinicId: string): Promise<boolean> {
+  const row = await queryOne(`SELECT id FROM ${table} WHERE id = $1 AND clinic_id = $2`, [id, clinicId])
+  return !!row
+}
+
 router.get('/templates', async (_req, res) => {
   try {
     const data = await query(
@@ -86,13 +91,17 @@ router.post('/', async (req, res) => {
     const patientId = b.patient_id ?? b.patientId
     const ownsPatient = await queryOne('SELECT id FROM patients WHERE id = $1 AND clinic_id = $2', [patientId, clinicId])
     if (!ownsPatient) return res.status(404).json({ error: 'Paciente no encontrado' })
+    const doctorId = b.doctor_id ?? b.doctorId
+    if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId!))) {
+      return res.status(404).json({ error: 'Doctor no encontrado' })
+    }
     await deductCredit(clinicId!, 'consents_available')
     const data = await queryOne(
       `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status)
        VALUES ($1,$2,$3,$4,$5,'pending') RETURNING *`,
       [
         patientId,
-        b.doctor_id  ?? b.doctorId,
+        doctorId,
         b.template_id ?? b.templateId,
         b.language ?? 'es-ES',
         b.jurisdiction ?? null,

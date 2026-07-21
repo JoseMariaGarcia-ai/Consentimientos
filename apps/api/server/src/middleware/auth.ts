@@ -73,6 +73,29 @@ export async function requireClinicaAdmin(req: Request, res: Response, next: Nex
   }
 }
 
+// Endpoints de gestión de la clínica (pacientes, doctores, consentimientos,
+// historia clínica, fotos, citas, presupuestos, facturas...) solo debían
+// depender de authMiddleware + el clinic_id derivado del token — pero un
+// paciente (rol 'patient') o un laboratorio (rol 'lab_partner') también
+// tienen su propio clinic_id/relación con esa clínica, así que con solo eso
+// un paciente podía llamar directamente a estas rutas (sin pasar por la UI,
+// que nunca se las ofrece) y ver o borrar los datos de CUALQUIER paciente de
+// su misma clínica, no solo los suyos. Los pacientes tienen sus propias
+// rutas de solo lectura bajo /api/patient/*; los laboratorios, bajo
+// /api/lab-partners/* y /api/media.
+const STAFF_ROLES = new Set(['admin', 'superadmin', 'clinica', 'doctor', 'receptionist'])
+export async function requireStaffRole(req: Request, res: Response, next: NextFunction) {
+  const userId = (req as any).user?.userId
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' })
+  try {
+    const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+    if (!me || !STAFF_ROLES.has(me.role)) return res.status(403).json({ error: 'Sin acceso' })
+    next()
+  } catch (err: any) {
+    return res.status(500).json({ error: err.message })
+  }
+}
+
 // Los módulos de pago (facturación, control horario, etc.) hasta ahora solo
 // se ocultaban en el frontend según el plan de la clínica (App.tsx guard()),
 // pero la API no comprobaba nada — una clínica sin el módulo contratado
