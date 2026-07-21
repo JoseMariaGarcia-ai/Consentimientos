@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Feil ved lagring:",
-      "unknown_error": "Ukjent feil"
+      "unknown_error": "Ukjent feil",
+      "no_email_warning": "Uten e-post vil ikke pasienten motta samtykker eller kommunikasjon på e-post."
     }
   },
   "doctors": {

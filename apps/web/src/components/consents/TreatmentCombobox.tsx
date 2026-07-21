@@ -3,6 +3,12 @@ import { useTranslation } from 'react-i18next'
 import { Search, X, ChevronRight, ChevronDown } from 'lucide-react'
 import type { ConsentTemplate } from '@consentspro/shared-types'
 
+// Quita acentos para que buscar "depilacion" encuentre "Depilación" —
+// coincidencia por cualquier parte del nombre, no solo desde el principio.
+function normalize(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+}
+
 interface Props {
   templatesByCategory: readonly (readonly [string, ConsentTemplate[]])[]
   value: string
@@ -35,8 +41,8 @@ export function TreatmentCombobox({ templatesByCategory, value, onChange, placeh
   const searching = query.trim().length > 0
   const filtered = useMemo(() => {
     if (!searching) return []
-    const q = query.trim().toLowerCase()
-    return allTemplates.filter(tmpl => tmpl.treatmentType.toLowerCase().includes(q))
+    const q = normalize(query.trim())
+    return allTemplates.filter(tmpl => normalize(tmpl.treatmentType).includes(q))
   }, [allTemplates, query, searching])
 
   const displayValue = open ? query : (selected?.treatmentType ?? '')

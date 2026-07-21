@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Error en desar:",
-      "unknown_error": "Error desconegut"
+      "unknown_error": "Error desconegut",
+      "no_email_warning": "Sense email, el pacient no rebrà els consentiments ni les comunicacions per correu."
     }
   },
   "doctors": {

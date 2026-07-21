@@ -700,7 +700,8 @@
         "梅利利亚"
       ],
       "save_error_prefix": "保存出错：",
-      "unknown_error": "未知错误"
+      "unknown_error": "未知错误",
+      "no_email_warning": "未填写邮箱，患者将无法收到知情同意书或邮件通知。"
     }
   },
   "doctors": {

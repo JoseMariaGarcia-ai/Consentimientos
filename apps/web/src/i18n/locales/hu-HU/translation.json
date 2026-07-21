@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Hiba mentés közben:",
-      "unknown_error": "Ismeretlen hiba"
+      "unknown_error": "Ismeretlen hiba",
+      "no_email_warning": "E-mail cím nélkül a páciens nem kap hozzájárulásokat és e-mailes értesítéseket sem."
     }
   },
   "doctors": {

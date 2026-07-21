@@ -203,7 +203,18 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             </div>
             {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
           </div>
-          {field('email', t('patients.email'), { type: 'email' })}
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.email')}</label>
+            <input
+              type="email"
+              value={form.email}
+              onChange={e => set('email', e.target.value)}
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {!form.email.trim() && (
+              <span className="text-xs text-amber-600">{t('patients.form.no_email_warning')}</span>
+            )}
+          </div>
           <div className="sm:col-span-2">{field('addrStreet', t('patients.address'))}</div>
           {field('addrCity', t('patients.form.city'))}
           <div className="flex flex-col gap-1">

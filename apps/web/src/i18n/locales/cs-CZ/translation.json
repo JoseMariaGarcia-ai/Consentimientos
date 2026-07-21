@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Chyba při ukládání:",
-      "unknown_error": "Neznámá chyba"
+      "unknown_error": "Neznámá chyba",
+      "no_email_warning": "Bez e-mailu pacient neobdrží souhlasy ani komunikaci e-mailem."
     }
   },
   "doctors": {

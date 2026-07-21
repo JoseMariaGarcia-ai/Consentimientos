@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Σφάλμα κατά την αποθήκευση:",
-      "unknown_error": "Άγνωστο σφάλμα"
+      "unknown_error": "Άγνωστο σφάλμα",
+      "no_email_warning": "Χωρίς email, ο ασθενής δεν θα λαμβάνει συναινέσεις ούτε επικοινωνία μέσω email."
     }
   },
   "doctors": {

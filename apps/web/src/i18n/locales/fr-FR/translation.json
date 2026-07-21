@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Erreur lors de l'enregistrement :",
-      "unknown_error": "Erreur inconnue"
+      "unknown_error": "Erreur inconnue",
+      "no_email_warning": "Sans email, le patient ne recevra ni les consentements ni les communications par email."
     }
   },
   "doctors": {

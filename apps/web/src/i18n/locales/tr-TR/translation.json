@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Kaydetme hatası:",
-      "unknown_error": "Bilinmeyen hata"
+      "unknown_error": "Bilinmeyen hata",
+      "no_email_warning": "E-posta olmadan hasta onam formlarını ve e-posta iletişimlerini alamaz."
     }
   },
   "doctors": {

@@ -672,7 +672,8 @@
         "Tucumán"
       ],
       "save_error_prefix": "Error al guardar:",
-      "unknown_error": "Error desconocido"
+      "unknown_error": "Error desconocido",
+      "no_email_warning": "Sin email, el paciente no recibirá los consentimientos ni las comunicaciones por correo."
     }
   },
   "doctors": {

@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Fehler beim Speichern:",
-      "unknown_error": "Unbekannter Fehler"
+      "unknown_error": "Unbekannter Fehler",
+      "no_email_warning": "Ohne E-Mail-Adresse erhält der Patient weder Einwilligungen noch Mitteilungen per E-Mail."
     }
   },
   "doctors": {

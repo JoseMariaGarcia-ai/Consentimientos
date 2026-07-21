@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Fout bij opslaan:",
-      "unknown_error": "Onbekende fout"
+      "unknown_error": "Onbekende fout",
+      "no_email_warning": "Zonder e-mailadres ontvangt de patiënt geen toestemmingsformulieren of communicatie per e-mail."
     }
   },
   "doctors": {

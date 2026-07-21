@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Lỗi khi lưu:",
-      "unknown_error": "Lỗi không xác định"
+      "unknown_error": "Lỗi không xác định",
+      "no_email_warning": "Nếu không có email, bệnh nhân sẽ không nhận được các bản đồng ý hoặc thông tin liên lạc qua email."
     }
   },
   "doctors": {

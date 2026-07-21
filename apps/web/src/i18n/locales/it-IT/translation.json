@@ -754,7 +754,8 @@
         "Viterbo"
       ],
       "save_error_prefix": "Errore durante il salvataggio:",
-      "unknown_error": "Errore sconosciuto"
+      "unknown_error": "Errore sconosciuto",
+      "no_email_warning": "Senza email, il paziente non riceverà i consensi né le comunicazioni via email."
     }
   },
   "doctors": {

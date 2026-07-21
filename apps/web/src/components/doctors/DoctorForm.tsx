@@ -88,6 +88,9 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
   const validate = () => {
     const e: Record<string, string> = {}
     if (!form.firstName.trim()) e.firstName = t('common.required')
+    if (!form.licenseNumber.trim()) e.licenseNumber = t('common.required')
+    if (!form.phoneNumber.trim()) e.phoneNumber = t('common.required')
+    if (!form.email.trim()) e.email = t('common.required')
     return e
   }
 
@@ -182,11 +185,13 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
           {field('firstName', t('doctors.name'), { required: true })}
           {field('lastName', t('doctors.last_name'))}
           {field('specialty', t('doctors.specialty'))}
-          {field('licenseNumber', t('doctors.license'))}
+          {field('licenseNumber', t('doctors.license'), { required: true })}
 
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('doctors.phone')}</label>
-            <div className="flex border border-slate-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500">
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">
+              {t('doctors.phone')}<span className="text-red-500 ml-1">*</span>
+            </label>
+            <div className={`flex border rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 ${errors.phoneNumber ? 'border-red-400' : 'border-slate-300'}`}>
               <select
                 value={form.phonePrefix}
                 onChange={e => setForm(f => ({ ...f, phonePrefix: e.target.value }))}
@@ -204,16 +209,20 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
                 className="flex-1 px-3 py-2 text-sm focus:outline-none"
               />
             </div>
+            {errors.phoneNumber && <span className="text-xs text-red-500">{errors.phoneNumber}</span>}
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('doctors.email')}</label>
+            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">
+              {t('doctors.email')}<span className="text-red-500 ml-1">*</span>
+            </label>
             <input
               type="email"
               value={form.email}
               onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.email ? 'border-red-400' : 'border-slate-300'}`}
             />
+            {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
           </div>
 
           <div className="sm:col-span-2 flex flex-col gap-1">

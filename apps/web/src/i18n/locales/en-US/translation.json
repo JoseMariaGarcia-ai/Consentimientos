@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Error saving:",
-      "unknown_error": "Unknown error"
+      "unknown_error": "Unknown error",
+      "no_email_warning": "Without an email, the patient won’t receive consent forms or communications by email."
     }
   },
   "doctors": {

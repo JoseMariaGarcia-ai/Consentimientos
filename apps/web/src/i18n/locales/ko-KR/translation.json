@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "저장 오류:",
-      "unknown_error": "알 수 없는 오류"
+      "unknown_error": "알 수 없는 오류",
+      "no_email_warning": "이메일이 없으면 환자는 동의서나 이메일 안내를 받을 수 없습니다."
     }
   },
   "doctors": {

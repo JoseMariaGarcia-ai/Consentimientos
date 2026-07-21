@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Eroare la salvare:",
-      "unknown_error": "Eroare necunoscută"
+      "unknown_error": "Eroare necunoscută",
+      "no_email_warning": "Fără email, pacientul nu va primi consimțămintele și nici comunicările prin email."
     }
   },
   "doctors": {

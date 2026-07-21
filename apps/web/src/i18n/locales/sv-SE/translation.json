@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Fel vid sparande:",
-      "unknown_error": "Okänt fel"
+      "unknown_error": "Okänt fel",
+      "no_email_warning": "Utan e-post får patienten inga samtycken eller kommunikation via e-post."
     }
   },
   "doctors": {

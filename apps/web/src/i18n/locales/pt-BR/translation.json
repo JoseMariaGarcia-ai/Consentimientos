@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Erro ao salvar:",
-      "unknown_error": "Erro desconhecido"
+      "unknown_error": "Erro desconhecido",
+      "no_email_warning": "Sem e-mail, o paciente não receberá os consentimentos nem as comunicações por e-mail."
     }
   },
   "doctors": {

@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Virhe tallennettaessa:",
-      "unknown_error": "Tuntematon virhe"
+      "unknown_error": "Tuntematon virhe",
+      "no_email_warning": "Ilman sähköpostia potilas ei saa suostumuksia tai viestintää sähköpostitse."
     }
   },
   "doctors": {

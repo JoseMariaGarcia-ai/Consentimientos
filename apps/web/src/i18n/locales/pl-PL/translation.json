@@ -700,7 +700,8 @@
         "Melilla"
       ],
       "save_error_prefix": "Błąd zapisu:",
-      "unknown_error": "Nieznany błąd"
+      "unknown_error": "Nieznany błąd",
+      "no_email_warning": "Bez adresu e-mail pacjent nie otrzyma zgód ani komunikacji drogą mailową."
     }
   },
   "doctors": {

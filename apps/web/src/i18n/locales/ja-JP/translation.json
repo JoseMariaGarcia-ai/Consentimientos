@@ -700,7 +700,8 @@
         "メリリャ"
       ],
       "save_error_prefix": "保存エラー：",
-      "unknown_error": "不明なエラー"
+      "unknown_error": "不明なエラー",
+      "no_email_warning": "メールアドレスがないと、患者は同意書やメールでの連絡を受け取れません。"
     }
   },
   "doctors": {
