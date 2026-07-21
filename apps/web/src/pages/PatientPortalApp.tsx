@@ -40,31 +40,43 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
 
   useEffect(() => {
     if (isPreview) {
-      Promise.all([
+      Promise.allSettled([
         api.get('/patients'),
         api.get('/consents'),
         api.get(`/clinical-records?patientId=${previewPatientId}`),
         api.get(`/photo-sessions?patientId=${previewPatientId}`),
       ]).then(([patients, c, cr, ps]) => {
-        const patient = Array.isArray(patients) ? patients.find((p: any) => p.id === previewPatientId) : null
-        setMe(patient)
-        setConsents(Array.isArray(c) ? c.filter((x: any) => x.patient_id === previewPatientId).map(normalizeConsent) : [])
-        setClinical(Array.isArray(cr) ? cr.map(normalizeClinical) : [])
-        setPhotos(Array.isArray(ps) ? ps.map(normalizeSession) : [])
-      }).catch(() => {}).finally(() => setLoading(false))
+        if (patients.status === 'fulfilled') {
+          const list = patients.value
+          setMe(Array.isArray(list) ? list.find((p: any) => p.id === previewPatientId) : null)
+        } else console.error('[PatientPortalApp] preview /patients failed:', patients.reason)
+        if (c.status === 'fulfilled') {
+          setConsents(Array.isArray(c.value) ? c.value.filter((x: any) => x.patient_id === previewPatientId).map(normalizeConsent) : [])
+        } else console.error('[PatientPortalApp] preview /consents failed:', c.reason)
+        if (cr.status === 'fulfilled') {
+          setClinical(Array.isArray(cr.value) ? cr.value.map(normalizeClinical) : [])
+        } else console.error('[PatientPortalApp] preview /clinical-records failed:', cr.reason)
+        if (ps.status === 'fulfilled') {
+          setPhotos(Array.isArray(ps.value) ? ps.value.map(normalizeSession) : [])
+        } else console.error('[PatientPortalApp] preview /photo-sessions failed:', ps.reason)
+      }).finally(() => setLoading(false))
       return
     }
-    Promise.all([
+    Promise.allSettled([
       api.get('/patient/me'),
       api.get('/patient/consents'),
       api.get('/patient/clinical-records'),
       api.get('/patient/photo-sessions'),
     ]).then(([m, c, cr, ps]) => {
-      setMe(m)
-      setConsents(Array.isArray(c) ? c : [])
-      setClinical(Array.isArray(cr) ? cr : [])
-      setPhotos(Array.isArray(ps) ? ps : [])
-    }).catch(() => {}).finally(() => setLoading(false))
+      if (m.status === 'fulfilled') setMe(m.value)
+      else console.error('[PatientPortalApp] /patient/me failed:', m.reason)
+      if (c.status === 'fulfilled') setConsents(Array.isArray(c.value) ? c.value : [])
+      else console.error('[PatientPortalApp] /patient/consents failed:', c.reason)
+      if (cr.status === 'fulfilled') setClinical(Array.isArray(cr.value) ? cr.value : [])
+      else console.error('[PatientPortalApp] /patient/clinical-records failed:', cr.reason)
+      if (ps.status === 'fulfilled') setPhotos(Array.isArray(ps.value) ? ps.value : [])
+      else console.error('[PatientPortalApp] /patient/photo-sessions failed:', ps.reason)
+    }).finally(() => setLoading(false))
   }, [isPreview, previewPatientId])
 
   const logout = () => { clearSession(); window.location.href = '/' }
