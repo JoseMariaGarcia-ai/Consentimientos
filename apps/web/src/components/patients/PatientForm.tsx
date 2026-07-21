@@ -8,7 +8,6 @@ interface PatientFormProps {
   onClose: () => void
 }
 
-const BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 const DOC_TYPES = ['DNI', 'NIE', 'Pasaporte', 'Other']
 
 // Canonical values persisted to the data model — keep stable across locales.
@@ -96,9 +95,6 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
     addrCity: initCity,
     addrProvince: initProvince,
     addrCountry: initCountry,
-    allergies: initial.allergies ?? '',
-    medications: initial.medications ?? '',
-    bloodType: initial.bloodType ?? '',
   })
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -230,34 +226,6 @@ export function PatientForm({ initial = {}, onSave, onClose }: PatientFormProps)
             >
               {COUNTRIES.map((c, i) => <option key={c} value={c}>{countryLabels[i] ?? c}</option>)}
             </select>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.blood_type')}</label>
-            <select
-              value={form.bloodType}
-              onChange={e => set('bloodType', e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">—</option>
-              {BLOOD_TYPES.map(b => <option key={b}>{b}</option>)}
-            </select>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            {field('allergies', t('patients.allergies'))}
-          </div>
-
-          <div className="sm:col-span-2">
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('patients.medications')}</label>
-              <textarea
-                value={form.medications}
-                onChange={e => set('medications', e.target.value)}
-                rows={2}
-                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-              />
-            </div>
           </div>
 
           {saveError && (
