@@ -207,11 +207,11 @@ router.get('/clinics', async (req, res) => {
     const me = await queryOne<{ clinic_id: string; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [userId])
     if (!me) return res.json([])
     if (me.role === 'superadmin') {
-      const data = await query('SELECT id, name, trade_name FROM clinics ORDER BY name')
+      const data = await query('SELECT id, name, trade_name, phone FROM clinics ORDER BY name')
       return res.json(data)
     }
     if (!me.clinic_id) return res.json([])
-    const data = await query('SELECT id, name, trade_name FROM clinics WHERE id = $1', [me.clinic_id])
+    const data = await query('SELECT id, name, trade_name, phone FROM clinics WHERE id = $1', [me.clinic_id])
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
@@ -255,7 +255,7 @@ router.get('/conversations', async (req, res) => {
 // GET /api/whatsapp/conversations/:id/messages
 router.get('/conversations/:id/messages', async (req, res) => {
   try {
-    const { clinicId } = await getRequesterClinicId(req, req.query.clinicId as string)
+    const { clinicId, isSuperAdmin } = await getRequesterClinicId(req, req.query.clinicId as string)
     if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
     const convo = await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
     if (!convo) return res.status(404).json({ error: 'Conversación no encontrada' })
@@ -263,7 +263,12 @@ router.get('/conversations/:id/messages', async (req, res) => {
       `SELECT * FROM whatsapp_messages WHERE conversation_id = $1 ORDER BY created_at ASC`,
       [req.params.id]
     )
-    await query('UPDATE whatsapp_conversations SET unread_count = 0 WHERE id = $1', [req.params.id])
+    // Un superadmin puede entrar a supervisar/consultar cualquier clínica —
+    // eso no debe marcar los mensajes como leídos, o la propia clínica
+    // perdería el aviso de "no leído" sin haberlos visto de verdad.
+    if (!isSuperAdmin) {
+      await query('UPDATE whatsapp_conversations SET unread_count = 0 WHERE id = $1', [req.params.id])
+    }
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })

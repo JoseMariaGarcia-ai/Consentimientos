@@ -53,7 +53,7 @@ export default function WhatsApp() {
   const { role } = useAuth()
   const isSuperAdmin = role === 'superadmin'
 
-  const [clinics, setClinics]           = useState<{ id: string; name: string; trade_name: string | null }[]>([])
+  const [clinics, setClinics]           = useState<{ id: string; name: string; trade_name: string | null; phone: string | null }[]>([])
   const [clinicId, setClinicId]         = useState<string>('')
   const [configured, setConfigured]     = useState<boolean | null>(null)
   const [conversations, setConversations] = useState<Conversation[]>([])
@@ -158,7 +158,7 @@ export default function WhatsApp() {
             >
               <option value="">— Seleccionar clínica —</option>
               {clinics.map(c => (
-                <option key={c.id} value={c.id}>{c.trade_name ?? c.name}</option>
+                <option key={c.id} value={c.id}>{c.trade_name ?? c.name}{c.phone ? ` — ${c.phone}` : ''}</option>
               ))}
             </select>
           </div>
