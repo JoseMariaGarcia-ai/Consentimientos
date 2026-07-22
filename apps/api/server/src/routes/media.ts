@@ -3,7 +3,31 @@ import { query, queryOne } from '../lib/db'
 import { uploadFile, deleteFile, getPresignedUrl } from '../lib/r2'
 
 const router = Router()
+export const mediaPublicRouter = Router()
 const MAX_CREATIVES = 5
+
+// GET /api/media-public/creative/:id — sin autenticación: la imagen de
+// "contenido para paciente" incrustada en los emails (bienvenida y
+// consentimiento) necesita una URL estable que cualquier cliente de correo
+// pueda cargar, incluso semanas después de enviado el email. Los adjuntos
+// embebidos por cid: no llegaron a funcionar en algunos clientes web (Mail
+// de iCloud vía Safari, confirmado con un email real: salía el icono de
+// imagen rota) — así que en vez de incrustar el archivo en el propio
+// email, se referencia esta URL pública fija, que por dentro redirige a
+// una URL firmada de R2 recién generada en cada petición (nunca caduca de
+// cara al email, aunque la firma interna sí sea temporal).
+mediaPublicRouter.get('/creative/:id/file', async (req, res) => {
+  try {
+    const creative = await queryOne<{ r2_key: string | null }>(
+      'SELECT r2_key FROM clinic_media WHERE id = $1', [req.params.id]
+    )
+    if (!creative?.r2_key) return res.status(404).end()
+    const url = await getPresignedUrl(creative.r2_key, 3600)
+    return res.redirect(url)
+  } catch {
+    return res.status(404).end()
+  }
+})
 
 interface MediaOwner { type: 'clinic' | 'lab'; id: string }
 

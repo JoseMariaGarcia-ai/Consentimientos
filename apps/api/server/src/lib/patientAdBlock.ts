@@ -1,5 +1,11 @@
 import { query, queryOne } from './db'
-import { downloadFile } from './r2'
+
+const APP_URL = process.env.APP_URL ?? 'http://localhost:5173'
+// Los enlaces de imagen del anuncio apuntan al propio backend (que sirve
+// /api/media-public), no al frontend — son dominios distintos en Railway,
+// mismo patrón ya usado en subscriptionEmails.ts.
+const API_URL = process.env.API_URL
+  ?? (process.env.RAILWAY_PUBLIC_DOMAIN ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : APP_URL)
 
 // A clinic linked to a lab partner has its "patient content" advertising
 // managed centrally by that lab (clinic_media/clinic_media_settings rows
@@ -14,32 +20,28 @@ async function resolveMediaOwner(clinicId: string): Promise<{ column: 'clinic_id
   return link ? { column: 'lab_partner_id', id: link.lab_partner_id } : { column: 'clinic_id', id: clinicId }
 }
 
-export interface AdAttachment {
-  filename: string
-  content: Buffer
-  contentType: string
-  // El SDK de Resend espera exactamente este nombre de campo
-  // (inlineContentId, no content_id/disposition) para tratar el adjunto
-  // como inline y poder referenciarlo con cid: en el HTML — con el nombre
-  // equivocado, Resend lo aceptaba igualmente pero como adjunto normal, así
-  // que la imagen llegaba fuera del cuerpo del email en vez de dentro.
-  inlineContentId: string
-}
-
 export interface PatientAdBlock {
   adHtml: string
-  adAttachment: AdAttachment | null
   // Solo escribe en media_impressions si de verdad se incluyó un anuncio —
   // se llama después de un envío satisfactorio, nunca antes.
   logImpression: () => Promise<void>
 }
 
-const EMPTY_BLOCK: PatientAdBlock = { adHtml: '', adAttachment: null, logImpression: async () => {} }
+const EMPTY_BLOCK: PatientAdBlock = { adHtml: '', logImpression: async () => {} }
 
-// Construye el bloque HTML (+ adjunto de imagen si aplica) con el
-// "contenido para paciente" configurado por la clínica o por su
-// laboratorio — usado tanto en el email de bienvenida del paciente como en
-// el de cada consentimiento generado, para que ambos muestren lo mismo.
+// Construye el bloque HTML con el "contenido para paciente" configurado
+// por la clínica o por su laboratorio — usado tanto en el email de
+// bienvenida del paciente como en el de cada consentimiento generado, para
+// que ambos muestren lo mismo.
+//
+// Las imágenes se referencian con una URL pública y ESTABLE del propio
+// backend (/api/media-public/creative/:id/file, que por dentro redirige a
+// una URL firmada de R2 recién generada) en vez de incrustarse como
+// adjunto inline (cid:) — probado con un email real en Mail de iCloud vía
+// Safari: el adjunto cid: se enviaba correctamente pero el cliente no lo
+// resolvía (icono de imagen rota en el cuerpo, y el archivo aparecía suelto
+// como adjunto normal al final). Una URL https normal es lo único que
+// funciona de forma fiable en todos los clientes, incluidos los webmail.
 export async function buildPatientAdBlock(clinicId: string | null | undefined): Promise<PatientAdBlock> {
   if (!clinicId) return EMPTY_BLOCK
 
@@ -58,7 +60,6 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
   if (!adCreative) return EMPTY_BLOCK
 
   let adHtml = ''
-  let adAttachment: AdAttachment | null = null
 
   if (adCreative.content_type === 'video/url' && adCreative.source_url) {
     const srcUrl: string = adCreative.source_url
@@ -68,27 +69,11 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
     if (ytMatch) {
       const videoId = ytMatch[1]
       const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-      // Muchos clientes de correo (Gmail, Outlook…) bloquean por defecto las
-      // imágenes remotas hasta que el destinatario pulsa "mostrar imágenes",
-      // así que la miniatura se veía en blanco aunque el bloque sí se
-      // hubiera incluido. Se descarga aquí y se incrusta como adjunto
-      // (cid:), igual que ya se hace con una imagen subida directamente —
-      // si la descarga fallara por lo que sea, se usa la URL remota como
-      // reserva en vez de dejar el email sin imagen.
-      let imgSrc = thumbUrl
-      try {
-        const resp = await fetch(thumbUrl)
-        if (resp.ok) {
-          const buffer = Buffer.from(await resp.arrayBuffer())
-          adAttachment = { filename: 'miniatura_video.jpg', content: buffer, contentType: 'image/jpeg', inlineContentId: 'ad_video_thumb' }
-          imgSrc = 'cid:ad_video_thumb'
-        }
-      } catch {}
       adHtml = `
         <tr><td style="padding:0 40px 24px">
           <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
           <a href="${srcUrl}" style="display:block;position:relative;text-decoration:none">
-            <img src="${imgSrc}" alt="Ver vídeo"
+            <img src="${thumbUrl}" alt="Ver vídeo"
                  style="width:100%;border-radius:10px;display:block" />
             <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
                         width:60px;height:60px;background:rgba(0,0,0,0.65);border-radius:50%;
@@ -123,16 +108,13 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
         </td></tr>`
     }
   } else if (adCreative.r2_key && adCreative.content_type?.startsWith('image/')) {
-    try {
-      const { buffer, contentType } = await downloadFile(adCreative.r2_key)
-      adAttachment = { filename: 'publicidad.jpg', content: buffer, contentType, inlineContentId: 'ad_image' }
-      adHtml = `
-        <tr><td style="padding:0 40px 24px">
-          <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
-          <img src="cid:ad_image" alt="De tu clínica"
-               style="width:100%;border-radius:10px;display:block" />
-        </td></tr>`
-    } catch {}
+    const imgUrl = `${API_URL}/api/media-public/creative/${adCreative.id}/file`
+    adHtml = `
+      <tr><td style="padding:0 40px 24px">
+        <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
+        <img src="${imgUrl}" alt="De tu clínica"
+             style="width:100%;border-radius:10px;display:block" />
+      </td></tr>`
   }
 
   if (!adHtml) return EMPTY_BLOCK
@@ -144,5 +126,5 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
     ).catch(() => {})
   }
 
-  return { adHtml, adAttachment, logImpression }
+  return { adHtml, logImpression }
 }

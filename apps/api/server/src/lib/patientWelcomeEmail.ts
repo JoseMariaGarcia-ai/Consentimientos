@@ -9,7 +9,7 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
   // Mismo "contenido para paciente" (imagen o vídeo) que ya se incluye en
   // el email de cada consentimiento — configurado por la clínica o, si
   // está vinculada a un laboratorio, por ese laboratorio.
-  const { adHtml, adAttachment, logImpression } = await buildPatientAdBlock(patient.clinic_id)
+  const { adHtml, logImpression } = await buildPatientAdBlock(patient.clinic_id)
 
   // Generate magic link token
   const rawToken = crypto.randomBytes(32).toString('hex')
@@ -130,21 +130,11 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
 </body>
 </html>`
 
-  const attachments: any[] = adAttachment
-    ? [{
-        filename: adAttachment.filename,
-        content: adAttachment.content.toString('base64'),
-        contentType: adAttachment.contentType,
-        inlineContentId: adAttachment.inlineContentId,
-      }]
-    : []
-
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: patient.email,
     subject: `Tu acceso a ConsentsPro — ${clinicName}`,
     html,
-    attachments,
   })
   if (error) console.error(`[patientWelcomeEmail] send to ${patient.email} failed:`, error)
   else await logImpression()

@@ -39,7 +39,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
 
   // Get patient media (advertising) for this clinic — resolved to whichever
   // clinic or lab partner actually owns it (see buildPatientAdBlock).
-  const { adHtml, adAttachment, logImpression } = await buildPatientAdBlock(clinicId)
+  const { adHtml, logImpression } = await buildPatientAdBlock(clinicId)
 
   const { Resend } = await import('resend')
   const resend = new Resend(process.env.RESEND_API_KEY)
@@ -149,15 +149,6 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
         contentType: 'application/pdf',
       }]
     : []
-
-  if (adAttachment) {
-    attachments.push({
-      filename: adAttachment.filename,
-      content: adAttachment.content.toString('base64'),
-      contentType: adAttachment.contentType,
-      inlineContentId: adAttachment.inlineContentId,
-    })
-  }
 
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',

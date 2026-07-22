@@ -16,7 +16,7 @@ import pdfRouter from './routes/pdf'
 import clinicalRecordsRouter from './routes/clinicalRecords'
 import photoSessionsRouter from './routes/photoSessions'
 import creditsRouter from './routes/credits'
-import mediaRouter from './routes/media'
+import mediaRouter, { mediaPublicRouter } from './routes/media'
 import labPartnersRouter from './routes/labPartners'
 import patientPortalRouter from './routes/patientPortal'
 import treatmentsRouter from './routes/treatments'
@@ -117,6 +117,7 @@ app.use('/api/clinical-records', authMiddleware, requireStaffRole, clinicalRecor
 app.use('/api/photo-sessions',  authMiddleware, requireStaffRole, photoSessionsRouter)
 app.use('/api/credits',         authMiddleware, requireStaffRole, creditsRouter)
 app.use('/api/media',           authMiddleware, mediaRouter)
+app.use('/api/media-public',    mediaPublicRouter)
 app.use('/api/lab-partners',    authMiddleware, labPartnersRouter)
 app.use('/api/patient',         authMiddleware, patientPortalRouter)
 app.use('/api/treatments',      authMiddleware, requireStaffRole, treatmentsRouter)
