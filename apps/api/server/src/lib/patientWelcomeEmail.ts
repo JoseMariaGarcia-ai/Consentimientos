@@ -1,10 +1,15 @@
 import crypto from 'crypto'
-import { query, queryOne } from './db'
-import { signToken } from './jwt'
+import { query } from './db'
+import { buildPatientAdBlock } from './patientAdBlock'
 
 export async function sendPatientWelcomeEmail(patient: any, clinicName: string) {
   const { Resend } = await import('resend')
   const resend = new Resend(process.env.RESEND_API_KEY)
+
+  // Mismo "contenido para paciente" (imagen o vídeo) que ya se incluye en
+  // el email de cada consentimiento — configurado por la clínica o, si
+  // está vinculada a un laboratorio, por ese laboratorio.
+  const { adHtml, adAttachment, logImpression } = await buildPatientAdBlock(patient.clinic_id)
 
   // Generate magic link token
   const rawToken = crypto.randomBytes(32).toString('hex')
@@ -102,6 +107,8 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
           </td>
         </tr>
 
+        ${adHtml}
+
         <!-- Divider -->
         <tr><td style="padding:0 40px"><div style="height:1px;background:#E2E8F0"></div></td></tr>
 
@@ -123,11 +130,23 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
 </body>
 </html>`
 
+  const attachments: any[] = adAttachment
+    ? [{
+        filename: adAttachment.filename,
+        content: adAttachment.content.toString('base64'),
+        contentType: adAttachment.contentType,
+        content_id: adAttachment.content_id,
+        disposition: adAttachment.disposition,
+      }]
+    : []
+
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? 'onboarding@resend.dev',
     to: patient.email,
     subject: `Tu acceso a ConsentsPro — ${clinicName}`,
     html,
+    attachments,
   })
   if (error) console.error(`[patientWelcomeEmail] send to ${patient.email} failed:`, error)
+  else await logImpression()
 }
