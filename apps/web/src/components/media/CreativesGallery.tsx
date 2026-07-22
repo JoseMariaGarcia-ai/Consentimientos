@@ -72,6 +72,7 @@ export function CreativesGallery({ type, title, description, files, settings, on
   const [closeDelayInput, setCloseDelayInput] = useState(settings?.close_delay_seconds ?? 0)
   const [savingDelay, setSavingDelay] = useState(false)
   const [savedDelay, setSavedDelay]   = useState(false)
+  const [dragOver, setDragOver]       = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const displayMode = settings?.display_mode ?? 'manual'
@@ -232,12 +233,26 @@ export function CreativesGallery({ type, title, description, files, settings, on
           )
         })}
 
-        {/* Upload slot */}
+        {/* Upload slot — admite tanto clic como arrastrar y soltar un
+            archivo directamente encima; sin los manejadores onDrop/
+            onDragOver el navegador ignora el arrastre (o solo abre la
+            imagen en una pestaña nueva), así que parecía que "no subía". */}
         {!readOnly && files.length < MAX && (
           <div
             onClick={() => !uploading && inputRef.current?.click()}
+            onDragOver={e => { e.preventDefault(); if (!uploading) setDragOver(true) }}
+            onDragLeave={() => setDragOver(false)}
+            onDrop={e => {
+              e.preventDefault()
+              setDragOver(false)
+              if (uploading) return
+              const file = e.dataTransfer.files?.[0]
+              if (file) handleFile(file)
+            }}
             className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl cursor-pointer transition-colors ${
-              uploading ? 'border-pink-300 bg-pink-50 cursor-not-allowed' : 'border-slate-300 hover:border-pink-400 hover:bg-slate-50'
+              uploading ? 'border-pink-300 bg-pink-50 cursor-not-allowed'
+                : dragOver ? 'border-pink-400 bg-pink-50'
+                : 'border-slate-300 hover:border-pink-400 hover:bg-slate-50'
             }`}
             style={{ aspectRatio: '9/16' }}
           >
