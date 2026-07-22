@@ -71,6 +71,7 @@ export default function WhatsApp() {
   const [newPhone, setNewPhone]         = useState('')
   const [showNewChat, setShowNewChat]   = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const lastMessageCount = useRef(0)
 
   // Load clinics available to this user
   useEffect(() => {
@@ -91,6 +92,24 @@ export default function WhatsApp() {
     setMessages([])
   }, [clinicId])
 
+  // El panel no tenía ninguna actualización en vivo — un mensaje entrante
+  // solo aparecía si se recargaba la página entera. Se sondea la lista de
+  // conversaciones cada 8s (para ver mensajes/no leídos nuevos sin tener
+  // abierta esa conversación) y, si hay una abierta, sus mensajes cada 4s.
+  useEffect(() => {
+    if (!clinicId) return
+    const id = setInterval(loadConversations, 8000)
+    return () => clearInterval(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clinicId])
+
+  useEffect(() => {
+    if (!selected) return
+    const id = setInterval(() => loadMessages(selected.id, { silent: true }), 4000)
+    return () => clearInterval(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected?.id])
+
   const loadConversations = () => {
     if (!clinicId) return
     api.get(`/whatsapp/conversations?clinicId=${clinicId}`).then((data: any) => {
@@ -98,15 +117,26 @@ export default function WhatsApp() {
     }).catch(() => {})
   }
 
-  const openConversation = (c: Conversation) => {
-    setSelected(c)
-    api.get(`/whatsapp/conversations/${c.id}/messages?clinicId=${clinicId}`).then((data: any) => {
+  const loadMessages = (conversationId: string, opts?: { silent?: boolean }) => {
+    api.get(`/whatsapp/conversations/${conversationId}/messages?clinicId=${clinicId}`).then((data: any) => {
       setMessages(Array.isArray(data) ? data : [])
-    }).catch(() => setMessages([]))
+    }).catch(() => { if (!opts?.silent) setMessages([]) })
   }
 
+  const openConversation = (c: Conversation) => {
+    setSelected(c)
+    lastMessageCount.current = 0
+    loadMessages(c.id)
+  }
+
+  // Con el sondeo cada 4s, "messages" cambia de referencia aunque el
+  // contenido sea el mismo — desplazar solo cuando de verdad hay mensajes
+  // nuevos, para no interrumpir a quien esté leyendo mensajes antiguos.
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messages.length > lastMessageCount.current) {
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+    lastMessageCount.current = messages.length
   }, [messages])
 
   const handleSend = async () => {
