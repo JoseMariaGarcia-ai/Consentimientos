@@ -63,12 +63,28 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
 
     if (ytMatch) {
       const videoId = ytMatch[1]
-      const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+      const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+      // Muchos clientes de correo (Gmail, Outlook…) bloquean por defecto las
+      // imágenes remotas hasta que el destinatario pulsa "mostrar imágenes",
+      // así que la miniatura se veía en blanco aunque el bloque sí se
+      // hubiera incluido. Se descarga aquí y se incrusta como adjunto
+      // (cid:), igual que ya se hace con una imagen subida directamente —
+      // si la descarga fallara por lo que sea, se usa la URL remota como
+      // reserva en vez de dejar el email sin imagen.
+      let imgSrc = thumbUrl
+      try {
+        const resp = await fetch(thumbUrl)
+        if (resp.ok) {
+          const buffer = Buffer.from(await resp.arrayBuffer())
+          adAttachment = { filename: 'miniatura_video.jpg', content: buffer, contentType: 'image/jpeg', content_id: 'ad_video_thumb', disposition: 'inline' }
+          imgSrc = 'cid:ad_video_thumb'
+        }
+      } catch {}
       adHtml = `
         <tr><td style="padding:0 40px 24px">
           <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
           <a href="${srcUrl}" style="display:block;position:relative;text-decoration:none">
-            <img src="${thumb}" alt="Ver vídeo"
+            <img src="${imgSrc}" alt="Ver vídeo"
                  style="width:100%;border-radius:10px;display:block" />
             <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
                         width:60px;height:60px;background:rgba(0,0,0,0.65);border-radius:50%;
@@ -88,21 +104,18 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
           </a>
         </td></tr>`
     } else {
+      // La etiqueta <video> apenas se admite en clientes de correo (Gmail
+      // la elimina directamente, entre otros), así que un enlace de vídeo
+      // directo (no YouTube/Vimeo) se queda igual que el caso de Vimeo:
+      // un botón siempre visible en vez de un reproductor que en la
+      // práctica no se ve en la mayoría de bandejas de entrada.
       adHtml = `
         <tr><td style="padding:0 40px 24px">
           <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
-          <!--[if !mso]><!-->
-          <video autoplay muted loop playsinline
-                 style="width:100%;border-radius:10px;display:block"
-                 src="${srcUrl}">
-          </video>
-          <!--<![endif]-->
-          <!--[if mso]>
           <a href="${srcUrl}"
-             style="display:inline-block;padding:12px 32px;background:#0D1B2E;color:#C9A84C;font-size:14px;font-weight:700;text-decoration:none;border-radius:8px">
+             style="display:inline-block;padding:12px 32px;background:#0D1B2E;color:#C9A84C;font-size:14px;font-weight:700;text-decoration:none;border-radius:8px;width:100%;box-sizing:border-box;text-align:center">
             ▶ Ver vídeo
           </a>
-          <![endif]-->
         </td></tr>`
     }
   } else if (adCreative.r2_key && adCreative.content_type?.startsWith('image/')) {
