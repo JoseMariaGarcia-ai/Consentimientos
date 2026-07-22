@@ -34,6 +34,7 @@ async function sendViaYCloud(
 ) {
   let ycloudId: string | null = null
   let status = 'sent'
+  let failureReason: string | null = null
   try {
     const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
@@ -41,10 +42,20 @@ async function sendViaYCloud(
       body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER ?? undefined, to: phone, type: 'text', text: { body } }),
     })
     const json: any = await resp.json().catch(() => ({}))
-    if (!resp.ok) status = 'failed'
-    else ycloudId = json?.id ?? null
-  } catch {
+    if (!resp.ok) {
+      status = 'failed'
+      // Antes no se registraba el motivo — solo se sabía que había fallado,
+      // nunca por qué (ventana de 24h cerrada, número no verificado,
+      // YCLOUD_WA_NUMBER mal configurado, etc.).
+      failureReason = json?.message ?? json?.error?.message ?? `HTTP ${resp.status}`
+      console.error(`[whatsapp] YCloud rechazó el envío a ${phone} (HTTP ${resp.status}):`, JSON.stringify(json))
+    } else {
+      ycloudId = json?.id ?? null
+    }
+  } catch (err: any) {
     status = 'failed'
+    failureReason = err.message
+    console.error(`[whatsapp] fallo de red enviando a ${phone}:`, err.message)
   }
   const message = await queryOne(
     `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id, sender)
@@ -55,7 +66,7 @@ async function sendViaYCloud(
     `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1 WHERE id = $2`,
     [body.slice(0, 120), conversationId]
   )
-  return { message, status }
+  return { message, status, failureReason }
 }
 
 // Genera y envía la respuesta automática del agente de WhatsApp con IA, y
@@ -344,10 +355,13 @@ router.post('/send', async (req, res) => {
       )
     }
 
-    const { message, status } = await sendViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, body, isAdminScope ? 'admin' : 'clinica')
+    const { message, status, failureReason } = await sendViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, body, isAdminScope ? 'admin' : 'clinica')
 
     if (status === 'failed') {
-      return res.status(502).json({ error: 'Fallo al enviar el mensaje por YCloud', message })
+      return res.status(502).json({
+        error: failureReason ? `Fallo al enviar el mensaje por YCloud: ${failureReason}` : 'Fallo al enviar el mensaje por YCloud',
+        message,
+      })
     }
     return res.status(201).json(message)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
