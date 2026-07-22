@@ -9,6 +9,12 @@ export const webhookRouter = Router()
 
 const YCLOUD_BASE = 'https://api.ycloud.com/v2'
 
+// Valor de clinicId/targetClinicId que representa "no es ninguna clínica,
+// es ConsentsPro escribiendo como administrador de la plataforma" — para
+// gestión de suscripciones, altas de nuevos clientes y cobros, con
+// clinics.id no sirve porque no hay clínica de por medio.
+const ADMIN_SCOPE = '__admin__'
+
 // ⚠️ PENDIENTE DE VERIFICAR ANTES DE PRODUCCIÓN: YCloud/Meta facturan por
 // CONVERSACIÓN de 24h (no por mensaje individual), y la política exacta
 // (qué categorías son facturables, tarifa por país) ha cambiado varias
@@ -23,8 +29,8 @@ const YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS = 6 // ~0,06 € por conversació
 // Envío efectivo a YCloud + persistencia — compartido entre el envío manual
 // (POST /send) y la respuesta automática del agente de IA.
 async function sendViaYCloud(
-  apiKey: string, clinicId: string, conversationId: string, phone: string, body: string,
-  sender: 'clinica' | 'ia' = 'clinica'
+  apiKey: string, clinicId: string | null, conversationId: string, phone: string, body: string,
+  sender: 'clinica' | 'ia' | 'admin' = 'clinica'
 ) {
   let ycloudId: string | null = null
   let status = 'sent'
@@ -116,15 +122,23 @@ async function runWhatsAppAiAgent(
   }
 }
 
-async function getRequesterClinicId(req: any, targetClinicId?: string): Promise<{ clinicId: string | null; isSuperAdmin: boolean }> {
+// hasAccess distingue "sin clínica seleccionada todavía" (clinicId null,
+// isAdminScope false → 403) de "modo administrador, sin clínica a propósito"
+// (clinicId null, isAdminScope true → acceso válido, ámbito global).
+async function getRequesterClinicId(req: any, targetClinicId?: string): Promise<{ clinicId: string | null; isSuperAdmin: boolean; isAdminScope: boolean; hasAccess: boolean }> {
   const { userId } = req.user
   const me = await queryOne<{ clinic_id: string; role: string }>(
     'SELECT clinic_id, role FROM app_users WHERE id = $1', [userId]
   )
-  if (!me) return { clinicId: null, isSuperAdmin: false }
+  if (!me) return { clinicId: null, isSuperAdmin: false, isAdminScope: false, hasAccess: false }
   const isSuperAdmin = me.role === 'superadmin'
-  if (isSuperAdmin && targetClinicId) return { clinicId: targetClinicId, isSuperAdmin }
-  return { clinicId: me.clinic_id, isSuperAdmin }
+  if (isSuperAdmin && targetClinicId === ADMIN_SCOPE) {
+    return { clinicId: null, isSuperAdmin, isAdminScope: true, hasAccess: true }
+  }
+  if (isSuperAdmin && targetClinicId) {
+    return { clinicId: targetClinicId, isSuperAdmin, isAdminScope: false, hasAccess: true }
+  }
+  return { clinicId: me.clinic_id, isSuperAdmin, isAdminScope: false, hasAccess: !!me.clinic_id }
 }
 
 // Ya no existe una clave de YCloud por clínica configurable (ver migración
@@ -219,9 +233,9 @@ router.get('/clinics', async (req, res) => {
 // GET /api/whatsapp/status?clinicId=xxx — whether YCloud is configured for this clinic
 router.get('/status', async (req, res) => {
   try {
-    const { clinicId } = await getRequesterClinicId(req, req.query.clinicId as string)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
-    const key = await getYCloudKey(clinicId)
+    const { clinicId, isAdminScope, hasAccess } = await getRequesterClinicId(req, req.query.clinicId as string)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
+    const key = isAdminScope ? await getSharedYCloudKey() : await getYCloudKey(clinicId!)
     return res.json({ configured: !!key })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
@@ -231,8 +245,9 @@ router.get('/status', async (req, res) => {
 // lo copie y lo publique donde quiera. Evita la ambigüedad de origen.
 router.get('/direct-link', async (req, res) => {
   try {
-    const { clinicId } = await getRequesterClinicId(req, req.query.clinicId as string)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
+    const { clinicId, isAdminScope, hasAccess } = await getRequesterClinicId(req, req.query.clinicId as string)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
+    if (isAdminScope) return res.status(404).json({ error: 'No aplica en modo administrador' })
     const clinic = await queryOne<{ whatsapp_code: string | null }>('SELECT whatsapp_code FROM clinics WHERE id = $1', [clinicId])
     if (!clinic?.whatsapp_code) return res.status(404).json({ error: 'Esta clínica no tiene código de WhatsApp asignado' })
     return res.json({ link: generateDirectLink(clinic.whatsapp_code), code: clinic.whatsapp_code })
@@ -242,12 +257,11 @@ router.get('/direct-link', async (req, res) => {
 // GET /api/whatsapp/conversations?clinicId=xxx
 router.get('/conversations', async (req, res) => {
   try {
-    const { clinicId } = await getRequesterClinicId(req, req.query.clinicId as string)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
-    const data = await query(
-      `SELECT * FROM whatsapp_conversations WHERE clinic_id = $1 ORDER BY last_message_at DESC`,
-      [clinicId]
-    )
+    const { clinicId, isAdminScope, hasAccess } = await getRequesterClinicId(req, req.query.clinicId as string)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
+    const data = isAdminScope
+      ? await query(`SELECT * FROM whatsapp_conversations WHERE clinic_id IS NULL ORDER BY last_message_at DESC`)
+      : await query(`SELECT * FROM whatsapp_conversations WHERE clinic_id = $1 ORDER BY last_message_at DESC`, [clinicId])
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
@@ -255,18 +269,22 @@ router.get('/conversations', async (req, res) => {
 // GET /api/whatsapp/conversations/:id/messages
 router.get('/conversations/:id/messages', async (req, res) => {
   try {
-    const { clinicId, isSuperAdmin } = await getRequesterClinicId(req, req.query.clinicId as string)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
-    const convo = await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    const { clinicId, isSuperAdmin, isAdminScope, hasAccess } = await getRequesterClinicId(req, req.query.clinicId as string)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
+    const convo = isAdminScope
+      ? await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id IS NULL', [req.params.id])
+      : await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
     if (!convo) return res.status(404).json({ error: 'Conversación no encontrada' })
     const data = await query(
       `SELECT * FROM whatsapp_messages WHERE conversation_id = $1 ORDER BY created_at ASC`,
       [req.params.id]
     )
-    // Un superadmin puede entrar a supervisar/consultar cualquier clínica —
-    // eso no debe marcar los mensajes como leídos, o la propia clínica
-    // perdería el aviso de "no leído" sin haberlos visto de verdad.
-    if (!isSuperAdmin) {
+    // Un superadmin puede entrar a supervisar/consultar la conversación de
+    // una clínica real (no la suya) — eso no debe marcar los mensajes como
+    // leídos, o la propia clínica perdería el aviso de "no leído" sin
+    // haberlos visto de verdad. En modo administrador sí son mensajes
+    // propios del superadmin, así que ahí sí se marcan como leídos.
+    if (isAdminScope || !isSuperAdmin) {
       await query('UPDATE whatsapp_conversations SET unread_count = 0 WHERE id = $1', [req.params.id])
     }
     return res.json(data)
@@ -279,24 +297,24 @@ router.post('/send', async (req, res) => {
     const { phone, body, contactName, targetClinicId } = req.body
     if (!phone || !body) return res.status(400).json({ error: 'phone y body requeridos' })
 
-    const { clinicId } = await getRequesterClinicId(req, targetClinicId)
-    if (!clinicId) return res.status(403).json({ error: 'Sin acceso' })
+    const { clinicId, isAdminScope, hasAccess } = await getRequesterClinicId(req, targetClinicId)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
 
-    const apiKey = await getYCloudKey(clinicId)
-    if (!apiKey) return res.status(400).json({ error: 'YCloud no está configurado para esta clínica. Añade la API Key en Configuración → Claves.' })
+    const apiKey = isAdminScope ? await getSharedYCloudKey() : await getYCloudKey(clinicId!)
+    if (!apiKey) return res.status(400).json({ error: 'YCloud no está configurado. Añade la API Key en Configuración → Claves.' })
 
     // Ensure conversation exists
-    let convo = await queryOne<{ id: string }>(
-      'SELECT id FROM whatsapp_conversations WHERE clinic_id = $1 AND phone = $2', [clinicId, phone]
-    )
+    let convo = isAdminScope
+      ? await queryOne<{ id: string }>('SELECT id FROM whatsapp_conversations WHERE clinic_id IS NULL AND phone = $1', [phone])
+      : await queryOne<{ id: string }>('SELECT id FROM whatsapp_conversations WHERE clinic_id = $1 AND phone = $2', [clinicId, phone])
     if (!convo) {
       convo = await queryOne<{ id: string }>(
-        `INSERT INTO whatsapp_conversations (clinic_id, phone, contact_name, source) VALUES ($1,$2,$3,'mensaje_saliente_clinica') RETURNING id`,
-        [clinicId, phone, contactName ?? null]
+        `INSERT INTO whatsapp_conversations (clinic_id, phone, contact_name, source) VALUES ($1,$2,$3,$4) RETURNING id`,
+        [isAdminScope ? null : clinicId, phone, contactName ?? null, isAdminScope ? 'admin_directo' : 'mensaje_saliente_clinica']
       )
     }
 
-    const { message, status } = await sendViaYCloud(apiKey, clinicId, convo!.id, phone, body, 'clinica')
+    const { message, status } = await sendViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, body, isAdminScope ? 'admin' : 'clinica')
 
     if (status === 'failed') {
       return res.status(502).json({ error: 'Fallo al enviar el mensaje por YCloud', message })
@@ -377,6 +395,28 @@ webhookRouter.post('/', async (req, res) => {
     const sharedKey = await getSharedYCloudKey()
     if (!sharedKey) {
       console.error('[whatsapp shared webhook] falta shared_ycloud_api_key en system_settings')
+      return
+    }
+
+    // Si la conversación más reciente de este número es una conversación de
+    // administrador (superadmin escribiendo como ConsentsPro, no en nombre
+    // de una clínica), la respuesta entrante es para esa bandeja de admin —
+    // se guarda tal cual y NUNCA pasa por el enrutamiento de pacientes ni
+    // por el agente de IA de ninguna clínica.
+    const mostRecent = await queryOne<{ id: string; clinic_id: string | null }>(
+      `SELECT id, clinic_id FROM whatsapp_conversations WHERE phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
+      [phone]
+    )
+    if (mostRecent && mostRecent.clinic_id === null) {
+      await query(
+        `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+         VALUES ($1,NULL,'inbound',$2,'received','paciente')`,
+        [mostRecent.id, text]
+      )
+      await query(
+        `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1, unread_count = unread_count + 1 WHERE id = $2`,
+        [text.slice(0, 120), mostRecent.id]
+      )
       return
     }
 

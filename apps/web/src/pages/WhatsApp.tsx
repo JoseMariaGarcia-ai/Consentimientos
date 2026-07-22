@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, Send, Search, AlertTriangle, Building2, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw } from 'lucide-react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
+
+// Mismo valor que ADMIN_SCOPE en el backend (routes/whatsapp.ts) — el
+// superadmin lo usa para escribir como ConsentsPro a cualquier clínica o
+// persona, sin que la conversación pertenezca a ninguna clínica concreta.
+const ADMIN_SCOPE = '__admin__'
 
 interface Conversation {
   id: string
@@ -150,13 +155,14 @@ export default function WhatsApp() {
 
         {isSuperAdmin && (
           <div className="flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-slate-400" />
+            {clinicId === ADMIN_SCOPE ? <ShieldCheck className="w-4 h-4 text-emerald-500" /> : <Building2 className="w-4 h-4 text-slate-400" />}
             <select
               value={clinicId}
               onChange={e => setClinicId(e.target.value)}
               className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
             >
               <option value="">— Seleccionar clínica —</option>
+              <option value={ADMIN_SCOPE}>⚡ ConsentsPro (administrador)</option>
               {clinics.map(c => (
                 <option key={c.id} value={c.id}>{c.trade_name ?? c.name}{c.phone ? ` — ${c.phone}` : ''}</option>
               ))}
@@ -165,7 +171,16 @@ export default function WhatsApp() {
         )}
       </div>
 
-      {clinicId && <DirectLinkPanel clinicId={clinicId} />}
+      {clinicId === ADMIN_SCOPE && (
+        <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2">
+          <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+          <p className="text-xs text-emerald-800">
+            Modo administrador: los mensajes se envían como ConsentsPro, a cualquier clínica o persona — no en nombre de ninguna clínica.
+          </p>
+        </div>
+      )}
+
+      {clinicId && clinicId !== ADMIN_SCOPE && <DirectLinkPanel clinicId={clinicId} />}
 
       {!clinicId ? (
         <div className="flex-1 flex items-center justify-center text-slate-400 text-sm py-20">

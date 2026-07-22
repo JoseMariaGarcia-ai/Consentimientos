@@ -184,7 +184,11 @@ export async function resolveIncomingConversation(phone: string, text: string, i
 
   // 2. Historial de conversaciones existentes para este número, en CUALQUIER clínica.
   const history = await query<{ clinic_id: string; last_message_at: string }>(
-    'SELECT clinic_id, MAX(last_message_at) AS last_message_at FROM whatsapp_conversations WHERE phone = $1 GROUP BY clinic_id',
+    // clinic_id IS NOT NULL: las conversaciones de administrador (superadmin
+    // escribiendo como ConsentsPro, sin clínica) nunca deben entrar en el
+    // enrutamiento de pacientes — eso ya se filtra antes en el webhook, pero
+    // se repite aquí como defensa en profundidad.
+    "SELECT clinic_id, MAX(last_message_at) AS last_message_at FROM whatsapp_conversations WHERE phone = $1 AND clinic_id IS NOT NULL GROUP BY clinic_id",
     [phone]
   )
 
