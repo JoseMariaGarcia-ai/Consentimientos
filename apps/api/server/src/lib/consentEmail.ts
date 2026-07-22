@@ -155,8 +155,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
       filename: adAttachment.filename,
       content: adAttachment.content.toString('base64'),
       contentType: adAttachment.contentType,
-      content_id: adAttachment.content_id,
-      disposition: adAttachment.disposition,
+      inlineContentId: adAttachment.inlineContentId,
     })
   }
 

@@ -18,8 +18,12 @@ export interface AdAttachment {
   filename: string
   content: Buffer
   contentType: string
-  content_id: string
-  disposition: 'inline'
+  // El SDK de Resend espera exactamente este nombre de campo
+  // (inlineContentId, no content_id/disposition) para tratar el adjunto
+  // como inline y poder referenciarlo con cid: en el HTML — con el nombre
+  // equivocado, Resend lo aceptaba igualmente pero como adjunto normal, así
+  // que la imagen llegaba fuera del cuerpo del email en vez de dentro.
+  inlineContentId: string
 }
 
 export interface PatientAdBlock {
@@ -76,7 +80,7 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
         const resp = await fetch(thumbUrl)
         if (resp.ok) {
           const buffer = Buffer.from(await resp.arrayBuffer())
-          adAttachment = { filename: 'miniatura_video.jpg', content: buffer, contentType: 'image/jpeg', content_id: 'ad_video_thumb', disposition: 'inline' }
+          adAttachment = { filename: 'miniatura_video.jpg', content: buffer, contentType: 'image/jpeg', inlineContentId: 'ad_video_thumb' }
           imgSrc = 'cid:ad_video_thumb'
         }
       } catch {}
@@ -121,7 +125,7 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
   } else if (adCreative.r2_key && adCreative.content_type?.startsWith('image/')) {
     try {
       const { buffer, contentType } = await downloadFile(adCreative.r2_key)
-      adAttachment = { filename: 'publicidad.jpg', content: buffer, contentType, content_id: 'ad_image', disposition: 'inline' }
+      adAttachment = { filename: 'publicidad.jpg', content: buffer, contentType, inlineContentId: 'ad_image' }
       adHtml = `
         <tr><td style="padding:0 40px 24px">
           <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;text-align:center">De tu clínica</p>
