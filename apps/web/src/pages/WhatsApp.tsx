@@ -145,6 +145,7 @@ export default function WhatsApp() {
   const [draft, setDraft]               = useState('')
   const [sending, setSending]           = useState(false)
   const [error, setError]               = useState('')
+  const [notice, setNotice]             = useState('')
   const [newPhone, setNewPhone]         = useState('')
   const [showNewChat, setShowNewChat]   = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -207,6 +208,7 @@ export default function WhatsApp() {
   const openConversation = (c: Conversation) => {
     setSelected(c)
     lastMessageCount.current = 0
+    setError(''); setNotice('')
     loadMessages(c.id)
   }
 
@@ -223,7 +225,7 @@ export default function WhatsApp() {
   const handleSend = async () => {
     const phone = selected?.phone ?? newPhone.trim()
     if (!phone || !draft.trim()) return
-    setSending(true); setError('')
+    setSending(true); setError(''); setNotice('')
     try {
       const msg = await api.post('/whatsapp/send', {
         targetClinicId: clinicId,
@@ -232,6 +234,9 @@ export default function WhatsApp() {
       })
       setMessages(m => [...m, msg])
       setDraft('')
+      if (msg?.viaTemplate) {
+        setNotice('Han pasado más de 24h desde el último mensaje de este contacto: WhatsApp no permite texto libre fuera de esa ventana, así que se ha enviado la plantilla de contacto aprobada en su lugar. La conversación se reabrirá en cuanto responda.')
+      }
       loadConversations()
       if (!selected) {
         setShowNewChat(false)
@@ -425,6 +430,9 @@ export default function WhatsApp() {
 
                 <ChatComposer draft={draft} setDraft={setDraft} onSend={handleSend} sending={sending} />
               </>
+            )}
+            {notice && (
+              <div className="px-4 py-2 bg-amber-50 text-amber-700 text-xs border-t border-amber-100">{notice}</div>
             )}
             {error && (
               <div className="px-4 py-2 bg-red-50 text-red-600 text-xs border-t border-red-100">{error}</div>

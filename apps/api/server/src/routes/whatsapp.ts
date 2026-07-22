@@ -26,6 +26,92 @@ const ADMIN_SCOPE = '__admin__'
 // en esto para cobros reales.
 const YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS = 6 // ~0,06 € por conversación de servicio, estimación provisional
 
+// Nombre de la plantilla aprobada en YCloud/Meta para reabrir conversación
+// fuera de la ventana de 24h (ver sendTemplateViaYCloud). Configurable por
+// si el nombre que finalmente se aprueba difiere del propuesto por defecto.
+const YCLOUD_CONTACT_TEMPLATE_NAME = process.env.YCLOUD_CONTACT_TEMPLATE_NAME?.trim() || 'contacto_consentspro'
+const YCLOUD_CONTACT_TEMPLATE_LANG = process.env.YCLOUD_CONTACT_TEMPLATE_LANG?.trim() || 'es'
+
+// WhatsApp/Meta solo permite mensajes de texto libre dentro de las 24h
+// siguientes al último mensaje ENTRANTE del cliente ("ventana de servicio").
+// Fuera de esa ventana, cualquier mensaje de texto normal es rechazado o no
+// se entrega — hay que usar una plantilla (HSM) previamente aprobada.
+async function hasOpenSessionWindow(phone: string): Promise<boolean> {
+  const row = await queryOne<{ last_inbound: string | null }>(
+    `SELECT MAX(wm.created_at) AS last_inbound
+     FROM whatsapp_messages wm
+     JOIN whatsapp_conversations wc ON wc.id = wm.conversation_id
+     WHERE wc.phone = $1 AND wm.direction = 'inbound'`,
+    [phone]
+  )
+  if (!row?.last_inbound) return false
+  const elapsedMs = Date.now() - new Date(row.last_inbound).getTime()
+  return elapsedMs < 24 * 60 * 60 * 1000
+}
+
+// Envío de mensaje de PLANTILLA (HSM) — única vía válida para escribir a un
+// número fuera de la ventana de 24h. Formato asumido de WhatsApp Cloud API,
+// que YCloud replica (misma reserva que sendInteractiveListViaYCloud: no
+// verificado todavía contra tráfico real, revisar el primer envío en logs).
+// La plantilla debe existir y estar APROBADA en YCloud antes de usarse, o
+// YCloud devolverá error — ver YCLOUD_CONTACT_TEMPLATE_NAME arriba.
+async function sendTemplateViaYCloud(
+  apiKey: string, clinicId: string | null, conversationId: string, phone: string, displayName: string,
+  sender: 'clinica' | 'ia' | 'admin' = 'clinica'
+) {
+  const savedBody = `Hola, te escribimos de ${displayName} a través de ConsentsPro. Si tienes alguna duda o quieres más información, responde directamente a este mensaje.`
+  let ycloudId: string | null = null
+  let status = 'sent'
+  let failureReason: string | null = null
+  if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
+    console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar la plantilla')
+    const message = await queryOne(
+      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+       VALUES ($1,$2,'outbound',$3,'failed',$4) RETURNING *`,
+      [conversationId, clinicId, savedBody, sender]
+    )
+    return { message, status: 'failed', failureReason: 'Falta configurar YCLOUD_WA_NUMBER en las variables de entorno del backend' }
+  }
+  try {
+    const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
+      method: 'POST',
+      headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: process.env.YCLOUD_WA_NUMBER,
+        to: phone,
+        type: 'template',
+        template: {
+          name: YCLOUD_CONTACT_TEMPLATE_NAME,
+          language: { code: YCLOUD_CONTACT_TEMPLATE_LANG },
+          components: [{ type: 'body', parameters: [{ type: 'text', text: displayName }] }],
+        },
+      }),
+    })
+    const json: any = await resp.json().catch(() => ({}))
+    if (!resp.ok) {
+      status = 'failed'
+      failureReason = json?.message ?? json?.error?.message ?? `HTTP ${resp.status}`
+      console.error(`[whatsapp] YCloud rechazó el envío de plantilla a ${phone} (HTTP ${resp.status}):`, JSON.stringify(json))
+    } else {
+      ycloudId = json?.id ?? null
+    }
+  } catch (err: any) {
+    status = 'failed'
+    failureReason = err.message
+    console.error(`[whatsapp] fallo de red enviando plantilla a ${phone}:`, err.message)
+  }
+  const message = await queryOne(
+    `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, ycloud_id, sender)
+     VALUES ($1,$2,'outbound',$3,$4,$5,$6) RETURNING *`,
+    [conversationId, clinicId, savedBody, status, ycloudId, sender]
+  )
+  await query(
+    `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1 WHERE id = $2`,
+    [savedBody.slice(0, 120), conversationId]
+  )
+  return { message, status, failureReason }
+}
+
 // Envío efectivo a YCloud + persistencia — compartido entre el envío manual
 // (POST /send) y la respuesta automática del agente de IA.
 async function sendViaYCloud(
@@ -447,7 +533,13 @@ router.post('/send', async (req, res) => {
       )
     }
 
-    const { message, status, failureReason } = await sendViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, body, isAdminScope ? 'admin' : 'clinica')
+    // Fuera de la ventana de 24h, un mensaje de texto libre no llegaría —
+    // hay que usar la plantilla aprobada en su lugar (ver hasOpenSessionWindow).
+    const windowOpen = await hasOpenSessionWindow(phone)
+    const viaTemplate = !windowOpen
+    const { message, status, failureReason } = windowOpen
+      ? await sendViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, body, isAdminScope ? 'admin' : 'clinica')
+      : await sendTemplateViaYCloud(apiKey, isAdminScope ? null : clinicId, convo!.id, phone, isAdminScope ? 'ConsentsPro' : await getClinicDisplayName(clinicId!), isAdminScope ? 'admin' : 'clinica')
 
     if (status === 'failed') {
       return res.status(502).json({
@@ -455,7 +547,7 @@ router.post('/send', async (req, res) => {
         message,
       })
     }
-    return res.status(201).json(message)
+    return res.status(201).json({ ...message, viaTemplate })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
