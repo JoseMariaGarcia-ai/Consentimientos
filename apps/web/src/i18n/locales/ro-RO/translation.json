@@ -1064,6 +1064,14 @@
       "on_consent": "La crearea unui consimțământ",
       "every_x_minutes": "La fiecare X minute",
       "once_daily": "O dată pe zi"
+    },
+    "clinics": {
+      "title": "Clinici alocate pentru {{name}}",
+      "no_clinics": "Acest laborator nu are încă clinici alocate.",
+      "add_placeholder": "Selectați o clinică de alocat...",
+      "add_button": "Alocă",
+      "confirm_remove": "Eliminați această clinică din laborator?",
+      "unknown_error": "Eroare necunoscută"
     }
   },
   "agenda": {

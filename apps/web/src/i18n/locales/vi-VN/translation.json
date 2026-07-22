@@ -1064,6 +1064,14 @@
       "on_consent": "Khi tạo chấp thuận",
       "every_x_minutes": "Mỗi X phút",
       "once_daily": "Một lần mỗi ngày"
+    },
+    "clinics": {
+      "title": "Phòng khám được gán cho {{name}}",
+      "no_clinics": "Phòng xét nghiệm này chưa có phòng khám nào được gán.",
+      "add_placeholder": "Chọn phòng khám để gán...",
+      "add_button": "Gán",
+      "confirm_remove": "Xóa phòng khám này khỏi phòng xét nghiệm?",
+      "unknown_error": "Lỗi không xác định"
     }
   },
   "agenda": {

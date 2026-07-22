@@ -1064,6 +1064,14 @@
       "on_consent": "Bei Erstellung einer Einwilligung",
       "every_x_minutes": "Alle X Minuten",
       "once_daily": "Einmal täglich"
+    },
+    "clinics": {
+      "title": "{{name}} zugewiesene Kliniken",
+      "no_clinics": "Diesem Labor sind noch keine Kliniken zugewiesen.",
+      "add_placeholder": "Klinik zum Zuweisen auswählen...",
+      "add_button": "Zuweisen",
+      "confirm_remove": "Diese Klinik vom Labor entfernen?",
+      "unknown_error": "Unbekannter Fehler"
     }
   },
   "agenda": {

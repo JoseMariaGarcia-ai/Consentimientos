@@ -1064,6 +1064,14 @@
       "on_consent": "Ao criar consentimento",
       "every_x_minutes": "A cada X minutos",
       "once_daily": "Uma vez por dia"
+    },
+    "clinics": {
+      "title": "Clínicas atribuídas a {{name}}",
+      "no_clinics": "Este laboratório ainda não tem clínicas atribuídas.",
+      "add_placeholder": "Selecione uma clínica para atribuir...",
+      "add_button": "Atribuir",
+      "confirm_remove": "Remover esta clínica do laboratório?",
+      "unknown_error": "Erro desconhecido"
     }
   },
   "agenda": {

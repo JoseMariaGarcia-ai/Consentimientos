@@ -1064,6 +1064,14 @@
       "on_consent": "Beleegyezés létrehozásakor",
       "every_x_minutes": "Minden X percben",
       "once_daily": "Naponta egyszer"
+    },
+    "clinics": {
+      "title": "{{name}} laborhoz rendelt klinikák",
+      "no_clinics": "Ehhez a laborhoz még nincs klinika rendelve.",
+      "add_placeholder": "Válasszon hozzárendelendő klinikát...",
+      "add_button": "Hozzárendelés",
+      "confirm_remove": "Eltávolítja ezt a klinikát a laborból?",
+      "unknown_error": "Ismeretlen hiba"
     }
   },
   "agenda": {

@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
-import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X } from 'lucide-react'
+import { Building2, Plus, Pencil, Trash2, Megaphone, Search, X, Link2 } from 'lucide-react'
 import { api } from '@/lib/api'
 
 export interface LabPartner {
@@ -15,6 +15,12 @@ export interface LabPartner {
   is_active: boolean
   clinic_count?: number
   campaign_count?: number
+}
+
+interface ClinicOption {
+  id: string
+  name: string
+  trade_name: string | null
 }
 
 export interface Campaign {
@@ -217,6 +223,80 @@ function CampaignForm({ initial, onSave, onClose }: { initial: Partial<Campaign>
   )
 }
 
+// ── Assigned clinics panel ──────────────────────────────────────
+export function ClinicsPanel({ lab }: { lab: LabPartner }) {
+  const { t } = useTranslation()
+  const [assigned, setAssigned] = useState<ClinicOption[]>([])
+  const [allClinics, setAllClinics] = useState<ClinicOption[]>([])
+  const [picked, setPicked] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState('')
+
+  const load = async () => {
+    try { setAssigned(await api.get(`/lab-partners/${lab.id}/clinics`)) } catch { setAssigned([]) }
+  }
+  useEffect(() => {
+    load()
+    api.get('/clinic-config/clinics').then(setAllClinics).catch(() => setAllClinics([]))
+  }, [lab.id])
+
+  const assignedIds = new Set(assigned.map(c => c.id))
+  const available = allClinics.filter(c => !assignedIds.has(c.id))
+
+  const handleAssign = async () => {
+    if (!picked) return
+    setSaving(true); setError('')
+    try {
+      await api.post(`/lab-partners/${lab.id}/clinics`, { clinic_id: picked })
+      setPicked('')
+      await load()
+    } catch (err: any) {
+      setError(err.message ?? t('labPartners.clinics.unknown_error'))
+    } finally { setSaving(false) }
+  }
+
+  const handleRemove = async (clinicId: string) => {
+    if (!confirm(t('labPartners.clinics.confirm_remove'))) return
+    await api.delete(`/lab-partners/${lab.id}/clinics/${clinicId}`)
+    await load()
+  }
+
+  return (
+    <div className="bg-slate-50 px-6 py-4 border-t border-slate-100">
+      <div className="flex items-center gap-2 mb-3">
+        <Link2 className="w-4 h-4 text-blue-500" />
+        <h4 className="text-sm font-bold text-slate-700">{t('labPartners.clinics.title', { name: lab.name })}</h4>
+      </div>
+
+      {assigned.length === 0 ? (
+        <p className="text-xs text-slate-400 py-2">{t('labPartners.clinics.no_clinics')}</p>
+      ) : (
+        <ul className="divide-y divide-slate-200 mb-3">
+          {assigned.map(c => (
+            <li key={c.id} className="flex items-center justify-between py-2">
+              <span className="text-sm text-slate-700">{c.trade_name ?? c.name}</span>
+              <button onClick={() => handleRemove(c.id)} className="p-1 text-slate-400 hover:text-red-500"><Trash2 className="w-3.5 h-3.5" /></button>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="flex items-center gap-2">
+        <select value={picked} onChange={e => setPicked(e.target.value)}
+          className="flex-1 px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">{t('labPartners.clinics.add_placeholder')}</option>
+          {available.map(c => <option key={c.id} value={c.id}>{c.trade_name ?? c.name}</option>)}
+        </select>
+        <button onClick={handleAssign} disabled={!picked || saving}
+          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50">
+          {t('labPartners.clinics.add_button')}
+        </button>
+      </div>
+      {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
+    </div>
+  )
+}
+
 // ── Campaigns panel ─────────────────────────────────────────────
 export function CampaignsPanel({ lab }: { lab: LabPartner }) {
   const { t } = useTranslation()
@@ -398,7 +478,10 @@ export default function LabPartners() {
                   </tr>
                   {expanded === lab.id && (
                     <tr>
-                      <td colSpan={6} className="p-0"><CampaignsPanel lab={lab} /></td>
+                      <td colSpan={6} className="p-0">
+                        <ClinicsPanel lab={lab} />
+                        <CampaignsPanel lab={lab} />
+                      </td>
                     </tr>
                   )}
                 </Fragment>

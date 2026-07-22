@@ -1064,6 +1064,14 @@
       "on_consent": "Při vytvoření souhlasu",
       "every_x_minutes": "Každých X minut",
       "once_daily": "Jednou denně"
+    },
+    "clinics": {
+      "title": "Kliniky přiřazené k {{name}}",
+      "no_clinics": "Tato laboratoř zatím nemá přiřazené žádné kliniky.",
+      "add_placeholder": "Vyberte kliniku k přiřazení...",
+      "add_button": "Přiřadit",
+      "confirm_remove": "Odebrat tuto kliniku z laboratoře?",
+      "unknown_error": "Neznámá chyba"
     }
   },
   "agenda": {

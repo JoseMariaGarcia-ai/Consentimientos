@@ -1064,6 +1064,14 @@
       "on_consent": "En crear consentiment",
       "every_x_minutes": "Cada X minuts",
       "once_daily": "Una vegada al dia"
+    },
+    "clinics": {
+      "title": "Clíniques assignades a {{name}}",
+      "no_clinics": "Aquest laboratori encara no té clíniques assignades.",
+      "add_placeholder": "Selecciona una clínica per assignar...",
+      "add_button": "Assignar",
+      "confirm_remove": "Vols treure aquesta clínica del laboratori?",
+      "unknown_error": "Error desconegut"
     }
   },
   "agenda": {

@@ -1064,6 +1064,14 @@
       "on_consent": "Bij het aanmaken van toestemming",
       "every_x_minutes": "Elke X minuten",
       "once_daily": "Eén keer per dag"
+    },
+    "clinics": {
+      "title": "Aan {{name}} toegewezen klinieken",
+      "no_clinics": "Dit laboratorium heeft nog geen toegewezen klinieken.",
+      "add_placeholder": "Selecteer een kliniek om toe te wijzen...",
+      "add_button": "Toewijzen",
+      "confirm_remove": "Deze kliniek uit het laboratorium verwijderen?",
+      "unknown_error": "Onbekende fout"
     }
   },
   "agenda": {

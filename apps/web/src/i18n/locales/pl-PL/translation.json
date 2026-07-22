@@ -1064,6 +1064,14 @@
       "on_consent": "Przy tworzeniu zgody",
       "every_x_minutes": "Co X minut",
       "once_daily": "Raz dziennie"
+    },
+    "clinics": {
+      "title": "Kliniki przypisane do {{name}}",
+      "no_clinics": "To laboratorium nie ma jeszcze przypisanych klinik.",
+      "add_placeholder": "Wybierz klinikę do przypisania...",
+      "add_button": "Przypisz",
+      "confirm_remove": "Usunąć tę klinikę z laboratorium?",
+      "unknown_error": "Nieznany błąd"
     }
   },
   "agenda": {

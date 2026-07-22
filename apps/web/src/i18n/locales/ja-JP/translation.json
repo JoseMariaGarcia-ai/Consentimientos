@@ -1064,6 +1064,14 @@
       "on_consent": "同意書作成時",
       "every_x_minutes": "X分ごと",
       "once_daily": "1日1回"
+    },
+    "clinics": {
+      "title": "{{name}} に割り当てられたクリニック",
+      "no_clinics": "このラボにはまだ割り当てられたクリニックがありません。",
+      "add_placeholder": "割り当てるクリニックを選択...",
+      "add_button": "割り当て",
+      "confirm_remove": "このクリニックをラボから削除しますか？",
+      "unknown_error": "不明なエラー"
     }
   },
   "agenda": {

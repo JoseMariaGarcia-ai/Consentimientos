@@ -1064,6 +1064,14 @@
       "on_consent": "Suostumusta luotaessa",
       "every_x_minutes": "Joka X minuutti",
       "once_daily": "Kerran päivässä"
+    },
+    "clinics": {
+      "title": "{{name}}:lle määritetyt klinikat",
+      "no_clinics": "Tällä laboratoriolla ei ole vielä määritettyjä klinikoita.",
+      "add_placeholder": "Valitse liitettävä klinikka...",
+      "add_button": "Liitä",
+      "confirm_remove": "Poistetaanko tämä klinikka laboratoriosta?",
+      "unknown_error": "Tuntematon virhe"
     }
   },
   "agenda": {

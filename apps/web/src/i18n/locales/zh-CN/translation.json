@@ -1064,6 +1064,14 @@
       "on_consent": "创建知情同意书时",
       "every_x_minutes": "每隔X分钟",
       "once_daily": "每天一次"
+    },
+    "clinics": {
+      "title": "分配给 {{name}} 的诊所",
+      "no_clinics": "该实验室尚未分配任何诊所。",
+      "add_placeholder": "选择要分配的诊所...",
+      "add_button": "分配",
+      "confirm_remove": "从实验室中移除该诊所？",
+      "unknown_error": "未知错误"
     }
   },
   "agenda": {

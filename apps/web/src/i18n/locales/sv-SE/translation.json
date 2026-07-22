@@ -1064,6 +1064,14 @@
       "on_consent": "Vid skapande av samtycke",
       "every_x_minutes": "Var X:e minut",
       "once_daily": "En gång per dag"
+    },
+    "clinics": {
+      "title": "Kliniker tilldelade {{name}}",
+      "no_clinics": "Det här laboratoriet har inga tilldelade kliniker än.",
+      "add_placeholder": "Välj en klinik att tilldela...",
+      "add_button": "Tilldela",
+      "confirm_remove": "Ta bort den här kliniken från laboratoriet?",
+      "unknown_error": "Okänt fel"
     }
   },
   "agenda": {

@@ -1064,6 +1064,14 @@
       "on_consent": "Onam oluşturulduğunda",
       "every_x_minutes": "Her X dakikada",
       "once_daily": "Günde bir kez"
+    },
+    "clinics": {
+      "title": "{{name}} laboratuvarına atanan klinikler",
+      "no_clinics": "Bu laboratuvara henüz klinik atanmadı.",
+      "add_placeholder": "Atanacak bir klinik seçin...",
+      "add_button": "Ata",
+      "confirm_remove": "Bu klinik laboratuvardan kaldırılsın mı?",
+      "unknown_error": "Bilinmeyen hata"
     }
   },
   "agenda": {

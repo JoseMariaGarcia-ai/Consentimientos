@@ -1064,6 +1064,14 @@
       "on_consent": "On consent creation",
       "every_x_minutes": "Every X minutes",
       "once_daily": "Once a day"
+    },
+    "clinics": {
+      "title": "Clinics assigned to {{name}}",
+      "no_clinics": "This lab doesn't have any assigned clinics yet.",
+      "add_placeholder": "Select a clinic to assign...",
+      "add_button": "Assign",
+      "confirm_remove": "Remove this clinic from the lab?",
+      "unknown_error": "Unknown error"
     }
   },
   "agenda": {

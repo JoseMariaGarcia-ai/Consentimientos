@@ -1064,6 +1064,14 @@
       "on_consent": "Ved oprettelse af samtykke",
       "every_x_minutes": "Hver X minutter",
       "once_daily": "Én gang om dagen"
+    },
+    "clinics": {
+      "title": "Klinikker tilknyttet {{name}}",
+      "no_clinics": "Dette laboratorium har endnu ingen tilknyttede klinikker.",
+      "add_placeholder": "Vælg en klinik at tilknytte...",
+      "add_button": "Tilknyt",
+      "confirm_remove": "Fjern denne klinik fra laboratoriet?",
+      "unknown_error": "Ukendt fejl"
     }
   },
   "agenda": {

@@ -1020,6 +1020,14 @@
       "on_consent": "ביצירת הסכמה",
       "every_x_minutes": "כל X דקות",
       "once_daily": "פעם ביום"
+    },
+    "clinics": {
+      "title": "מרפאות המשויכות ל-{{name}}",
+      "no_clinics": "למעבדה זו אין עדיין מרפאות משויכות.",
+      "add_placeholder": "בחר מרפאה לשיוך...",
+      "add_button": "שייך",
+      "confirm_remove": "להסיר את המרפאה הזו מהמעבדה?",
+      "unknown_error": "שגיאה לא ידועה"
     }
   },
   "agenda": {
