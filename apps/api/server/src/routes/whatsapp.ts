@@ -328,6 +328,7 @@ webhookRouter.post('/:clinicId', async (req, res) => {
   try {
     const clinicId = req.params.clinicId
     const payload = req.body
+    console.log(`[whatsapp webhook clinic=${clinicId}] payload recibido:`, JSON.stringify(payload)?.slice(0, 2000))
     const msg = payload?.whatsappInboundMessage ?? payload
     const phone = msg?.from
     const text = msg?.text?.body ?? msg?.body ?? ''
@@ -376,6 +377,14 @@ webhookRouter.post('/:clinicId', async (req, res) => {
 // ORO: nunca se genera contenido de IA sin clinic_id resuelto con certeza.
 webhookRouter.post('/', async (req, res) => {
   const payload = req.body
+  // ⚠️ Diagnóstico temporal: hasta confirmar el formato real de los
+  // webhooks de YCloud en producción, se registra el payload completo de
+  // cada evento entrante — necesario para saber por qué un mensaje real no
+  // está llegando (¿no llama YCloud a esta URL en absoluto? ¿llama pero con
+  // una forma de JSON distinta a la asumida (payload.whatsappInboundMessage
+  // / msg.from / msg.text.body) y por eso se descarta en silencio?). Quitar
+  // en cuanto quede verificado.
+  console.log('[whatsapp shared webhook] payload recibido:', JSON.stringify(payload)?.slice(0, 2000))
   const msg = payload?.whatsappInboundMessage ?? payload
   const phone = msg?.from
   // Respuesta a una lista interactiva (provincia/clínica) — llega como
@@ -392,10 +401,15 @@ webhookRouter.post('/', async (req, res) => {
   if (!phone) return
 
   try {
+    // La clave solo hace falta para RESPONDER (aclaración, lista
+    // interactiva, agente de IA) — antes esto cortaba también el guardado
+    // del mensaje entrante si faltaba la clave, así que un mensaje real
+    // podía "no llegar" al panel aunque YCloud sí lo hubiera entregado.
+    // Ahora el mensaje se guarda siempre que se pueda resolver la clínica;
+    // solo se deja de responder automáticamente si falta la clave.
     const sharedKey = await getSharedYCloudKey()
     if (!sharedKey) {
-      console.error('[whatsapp shared webhook] falta shared_ycloud_api_key en system_settings')
-      return
+      console.error('[whatsapp shared webhook] falta shared_ycloud_api_key en system_settings — se guardará el mensaje pero no se podrá responder automáticamente')
     }
 
     // Si la conversación más reciente de este número es una conversación de
@@ -423,7 +437,7 @@ webhookRouter.post('/', async (req, res) => {
     const route = await resolveIncomingConversation(phone, text, interactiveReplyId)
 
     if (route.clarificationInteractive) {
-      await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
+      if (sharedKey) await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
       return
     }
     if (route.clarificationMessage) {
@@ -431,7 +445,7 @@ webhookRouter.post('/', async (req, res) => {
       // coincidencia): se pregunta directamente, SIN pasar por el agente de
       // IA (todavía no hay clinic_id, no hay contexto que dar con seguridad)
       // y sin crear conversación (se crea solo al confirmarse la clínica).
-      await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
+      if (sharedKey) await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
       return
     }
     if (!route.clinicId || !route.conversationId) return
@@ -445,6 +459,8 @@ webhookRouter.post('/', async (req, res) => {
       `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1, unread_count = unread_count + 1 WHERE id = $2`,
       [text.slice(0, 120), route.conversationId]
     )
+
+    if (!sharedKey) return
 
     // Identificación obligatoria de clínica (A.1) solo en el primer mensaje
     // saliente de esta conversación — en mensajes posteriores ya quedó claro.
