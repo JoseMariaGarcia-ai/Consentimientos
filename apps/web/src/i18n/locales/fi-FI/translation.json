@@ -1398,7 +1398,9 @@
       "saving": "Tallennetaan…",
       "save": "Tallenna avaimet",
       "extractPdfError": "PDF:stä ei voitu poimia tekstiä",
-      "defaultClinicName": "Oma klinikka"
+      "defaultClinicName": "Oma klinikka",
+      "waPatientNotificationsEnabled": "Lähetä automaattiset potilasilmoitukset myös WhatsAppilla",
+      "waPatientNotificationsHint": "Tervetuloviesti, suostumukset, ajanvaraukset ja asiakirjat — vaatii IA-tason tai korkeamman sekä Metan hyväksymät WhatsApp-mallipohjat."
     }
   },
   "planPermissions": {

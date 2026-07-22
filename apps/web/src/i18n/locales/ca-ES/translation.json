@@ -1398,7 +1398,9 @@
       "saving": "Desant…",
       "save": "Desa les claus",
       "extractPdfError": "No s'ha pogut extreure el text del PDF",
-      "defaultClinicName": "La meva clínica"
+      "defaultClinicName": "La meva clínica",
+      "waPatientNotificationsEnabled": "Enviar també per WhatsApp els avisos automàtics al pacient",
+      "waPatientNotificationsHint": "Benvinguda, consentiments, cites i documents — requereix pla IA o superior i les plantilles de WhatsApp aprovades per Meta."
     }
   },
   "planPermissions": {

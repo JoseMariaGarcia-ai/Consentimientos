@@ -1360,7 +1360,9 @@
       "saving": "جارٍ الحفظ…",
       "save": "حفظ المفاتيح",
       "extractPdfError": "تعذر استخراج النص من ملف PDF",
-      "defaultClinicName": "عيادتي"
+      "defaultClinicName": "عيادتي",
+      "waPatientNotificationsEnabled": "إرسال إشعارات المريض التلقائية أيضًا عبر واتساب",
+      "waPatientNotificationsHint": "الترحيب، الموافقات، المواعيد والمستندات — يتطلب خطة IA أو أعلى وقوالب واتساب المعتمدة من Meta."
     }
   },
   "planPermissions": {

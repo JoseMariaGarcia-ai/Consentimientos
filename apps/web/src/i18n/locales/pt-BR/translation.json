@@ -1398,7 +1398,9 @@
       "saving": "Salvando…",
       "save": "Salvar chaves",
       "extractPdfError": "Não foi possível extrair o texto do PDF",
-      "defaultClinicName": "Minha clínica"
+      "defaultClinicName": "Minha clínica",
+      "waPatientNotificationsEnabled": "Enviar também por WhatsApp os avisos automáticos ao paciente",
+      "waPatientNotificationsHint": "Boas-vindas, consentimentos, consultas e documentos — requer plano IA ou superior e os modelos de WhatsApp aprovados pela Meta."
     }
   },
   "planPermissions": {

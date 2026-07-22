@@ -1398,7 +1398,9 @@
       "saving": "Αποθήκευση…",
       "save": "Αποθήκευση κλειδιών",
       "extractPdfError": "Δεν ήταν δυνατή η εξαγωγή κειμένου από το PDF",
-      "defaultClinicName": "Η κλινική μου"
+      "defaultClinicName": "Η κλινική μου",
+      "waPatientNotificationsEnabled": "Αποστολή αυτόματων ειδοποιήσεων ασθενούς και μέσω WhatsApp",
+      "waPatientNotificationsHint": "Καλωσόρισμα, συναινέσεις, ραντεβού και έγγραφα — απαιτεί πλάνο IA ή ανώτερο και πρότυπα WhatsApp εγκεκριμένα από τη Meta."
     }
   },
   "planPermissions": {

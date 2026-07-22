@@ -1398,7 +1398,9 @@
       "saving": "Se salvează…",
       "save": "Salvează cheile",
       "extractPdfError": "Nu s-a putut extrage textul din PDF",
-      "defaultClinicName": "Clinica mea"
+      "defaultClinicName": "Clinica mea",
+      "waPatientNotificationsEnabled": "Trimite și prin WhatsApp notificările automate către pacient",
+      "waPatientNotificationsHint": "Bun venit, consimțăminte, programări și documente — necesită planul IA sau superior și șabloane WhatsApp aprobate de Meta."
     }
   },
   "planPermissions": {

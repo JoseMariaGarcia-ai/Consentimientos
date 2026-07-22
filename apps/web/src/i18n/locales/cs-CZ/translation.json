@@ -1398,7 +1398,9 @@
       "saving": "Ukládání…",
       "save": "Uložit klíče",
       "extractPdfError": "Nepodařilo se extrahovat text z PDF",
-      "defaultClinicName": "Moje klinika"
+      "defaultClinicName": "Moje klinika",
+      "waPatientNotificationsEnabled": "Odesílat automatická oznámení pacientovi také přes WhatsApp",
+      "waPatientNotificationsHint": "Uvítání, souhlasy, termíny a dokumenty — vyžaduje plán IA nebo vyšší a šablony WhatsApp schválené Meta."
     }
   },
   "planPermissions": {

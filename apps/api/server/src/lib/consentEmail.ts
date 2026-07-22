@@ -1,6 +1,7 @@
 import { queryOne } from './db'
 import { buildPatientAdBlock } from './patientAdBlock'
 import { buildPatientPortalLink } from './patientMagicLink'
+import { notifyPatientConsentGenerated } from './patientWhatsAppNotify'
 
 interface ConsentEmailData {
   consentId: string
@@ -12,7 +13,7 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
   // Get consent + patient + clinic + template info
   const consent = await queryOne<any>(
     `SELECT cr.id, cr.status, cr.signed_at,
-            p.full_name, p.first_name, p.email AS patient_email, p.user_id,
+            p.id AS patient_id, p.full_name, p.first_name, p.email AS patient_email, p.phone AS patient_phone, p.user_id,
             t.treatment_type,
             c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email
      FROM consent_records cr
@@ -160,4 +161,8 @@ export async function sendConsentEmail({ consentId, pdfBuffer, clinicId }: Conse
   })
   if (error) console.error(`[consentEmail] send to ${consent.patient_email} failed:`, error)
   else await logImpression()
+
+  // Plan IA o superior con la opción activada: el mismo aviso se manda
+  // también por WhatsApp — best-effort, nunca bloquea el email ya enviado.
+  await notifyPatientConsentGenerated(clinicId, consent.patient_id, consent.patient_phone, firstName, clinicName, treatmentType, portalUrl).catch(() => {})
 }

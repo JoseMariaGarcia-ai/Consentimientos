@@ -1354,7 +1354,9 @@
       "saving": "שומר…",
       "save": "שמור מפתחות",
       "extractPdfError": "לא ניתן היה לחלץ טקסט מה-PDF",
-      "defaultClinicName": "המרפאה שלי"
+      "defaultClinicName": "המרפאה שלי",
+      "waPatientNotificationsEnabled": "שליחת התראות אוטומטיות למטופל גם בוואטסאפ",
+      "waPatientNotificationsHint": "ברוך הבא, טפסי הסכמה, תורים ומסמכים — דורש תוכנית IA ומעלה ותבניות WhatsApp שאושרו על ידי Meta."
     }
   },
   "planPermissions": {

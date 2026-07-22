@@ -1423,6 +1423,8 @@
       "aiProviderTitle": "Proveedor de IA activo",
       "aiProviderHint": "Motor que usa el agente de IA de WhatsApp en todas las clínicas (Anthropic u OpenRouter). Es una configuración global, no por clínica.",
       "waAiEnabled": "Activar respuestas automáticas con IA en WhatsApp",
+      "waPatientNotificationsEnabled": "Enviar también por WhatsApp los avisos automáticos al paciente",
+      "waPatientNotificationsHint": "Bienvenida, consentimientos, citas y documentos — requiere plan IA o superior y las plantillas de WhatsApp aprobadas por Meta.",
       "retellSection": "Agente de voz (Retell)",
       "retellPrompt": "Prompt del agente de voz",
       "retellPromptHint": "Instrucciones de comportamiento para el agente de voz de esta clínica (Retell) — distinto del prompt de WhatsApp, o sube un PDF.",

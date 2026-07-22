@@ -1398,7 +1398,9 @@
       "saving": "Mentés…",
       "save": "Kulcsok mentése",
       "extractPdfError": "Nem sikerült kinyerni a szöveget a PDF-ből",
-      "defaultClinicName": "Az én klinikám"
+      "defaultClinicName": "Az én klinikám",
+      "waPatientNotificationsEnabled": "Automatikus betegértesítések küldése WhatsAppon is",
+      "waPatientNotificationsHint": "Üdvözlés, beleegyezések, időpontok és dokumentumok — IA vagy magasabb csomagot, valamint a Meta által jóváhagyott WhatsApp-sablonokat igényel."
     }
   },
   "planPermissions": {

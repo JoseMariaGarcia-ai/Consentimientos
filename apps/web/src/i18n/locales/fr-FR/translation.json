@@ -1398,7 +1398,9 @@
       "saving": "Enregistrement…",
       "save": "Enregistrer les clés",
       "extractPdfError": "Impossible d'extraire le texte du PDF",
-      "defaultClinicName": "Ma clinique"
+      "defaultClinicName": "Ma clinique",
+      "waPatientNotificationsEnabled": "Envoyer aussi les avis automatiques au patient par WhatsApp",
+      "waPatientNotificationsHint": "Bienvenue, consentements, rendez-vous et documents — nécessite le forfait IA ou supérieur et des modèles WhatsApp approuvés par Meta."
     }
   },
   "planPermissions": {

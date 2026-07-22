@@ -1398,7 +1398,9 @@
       "saving": "सहेजा जा रहा है…",
       "save": "कुंजियाँ सहेजें",
       "extractPdfError": "PDF से टेक्स्ट निकाला नहीं जा सका",
-      "defaultClinicName": "मेरा क्लिनिक"
+      "defaultClinicName": "मेरा क्लिनिक",
+      "waPatientNotificationsEnabled": "मरीज़ को स्वचालित सूचनाएं WhatsApp पर भी भेजें",
+      "waPatientNotificationsHint": "स्वागत, सहमति, अपॉइंटमेंट और दस्तावेज़ — इसके लिए IA या उससे ऊपर की योजना और Meta द्वारा स्वीकृत WhatsApp टेम्पलेट आवश्यक हैं।"
     }
   },
   "planPermissions": {

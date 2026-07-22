@@ -551,6 +551,7 @@ function ClinicKeysPanel() {
     retell_prompt:     '',
     wa_ai_enabled:     false,
     retell_ai_enabled: false,
+    wa_patient_notifications_enabled: false,
   })
   const [loading, setLoading]   = useState(false)
   const [saving, setSaving]     = useState(false)
@@ -578,6 +579,7 @@ function ClinicKeysPanel() {
           retell_prompt:     data.retell_prompt     ?? '',
           wa_ai_enabled:     !!data.wa_ai_enabled,
           retell_ai_enabled: !!data.retell_ai_enabled,
+          wa_patient_notifications_enabled: !!data.wa_patient_notifications_enabled,
         })
       })
       .catch(e => setError(e.message))
@@ -745,6 +747,18 @@ function ClinicKeysPanel() {
                     className="w-4 h-4 accent-purple-600"
                   />
                   {t('settings.apiKeys.waAiEnabled')}
+                </label>
+                <label className="flex items-start gap-2.5 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.wa_patient_notifications_enabled}
+                    onChange={e => setForm(f => ({ ...f, wa_patient_notifications_enabled: e.target.checked }))}
+                    className="w-4 h-4 mt-0.5 accent-purple-600"
+                  />
+                  <span>
+                    {t('settings.apiKeys.waPatientNotificationsEnabled')}
+                    <span className="block text-xs text-slate-400 mt-0.5">{t('settings.apiKeys.waPatientNotificationsHint')}</span>
+                  </span>
                 </label>
               </div>
 

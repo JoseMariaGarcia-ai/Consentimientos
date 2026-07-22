@@ -1,4 +1,5 @@
-import { loadAppointmentEmailData, buildAppointmentEmailHtml } from './appointmentConfirmationEmail'
+import { loadAppointmentEmailData, buildAppointmentEmailHtml, fmtDate, fmtTime } from './appointmentConfirmationEmail'
+import { notifyPatientAppointmentReminder } from './patientWhatsAppNotify'
 
 interface AppointmentReminderData {
   appointmentId: string
@@ -29,5 +30,11 @@ export async function sendAppointmentReminderEmail({ appointmentId, clinicId }: 
     html,
   })
   if (error) console.error(`[appointmentReminderEmail] send to ${appt.patient_email} failed:`, error)
+
+  // Plan IA o superior con la opción activada: el mismo aviso se manda
+  // también por WhatsApp — best-effort, nunca bloquea el email ya enviado.
+  const start = new Date(appt.start_time)
+  await notifyPatientAppointmentReminder(clinicId, appt.patient_id, appt.patient_phone, firstName, clinicName, fmtDate(start), fmtTime(start)).catch(() => {})
+
   return true
 }

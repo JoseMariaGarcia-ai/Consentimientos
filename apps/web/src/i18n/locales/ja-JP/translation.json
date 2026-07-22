@@ -1398,7 +1398,9 @@
       "saving": "保存中…",
       "save": "キーを保存",
       "extractPdfError": "PDFからテキストを抽出できませんでした",
-      "defaultClinicName": "自分のクリニック"
+      "defaultClinicName": "自分のクリニック",
+      "waPatientNotificationsEnabled": "患者への自動通知をWhatsAppでも送信する",
+      "waPatientNotificationsHint": "ようこそメッセージ、同意書、予約、書類 — IAプラン以上と、Metaが承認したWhatsAppテンプレートが必要です。"
     }
   },
   "planPermissions": {

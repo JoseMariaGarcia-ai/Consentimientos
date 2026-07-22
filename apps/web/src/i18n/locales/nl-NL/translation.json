@@ -1398,7 +1398,9 @@
       "saving": "Opslaan…",
       "save": "Sleutels opslaan",
       "extractPdfError": "Kon de tekst niet uit de PDF halen",
-      "defaultClinicName": "Mijn kliniek"
+      "defaultClinicName": "Mijn kliniek",
+      "waPatientNotificationsEnabled": "Automatische patiëntmeldingen ook via WhatsApp versturen",
+      "waPatientNotificationsHint": "Welkom, toestemmingen, afspraken en documenten — vereist IA-abonnement of hoger en door Meta goedgekeurde WhatsApp-sjablonen."
     }
   },
   "planPermissions": {

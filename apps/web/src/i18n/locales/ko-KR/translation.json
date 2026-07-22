@@ -1398,7 +1398,9 @@
       "saving": "저장 중…",
       "save": "키 저장",
       "extractPdfError": "PDF에서 텍스트를 추출할 수 없습니다",
-      "defaultClinicName": "내 클리닉"
+      "defaultClinicName": "내 클리닉",
+      "waPatientNotificationsEnabled": "환자 자동 알림을 WhatsApp으로도 전송",
+      "waPatientNotificationsHint": "환영, 동의서, 예약, 문서 — IA 플랜 이상과 Meta가 승인한 WhatsApp 템플릿이 필요합니다."
     }
   },
   "planPermissions": {

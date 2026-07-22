@@ -1398,7 +1398,9 @@
       "saving": "Lagrer…",
       "save": "Lagre nøkler",
       "extractPdfError": "Kunne ikke hente ut teksten fra PDF-en",
-      "defaultClinicName": "Min klinikk"
+      "defaultClinicName": "Min klinikk",
+      "waPatientNotificationsEnabled": "Send også automatiske pasientvarsler via WhatsApp",
+      "waPatientNotificationsHint": "Velkomst, samtykker, avtaler og dokumenter — krever IA-plan eller høyere og WhatsApp-maler godkjent av Meta."
     }
   },
   "planPermissions": {

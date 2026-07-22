@@ -1398,7 +1398,9 @@
       "saving": "Zapisywanie…",
       "save": "Zapisz klucze",
       "extractPdfError": "Nie udało się wyodrębnić tekstu z pliku PDF",
-      "defaultClinicName": "Moja klinika"
+      "defaultClinicName": "Moja klinika",
+      "waPatientNotificationsEnabled": "Wysyłaj automatyczne powiadomienia dla pacjenta także przez WhatsApp",
+      "waPatientNotificationsHint": "Powitanie, zgody, wizyty i dokumenty — wymaga planu IA lub wyższego oraz szablonów WhatsApp zatwierdzonych przez Meta."
     }
   },
   "planPermissions": {

@@ -1398,7 +1398,9 @@
       "saving": "Gemmer…",
       "save": "Gem nøgler",
       "extractPdfError": "Kunne ikke udtrække teksten fra PDF'en",
-      "defaultClinicName": "Min klinik"
+      "defaultClinicName": "Min klinik",
+      "waPatientNotificationsEnabled": "Send også automatiske patientbeskeder via WhatsApp",
+      "waPatientNotificationsHint": "Velkomst, samtykker, aftaler og dokumenter — kræver IA-plan eller højere og WhatsApp-skabeloner godkendt af Meta."
     }
   },
   "planPermissions": {

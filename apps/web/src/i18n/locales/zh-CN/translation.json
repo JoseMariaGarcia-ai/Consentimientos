@@ -1398,7 +1398,9 @@
       "saving": "保存中…",
       "save": "保存密钥",
       "extractPdfError": "无法从 PDF 中提取文本",
-      "defaultClinicName": "我的诊所"
+      "defaultClinicName": "我的诊所",
+      "waPatientNotificationsEnabled": "也通过WhatsApp发送患者自动通知",
+      "waPatientNotificationsHint": "欢迎信息、同意书、预约和文件——需要IA或更高级别的套餐以及经Meta批准的WhatsApp模板。"
     }
   },
   "planPermissions": {

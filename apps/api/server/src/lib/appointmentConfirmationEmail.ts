@@ -1,4 +1,5 @@
 import { queryOne } from './db'
+import { notifyPatientAppointment } from './patientWhatsAppNotify'
 
 interface AppointmentConfirmationData {
   appointmentId: string
@@ -10,10 +11,10 @@ interface AppointmentConfirmationData {
 // El servidor corre en UTC (Railway) — sin timeZone explícito, estas
 // funciones mostrarían la hora UTC en vez de la hora real de la cita en
 // España, desplazada 1-2h según horario de invierno/verano.
-function fmtDate(d: Date) {
+export function fmtDate(d: Date) {
   return d.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric', timeZone: 'Europe/Madrid' })
 }
-function fmtTime(d: Date) {
+export function fmtTime(d: Date) {
   return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' })
 }
 function fmtMoney(n: number) {
@@ -23,7 +24,7 @@ function fmtMoney(n: number) {
 export async function loadAppointmentEmailData(appointmentId: string, clinicId: string) {
   const appt = await queryOne<any>(
     `SELECT a.start_time,
-            p.full_name, p.first_name, p.email AS patient_email,
+            p.id AS patient_id, p.full_name, p.first_name, p.email AS patient_email, p.phone AS patient_phone,
             t.name AS treatment_name, t.price AS treatment_price,
             c.name AS clinic_name, c.trade_name, c.address AS clinic_address, c.phone AS clinic_phone, c.directions_url AS clinic_directions_url
      FROM appointments a
@@ -168,5 +169,11 @@ export async function sendAppointmentConfirmationEmail({ appointmentId, clinicId
     html,
   })
   if (error) console.error(`[appointmentConfirmationEmail] send to ${appt.patient_email} failed:`, error)
+
+  // Plan IA o superior con la opción activada: el mismo aviso se manda
+  // también por WhatsApp — best-effort, nunca bloquea el email ya enviado.
+  const start = new Date(appt.start_time)
+  await notifyPatientAppointment(clinicId, appt.patient_id, appt.patient_phone, firstName, clinicName, kind, fmtDate(start), fmtTime(start)).catch(() => {})
+
   return true
 }

@@ -1398,7 +1398,9 @@
       "saving": "Đang lưu…",
       "save": "Lưu khóa",
       "extractPdfError": "Không thể trích xuất văn bản từ PDF",
-      "defaultClinicName": "Phòng khám của tôi"
+      "defaultClinicName": "Phòng khám của tôi",
+      "waPatientNotificationsEnabled": "Cũng gửi thông báo tự động cho bệnh nhân qua WhatsApp",
+      "waPatientNotificationsHint": "Chào mừng, đơn đồng ý, lịch hẹn và tài liệu — yêu cầu gói IA trở lên và các mẫu WhatsApp đã được Meta phê duyệt."
     }
   },
   "planPermissions": {

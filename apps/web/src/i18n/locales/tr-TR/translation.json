@@ -1398,7 +1398,9 @@
       "saving": "Kaydediliyor…",
       "save": "Anahtarları kaydet",
       "extractPdfError": "PDF'den metin çıkarılamadı",
-      "defaultClinicName": "Kliniğim"
+      "defaultClinicName": "Kliniğim",
+      "waPatientNotificationsEnabled": "Otomatik hasta bildirimlerini WhatsApp üzerinden de gönder",
+      "waPatientNotificationsHint": "Hoş geldin, onam formları, randevular ve belgeler — IA veya üstü plan ile Meta tarafından onaylanmış WhatsApp şablonları gerekir."
     }
   },
   "planPermissions": {

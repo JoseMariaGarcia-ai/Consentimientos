@@ -1,4 +1,5 @@
 import { queryOne } from './db'
+import { notifyPatientDocumentAvailable } from './patientWhatsAppNotify'
 
 interface BudgetEmailData {
   budgetId: string
@@ -11,7 +12,7 @@ interface BudgetEmailData {
 export async function sendBudgetEmail({ budgetId, clinicId, pdfBuffer }: BudgetEmailData): Promise<boolean> {
   const budget = await queryOne<any>(
     `SELECT b.id, b.budget_number,
-            p.full_name, p.first_name, p.email AS patient_email,
+            p.id AS patient_id, p.full_name, p.first_name, p.email AS patient_email, p.phone AS patient_phone,
             c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email
      FROM budgets b
      LEFT JOIN patients p ON p.id = b.patient_id
@@ -95,5 +96,12 @@ export async function sendBudgetEmail({ budgetId, clinicId, pdfBuffer }: BudgetE
     ],
   })
   if (error) console.error(`[budgetEmail] send to ${budget.patient_email} failed:`, error)
+
+  // Plan IA o superior con la opción activada: el mismo aviso se manda
+  // también por WhatsApp — best-effort, nunca bloquea el email ya enviado.
+  if (budget.patient_id) {
+    await notifyPatientDocumentAvailable(clinicId, budget.patient_id, budget.patient_phone, firstName, clinicName, 'presupuesto').catch(() => {})
+  }
+
   return true
 }

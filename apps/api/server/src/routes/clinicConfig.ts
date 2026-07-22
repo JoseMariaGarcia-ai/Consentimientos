@@ -68,16 +68,16 @@ router.post('/extract-pdf', async (req, res) => {
 // la base de conocimientos y los dos prompts (WhatsApp y Retell).
 router.put('/', async (req, res) => {
   try {
-    const { targetClinicId, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled } = req.body
+    const { targetClinicId, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled, wa_patient_notifications_enabled } = req.body
     const clinicId = await requireSuperAdminClinicId(req, targetClinicId)
     if (!clinicId) return res.status(403).json({ error: 'Solo superadmin' })
     const data = await queryOne(
-      `INSERT INTO clinic_api_config (clinic_id, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled, updated_at)
-       VALUES ($1,$2,$3,$4,$5,$6,NOW())
+      `INSERT INTO clinic_api_config (clinic_id, knowledge_base, prompt, retell_prompt, wa_ai_enabled, retell_ai_enabled, wa_patient_notifications_enabled, updated_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,NOW())
        ON CONFLICT (clinic_id) DO UPDATE SET
-         knowledge_base=$2, prompt=$3, retell_prompt=$4, wa_ai_enabled=$5, retell_ai_enabled=$6, updated_at=NOW()
+         knowledge_base=$2, prompt=$3, retell_prompt=$4, wa_ai_enabled=$5, retell_ai_enabled=$6, wa_patient_notifications_enabled=$7, updated_at=NOW()
        RETURNING *`,
-      [clinicId, knowledge_base ?? null, prompt ?? null, retell_prompt ?? null, !!wa_ai_enabled, !!retell_ai_enabled]
+      [clinicId, knowledge_base ?? null, prompt ?? null, retell_prompt ?? null, !!wa_ai_enabled, !!retell_ai_enabled, !!wa_patient_notifications_enabled]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

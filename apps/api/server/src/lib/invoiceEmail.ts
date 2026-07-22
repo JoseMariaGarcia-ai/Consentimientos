@@ -1,4 +1,5 @@
 import { queryOne } from './db'
+import { notifyPatientDocumentAvailable } from './patientWhatsAppNotify'
 
 interface InvoiceEmailData {
   invoiceId: string
@@ -20,7 +21,7 @@ export interface InvoiceEmailResult {
 export async function sendInvoiceEmail({ invoiceId, clinicId, pdfBuffer, overrideEmail }: InvoiceEmailData): Promise<InvoiceEmailResult> {
   const invoice = await queryOne<any>(
     `SELECT i.id, i.invoice_number, i.recipient_name, i.total_amount,
-            p.email AS patient_email,
+            p.id AS patient_id, p.email AS patient_email, p.phone AS patient_phone,
             bc.email AS billing_client_email,
             c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email
      FROM invoices i
@@ -108,6 +109,14 @@ export async function sendInvoiceEmail({ invoiceId, clinicId, pdfBuffer, overrid
       console.error(`[invoiceEmail] fallo enviando factura a ${toEmail}:`, error)
       return { email: toEmail, sent: false }
     }
+
+    // Plan IA o superior con la opción activada: el mismo aviso se manda
+    // también por WhatsApp — solo si el destinatario es un paciente (no un
+    // billing_client externo), best-effort, nunca bloquea el email ya enviado.
+    if (invoice.patient_id) {
+      await notifyPatientDocumentAvailable(clinicId, invoice.patient_id, invoice.patient_phone, invoice.recipient_name, clinicName, 'factura').catch(() => {})
+    }
+
     return { email: toEmail, sent: true }
   } catch (err: any) {
     // Este endpoint responde a una acción síncrona del usuario (no es

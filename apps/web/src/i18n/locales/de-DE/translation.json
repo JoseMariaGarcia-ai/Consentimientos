@@ -1398,7 +1398,9 @@
       "saving": "Speichern…",
       "save": "Schlüssel speichern",
       "extractPdfError": "Der Text konnte nicht aus dem PDF extrahiert werden",
-      "defaultClinicName": "Meine Klinik"
+      "defaultClinicName": "Meine Klinik",
+      "waPatientNotificationsEnabled": "Automatische Patientenbenachrichtigungen auch per WhatsApp senden",
+      "waPatientNotificationsHint": "Willkommen, Einwilligungen, Termine und Dokumente — erfordert Plan IA oder höher sowie von Meta genehmigte WhatsApp-Vorlagen."
     }
   },
   "planPermissions": {

@@ -1398,7 +1398,9 @@
       "saving": "Sparar…",
       "save": "Spara nycklar",
       "extractPdfError": "Det gick inte att extrahera texten från PDF:en",
-      "defaultClinicName": "Min klinik"
+      "defaultClinicName": "Min klinik",
+      "waPatientNotificationsEnabled": "Skicka även automatiska patientaviseringar via WhatsApp",
+      "waPatientNotificationsHint": "Välkomnande, samtycken, bokningar och dokument — kräver IA-plan eller högre och WhatsApp-mallar godkända av Meta."
     }
   },
   "planPermissions": {

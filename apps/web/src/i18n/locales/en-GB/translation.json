@@ -1398,7 +1398,9 @@
       "saving": "Saving…",
       "save": "Save keys",
       "extractPdfError": "Could not extract text from the PDF",
-      "defaultClinicName": "My clinic"
+      "defaultClinicName": "My clinic",
+      "waPatientNotificationsEnabled": "Also send automatic patient notifications via WhatsApp",
+      "waPatientNotificationsHint": "Welcome, consents, appointments and documents — requires the AI plan or higher and WhatsApp templates approved by Meta."
     }
   },
   "planPermissions": {

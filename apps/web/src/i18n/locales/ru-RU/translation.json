@@ -1398,7 +1398,9 @@
       "saving": "Сохранение…",
       "save": "Сохранить ключи",
       "extractPdfError": "Не удалось извлечь текст из PDF",
-      "defaultClinicName": "Моя клиника"
+      "defaultClinicName": "Моя клиника",
+      "waPatientNotificationsEnabled": "Также отправлять автоматические уведомления пациенту через WhatsApp",
+      "waPatientNotificationsHint": "Приветствие, согласия, записи на прием и документы — требуется план IA или выше и шаблоны WhatsApp, одобренные Meta."
     }
   },
   "planPermissions": {

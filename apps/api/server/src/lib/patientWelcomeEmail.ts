@@ -1,6 +1,7 @@
 import crypto from 'crypto'
 import { query } from './db'
 import { buildPatientAdBlock } from './patientAdBlock'
+import { notifyPatientWelcome } from './patientWhatsAppNotify'
 
 export async function sendPatientWelcomeEmail(patient: any, clinicName: string) {
   const { Resend } = await import('resend')
@@ -138,4 +139,11 @@ export async function sendPatientWelcomeEmail(patient: any, clinicName: string) 
   })
   if (error) console.error(`[patientWelcomeEmail] send to ${patient.email} failed:`, error)
   else await logImpression()
+
+  // Plan IA o superior con la opción activada: el mismo aviso se manda
+  // también por WhatsApp — best-effort, nunca bloquea ni condiciona el
+  // envío del email (que es el canal principal y ya se ha hecho arriba).
+  if (patient.clinic_id) {
+    await notifyPatientWelcome(patient.clinic_id, patient.id, patient.phone, firstName, clinicName, link).catch(() => {})
+  }
 }
