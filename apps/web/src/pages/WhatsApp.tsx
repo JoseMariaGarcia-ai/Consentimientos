@@ -42,7 +42,7 @@ function ClinicPicker({
   const label = value === ADMIN_SCOPE
     ? '⚡ ConsentsPro (administrador)'
     : selectedClinic
-    ? `${selectedClinic.trade_name ?? selectedClinic.name}${selectedClinic.phone ? ` — ${selectedClinic.phone}` : ''}`
+    ? (selectedClinic.trade_name ?? selectedClinic.name)
     : '— Seleccionar clínica —'
 
   const Badge = ({ count, color }: { count: number; color: string }) =>
@@ -84,7 +84,7 @@ function ClinicPicker({
               className={`w-full flex items-center gap-2 px-3 py-2.5 text-sm text-left hover:bg-slate-50 ${value === c.id ? 'bg-emerald-50' : ''}`}
             >
               <Building2 className="w-4 h-4 text-slate-400 flex-shrink-0" />
-              <span className="flex-1 min-w-0 truncate">{c.trade_name ?? c.name}{c.phone ? ` — ${c.phone}` : ''}</span>
+              <span className="flex-1 min-w-0 truncate">{c.trade_name ?? c.name}</span>
               <Badge count={c.unread} color="bg-emerald-500" />
             </button>
           ))}
