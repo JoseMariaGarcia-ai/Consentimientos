@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script>
+      // Si alguien entra por el dominio interno de Railway (enlace antiguo,
+      // favorito guardado, etc.) se le manda de inmediato al dominio propio,
+      // conservando la ruta/parámetros exactos — antes del appshell de React
+      // para que no llegue a verse ni un instante la URL de Railway.
+      (function () {
+        var h = window.location.hostname
+        if (h.indexOf('.up.railway.app') !== -1) {
+          window.location.replace('https://www.consentspro.com' + window.location.pathname + window.location.search + window.location.hash)
+        }
+      })()
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ConsentsPro — Consentimientos Digitales</title>
