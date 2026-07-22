@@ -35,11 +35,24 @@ async function sendViaYCloud(
   let ycloudId: string | null = null
   let status = 'sent'
   let failureReason: string | null = null
+  // Si falta esta variable de entorno, JSON.stringify elimina la clave
+  // "from" por completo (undefined no se serializa) y YCloud responde con
+  // un genérico "one or more of the parameters is missing" — se comprueba
+  // aparte para que el motivo real quede claro sin tener que adivinarlo.
+  if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
+    console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar ningún mensaje saliente')
+    const message = await queryOne(
+      `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+       VALUES ($1,$2,'outbound',$3,'failed',$4) RETURNING *`,
+      [conversationId, clinicId, body, sender]
+    )
+    return { message, status: 'failed', failureReason: 'Falta configurar YCLOUD_WA_NUMBER en las variables de entorno del backend' }
+  }
   try {
     const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
       headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER ?? undefined, to: phone, type: 'text', text: { body } }),
+      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER, to: phone, type: 'text', text: { body } }),
     })
     const json: any = await resp.json().catch(() => ({}))
     if (!resp.ok) {
@@ -172,12 +185,17 @@ async function getSharedYCloudKey(): Promise<string | null> {
 }
 
 async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
+  if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
+    console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar la pregunta de aclaración')
+    return
+  }
   try {
-    await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
+    const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
       headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER ?? undefined, to: phone, type: 'text', text: { body } }),
+      body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER, to: phone, type: 'text', text: { body } }),
     })
+    if (!resp.ok) console.error(`[whatsapp] YCloud rechazó la pregunta de aclaración a ${phone} (HTTP ${resp.status}):`, await resp.text().catch(() => resp.statusText))
   } catch (err: any) {
     console.error('[whatsapp] fallo enviando pregunta de aclaración de clínica:', err.message)
   }
@@ -189,12 +207,16 @@ async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
 // (su documentación no ha podido consultarse desde este entorno); revisar
 // el primer envío real en logs por si el formato exacto difiriera.
 async function sendInteractiveListViaYCloud(apiKey: string, phone: string, payload: InteractiveListPayload) {
+  if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
+    console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar la lista interactiva')
+    return
+  }
   try {
     const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
       headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        from: process.env.YCLOUD_WA_NUMBER ?? undefined,
+        from: process.env.YCLOUD_WA_NUMBER,
         to: phone,
         type: 'interactive',
         interactive: {
