@@ -539,6 +539,8 @@
     "labPartners": "Laboratorier",
     "menu": "Meny",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} uleste i administratormodus",
+    "whatsapp_clinics_unread": "{{count}} uleste hos klinikker",
     "budgets": "Tilbud",
     "workflows": "Arbeidsflyter",
     "tickets": "Feilmeldinger",

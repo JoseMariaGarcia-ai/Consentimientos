@@ -539,6 +539,8 @@
     "labPartners": "Лаборатории",
     "menu": "Меню",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} непрочитанных в режиме администратора",
+    "whatsapp_clinics_unread": "{{count}} непрочитанных в клиниках",
     "budgets": "Сметы",
     "workflows": "Рабочие процессы",
     "tickets": "Обращения",

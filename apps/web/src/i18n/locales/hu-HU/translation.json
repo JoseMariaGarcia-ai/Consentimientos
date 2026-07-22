@@ -539,6 +539,8 @@
     "labPartners": "Laboratóriumok",
     "menu": "Menü",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} olvasatlan admin módban",
+    "whatsapp_clinics_unread": "{{count}} olvasatlan a klinikákon",
     "budgets": "Árajánlatok",
     "workflows": "Munkafolyamatok",
     "tickets": "Hibajegyek",

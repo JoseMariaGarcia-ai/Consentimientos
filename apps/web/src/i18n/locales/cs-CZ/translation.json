@@ -539,6 +539,8 @@
     "labPartners": "Laboratoře",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} nepřečtených v režimu administrátora",
+    "whatsapp_clinics_unread": "{{count}} nepřečtených v klinikách",
     "budgets": "Cenové nabídky",
     "workflows": "Automatizace",
     "tickets": "Incidenty",

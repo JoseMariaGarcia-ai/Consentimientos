@@ -293,6 +293,38 @@ router.get('/clinics', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/whatsapp/unread-summary — badges del menú lateral. Para
+// superadmin, separa lo pendiente en la bandeja de administrador
+// (clinic_id NULL) de lo pendiente en el conjunto de clínicas (para no
+// mezclar "algo que tengo que responder yo" con "algo que responde cada
+// clínica"); para el resto de roles, adminUnread siempre es 0 (no tienen
+// acceso a esa bandeja) y clinicsUnread es solo el de su propia clínica.
+router.get('/unread-summary', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [userId])
+    if (!me) return res.json({ adminUnread: 0, clinicsUnread: 0 })
+    if (me.role === 'superadmin') {
+      const row = await queryOne<{ admin_unread: string; clinics_unread: string }>(
+        `SELECT
+           COALESCE(SUM(unread_count) FILTER (WHERE clinic_id IS NULL), 0) AS admin_unread,
+           COALESCE(SUM(unread_count) FILTER (WHERE clinic_id IS NOT NULL), 0) AS clinics_unread
+         FROM whatsapp_conversations`
+      )
+      return res.json({
+        adminUnread: parseInt(row?.admin_unread ?? '0'),
+        clinicsUnread: parseInt(row?.clinics_unread ?? '0'),
+      })
+    }
+    if (!me.clinic_id) return res.json({ adminUnread: 0, clinicsUnread: 0 })
+    const row = await queryOne<{ count: string }>(
+      `SELECT COALESCE(SUM(unread_count), 0) AS count FROM whatsapp_conversations WHERE clinic_id = $1`,
+      [me.clinic_id]
+    )
+    return res.json({ adminUnread: 0, clinicsUnread: parseInt(row?.count ?? '0') })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // GET /api/whatsapp/status?clinicId=xxx — whether YCloud is configured for this clinic
 router.get('/status', async (req, res) => {
   try {
@@ -473,14 +505,22 @@ webhookRouter.post('/', async (req, res) => {
     // administrador iniciada de verdad por el superadmin (source
     // 'admin_directo' — no cualquier fila con clinic_id NULL, para no
     // confundirla con un mensaje todavía sin resolver a clínica, ver más
-    // abajo), la respuesta entrante es para esa bandeja de admin — se
-    // guarda tal cual y NUNCA pasa por el enrutamiento de pacientes ni por
-    // el agente de IA de ninguna clínica.
+    // abajo), la respuesta entrante es para esa bandeja de admin — PERO
+    // solo si este número no tiene ninguna relación previa con una clínica
+    // real. Si ya existe (p. ej. es un paciente ya registrado), esa
+    // relación manda siempre, aunque el mensaje de administrador sea más
+    // reciente — de lo contrario, escribirle a un paciente desde el modo
+    // administrador "secuestraría" para siempre sus respuestas, apartándolas
+    // de la clínica a la que realmente pertenecen.
     const mostRecent = await queryOne<{ id: string; clinic_id: string | null; source: string | null }>(
       `SELECT id, clinic_id, source FROM whatsapp_conversations WHERE phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
       [phone]
     )
-    if (mostRecent && mostRecent.clinic_id === null && mostRecent.source === 'admin_directo') {
+    const hasClinicHistory = await queryOne<{ id: string }>(
+      `SELECT id FROM whatsapp_conversations WHERE phone = $1 AND clinic_id IS NOT NULL LIMIT 1`,
+      [phone]
+    )
+    if (mostRecent && mostRecent.clinic_id === null && mostRecent.source === 'admin_directo' && !hasClinicHistory) {
       await query(
         `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
          VALUES ($1,NULL,'inbound',$2,'received','paciente')`,

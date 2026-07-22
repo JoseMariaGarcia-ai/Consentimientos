@@ -539,6 +539,8 @@
     "labPartners": "실험실",
     "menu": "메뉴",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "관리자 모드에서 읽지 않은 {{count}}개",
+    "whatsapp_clinics_unread": "병원에서 읽지 않은 {{count}}개",
     "budgets": "견적서",
     "workflows": "워크플로우",
     "tickets": "오류 신고",

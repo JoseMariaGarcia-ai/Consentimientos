@@ -539,6 +539,8 @@
     "labPartners": "Laboratoriot",
     "menu": "Valikko",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} lukematonta ylläpitäjätilassa",
+    "whatsapp_clinics_unread": "{{count}} lukematonta klinikoilla",
     "budgets": "Tarjoukset",
     "workflows": "Työnkulut",
     "tickets": "Vikailmoitukset",

@@ -539,6 +539,8 @@
     "labPartners": "Laboratorier",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} ulæste i administratortilstand",
+    "whatsapp_clinics_unread": "{{count}} ulæste på klinikker",
     "budgets": "Tilbud",
     "workflows": "Workflows",
     "tickets": "Fejlrapporter",

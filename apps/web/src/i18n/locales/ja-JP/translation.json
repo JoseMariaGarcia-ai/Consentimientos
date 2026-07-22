@@ -539,6 +539,8 @@
     "labPartners": "ラボ",
     "menu": "メニュー",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "管理者モードで未読 {{count}} 件",
+    "whatsapp_clinics_unread": "クリニックで未読 {{count}} 件",
     "budgets": "見積もり",
     "workflows": "ワークフロー",
     "tickets": "不具合報告",

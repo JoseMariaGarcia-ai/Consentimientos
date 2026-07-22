@@ -539,6 +539,8 @@
     "labPartners": "Εργαστήρια",
     "menu": "Μενού",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} μη αναγνωσμένα σε λειτουργία διαχειριστή",
+    "whatsapp_clinics_unread": "{{count}} μη αναγνωσμένα σε κλινικές",
     "budgets": "Προσφορές",
     "workflows": "Ροές εργασίας",
     "tickets": "Συμβάντα",

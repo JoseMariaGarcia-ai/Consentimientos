@@ -73,13 +73,17 @@ export default function WhatsApp() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const lastMessageCount = useRef(0)
 
-  // Load clinics available to this user
+  // Load clinics available to this user — el superadmin entra siempre
+  // primero en modo administrador (ConsentsPro), no en la clínica de turno,
+  // pero necesita igualmente la lista de clínicas para poder cambiar luego.
   useEffect(() => {
+    if (isSuperAdmin) setClinicId(ADMIN_SCOPE)
     api.get('/whatsapp/clinics').then((data: any) => {
       const list = Array.isArray(data) ? data : []
       setClinics(list)
-      if (list.length === 1) setClinicId(list[0].id)
+      if (!isSuperAdmin && list.length === 1) setClinicId(list[0].id)
     }).catch(() => {})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Check YCloud configuration + load conversations whenever clinic changes

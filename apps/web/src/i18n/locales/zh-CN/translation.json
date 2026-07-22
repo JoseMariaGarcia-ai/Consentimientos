@@ -539,6 +539,8 @@
     "labPartners": "实验室",
     "menu": "菜单",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "管理员模式下 {{count}} 条未读",
+    "whatsapp_clinics_unread": "诊所中 {{count}} 条未读",
     "budgets": "报价单",
     "workflows": "工作流",
     "tickets": "问题反馈",

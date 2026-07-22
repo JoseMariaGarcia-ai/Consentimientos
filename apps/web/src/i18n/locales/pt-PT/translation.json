@@ -539,6 +539,8 @@
     "labPartners": "Laboratórios",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} não lidas no modo administrador",
+    "whatsapp_clinics_unread": "{{count}} não lidas nas clínicas",
     "budgets": "Orçamentos",
     "workflows": "Workflows",
     "tickets": "Ocorrências",

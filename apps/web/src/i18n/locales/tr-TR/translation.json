@@ -539,6 +539,8 @@
     "labPartners": "Laboratuvarlar",
     "menu": "Menü",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "Yönetici modunda {{count}} okunmamış",
+    "whatsapp_clinics_unread": "Kliniklerde {{count}} okunmamış",
     "budgets": "Fiyat Teklifleri",
     "workflows": "İş Akışları",
     "tickets": "Arıza kayıtları",

@@ -539,6 +539,8 @@
     "labPartners": "Phòng Thí Nghiệm",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} chưa đọc ở chế độ quản trị",
+    "whatsapp_clinics_unread": "{{count}} chưa đọc ở các phòng khám",
     "budgets": "Báo giá",
     "workflows": "Quy trình tự động",
     "tickets": "Phản ánh sự cố",

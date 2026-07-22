@@ -539,6 +539,8 @@
     "labPartners": "प्रयोगशालाएं",
     "menu": "मेनू",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} एडमिन मोड में अपठित",
+    "whatsapp_clinics_unread": "{{count}} क्लीनिकों में अपठित",
     "budgets": "कोटेशन",
     "workflows": "वर्कफ़्लो",
     "tickets": "समस्या रिपोर्ट",

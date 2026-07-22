@@ -539,6 +539,8 @@
     "labPartners": "Laboratoria",
     "menu": "Menu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} ongelezen in beheerdersmodus",
+    "whatsapp_clinics_unread": "{{count}} ongelezen bij klinieken",
     "budgets": "Offertes",
     "workflows": "Workflows",
     "tickets": "Meldingen",

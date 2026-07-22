@@ -539,6 +539,8 @@
     "labPartners": "Laboratoris",
     "menu": "Menú",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} sense llegir en mode administrador",
+    "whatsapp_clinics_unread": "{{count}} sense llegir a clíniques",
     "budgets": "Pressupostos",
     "workflows": "Fluxos de treball",
     "tickets": "Incidències",

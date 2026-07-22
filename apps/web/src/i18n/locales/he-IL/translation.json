@@ -539,6 +539,8 @@
     "labPartners": "מעבדות",
     "menu": "תפריט",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} לא נקראו במצב מנהל",
+    "whatsapp_clinics_unread": "{{count}} לא נקראו במרפאות",
     "budgets": "הצעות מחיר",
     "workflows": "תהליכי עבודה",
     "tickets": "תקלות",

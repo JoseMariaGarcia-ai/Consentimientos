@@ -5,6 +5,7 @@ import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Setting
 import { LanguageSelector } from '../language/LanguageSelector'
 import { useCredits } from '@/hooks/useCredits'
 import { useOpenTickets } from '@/hooks/useOpenTickets'
+import { useWhatsAppUnread } from '@/hooks/useWhatsAppUnread'
 
 const navItems: { to: string; icon: typeof LayoutDashboard; label: string; moduleKey: string }[] = [
   { to: '/', icon: LayoutDashboard, label: 'nav.dashboard', moduleKey: 'dashboard' },
@@ -47,6 +48,7 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin, sidebarOr
   const { t } = useTranslation()
   const { low } = useCredits()
   const { count: openTickets } = useOpenTickets()
+  const { adminUnread, clinicsUnread } = useWhatsAppUnread()
   const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
   const visibleBottomItems = allowedModules ? bottomNavItems.filter(i => allowedModules.includes(i.moduleKey)) : bottomNavItems
 
@@ -157,6 +159,26 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin, sidebarOr
                 {to === '/tickets' && openTickets > 0 && (
                   <span className="ml-auto min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">
                     {openTickets}
+                  </span>
+                )}
+                {to === '/whatsapp' && (adminUnread > 0 || clinicsUnread > 0) && (
+                  <span className="ml-auto flex items-center gap-1">
+                    {adminUnread > 0 && (
+                      <span
+                        title={t('nav.whatsapp_admin_unread', { count: adminUnread })}
+                        className="min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-violet-500 text-white text-[10px] font-bold"
+                      >
+                        {adminUnread}
+                      </span>
+                    )}
+                    {clinicsUnread > 0 && (
+                      <span
+                        title={t('nav.whatsapp_clinics_unread', { count: clinicsUnread })}
+                        className="min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full bg-emerald-500 text-white text-[10px] font-bold"
+                      >
+                        {clinicsUnread}
+                      </span>
+                    )}
                   </span>
                 )}
               </NavLink>

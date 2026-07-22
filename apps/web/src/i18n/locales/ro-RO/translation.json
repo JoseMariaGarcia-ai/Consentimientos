@@ -539,6 +539,8 @@
     "labPartners": "Laboratoare",
     "menu": "Meniu",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} necitite în modul administrator",
+    "whatsapp_clinics_unread": "{{count}} necitite la clinici",
     "budgets": "Oferte",
     "workflows": "Fluxuri de lucru",
     "tickets": "Incidente",

@@ -539,6 +539,8 @@
     "labPartners": "المختبرات",
     "menu": "القائمة",
     "whatsapp": "WhatsApp",
+    "whatsapp_admin_unread": "{{count}} غير مقروءة في وضع المسؤول",
+    "whatsapp_clinics_unread": "{{count}} غير مقروءة في العيادات",
     "budgets": "عروض الأسعار",
     "workflows": "سير العمل",
     "tickets": "الحوادث",
