@@ -184,21 +184,42 @@ async function getSharedYCloudKey(): Promise<string | null> {
   return row?.value?.trim() ? row.value : null
 }
 
-async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
+// Registra en whatsapp_messages cualquier mensaje saliente que se mande
+// fuera de sendViaYCloud (aclaraciones automáticas, listas interactivas) —
+// antes solo se enviaban de verdad por WhatsApp pero nunca quedaban
+// guardados, así que no aparecían en el panel aunque el paciente sí los
+// hubiera recibido en su móvil.
+async function recordOutboundMessage(conversationId: string, body: string, status: 'sent' | 'failed') {
+  await query(
+    `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+     VALUES ($1,NULL,'outbound',$2,$3,'ia')`,
+    [conversationId, body, status]
+  )
+  await query(
+    `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1 WHERE id = $2`,
+    [body.slice(0, 120), conversationId]
+  )
+}
+
+async function sendRawViaYCloud(apiKey: string, phone: string, body: string, conversationId: string) {
   if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
     console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar la pregunta de aclaración')
+    await recordOutboundMessage(conversationId, body, 'failed')
     return
   }
+  let ok = false
   try {
     const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
       headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
       body: JSON.stringify({ from: process.env.YCLOUD_WA_NUMBER, to: phone, type: 'text', text: { body } }),
     })
-    if (!resp.ok) console.error(`[whatsapp] YCloud rechazó la pregunta de aclaración a ${phone} (HTTP ${resp.status}):`, await resp.text().catch(() => resp.statusText))
+    ok = resp.ok
+    if (!ok) console.error(`[whatsapp] YCloud rechazó la pregunta de aclaración a ${phone} (HTTP ${resp.status}):`, await resp.text().catch(() => resp.statusText))
   } catch (err: any) {
     console.error('[whatsapp] fallo enviando pregunta de aclaración de clínica:', err.message)
   }
+  await recordOutboundMessage(conversationId, body, ok ? 'sent' : 'failed')
 }
 
 // Envía una lista interactiva (selector de provincia / clínica) siguiendo
@@ -206,11 +227,17 @@ async function sendRawViaYCloud(apiKey: string, phone: string, body: string) {
 // YCloud replica — ⚠️ no verificado todavía contra tráfico real de YCloud
 // (su documentación no ha podido consultarse desde este entorno); revisar
 // el primer envío real en logs por si el formato exacto difiriera.
-async function sendInteractiveListViaYCloud(apiKey: string, phone: string, payload: InteractiveListPayload) {
+async function sendInteractiveListViaYCloud(apiKey: string, phone: string, payload: InteractiveListPayload, conversationId: string) {
+  // El "cuerpo" que queda guardado en el panel es el texto de la lista más
+  // las opciones, para poder leer luego qué se ofreció sin tener que
+  // reconstruir la lista interactiva original.
+  const savedBody = `${payload.bodyText}\n${payload.sections.flatMap(s => s.rows.map(r => `• ${r.title}`)).join('\n')}`
   if (!process.env.YCLOUD_WA_NUMBER?.trim()) {
     console.error('[whatsapp] falta la variable de entorno YCLOUD_WA_NUMBER — no se puede enviar la lista interactiva')
+    await recordOutboundMessage(conversationId, savedBody, 'failed')
     return
   }
+  let ok = false
   try {
     const resp = await fetch(`${YCLOUD_BASE}/whatsapp/messages`, {
       method: 'POST',
@@ -226,10 +253,12 @@ async function sendInteractiveListViaYCloud(apiKey: string, phone: string, paylo
         },
       }),
     })
-    if (!resp.ok) console.error('[whatsapp] YCloud rechazó la lista interactiva:', await resp.text().catch(() => resp.statusText))
+    ok = resp.ok
+    if (!ok) console.error('[whatsapp] YCloud rechazó la lista interactiva:', await resp.text().catch(() => resp.statusText))
   } catch (err: any) {
     console.error('[whatsapp] fallo enviando lista interactiva:', err.message)
   }
+  await recordOutboundMessage(conversationId, savedBody, ok ? 'sent' : 'failed')
 }
 
 // Guarda en la bandeja de administrador (visible para superadmin en modo
@@ -238,7 +267,7 @@ async function sendInteractiveListViaYCloud(apiKey: string, phone: string, paylo
 // el paciente no conteste a la pregunta de aclaración (o si nunca llega a
 // contestar). source='sin_resolver', distinto de 'admin_directo', para que
 // no se confunda con una conversación real iniciada por el superadmin.
-async function recordUnresolvedInAdminInbox(phone: string, text: string): Promise<void> {
+async function recordUnresolvedInAdminInbox(phone: string, text: string): Promise<string> {
   let convo = await queryOne<{ id: string; source: string | null }>(
     `SELECT id, source FROM whatsapp_conversations WHERE clinic_id IS NULL AND phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
     [phone]
@@ -260,6 +289,7 @@ async function recordUnresolvedInAdminInbox(phone: string, text: string): Promis
     `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1, unread_count = unread_count + 1 WHERE id = $2`,
     [text.slice(0, 120), convo!.id]
   )
+  return convo!.id
 }
 
 async function isFirstOutboundMessage(conversationId: string): Promise<boolean> {
@@ -545,11 +575,11 @@ webhookRouter.post('/', async (req, res) => {
       // queda visible igualmente en la bandeja de administrador (source
       // 'sin_resolver', distinta de 'admin_directo' para no interferir con
       // el enrutamiento normal cuando el paciente sí conteste).
-      await recordUnresolvedInAdminInbox(phone, text)
+      const adminConversationId = await recordUnresolvedInAdminInbox(phone, text)
       if (route.clarificationInteractive && sharedKey) {
-        await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
+        await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive, adminConversationId)
       } else if (route.clarificationMessage && sharedKey) {
-        await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
+        await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage, adminConversationId)
       }
       return
     }
