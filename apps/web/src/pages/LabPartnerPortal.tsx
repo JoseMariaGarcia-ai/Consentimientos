@@ -47,8 +47,12 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
             Consents<span className="text-[#C9A84C]">Pro</span> <span className="text-sm font-normal text-slate-400">{t('labPartnerPortal.header_subtitle')}</span>
           </p>
           {!isPreview && (
-            <button onClick={logout} className="p-2 rounded-lg hover:bg-white/10 transition-colors">
-              <LogOut className="w-4 h-4 text-slate-400" />
+            <button
+              onClick={logout}
+              className="text-white/80 hover:text-white text-sm border border-white/20 rounded-lg px-2.5 md:px-3 py-1.5 hover:bg-white/10 transition-colors flex items-center gap-1.5"
+            >
+              <LogOut className="w-4 h-4 sm:hidden" />
+              <span className="hidden sm:inline">{t('nav.logout')}</span>
             </button>
           )}
         </div>
