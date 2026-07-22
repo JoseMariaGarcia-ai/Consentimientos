@@ -199,6 +199,36 @@ async function sendInteractiveListViaYCloud(apiKey: string, phone: string, paylo
   }
 }
 
+// Guarda en la bandeja de administrador (visible para superadmin en modo
+// "ConsentsPro (administrador)") un mensaje entrante que todavía no se ha
+// podido resolver a ninguna clínica — para que quede constancia mientras
+// el paciente no conteste a la pregunta de aclaración (o si nunca llega a
+// contestar). source='sin_resolver', distinto de 'admin_directo', para que
+// no se confunda con una conversación real iniciada por el superadmin.
+async function recordUnresolvedInAdminInbox(phone: string, text: string): Promise<void> {
+  let convo = await queryOne<{ id: string; source: string | null }>(
+    `SELECT id, source FROM whatsapp_conversations WHERE clinic_id IS NULL AND phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
+    [phone]
+  )
+  // Si la última conversación de admin para este número ya es una
+  // 'admin_directo' real, no se reutiliza — se abre una nueva 'sin_resolver'.
+  if (!convo || convo.source === 'admin_directo') {
+    convo = await queryOne<{ id: string; source: string | null }>(
+      `INSERT INTO whatsapp_conversations (clinic_id, phone, source) VALUES (NULL,$1,'sin_resolver') RETURNING id, source`,
+      [phone]
+    )
+  }
+  await query(
+    `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
+     VALUES ($1,NULL,'inbound',$2,'received','paciente')`,
+    [convo!.id, text]
+  )
+  await query(
+    `UPDATE whatsapp_conversations SET last_message_at = NOW(), last_message_preview = $1, unread_count = unread_count + 1 WHERE id = $2`,
+    [text.slice(0, 120), convo!.id]
+  )
+}
+
 async function isFirstOutboundMessage(conversationId: string): Promise<boolean> {
   const row = await queryOne<{ count: string }>(
     `SELECT count(*)::text AS count FROM whatsapp_messages WHERE conversation_id = $1 AND direction = 'outbound'`,
@@ -413,15 +443,17 @@ webhookRouter.post('/', async (req, res) => {
     }
 
     // Si la conversación más reciente de este número es una conversación de
-    // administrador (superadmin escribiendo como ConsentsPro, no en nombre
-    // de una clínica), la respuesta entrante es para esa bandeja de admin —
-    // se guarda tal cual y NUNCA pasa por el enrutamiento de pacientes ni
-    // por el agente de IA de ninguna clínica.
-    const mostRecent = await queryOne<{ id: string; clinic_id: string | null }>(
-      `SELECT id, clinic_id FROM whatsapp_conversations WHERE phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
+    // administrador iniciada de verdad por el superadmin (source
+    // 'admin_directo' — no cualquier fila con clinic_id NULL, para no
+    // confundirla con un mensaje todavía sin resolver a clínica, ver más
+    // abajo), la respuesta entrante es para esa bandeja de admin — se
+    // guarda tal cual y NUNCA pasa por el enrutamiento de pacientes ni por
+    // el agente de IA de ninguna clínica.
+    const mostRecent = await queryOne<{ id: string; clinic_id: string | null; source: string | null }>(
+      `SELECT id, clinic_id, source FROM whatsapp_conversations WHERE phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
       [phone]
     )
-    if (mostRecent && mostRecent.clinic_id === null) {
+    if (mostRecent && mostRecent.clinic_id === null && mostRecent.source === 'admin_directo') {
       await query(
         `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
          VALUES ($1,NULL,'inbound',$2,'received','paciente')`,
@@ -436,16 +468,20 @@ webhookRouter.post('/', async (req, res) => {
 
     const route = await resolveIncomingConversation(phone, text, interactiveReplyId)
 
-    if (route.clarificationInteractive) {
-      if (sharedKey) await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
-      return
-    }
-    if (route.clarificationMessage) {
-      // Ambigüedad (Caso A sin coincidencia, o Caso C tras >90 días sin
-      // coincidencia): se pregunta directamente, SIN pasar por el agente de
-      // IA (todavía no hay clinic_id, no hay contexto que dar con seguridad)
-      // y sin crear conversación (se crea solo al confirmarse la clínica).
-      if (sharedKey) await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
+    if (route.clarificationInteractive || route.clarificationMessage) {
+      // Todavía no se sabe a qué clínica pertenece — antes esto no dejaba
+      // NINGÚN rastro (ni conversación ni mensaje) hasta que el paciente
+      // contestara a qué clínica se refería, así que un mensaje real podía
+      // "no aparecer nunca" en ningún panel si no llegaba a responder. Ahora
+      // queda visible igualmente en la bandeja de administrador (source
+      // 'sin_resolver', distinta de 'admin_directo' para no interferir con
+      // el enrutamiento normal cuando el paciente sí conteste).
+      await recordUnresolvedInAdminInbox(phone, text)
+      if (route.clarificationInteractive && sharedKey) {
+        await sendInteractiveListViaYCloud(sharedKey, phone, route.clarificationInteractive)
+      } else if (route.clarificationMessage && sharedKey) {
+        await sendRawViaYCloud(sharedKey, phone, route.clarificationMessage)
+      }
       return
     }
     if (!route.clinicId || !route.conversationId) return
