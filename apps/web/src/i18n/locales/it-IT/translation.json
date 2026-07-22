@@ -8,7 +8,9 @@
     "welcome_series": "Schermata di benvenuto",
     "patient_series": "Contenuto per il paziente",
     "no_data": "Nessuna visualizzazione registrata in questo intervallo di date.",
-    "patient_note": "Il contenuto per il paziente non viene ancora mostrato in nessun punto dell'applicazione, quindi le sue visualizzazioni resteranno a 0 finché non verrà implementato il suo visualizzatore."
+    "patient_note": "Il contenuto per il paziente viene mostrato una volta per sessione all'apertura del portale paziente.",
+    "campaign_total": "Numero di volte in cui è stata mostrata una campagna pubblicitaria",
+    "campaign_series": "Campagne pubblicitarie"
   },
   "toxinModal": {
     "title_edit": "Modifica registro tossina",
@@ -2364,5 +2366,9 @@
   "treatmentCombobox": {
     "placeholder": "Cerca per categoria o nome…",
     "no_results": "Nessun risultato"
+  },
+  "campaignModal": {
+    "open": "Vedi di più",
+    "close": "Chiudi"
   }
 }

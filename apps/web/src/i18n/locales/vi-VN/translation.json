@@ -8,7 +8,9 @@
     "welcome_series": "Màn hình chào mừng",
     "patient_series": "Nội dung dành cho bệnh nhân",
     "no_data": "Không có lượt xem nào được ghi nhận trong khoảng thời gian này.",
-    "patient_note": "Nội dung dành cho bệnh nhân hiện chưa được hiển thị ở bất kỳ đâu trong ứng dụng, vì vậy số lượt xem của nó sẽ giữ ở mức 0 cho đến khi trình hiển thị được triển khai."
+    "patient_note": "Nội dung dành cho bệnh nhân được hiển thị một lần mỗi phiên khi mở cổng thông tin bệnh nhân.",
+    "campaign_total": "Số lần một chiến dịch quảng cáo được hiển thị",
+    "campaign_series": "Chiến dịch quảng cáo"
   },
   "toxinModal": {
     "title_edit": "Chỉnh sửa bản ghi độc tố",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Tìm theo danh mục hoặc tên…",
     "no_results": "Không có kết quả"
+  },
+  "campaignModal": {
+    "open": "Xem thêm",
+    "close": "Đóng"
   }
 }

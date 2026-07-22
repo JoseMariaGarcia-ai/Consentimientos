@@ -37,6 +37,7 @@ import TabletPair from './pages/TabletPair'
 import TabletKiosk from './pages/TabletKiosk'
 import PatientPortalApp from './pages/PatientPortalApp'
 import { WelcomeMediaModal } from './components/media/WelcomeMediaModal'
+import { CampaignModal } from './components/media/CampaignModal'
 import { WelcomeMediaProvider } from './context/WelcomeMediaContext'
 import { PreviewProvider, usePreview } from './context/PreviewContext'
 import { PreviewBanner } from './components/preview/PreviewBanner'
@@ -173,6 +174,7 @@ function AppShell() {
             onReorder={activePreview ? undefined : handleReorderSidebar}
           />
           <WelcomeMediaModal />
+          <CampaignModal />
           <main className="flex-1 overflow-auto p-4 md:p-6">
             <Routes>
               <Route path="/" element={<Dashboard />} />

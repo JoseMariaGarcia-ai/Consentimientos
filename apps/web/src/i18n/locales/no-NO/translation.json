@@ -8,7 +8,9 @@
     "welcome_series": "Velkomstskjerm",
     "patient_series": "Pasientinnhold",
     "no_data": "Ingen visninger registrert i denne datoperioden.",
-    "patient_note": "Pasientinnhold vises foreløpig ikke noe sted i applikasjonen, så visningene forblir på 0 til fremvisningen er implementert."
+    "patient_note": "Pasientinnhold vises én gang per økt når pasientportalen åpnes.",
+    "campaign_total": "Antall ganger en annonsekampanje ble vist",
+    "campaign_series": "Annonsekampanjer"
   },
   "toxinModal": {
     "title_edit": "Rediger toksinregistrering",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Søk etter kategori eller navn…",
     "no_results": "Ingen resultater"
+  },
+  "campaignModal": {
+    "open": "Se mer",
+    "close": "Lukk"
   }
 }

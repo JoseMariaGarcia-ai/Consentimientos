@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BarChart3, Eye, Users } from 'lucide-react'
+import { BarChart3, Eye, Users, Megaphone } from 'lucide-react'
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import { api } from '@/lib/api'
 
-interface DailyPoint { date: string; welcome: number; patient: number }
-interface StatsResponse { daily: DailyPoint[]; totals: { welcome: number; patient: number }; from: string; to: string }
+interface DailyPoint { date: string; welcome: number; patient: number; campaign: number }
+interface StatsResponse { daily: DailyPoint[]; totals: { welcome: number; patient: number; campaign: number }; from: string; to: string }
 
 function firstDayOfMonth(d: Date) {
   return new Date(d.getFullYear(), d.getMonth(), 1).toISOString().slice(0, 10)
@@ -70,7 +70,7 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="flex items-center gap-3 bg-pink-50 border border-pink-100 rounded-xl p-4">
           <div className="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0">
             <Eye className="w-5 h-5 text-pink-600" />
@@ -87,6 +87,15 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
           <div>
             <p className="text-2xl font-bold text-slate-800">{data?.totals.patient ?? 0}</p>
             <p className="text-xs text-slate-500">{t('mediaStats.patient_total')}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 bg-amber-50 border border-amber-100 rounded-xl p-4">
+          <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+            <Megaphone className="w-5 h-5 text-amber-600" />
+          </div>
+          <div>
+            <p className="text-2xl font-bold text-slate-800">{data?.totals.campaign ?? 0}</p>
+            <p className="text-xs text-slate-500">{t('mediaStats.campaign_total')}</p>
           </div>
         </div>
       </div>
@@ -109,6 +118,7 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
               <Legend wrapperStyle={{ fontSize: 12 }} />
               <Line type="monotone" dataKey="welcome" name={t('mediaStats.welcome_series')} stroke="#DB2777" strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="patient" name={t('mediaStats.patient_series')} stroke="#2563EB" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="campaign" name={t('mediaStats.campaign_series')} stroke="#D97706" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>

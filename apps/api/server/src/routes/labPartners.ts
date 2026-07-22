@@ -67,6 +67,58 @@ router.post('/', requirePlatformAdmin, async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/lab-partners/campaigns/active — vista de la CLÍNICA: solo las
+// campañas activas del ÚNICO laboratorio al que esta clínica está
+// vinculada, nunca las de otro laboratorio — misma garantía de aislamiento
+// que ya usa /api/media (resolveOwner) para bienvenida/contenido paciente.
+// Registrada antes de /:id para que no quede capturada por esa ruta.
+router.get('/campaigns/active', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.json([])
+    const link = await queryOne<{ lab_partner_id: string }>(
+      'SELECT lab_partner_id FROM clinic_lab_partners WHERE clinic_id = $1 ORDER BY assigned_at ASC LIMIT 1',
+      [me.clinic_id]
+    )
+    if (!link) return res.json([])
+    const campaigns = await query(
+      `SELECT id, name, creative_type, creatives, rotation_mode, trigger_rule, trigger_interval_minutes
+       FROM lab_ad_campaigns
+       WHERE lab_partner_id = $1 AND is_active = true
+         AND (starts_at IS NULL OR starts_at <= NOW())
+         AND (ends_at IS NULL OR ends_at >= NOW())
+       ORDER BY created_at ASC`,
+      [link.lab_partner_id]
+    )
+    return res.json(campaigns)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// POST /api/lab-partners/campaigns/:id/impression — la clínica confirma que
+// mostró una campaña, para las estadísticas del laboratorio. Verifica que
+// la campaña pertenezca de verdad al laboratorio vinculado a ESTA clínica
+// antes de registrar nada — la misma garantía de aislamiento que el GET.
+router.post('/campaigns/:id/impression', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.status(400).json({ error: 'Usuario sin clínica asignada' })
+    const campaign = await queryOne<{ lab_partner_id: string }>('SELECT lab_partner_id FROM lab_ad_campaigns WHERE id = $1', [req.params.id])
+    if (!campaign) return res.status(404).json({ error: 'Campaña no encontrada' })
+    const link = await queryOne<{ lab_partner_id: string }>(
+      'SELECT lab_partner_id FROM clinic_lab_partners WHERE clinic_id = $1 AND lab_partner_id = $2',
+      [me.clinic_id, campaign.lab_partner_id]
+    )
+    if (!link) return res.status(403).json({ error: 'Esta campaña no pertenece al laboratorio de tu clínica' })
+    await query(
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, campaign_id) VALUES ($1,$2,'campaign',$3)`,
+      [me.clinic_id, campaign.lab_partner_id, req.params.id]
+    )
+    return res.status(201).json({ logged: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // Get one with assigned clinics and campaigns
 router.get('/:id', requireLabAccess, async (req, res) => {
   try {
@@ -99,16 +151,16 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
       [req.params.id, fromDate.toISOString(), toExclusive.toISOString()]
     )
 
-    const byDay = new Map<string, { date: string; welcome: number; patient: number }>()
+    const byDay = new Map<string, { date: string; welcome: number; patient: number; campaign: number }>()
     for (const r of rows) {
-      const entry = byDay.get(r.day) ?? { date: r.day, welcome: 0, patient: 0 }
-      entry[r.media_type as 'welcome' | 'patient'] = parseInt(r.count, 10)
+      const entry = byDay.get(r.day) ?? { date: r.day, welcome: 0, patient: 0, campaign: 0 }
+      entry[r.media_type as 'welcome' | 'patient' | 'campaign'] = parseInt(r.count, 10)
       byDay.set(r.day, entry)
     }
     const daily = [...byDay.values()].sort((a, b) => a.date.localeCompare(b.date))
     const totals = daily.reduce(
-      (acc, d) => ({ welcome: acc.welcome + d.welcome, patient: acc.patient + d.patient }),
-      { welcome: 0, patient: 0 }
+      (acc, d) => ({ welcome: acc.welcome + d.welcome, patient: acc.patient + d.patient, campaign: acc.campaign + d.campaign }),
+      { welcome: 0, patient: 0, campaign: 0 }
     )
 
     return res.json({

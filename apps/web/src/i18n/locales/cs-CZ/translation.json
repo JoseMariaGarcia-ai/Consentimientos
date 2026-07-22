@@ -8,7 +8,9 @@
     "welcome_series": "Uvítací obrazovka",
     "patient_series": "Obsah pro pacienta",
     "no_data": "V tomto časovém rozsahu nejsou zaznamenána žádná zobrazení.",
-    "patient_note": "Obsah pro pacienta se zatím v aplikaci nikde nezobrazuje, takže jeho zobrazení zůstanou na 0, dokud nebude implementováno jeho zobrazování."
+    "patient_note": "Obsah pro pacienta se zobrazí jednou za relaci při otevření portálu pacienta.",
+    "campaign_total": "Kolikrát byla zobrazena reklamní kampaň",
+    "campaign_series": "Reklamní kampaně"
   },
   "toxinModal": {
     "title_edit": "Upravit záznam toxinu",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Hledat podle kategorie nebo názvu…",
     "no_results": "Žádné výsledky"
+  },
+  "campaignModal": {
+    "open": "Zobrazit více",
+    "close": "Zavřít"
   }
 }

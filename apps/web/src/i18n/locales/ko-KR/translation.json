@@ -8,7 +8,9 @@
     "welcome_series": "환영 화면",
     "patient_series": "환자용 콘텐츠",
     "no_data": "선택한 기간 동안 기록된 노출이 없습니다.",
-    "patient_note": "환자용 콘텐츠는 아직 애플리케이션 어디에도 표시되지 않으므로, 표시 기능이 구현될 때까지 노출 수는 0으로 유지됩니다."
+    "patient_note": "환자 콘텐츠는 환자 포털을 열 때 세션당 한 번 표시됩니다.",
+    "campaign_total": "광고 캠페인이 표시된 횟수",
+    "campaign_series": "광고 캠페인"
   },
   "toxinModal": {
     "title_edit": "톡신 기록 수정",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "카테고리 또는 이름으로 검색…",
     "no_results": "결과 없음"
+  },
+  "campaignModal": {
+    "open": "더 보기",
+    "close": "닫기"
   }
 }

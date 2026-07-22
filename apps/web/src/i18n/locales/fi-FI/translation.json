@@ -8,7 +8,9 @@
     "welcome_series": "Tervetuloa-näyttö",
     "patient_series": "Potilassisältö",
     "no_data": "Ei rekisteröityjä näyttökertoja tällä aikavälillä.",
-    "patient_note": "Potilassisältöä ei vielä näytetä missään sovelluksen kohdassa, joten sen näyttökerrat pysyvät nollassa, kunnes sen näyttäminen toteutetaan."
+    "patient_note": "Potilassisältö näytetään kerran istuntoa kohden potilasportaalia avattaessa.",
+    "campaign_total": "Kuinka monta kertaa mainoskampanja näytettiin",
+    "campaign_series": "Mainoskampanjat"
   },
   "toxinModal": {
     "title_edit": "Muokkaa toksiinimerkintää",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Hae luokan tai nimen mukaan…",
     "no_results": "Ei tuloksia"
+  },
+  "campaignModal": {
+    "open": "Näytä lisää",
+    "close": "Sulje"
   }
 }

@@ -8,7 +8,9 @@
     "welcome_series": "Tela de boas-vindas",
     "patient_series": "Conteúdo para o paciente",
     "no_data": "Nenhuma visualização registrada nesse período.",
-    "patient_note": "O conteúdo para o paciente ainda não é exibido em nenhum ponto do aplicativo, então suas visualizações permanecerão em 0 até que o visualizador seja implementado."
+    "patient_note": "O conteúdo para o paciente é exibido uma vez por sessão ao abrir o portal do paciente.",
+    "campaign_total": "Vezes que uma campanha publicitária foi exibida",
+    "campaign_series": "Campanhas publicitárias"
   },
   "toxinModal": {
     "title_edit": "Editar registro de toxina",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Buscar por categoria ou nome…",
     "no_results": "Nenhum resultado"
+  },
+  "campaignModal": {
+    "open": "Ver mais",
+    "close": "Fechar"
   }
 }

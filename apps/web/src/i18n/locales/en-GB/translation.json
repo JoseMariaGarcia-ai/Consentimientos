@@ -8,7 +8,9 @@
     "welcome_series": "Welcome screen",
     "patient_series": "Patient content",
     "no_data": "No views recorded in this date range.",
-    "patient_note": "Patient content is not yet displayed anywhere in the application, so its views will remain at 0 until its viewer is implemented."
+    "patient_note": "Patient content is shown once per session when the patient portal is opened.",
+    "campaign_total": "Times an advertising campaign was shown",
+    "campaign_series": "Advertising campaigns"
   },
   "toxinModal": {
     "title_edit": "Edit toxin record",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Search by category or name…",
     "no_results": "No results"
+  },
+  "campaignModal": {
+    "open": "See more",
+    "close": "Close"
   }
 }

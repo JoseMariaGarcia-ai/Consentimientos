@@ -8,7 +8,9 @@
     "welcome_series": "Écran de bienvenue",
     "patient_series": "Contenu patient",
     "no_data": "Aucune visualisation enregistrée sur cette période.",
-    "patient_note": "Le contenu patient n'est pas encore affiché dans l'application, ses visualisations resteront donc à 0 jusqu'à la mise en place de son affichage."
+    "patient_note": "Le contenu patient s'affiche une fois par session à l'ouverture du portail patient.",
+    "campaign_total": "Nombre de fois qu'une campagne publicitaire a été affichée",
+    "campaign_series": "Campagnes publicitaires"
   },
   "toxinModal": {
     "title_edit": "Modifier l'enregistrement de toxine",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Rechercher par catégorie ou nom…",
     "no_results": "Aucun résultat"
+  },
+  "campaignModal": {
+    "open": "Voir plus",
+    "close": "Fermer"
   }
 }

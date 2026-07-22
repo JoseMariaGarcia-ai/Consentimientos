@@ -8,7 +8,9 @@
     "welcome_series": "Velkomstskærm",
     "patient_series": "Patientindhold",
     "no_data": "Ingen visninger registreret i denne periode.",
-    "patient_note": "Patientindhold vises endnu ikke nogen steder i applikationen, så dets visninger forbliver på 0, indtil dets fremviser er implementeret."
+    "patient_note": "Patientindholdet vises én gang pr. session, når patientportalen åbnes.",
+    "campaign_total": "Antal gange en kampagne er vist",
+    "campaign_series": "Reklamekampagner"
   },
   "toxinModal": {
     "title_edit": "Rediger toksinregistrering",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Søg efter kategori eller navn…",
     "no_results": "Ingen resultater"
+  },
+  "campaignModal": {
+    "open": "Se mere",
+    "close": "Luk"
   }
 }

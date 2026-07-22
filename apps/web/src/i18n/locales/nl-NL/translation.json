@@ -8,7 +8,9 @@
     "welcome_series": "Welkomstscherm",
     "patient_series": "Patiëntinhoud",
     "no_data": "Geen weergaven geregistreerd in deze periode.",
-    "patient_note": "Patiëntinhoud wordt momenteel nergens in de applicatie getoond, dus de weergaven blijven op 0 totdat de weergave hiervan is geïmplementeerd."
+    "patient_note": "Patiëntinhoud wordt één keer per sessie getoond bij het openen van het patiëntenportaal.",
+    "campaign_total": "Aantal keren dat een advertentiecampagne is getoond",
+    "campaign_series": "Advertentiecampagnes"
   },
   "toxinModal": {
     "title_edit": "Toxine-registratie bewerken",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Zoeken op categorie of naam…",
     "no_results": "Geen resultaten"
+  },
+  "campaignModal": {
+    "open": "Meer bekijken",
+    "close": "Sluiten"
   }
 }

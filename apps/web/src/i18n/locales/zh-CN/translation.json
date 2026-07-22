@@ -8,7 +8,9 @@
     "welcome_series": "欢迎屏幕",
     "patient_series": "患者内容",
     "no_data": "所选日期范围内没有展示记录。",
-    "patient_note": "患者内容目前尚未在应用的任何位置展示，因此在实现其展示界面之前，其展示次数将保持为 0。"
+    "patient_note": "患者内容在打开患者门户时每次会话显示一次。",
+    "campaign_total": "广告活动展示次数",
+    "campaign_series": "广告活动"
   },
   "toxinModal": {
     "title_edit": "编辑毒素注射记录",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "按类别或名称搜索…",
     "no_results": "无结果"
+  },
+  "campaignModal": {
+    "open": "查看更多",
+    "close": "关闭"
   }
 }

@@ -8,7 +8,9 @@
     "welcome_series": "Willkommensbildschirm",
     "patient_series": "Patienteninhalt",
     "no_data": "Keine Aufrufe im gewählten Zeitraum erfasst.",
-    "patient_note": "Patienteninhalte werden derzeit an keiner Stelle der Anwendung angezeigt, daher bleiben ihre Aufrufe bei 0, bis die Anzeige implementiert ist."
+    "patient_note": "Der Patienteninhalt wird einmal pro Sitzung beim Öffnen des Patientenportals angezeigt.",
+    "campaign_total": "Wie oft eine Werbekampagne angezeigt wurde",
+    "campaign_series": "Werbekampagnen"
   },
   "toxinModal": {
     "title_edit": "Toxin-Eintrag bearbeiten",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Nach Kategorie oder Namen suchen…",
     "no_results": "Keine Ergebnisse"
+  },
+  "campaignModal": {
+    "open": "Mehr ansehen",
+    "close": "Schließen"
   }
 }

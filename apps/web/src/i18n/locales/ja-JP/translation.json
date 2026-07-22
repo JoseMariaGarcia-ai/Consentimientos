@@ -8,7 +8,9 @@
     "welcome_series": "ウェルカム画面",
     "patient_series": "患者向けコンテンツ",
     "no_data": "この期間の表示記録はありません。",
-    "patient_note": "患者向けコンテンツは現在アプリ内のどこにも表示されていないため、表示機能が実装されるまで表示回数は0のままになります。"
+    "patient_note": "患者向けコンテンツは、患者ポータルを開いたときにセッションごとに1回表示されます。",
+    "campaign_total": "広告キャンペーンが表示された回数",
+    "campaign_series": "広告キャンペーン"
   },
   "toxinModal": {
     "title_edit": "トキシン記録を編集",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "カテゴリまたは名前で検索…",
     "no_results": "該当なし"
+  },
+  "campaignModal": {
+    "open": "もっと見る",
+    "close": "閉じる"
   }
 }

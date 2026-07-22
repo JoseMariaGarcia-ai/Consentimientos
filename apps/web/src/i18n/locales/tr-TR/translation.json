@@ -8,7 +8,9 @@
     "welcome_series": "Karşılama ekranı",
     "patient_series": "Hasta içeriği",
     "no_data": "Bu tarih aralığında kayıtlı görüntülenme yok.",
-    "patient_note": "Hasta içeriği henüz uygulamanın hiçbir yerinde gösterilmediğinden, görüntüleyicisi uygulanana kadar görüntülenme sayısı 0 olarak kalacaktır."
+    "patient_note": "Hasta içeriği, hasta portalı açıldığında oturum başına bir kez gösterilir.",
+    "campaign_total": "Bir reklam kampanyasının gösterilme sayısı",
+    "campaign_series": "Reklam kampanyaları"
   },
   "toxinModal": {
     "title_edit": "Toksin kaydını düzenle",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Kategoriye veya isme göre ara…",
     "no_results": "Sonuç yok"
+  },
+  "campaignModal": {
+    "open": "Daha fazla gör",
+    "close": "Kapat"
   }
 }

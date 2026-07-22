@@ -8,7 +8,9 @@
     "welcome_series": "Ecran de bun venit",
     "patient_series": "Conținut pentru pacient",
     "no_data": "Nu există vizualizări înregistrate în acest interval de date.",
-    "patient_note": "Conținutul pentru pacient nu este încă afișat nicăieri în aplicație, astfel încât vizualizările sale vor rămâne la 0 până când vizualizatorul său va fi implementat."
+    "patient_note": "Conținutul pentru pacient este afișat o dată pe sesiune la deschiderea portalului pacientului.",
+    "campaign_total": "Numărul de afișări ale unei campanii publicitare",
+    "campaign_series": "Campanii publicitare"
   },
   "toxinModal": {
     "title_edit": "Editare înregistrare toxină",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Caută după categorie sau nume…",
     "no_results": "Niciun rezultat"
+  },
+  "campaignModal": {
+    "open": "Vezi mai mult",
+    "close": "Închide"
   }
 }

@@ -8,7 +8,9 @@
     "welcome_series": "Üdvözlőképernyő",
     "patient_series": "Betegtartalom",
     "no_data": "Ebben az időszakban nincs rögzített megtekintés.",
-    "patient_note": "A betegtartalom egyelőre sehol sem jelenik meg az alkalmazásban, ezért a megtekintések száma 0 marad, amíg meg nem valósul a megjelenítése."
+    "patient_note": "A beteg számára szánt tartalom munkamenetenként egyszer jelenik meg a betegportál megnyitásakor.",
+    "campaign_total": "Hányszor jelent meg egy hirdetési kampány",
+    "campaign_series": "Hirdetési kampányok"
   },
   "toxinModal": {
     "title_edit": "Toxinbejegyzés szerkesztése",
@@ -2310,5 +2312,9 @@
   "treatmentCombobox": {
     "placeholder": "Keresés kategória vagy név szerint…",
     "no_results": "Nincs találat"
+  },
+  "campaignModal": {
+    "open": "Több megtekintése",
+    "close": "Bezárás"
   }
 }
