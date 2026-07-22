@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw } from 'lucide-react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw, ChevronDown } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
+import { useWhatsAppUnread } from '@/hooks/useWhatsAppUnread'
 
 // Mismo valor que ADMIN_SCOPE en el backend (routes/whatsapp.ts) — el
 // superadmin lo usa para escribir como ConsentsPro a cualquier clínica o
@@ -16,6 +17,81 @@ interface Conversation {
   last_message_preview: string | null
   unread_count: number
   source?: 'link_directo' | 'mensaje_saliente_clinica' | 'pregunta_ambigua' | 'recencia_automatica' | null
+}
+
+interface ClinicOption { id: string; name: string; trade_name: string | null; phone: string | null; unread: number }
+
+// Selector propio (no <select> nativo) porque un <select> no puede pintar
+// globos de colores dentro de las opciones — el superadmin necesita ver de
+// un vistazo en cuál de sus clínicas hay mensajes sin leer antes de entrar.
+function ClinicPicker({
+  value, onChange, clinics, adminUnread,
+}: { value: string; onChange: (id: string) => void; clinics: ClinicOption[]; adminUnread: number }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const selectedClinic = clinics.find(c => c.id === value)
+  const label = value === ADMIN_SCOPE
+    ? '⚡ ConsentsPro (administrador)'
+    : selectedClinic
+    ? `${selectedClinic.trade_name ?? selectedClinic.name}${selectedClinic.phone ? ` — ${selectedClinic.phone}` : ''}`
+    : '— Seleccionar clínica —'
+
+  const Badge = ({ count, color }: { count: number; color: string }) =>
+    count > 0 ? (
+      <span className={`min-w-[1.25rem] h-5 px-1.5 flex items-center justify-center rounded-full text-white text-[10px] font-bold flex-shrink-0 ${color}`}>
+        {count}
+      </span>
+    ) : null
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        className="flex items-center gap-2 px-3 py-2 border border-slate-300 rounded-xl text-sm bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 max-w-xs"
+      >
+        {value === ADMIN_SCOPE ? <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" /> : <Building2 className="w-4 h-4 text-slate-400 flex-shrink-0" />}
+        <span className="truncate flex-1 text-left">{label}</span>
+        <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-100 z-[100] overflow-hidden max-h-96 overflow-y-auto">
+          <button
+            type="button"
+            onClick={() => { onChange(ADMIN_SCOPE); setOpen(false) }}
+            className={`w-full flex items-center gap-2 px-3 py-2.5 text-sm text-left hover:bg-slate-50 ${value === ADMIN_SCOPE ? 'bg-emerald-50' : ''}`}
+          >
+            <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+            <span className="flex-1 truncate">⚡ ConsentsPro (administrador)</span>
+            <Badge count={adminUnread} color="bg-violet-500" />
+          </button>
+          <div className="border-t border-slate-100" />
+          {clinics.map(c => (
+            <button
+              key={c.id}
+              type="button"
+              onClick={() => { onChange(c.id); setOpen(false) }}
+              className={`w-full flex items-center gap-2 px-3 py-2.5 text-sm text-left hover:bg-slate-50 ${value === c.id ? 'bg-emerald-50' : ''}`}
+            >
+              <Building2 className="w-4 h-4 text-slate-400 flex-shrink-0" />
+              <span className="flex-1 min-w-0 truncate">{c.trade_name ?? c.name}{c.phone ? ` — ${c.phone}` : ''}</span>
+              <Badge count={c.unread} color="bg-emerald-500" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }
 
 // Enlace directo de la clínica al número único de WhatsApp compartido — lo
@@ -57,8 +133,9 @@ interface Message {
 export default function WhatsApp() {
   const { role } = useAuth()
   const isSuperAdmin = role === 'superadmin'
+  const { adminUnread } = useWhatsAppUnread()
 
-  const [clinics, setClinics]           = useState<{ id: string; name: string; trade_name: string | null; phone: string | null }[]>([])
+  const [clinics, setClinics]           = useState<ClinicOption[]>([])
   const [clinicId, setClinicId]         = useState<string>('')
   const [configured, setConfigured]     = useState<boolean | null>(null)
   const [conversations, setConversations] = useState<Conversation[]>([])
@@ -188,20 +265,7 @@ export default function WhatsApp() {
         </div>
 
         {isSuperAdmin && (
-          <div className="flex items-center gap-2">
-            {clinicId === ADMIN_SCOPE ? <ShieldCheck className="w-4 h-4 text-emerald-500" /> : <Building2 className="w-4 h-4 text-slate-400" />}
-            <select
-              value={clinicId}
-              onChange={e => setClinicId(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">— Seleccionar clínica —</option>
-              <option value={ADMIN_SCOPE}>⚡ ConsentsPro (administrador)</option>
-              {clinics.map(c => (
-                <option key={c.id} value={c.id}>{c.trade_name ?? c.name}{c.phone ? ` — ${c.phone}` : ''}</option>
-              ))}
-            </select>
-          </div>
+          <ClinicPicker value={clinicId} onChange={setClinicId} clinics={clinics} adminUnread={adminUnread} />
         )}
       </div>
 

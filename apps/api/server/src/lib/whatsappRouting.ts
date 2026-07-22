@@ -52,17 +52,21 @@ function matchProvinceByName(text: string, provinces: string[]): string | null {
 // antiguo le falta el prefijo de país. Si el número coincide con pacientes
 // de MÁS de una clínica distinta, no se resuelve solo — se trata como si
 // no hubiera coincidencia, nunca se adivina cuál de las dos es.
-export async function matchRegisteredPatientClinic(phone: string): Promise<string | null> {
+export interface PatientMatch { clinicId: string; patientId: string; fullName: string | null }
+
+export async function matchRegisteredPatientClinic(phone: string): Promise<PatientMatch | null> {
   const digits = phone.replace(/\D/g, '')
   if (digits.length < 9) return null
   const last9 = digits.slice(-9)
-  const rows = await query<{ clinic_id: string }>(
-    `SELECT DISTINCT clinic_id FROM patients
+  const rows = await query<{ id: string; clinic_id: string; full_name: string | null }>(
+    `SELECT id, clinic_id, full_name FROM patients
      WHERE clinic_id IS NOT NULL
        AND RIGHT(regexp_replace(phone, '\\D', '', 'g'), 9) = $1`,
     [last9]
   )
-  return rows.length === 1 ? rows[0].clinic_id : null
+  const distinctClinics = new Set(rows.map(r => r.clinic_id))
+  if (distinctClinics.size !== 1) return null
+  return { clinicId: rows[0].clinic_id, patientId: rows[0].id, fullName: rows[0].full_name }
 }
 
 // WhatsApp/YCloud limita las listas interactivas a 10 filas en total
@@ -206,11 +210,16 @@ export async function resolveIncomingConversation(phone: string, text: string, i
 
   // 1.5. ¿Es ya un paciente registrado en alguna clínica? Señal más fiable
   // que el historial de conversaciones (que puede no existir todavía si es
-  // la primera vez que escribe por WhatsApp) — se comprueba antes.
-  const patientClinicId = await matchRegisteredPatientClinic(phone)
-  if (patientClinicId) {
-    const conversationId = await ensureConversation(patientClinicId, phone, 'paciente_registrado')
-    return { clinicId: patientClinicId, conversationId, source: 'paciente_registrado', clarificationMessage: null, clarificationInteractive: null }
+  // la primera vez que escribe por WhatsApp) — se comprueba antes. Se
+  // guarda también su nombre en la conversación, para que el panel
+  // muestre "Nombre del paciente" con el teléfono debajo, no solo el
+  // número en crudo.
+  const patientMatch = await matchRegisteredPatientClinic(phone)
+  if (patientMatch) {
+    const conversationId = await ensureConversation(patientMatch.clinicId, phone, 'paciente_registrado', {
+      id: patientMatch.patientId, name: patientMatch.fullName,
+    })
+    return { clinicId: patientMatch.clinicId, conversationId, source: 'paciente_registrado', clarificationMessage: null, clarificationInteractive: null }
   }
 
   // 2. Historial de conversaciones existentes para este número, en CUALQUIER clínica.
@@ -312,14 +321,28 @@ async function resolveProvinceChoice(phone: string, province: string): Promise<R
   return noRoute(null, buildClinicListPayload(province, candidates))
 }
 
-async function ensureConversation(clinicId: string, phone: string, source: RouteResult['source']): Promise<string> {
-  const existing = await queryOne<{ id: string }>(
-    'SELECT id FROM whatsapp_conversations WHERE clinic_id = $1 AND phone = $2', [clinicId, phone]
+async function ensureConversation(
+  clinicId: string, phone: string, source: RouteResult['source'],
+  patient?: { id: string; name: string | null }
+): Promise<string> {
+  const existing = await queryOne<{ id: string; contact_name: string | null; patient_id: string | null }>(
+    'SELECT id, contact_name, patient_id FROM whatsapp_conversations WHERE clinic_id = $1 AND phone = $2', [clinicId, phone]
   )
-  if (existing) return existing.id
+  if (existing) {
+    // Una conversación creada antes de saber que este número era paciente
+    // (o antes de que existiera esta función) se completa a posteriori, sin
+    // pisar un contact_name puesto a mano por la clínica.
+    if (patient && !existing.patient_id) {
+      await query(
+        'UPDATE whatsapp_conversations SET patient_id = $1, contact_name = COALESCE(contact_name, $2) WHERE id = $3',
+        [patient.id, patient.name, existing.id]
+      )
+    }
+    return existing.id
+  }
   const created = await queryOne<{ id: string }>(
-    `INSERT INTO whatsapp_conversations (clinic_id, phone, source, status) VALUES ($1,$2,$3,'activa') RETURNING id`,
-    [clinicId, phone, source]
+    `INSERT INTO whatsapp_conversations (clinic_id, phone, source, status, patient_id, contact_name) VALUES ($1,$2,$3,'activa',$4,$5) RETURNING id`,
+    [clinicId, phone, source, patient?.id ?? null, patient?.name ?? null]
   )
   return created!.id
 }

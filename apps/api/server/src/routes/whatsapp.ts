@@ -307,18 +307,26 @@ async function getClinicDisplayName(clinicId: string): Promise<string> {
   return row?.trade_name ?? row?.name ?? 'la clínica'
 }
 
-// GET /api/whatsapp/clinics — clinics the requester can operate WhatsApp for
+// GET /api/whatsapp/clinics — clinics the requester can operate WhatsApp
+// for, con el total de mensajes sin leer de cada una (para el selector del
+// panel, que como superadmin necesita ver de un vistazo dónde hay algo
+// pendiente sin tener que entrar clínica por clínica).
+const CLINICS_WITH_UNREAD_SQL = `
+  SELECT c.id, c.name, c.trade_name, c.phone,
+    COALESCE((SELECT SUM(wc.unread_count) FROM whatsapp_conversations wc WHERE wc.clinic_id = c.id), 0) AS unread
+  FROM clinics c
+`
 router.get('/clinics', async (req, res) => {
   try {
     const { userId } = (req as any).user
     const me = await queryOne<{ clinic_id: string; role: string }>('SELECT clinic_id, role FROM app_users WHERE id = $1', [userId])
     if (!me) return res.json([])
     if (me.role === 'superadmin') {
-      const data = await query('SELECT id, name, trade_name, phone FROM clinics ORDER BY name')
+      const data = await query(`${CLINICS_WITH_UNREAD_SQL} ORDER BY c.name`)
       return res.json(data)
     }
     if (!me.clinic_id) return res.json([])
-    const data = await query('SELECT id, name, trade_name, phone FROM clinics WHERE id = $1', [me.clinic_id])
+    const data = await query(`${CLINICS_WITH_UNREAD_SQL} WHERE c.id = $1`, [me.clinic_id])
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
