@@ -93,7 +93,21 @@ export interface TemplateCreationResult {
 }
 
 export async function createTemplateViaYCloud(apiKey: string, def: TemplateDef): Promise<TemplateCreationResult> {
+  // Confirmado con un intento real: a diferencia del envío de mensajes (que
+  // no lo necesita), crear una plantilla exige indicar explícitamente el
+  // wabaId (identificador de la cuenta de WhatsApp Business) — sin él,
+  // YCloud responde 403 WHATSAPP_BUSINESS_ACCOUNT_UNAVAILABLE ("hasn't
+  // bound WABA null"). Se toma de una variable de entorno porque no hay
+  // forma de deducirlo desde la propia API Key.
+  const wabaId = process.env.YCLOUD_WABA_ID?.trim()
+  if (!wabaId) {
+    return {
+      name: def.name, ok: false, httpStatus: null, response: null,
+      errorMessage: 'Falta configurar YCLOUD_WABA_ID en las variables de entorno del backend (ver panel de YCloud → datos de la cuenta de WhatsApp Business)',
+    }
+  }
   const body = {
+    wabaId,
     name: def.name,
     category: def.category,
     language: def.language,
