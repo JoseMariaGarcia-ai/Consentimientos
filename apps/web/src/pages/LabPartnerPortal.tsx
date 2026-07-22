@@ -5,8 +5,6 @@ import { api } from '@/lib/api'
 import { clearSession } from '@/lib/auth'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
 import { CampaignsPanel, type LabPartner } from './LabPartners'
-import { WelcomeMediaProvider } from '@/context/WelcomeMediaContext'
-import { WelcomeMediaModal } from '@/components/media/WelcomeMediaModal'
 import { CreativesGallery } from '@/components/media/CreativesGallery'
 import { WelcomeTriggerConfig } from '@/components/media/WelcomeTriggerConfig'
 import { MediaStatsPanel } from '@/components/media/MediaStatsPanel'
@@ -40,9 +38,7 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
   const logout = () => { clearSession(); window.location.href = '/' }
 
   return (
-    <WelcomeMediaProvider>
     <div className="min-h-screen bg-slate-50">
-      <WelcomeMediaModal />
       {isPreview && onExitPreview && <PreviewBanner role="lab_partner" onExit={onExitPreview} />}
 
       <header className="bg-[#0D1B2E] text-white">
@@ -184,6 +180,5 @@ export default function LabPartnerPortal({ labId, previewLabId, onExitPreview }:
         )}
       </main>
     </div>
-    </WelcomeMediaProvider>
   )
 }
