@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw, ChevronDown } from 'lucide-react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw, ChevronDown, FileText, Loader2, X } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
 import { useWhatsAppUnread } from '@/hooks/useWhatsAppUnread'
@@ -118,6 +118,87 @@ function DirectLinkPanel({ clinicId }: { clinicId: string }) {
       >
         <Copy className="w-3 h-3" /> {copied ? 'Copiado' : 'Copiar'}
       </button>
+    </div>
+  )
+}
+
+interface TemplateCreationResult {
+  name: string
+  ok: boolean
+  httpStatus: number | null
+  response: any
+  errorMessage: string | null
+}
+
+// Panel solo visible en modo administrador: crea de un golpe, llamando a la
+// API de YCloud desde el propio backend, las 5 plantillas que necesitan los
+// avisos automáticos al paciente por WhatsApp (bienvenida, consentimiento,
+// cita, recordatorio, documento) — alternativa al alta manual una por una
+// en el panel de YCloud.
+function CreateTemplatesPanel() {
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [results, setResults] = useState<TemplateCreationResult[] | null>(null)
+  const [error, setError] = useState('')
+
+  const handleCreate = async () => {
+    setLoading(true); setError(''); setResults(null)
+    try {
+      const data: any = await api.post('/whatsapp/create-notification-templates', {})
+      setResults(data.results)
+    } catch (e: any) {
+      setError(e.message ?? 'Error al crear las plantillas')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="bg-white border border-slate-200 rounded-xl">
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-xl"
+      >
+        <FileText className="w-4 h-4 text-slate-400" />
+        Crear plantillas de notificaciones al paciente
+        <ChevronDown className={`w-4 h-4 ml-auto text-slate-400 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="px-3 pb-3 flex flex-col gap-3 border-t border-slate-100 pt-3">
+          <p className="text-xs text-slate-500">
+            Da de alta en YCloud, de un solo golpe, las 5 plantillas que necesitan los avisos automáticos al
+            paciente (bienvenida, consentimiento, cita, recordatorio, documento). Si alguna falla, aquí abajo
+            sale el motivo exacto que devuelve YCloud.
+          </p>
+          <button
+            onClick={handleCreate}
+            disabled={loading}
+            className="self-start flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg disabled:opacity-50"
+          >
+            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileText className="w-4 h-4" />}
+            {loading ? 'Creando…' : 'Crear las 5 plantillas'}
+          </button>
+          {error && <p className="text-xs text-red-600">{error}</p>}
+          {results && (
+            <ul className="flex flex-col gap-2">
+              {results.map(r => (
+                <li key={r.name} className={`flex flex-col gap-1 rounded-lg px-3 py-2 text-xs ${r.ok ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-800'}`}>
+                  <div className="flex items-center gap-2">
+                    {r.ok ? <Check className="w-3.5 h-3.5 flex-shrink-0" /> : <X className="w-3.5 h-3.5 flex-shrink-0" />}
+                    <span className="font-mono font-semibold">{r.name}</span>
+                    <span className="ml-auto">{r.ok ? 'creada' : `error${r.httpStatus ? ` (HTTP ${r.httpStatus})` : ''}`}</span>
+                  </div>
+                  {!r.ok && (r.errorMessage || r.response) && (
+                    <pre className="whitespace-pre-wrap break-all font-mono text-[10px] text-red-700 bg-red-100/60 rounded p-2">
+                      {r.errorMessage}{r.response ? `\n${JSON.stringify(r.response, null, 2)}` : ''}
+                    </pre>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   )
 }
@@ -275,11 +356,14 @@ export default function WhatsApp() {
       </div>
 
       {clinicId === ADMIN_SCOPE && (
-        <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2">
-          <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-          <p className="text-xs text-emerald-800">
-            Modo administrador: los mensajes se envían como ConsentsPro, a cualquier clínica o persona — no en nombre de ninguna clínica.
-          </p>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+            <p className="text-xs text-emerald-800">
+              Modo administrador: los mensajes se envían como ConsentsPro, a cualquier clínica o persona — no en nombre de ninguna clínica.
+            </p>
+          </div>
+          <CreateTemplatesPanel />
         </div>
       )}
 

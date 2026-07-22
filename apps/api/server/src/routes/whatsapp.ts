@@ -4,6 +4,7 @@ import { hasPositiveBalance, chargeCredit } from '../lib/creditService'
 import { generateAiReply, type ChatMessage } from '../lib/aiProviders'
 import { resolveIncomingConversation, generateDirectLink, matchRegisteredPatientClinic, type InteractiveListPayload } from '../lib/whatsappRouting'
 import { YCLOUD_BASE, getYCloudKey, getSharedYCloudKey, hasOpenSessionWindow, sendViaYCloud, sendWhatsAppTemplate } from '../lib/whatsappSend'
+import { PATIENT_NOTIFICATION_TEMPLATES, createTemplateViaYCloud } from '../lib/whatsappTemplates'
 
 const router = Router()
 export const webhookRouter = Router()
@@ -405,6 +406,30 @@ router.post('/send', async (req, res) => {
       })
     }
     return res.status(201).json({ ...message, viaTemplate })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// POST /api/whatsapp/create-notification-templates — solo superadmin. Da de
+// alta en YCloud, de una vez, las 5 plantillas que necesitan los avisos
+// automáticos al paciente por WhatsApp (ver lib/whatsappTemplates.ts).
+// Formato de creación NO verificado contra tráfico real de YCloud todavía
+// (solo el ENVÍO de plantillas ya aprobadas está confirmado en producción)
+// — se devuelve la respuesta cruda de YCloud para cada plantilla, para
+// poder diagnosticar al momento si el formato no encajase exactamente.
+router.post('/create-notification-templates', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+    if (me?.role !== 'superadmin') return res.status(403).json({ error: 'Solo superadmin' })
+
+    const apiKey = await getSharedYCloudKey()
+    if (!apiKey) return res.status(400).json({ error: 'Falta configurar la clave compartida de YCloud (shared_ycloud_api_key)' })
+
+    const results = []
+    for (const def of PATIENT_NOTIFICATION_TEMPLATES) {
+      results.push(await createTemplateViaYCloud(apiKey, def))
+    }
+    return res.json({ results })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
