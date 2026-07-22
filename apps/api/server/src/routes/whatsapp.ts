@@ -358,7 +358,6 @@ webhookRouter.post('/:clinicId', async (req, res) => {
   try {
     const clinicId = req.params.clinicId
     const payload = req.body
-    console.log(`[whatsapp webhook clinic=${clinicId}] payload recibido:`, JSON.stringify(payload)?.slice(0, 2000))
     const msg = payload?.whatsappInboundMessage ?? payload
     const phone = msg?.from
     const text = msg?.text?.body ?? msg?.body ?? ''
@@ -407,14 +406,6 @@ webhookRouter.post('/:clinicId', async (req, res) => {
 // ORO: nunca se genera contenido de IA sin clinic_id resuelto con certeza.
 webhookRouter.post('/', async (req, res) => {
   const payload = req.body
-  // ⚠️ Diagnóstico temporal: hasta confirmar el formato real de los
-  // webhooks de YCloud en producción, se registra el payload completo de
-  // cada evento entrante — necesario para saber por qué un mensaje real no
-  // está llegando (¿no llama YCloud a esta URL en absoluto? ¿llama pero con
-  // una forma de JSON distinta a la asumida (payload.whatsappInboundMessage
-  // / msg.from / msg.text.body) y por eso se descarta en silencio?). Quitar
-  // en cuanto quede verificado.
-  console.log('[whatsapp shared webhook] payload recibido:', JSON.stringify(payload)?.slice(0, 2000))
   const msg = payload?.whatsappInboundMessage ?? payload
   const phone = msg?.from
   // Respuesta a una lista interactiva (provincia/clínica) — llega como
