@@ -29,8 +29,13 @@ const YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS = 6 // ~0,06 € por conversació
 // Nombre de la plantilla aprobada en YCloud/Meta para reabrir conversación
 // fuera de la ventana de 24h (ver sendTemplateViaYCloud). Configurable por
 // si el nombre que finalmente se aprueba difiere del propuesto por defecto.
+// Plantilla real creada en YCloud (22 julio 2026): "contacto_consentspro",
+// categoría Utilidad, idioma Spanish, cuerpo con 1 variable NOMBRADA
+// (no posicional {{1}}) llamada "nombre" — YCloud/Meta usan el formato de
+// "named parameters" del Cloud API, por eso parameter_name abajo.
 const YCLOUD_CONTACT_TEMPLATE_NAME = process.env.YCLOUD_CONTACT_TEMPLATE_NAME?.trim() || 'contacto_consentspro'
 const YCLOUD_CONTACT_TEMPLATE_LANG = process.env.YCLOUD_CONTACT_TEMPLATE_LANG?.trim() || 'es'
+const YCLOUD_CONTACT_TEMPLATE_VAR_NAME = process.env.YCLOUD_CONTACT_TEMPLATE_VAR_NAME?.trim() || 'nombre'
 
 // WhatsApp/Meta solo permite mensajes de texto libre dentro de las 24h
 // siguientes al último mensaje ENTRANTE del cliente ("ventana de servicio").
@@ -83,7 +88,10 @@ async function sendTemplateViaYCloud(
         template: {
           name: YCLOUD_CONTACT_TEMPLATE_NAME,
           language: { code: YCLOUD_CONTACT_TEMPLATE_LANG },
-          components: [{ type: 'body', parameters: [{ type: 'text', text: displayName }] }],
+          components: [{
+            type: 'body',
+            parameters: [{ type: 'text', parameter_name: YCLOUD_CONTACT_TEMPLATE_VAR_NAME, text: displayName }],
+          }],
         },
       }),
     })
