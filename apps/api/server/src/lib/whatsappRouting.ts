@@ -43,6 +43,28 @@ function matchProvinceByName(text: string, provinces: string[]): string | null {
   return matches.length === 1 ? matches[0] : null
 }
 
+// Si el número que escribe ya es un paciente dado de alta en alguna
+// clínica, esa es la señal más fiable de todas — más que cualquier
+// conversación previa de WhatsApp (que puede no existir todavía) o que
+// preguntar la provincia. Se compara solo por dígitos (los teléfonos se
+// guardan con formatos distintos: "+34 676944173", "34676944173"...), con
+// una segunda pasada por los últimos 9 dígitos por si a algún registro
+// antiguo le falta el prefijo de país. Si el número coincide con pacientes
+// de MÁS de una clínica distinta, no se resuelve solo — se trata como si
+// no hubiera coincidencia, nunca se adivina cuál de las dos es.
+export async function matchRegisteredPatientClinic(phone: string): Promise<string | null> {
+  const digits = phone.replace(/\D/g, '')
+  if (digits.length < 9) return null
+  const last9 = digits.slice(-9)
+  const rows = await query<{ clinic_id: string }>(
+    `SELECT DISTINCT clinic_id FROM patients
+     WHERE clinic_id IS NOT NULL
+       AND RIGHT(regexp_replace(phone, '\\D', '', 'g'), 9) = $1`,
+    [last9]
+  )
+  return rows.length === 1 ? rows[0].clinic_id : null
+}
+
 // WhatsApp/YCloud limita las listas interactivas a 10 filas en total
 // (sumando todas las secciones), título de fila ≤24 caracteres y
 // descripción ≤72. Si algún día hay más de 10 provincias o más de 10
@@ -68,7 +90,7 @@ export interface InteractiveListPayload {
 export interface RouteResult {
   clinicId: string | null
   conversationId: string | null
-  source: 'link_directo' | 'pregunta_ambigua' | 'recencia_automatica' | 'lista_interactiva' | null
+  source: 'link_directo' | 'pregunta_ambigua' | 'recencia_automatica' | 'lista_interactiva' | 'paciente_registrado' | null
   // Aclaración a enviar tal cual, SIN pasar por el agente de IA — como
   // mucho una de las dos, nunca las dos a la vez.
   clarificationMessage: string | null
@@ -180,6 +202,15 @@ export async function resolveIncomingConversation(phone: string, text: string, i
       const conversationId = await ensureConversation(clinic.id, phone, 'link_directo')
       return { clinicId: clinic.id, conversationId, source: 'link_directo', clarificationMessage: null, clarificationInteractive: null }
     }
+  }
+
+  // 1.5. ¿Es ya un paciente registrado en alguna clínica? Señal más fiable
+  // que el historial de conversaciones (que puede no existir todavía si es
+  // la primera vez que escribe por WhatsApp) — se comprueba antes.
+  const patientClinicId = await matchRegisteredPatientClinic(phone)
+  if (patientClinicId) {
+    const conversationId = await ensureConversation(patientClinicId, phone, 'paciente_registrado')
+    return { clinicId: patientClinicId, conversationId, source: 'paciente_registrado', clarificationMessage: null, clarificationInteractive: null }
   }
 
   // 2. Historial de conversaciones existentes para este número, en CUALQUIER clínica.

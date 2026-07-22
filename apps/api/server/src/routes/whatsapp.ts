@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { hasPositiveBalance, chargeCredit } from '../lib/creditService'
 import { generateAiReply, type ChatMessage } from '../lib/aiProviders'
-import { resolveIncomingConversation, generateDirectLink, type InteractiveListPayload } from '../lib/whatsappRouting'
+import { resolveIncomingConversation, generateDirectLink, matchRegisteredPatientClinic, type InteractiveListPayload } from '../lib/whatsappRouting'
 
 const router = Router()
 export const webhookRouter = Router()
@@ -507,11 +507,12 @@ webhookRouter.post('/', async (req, res) => {
     // confundirla con un mensaje todavía sin resolver a clínica, ver más
     // abajo), la respuesta entrante es para esa bandeja de admin — PERO
     // solo si este número no tiene ninguna relación previa con una clínica
-    // real. Si ya existe (p. ej. es un paciente ya registrado), esa
-    // relación manda siempre, aunque el mensaje de administrador sea más
-    // reciente — de lo contrario, escribirle a un paciente desde el modo
-    // administrador "secuestraría" para siempre sus respuestas, apartándolas
-    // de la clínica a la que realmente pertenecen.
+    // real, ni en conversaciones de WhatsApp NI como paciente ya dado de
+    // alta (aunque nunca haya escrito por WhatsApp todavía). Si existe
+    // cualquiera de las dos, esa relación manda siempre, aunque el mensaje
+    // de administrador sea más reciente — de lo contrario, escribirle a un
+    // paciente desde el modo administrador "secuestraría" para siempre sus
+    // respuestas, apartándolas de la clínica a la que realmente pertenece.
     const mostRecent = await queryOne<{ id: string; clinic_id: string | null; source: string | null }>(
       `SELECT id, clinic_id, source FROM whatsapp_conversations WHERE phone = $1 ORDER BY last_message_at DESC NULLS LAST LIMIT 1`,
       [phone]
@@ -520,7 +521,8 @@ webhookRouter.post('/', async (req, res) => {
       `SELECT id FROM whatsapp_conversations WHERE phone = $1 AND clinic_id IS NOT NULL LIMIT 1`,
       [phone]
     )
-    if (mostRecent && mostRecent.clinic_id === null && mostRecent.source === 'admin_directo' && !hasClinicHistory) {
+    const isRegisteredPatient = await matchRegisteredPatientClinic(phone)
+    if (mostRecent && mostRecent.clinic_id === null && mostRecent.source === 'admin_directo' && !hasClinicHistory && !isRegisteredPatient) {
       await query(
         `INSERT INTO whatsapp_messages (conversation_id, clinic_id, direction, body, status, sender)
          VALUES ($1,NULL,'inbound',$2,'received','paciente')`,
