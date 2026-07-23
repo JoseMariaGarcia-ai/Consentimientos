@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Save, Building2 } from 'lucide-react'
+import { Save, Building2, Image as ImageIcon, X, Loader2 } from 'lucide-react'
 import { api } from '@/lib/api'
+import { compressImage, blobToBase64 } from '@/lib/imageCompression'
 import type { Clinic } from '@consentspro/shared-types'
 import { PROVINCIAS_ES } from '@/constants/provinces'
 
@@ -25,15 +26,59 @@ export default function ClinicPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [logoPreviewUrl, setLogoPreviewUrl] = useState('')
+  const [uploadingLogo, setUploadingLogo] = useState(false)
+  const [logoError, setLogoError] = useState('')
+  const logoInputRef = useRef<HTMLInputElement>(null)
   const provinceLabels = t('patients.form.provinces', { returnObjects: true }) as string[]
 
   useEffect(() => {
     api.get('/clinic').then(data => {
-      if (data) setForm(data)
+      if (data) {
+        setForm(data)
+        setLogoPreviewUrl(data.logo_url ?? '')
+      }
     }).finally(() => setLoading(false))
   }, [])
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: (k === 'email' || k === 'directions_url') ? v : v.toUpperCase() }))
+
+  // Mismo patrón que la foto de doctor: se comprime siempre a un tamaño
+  // razonable en el navegador antes de subir (un logo no necesita más
+  // resolución que esta para verse bien en el portal del paciente o en
+  // impresión), así nunca se acerca al límite de tamaño del servidor.
+  const LOGO_MAX_DIMENSION = 1000
+  const LOGO_MAX_BYTES = 15 * 1024 * 1024
+
+  const handleLogoSelect = async (file?: File) => {
+    if (!file) return
+    setLogoError('')
+    setUploadingLogo(true)
+    try {
+      const isImage = file.type.startsWith('image/') || !file.type
+      const uploadBlob: Blob = isImage ? await compressImage(file, LOGO_MAX_DIMENSION).catch(() => file) : file
+      if (uploadBlob.size > LOGO_MAX_BYTES) {
+        setLogoError(t('doctors.photo_too_large'))
+        return
+      }
+      const compressed = uploadBlob !== (file as Blob)
+      const fileName = compressed ? file.name.replace(/\.[^.]+$/, '') + '.jpg' : file.name
+      const contentType = compressed ? 'image/jpeg' : file.type
+      const fileBase64 = await blobToBase64(uploadBlob)
+      const { key, url } = await api.post('/clinic/logo', { fileBase64, fileName, contentType })
+      setForm(f => ({ ...f, logo_key: key } as any))
+      setLogoPreviewUrl(url)
+    } catch (err: any) {
+      setLogoError(err.message ?? t('doctors.photo_upload_error'))
+    } finally {
+      setUploadingLogo(false)
+    }
+  }
+
+  const removeLogo = () => {
+    setForm(f => ({ ...f, logo_key: '', logo_url: '' } as any))
+    setLogoPreviewUrl('')
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -63,6 +108,47 @@ export default function ClinicPage() {
 
       {/* Main clinic config */}
       <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => logoInputRef.current?.click()}
+            className="relative w-20 h-20 rounded-xl flex-shrink-0 bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 overflow-hidden group"
+            title={t('clinic.logo_upload')}
+          >
+            {logoPreviewUrl ? (
+              <img src={logoPreviewUrl} alt="" className="w-full h-full object-contain" />
+            ) : uploadingLogo ? (
+              <Loader2 className="w-6 h-6 animate-spin" />
+            ) : (
+              <ImageIcon className="w-6 h-6" />
+            )}
+            <span className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <ImageIcon className="w-6 h-6 text-white" />
+            </span>
+          </button>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-semibold text-slate-600 uppercase tracking-wide">{t('clinic.logo')}</p>
+            <div className="flex items-center gap-2">
+              <button type="button" onClick={() => logoInputRef.current?.click()} disabled={uploadingLogo} className="text-xs font-medium text-blue-600 hover:text-blue-800 disabled:opacity-50">
+                {t('clinic.logo_upload')}
+              </button>
+              {logoPreviewUrl && (
+                <button type="button" onClick={removeLogo} className="flex items-center gap-0.5 text-xs font-medium text-slate-400 hover:text-red-500">
+                  <X className="w-3 h-3" />{t('clinic.logo_remove')}
+                </button>
+              )}
+            </div>
+            {logoError && <span className="text-xs text-red-500">{logoError}</span>}
+          </div>
+          <input
+            ref={logoInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={e => { handleLogoSelect(e.target.files?.[0]); e.target.value = '' }}
+          />
+        </div>
+
         <div className="grid grid-cols-2 gap-4">
           <Field label={t('clinic.trade_name')} value={(form as any).trade_name ?? (form as any).tradeName ?? ''} onChange={v => set('trade_name', v)} />
           <Field label={t('clinic.legal_name')} value={(form as any).legal_name ?? (form as any).legalName ?? ''} onChange={v => set('legal_name', v)} />

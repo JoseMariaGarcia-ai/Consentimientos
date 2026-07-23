@@ -829,7 +829,9 @@
     "city": "城市",
     "province": "省份",
     "province_placeholder": "— 选择省份 —",
-    "province_hint": "用于让使用新号码通过WhatsApp联系的患者可以按省份找到您的诊所。"
+    "province_hint": "用于让使用新号码通过WhatsApp联系的患者可以按省份找到您的诊所。",
+    "logo_upload": "上传徽标",
+    "logo_remove": "移除"
   },
   "language": {
     "select": "语言",

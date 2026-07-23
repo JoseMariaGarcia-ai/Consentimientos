@@ -829,7 +829,9 @@
     "city": "市区町村",
     "province": "県",
     "province_placeholder": "— 県を選択 —",
-    "province_hint": "新しい番号からWhatsAppでメッセージを送る患者が、県ごとにクリニックを見つけられるようにするために使用されます。"
+    "province_hint": "新しい番号からWhatsAppでメッセージを送る患者が、県ごとにクリニックを見つけられるようにするために使用されます。",
+    "logo_upload": "ロゴをアップロード",
+    "logo_remove": "削除"
   },
   "language": {
     "select": "言語",

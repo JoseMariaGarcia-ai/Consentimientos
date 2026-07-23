@@ -829,7 +829,9 @@
     "city": "Miejscowość",
     "province": "Prowincja",
     "province_placeholder": "— Wybierz prowincję —",
-    "province_hint": "Używane, aby pacjenci piszący na WhatsApp z nowego numeru mogli znaleźć Twoją klinikę według prowincji."
+    "province_hint": "Używane, aby pacjenci piszący na WhatsApp z nowego numeru mogli znaleźć Twoją klinikę według prowincji.",
+    "logo_upload": "Prześlij logo",
+    "logo_remove": "Usuń"
   },
   "language": {
     "select": "Język",

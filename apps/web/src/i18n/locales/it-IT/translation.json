@@ -883,7 +883,9 @@
     "city": "Località",
     "province": "Provincia",
     "province_placeholder": "— Seleziona provincia —",
-    "province_hint": "Serve affinché i pazienti che scrivono su WhatsApp da un numero nuovo possano trovare la tua clinica per provincia."
+    "province_hint": "Serve affinché i pazienti che scrivono su WhatsApp da un numero nuovo possano trovare la tua clinica per provincia.",
+    "logo_upload": "Carica logo",
+    "logo_remove": "Rimuovi"
   },
   "language": {
     "select": "Lingua",

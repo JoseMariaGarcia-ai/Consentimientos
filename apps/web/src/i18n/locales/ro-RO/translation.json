@@ -829,7 +829,9 @@
     "city": "Localitate",
     "province": "Provincie",
     "province_placeholder": "— Selectează provincia —",
-    "province_hint": "Se folosește pentru ca pacienții care scriu pe WhatsApp de la un număr nou să-ți poată găsi clinica după provincie."
+    "province_hint": "Se folosește pentru ca pacienții care scriu pe WhatsApp de la un număr nou să-ți poată găsi clinica după provincie.",
+    "logo_upload": "Încarcă logo",
+    "logo_remove": "Elimină"
   },
   "language": {
     "select": "Limbă",

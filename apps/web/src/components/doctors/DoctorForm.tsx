@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Camera, X, Loader2 } from 'lucide-react'
 import { api } from '@/lib/api'
+import { compressImage, blobToBase64 } from '@/lib/imageCompression'
 import type { Doctor } from '@consentspro/shared-types'
 
 interface DoctorFormProps {
@@ -57,13 +58,6 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
 
   const up = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
 
-  const toBase64 = (file: Blob): Promise<string> => new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve((reader.result as string).split(',')[1])
-    reader.onerror = reject
-    reader.readAsDataURL(file)
-  })
-
   // Es solo un avatar circular pequeño — no hace falta guardar la foto de
   // la cámara a resolución completa. Se reduce siempre a como mucho 800px
   // de lado mayor y se recodifica en JPEG antes de subir, así una foto de
@@ -72,28 +66,7 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
   // servidor. Si por lo que sea la compresión falla (formato no soportado
   // por el navegador, etc.) se sube el archivo original tal cual.
   const MAX_DIMENSION = 800
-  const JPEG_QUALITY = 0.85
   const MAX_PHOTO_BYTES = 15 * 1024 * 1024 // red de seguridad final, ya no debería alcanzarse nunca
-
-  const compressImage = (file: File): Promise<Blob> => new Promise((resolve, reject) => {
-    const img = new Image()
-    const objectUrl = URL.createObjectURL(file)
-    img.onload = () => {
-      URL.revokeObjectURL(objectUrl)
-      const scale = Math.min(1, MAX_DIMENSION / Math.max(img.width, img.height))
-      const w = Math.round(img.width * scale)
-      const h = Math.round(img.height * scale)
-      const canvas = document.createElement('canvas')
-      canvas.width = w
-      canvas.height = h
-      const ctx = canvas.getContext('2d')
-      if (!ctx) { reject(new Error('canvas no soportado')); return }
-      ctx.drawImage(img, 0, 0, w, h)
-      canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('no se pudo comprimir')), 'image/jpeg', JPEG_QUALITY)
-    }
-    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('no se pudo leer la imagen')) }
-    img.src = objectUrl
-  })
 
   const handlePhotoSelect = async (file?: File) => {
     if (!file) return
@@ -101,7 +74,7 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
     setUploadingPhoto(true)
     try {
       const isImage = file.type.startsWith('image/') || !file.type // HEIC en iOS a veces llega sin type
-      const uploadBlob: Blob = isImage ? await compressImage(file).catch(() => file) : file
+      const uploadBlob: Blob = isImage ? await compressImage(file, MAX_DIMENSION).catch(() => file) : file
       if (uploadBlob.size > MAX_PHOTO_BYTES) {
         setPhotoError(t('doctors.photo_too_large'))
         return
@@ -109,7 +82,7 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
       const compressed = uploadBlob !== (file as Blob)
       const fileName = compressed ? file.name.replace(/\.[^.]+$/, '') + '.jpg' : file.name
       const contentType = compressed ? 'image/jpeg' : file.type
-      const fileBase64 = await toBase64(uploadBlob)
+      const fileBase64 = await blobToBase64(uploadBlob)
       const { key, url } = await api.post('/doctors/photo', { fileBase64, fileName, contentType })
       setForm(f => ({ ...f, photoKey: key }))
       setPhotoPreviewUrl(url)

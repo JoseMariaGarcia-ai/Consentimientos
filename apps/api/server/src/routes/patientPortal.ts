@@ -28,7 +28,8 @@ router.get('/me', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const patient = await queryOne<any>(
-      `SELECT p.*, c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email, c.logo_url AS clinic_logo
+      `SELECT p.*, c.name AS clinic_name, c.phone AS clinic_phone, c.email AS clinic_email,
+              c.logo_url AS clinic_logo, c.logo_key AS clinic_logo_key
        FROM patients p
        LEFT JOIN clinics c ON c.id = p.clinic_id
        WHERE p.user_id = $1
@@ -36,6 +37,10 @@ router.get('/me', async (req, res) => {
       [userId]
     )
     if (!patient) return res.status(404).json({ error: 'Paciente no encontrado' })
+    // logo_key (subido desde Clínica > Logo) manda sobre la URL externa
+    // vieja — igual que en GET /clinic, se resuelve en cada lectura.
+    if (patient.clinic_logo_key) patient.clinic_logo = await getPresignedUrl(patient.clinic_logo_key, 24 * 60 * 60)
+    delete patient.clinic_logo_key
     return res.json(patient)
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })

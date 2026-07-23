@@ -829,7 +829,9 @@
     "city": "Település",
     "province": "Tartomány",
     "province_placeholder": "— Válassz tartományt —",
-    "province_hint": "Arra szolgál, hogy az új számról WhatsAppon író páciensek tartomány szerint megtalálják a klinikádat."
+    "province_hint": "Arra szolgál, hogy az új számról WhatsAppon író páciensek tartomány szerint megtalálják a klinikádat.",
+    "logo_upload": "Logó feltöltése",
+    "logo_remove": "Eltávolítás"
   },
   "language": {
     "select": "Nyelv",

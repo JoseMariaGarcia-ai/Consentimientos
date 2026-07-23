@@ -829,7 +829,9 @@
     "city": "Localitat",
     "province": "Província",
     "province_placeholder": "— Seleccionar província —",
-    "province_hint": "S'utilitza perquè els pacients que escriguin per WhatsApp des d'un número nou puguin trobar la teva clínica per província."
+    "province_hint": "S'utilitza perquè els pacients que escriguin per WhatsApp des d'un número nou puguin trobar la teva clínica per província.",
+    "logo_upload": "Pujar logo",
+    "logo_remove": "Treure"
   },
   "language": {
     "select": "Idioma",

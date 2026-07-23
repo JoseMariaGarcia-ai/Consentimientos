@@ -829,7 +829,9 @@
     "city": "지역",
     "province": "주(도)",
     "province_placeholder": "— 주(도) 선택 —",
-    "province_hint": "새 번호로 WhatsApp에 메시지를 보내는 환자가 지역별로 병원을 찾을 수 있도록 사용됩니다."
+    "province_hint": "새 번호로 WhatsApp에 메시지를 보내는 환자가 지역별로 병원을 찾을 수 있도록 사용됩니다.",
+    "logo_upload": "로고 업로드",
+    "logo_remove": "제거"
   },
   "language": {
     "select": "언어",

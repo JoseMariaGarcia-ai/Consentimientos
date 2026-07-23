@@ -829,7 +829,9 @@
     "city": "Obec",
     "province": "Provincie",
     "province_placeholder": "— Vybrat provincii —",
-    "province_hint": "Používá se, aby pacienti, kteří píší přes WhatsApp z nového čísla, mohli najít vaši kliniku podle provincie."
+    "province_hint": "Používá se, aby pacienti, kteří píší přes WhatsApp z nového čísla, mohli najít vaši kliniku podle provincie.",
+    "logo_upload": "Nahrát logo",
+    "logo_remove": "Odebrat"
   },
   "language": {
     "select": "Jazyk",

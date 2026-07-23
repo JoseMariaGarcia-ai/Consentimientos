@@ -801,7 +801,9 @@
     "city": "Localidad",
     "province": "Provincia",
     "province_placeholder": "— Seleccionar provincia —",
-    "province_hint": "Se usa para que los pacientes que escriban por WhatsApp desde un número nuevo puedan encontrar tu clínica por provincia."
+    "province_hint": "Se usa para que los pacientes que escriban por WhatsApp desde un número nuevo puedan encontrar tu clínica por provincia.",
+    "logo_upload": "Subir logo",
+    "logo_remove": "Quitar"
   },
   "language": {
     "select": "Idioma",

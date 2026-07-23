@@ -829,7 +829,9 @@
     "city": "Thành phố",
     "province": "Tỉnh",
     "province_placeholder": "— Chọn tỉnh —",
-    "province_hint": "Dùng để bệnh nhân nhắn tin qua WhatsApp từ số mới có thể tìm phòng khám của bạn theo tỉnh."
+    "province_hint": "Dùng để bệnh nhân nhắn tin qua WhatsApp từ số mới có thể tìm phòng khám của bạn theo tỉnh.",
+    "logo_upload": "Tải lên logo",
+    "logo_remove": "Xóa"
   },
   "language": {
     "select": "Ngôn ngữ",

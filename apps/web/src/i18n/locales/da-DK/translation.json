@@ -829,7 +829,9 @@
     "city": "By",
     "province": "Provins",
     "province_placeholder": "— Vælg provins —",
-    "province_hint": "Bruges så patienter, der skriver via WhatsApp fra et nyt nummer, kan finde din klinik efter provins."
+    "province_hint": "Bruges så patienter, der skriver via WhatsApp fra et nyt nummer, kan finde din klinik efter provins.",
+    "logo_upload": "Upload logo",
+    "logo_remove": "Fjern"
   },
   "language": {
     "select": "Sprog",

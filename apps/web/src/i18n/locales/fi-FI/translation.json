@@ -829,7 +829,9 @@
     "city": "Paikkakunta",
     "province": "Provinssi",
     "province_placeholder": "— Valitse provinssi —",
-    "province_hint": "Käytetään, jotta uudesta numerosta WhatsAppissa kirjoittavat potilaat löytävät klinikkasi provinssin mukaan."
+    "province_hint": "Käytetään, jotta uudesta numerosta WhatsAppissa kirjoittavat potilaat löytävät klinikkasi provinssin mukaan.",
+    "logo_upload": "Lataa logo",
+    "logo_remove": "Poista"
   },
   "language": {
     "select": "Kieli",

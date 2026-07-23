@@ -829,7 +829,9 @@
     "city": "Plaats",
     "province": "Provincie",
     "province_placeholder": "— Provincie selecteren —",
-    "province_hint": "Wordt gebruikt zodat patiënten die via WhatsApp vanaf een nieuw nummer schrijven jouw kliniek op provincie kunnen vinden."
+    "province_hint": "Wordt gebruikt zodat patiënten die via WhatsApp vanaf een nieuw nummer schrijven jouw kliniek op provincie kunnen vinden.",
+    "logo_upload": "Logo uploaden",
+    "logo_remove": "Verwijderen"
   },
   "language": {
     "select": "Taal",

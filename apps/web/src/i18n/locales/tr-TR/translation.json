@@ -829,7 +829,9 @@
     "city": "Şehir",
     "province": "İl",
     "province_placeholder": "— İl seçin —",
-    "province_hint": "Yeni bir numaradan WhatsApp üzerinden yazan hastaların kliniğinizi ile göre bulabilmesi için kullanılır."
+    "province_hint": "Yeni bir numaradan WhatsApp üzerinden yazan hastaların kliniğinizi ile göre bulabilmesi için kullanılır.",
+    "logo_upload": "Logo yükle",
+    "logo_remove": "Kaldır"
   },
   "language": {
     "select": "Dil",
