@@ -1350,7 +1350,8 @@
       "devices": "Dispositivos de firma",
       "subscriptions": "Suscripciones",
       "keys": "Claves",
-      "promoCodes": "Códigos promocionales"
+      "promoCodes": "Códigos promocionales",
+      "backups": "Backups"
     },
     "users": {
       "title": "Usuarios",
@@ -2439,5 +2440,68 @@
   "campaignModal": {
     "open": "Ver más",
     "close": "Cerrar"
+  },
+  "backups": {
+    "subtitle": "Copias de seguridad automáticas de la base de datos, cifradas y guardadas en Cloudflare R2. Se genera un backup completo y uno por cada clínica todas las noches a las 3:00 AM UTC; se conservan los últimos 30 días.",
+    "runNow": "Ejecutar backup ahora",
+    "running": "Ejecutando…",
+    "filterAll": "Todos los backups completos",
+    "filterClinic": "Backups de una clínica",
+    "selectClinicPlaceholder": "Selecciona una clínica",
+    "empty": "Todavía no hay ningún backup en los últimos 30 días.",
+    "loadError": "No se pudo cargar la lista de backups.",
+    "runError": "No se pudo iniciar el backup.",
+    "table": {
+      "date": "Fecha",
+      "type": "Tipo",
+      "size": "Tamaño",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "type": {
+      "backup_full": "Completo",
+      "backup_clinic": "Por clínica"
+    },
+    "status": {
+      "success": "✅ Correcto",
+      "failed": "❌ Fallido",
+      "running": "⏳ En curso"
+    },
+    "restore": "Restaurar",
+    "wizard": {
+      "title": "Restaurar backup",
+      "step1": {
+        "title": "Paso 1 de 4 — Confirmación",
+        "warning": "⚠️ Vas a restaurar un backup. Esta acción sobreescribirá los datos actuales. ¿Estás seguro de que quieres continuar?",
+        "cancel": "Cancelar",
+        "continue": "Sí, continuar"
+      },
+      "step2": {
+        "title": "Paso 2 de 4 — ¿Qué quieres restaurar?",
+        "full": "Restauración completa (todas las clínicas)",
+        "clinic": "Una clínica específica",
+        "selectClinicLabel": "Clínica",
+        "mismatchError": "Este backup no corresponde a la clínica seleccionada.",
+        "notFoundError": "La clínica no existe en el sistema actual. Usa restauración completa."
+      },
+      "step3": {
+        "title": "Paso 3 de 4 — Confirmación final",
+        "instructions": "Para confirmar la restauración escribe CONFIRMAR en el campo de abajo.",
+        "placeholder": "CONFIRMAR",
+        "mismatch": "Debes escribir CONFIRMAR exactamente para continuar."
+      },
+      "step4": {
+        "title": "Paso 4 de 4 — Restaurando",
+        "preparing": "Haciendo backup de seguridad del estado actual antes de restaurar…",
+        "inProgress": "Restauración en curso…"
+      },
+      "progressTitle": "Progreso",
+      "successMessage": "✅ Restauración completada correctamente.",
+      "errorMessage": "❌ Error en la restauración",
+      "rollbackNotice": "El sistema ha intentado restaurar automáticamente el backup de seguridad previo.",
+      "back": "Atrás",
+      "close": "Cerrar",
+      "startRestore": "Iniciar restauración"
+    }
   }
 }
