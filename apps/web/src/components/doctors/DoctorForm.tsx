@@ -64,9 +64,19 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
     reader.readAsDataURL(file)
   })
 
+  // La foto se manda como base64 dentro de un JSON, que pesa ~33% más que
+  // el archivo original — 15MB de foto real se quedan cerca del límite del
+  // servidor (20MB) una vez codificada. Se avisa aquí mismo, antes de
+  // subir nada, en vez de esperar a que el servidor la rechace.
+  const MAX_PHOTO_BYTES = 15 * 1024 * 1024
+
   const handlePhotoSelect = async (file?: File) => {
     if (!file) return
     setPhotoError('')
+    if (file.size > MAX_PHOTO_BYTES) {
+      setPhotoError(t('doctors.photo_too_large'))
+      return
+    }
     setUploadingPhoto(true)
     try {
       const fileBase64 = await toBase64(file)

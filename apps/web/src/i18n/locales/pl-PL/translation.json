@@ -737,7 +737,8 @@
     "license_display": "Nr {{number}}",
     "photo_upload": "Prześlij zdjęcie",
     "photo_remove": "Usuń",
-    "photo_upload_error": "Nie udało się przesłać zdjęcia"
+    "photo_upload_error": "Nie udało się przesłać zdjęcia",
+    "photo_too_large": "Zdjęcie jest za duże (maks. 15 MB)"
   },
   "consents": {
     "title": "Zgody",

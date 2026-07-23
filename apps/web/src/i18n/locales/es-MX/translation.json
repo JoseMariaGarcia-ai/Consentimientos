@@ -717,7 +717,8 @@
     "license_display": "Céd. {{number}}",
     "photo_upload": "Subir foto",
     "photo_remove": "Quitar",
-    "photo_upload_error": "No se pudo subir la foto"
+    "photo_upload_error": "No se pudo subir la foto",
+    "photo_too_large": "La foto pesa demasiado (máx. 15 MB)"
   },
   "consents": {
     "title": "Consentimientos",

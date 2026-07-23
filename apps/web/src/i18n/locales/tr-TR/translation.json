@@ -737,7 +737,8 @@
     "license_display": "No {{number}}",
     "photo_upload": "Fotoğraf yükle",
     "photo_remove": "Kaldır",
-    "photo_upload_error": "Fotoğraf yüklenemedi"
+    "photo_upload_error": "Fotoğraf yüklenemedi",
+    "photo_too_large": "Fotoğraf çok büyük (maks. 15 MB)"
   },
   "consents": {
     "title": "Onaylar",

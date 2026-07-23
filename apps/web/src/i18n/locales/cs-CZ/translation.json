@@ -737,7 +737,8 @@
     "license_display": "Č. {{number}}",
     "photo_upload": "Nahrát fotku",
     "photo_remove": "Odebrat",
-    "photo_upload_error": "Fotku se nepodařilo nahrát"
+    "photo_upload_error": "Fotku se nepodařilo nahrát",
+    "photo_too_large": "Fotka je příliš velká (max. 15 MB)"
   },
   "consents": {
     "title": "Souhlasy",

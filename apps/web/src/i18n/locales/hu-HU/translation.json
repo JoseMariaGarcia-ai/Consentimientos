@@ -737,7 +737,8 @@
     "license_display": "Sz. {{number}}",
     "photo_upload": "Fénykép feltöltése",
     "photo_remove": "Eltávolítás",
-    "photo_upload_error": "A fénykép feltöltése sikertelen"
+    "photo_upload_error": "A fénykép feltöltése sikertelen",
+    "photo_too_large": "A fotó túl nagy (max. 15 MB)"
   },
   "consents": {
     "title": "Beleegyezések",

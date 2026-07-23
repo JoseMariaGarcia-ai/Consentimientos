@@ -737,7 +737,8 @@
     "license_display": "执照号 {{number}}",
     "photo_upload": "上传照片",
     "photo_remove": "移除",
-    "photo_upload_error": "照片上传失败"
+    "photo_upload_error": "照片上传失败",
+    "photo_too_large": "照片太大（最大 15 MB）"
   },
   "consents": {
     "title": "知情同意书",

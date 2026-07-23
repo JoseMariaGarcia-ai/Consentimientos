@@ -737,7 +737,8 @@
     "license_display": "Nr. {{number}}",
     "photo_upload": "Foto uploaden",
     "photo_remove": "Verwijderen",
-    "photo_upload_error": "Foto kon niet worden geüpload"
+    "photo_upload_error": "Foto kon niet worden geüpload",
+    "photo_too_large": "De foto is te groot (max. 15 MB)"
   },
   "consents": {
     "title": "Toestemmingen",

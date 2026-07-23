@@ -737,7 +737,8 @@
     "license_display": "नं. {{number}}",
     "photo_upload": "फ़ोटो अपलोड करें",
     "photo_remove": "हटाएं",
-    "photo_upload_error": "फ़ोटो अपलोड नहीं हो सकी"
+    "photo_upload_error": "फ़ोटो अपलोड नहीं हो सकी",
+    "photo_too_large": "फ़ोटो बहुत बड़ी है (अधिकतम 15 MB)"
   },
   "consents": {
     "title": "सहमति",

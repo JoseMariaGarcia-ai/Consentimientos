@@ -7,8 +7,23 @@ function authHeaders(): Record<string, string> {
   return token ? { Authorization: `Bearer ${token}` } : {}
 }
 
+// Si el servidor (o un proxy delante, o el límite de tamaño de Express)
+// devuelve un error cuyo cuerpo no es JSON — un 413 Payload Too Large en
+// texto plano, una página de error HTML, etc. — r.json() lanza su propia
+// excepción genérica ANTES de que se pueda leer r.ok, y el mensaje que
+// enseña cada navegador es distinto y poco claro (en Safari: "The string
+// did not match the expected pattern.", sin ninguna pista del problema
+// real). Se intenta como JSON primero (caso normal) y, si falla, se cae a
+// texto plano para al menos dar un mensaje legible.
 async function handleResponse(r: Response) {
-  const data = await r.json()
+  const raw = await r.text()
+  let data: any
+  try {
+    data = raw ? JSON.parse(raw) : {}
+  } catch {
+    if (!r.ok) throw new Error(raw?.trim() || r.statusText || `Error ${r.status}`)
+    throw new Error(`Respuesta inesperada del servidor (no es JSON válido): ${raw.slice(0, 200)}`)
+  }
   if (!r.ok) throw new Error(data.error ?? r.statusText)
   return data
 }

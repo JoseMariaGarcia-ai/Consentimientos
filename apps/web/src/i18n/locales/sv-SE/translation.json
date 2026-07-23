@@ -737,7 +737,8 @@
     "license_display": "Nr {{number}}",
     "photo_upload": "Ladda upp foto",
     "photo_remove": "Ta bort",
-    "photo_upload_error": "Det gick inte att ladda upp fotot"
+    "photo_upload_error": "Det gick inte att ladda upp fotot",
+    "photo_too_large": "Bilden är för stor (max 15 MB)"
   },
   "consents": {
     "title": "Samtycken",

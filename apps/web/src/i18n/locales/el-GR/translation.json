@@ -737,7 +737,8 @@
     "license_display": "Αρ. {{number}}",
     "photo_upload": "Ανέβασμα φωτογραφίας",
     "photo_remove": "Αφαίρεση",
-    "photo_upload_error": "Δεν ήταν δυνατή η μεταφόρτωση της φωτογραφίας"
+    "photo_upload_error": "Δεν ήταν δυνατή η μεταφόρτωση της φωτογραφίας",
+    "photo_too_large": "Η φωτογραφία είναι πολύ μεγάλη (μέγ. 15 MB)"
   },
   "consents": {
     "title": "Συναινέσεις",

@@ -737,7 +737,8 @@
     "license_display": "Số {{number}}",
     "photo_upload": "Tải ảnh lên",
     "photo_remove": "Xóa",
-    "photo_upload_error": "Không thể tải ảnh lên"
+    "photo_upload_error": "Không thể tải ảnh lên",
+    "photo_too_large": "Ảnh quá lớn (tối đa 15 MB)"
   },
   "consents": {
     "title": "Chấp thuận",

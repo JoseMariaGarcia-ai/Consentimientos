@@ -693,7 +693,8 @@
     "license_display": "מס' {{number}}",
     "photo_upload": "העלאת תמונה",
     "photo_remove": "הסרה",
-    "photo_upload_error": "העלאת התמונה נכשלה"
+    "photo_upload_error": "העלאת התמונה נכשלה",
+    "photo_too_large": "התמונה גדולה מדי (מקסימום 15 MB)"
   },
   "consents": {
     "title": "הסכמות",

@@ -737,7 +737,8 @@
     "license_display": "번호 {{number}}",
     "photo_upload": "사진 업로드",
     "photo_remove": "제거",
-    "photo_upload_error": "사진을 업로드할 수 없습니다"
+    "photo_upload_error": "사진을 업로드할 수 없습니다",
+    "photo_too_large": "사진 용량이 너무 큽니다 (최대 15MB)"
   },
   "consents": {
     "title": "동의서",

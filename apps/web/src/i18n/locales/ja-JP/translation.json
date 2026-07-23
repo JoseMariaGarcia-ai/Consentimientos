@@ -737,7 +737,8 @@
     "license_display": "No. {{number}}",
     "photo_upload": "写真をアップロード",
     "photo_remove": "削除",
-    "photo_upload_error": "写真をアップロードできませんでした"
+    "photo_upload_error": "写真をアップロードできませんでした",
+    "photo_too_large": "写真が大きすぎます（最大15MB）"
   },
   "consents": {
     "title": "同意書",

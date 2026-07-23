@@ -737,7 +737,8 @@
     "license_display": "Nro {{number}}",
     "photo_upload": "Lataa kuva",
     "photo_remove": "Poista",
-    "photo_upload_error": "Kuvan lataus epäonnistui"
+    "photo_upload_error": "Kuvan lataus epäonnistui",
+    "photo_too_large": "Kuva on liian suuri (enintään 15 Mt)"
   },
   "consents": {
     "title": "Suostumukset",

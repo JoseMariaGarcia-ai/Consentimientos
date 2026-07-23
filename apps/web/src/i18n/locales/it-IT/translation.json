@@ -791,7 +791,8 @@
     "license_display": "N. {{number}}",
     "photo_upload": "Carica foto",
     "photo_remove": "Rimuovi",
-    "photo_upload_error": "Impossibile caricare la foto"
+    "photo_upload_error": "Impossibile caricare la foto",
+    "photo_too_large": "La foto è troppo pesante (max. 15 MB)"
   },
   "consents": {
     "title": "Consensi",

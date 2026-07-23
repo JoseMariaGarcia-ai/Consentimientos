@@ -699,7 +699,8 @@
     "license_display": "رقم {{number}}",
     "photo_upload": "رفع صورة",
     "photo_remove": "إزالة",
-    "photo_upload_error": "تعذر رفع الصورة"
+    "photo_upload_error": "تعذر رفع الصورة",
+    "photo_too_large": "الصورة كبيرة جدًا (الحد الأقصى 15 ميجابايت)"
   },
   "consents": {
     "title": "نماذج الموافقة",

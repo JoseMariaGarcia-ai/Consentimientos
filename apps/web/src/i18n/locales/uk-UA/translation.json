@@ -737,7 +737,8 @@
     "license_display": "№ {{number}}",
     "photo_upload": "Завантажити фото",
     "photo_remove": "Видалити",
-    "photo_upload_error": "Не вдалося завантажити фото"
+    "photo_upload_error": "Не вдалося завантажити фото",
+    "photo_too_large": "Фото завелике (макс. 15 МБ)"
   },
   "consents": {
     "title": "Згоди",

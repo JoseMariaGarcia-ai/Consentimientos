@@ -737,7 +737,8 @@
     "license_display": "No. {{number}}",
     "photo_upload": "Upload photo",
     "photo_remove": "Remove",
-    "photo_upload_error": "Could not upload photo"
+    "photo_upload_error": "Could not upload photo",
+    "photo_too_large": "The photo is too large (max. 15 MB)"
   },
   "consents": {
     "title": "Consents",

@@ -737,7 +737,8 @@
     "license_display": "Nº {{number}}",
     "photo_upload": "Enviar foto",
     "photo_remove": "Remover",
-    "photo_upload_error": "Não foi possível enviar a foto"
+    "photo_upload_error": "Não foi possível enviar a foto",
+    "photo_too_large": "A foto é muito grande (máx. 15 MB)"
   },
   "consents": {
     "title": "Consentimentos",

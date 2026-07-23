@@ -737,7 +737,8 @@
     "license_display": "Nr. {{number}}",
     "photo_upload": "Încarcă fotografie",
     "photo_remove": "Elimină",
-    "photo_upload_error": "Fotografia nu a putut fi încărcată"
+    "photo_upload_error": "Fotografia nu a putut fi încărcată",
+    "photo_too_large": "Fotografia este prea mare (max. 15 MB)"
   },
   "consents": {
     "title": "Consimțăminte",

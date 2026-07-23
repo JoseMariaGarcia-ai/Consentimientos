@@ -737,7 +737,8 @@
     "license_display": "Nr. {{number}}",
     "photo_upload": "Foto hochladen",
     "photo_remove": "Entfernen",
-    "photo_upload_error": "Foto konnte nicht hochgeladen werden"
+    "photo_upload_error": "Foto konnte nicht hochgeladen werden",
+    "photo_too_large": "Das Foto ist zu groß (max. 15 MB)"
   },
   "consents": {
     "title": "Einwilligungen",

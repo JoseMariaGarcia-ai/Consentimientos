@@ -84,7 +84,12 @@ app.use(cors({
 // firma — debe montarse antes del parser JSON global.
 app.use('/api/billing/webhook', express.raw({ type: 'application/json' }), billingWebhookRouter)
 
-app.use(express.json({ limit: '10mb' }))
+// 20mb (no 10mb) porque las fotos de doctor/paciente se suben como base64
+// dentro del JSON — eso añade ~33% de tamaño sobre el archivo original, así
+// que una foto de iPhone de 7-8MB (nada raro en HEIC/JPEG de cámara) podía
+// superar el límite anterior y el servidor la rechazaba con un 413 cuyo
+// cuerpo no era JSON válido (ver el fix en handleResponse de lib/api.ts).
+app.use(express.json({ limit: '20mb' }))
 
 app.get('/health', (_req, res) => res.json({ ok: true }))
 

@@ -737,7 +737,8 @@
     "license_display": "Núm. {{number}}",
     "photo_upload": "Pujar foto",
     "photo_remove": "Treure",
-    "photo_upload_error": "No s’ha pogut pujar la foto"
+    "photo_upload_error": "No s’ha pogut pujar la foto",
+    "photo_too_large": "La foto pesa massa (màx. 15 MB)"
   },
   "consents": {
     "title": "Consentiments",

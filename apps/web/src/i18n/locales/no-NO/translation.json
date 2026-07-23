@@ -737,7 +737,8 @@
     "license_display": "Nr. {{number}}",
     "photo_upload": "Last opp bilde",
     "photo_remove": "Fjern",
-    "photo_upload_error": "Kunne ikke laste opp bildet"
+    "photo_upload_error": "Kunne ikke laste opp bildet",
+    "photo_too_large": "Bildet er for stort (maks. 15 MB)"
   },
   "consents": {
     "title": "Samtykker",
