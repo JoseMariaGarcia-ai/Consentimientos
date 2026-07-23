@@ -32,6 +32,15 @@ export async function listFiles(prefix: string) {
   return (res.Contents ?? []).map(o => o.Key!)
 }
 
+export interface FileListingEntry { key: string; size: number; lastModified: Date | null }
+
+// Igual que listFiles, pero con tamaño y fecha — necesario para el panel de
+// Backups (columnas Tamaño/Fecha) sin tener que descargar cada archivo.
+export async function listFilesWithMetadata(prefix: string): Promise<FileListingEntry[]> {
+  const res = await client().send(new ListObjectsV2Command({ Bucket: BUCKET(), Prefix: prefix }))
+  return (res.Contents ?? []).map(o => ({ key: o.Key!, size: o.Size ?? 0, lastModified: o.LastModified ?? null }))
+}
+
 export async function getPresignedUrl(key: string, expiresIn = 3600) {
   return getSignedUrl(client(), new GetObjectCommand({ Bucket: BUCKET(), Key: key }), { expiresIn })
 }
