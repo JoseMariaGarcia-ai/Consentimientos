@@ -17,6 +17,15 @@ import { YCLOUD_BASE } from './whatsappSend'
 // sendWhatsAppTemplate(..., 'positional') en vez de con parameter_name.
 // `variables` conserva el campo `name` solo para legibilidad/documentación
 // del orden — no se manda a la API.
+//
+// Dos reglas más de Meta descubiertas con intentos reales (23 julio 2026):
+// 1. Un carácter de puntuación pegado justo tras "{{n}}" (p.ej. "{{3}}.")
+//    NO cuenta como texto final — sigue dando "Leading or Trailing Params
+//    Not Allowed". Hace falta una palabra/frase real después de la última
+//    variable (y antes de la primera).
+// 2. "Params Words Ratio Exceeds Limit": si hay demasiadas variables para
+//    lo corto que es el texto estático, Meta lo rechaza — hubo que reducir
+//    consentspro_cita de 5 a 4 variables (fecha y hora combinadas en una).
 export interface TemplateVarDef { name: string; example: string }
 export interface TemplateDef {
   name: string
@@ -31,7 +40,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_bienvenida_portal',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, {{2}} te ha dado acceso a tu portal personal en ConsentsPro. Consulta tus consentimientos, tu historia clínica y tus fotos de tratamiento aquí: {{3}}.',
+    bodyText: 'Hola {{1}}. {{2}} te ha dado acceso a tu portal personal en ConsentsPro, donde puedes consultar tus consentimientos, tu historia clínica y tus fotos de tratamiento: {{3}} Gracias por confiar en nosotros.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -42,7 +51,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_consentimiento_generado',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, {{2}} ha generado un consentimiento informado para tu tratamiento de {{3}}. Consúltalo y descárgalo desde tu portal: {{4}}.',
+    bodyText: 'Hola {{1}}. {{2}} ha generado un consentimiento informado para tu tratamiento de {{3}}. Consúltalo y descárgalo desde tu portal: {{4}} Gracias por confiar en nosotros.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -54,20 +63,22 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, tu cita en {{2}} ha sido {{3}} para el {{4}} a las {{5}}.',
+    // Reducida de 5 a 4 variables (fecha+hora combinadas en una sola) tras
+    // un error real de YCloud/Meta: "Params Words Ratio Exceeds Limit" —
+    // demasiadas variables para lo corto que era el texto estático.
+    bodyText: 'Hola {{1}}, te confirmamos que tu cita en la clínica {{2}} ha quedado {{3}} para el día y hora indicados: {{4}}. Si tienes cualquier duda, contacta con la clínica.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
       { name: 'estado', example: 'confirmada' },
-      { name: 'fecha', example: 'lunes, 28 de julio de 2026' },
-      { name: 'hora', example: '10:30' },
+      { name: 'fecha_hora', example: 'lunes, 28 de julio de 2026 a las 10:30' },
     ],
   },
   {
     name: 'consentspro_recordatorio_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, te recordamos que mañana {{2}} a las {{3}} tienes una cita en {{4}}.',
+    bodyText: 'Hola {{1}}, te recordamos que mañana {{2}} a las {{3}} tienes una cita programada en {{4}}. Te esperamos, no faltes.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'fecha', example: 'martes, 29 de julio de 2026' },

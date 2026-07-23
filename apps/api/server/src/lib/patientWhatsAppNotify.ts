@@ -116,13 +116,15 @@ export async function notifyPatientAppointment(
   kind: 'created' | 'rescheduled', dateStr: string, timeStr: string
 ): Promise<NotifyResult> {
   const estado = kind === 'rescheduled' ? 'reprogramada' : 'confirmada'
+  // consentspro_cita se creó con 4 variables (fecha y hora combinadas en
+  // una sola) tras un rechazo de YCloud/Meta por exceso de variables para
+  // el texto — ver la nota en whatsappTemplates.ts.
   return notify(clinicId, patientId, phone, patientName, TPL_CITA,
     [
       { name: 'nombre', value: patientName },
       { name: 'clinica', value: clinicName },
       { name: 'estado', value: estado },
-      { name: 'fecha', value: dateStr },
-      { name: 'hora', value: timeStr },
+      { name: 'fecha_hora', value: `${dateStr} a las ${timeStr}` },
     ],
     `Hola ${patientName}, tu cita en ${clinicName} ha sido ${estado} para el ${dateStr} a las ${timeStr}`
   )
