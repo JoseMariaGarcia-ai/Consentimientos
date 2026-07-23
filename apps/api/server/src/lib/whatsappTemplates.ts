@@ -31,7 +31,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_bienvenida_portal',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, {{2}} te ha dado acceso a tu portal personal en ConsentsPro. Consulta tus consentimientos, tu historia clínica y tus fotos de tratamiento aquí: {{3}}',
+    bodyText: 'Hola {{1}}, {{2}} te ha dado acceso a tu portal personal en ConsentsPro. Consulta tus consentimientos, tu historia clínica y tus fotos de tratamiento aquí: {{3}}.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -42,7 +42,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_consentimiento_generado',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, {{2}} ha generado un consentimiento informado para tu tratamiento de {{3}}. Consúltalo y descárgalo desde tu portal: {{4}}',
+    bodyText: 'Hola {{1}}, {{2}} ha generado un consentimiento informado para tu tratamiento de {{3}}. Consúltalo y descárgalo desde tu portal: {{4}}.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -54,7 +54,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, tu cita en {{2}} ha sido {{3}} para el {{4}} a las {{5}}',
+    bodyText: 'Hola {{1}}, tu cita en {{2}} ha sido {{3}} para el {{4}} a las {{5}}.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -67,7 +67,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_recordatorio_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{1}}, te recordamos que mañana {{2}} a las {{3}} tienes una cita en {{4}}',
+    bodyText: 'Hola {{1}}, te recordamos que mañana {{2}} a las {{3}} tienes una cita en {{4}}.',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'fecha', example: 'martes, 29 de julio de 2026' },
