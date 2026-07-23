@@ -6,13 +6,17 @@ import { YCLOUD_BASE } from './whatsappSend'
 // que ya asume estos nombres por defecto (configurables por variable de
 // entorno si YCloud terminase aprobando alguna con un nombre distinto).
 //
-// Formato de creación INFERIDO del propio WhatsApp Cloud API (que YCloud
-// dice replicar) para plantillas con variables NOMBRADAS —
-// body_text_named_params es el formato documentado por Meta para el
-// "example" de una plantilla con {{nombre}} en vez de {{1}}. No verificado
-// contra tráfico real de creación de plantillas de YCloud todavía (solo el
-// envío de mensajes de plantilla ya aprobadas está confirmado en
-// producción) — revisar la respuesta real del primer intento.
+// Verificado contra un intento real de creación (22 julio 2026): el
+// formato de variables NOMBRADAS (body_text_named_params) que sí funciona
+// para ENVIAR mensajes con una plantilla ya aprobada (contacto_consentspro,
+// creada a mano en el panel de YCloud) es rechazado por esta cuenta al
+// CREAR una plantilla por API — YCloud/Meta responde 400 "component of
+// type BODY is missing expected field(s) (example.body_text)", es decir,
+// espera el formato POSICIONAL clásico. Por eso estas 5 plantillas usan
+// {{1}}, {{2}}... y example.body_text (array de arrays), y se envían con
+// sendWhatsAppTemplate(..., 'positional') en vez de con parameter_name.
+// `variables` conserva el campo `name` solo para legibilidad/documentación
+// del orden — no se manda a la API.
 export interface TemplateVarDef { name: string; example: string }
 export interface TemplateDef {
   name: string
@@ -27,7 +31,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_bienvenida_portal',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{nombre}}, {{clinica}} te ha dado acceso a tu portal personal en ConsentsPro. Consulta tus consentimientos, tu historia clínica y tus fotos de tratamiento aquí: {{enlace}}',
+    bodyText: 'Hola {{1}}, {{2}} te ha dado acceso a tu portal personal en ConsentsPro. Consulta tus consentimientos, tu historia clínica y tus fotos de tratamiento aquí: {{3}}',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -38,7 +42,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_consentimiento_generado',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{nombre}}, {{clinica}} ha generado un consentimiento informado para tu tratamiento de {{tratamiento}}. Consúltalo y descárgalo desde tu portal: {{enlace}}',
+    bodyText: 'Hola {{1}}, {{2}} ha generado un consentimiento informado para tu tratamiento de {{3}}. Consúltalo y descárgalo desde tu portal: {{4}}',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -50,7 +54,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{nombre}}, tu cita en {{clinica}} ha sido {{estado}} para el {{fecha}} a las {{hora}}',
+    bodyText: 'Hola {{1}}, tu cita en {{2}} ha sido {{3}} para el {{4}} a las {{5}}',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -63,7 +67,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_recordatorio_cita',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{nombre}}, te recordamos que mañana {{fecha}} a las {{hora}} tienes una cita en {{clinica}}',
+    bodyText: 'Hola {{1}}, te recordamos que mañana {{2}} a las {{3}} tienes una cita en {{4}}',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'fecha', example: 'martes, 29 de julio de 2026' },
@@ -75,7 +79,7 @@ export const PATIENT_NOTIFICATION_TEMPLATES: TemplateDef[] = [
     name: 'consentspro_documento_disponible',
     category: 'UTILITY',
     language: 'es',
-    bodyText: 'Hola {{nombre}}, {{clinica}} te ha enviado tu {{documento}}. Te llegará también por email; si tienes cualquier duda, contacta con la clínica',
+    bodyText: 'Hola {{1}}, {{2}} te ha enviado tu {{3}}. Te llegará también por email; si tienes cualquier duda, contacta con la clínica',
     variables: [
       { name: 'nombre', example: 'María' },
       { name: 'clinica', example: 'Clínica Vitalis' },
@@ -116,7 +120,7 @@ export async function createTemplateViaYCloud(apiKey: string, def: TemplateDef):
         type: 'BODY',
         text: def.bodyText,
         example: {
-          body_text_named_params: def.variables.map(v => ({ param_name: v.name, example: v.example })),
+          body_text: [def.variables.map(v => v.example)],
         },
       },
     ],

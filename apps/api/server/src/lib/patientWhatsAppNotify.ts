@@ -66,8 +66,11 @@ async function notify(
     if (!apiKey) return { sent: false, reason: 'YCloud no configurado' }
 
     const conversationId = await ensureClinicConversation(clinicId, normalizedPhone, patientId, patientName)
+    // Las 5 plantillas de aviso al paciente se crean con whatsappTemplates.ts
+    // usando parámetros posicionales ({{1}}, {{2}}...) — ver la nota en ese
+    // fichero sobre por qué no se pudieron crear con parámetros nombrados.
     const { status, failureReason } = await sendWhatsAppTemplate(
-      apiKey, clinicId, conversationId, normalizedPhone, templateName, TPL_LANG, variables, savedBody, 'clinica'
+      apiKey, clinicId, conversationId, normalizedPhone, templateName, TPL_LANG, variables, savedBody, 'clinica', 'positional'
     )
     if (status === 'sent') {
       await chargeCredit(clinicId, 'ycloud', YCLOUD_ESTIMATED_CONVERSATION_COST_CENTS, null).catch(() => {})

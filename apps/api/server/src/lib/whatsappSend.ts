@@ -113,7 +113,13 @@ export interface TemplateVariable { name: string; value: string }
 export async function sendWhatsAppTemplate(
   apiKey: string, clinicId: string | null, conversationId: string, phone: string,
   templateName: string, lang: string, variables: TemplateVariable[], savedBody: string,
-  sender: 'clinica' | 'ia' | 'admin' = 'clinica'
+  sender: 'clinica' | 'ia' | 'admin' = 'clinica',
+  // 'named' (por defecto) es el formato que usa contacto_consentspro (creada
+  // a mano en YCloud con una variable NOMBRADA). Las plantillas creadas por
+  // whatsappTemplates.ts usan {{1}}, {{2}}... y deben enviarse con
+  // 'positional' — mandar parameter_name a una plantilla posicional hace
+  // que Meta rechace el envío por no coincidir con la definición aprobada.
+  paramFormat: 'named' | 'positional' = 'named'
 ) {
   let ycloudId: string | null = null
   let status = 'sent'
@@ -140,7 +146,9 @@ export async function sendWhatsAppTemplate(
           language: { code: lang },
           components: [{
             type: 'body',
-            parameters: variables.map(v => ({ type: 'text', parameter_name: v.name, text: v.value })),
+            parameters: paramFormat === 'positional'
+              ? variables.map(v => ({ type: 'text', text: v.value }))
+              : variables.map(v => ({ type: 'text', parameter_name: v.name, text: v.value })),
           }],
         },
       }),
