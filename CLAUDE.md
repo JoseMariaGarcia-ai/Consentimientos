@@ -84,3 +84,16 @@ Desde el módulo de Certificado Digital / ampliación VeriFactu (18 julio 2026):
 - [ ] Cada clínica real deberá subir su propio certificado .p12/.pfx desde
       Facturación > Certificado Digital (rol admin de esa clínica) antes de que
       `AEAT_MODE=production` bloquee la emisión sin él.
+
+Desde el módulo de Backups (23 julio 2026):
+- [ ] Generar y configurar en Railway `BACKUP_ENCRYPTION_KEY` (`openssl rand -hex 32`)
+      antes de que corra el primer backup automático de las 3:00 AM UTC — sin ella,
+      tanto el backup diario como cualquier backup manual fallan (y avisan por
+      WhatsApp del fallo, pero no producen ningún backup real). Las variables
+      `R2_ENDPOINT`/`R2_ACCESS_KEY_ID`/`R2_SECRET_ACCESS_KEY`/`R2_BUCKET_NAME` ya
+      estaban configuradas en Railway (se reutilizan las mismas de fotos/certificados,
+      no hace falta crear otras). **Una vez fijada en producción, no rotarla sin plan
+      de migración**: los backups ya cifrados con la clave antigua dejarían de poder
+      descifrarse/restaurarse.
+- [ ] (Opcional) Configurar `BACKUP_ALERT_PHONE` en Railway si se quiere que el aviso
+      de fallo de backup llegue a un WhatsApp distinto de +34629541073 (valor por defecto).

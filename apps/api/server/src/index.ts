@@ -52,6 +52,8 @@ import { startBillingScheduler } from './lib/billingScheduler'
 import { startCreditScheduler } from './lib/creditScheduler'
 import { startProviderBalanceScheduler } from './lib/providerBalanceScheduler'
 import { startCertificateExpiryScheduler } from './lib/certificateExpiryScheduler'
+import { startBackupScheduler } from './lib/backupScheduler'
+import backupRouter from './routes/backup'
 
 const app = express()
 
@@ -145,6 +147,7 @@ app.use('/api/ai-credits',      authMiddleware, aiCreditsRouter)
 app.use('/api/admin/ai-revenue', authMiddleware, requireSuperAdmin, aiRevenueRouter)
 app.use('/api/retell',          authMiddleware, retellRouter)
 app.use('/api/admin/provider-balances', authMiddleware, requireSuperAdmin, providerBalancesRouter)
+app.use('/api/admin/backup',    authMiddleware, requireSuperAdmin, backupRouter)
 
 const PORT = process.env.PORT ?? 3001
 
@@ -157,6 +160,7 @@ runMigrations()
     startCreditScheduler()
     startProviderBalanceScheduler()
     startCertificateExpiryScheduler()
+    startBackupScheduler()
   })
 
 export default app

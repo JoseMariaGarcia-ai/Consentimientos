@@ -4,7 +4,7 @@ import { promisify } from 'util'
 import { query, queryOne } from './db'
 import { uploadFile, deleteFile, listFilesWithMetadata } from './r2'
 import { encryptBackup } from './backupEncryption'
-import { createJob, logStep, finishJobSuccess, finishJobFailed } from './backupJobs'
+import { createJob, logStep, finishJobSuccess, finishJobFailed, type BackupJobKind } from './backupJobs'
 import { notifyBackupFailed } from './backupAlerts'
 
 const gzip = promisify(gzipCb)
@@ -38,8 +38,10 @@ function runPgDump(): Promise<Buffer> {
   })
 }
 
-export async function runFullBackup(createdBy: string | null = null): Promise<string> {
-  const jobId = await createJob('backup_full', { createdBy })
+// kind='pre_restore' reutiliza exactamente la misma lógica de pg_dump/subida
+// para el backup de seguridad automático que se hace justo antes de una
+// restauración (paso 4 del asistente), solo cambia el nombre del archivo.
+async function executeFullBackup(jobId: string, kind: Extract<BackupJobKind, 'backup_full' | 'pre_restore'>): Promise<void> {
   try {
     await logStep(jobId, 'Iniciando pg_dump de la base de datos completa…', 10)
     const dump = await runPgDump()
@@ -47,17 +49,36 @@ export async function runFullBackup(createdBy: string | null = null): Promise<st
     const gzipped = await gzip(dump)
     await logStep(jobId, 'Cifrando el backup…', 60)
     const encrypted = encryptBackup(gzipped)
-    const key = `backups/full/backup-${backupTimestamp()}.sql.gz.enc`
+    const prefix = kind === 'pre_restore' ? 'pre-restore' : 'backup'
+    const ts = kind === 'pre_restore' ? backupTimestamp(true) : backupTimestamp()
+    const key = `backups/full/${prefix}-${ts}.sql.gz.enc`
     await logStep(jobId, `Subiendo a R2 (${key})…`, 85)
     await uploadFile(key, encrypted, 'application/octet-stream')
     await finishJobSuccess(jobId, { fileKey: key, fileSizeBytes: encrypted.length })
     await logStep(jobId, 'Backup completo finalizado correctamente.', 100)
-    return jobId
   } catch (err: any) {
     await finishJobFailed(jobId, err.message)
     await notifyBackupFailed('completo', err.message)
-    return jobId
   }
+}
+
+// Crea el job y espera a que termine — usado cuando el propio código del
+// servidor necesita el resultado antes de continuar (p.ej. el backup de
+// seguridad previo a una restauración, que debe haber acabado con éxito
+// antes de tocar ningún dato).
+export async function runFullBackup(createdBy: string | null = null, kind: Extract<BackupJobKind, 'backup_full' | 'pre_restore'> = 'backup_full'): Promise<string> {
+  const jobId = await createJob(kind, { createdBy })
+  await executeFullBackup(jobId, kind)
+  return jobId
+}
+
+// Crea el job y lo ejecuta en segundo plano sin esperar — usado por el botón
+// "Ejecutar backup ahora" del panel, que necesita el jobId al instante para
+// empezar a hacer polling del progreso en tiempo real.
+export async function startFullBackup(createdBy: string | null = null): Promise<string> {
+  const jobId = await createJob('backup_full', { createdBy })
+  executeFullBackup(jobId, 'backup_full').catch(err => console.error(`[backupService] fallo no controlado en el backup ${jobId}:`, err))
+  return jobId
 }
 
 // Tablas clínicas curadas para el backup/restauración por clínica, en orden
@@ -81,8 +102,7 @@ export interface ClinicBackupPayload {
   tables: { table: string; rows: any[] }[]
 }
 
-export async function runClinicBackup(clinicId: string, createdBy: string | null = null): Promise<string> {
-  const jobId = await createJob('backup_clinic', { clinicId, createdBy })
+async function executeClinicBackup(jobId: string, clinicId: string, kind: Extract<BackupJobKind, 'backup_clinic' | 'pre_restore'>): Promise<void> {
   try {
     const clinic = await queryOne<{ id: string }>('SELECT id FROM clinics WHERE id = $1', [clinicId])
     if (!clinic) throw new Error('La clínica no existe en el sistema actual')
@@ -101,17 +121,29 @@ export async function runClinicBackup(clinicId: string, createdBy: string | null
     const gzipped = await gzip(Buffer.from(JSON.stringify(payload)))
     await logStep(jobId, 'Cifrando el backup…', 80)
     const encrypted = encryptBackup(gzipped)
-    const key = `backups/clinics/${clinicId}/backup-${backupTimestamp().slice(0, 10)}.sql.gz.enc`
+    const prefix = kind === 'pre_restore' ? 'pre-restore' : 'backup'
+    const ts = kind === 'pre_restore' ? backupTimestamp(true) : backupTimestamp().slice(0, 10)
+    const key = `backups/clinics/${clinicId}/${prefix}-${ts}.sql.gz.enc`
     await logStep(jobId, `Subiendo a R2 (${key})…`, 90)
     await uploadFile(key, encrypted, 'application/octet-stream')
     await finishJobSuccess(jobId, { fileKey: key, fileSizeBytes: encrypted.length })
     await logStep(jobId, 'Backup de la clínica finalizado correctamente.', 100)
-    return jobId
   } catch (err: any) {
     await finishJobFailed(jobId, err.message)
     await notifyBackupFailed(`de la clínica ${clinicId}`, err.message)
-    return jobId
   }
+}
+
+export async function runClinicBackup(clinicId: string, createdBy: string | null = null, kind: Extract<BackupJobKind, 'backup_clinic' | 'pre_restore'> = 'backup_clinic'): Promise<string> {
+  const jobId = await createJob(kind, { clinicId, createdBy })
+  await executeClinicBackup(jobId, clinicId, kind)
+  return jobId
+}
+
+export async function startClinicBackup(clinicId: string, createdBy: string | null = null): Promise<string> {
+  const jobId = await createJob('backup_clinic', { clinicId, createdBy })
+  executeClinicBackup(jobId, clinicId, 'backup_clinic').catch(err => console.error(`[backupService] fallo no controlado en el backup ${jobId}:`, err))
+  return jobId
 }
 
 export async function runAllClinicBackups(): Promise<void> {
