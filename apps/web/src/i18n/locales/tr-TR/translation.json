@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Yardımcı Üreme",
       "ginecologia_estetica": "Estetik Jinekoloji",
       "osteopatia": "Osteopati ve Kiropraktik",
-      "laboratorio_clinico": "Klinik Laboratuvar"
-    }
+      "laboratorio_clinico": "Klinik Laboratuvar",
+      "mas_usados": "En çok kullanılanlar"
+    },
+    "mark_favorite": "En çok kullanılan olarak işaretle",
+    "unmark_favorite": "En çok kullanılanlardan kaldır"
   },
   "patientCombobox": {
     "placeholder": "İsim, telefon veya kimlikle ara…",

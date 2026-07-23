@@ -907,8 +907,11 @@
       "reproduccion_asistida": "보조생식술",
       "ginecologia_estetica": "미용 부인과",
       "osteopatia": "정골요법 및 카이로프랙틱",
-      "laboratorio_clinico": "임상 검사실"
-    }
+      "laboratorio_clinico": "임상 검사실",
+      "mas_usados": "자주 사용"
+    },
+    "mark_favorite": "자주 사용으로 표시",
+    "unmark_favorite": "자주 사용에서 제거"
   },
   "patientCombobox": {
     "placeholder": "이름, 전화번호 또는 신분증으로 검색…",

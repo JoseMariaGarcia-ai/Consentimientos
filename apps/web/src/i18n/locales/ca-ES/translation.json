@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Reproducció Assistida",
       "ginecologia_estetica": "Ginecologia Estètica",
       "osteopatia": "Osteopatia i Quiropràxia",
-      "laboratorio_clinico": "Laboratori Clínic"
-    }
+      "laboratorio_clinico": "Laboratori Clínic",
+      "mas_usados": "Més usats"
+    },
+    "mark_favorite": "Marcar com a més usat",
+    "unmark_favorite": "Treure de més usats"
   },
   "patientCombobox": {
     "placeholder": "Cerca per nom, telèfon o DNI…",

@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Assisteret reproduktion",
       "ginecologia_estetica": "Æstetisk Gynækologi",
       "osteopatia": "Osteopati og Kiropraktik",
-      "laboratorio_clinico": "Klinisk Laboratorium"
-    }
+      "laboratorio_clinico": "Klinisk Laboratorium",
+      "mas_usados": "Mest brugte"
+    },
+    "mark_favorite": "Markér som mest brugt",
+    "unmark_favorite": "Fjern fra mest brugte"
   },
   "patientCombobox": {
     "placeholder": "Søg efter navn, telefon eller ID…",

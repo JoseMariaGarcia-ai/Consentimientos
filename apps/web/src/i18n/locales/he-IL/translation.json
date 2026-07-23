@@ -863,8 +863,11 @@
       "reproduccion_asistida": "פוריות וטיפולי הפריה",
       "ginecologia_estetica": "גינקולוגיה אסתטית",
       "osteopatia": "אוסטאופתיה וכירופרקטיקה",
-      "laboratorio_clinico": "מעבדה קלינית"
-    }
+      "laboratorio_clinico": "מעבדה קלינית",
+      "mas_usados": "הנפוצים ביותר"
+    },
+    "mark_favorite": "סמן כנפוץ ביותר",
+    "unmark_favorite": "הסר מהנפוצים ביותר"
   },
   "patientCombobox": {
     "placeholder": "חיפוש לפי שם, טלפון או ת\"ז…",

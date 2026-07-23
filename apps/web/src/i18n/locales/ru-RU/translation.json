@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Вспомогательная репродукция",
       "ginecologia_estetica": "Эстетическая гинекология",
       "osteopatia": "Остеопатия и хиропрактика",
-      "laboratorio_clinico": "Клиническая лаборатория"
-    }
+      "laboratorio_clinico": "Клиническая лаборатория",
+      "mas_usados": "Часто используемые"
+    },
+    "mark_favorite": "Отметить как часто используемое",
+    "unmark_favorite": "Убрать из часто используемых"
   },
   "patientCombobox": {
     "placeholder": "Поиск по имени, телефону или паспорту…",

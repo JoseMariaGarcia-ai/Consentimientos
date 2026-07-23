@@ -6,7 +6,7 @@ import { SignatureCanvas } from '@/components/signature/SignatureCanvas'
 import type { Patient, Doctor, ConsentTemplate } from '@consentspro/shared-types'
 import { useLanguageStore } from '@/store/languageStore'
 import { useConsentWithLegal } from '@/hooks/useConsentWithLegal'
-import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
+import { TEMPLATE_CATEGORIES, FAVORITE_CATEGORY } from '@/lib/templateCategories'
 import { hasEducationalImageClause, hasMarketingImageClause } from '@/lib/imageAuthClause'
 import { PatientCombobox } from '@/components/patients/PatientCombobox'
 import { PatientForm } from '@/components/patients/PatientForm'
@@ -54,9 +54,14 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
         byCategory.get(cat)!.push(tmpl)
       }
     }
-    return TEMPLATE_CATEGORIES
+    const rest = TEMPLATE_CATEGORIES
       .map(cat => [cat, byCategory.get(cat) ?? []] as const)
       .filter(([, items]) => items.length > 0)
+    // "Más usados" (marcados con la estrella en Plantillas) siempre primero,
+    // por encima incluso de su categoría real — así se llega antes al
+    // tratamiento que más se repite en el día a día de la clínica.
+    const favorites = byCategory.get(FAVORITE_CATEGORY) ?? []
+    return favorites.length > 0 ? [[FAVORITE_CATEGORY, favorites] as const, ...rest] : rest
   }, [templates])
   const legalData = useConsentWithLegal(
     selectedTemplate ?? { contentJson: {}, legalClausesJson: {} }

@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Υποβοηθούμενη Αναπαραγωγή",
       "ginecologia_estetica": "Αισθητική Γυναικολογία",
       "osteopatia": "Οστεοπαθητική και Χειροπρακτική",
-      "laboratorio_clinico": "Κλινικό Εργαστήριο"
-    }
+      "laboratorio_clinico": "Κλινικό Εργαστήριο",
+      "mas_usados": "Πιο συχνά χρησιμοποιούμενα"
+    },
+    "mark_favorite": "Σήμανση ως πιο συχνά χρησιμοποιούμενο",
+    "unmark_favorite": "Αφαίρεση από τα πιο συχνά χρησιμοποιούμενα"
   },
   "patientCombobox": {
     "placeholder": "Αναζήτηση με όνομα, τηλέφωνο ή ταυτότητα…",

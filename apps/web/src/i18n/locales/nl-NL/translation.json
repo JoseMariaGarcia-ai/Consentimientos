@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Vruchtbaarheidsbehandeling",
       "ginecologia_estetica": "Esthetische Gynaecologie",
       "osteopatia": "Osteopathie en Chiropraxie",
-      "laboratorio_clinico": "Klinisch Laboratorium"
-    }
+      "laboratorio_clinico": "Klinisch Laboratorium",
+      "mas_usados": "Meest gebruikt"
+    },
+    "mark_favorite": "Markeren als meest gebruikt",
+    "unmark_favorite": "Verwijderen uit meest gebruikt"
   },
   "patientCombobox": {
     "placeholder": "Zoek op naam, telefoon of ID…",

@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Reproducere Asistată",
       "ginecologia_estetica": "Ginecologie Estetică",
       "osteopatia": "Osteopatie și Chiropractică",
-      "laboratorio_clinico": "Laborator Clinic"
-    }
+      "laboratorio_clinico": "Laborator Clinic",
+      "mas_usados": "Cele mai utilizate"
+    },
+    "mark_favorite": "Marchează ca fiind cel mai utilizat",
+    "unmark_favorite": "Elimină din cele mai utilizate"
   },
   "patientCombobox": {
     "placeholder": "Caută după nume, telefon sau CI…",

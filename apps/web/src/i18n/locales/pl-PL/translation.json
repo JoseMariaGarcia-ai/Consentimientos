@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Wspomagany Rozród",
       "ginecologia_estetica": "Ginekologia Estetyczna",
       "osteopatia": "Osteopatia i Chiropraktyka",
-      "laboratorio_clinico": "Laboratorium Kliniczne"
-    }
+      "laboratorio_clinico": "Laboratorium Kliniczne",
+      "mas_usados": "Najczęściej używane"
+    },
+    "mark_favorite": "Oznacz jako najczęściej używane",
+    "unmark_favorite": "Usuń z najczęściej używanych"
   },
   "patientCombobox": {
     "placeholder": "Szukaj po imieniu, telefonie lub dowodzie…",

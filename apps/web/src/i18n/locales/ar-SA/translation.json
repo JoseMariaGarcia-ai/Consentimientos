@@ -869,8 +869,11 @@
       "reproduccion_asistida": "الإنجاب المساعد",
       "ginecologia_estetica": "طب النساء التجميلي",
       "osteopatia": "العلاج بالتقويم العظمي والعمود الفقري",
-      "laboratorio_clinico": "المختبر السريري"
-    }
+      "laboratorio_clinico": "المختبر السريري",
+      "mas_usados": "الأكثر استخدامًا"
+    },
+    "mark_favorite": "وضع علامة كالأكثر استخدامًا",
+    "unmark_favorite": "إزالة من الأكثر استخدامًا"
   },
   "patientCombobox": {
     "placeholder": "ابحث بالاسم أو الهاتف أو رقم الهوية…",

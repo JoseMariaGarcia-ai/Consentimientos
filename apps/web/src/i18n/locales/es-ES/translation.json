@@ -915,8 +915,11 @@
       "fisioterapia": "Fisioterapia",
       "osteopatia": "Osteopatía y Quiropraxia",
       "reproduccion_asistida": "Reproducción Asistida",
-      "laboratorio_clinico": "Laboratorio Clínico"
-    }
+      "laboratorio_clinico": "Laboratorio Clínico",
+      "mas_usados": "Más usados"
+    },
+    "mark_favorite": "Marcar como más usado",
+    "unmark_favorite": "Quitar de más usados"
   },
   "patientCombobox": {
     "placeholder": "Buscar por nombre, teléfono o DNI…",

@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Hedelmöityshoidot",
       "ginecologia_estetica": "Esteettinen Gynekologia",
       "osteopatia": "Osteopatia ja Kiropraktiikka",
-      "laboratorio_clinico": "Kliininen Laboratorio"
-    }
+      "laboratorio_clinico": "Kliininen Laboratorio",
+      "mas_usados": "Eniten käytetyt"
+    },
+    "mark_favorite": "Merkitse eniten käytetyksi",
+    "unmark_favorite": "Poista eniten käytetyistä"
   },
   "patientCombobox": {
     "placeholder": "Hae nimellä, puhelimella tai henkilötunnuksella…",

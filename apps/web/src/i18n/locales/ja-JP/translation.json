@@ -907,8 +907,11 @@
       "reproduccion_asistida": "生殖補助医療",
       "ginecologia_estetica": "美容婦人科",
       "osteopatia": "オステオパシー・カイロプラクティック",
-      "laboratorio_clinico": "臨床検査室"
-    }
+      "laboratorio_clinico": "臨床検査室",
+      "mas_usados": "よく使う"
+    },
+    "mark_favorite": "よく使うに追加",
+    "unmark_favorite": "よく使うから削除"
   },
   "patientCombobox": {
     "placeholder": "名前、電話番号、身分証明書で検索…",

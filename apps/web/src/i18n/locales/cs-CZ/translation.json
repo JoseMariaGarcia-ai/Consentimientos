@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Asistovaná reprodukce",
       "ginecologia_estetica": "Estetická gynekologie",
       "osteopatia": "Osteopatie a chiropraxe",
-      "laboratorio_clinico": "Klinická laboratoř"
-    }
+      "laboratorio_clinico": "Klinická laboratoř",
+      "mas_usados": "Nejpoužívanější"
+    },
+    "mark_favorite": "Označit jako nejpoužívanější",
+    "unmark_favorite": "Odebrat z nejpoužívanějších"
   },
   "patientCombobox": {
     "placeholder": "Hledat podle jména, telefonu nebo OP…",

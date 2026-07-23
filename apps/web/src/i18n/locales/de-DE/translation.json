@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Reproduktionsmedizin",
       "ginecologia_estetica": "Ästhetische Gynäkologie",
       "osteopatia": "Osteopathie und Chiropraktik",
-      "laboratorio_clinico": "Klinisches Labor"
-    }
+      "laboratorio_clinico": "Klinisches Labor",
+      "mas_usados": "Am häufigsten verwendet"
+    },
+    "mark_favorite": "Als häufig verwendet markieren",
+    "unmark_favorite": "Aus „Häufig verwendet“ entfernen"
   },
   "patientCombobox": {
     "placeholder": "Suche nach Name, Telefon oder Ausweis…",

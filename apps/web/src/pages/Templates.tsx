@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, Plus, Pencil, Save, X, Globe, ChevronDown } from 'lucide-react'
+import { Search, Plus, Pencil, Save, X, Globe, ChevronDown, Star } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ConsentEditor } from '@/components/consents/ConsentEditor'
 import { SUPPORTED_LANGUAGES } from '@/i18n'
 import { useLanguageStore } from '@/store/languageStore'
-import { TEMPLATE_CATEGORIES } from '@/lib/templateCategories'
+import { TEMPLATE_CATEGORIES, FAVORITE_CATEGORY } from '@/lib/templateCategories'
 
 interface Template {
   id: string
@@ -62,8 +62,27 @@ export default function Templates() {
         byCategory.get(cat)!.push(tmpl)
       }
     }
-    return [...byCategory.entries()].filter(([, items]) => items.length > 0)
+    const rest = [...byCategory.entries()].filter(([cat, items]) => cat !== FAVORITE_CATEGORY && items.length > 0)
+    const favorites = byCategory.get(FAVORITE_CATEGORY) ?? []
+    return favorites.length > 0 ? [[FAVORITE_CATEGORY, favorites] as const, ...rest] : rest
   }, [filtered])
+
+  const toggleFavorite = async (tmpl: Template) => {
+    const isFavorite = (tmpl.extraCategories ?? []).includes(FAVORITE_CATEGORY)
+    const extraCategories = isFavorite
+      ? (tmpl.extraCategories ?? []).filter(c => c !== FAVORITE_CATEGORY)
+      : [...(tmpl.extraCategories ?? []), FAVORITE_CATEGORY]
+    const updated = { ...tmpl, extraCategories }
+    setTemplates(ts => ts.map(t => t.id === tmpl.id ? updated : t))
+    setSelected(s => s?.id === tmpl.id ? updated : s)
+    try {
+      await api.put(`/consents/templates/${tmpl.id}`, updated)
+    } catch {
+      // Si falla el guardado, se revierte el marcador optimista.
+      setTemplates(ts => ts.map(t => t.id === tmpl.id ? tmpl : t))
+      setSelected(s => s?.id === tmpl.id ? tmpl : s)
+    }
+  }
 
   const handleSave = async () => {
     if (!selected) return
@@ -139,21 +158,33 @@ export default function Templates() {
                 </p>
                 {items.map(tmpl => {
                   const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
+                  const isFavorite = (tmpl.extraCategories ?? []).includes(FAVORITE_CATEGORY)
                   return (
-                    <button
+                    <div
                       key={tmpl.id}
-                      onClick={() => setSelected(tmpl)}
-                      className={`text-left px-3 py-2.5 rounded-xl transition-colors border ${
+                      className={`flex items-center gap-1 rounded-xl border transition-colors ${
                         selected?.id === tmpl.id
-                          ? 'bg-blue-50 border-blue-200 text-blue-700'
-                          : 'bg-white border-slate-100 text-slate-700 hover:bg-slate-50'
+                          ? 'bg-blue-50 border-blue-200'
+                          : 'bg-white border-slate-100 hover:bg-slate-50'
                       }`}
                     >
-                      <p className="text-sm font-medium truncate">{tmpl.treatmentType}</p>
-                      <p className="text-xs text-slate-400 mt-0.5">
-                        {hasLang ? `✓ ${currentLanguage}` : `⚠ ${t('templates.no_translation')} ${currentLanguage}`}
-                      </p>
-                    </button>
+                      <button
+                        onClick={() => setSelected(tmpl)}
+                        className={`flex-1 min-w-0 text-left px-3 py-2.5 ${selected?.id === tmpl.id ? 'text-blue-700' : 'text-slate-700'}`}
+                      >
+                        <p className="text-sm font-medium truncate">{tmpl.treatmentType}</p>
+                        <p className="text-xs text-slate-400 mt-0.5">
+                          {hasLang ? `✓ ${currentLanguage}` : `⚠ ${t('templates.no_translation')} ${currentLanguage}`}
+                        </p>
+                      </button>
+                      <button
+                        onClick={() => toggleFavorite(tmpl)}
+                        title={(isFavorite ? t('templates.unmark_favorite') : t('templates.mark_favorite')) as string}
+                        className={`flex-shrink-0 p-2 mr-1 rounded-lg ${isFavorite ? 'text-amber-500 hover:text-amber-600' : 'text-slate-300 hover:text-amber-400'}`}
+                      >
+                        <Star className="w-4 h-4" fill={isFavorite ? 'currentColor' : 'none'} />
+                      </button>
+                    </div>
                   )
                 })}
               </div>

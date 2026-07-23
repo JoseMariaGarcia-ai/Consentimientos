@@ -907,8 +907,11 @@
       "reproduccion_asistida": "辅助生殖",
       "ginecologia_estetica": "美容妇科",
       "osteopatia": "整骨疗法与脊椎按摩",
-      "laboratorio_clinico": "临床检验科"
-    }
+      "laboratorio_clinico": "临床检验科",
+      "mas_usados": "最常用"
+    },
+    "mark_favorite": "标记为最常用",
+    "unmark_favorite": "从最常用中移除"
   },
   "patientCombobox": {
     "placeholder": "按姓名、电话或身份证搜索…",

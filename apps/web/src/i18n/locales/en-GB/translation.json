@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Assisted Reproduction",
       "ginecologia_estetica": "Aesthetic Gynaecology",
       "osteopatia": "Osteopathy & Chiropractic",
-      "laboratorio_clinico": "Clinical Laboratory"
-    }
+      "laboratorio_clinico": "Clinical Laboratory",
+      "mas_usados": "Most used"
+    },
+    "mark_favorite": "Mark as most used",
+    "unmark_favorite": "Remove from most used"
   },
   "patientCombobox": {
     "placeholder": "Search by name, phone or ID…",

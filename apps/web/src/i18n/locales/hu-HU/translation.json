@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Asszisztált Reprodukció",
       "ginecologia_estetica": "Esztétikai Nőgyógyászat",
       "osteopatia": "Oszteopátia és Kiropraktika",
-      "laboratorio_clinico": "Klinikai Laboratórium"
-    }
+      "laboratorio_clinico": "Klinikai Laboratórium",
+      "mas_usados": "Leggyakrabban használt"
+    },
+    "mark_favorite": "Megjelölés leggyakrabban használtként",
+    "unmark_favorite": "Eltávolítás a leggyakrabban használtak közül"
   },
   "patientCombobox": {
     "placeholder": "Keresés név, telefon vagy igazolvány alapján…",

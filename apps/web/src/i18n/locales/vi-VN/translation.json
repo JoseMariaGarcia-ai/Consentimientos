@@ -907,8 +907,11 @@
       "reproduccion_asistida": "Hỗ trợ Sinh sản",
       "ginecologia_estetica": "Phụ Khoa Thẩm Mỹ",
       "osteopatia": "Nắn Khớp Xương và Trị Liệu Thần Kinh Cột Sống",
-      "laboratorio_clinico": "Phòng Xét Nghiệm Lâm Sàng"
-    }
+      "laboratorio_clinico": "Phòng Xét Nghiệm Lâm Sàng",
+      "mas_usados": "Dùng nhiều nhất"
+    },
+    "mark_favorite": "Đánh dấu là dùng nhiều nhất",
+    "unmark_favorite": "Bỏ khỏi mục dùng nhiều nhất"
   },
   "patientCombobox": {
     "placeholder": "Tìm theo tên, số điện thoại hoặc CMND…",

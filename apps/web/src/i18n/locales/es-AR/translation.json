@@ -879,8 +879,11 @@
       "reproduccion_asistida": "Reproducción Asistida",
       "ginecologia_estetica": "Ginecología Estética",
       "osteopatia": "Osteopatía y Quiropraxia",
-      "laboratorio_clinico": "Laboratorio Clínico"
-    }
+      "laboratorio_clinico": "Laboratorio Clínico",
+      "mas_usados": "Más usados"
+    },
+    "mark_favorite": "Marcar como más usado",
+    "unmark_favorite": "Quitar de más usados"
   },
   "patientCombobox": {
     "placeholder": "Buscar por nombre, teléfono o DNI…",
