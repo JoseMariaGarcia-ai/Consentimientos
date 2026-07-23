@@ -143,12 +143,17 @@ export async function createTemplateViaYCloud(apiKey: string, def: TemplateDef):
       body: JSON.stringify(body),
     })
     const json: any = await resp.json().catch(() => ({}))
+    // Si ya se creó en un intento anterior (botón pulsado dos veces, o solo
+    // falló otra de las 5), YCloud responde 409 ALREADY_EXISTS — no es un
+    // fallo real, la plantilla ya está creada y en su proceso de
+    // aprobación, así que se trata como éxito en vez de mostrarlo en rojo.
+    const alreadyExists = resp.status === 409 && json?.code === 'ALREADY_EXISTS'
     return {
       name: def.name,
-      ok: resp.ok,
+      ok: resp.ok || alreadyExists,
       httpStatus: resp.status,
       response: json,
-      errorMessage: resp.ok ? null : (json?.message ?? json?.error?.message ?? `HTTP ${resp.status}`),
+      errorMessage: (resp.ok || alreadyExists) ? null : (json?.message ?? json?.error?.message ?? `HTTP ${resp.status}`),
     }
   } catch (err: any) {
     return { name: def.name, ok: false, httpStatus: null, response: null, errorMessage: err.message }
