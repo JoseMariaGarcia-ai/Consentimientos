@@ -2014,7 +2014,9 @@
     "resolutionNotesPlaceholder": "הערות לפתרון (אופציונלי)",
     "resolutionNotesLabel": "הערות",
     "approve": "אשר",
-    "reject": "דחה"
+    "reject": "דחה",
+    "exportAllTitle": "רישום מלא (פיקוח העבודה)",
+    "exportAllHint": "מייצא את כל העובדים למסמך אחד, מוכן למסירה לפי דרישת פיקוח העבודה והביטוח הלאומי."
   },
   "odontogram": {
     "lastVisit": "ביקור אחרון",

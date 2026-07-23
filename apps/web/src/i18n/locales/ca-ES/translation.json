@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Notes de la resolució (opcional)",
     "resolutionNotesLabel": "Notes",
     "approve": "Aprovar",
-    "reject": "Rebutjar"
+    "reject": "Rebutjar",
+    "exportAllTitle": "Registre complet (Inspecció de Treball)",
+    "exportAllHint": "Exporta tots els empleats en un sol document, llest per lliurar davant d'un requeriment de la Inspecció de Treball i Seguretat Social."
   },
   "odontogram": {
     "lastVisit": "Última visita",

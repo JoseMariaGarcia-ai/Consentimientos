@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Poznámky k vyřízení (volitelné)",
     "resolutionNotesLabel": "Poznámky",
     "approve": "Schválit",
-    "reject": "Zamítnout"
+    "reject": "Zamítnout",
+    "exportAllTitle": "Kompletní evidence (inspekce práce)",
+    "exportAllHint": "Exportuje všechny zaměstnance do jednoho dokumentu, připraveného k předání na žádost inspekce práce."
   },
   "odontogram": {
     "lastVisit": "Poslední návštěva",

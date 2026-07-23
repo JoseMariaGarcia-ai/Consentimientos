@@ -8,7 +8,8 @@ import { api } from '@/lib/api'
 import { EmployeeModal } from './EmployeeModal'
 import { TimeIncidentModal } from './TimeIncidentModal'
 import { timeTrackingPdfBlob } from '@/lib/pdf/timeTrackingPdf'
-import { downloadTimeTrackingCsv } from '@/lib/timeTrackingCsv'
+import { timeTrackingAllPdfBlob } from '@/lib/pdf/timeTrackingAllPdf'
+import { downloadTimeTrackingCsv, downloadTimeTrackingAllCsv } from '@/lib/timeTrackingCsv'
 
 const METHODS = ['web', 'qr', 'pin'] as const
 const STATUS_BADGE: Record<string, string> = {
@@ -57,6 +58,7 @@ export function TimeTrackingAdminPanel() {
   const [dateTo, setDateTo] = useState('')
   const [days, setDays] = useState<any[]>([])
   const [exporting, setExporting] = useState(false)
+  const [exportingAll, setExportingAll] = useState(false)
   const [compType, setCompType] = useState<'economica' | 'descanso'>('economica')
   const [compNotes, setCompNotes] = useState('')
   const [compSaving, setCompSaving] = useState(false)
@@ -210,6 +212,40 @@ export function TimeTrackingAdminPanel() {
     finally { setExporting(false) }
   }
 
+  // Registro completo de TODOS los empleados en un único documento — para
+  // entregar de una vez ante un requerimiento de la Inspección de Trabajo
+  // y Seguridad Social (art. 34.9 ET, RDL 8/2019), sin exportar uno a uno.
+  const fetchExportAllData = async () => {
+    const params = new URLSearchParams()
+    if (dateFrom) params.set('date_from', dateFrom)
+    if (dateTo) params.set('date_to', dateTo)
+    return api.get(`/timetracking/export-all?${params.toString()}`)
+  }
+
+  const handleExportAllPdf = async () => {
+    setExportingAll(true)
+    try {
+      const data = await fetchExportAllData()
+      const blob = await timeTrackingAllPdfBlob(data, i18n.language)
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'fichajes_todos_los_empleados.pdf'
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch (e: any) { setError(e.message) }
+    finally { setExportingAll(false) }
+  }
+
+  const handleExportAllCsv = async () => {
+    setExportingAll(true)
+    try {
+      const data = await fetchExportAllData()
+      downloadTimeTrackingAllCsv(data)
+    } catch (e: any) { setError(e.message) }
+    finally { setExportingAll(false) }
+  }
+
   const saveCompensation = async () => {
     if (!selectedEmployee || !dateFrom) return
     setCompSaving(true)
@@ -332,6 +368,21 @@ export function TimeTrackingAdminPanel() {
           <button onClick={handleExportCsv} disabled={!selectedEmployee || exporting} className="flex items-center gap-1.5 px-3 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs font-medium hover:bg-slate-50 disabled:opacity-40">
             <FileDown className="w-3.5 h-3.5" />CSV
           </button>
+        </div>
+
+        <div className="flex items-center justify-between gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex-wrap">
+          <div>
+            <p className="text-xs font-semibold text-slate-700">{t('timeTracking.exportAllTitle')}</p>
+            <p className="text-[11px] text-slate-400">{t('timeTracking.exportAllHint')}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={handleExportAllPdf} disabled={exportingAll} className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-medium disabled:opacity-40">
+              {exportingAll ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <FileDown className="w-3.5 h-3.5" />}PDF
+            </button>
+            <button onClick={handleExportAllCsv} disabled={exportingAll} className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg text-xs font-medium disabled:opacity-40">
+              <FileDown className="w-3.5 h-3.5" />CSV
+            </button>
+          </div>
         </div>
 
         {selectedEmployee && (

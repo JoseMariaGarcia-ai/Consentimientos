@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Bemærkninger til afgørelsen (valgfrit)",
     "resolutionNotesLabel": "Bemærkninger",
     "approve": "Godkend",
-    "reject": "Afvis"
+    "reject": "Afvis",
+    "exportAllTitle": "Komplet register (Arbejdstilsynet)",
+    "exportAllHint": "Eksporterer alle medarbejdere i ét dokument, klar til at udlevere ved en anmodning fra det spanske arbejdstilsyn."
   },
   "odontogram": {
     "lastVisit": "Seneste besøg",

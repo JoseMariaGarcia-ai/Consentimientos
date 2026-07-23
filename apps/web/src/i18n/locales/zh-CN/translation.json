@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "处理备注（可选）",
     "resolutionNotesLabel": "备注",
     "approve": "批准",
-    "reject": "拒绝"
+    "reject": "拒绝",
+    "exportAllTitle": "完整记录（劳动监察）",
+    "exportAllHint": "将所有员工导出到一个文件中，随时可在劳动和社会保障监察部门要求时提交。"
   },
   "odontogram": {
     "lastVisit": "上次就诊",

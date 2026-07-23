@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Elbírálási megjegyzések (opcionális)",
     "resolutionNotesLabel": "Megjegyzések",
     "approve": "Jóváhagyás",
-    "reject": "Elutasítás"
+    "reject": "Elutasítás",
+    "exportAllTitle": "Teljes nyilvántartás (Munkaügyi Felügyelet)",
+    "exportAllHint": "Az összes alkalmazottat egyetlen dokumentumba exportálja, készen arra, hogy átadják a Munkaügyi Felügyelet kérésére."
   },
   "odontogram": {
     "lastVisit": "Utolsó látogatás",

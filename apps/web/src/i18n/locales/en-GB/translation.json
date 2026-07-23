@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Resolution notes (optional)",
     "resolutionNotesLabel": "Notes",
     "approve": "Approve",
-    "reject": "Reject"
+    "reject": "Reject",
+    "exportAllTitle": "Full record (Labour Inspectorate)",
+    "exportAllHint": "Exports all employees into a single document, ready to hand over if the Labour and Social Security Inspectorate requests it."
   },
   "odontogram": {
     "lastVisit": "Last visit",

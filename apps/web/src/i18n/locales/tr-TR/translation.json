@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Çözüm notları (isteğe bağlı)",
     "resolutionNotesLabel": "Notlar",
     "approve": "Onayla",
-    "reject": "Reddet"
+    "reject": "Reddet",
+    "exportAllTitle": "Tam kayıt (Çalışma Müfettişliği)",
+    "exportAllHint": "Tüm çalışanları tek bir belgede dışa aktarır, Çalışma ve Sosyal Güvenlik Müfettişliği talebinde teslime hazır."
   },
   "odontogram": {
     "lastVisit": "Son ziyaret",

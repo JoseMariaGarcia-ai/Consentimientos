@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Merknader til avgjørelsen (valgfritt)",
     "resolutionNotesLabel": "Merknader",
     "approve": "Godkjenn",
-    "reject": "Avvis"
+    "reject": "Avvis",
+    "exportAllTitle": "Fullstendig register (Arbeidstilsynet)",
+    "exportAllHint": "Eksporterer alle ansatte i ett dokument, klart til å overleveres ved en forespørsel fra det spanske arbeidstilsynet."
   },
   "odontogram": {
     "lastVisit": "Siste besøk",

@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Opmerkingen bij de afhandeling (optioneel)",
     "resolutionNotesLabel": "Opmerkingen",
     "approve": "Goedkeuren",
-    "reject": "Afwijzen"
+    "reject": "Afwijzen",
+    "exportAllTitle": "Volledig register (Arbeidsinspectie)",
+    "exportAllHint": "Exporteert alle medewerkers in één document, klaar om te overhandigen bij een verzoek van de Arbeidsinspectie."
   },
   "odontogram": {
     "lastVisit": "Laatste bezoek",

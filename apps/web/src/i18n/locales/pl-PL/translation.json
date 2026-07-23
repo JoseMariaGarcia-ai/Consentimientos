@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Uwagi do rozstrzygnięcia (opcjonalnie)",
     "resolutionNotesLabel": "Uwagi",
     "approve": "Zatwierdź",
-    "reject": "Odrzuć"
+    "reject": "Odrzuć",
+    "exportAllTitle": "Pełny rejestr (Inspekcja Pracy)",
+    "exportAllHint": "Eksportuje wszystkich pracowników do jednego dokumentu, gotowego do przekazania na żądanie Inspekcji Pracy."
   },
   "odontogram": {
     "lastVisit": "Ostatnia wizyta",

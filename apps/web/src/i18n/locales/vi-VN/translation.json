@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Ghi chú giải quyết (tùy chọn)",
     "resolutionNotesLabel": "Ghi chú",
     "approve": "Duyệt",
-    "reject": "Từ chối"
+    "reject": "Từ chối",
+    "exportAllTitle": "Hồ sơ đầy đủ (Thanh tra Lao động)",
+    "exportAllHint": "Xuất tất cả nhân viên vào một tài liệu duy nhất, sẵn sàng bàn giao khi Thanh tra Lao động yêu cầu."
   },
   "odontogram": {
     "lastVisit": "Lần khám gần nhất",

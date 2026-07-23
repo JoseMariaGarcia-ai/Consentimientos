@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Notes de résolution (facultatif)",
     "resolutionNotesLabel": "Notes",
     "approve": "Approuver",
-    "reject": "Rejeter"
+    "reject": "Rejeter",
+    "exportAllTitle": "Registre complet (Inspection du travail)",
+    "exportAllHint": "Exporte tous les employés dans un seul document, prêt à remettre en cas de demande de l'Inspection du travail."
   },
   "odontogram": {
     "lastVisit": "Dernière visite",

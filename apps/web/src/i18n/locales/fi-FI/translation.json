@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Ratkaisun huomautukset (valinnainen)",
     "resolutionNotesLabel": "Huomautukset",
     "approve": "Hyväksy",
-    "reject": "Hylkää"
+    "reject": "Hylkää",
+    "exportAllTitle": "Täydellinen rekisteri (työsuojeluviranomainen)",
+    "exportAllHint": "Vie kaikki työntekijät yhteen asiakirjaan, valmiina luovutettavaksi työsuojeluviranomaisen pyynnöstä."
   },
   "odontogram": {
     "lastVisit": "Viimeisin käynti",

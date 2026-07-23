@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Note privind rezolvarea (opțional)",
     "resolutionNotesLabel": "Note",
     "approve": "Aprobă",
-    "reject": "Respinge"
+    "reject": "Respinge",
+    "exportAllTitle": "Registru complet (Inspecția Muncii)",
+    "exportAllHint": "Exportă toți angajații într-un singur document, gata de predat la solicitarea Inspecției Muncii."
   },
   "odontogram": {
     "lastVisit": "Ultima vizită",

@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "해결 메모 (선택 사항)",
     "resolutionNotesLabel": "메모",
     "approve": "승인",
-    "reject": "거부"
+    "reject": "거부",
+    "exportAllTitle": "전체 기록 (근로감독관 제출용)",
+    "exportAllHint": "모든 직원의 기록을 하나의 문서로 내보냅니다. 근로감독관의 요청 시 바로 제출할 수 있습니다."
   },
   "odontogram": {
     "lastVisit": "최근 방문",

@@ -544,4 +544,54 @@ router.get('/export', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// GET /api/timetracking/export-all?date_from=&date_to= — igual que /export
+// pero de TODOS los empleados de la clínica a la vez, en un solo documento.
+// Pensado específicamente para entregar el registro de jornada completo
+// ante un requerimiento de la Inspección de Trabajo y Seguridad Social
+// (art. 34.9 ET, RDL 8/2019) sin tener que exportar empleado por empleado.
+// Solo el responsable de la clínica puede generarlo — un empleado normal
+// solo ve su propio registro (/export sin employee_id ya cubre ese caso).
+router.get('/export-all', async (req, res) => {
+  const { userId } = (req as any).user
+  const { date_from, date_to } = req.query
+  try {
+    const clinicId = await requireManager(userId)
+    if (!clinicId) return res.status(403).json({ error: 'Solo el responsable de la clínica puede exportar el registro completo' })
+
+    const clinic = await queryOne('SELECT name, legal_name, tax_id, email FROM clinics WHERE id = $1', [clinicId])
+    const employees = await query<{ id: string; full_name: string; dni_nie: string; role: string | null; active: boolean }>(
+      'SELECT id, full_name, dni_nie, role, active FROM employees WHERE clinic_id = $1 ORDER BY full_name ASC', [clinicId]
+    )
+
+    const employeeExports = []
+    for (const employee of employees) {
+      let sql = 'SELECT record_type, timestamp_utc, method FROM time_records WHERE clinic_id = $1 AND employee_id = $2'
+      const params: any[] = [clinicId, employee.id]
+      if (date_from) { params.push(date_from); sql += ` AND timestamp_utc >= $${params.length}` }
+      if (date_to)   { params.push(date_to);   sql += ` AND timestamp_utc < $${params.length}::date + INTERVAL '1 day'` }
+      sql += ' ORDER BY timestamp_utc ASC'
+      const records = await query<any>(sql, params)
+      const days = computeWorkedHours(records)
+      const totalHours = Math.round(days.reduce((s, d) => s + d.hours, 0) * 100) / 100
+      employeeExports.push({ employee, records, days, totalHours })
+    }
+
+    const totalHoursAll = Math.round(employeeExports.reduce((s, e) => s + e.totalHours, 0) * 100) / 100
+
+    // Un único hash sobre TODO el conjunto exportado (todas las clínicas
+    // firman el mismo tipo de export, así que el hash cubre igual de bien
+    // la integridad de un informe con 1 empleado que con 50).
+    const summaryPayload = JSON.stringify({ clinicId, employeeExports, totalHoursAll })
+    const exportHash = crypto.createHash('sha256').update(summaryPayload).digest('hex')
+
+    return res.json({
+      clinic,
+      period: { date_from: date_from ?? null, date_to: date_to ?? null },
+      employees: employeeExports,
+      totalHoursAll,
+      exportHash,
+    })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 export default router

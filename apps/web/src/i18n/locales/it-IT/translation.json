@@ -2112,7 +2112,9 @@
     "resolutionNotesPlaceholder": "Note sulla risoluzione (facoltativo)",
     "resolutionNotesLabel": "Note",
     "approve": "Approva",
-    "reject": "Respingi"
+    "reject": "Respingi",
+    "exportAllTitle": "Registro completo (Ispettorato del Lavoro)",
+    "exportAllHint": "Esporta tutti i dipendenti in un unico documento, pronto da consegnare su richiesta dell'Ispettorato del Lavoro."
   },
   "odontogram": {
     "lastVisit": "Ultima visita",

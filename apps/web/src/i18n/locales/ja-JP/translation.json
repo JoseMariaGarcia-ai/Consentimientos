@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "解決に関するメモ（任意）",
     "resolutionNotesLabel": "メモ",
     "approve": "承認",
-    "reject": "却下"
+    "reject": "却下",
+    "exportAllTitle": "全記録（労働監督局向け）",
+    "exportAllHint": "すべての従業員を1つの書類にまとめて出力します。労働・社会保障監督局からの要求があった際にすぐ提出できます。"
   },
   "odontogram": {
     "lastVisit": "前回の来院",

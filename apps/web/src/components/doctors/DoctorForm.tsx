@@ -57,30 +57,60 @@ export function DoctorForm({ initial = {}, onSave, onClose }: DoctorFormProps) {
 
   const up = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
 
-  const toBase64 = (file: File): Promise<string> => new Promise((resolve, reject) => {
+  const toBase64 = (file: Blob): Promise<string> => new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onload = () => resolve((reader.result as string).split(',')[1])
     reader.onerror = reject
     reader.readAsDataURL(file)
   })
 
-  // La foto se manda como base64 dentro de un JSON, que pesa ~33% más que
-  // el archivo original — 15MB de foto real se quedan cerca del límite del
-  // servidor (20MB) una vez codificada. Se avisa aquí mismo, antes de
-  // subir nada, en vez de esperar a que el servidor la rechace.
-  const MAX_PHOTO_BYTES = 15 * 1024 * 1024
+  // Es solo un avatar circular pequeño — no hace falta guardar la foto de
+  // la cámara a resolución completa. Se reduce siempre a como mucho 800px
+  // de lado mayor y se recodifica en JPEG antes de subir, así una foto de
+  // iPhone de varios MB (que se manda como base64 dentro del JSON — un
+  // 33% más pesada que el archivo original) nunca se acerca al límite del
+  // servidor. Si por lo que sea la compresión falla (formato no soportado
+  // por el navegador, etc.) se sube el archivo original tal cual.
+  const MAX_DIMENSION = 800
+  const JPEG_QUALITY = 0.85
+  const MAX_PHOTO_BYTES = 15 * 1024 * 1024 // red de seguridad final, ya no debería alcanzarse nunca
+
+  const compressImage = (file: File): Promise<Blob> => new Promise((resolve, reject) => {
+    const img = new Image()
+    const objectUrl = URL.createObjectURL(file)
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl)
+      const scale = Math.min(1, MAX_DIMENSION / Math.max(img.width, img.height))
+      const w = Math.round(img.width * scale)
+      const h = Math.round(img.height * scale)
+      const canvas = document.createElement('canvas')
+      canvas.width = w
+      canvas.height = h
+      const ctx = canvas.getContext('2d')
+      if (!ctx) { reject(new Error('canvas no soportado')); return }
+      ctx.drawImage(img, 0, 0, w, h)
+      canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('no se pudo comprimir')), 'image/jpeg', JPEG_QUALITY)
+    }
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('no se pudo leer la imagen')) }
+    img.src = objectUrl
+  })
 
   const handlePhotoSelect = async (file?: File) => {
     if (!file) return
     setPhotoError('')
-    if (file.size > MAX_PHOTO_BYTES) {
-      setPhotoError(t('doctors.photo_too_large'))
-      return
-    }
     setUploadingPhoto(true)
     try {
-      const fileBase64 = await toBase64(file)
-      const { key, url } = await api.post('/doctors/photo', { fileBase64, fileName: file.name, contentType: file.type })
+      const isImage = file.type.startsWith('image/') || !file.type // HEIC en iOS a veces llega sin type
+      const uploadBlob: Blob = isImage ? await compressImage(file).catch(() => file) : file
+      if (uploadBlob.size > MAX_PHOTO_BYTES) {
+        setPhotoError(t('doctors.photo_too_large'))
+        return
+      }
+      const compressed = uploadBlob !== (file as Blob)
+      const fileName = compressed ? file.name.replace(/\.[^.]+$/, '') + '.jpg' : file.name
+      const contentType = compressed ? 'image/jpeg' : file.type
+      const fileBase64 = await toBase64(uploadBlob)
+      const { key, url } = await api.post('/doctors/photo', { fileBase64, fileName, contentType })
       setForm(f => ({ ...f, photoKey: key }))
       setPhotoPreviewUrl(url)
     } catch (err: any) {

@@ -2020,7 +2020,9 @@
     "resolutionNotesPlaceholder": "ملاحظات الحل (اختياري)",
     "resolutionNotesLabel": "ملاحظات",
     "approve": "موافقة",
-    "reject": "رفض"
+    "reject": "رفض",
+    "exportAllTitle": "السجل الكامل (تفتيش العمل)",
+    "exportAllHint": "يصدّر جميع الموظفين في مستند واحد للتسليم عند طلب مفتشية العمل والضمان الاجتماعي."
   },
   "odontogram": {
     "lastVisit": "آخر زيارة",

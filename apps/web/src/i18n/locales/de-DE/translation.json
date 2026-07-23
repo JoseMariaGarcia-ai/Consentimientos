@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Anmerkungen zur Entscheidung (optional)",
     "resolutionNotesLabel": "Anmerkungen",
     "approve": "Genehmigen",
-    "reject": "Ablehnen"
+    "reject": "Ablehnen",
+    "exportAllTitle": "Vollständiges Register (Arbeitsaufsicht)",
+    "exportAllHint": "Exportiert alle Mitarbeiter in einem einzigen Dokument — bereit zur Übergabe bei einer Anfrage der spanischen Arbeitsaufsichtsbehörde."
   },
   "odontogram": {
     "lastVisit": "Letzter Besuch",

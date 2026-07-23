@@ -2058,7 +2058,9 @@
     "resolutionNotesPlaceholder": "Anteckningar om beslutet (valfritt)",
     "resolutionNotesLabel": "Anteckningar",
     "approve": "Godkänn",
-    "reject": "Avvisa"
+    "reject": "Avvisa",
+    "exportAllTitle": "Fullständigt register (Arbetsmiljöverket)",
+    "exportAllHint": "Exporterar alla anställda i ett enda dokument, redo att lämnas över vid en begäran från det spanska arbetstillsynet."
   },
   "odontogram": {
     "lastVisit": "Senaste besök",
