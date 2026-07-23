@@ -366,14 +366,24 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
 
               <div className="flex justify-between pt-2 border-t border-slate-100">
                 <button onClick={() => setStep('form')} className="px-4 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">{t('consents.back')}</button>
-                <button
-                  onClick={() => setStep('sign_doctor')}
-                  disabled={!acceptedLegal}
-                  className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 font-medium"
-                >
-                  {t('consents.sign_arrow')}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleSendToTablet}
+                    disabled={saving}
+                    className="px-4 py-2 text-sm border border-blue-200 text-blue-700 rounded-lg hover:bg-blue-50 disabled:opacity-50 font-medium"
+                  >
+                    {t('consents.send_to_tablet')}
+                  </button>
+                  <button
+                    onClick={() => setStep('sign_doctor')}
+                    disabled={!acceptedLegal}
+                    className="px-5 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 font-medium"
+                  >
+                    {t('consents.sign_arrow')}
+                  </button>
+                </div>
               </div>
+              {handoffError && <p className="text-sm text-red-500 text-right">{handoffError}</p>}
             </div>
           )}
 
