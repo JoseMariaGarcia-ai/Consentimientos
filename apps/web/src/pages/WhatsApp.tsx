@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw, ChevronDown } from 'lucide-react'
+import { MessageCircle, Send, Search, AlertTriangle, Building2, ShieldCheck, Check, CheckCheck, Clock, Link2, Copy, RefreshCcw, ChevronDown, Flag } from 'lucide-react'
 import { api } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
 import { useWhatsAppUnread } from '@/hooks/useWhatsAppUnread'
@@ -16,8 +16,11 @@ interface Conversation {
   last_message_at: string
   last_message_preview: string | null
   unread_count: number
+  is_pending: boolean
   source?: 'link_directo' | 'mensaje_saliente_clinica' | 'pregunta_ambigua' | 'recencia_automatica' | null
 }
+
+type ConversationTab = 'all' | 'unread' | 'pending'
 
 interface ClinicOption { id: string; name: string; trade_name: string | null; phone: string | null; unread: number }
 
@@ -148,6 +151,7 @@ export default function WhatsApp() {
   const [notice, setNotice]             = useState('')
   const [newPhone, setNewPhone]         = useState('')
   const [showNewChat, setShowNewChat]   = useState(false)
+  const [tab, setTab]                   = useState<ConversationTab>('all')
   const bottomRef = useRef<HTMLDivElement>(null)
   const lastMessageCount = useRef(0)
 
@@ -250,11 +254,30 @@ export default function WhatsApp() {
     }
   }
 
-  const filteredConversations = conversations.filter(c =>
+  const togglePending = async (c: Conversation, e: React.MouseEvent) => {
+    e.stopPropagation()
+    const nextPending = !c.is_pending
+    setConversations(cs => cs.map(x => x.id === c.id ? { ...x, is_pending: nextPending } : x))
+    setSelected(s => s?.id === c.id ? { ...s, is_pending: nextPending } : s)
+    try {
+      await api.post(`/whatsapp/conversations/${c.id}/pending`, { clinicId, pending: nextPending })
+    } catch {
+      // Si falla el guardado, se revierte el marcador optimista.
+      setConversations(cs => cs.map(x => x.id === c.id ? { ...x, is_pending: c.is_pending } : x))
+      setSelected(s => s?.id === c.id ? { ...s, is_pending: c.is_pending } : s)
+    }
+  }
+
+  const tabFiltered = conversations.filter(c =>
+    tab === 'all' ? true : tab === 'unread' ? c.unread_count > 0 : c.is_pending
+  )
+  const filteredConversations = tabFiltered.filter(c =>
     !search ||
     c.phone.includes(search) ||
     (c.contact_name ?? '').toLowerCase().includes(search.toLowerCase())
   )
+  const unreadCount = conversations.filter(c => c.unread_count > 0).length
+  const pendingCount = conversations.filter(c => c.is_pending).length
 
   return (
     <div className="flex flex-col gap-4 h-full">
@@ -265,7 +288,6 @@ export default function WhatsApp() {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-slate-800">WhatsApp</h1>
-            <p className="text-sm text-slate-500 mt-0.5">Envía y recibe mensajes vía YCloud</p>
           </div>
         </div>
 
@@ -323,43 +345,74 @@ export default function WhatsApp() {
               >
                 + Nuevo mensaje
               </button>
+              <div className="flex gap-1 bg-slate-100 rounded-lg p-1">
+                {([
+                  ['all', 'Todos', conversations.length],
+                  ['unread', 'No leídos', unreadCount],
+                  ['pending', 'Pendiente de gestión', pendingCount],
+                ] as const).map(([key, label, count]) => (
+                  <button
+                    key={key}
+                    onClick={() => setTab(key)}
+                    className={`flex-1 flex items-center justify-center gap-1 px-2 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                      tab === key ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                    }`}
+                  >
+                    {label}
+                    {count > 0 && <span className="text-[10px] text-slate-400">({count})</span>}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div className="flex-1 overflow-y-auto">
               {filteredConversations.length === 0 ? (
-                <div className="p-6 text-center text-xs text-slate-400">No hay conversaciones todavía</div>
+                <div className="p-6 text-center text-xs text-slate-400">
+                  {tab === 'unread' ? 'No hay conversaciones sin leer' : tab === 'pending' ? 'No hay conversaciones pendientes de gestión' : 'No hay conversaciones todavía'}
+                </div>
               ) : (
                 filteredConversations.map(c => (
-                  <button
+                  <div
                     key={c.id}
-                    onClick={() => { setShowNewChat(false); openConversation(c) }}
-                    className={`w-full flex items-start gap-3 px-4 py-3 text-left border-b border-slate-50 hover:bg-slate-50 transition-colors ${
+                    className={`w-full flex items-start gap-2 pl-4 pr-2 py-3 border-b border-slate-50 hover:bg-slate-50 transition-colors ${
                       selected?.id === c.id ? 'bg-emerald-50' : ''
                     }`}
                   >
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                      {(c.contact_name ?? c.phone).charAt(0).toUpperCase()}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-sm font-semibold text-slate-800 truncate">{c.contact_name ?? c.phone}</p>
-                        <span className="text-[10px] text-slate-400 flex-shrink-0">
-                          {new Date(c.last_message_at).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })}
-                        </span>
+                    <button
+                      onClick={() => { setShowNewChat(false); openConversation(c) }}
+                      className="flex items-start gap-3 text-left flex-1 min-w-0"
+                    >
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                        {(c.contact_name ?? c.phone).charAt(0).toUpperCase()}
                       </div>
-                      <p className="text-xs text-slate-400 truncate mt-0.5">{c.last_message_preview ?? c.phone}</p>
-                      {c.source === 'recencia_automatica' && (
-                        <span className="inline-flex items-center gap-1 mt-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
-                          <RefreshCcw className="w-2.5 h-2.5" /> Enrutada por recencia — revisar
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-sm font-semibold text-slate-800 truncate">{c.contact_name ?? c.phone}</p>
+                          <span className="text-[10px] text-slate-400 flex-shrink-0">
+                            {new Date(c.last_message_at).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-400 truncate mt-0.5">{c.last_message_preview ?? c.phone}</p>
+                        {c.source === 'recencia_automatica' && (
+                          <span className="inline-flex items-center gap-1 mt-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
+                            <RefreshCcw className="w-2.5 h-2.5" /> Enrutada por recencia — revisar
+                          </span>
+                        )}
+                      </div>
+                      {c.unread_count > 0 && (
+                        <span className="flex-shrink-0 bg-emerald-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                          {c.unread_count}
                         </span>
                       )}
-                    </div>
-                    {c.unread_count > 0 && (
-                      <span className="flex-shrink-0 bg-emerald-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                        {c.unread_count}
-                      </span>
-                    )}
-                  </button>
+                    </button>
+                    <button
+                      onClick={e => togglePending(c, e)}
+                      title={c.is_pending ? 'Desmarcar pendiente de gestión' : 'Marcar como pendiente de gestión'}
+                      className={`flex-shrink-0 p-1.5 rounded-lg ${c.is_pending ? 'text-amber-500 hover:text-amber-600' : 'text-slate-300 hover:text-amber-400'}`}
+                    >
+                      <Flag className="w-4 h-4" fill={c.is_pending ? 'currentColor' : 'none'} />
+                    </button>
+                  </div>
                 ))
               )}
             </div>
@@ -397,10 +450,22 @@ export default function WhatsApp() {
                   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white text-sm font-bold">
                     {(selected.contact_name ?? selected.phone).charAt(0).toUpperCase()}
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-800">{selected.contact_name ?? selected.phone}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-slate-800 truncate">{selected.contact_name ?? selected.phone}</p>
                     <p className="text-xs text-slate-400">{selected.phone}</p>
                   </div>
+                  <button
+                    onClick={e => togglePending(selected, e)}
+                    title={selected.is_pending ? 'Desmarcar pendiente de gestión' : 'Marcar como pendiente de gestión'}
+                    className={`flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border ${
+                      selected.is_pending
+                        ? 'text-amber-600 border-amber-200 bg-amber-50 hover:bg-amber-100'
+                        : 'text-slate-400 border-slate-200 hover:bg-slate-50'
+                    }`}
+                  >
+                    <Flag className="w-3.5 h-3.5" fill={selected.is_pending ? 'currentColor' : 'none'} />
+                    {selected.is_pending ? 'Pendiente' : 'Marcar pendiente'}
+                  </button>
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-2 bg-slate-50">

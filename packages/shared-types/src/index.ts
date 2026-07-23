@@ -51,6 +51,10 @@ export interface ConsentTemplate {
   contentJson: Record<string, { title: string; body: string }>;
   legalClausesJson: Record<string, LegalClauses>;
   createdAt: string;
+  // "Más usados" — favorito de la clínica del usuario que pidió la lista
+  // (aislado por clínica, ver clinic_template_favorites), no una propiedad
+  // global de la plantilla.
+  isFavorite?: boolean;
 }
 
 export interface LegalClauses {

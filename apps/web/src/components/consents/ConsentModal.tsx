@@ -57,10 +57,12 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
     const rest = TEMPLATE_CATEGORIES
       .map(cat => [cat, byCategory.get(cat) ?? []] as const)
       .filter(([, items]) => items.length > 0)
-    // "Más usados" (marcados con la estrella en Plantillas) siempre primero,
-    // por encima incluso de su categoría real — así se llega antes al
-    // tratamiento que más se repite en el día a día de la clínica.
-    const favorites = byCategory.get(FAVORITE_CATEGORY) ?? []
+    // "Más usados" (marcados con la estrella en Plantillas, aislado por
+    // clínica — template.isFavorite ya viene filtrado por la clínica de
+    // este usuario) siempre primero, por encima incluso de su categoría
+    // real — así se llega antes al tratamiento que más se repite en el
+    // día a día de la clínica.
+    const favorites = templates.filter(tmpl => tmpl.isFavorite)
     return favorites.length > 0 ? [[FAVORITE_CATEGORY, favorites] as const, ...rest] : rest
   }, [templates])
   const legalData = useConsentWithLegal(

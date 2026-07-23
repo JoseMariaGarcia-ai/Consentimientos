@@ -14,6 +14,7 @@ interface Template {
   extraCategories: string[]
   contentJson: Record<string, { title: string; body: string }>
   legalClausesJson: Record<string, unknown>
+  isFavorite?: boolean
 }
 
 export default function Templates() {
@@ -62,21 +63,21 @@ export default function Templates() {
         byCategory.get(cat)!.push(tmpl)
       }
     }
-    const rest = [...byCategory.entries()].filter(([cat, items]) => cat !== FAVORITE_CATEGORY && items.length > 0)
-    const favorites = byCategory.get(FAVORITE_CATEGORY) ?? []
+    const rest = [...byCategory.entries()].filter(([, items]) => items.length > 0)
+    // "Más usados" es de la clínica de quien mira (template.isFavorite),
+    // no una categoría real de la plantilla.
+    const favorites = filtered.filter(tmpl => tmpl.isFavorite)
     return favorites.length > 0 ? [[FAVORITE_CATEGORY, favorites] as const, ...rest] : rest
   }, [filtered])
 
   const toggleFavorite = async (tmpl: Template) => {
-    const isFavorite = (tmpl.extraCategories ?? []).includes(FAVORITE_CATEGORY)
-    const extraCategories = isFavorite
-      ? (tmpl.extraCategories ?? []).filter(c => c !== FAVORITE_CATEGORY)
-      : [...(tmpl.extraCategories ?? []), FAVORITE_CATEGORY]
-    const updated = { ...tmpl, extraCategories }
+    const nextFavorite = !tmpl.isFavorite
+    const updated = { ...tmpl, isFavorite: nextFavorite }
     setTemplates(ts => ts.map(t => t.id === tmpl.id ? updated : t))
     setSelected(s => s?.id === tmpl.id ? updated : s)
     try {
-      await api.put(`/consents/templates/${tmpl.id}`, updated)
+      if (nextFavorite) await api.post(`/consents/templates/${tmpl.id}/favorite`, {})
+      else await api.delete(`/consents/templates/${tmpl.id}/favorite`)
     } catch {
       // Si falla el guardado, se revierte el marcador optimista.
       setTemplates(ts => ts.map(t => t.id === tmpl.id ? tmpl : t))
@@ -158,7 +159,7 @@ export default function Templates() {
                 </p>
                 {items.map(tmpl => {
                   const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
-                  const isFavorite = (tmpl.extraCategories ?? []).includes(FAVORITE_CATEGORY)
+                  const isFavorite = !!tmpl.isFavorite
                   return (
                     <div
                       key={tmpl.id}

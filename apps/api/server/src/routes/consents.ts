@@ -12,11 +12,25 @@ async function belongsToClinic(table: string, id: string, clinicId: string): Pro
   return !!row
 }
 
-router.get('/templates', async (_req, res) => {
+// "isFavorite" refleja los favoritos ("Más usados") de la clínica de QUIEN
+// pregunta, no de la plantilla en sí (ver clinic_template_favorites en la
+// migración 088) — por eso el LEFT JOIN se ata al clinic_id resuelto del
+// usuario autenticado. Un superadmin no pertenece a ninguna clínica
+// (clinic_id NULL en app_users), así que para él nunca hay favoritos: es
+// el comportamiento correcto, no un caso especial que haya que tratar aparte.
+router.get('/templates', async (req, res) => {
   try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const data = await query(
-      `SELECT id, treatment_type AS "treatmentType", category, extra_categories AS "extraCategories", content_json AS "contentJson", legal_clauses_json AS "legalClausesJson"
-       FROM consent_templates WHERE is_active = true ORDER BY category ASC, treatment_type ASC`
+      `SELECT t.id, t.treatment_type AS "treatmentType", t.category, t.extra_categories AS "extraCategories",
+              t.content_json AS "contentJson", t.legal_clauses_json AS "legalClausesJson",
+              (f.template_id IS NOT NULL) AS "isFavorite"
+       FROM consent_templates t
+       LEFT JOIN clinic_template_favorites f ON f.template_id = t.id AND f.clinic_id = $1
+       WHERE t.is_active = true
+       ORDER BY t.category ASC, t.treatment_type ASC`,
+      [me?.clinic_id ?? null]
     )
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -36,6 +50,33 @@ router.put('/templates/:id', requireSuperAdmin, async (req, res) => {
     )
     if (!data) return res.status(404).json({ error: 'Plantilla no encontrada' })
     return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// "Más usados" — marcar/desmarcar una plantilla como favorita para la
+// clínica del usuario autenticado (cualquier rol de plantilla, no solo
+// superadmin: es una preferencia de uso diario, no una edición del
+// contenido legal compartido).
+router.post('/templates/:id/favorite', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.status(400).json({ error: 'Tu usuario no pertenece a ninguna clínica' })
+    await query(
+      `INSERT INTO clinic_template_favorites (clinic_id, template_id) VALUES ($1, $2) ON CONFLICT DO NOTHING`,
+      [me.clinic_id, req.params.id]
+    )
+    return res.json({ ok: true })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+router.delete('/templates/:id/favorite', async (req, res) => {
+  try {
+    const { userId } = (req as any).user
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.status(400).json({ error: 'Tu usuario no pertenece a ninguna clínica' })
+    await query(`DELETE FROM clinic_template_favorites WHERE clinic_id = $1 AND template_id = $2`, [me.clinic_id, req.params.id])
+    return res.json({ ok: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 

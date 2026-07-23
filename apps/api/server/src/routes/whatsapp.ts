@@ -361,6 +361,26 @@ router.get('/conversations/:id/messages', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
+// POST /api/whatsapp/conversations/:id/pending — { clinicId, pending: boolean }
+// Marca/desmarca la conversación como "pendiente de gestión" (pestaña del
+// panel) — independiente de unread_count: una conversación ya leída puede
+// seguir pendiente de que alguien la resuelva.
+router.post('/conversations/:id/pending', async (req, res) => {
+  try {
+    const { clinicId, isAdminScope, hasAccess } = await getRequesterClinicId(req, req.body.clinicId)
+    if (!hasAccess) return res.status(403).json({ error: 'Sin acceso' })
+    const convo = isAdminScope
+      ? await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id IS NULL', [req.params.id])
+      : await queryOne('SELECT id FROM whatsapp_conversations WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId])
+    if (!convo) return res.status(404).json({ error: 'Conversación no encontrada' })
+    const data = await queryOne(
+      `UPDATE whatsapp_conversations SET is_pending = $1 WHERE id = $2 RETURNING *`,
+      [!!req.body.pending, req.params.id]
+    )
+    return res.json(data)
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
 // POST /api/whatsapp/send — { clinicId, phone, body, contactName? }
 router.post('/send', async (req, res) => {
   try {
