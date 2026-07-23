@@ -66,19 +66,19 @@ export function TreatmentCombobox({ templatesByCategory, value, onChange, placeh
         )}
       </div>
       {open && (
-        <div className="absolute z-30 mt-1 w-full max-h-72 overflow-y-auto bg-white border border-slate-200 rounded-lg shadow-lg">
+        <div className="absolute z-30 mt-1 w-full max-h-[60vh] overflow-y-auto bg-white border border-slate-200 rounded-lg shadow-xl">
           {searching ? (
             filtered.length === 0 ? (
-              <div className="px-3 py-2 text-sm text-slate-400">{t('treatmentCombobox.no_results')}</div>
+              <div className="px-3 py-3 text-sm text-slate-400">{t('treatmentCombobox.no_results')}</div>
             ) : filtered.map(tmpl => (
               <button
                 key={tmpl.id}
                 type="button"
                 onClick={() => { onChange(tmpl.id); setQuery(''); setOpen(false) }}
-                className={`w-full text-left px-3 py-2 text-sm hover:bg-blue-50 ${tmpl.id === value ? 'bg-blue-50 text-blue-700' : 'text-slate-700'}`}
+                className={`w-full text-left px-3 py-3 text-sm leading-snug hover:bg-blue-50 ${tmpl.id === value ? 'bg-blue-50 text-blue-700' : 'text-slate-700'}`}
               >
                 <div className="font-medium">{tmpl.treatmentType}</div>
-                <div className="text-xs text-slate-400">{t(`templates.categories.${tmpl.category}`)}</div>
+                <div className="text-xs text-slate-400 mt-0.5">{t(`templates.categories.${tmpl.category}`)}</div>
               </button>
             ))
           ) : (
@@ -89,7 +89,7 @@ export function TreatmentCombobox({ templatesByCategory, value, onChange, placeh
                   <button
                     type="button"
                     onClick={() => setExpandedCategory(isExpanded ? null : category)}
-                    className="w-full flex items-center justify-between gap-2 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                    className="w-full flex items-center justify-between gap-2 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 sticky top-0 bg-white"
                   >
                     <span>{t(`templates.categories.${category}`)}</span>
                     <span className="flex items-center gap-1.5 text-xs text-slate-400">
@@ -102,7 +102,7 @@ export function TreatmentCombobox({ templatesByCategory, value, onChange, placeh
                       key={tmpl.id}
                       type="button"
                       onClick={() => { onChange(tmpl.id); setQuery(''); setOpen(false) }}
-                      className={`w-full text-left pl-6 pr-3 py-2 text-sm hover:bg-blue-50 ${tmpl.id === value ? 'bg-blue-50 text-blue-700' : 'text-slate-600'}`}
+                      className={`w-full text-left pl-6 pr-3 py-3 text-sm leading-snug hover:bg-blue-50 ${tmpl.id === value ? 'bg-blue-50 text-blue-700' : 'text-slate-600'}`}
                     >
                       {tmpl.treatmentType}
                     </button>
