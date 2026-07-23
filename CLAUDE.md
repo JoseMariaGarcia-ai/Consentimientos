@@ -31,6 +31,34 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 - Nunca hardcodear URLs ni credenciales — siempre usar variables de entorno
 - La variable VITE_API_URL controla si se usa Netlify o Railway
 
+## Notas técnicas aprendidas
+
+### Crear plantillas de WhatsApp (YCloud/Meta) por API — reglas reales (23 julio 2026)
+Aprendidas a base de errores reales creando las 5 plantillas de aviso al paciente
+(`apps/api/server/src/lib/whatsappTemplates.ts`, función `createTemplateViaYCloud`).
+Aplican a cualquier plantilla nueva que se cree por API en el futuro:
+
+1. **Variables POSICIONALES, no nombradas.** `{{1}}, {{2}}...` + `example.body_text`
+   (array de arrays). El formato de variables NOMBRADAS (`{{nombre}}` +
+   `body_text_named_params`) da 400 "component of type BODY is missing expected
+   field(s) (example.body_text)" al CREAR por esta API — aunque sí es el formato que
+   usa `contacto_consentspro` (creada a mano en el panel de YCloud) para ENVIAR.
+2. **Nunca empezar ni terminar el texto justo en una variable.** Tiene que haber una
+   palabra/frase real antes de `{{1}}` y después de la última variable. Un simple
+   `.` pegado a `{{n}}` NO cuenta como texto — sigue dando "Leading or Trailing
+   Params Not Allowed".
+3. **No demasiadas variables para el texto.** Si hay muchas variables para poco texto
+   estático, da "Params Words Ratio Exceeds Limit". Referencia: `consentspro_cita`
+   pasó de 5 variables a 4 (fecha+hora combinadas) para arreglarlo.
+4. **Hace falta `wabaId`** en el body de creación (variable de entorno
+   `YCLOUD_WABA_ID`) — sin él, 403 `WHATSAPP_BUSINESS_ACCOUNT_UNAVAILABLE`.
+5. Al enviar (no crear) una plantilla ya aprobada con `sendWhatsAppTemplate()` de
+   `whatsappSend.ts`, pasar `paramFormat: 'positional'` para las plantillas creadas
+   con esta lógica (`'named'` es el valor por defecto, reservado para
+   `contacto_consentspro`).
+6. Un reintento de una plantilla ya creada da 409 `ALREADY_EXISTS` — no es un fallo,
+   ya se trata como éxito en el código.
+
 ## Al iniciar sesión nueva
 1. Leer este fichero CLAUDE.md
 2. Leer ConsentsPro_ClaudeCode_Netlify_Fase1.pdf
