@@ -6,6 +6,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts'
 import { api } from '@/lib/api'
+import { PROVINCIAS_ES } from '@/constants/provinces'
 
 interface DailyPoint { date: string; welcome_screen: number; patient_screen: number; patient_email: number }
 interface ClinicRow {
@@ -13,8 +14,9 @@ interface ClinicRow {
   welcome_screen: number; patient_screen: number; patient_email: number; total: number
   avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null
 }
+interface ProvinceRow { province: string | null; welcome_screen: number; patient_screen: number; patient_email: number; total: number }
 interface Totals { welcome_screen: number; patient_screen: number; patient_email: number; avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null }
-interface StatsResponse { daily: DailyPoint[]; totals: Totals; byClinic: ClinicRow[]; from: string; to: string }
+interface StatsResponse { daily: DailyPoint[]; totals: Totals; byClinic: ClinicRow[]; byProvince: ProvinceRow[]; from: string; to: string }
 
 type View = 'clinic' | 'patient'
 
@@ -28,6 +30,11 @@ function formatDuration(seconds: number | null, dash: string): string {
   if (seconds === null || seconds === undefined) return dash
   if (seconds < 60) return `${seconds}s`
   return `${Math.floor(seconds / 60)}m ${seconds % 60}s`
+}
+function provinceLabel(province: string | null, labels: string[], unsetLabel: string): string {
+  if (!province) return unsetLabel
+  const i = PROVINCIAS_ES.indexOf(province as typeof PROVINCIAS_ES[number])
+  return i >= 0 ? (labels[i] ?? province) : province
 }
 
 const PIE_COLORS = ['#2563EB', '#059669']
@@ -58,6 +65,9 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
   const dash = '—'
   const chartData = data?.daily ?? []
   const byClinic = data?.byClinic ?? []
+  const byProvince = data?.byProvince ?? []
+  const provinceLabels = t('patients.form.provinces', { returnObjects: true }) as string[]
+  const unsetProvinceLabel = t('mediaStats.province_unset') as string
 
   const topClinicWelcome = useMemo(
     () => [...byClinic].sort((a, b) => b.welcome_screen - a.welcome_screen).find(c => c.welcome_screen > 0) ?? null,
@@ -86,6 +96,21 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
       { name: t('mediaStats.patient_email_series') as string, value: email },
     ]
   }, [data, t])
+
+  const provinceWelcomeBarData = useMemo(
+    () => [...byProvince].sort((a, b) => b.welcome_screen - a.welcome_screen).slice(0, 10)
+      .map(p => ({ name: provinceLabel(p.province, provinceLabels, unsetProvinceLabel), value: p.welcome_screen })),
+    [byProvince, provinceLabels, unsetProvinceLabel]
+  )
+  const provincePatientBarData = useMemo(
+    () => [...byProvince].sort((a, b) => (b.patient_screen + b.patient_email) - (a.patient_screen + a.patient_email)).slice(0, 10)
+      .map(p => ({
+        name: provinceLabel(p.province, provinceLabels, unsetProvinceLabel),
+        [t('mediaStats.patient_screen_series') as string]: p.patient_screen,
+        [t('mediaStats.patient_email_series') as string]: p.patient_email,
+      })),
+    [byProvince, provinceLabels, unsetProvinceLabel, t]
+  )
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col gap-6">
@@ -206,6 +231,23 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
             </div>
           )}
 
+          {provinceWelcomeBarData.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('mediaStats.by_province_chart_title')}</p>
+              <div style={{ width: '100%', height: Math.max(160, provinceWelcomeBarData.length * 34) }}>
+                <ResponsiveContainer>
+                  <BarChart data={provinceWelcomeBarData} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                    <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#94A3B8' }} />
+                    <YAxis type="category" dataKey="name" width={140} tick={{ fontSize: 11, fill: '#475569' }} />
+                    <Tooltip />
+                    <Bar dataKey="value" name={t('mediaStats.welcome_series')} fill="#F472B6" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
+
           <ClinicTable
             rows={byClinic}
             columns={['welcome_screen', 'avg_welcome']}
@@ -308,6 +350,25 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
                     <Legend wrapperStyle={{ fontSize: 12 }} />
                     <Bar dataKey={t('mediaStats.patient_screen_series') as string} stackId="patient" fill="#2563EB" radius={[0, 0, 0, 0]} />
                     <Bar dataKey={t('mediaStats.patient_email_series') as string} stackId="patient" fill="#059669" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
+
+          {provincePatientBarData.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('mediaStats.by_province_chart_title')}</p>
+              <div style={{ width: '100%', height: Math.max(160, provincePatientBarData.length * 34) }}>
+                <ResponsiveContainer>
+                  <BarChart data={provincePatientBarData} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                    <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#94A3B8' }} />
+                    <YAxis type="category" dataKey="name" width={140} tick={{ fontSize: 11, fill: '#475569' }} />
+                    <Tooltip />
+                    <Legend wrapperStyle={{ fontSize: 12 }} />
+                    <Bar dataKey={t('mediaStats.patient_screen_series') as string} stackId="patient_province" fill="#2563EB" radius={[0, 0, 0, 0]} />
+                    <Bar dataKey={t('mediaStats.patient_email_series') as string} stackId="patient_province" fill="#059669" radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

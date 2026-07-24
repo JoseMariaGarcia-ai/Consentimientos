@@ -28,7 +28,9 @@
     "view_patient": "Paciente",
     "top_clinic": "Clínica com mais visualizações",
     "by_clinic_chart_title": "Por clínica",
-    "channel_split_title": "Ecrã vs. email"
+    "channel_split_title": "Ecrã vs. email",
+    "by_province_chart_title": "Por província",
+    "province_unset": "Não especificado"
   },
   "toxinModal": {
     "title_edit": "Editar registo de toxina",

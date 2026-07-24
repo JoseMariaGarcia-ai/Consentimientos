@@ -28,7 +28,9 @@
     "view_patient": "מטופל",
     "top_clinic": "המרפאה עם הכי הרבה צפיות",
     "by_clinic_chart_title": "לפי מרפאה",
-    "channel_split_title": "מסך מול אימייל"
+    "channel_split_title": "מסך מול אימייל",
+    "by_province_chart_title": "לפי פרובינציה",
+    "province_unset": "לא צוין"
   },
   "toxinModal": {
     "title_edit": "עריכת רישום טוקסין",

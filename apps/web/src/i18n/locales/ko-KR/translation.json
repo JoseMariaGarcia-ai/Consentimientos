@@ -28,7 +28,9 @@
     "view_patient": "환자",
     "top_clinic": "가장 많이 조회된 클리닉",
     "by_clinic_chart_title": "클리닉별",
-    "channel_split_title": "화면 vs 이메일"
+    "channel_split_title": "화면 vs 이메일",
+    "by_province_chart_title": "지역별",
+    "province_unset": "미지정"
   },
   "toxinModal": {
     "title_edit": "톡신 기록 수정",

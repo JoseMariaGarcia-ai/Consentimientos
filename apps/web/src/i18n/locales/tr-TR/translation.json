@@ -28,7 +28,9 @@
     "view_patient": "Hasta",
     "top_clinic": "En çok görüntülenen klinik",
     "by_clinic_chart_title": "Kliniğe göre",
-    "channel_split_title": "Ekran vs. e-posta"
+    "channel_split_title": "Ekran vs. e-posta",
+    "by_province_chart_title": "İle göre",
+    "province_unset": "Belirtilmemiş"
   },
   "toxinModal": {
     "title_edit": "Toksin kaydını düzenle",

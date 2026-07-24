@@ -28,7 +28,9 @@
     "view_patient": "Patiënt",
     "top_clinic": "Kliniek met de meeste weergaven",
     "by_clinic_chart_title": "Per kliniek",
-    "channel_split_title": "Scherm vs. e-mail"
+    "channel_split_title": "Scherm vs. e-mail",
+    "by_province_chart_title": "Per provincie",
+    "province_unset": "Niet opgegeven"
   },
   "toxinModal": {
     "title_edit": "Toxine-registratie bewerken",

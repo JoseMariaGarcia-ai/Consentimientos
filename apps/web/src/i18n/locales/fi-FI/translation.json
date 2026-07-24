@@ -28,7 +28,9 @@
     "view_patient": "Potilas",
     "top_clinic": "Eniten katselukertoja saanut klinikka",
     "by_clinic_chart_title": "Klinikoittain",
-    "channel_split_title": "Näyttö vs. sähköposti"
+    "channel_split_title": "Näyttö vs. sähköposti",
+    "by_province_chart_title": "Provinsseittain",
+    "province_unset": "Ei määritetty"
   },
   "toxinModal": {
     "title_edit": "Muokkaa toksiinimerkintää",

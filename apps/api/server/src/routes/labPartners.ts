@@ -195,20 +195,20 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
       if (r.media_type === 'patient') avgViewSecondsPatient = avg
     }
 
-    const clinicRows = await query<{ clinic_id: string; clinic_name: string; media_type: string; channel: string; count: string }>(
-      `SELECT c.id AS clinic_id, COALESCE(c.trade_name, c.name) AS clinic_name, mi.media_type, mi.channel, COUNT(*) AS count
+    const clinicRows = await query<{ clinic_id: string; clinic_name: string; province: string | null; media_type: string; channel: string; count: string }>(
+      `SELECT c.id AS clinic_id, COALESCE(c.trade_name, c.name) AS clinic_name, c.province, mi.media_type, mi.channel, COUNT(*) AS count
        FROM media_impressions mi
        JOIN clinics c ON c.id = mi.clinic_id
        WHERE mi.lab_partner_id = $1 AND mi.media_type IN ('welcome','patient') AND mi.shown_at >= $2 AND mi.shown_at < $3
-       GROUP BY c.id, clinic_name, mi.media_type, mi.channel
+       GROUP BY c.id, clinic_name, c.province, mi.media_type, mi.channel
        ORDER BY clinic_name`,
       params
     )
-    const byClinicMap = new Map<string, { clinic_id: string; clinic_name: string; welcome_screen: number; patient_screen: number; patient_email: number; total: number; avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null }>()
+    const byClinicMap = new Map<string, { clinic_id: string; clinic_name: string; province: string | null; welcome_screen: number; patient_screen: number; patient_email: number; total: number; avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null }>()
     for (const r of clinicRows) {
       const key = seriesKey(r.media_type, r.channel)
       if (!key) continue
-      const entry = byClinicMap.get(r.clinic_id) ?? { clinic_id: r.clinic_id, clinic_name: r.clinic_name, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0, avg_view_seconds_welcome: null, avg_view_seconds_patient: null }
+      const entry = byClinicMap.get(r.clinic_id) ?? { clinic_id: r.clinic_id, clinic_name: r.clinic_name, province: r.province, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0, avg_view_seconds_welcome: null, avg_view_seconds_patient: null }
       const count = parseInt(r.count, 10)
       entry[key] = count
       entry.total += count
@@ -233,10 +233,26 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
 
     const byClinic = [...byClinicMap.values()].sort((a, b) => b.total - a.total)
 
+    // Provincia se deriva del desglose por clínica ya calculado (cada clínica
+    // solo tiene una provincia) en vez de otra consulta — las clínicas sin
+    // provincia configurada en Clínica > Configuración se agrupan aparte.
+    const byProvinceMap = new Map<string, { province: string | null; welcome_screen: number; patient_screen: number; patient_email: number; total: number }>()
+    for (const c of byClinic) {
+      const key = c.province ?? '__unset__'
+      const entry = byProvinceMap.get(key) ?? { province: c.province, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0 }
+      entry.welcome_screen += c.welcome_screen
+      entry.patient_screen += c.patient_screen
+      entry.patient_email += c.patient_email
+      entry.total += c.total
+      byProvinceMap.set(key, entry)
+    }
+    const byProvince = [...byProvinceMap.values()].sort((a, b) => b.total - a.total)
+
     return res.json({
       daily,
       totals: { ...totals, avg_view_seconds_welcome: avgViewSecondsWelcome, avg_view_seconds_patient: avgViewSecondsPatient },
       byClinic,
+      byProvince,
       from: fromDate.toISOString().slice(0, 10),
       to: toDate.toISOString().slice(0, 10),
     })

@@ -28,7 +28,9 @@
     "view_patient": "Pacient",
     "top_clinic": "Clinica cu cele mai multe vizualizări",
     "by_clinic_chart_title": "Pe clinică",
-    "channel_split_title": "Ecran vs. email"
+    "channel_split_title": "Ecran vs. email",
+    "by_province_chart_title": "Pe provincie",
+    "province_unset": "Nespecificat"
   },
   "toxinModal": {
     "title_edit": "Editare înregistrare toxină",

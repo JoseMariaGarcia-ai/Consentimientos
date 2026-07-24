@@ -28,7 +28,9 @@
     "view_patient": "Ασθενής",
     "top_clinic": "Κλινική με τις περισσότερες προβολές",
     "by_clinic_chart_title": "Ανά κλινική",
-    "channel_split_title": "Οθόνη vs. email"
+    "channel_split_title": "Οθόνη vs. email",
+    "by_province_chart_title": "Ανά επαρχία",
+    "province_unset": "Δεν έχει οριστεί"
   },
   "toxinModal": {
     "title_edit": "Επεξεργασία καταγραφής τοξίνης",

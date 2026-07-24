@@ -28,7 +28,9 @@
     "view_patient": "मरीज़",
     "top_clinic": "सबसे ज़्यादा दृश्यों वाला क्लिनिक",
     "by_clinic_chart_title": "क्लिनिक के अनुसार",
-    "channel_split_title": "स्क्रीन बनाम ईमेल"
+    "channel_split_title": "स्क्रीन बनाम ईमेल",
+    "by_province_chart_title": "प्रांत के अनुसार",
+    "province_unset": "अनिर्दिष्ट"
   },
   "toxinModal": {
     "title_edit": "टॉक्सिन रिकॉर्ड संपादित करें",

@@ -28,7 +28,9 @@
     "view_patient": "Pasient",
     "top_clinic": "Klinikk med flest visninger",
     "by_clinic_chart_title": "Per klinikk",
-    "channel_split_title": "Skjerm vs. e-post"
+    "channel_split_title": "Skjerm vs. e-post",
+    "by_province_chart_title": "Per provins",
+    "province_unset": "Ikke angitt"
   },
   "toxinModal": {
     "title_edit": "Rediger toksinregistrering",

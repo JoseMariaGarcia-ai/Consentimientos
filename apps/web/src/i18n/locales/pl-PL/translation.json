@@ -28,7 +28,9 @@
     "view_patient": "Pacjent",
     "top_clinic": "Klinika z największą liczbą wyświetleń",
     "by_clinic_chart_title": "Wg kliniki",
-    "channel_split_title": "Ekran vs. e-mail"
+    "channel_split_title": "Ekran vs. e-mail",
+    "by_province_chart_title": "Wg prowincji",
+    "province_unset": "Nieokreślone"
   },
   "toxinModal": {
     "title_edit": "Edytuj wpis toksyny",

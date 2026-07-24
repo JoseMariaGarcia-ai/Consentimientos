@@ -28,7 +28,9 @@
     "view_patient": "Пацієнт",
     "top_clinic": "Клініка з найбільшою кількістю переглядів",
     "by_clinic_chart_title": "За клініками",
-    "channel_split_title": "Екран vs. email"
+    "channel_split_title": "Екран vs. email",
+    "by_province_chart_title": "За провінціями",
+    "province_unset": "Не вказано"
   },
   "toxinModal": {
     "title_edit": "Редагувати запис про токсин",

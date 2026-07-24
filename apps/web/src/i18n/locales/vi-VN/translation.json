@@ -28,7 +28,9 @@
     "view_patient": "Bệnh nhân",
     "top_clinic": "Phòng khám có nhiều lượt xem nhất",
     "by_clinic_chart_title": "Theo phòng khám",
-    "channel_split_title": "Màn hình vs email"
+    "channel_split_title": "Màn hình vs email",
+    "by_province_chart_title": "Theo tỉnh",
+    "province_unset": "Chưa xác định"
   },
   "toxinModal": {
     "title_edit": "Chỉnh sửa bản ghi độc tố",

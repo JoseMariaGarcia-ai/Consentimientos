@@ -28,7 +28,9 @@
     "view_patient": "患者",
     "top_clinic": "最も表示回数が多いクリニック",
     "by_clinic_chart_title": "クリニック別",
-    "channel_split_title": "画面 vs メール"
+    "channel_split_title": "画面 vs メール",
+    "by_province_chart_title": "県別",
+    "province_unset": "未指定"
   },
   "toxinModal": {
     "title_edit": "トキシン記録を編集",

@@ -28,7 +28,9 @@
     "view_patient": "Beteg",
     "top_clinic": "Legtöbb megtekintéssel rendelkező klinika",
     "by_clinic_chart_title": "Klinikánként",
-    "channel_split_title": "Képernyő vs. e-mail"
+    "channel_split_title": "Képernyő vs. e-mail",
+    "by_province_chart_title": "Tartományonként",
+    "province_unset": "Nincs megadva"
   },
   "toxinModal": {
     "title_edit": "Toxinbejegyzés szerkesztése",

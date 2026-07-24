@@ -28,7 +28,9 @@
     "view_patient": "患者",
     "top_clinic": "浏览量最高的诊所",
     "by_clinic_chart_title": "按诊所",
-    "channel_split_title": "屏幕 vs 邮件"
+    "channel_split_title": "屏幕 vs 邮件",
+    "by_province_chart_title": "按省份",
+    "province_unset": "未指定"
   },
   "toxinModal": {
     "title_edit": "编辑毒素注射记录",

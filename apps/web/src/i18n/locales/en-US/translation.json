@@ -28,7 +28,9 @@
     "view_patient": "Patient",
     "top_clinic": "Top clinic by views",
     "by_clinic_chart_title": "By clinic",
-    "channel_split_title": "Screen vs. email"
+    "channel_split_title": "Screen vs. email",
+    "by_province_chart_title": "By province",
+    "province_unset": "Unspecified"
   },
   "toxinModal": {
     "title_edit": "Edit toxin record",
