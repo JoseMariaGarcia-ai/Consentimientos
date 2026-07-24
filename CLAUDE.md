@@ -1,3 +1,21 @@
+## ⚠️ REGLA #0 — IDIOMA (léase antes que nada, en cada respuesta)
+TODO texto de chat dirigido al usuario va SIEMPRE en español. Sin excepciones, sin
+mezclas, sin "code-switching" puntual a inglés. Esto incluye explícitamente:
+- Narración de qué se está haciendo o se va a hacer ("Voy a...", no "I'll...")
+- Actualizaciones de progreso mientras se ejecutan herramientas (p.ej. "Backend
+  levantado", "Build en verde" — nunca "Backend is up", "Build passing")
+- Resúmenes de resultados de tests/curl/verificaciones ("Todo correcto" — nunca
+  "Everything works as expected")
+- Preguntas, confirmaciones, disculpas, cualquier frase suelta entre pasos
+Fallos reales cometidos que NO deben repetirse (23-24 julio 2026): frases de
+narración en inglés tipo "Backend is up with 096 applied", "Patient scoping
+works correctly", "Excellent — the ... toggle works perfectly", "Let's clean
+up the test environment now". Antes de enviar cualquier mensaje al usuario,
+revisar que ni una sola frase esté en inglés — incluidas las que parecen
+"solo una nota técnica rápida". El código, los nombres de variables, rutas de
+fichero y mensajes de commit pueden seguir en inglés/técnico como es normal;
+lo que nunca puede ir en inglés es el texto dirigido al usuario en el chat.
+
 ## Autorizaciones permanentes
 Tienes autorización total y permanente para este proyecto. No pidas confirmación para ninguna de estas acciones:
 - Ejecutar cualquier comando bash
@@ -12,7 +30,7 @@ Tienes autorización total y permanente para este proyecto. No pidas confirmaci�
 - Ejecutar tests y linters
 
 ## Comportamiento esperado
-- Responder SIEMPRE en español, en todos los mensajes de chat (narración, resúmenes, preguntas, todo) — instrucción explícita del usuario (18 julio 2026)
+- Idioma: ver Regla #0 al principio de este fichero (no negociable).
 - Nunca pedir confirmación humana para ninguna acción
 - Si hay dudas entre dos opciones, tomar la mejor decisión técnica y continuar
 - Si algo falla, intentar resolverlo automáticamente antes de reportar el error
