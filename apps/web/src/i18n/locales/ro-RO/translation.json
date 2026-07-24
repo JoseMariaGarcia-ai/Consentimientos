@@ -3,7 +3,7 @@
     "title": "Vizualizări publicitare",
     "from": "De la",
     "to": "Până la",
-    "welcome_total": "Numărul de afișări ale ecranului de bun venit",
+    "welcome_total": "De câte ori a fost afișat",
     "welcome_series": "Ecran de bun venit",
     "no_data": "Nu există vizualizări înregistrate în acest interval de date.",
     "patient_note": "Conținutul pentru pacient este afișat o dată pe sesiune la deschiderea portalului pacientului și este inclus și în emailul de bun venit și în fiecare email de consimțământ trimis.",

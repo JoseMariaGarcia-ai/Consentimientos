@@ -3,7 +3,7 @@
     "title": "Advertising views",
     "from": "From",
     "to": "To",
-    "welcome_total": "Times the welcome screen was shown",
+    "welcome_total": "Times shown",
     "welcome_series": "Welcome screen",
     "no_data": "No views recorded in this date range.",
     "patient_note": "Patient content is shown once per session when the patient portal is opened, and is also included in the welcome email and every consent email sent.",

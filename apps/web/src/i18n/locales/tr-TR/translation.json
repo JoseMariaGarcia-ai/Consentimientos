@@ -3,7 +3,7 @@
     "title": "Reklam görüntülenmeleri",
     "from": "Başlangıç",
     "to": "Bitiş",
-    "welcome_total": "Karşılama ekranının gösterilme sayısı",
+    "welcome_total": "Gösterilme sayısı",
     "welcome_series": "Karşılama ekranı",
     "no_data": "Bu tarih aralığında kayıtlı görüntülenme yok.",
     "patient_note": "Hasta içeriği, hasta portalı açıldığında oturum başına bir kez gösterilir ve ayrıca karşılama e-postasında ve gönderilen her onam e-postasında yer alır.",

@@ -3,7 +3,7 @@
     "title": "Visualizaciones de publicidad",
     "from": "Desde",
     "to": "Hasta",
-    "welcome_total": "Veces mostrada la pantalla de bienvenida",
+    "welcome_total": "Veces mostrado",
     "welcome_series": "Pantalla de bienvenida",
     "no_data": "Sin visualizaciones registradas en este rango de fechas.",
     "patient_note": "El contenido para paciente se muestra una vez por sesión al abrir el portal del paciente, y también se incluye en el email de bienvenida y en cada email de consentimiento enviado.",

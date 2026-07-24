@@ -3,7 +3,7 @@
     "title": "Visualitzacions de publicitat",
     "from": "Des de",
     "to": "Fins a",
-    "welcome_total": "Vegades que s'ha mostrat la pantalla de benvinguda",
+    "welcome_total": "Vegades mostrat",
     "welcome_series": "Pantalla de benvinguda",
     "no_data": "No hi ha visualitzacions registrades en aquest interval de dates.",
     "patient_note": "El contingut per al pacient es mostra una vegada per sessió en obrir el portal del pacient, i també s'inclou a l'email de benvinguda i a cada email de consentiment enviat.",

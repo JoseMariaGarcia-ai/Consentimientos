@@ -3,7 +3,7 @@
     "title": "Visualisations publicitaires",
     "from": "Du",
     "to": "Au",
-    "welcome_total": "Nombre d'affichages de l'écran de bienvenue",
+    "welcome_total": "Nombre d'affichages",
     "welcome_series": "Écran de bienvenue",
     "no_data": "Aucune visualisation enregistrée sur cette période.",
     "patient_note": "Le contenu patient s'affiche une fois par session à l'ouverture du portail patient, et est aussi inclus dans l'email de bienvenue et dans chaque email de consentement envoyé.",

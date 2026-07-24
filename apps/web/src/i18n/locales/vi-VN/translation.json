@@ -3,7 +3,7 @@
     "title": "Lượt xem quảng cáo",
     "from": "Từ",
     "to": "Đến",
-    "welcome_total": "Số lần màn hình chào mừng được hiển thị",
+    "welcome_total": "Số lần hiển thị",
     "welcome_series": "Màn hình chào mừng",
     "no_data": "Không có lượt xem nào được ghi nhận trong khoảng thời gian này.",
     "patient_note": "Nội dung bệnh nhân được hiển thị một lần mỗi phiên khi mở cổng bệnh nhân, và cũng được đưa vào email chào mừng và mỗi email đồng ý được gửi.",

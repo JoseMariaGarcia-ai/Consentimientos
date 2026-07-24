@@ -3,7 +3,7 @@
     "title": "Visualizzazioni pubblicitarie",
     "from": "Dal",
     "to": "Al",
-    "welcome_total": "Numero di visualizzazioni della schermata di benvenuto",
+    "welcome_total": "Volte mostrato",
     "welcome_series": "Schermata di benvenuto",
     "no_data": "Nessuna visualizzazione registrata in questo intervallo di date.",
     "patient_note": "Il contenuto per il paziente viene mostrato una volta per sessione all'apertura del portale paziente, ed è incluso anche nell'email di benvenuto e in ogni email di consenso inviata.",

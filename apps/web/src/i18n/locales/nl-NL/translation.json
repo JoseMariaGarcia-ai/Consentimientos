@@ -3,7 +3,7 @@
     "title": "Advertentieweergaven",
     "from": "Van",
     "to": "Tot",
-    "welcome_total": "Aantal keer dat het welkomstscherm is getoond",
+    "welcome_total": "Aantal keer getoond",
     "welcome_series": "Welkomstscherm",
     "no_data": "Geen weergaven geregistreerd in deze periode.",
     "patient_note": "Patiëntcontent wordt één keer per sessie getoond bij het openen van het patiëntenportaal, en wordt ook opgenomen in de welkomst-e-mail en in elke verzonden toestemmings-e-mail.",

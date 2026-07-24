@@ -3,7 +3,7 @@
     "title": "Visualizações de publicidade",
     "from": "De",
     "to": "Até",
-    "welcome_total": "Vezes que a tela de boas-vindas foi exibida",
+    "welcome_total": "Vezes exibido",
     "welcome_series": "Tela de boas-vindas",
     "no_data": "Nenhuma visualização registrada nesse período.",
     "patient_note": "O conteúdo para paciente é exibido uma vez por sessão ao abrir o portal do paciente, e também é incluído no email de boas-vindas e em cada email de consentimento enviado.",

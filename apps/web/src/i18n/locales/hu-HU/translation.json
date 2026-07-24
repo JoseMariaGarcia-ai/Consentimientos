@@ -3,7 +3,7 @@
     "title": "Hirdetésmegtekintések",
     "from": "Ettől",
     "to": "Eddig",
-    "welcome_total": "Az üdvözlőképernyő megjelenítéseinek száma",
+    "welcome_total": "Megjelenítések száma",
     "welcome_series": "Üdvözlőképernyő",
     "no_data": "Ebben az időszakban nincs rögzített megtekintés.",
     "patient_note": "A beteg tartalom munkamenetenként egyszer jelenik meg a betegportál megnyitásakor, és szerepel az üdvözlő e-mailben, valamint minden elküldött beleegyezési e-mailben is.",

@@ -3,7 +3,7 @@
     "title": "Annonsevisninger",
     "from": "Fra",
     "to": "Til",
-    "welcome_total": "Antall ganger velkomstskjermen er vist",
+    "welcome_total": "Antall ganger vist",
     "welcome_series": "Velkomstskjerm",
     "no_data": "Ingen visninger registrert i denne datoperioden.",
     "patient_note": "Pasientinnholdet vises én gang per økt når pasientportalen åpnes, og inngår også i velkomst-e-posten og i hver sendte samtykke-e-post.",

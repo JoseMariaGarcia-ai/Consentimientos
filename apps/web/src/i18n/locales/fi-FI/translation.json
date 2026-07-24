@@ -3,7 +3,7 @@
     "title": "Mainosnäytöt",
     "from": "Alkaen",
     "to": "Päättyen",
-    "welcome_total": "Tervetuloa-näytön näyttökertojen määrä",
+    "welcome_total": "Näyttökertoja",
     "welcome_series": "Tervetuloa-näyttö",
     "no_data": "Ei rekisteröityjä näyttökertoja tällä aikavälillä.",
     "patient_note": "Potilassisältö näytetään kerran istuntoa kohden potilasportaalia avattaessa, ja se sisältyy myös tervetuloviestiin ja jokaiseen lähetettyyn suostumussähköpostiin.",

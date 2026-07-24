@@ -3,7 +3,7 @@
     "title": "Werbeanzeigen",
     "from": "Von",
     "to": "Bis",
-    "welcome_total": "Anzahl der Anzeigen des Willkommensbildschirms",
+    "welcome_total": "Anzahl der Anzeigen",
     "welcome_series": "Willkommensbildschirm",
     "no_data": "Keine Aufrufe im gewählten Zeitraum erfasst.",
     "patient_note": "Der Patienteninhalt wird einmal pro Sitzung beim Öffnen des Patientenportals angezeigt und ist außerdem in der Willkommens-E-Mail und in jeder gesendeten Einwilligungs-E-Mail enthalten.",
