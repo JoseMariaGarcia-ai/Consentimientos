@@ -96,6 +96,8 @@ router.get('/clinical-records', async (req, res) => {
       `SELECT cr.id, cr.date, cr.reason_for_visit, cr.diagnosis, cr.treatment_plan,
               cr.anamnesis, cr.current_medications, cr.allergies, cr.physical_exam,
               cr.notes, cr.updated_at,
+              cr.is_pregnant, cr.tobacco_use, cr.alcohol_use, cr.drug_use,
+              cr.tobacco_quantity, cr.alcohol_quantity, cr.drug_quantity,
               d.name AS doctor_name
        FROM clinical_records cr
        LEFT JOIN doctors d ON d.id = cr.doctor_id

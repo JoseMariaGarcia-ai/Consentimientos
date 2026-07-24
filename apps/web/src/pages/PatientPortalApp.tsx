@@ -227,6 +227,24 @@ function ConsentsTab({ consents, isPreview }: { consents: any[]; isPreview: bool
   )
 }
 
+// Embarazo/tabaquismo/alcohol/drogas: solo se muestran los que constan
+// (true/false explícito) — un registro sin preguntar/marcar queda en null.
+function clinicalHabits(r: any, t: (key: string) => string) {
+  return ([
+    ['is_pregnant', t('clinicalRecordForm.is_pregnant'), null],
+    ['tobacco_use', t('clinicalRecordForm.tobacco_use'), 'tobacco_quantity'],
+    ['alcohol_use', t('clinicalRecordForm.alcohol_use'), 'alcohol_quantity'],
+    ['drug_use', t('clinicalRecordForm.drug_use'), 'drug_quantity'],
+  ] as const)
+    .filter(([key]) => r[key] === true || r[key] === false)
+    .map(([key, label, quantityKey]) => {
+      const value = r[key] === true
+        ? (quantityKey && r[quantityKey] ? `${t('clinicalRecordForm.tri_state.yes')} (${r[quantityKey]})` : t('clinicalRecordForm.tri_state.yes'))
+        : t('clinicalRecordForm.tri_state.no')
+      return { label, value, alert: r[key] === true }
+    })
+}
+
 /* ─── Clinical Tab ─── */
 function ClinicalTab({ records }: { records: any[] }) {
   const { t } = useTranslation()
@@ -253,11 +271,24 @@ function ClinicalTab({ records }: { records: any[] }) {
             </button>
             {isOpen && (
               <div className="px-4 pb-4 border-t border-slate-100 pt-3 flex flex-col gap-3">
+                {clinicalHabits(r, t).length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {clinicalHabits(r, t).map(h => (
+                      <span
+                        key={h.label}
+                        className={`text-xs font-medium px-2 py-1 rounded-full ${h.alert ? 'bg-amber-50 text-amber-700' : 'bg-slate-100 text-slate-500'}`}
+                      >
+                        {h.label}: {h.value}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {[
-                  { label: t('patientPortalApp.clinical.fields.diagnosis'),          value: r.diagnosis },
                   { label: t('patientPortalApp.clinical.fields.anamnesis'),             value: r.anamnesis },
-                  { label: t('patientPortalApp.clinical.fields.current_medications'),     value: r.current_medications },
                   { label: t('patientPortalApp.clinical.fields.allergies'),              value: r.allergies },
+                  { label: t('patientPortalApp.clinical.fields.current_medications'),     value: r.current_medications },
+                  { label: t('clinicalRecordForm.physical_exam'),                        value: r.physical_exam },
+                  { label: t('patientPortalApp.clinical.fields.diagnosis'),          value: r.diagnosis },
                   { label: t('patientPortalApp.clinical.fields.treatment_plan'),   value: r.treatment_plan },
                   { label: t('patientPortalApp.clinical.fields.notes'),         value: r.notes },
                 ].filter(f => f.value).map(f => (

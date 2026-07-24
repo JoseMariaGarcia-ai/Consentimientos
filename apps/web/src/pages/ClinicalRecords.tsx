@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Search, FilePlus, Pencil, Trash2, Stethoscope } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ClinicalRecordForm } from '@/components/clinical/ClinicalRecordForm'
+import { ClinicalRecordViewModal } from '@/components/clinical/ClinicalRecordViewModal'
 import type { Doctor } from '@consentspro/shared-types'
 
 export default function ClinicalRecords() {
@@ -14,6 +15,7 @@ export default function ClinicalRecords() {
   const [search, setSearch] = useState('')
   const [formOpen, setFormOpen] = useState(false)
   const [editing, setEditing] = useState<any>(null)
+  const [viewing, setViewing] = useState<any>(null)
 
   const load = async () => {
     setLoading(true)
@@ -118,7 +120,7 @@ export default function ClinicalRecords() {
                   const p = r.patient
                   const patientName = p ? (p.first_name && p.last_name ? `${p.first_name} ${p.last_name}` : p.full_name ?? '—') : '—'
                   return (
-                    <tr key={r.id} className="hover:bg-slate-50 transition-colors">
+                    <tr key={r.id} onClick={() => setViewing(r)} className="hover:bg-slate-50 transition-colors cursor-pointer">
                       <td className="px-4 py-3 font-medium text-slate-800">{patientName}</td>
                       <td className="px-4 py-3 text-slate-500 text-xs whitespace-nowrap">
                         {r.date ? new Date(r.date).toLocaleDateString('es-ES') : '—'}
@@ -127,7 +129,7 @@ export default function ClinicalRecords() {
                       <td className="px-4 py-3 text-slate-600 max-w-xs truncate">{r.diagnosis ?? '—'}</td>
                       <td className="px-4 py-3 text-slate-500 text-xs">{r.doctor?.name ?? '—'}</td>
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-1 justify-end">
+                        <div className="flex items-center gap-1 justify-end" onClick={e => e.stopPropagation()}>
                           <button onClick={() => openEdit(r)} className="p-1.5 text-slate-400 hover:text-teal-600 rounded-lg hover:bg-teal-50">
                             <Pencil className="w-4 h-4" />
                           </button>
@@ -144,6 +146,14 @@ export default function ClinicalRecords() {
           </div>
         )}
       </div>
+
+      {viewing && !formOpen && (
+        <ClinicalRecordViewModal
+          record={viewing}
+          onEdit={() => { setEditing(viewing); setViewing(null); setFormOpen(true) }}
+          onClose={() => setViewing(null)}
+        />
+      )}
 
       {formOpen && (
         <ClinicalRecordForm
