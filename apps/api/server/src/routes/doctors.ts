@@ -148,27 +148,27 @@ router.get('/:id/permissions', requireClinicaAdmin, async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const doctor = await queryOne<{ id: string; app_user_id: string | null; can_view_all_agendas: boolean }>(
-      'SELECT id, app_user_id, can_view_all_agendas FROM doctors WHERE id = $1 AND clinic_id = $2',
+    const doctor = await queryOne<{ id: string; app_user_id: string | null; can_view_all_agendas: boolean; can_view_all_patients: boolean }>(
+      'SELECT id, app_user_id, can_view_all_agendas, can_view_all_patients FROM doctors WHERE id = $1 AND clinic_id = $2',
       [req.params.id, clinicRow?.clinic_id]
     )
     if (!doctor) return res.status(404).json({ error: 'Doctor no encontrado' })
     if (!doctor.app_user_id) {
-      return res.json({ hasAccount: false, permissions: {}, canViewAllAgendas: doctor.can_view_all_agendas })
+      return res.json({ hasAccount: false, permissions: {}, canViewAllAgendas: doctor.can_view_all_agendas, canViewAllPatients: doctor.can_view_all_patients })
     }
     const rows = await query<{ module: string; can_access: boolean }>(
       'SELECT module, can_access FROM user_permissions WHERE user_id = $1', [doctor.app_user_id]
     )
     const permissions = Object.fromEntries(ALL_MODULES.map(m => [m, false]))
     for (const r of rows) permissions[r.module] = r.can_access
-    return res.json({ hasAccount: true, permissions, canViewAllAgendas: doctor.can_view_all_agendas })
+    return res.json({ hasAccount: true, permissions, canViewAllAgendas: doctor.can_view_all_agendas, canViewAllPatients: doctor.can_view_all_patients })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// PUT /doctors/:id/permissions — { permissions: Record<string,boolean>, canViewAllAgendas: boolean }
+// PUT /doctors/:id/permissions — { permissions: Record<string,boolean>, canViewAllAgendas: boolean, canViewAllPatients: boolean }
 router.put('/:id/permissions', requireClinicaAdmin, async (req, res) => {
   const { userId } = (req as any).user
-  const { permissions, canViewAllAgendas } = req.body
+  const { permissions, canViewAllAgendas, canViewAllPatients } = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const doctor = await queryOne<{ id: string; app_user_id: string | null }>(
@@ -180,6 +180,9 @@ router.put('/:id/permissions', requireClinicaAdmin, async (req, res) => {
     }
     if (typeof canViewAllAgendas === 'boolean') {
       await query('UPDATE doctors SET can_view_all_agendas = $1 WHERE id = $2', [canViewAllAgendas, doctor.id])
+    }
+    if (typeof canViewAllPatients === 'boolean') {
+      await query('UPDATE doctors SET can_view_all_patients = $1 WHERE id = $2', [canViewAllPatients, doctor.id])
     }
     return res.json({ updated: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
