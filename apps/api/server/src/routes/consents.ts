@@ -3,6 +3,7 @@ import crypto from 'crypto'
 import { query, queryOne } from '../lib/db'
 import { requireSuperAdmin } from '../middleware/auth'
 import { notifyConsentRevoked } from '../lib/consentRevocationEmail'
+import { resolvePatientDoctorScope, ownPatientIdsSubquery } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -86,6 +87,8 @@ router.get('/', async (req, res) => {
   const { userId } = (req as any).user
   const { patient_id, type, status } = req.query
   try {
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.json([])
     let sql = `
       SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
       FROM consent_records cr
@@ -95,6 +98,7 @@ router.get('/', async (req, res) => {
       WHERE p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
     `
     const params: any[] = [userId]
+    if (scope)      { params.push(scope);      sql += ` AND cr.patient_id IN ${ownPatientIdsSubquery(params.length)}` }
     if (patient_id) { params.push(patient_id); sql += ` AND cr.patient_id = $${params.length}` }
     if (status)     { params.push(status);     sql += ` AND cr.status = $${params.length}` }
     if (type === 'toxina') { sql += ` AND (t.treatment_type ILIKE '%toxina%' OR t.treatment_type ILIKE '%botul%')` }
@@ -108,15 +112,17 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
-    const data = await queryOne(
-      `SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    let sql = `SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS template
        FROM consent_records cr
        JOIN patients p ON p.id = cr.patient_id
        LEFT JOIN doctors d ON d.id = cr.doctor_id
        LEFT JOIN consent_templates t ON t.id = cr.template_id
-       WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
-      [req.params.id, userId]
-    )
+       WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`
+    const params: any[] = [req.params.id, userId]
+    if (scope) { params.push(scope); sql += ` AND cr.patient_id IN ${ownPatientIdsSubquery(params.length)}` }
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -129,7 +135,12 @@ router.post('/', async (req, res) => {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
     const patientId = b.patient_id ?? b.patientId
-    const ownsPatient = await queryOne('SELECT id FROM patients WHERE id = $1 AND clinic_id = $2', [patientId, clinicId])
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
+    let ownsPatientSql = 'SELECT id FROM patients WHERE id = $1 AND clinic_id = $2'
+    const ownsPatientParams: any[] = [patientId, clinicId]
+    if (scope) { ownsPatientParams.push(scope); ownsPatientSql += ` AND id IN ${ownPatientIdsSubquery(ownsPatientParams.length)}` }
+    const ownsPatient = await queryOne(ownsPatientSql, ownsPatientParams)
     if (!ownsPatient) return res.status(404).json({ error: 'Paciente no encontrado' })
     const doctorId = b.doctor_id ?? b.doctorId
     if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId!))) {
@@ -160,12 +171,14 @@ router.post('/:id/revoke', async (req, res) => {
     if (!reason) return res.status(400).json({ error: 'Debes indicar el motivo de la revocación' })
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
-    const current = await queryOne<{ status: string; document_hash: string | null }>(
-      `SELECT cr.status, cr.document_hash FROM consent_records cr
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    let currentSql = `SELECT cr.status, cr.document_hash FROM consent_records cr
        JOIN patients p ON p.id = cr.patient_id
-       WHERE cr.id = $1 AND p.clinic_id = $2`,
-      [req.params.id, clinicId]
-    )
+       WHERE cr.id = $1 AND p.clinic_id = $2`
+    const currentParams: any[] = [req.params.id, clinicId]
+    if (scope) { currentParams.push(scope); currentSql += ` AND cr.patient_id IN ${ownPatientIdsSubquery(currentParams.length)}` }
+    const current = await queryOne<{ status: string; document_hash: string | null }>(currentSql, currentParams)
     if (!current) return res.status(404).json({ error: 'Consentimiento no encontrado' })
     if (current.status !== 'signed') {
       return res.status(400).json({ error: 'Solo se pueden revocar consentimientos firmados' })
@@ -198,21 +211,23 @@ router.post('/:id/revoke', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
-    const data = await queryOne(
-      `DELETE FROM consent_records cr
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    let deleteSql = `DELETE FROM consent_records cr
        USING patients p
        WHERE cr.id = $1 AND cr.patient_id = p.id AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)
-         AND cr.status <> 'signed' AND cr.status <> 'revoked'
-       RETURNING cr.id`,
-      [req.params.id, userId]
-    )
+         AND cr.status <> 'signed' AND cr.status <> 'revoked'`
+    const deleteParams: any[] = [req.params.id, userId]
+    if (scope) { deleteParams.push(scope); deleteSql += ` AND cr.patient_id IN ${ownPatientIdsSubquery(deleteParams.length)}` }
+    deleteSql += ' RETURNING cr.id'
+    const data = await queryOne(deleteSql, deleteParams)
     if (!data) {
-      const exists = await queryOne(
-        `SELECT cr.status FROM consent_records cr
+      let existsSql = `SELECT cr.status FROM consent_records cr
          JOIN patients p ON p.id = cr.patient_id
-         WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
-        [req.params.id, userId]
-      )
+         WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`
+      const existsParams: any[] = [req.params.id, userId]
+      if (scope) { existsParams.push(scope); existsSql += ` AND cr.patient_id IN ${ownPatientIdsSubquery(existsParams.length)}` }
+      const exists = await queryOne(existsSql, existsParams)
       if (exists) return res.status(400).json({ error: 'No se puede eliminar un consentimiento firmado o revocado — usa la opción de revocar' })
       return res.status(404).json({ error: 'Consentimiento no encontrado' })
     }
