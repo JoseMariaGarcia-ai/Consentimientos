@@ -1296,7 +1296,10 @@
       "doctor": "Д-р {{name}}",
       "signed_on": "Подписано {{date}}",
       "status_signed": "Подписано",
-      "status_pending": "Ожидает"
+      "status_pending": "Ожидает",
+      "view_download": "Просмотреть и скачать",
+      "pdf_loading": "Открытие…",
+      "pdf_error": "Не удалось открыть документ. Попробуйте снова."
     },
     "clinical": {
       "empty": "Ваша медицинская карта пуста.",

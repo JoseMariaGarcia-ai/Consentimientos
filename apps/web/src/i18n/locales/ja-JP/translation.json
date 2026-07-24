@@ -1296,7 +1296,10 @@
       "doctor": "{{name}}先生",
       "signed_on": "{{date}}に署名済み",
       "status_signed": "署名済み",
-      "status_pending": "保留中"
+      "status_pending": "保留中",
+      "view_download": "表示してダウンロード",
+      "pdf_loading": "開いています…",
+      "pdf_error": "書類を開けませんでした。もう一度お試しください。"
     },
     "clinical": {
       "empty": "あなたのカルテはまだ空です。",

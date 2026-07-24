@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Aláírva: {{date}}",
       "status_signed": "Aláírva",
-      "status_pending": "Függőben"
+      "status_pending": "Függőben",
+      "view_download": "Megtekintés és letöltés",
+      "pdf_loading": "Megnyitás…",
+      "pdf_error": "A dokumentumot nem sikerült megnyitni. Próbáld újra."
     },
     "clinical": {
       "empty": "A klinikai naplója üres.",

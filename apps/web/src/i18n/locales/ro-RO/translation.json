@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Semnat la {{date}}",
       "status_signed": "Semnat",
-      "status_pending": "În așteptare"
+      "status_pending": "În așteptare",
+      "view_download": "Vizualizează și descarcă",
+      "pdf_loading": "Se deschide…",
+      "pdf_error": "Documentul nu a putut fi deschis. Încearcă din nou."
     },
     "clinical": {
       "empty": "Istoricul dvs. medical este gol.",

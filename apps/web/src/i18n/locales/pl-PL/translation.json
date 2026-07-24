@@ -1296,7 +1296,10 @@
       "doctor": "Dr {{name}}",
       "signed_on": "Podpisano {{date}}",
       "status_signed": "Podpisana",
-      "status_pending": "Oczekująca"
+      "status_pending": "Oczekująca",
+      "view_download": "Wyświetl i pobierz",
+      "pdf_loading": "Otwieranie…",
+      "pdf_error": "Nie udało się otworzyć dokumentu. Spróbuj ponownie."
     },
     "clinical": {
       "empty": "Twoja historia choroby jest pusta.",

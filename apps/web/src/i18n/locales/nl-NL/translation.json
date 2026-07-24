@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Ondertekend op {{date}}",
       "status_signed": "Ondertekend",
-      "status_pending": "In behandeling"
+      "status_pending": "In behandeling",
+      "view_download": "Bekijken en downloaden",
+      "pdf_loading": "Openen…",
+      "pdf_error": "Het document kon niet worden geopend. Probeer het opnieuw."
     },
     "clinical": {
       "empty": "Uw klinisch dossier is leeg.",

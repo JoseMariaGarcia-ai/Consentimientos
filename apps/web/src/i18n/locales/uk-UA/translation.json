@@ -1296,7 +1296,10 @@
       "doctor": "Д-р {{name}}",
       "signed_on": "Підписано {{date}}",
       "status_signed": "Підписано",
-      "status_pending": "Очікує"
+      "status_pending": "Очікує",
+      "view_download": "Переглянути та завантажити",
+      "pdf_loading": "Відкриття…",
+      "pdf_error": "Не вдалося відкрити документ. Спробуйте ще раз."
     },
     "clinical": {
       "empty": "Ваша клінічна карта порожня.",

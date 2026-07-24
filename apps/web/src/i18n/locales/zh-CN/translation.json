@@ -1296,7 +1296,10 @@
       "doctor": "{{name}} 医生",
       "signed_on": "签署于 {{date}}",
       "status_signed": "已签署",
-      "status_pending": "待处理"
+      "status_pending": "待处理",
+      "view_download": "查看并下载",
+      "pdf_loading": "正在打开…",
+      "pdf_error": "无法打开文档,请重试。"
     },
     "clinical": {
       "empty": "您的病历暂无内容。",

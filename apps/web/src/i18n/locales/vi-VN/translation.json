@@ -1296,7 +1296,10 @@
       "doctor": "BS. {{name}}",
       "signed_on": "Đã ký ngày {{date}}",
       "status_signed": "Đã ký",
-      "status_pending": "Đang chờ"
+      "status_pending": "Đang chờ",
+      "view_download": "Xem và tải xuống",
+      "pdf_loading": "Đang mở…",
+      "pdf_error": "Không thể mở tài liệu. Vui lòng thử lại."
     },
     "clinical": {
       "empty": "Hồ sơ bệnh án của bạn đang trống.",

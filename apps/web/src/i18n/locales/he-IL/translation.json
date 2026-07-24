@@ -1252,7 +1252,10 @@
       "doctor": "ד\"ר {{name}}",
       "signed_on": "נחתם בתאריך {{date}}",
       "status_signed": "חתום",
-      "status_pending": "ממתין"
+      "status_pending": "ממתין",
+      "view_download": "צפייה והורדה",
+      "pdf_loading": "פותח…",
+      "pdf_error": "לא ניתן היה לפתוח את המסמך. נסה שוב."
     },
     "clinical": {
       "empty": "ההיסטוריה הרפואית שלך ריקה.",

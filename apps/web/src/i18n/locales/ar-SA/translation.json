@@ -1258,7 +1258,10 @@
       "doctor": "د. {{name}}",
       "signed_on": "وُقّع في {{date}}",
       "status_signed": "موقّع",
-      "status_pending": "قيد الانتظار"
+      "status_pending": "قيد الانتظار",
+      "view_download": "عرض وتنزيل",
+      "pdf_loading": "جارٍ الفتح…",
+      "pdf_error": "تعذر فتح المستند. حاول مرة أخرى."
     },
     "clinical": {
       "empty": "سجلك الطبي فارغ.",

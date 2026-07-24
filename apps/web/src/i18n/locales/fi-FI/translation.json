@@ -1296,7 +1296,10 @@
       "doctor": "Lääk. {{name}}",
       "signed_on": "Allekirjoitettu {{date}}",
       "status_signed": "Allekirjoitettu",
-      "status_pending": "Odottaa"
+      "status_pending": "Odottaa",
+      "view_download": "Näytä ja lataa",
+      "pdf_loading": "Avataan…",
+      "pdf_error": "Asiakirjaa ei voitu avata. Yritä uudelleen."
     },
     "clinical": {
       "empty": "Potilaskertomuksesi on tyhjä.",

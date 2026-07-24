@@ -1296,7 +1296,10 @@
       "doctor": "MUDr. {{name}}",
       "signed_on": "Podepsáno {{date}}",
       "status_signed": "Podepsáno",
-      "status_pending": "Čeká"
+      "status_pending": "Čeká",
+      "view_download": "Zobrazit a stáhnout",
+      "pdf_loading": "Otevírání…",
+      "pdf_error": "Dokument se nepodařilo otevřít. Zkuste to znovu."
     },
     "clinical": {
       "empty": "Váš klinický záznam je prázdný.",

@@ -1350,7 +1350,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Firmato il {{date}}",
       "status_signed": "Firmato",
-      "status_pending": "In attesa"
+      "status_pending": "In attesa",
+      "view_download": "Visualizza e scarica",
+      "pdf_loading": "Apertura…",
+      "pdf_error": "Impossibile aprire il documento. Riprova."
     },
     "clinical": {
       "empty": "La tua cartella clinica è vuota.",

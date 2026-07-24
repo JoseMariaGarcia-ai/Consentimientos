@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Signert {{date}}",
       "status_signed": "Signert",
-      "status_pending": "Venter"
+      "status_pending": "Venter",
+      "view_download": "Vis og last ned",
+      "pdf_loading": "Åpner…",
+      "pdf_error": "Kunne ikke åpne dokumentet. Prøv igjen."
     },
     "clinical": {
       "empty": "Din kliniske journal er tom.",

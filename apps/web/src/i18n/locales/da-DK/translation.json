@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Underskrevet den {{date}}",
       "status_signed": "Underskrevet",
-      "status_pending": "Afventer"
+      "status_pending": "Afventer",
+      "view_download": "Vis og download",
+      "pdf_loading": "Åbner…",
+      "pdf_error": "Dokumentet kunne ikke åbnes. Prøv igen."
     },
     "clinical": {
       "empty": "Din kliniske journal er tom.",

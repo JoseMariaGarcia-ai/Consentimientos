@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Unterzeichnet am {{date}}",
       "status_signed": "Unterzeichnet",
-      "status_pending": "Ausstehend"
+      "status_pending": "Ausstehend",
+      "view_download": "Ansehen und herunterladen",
+      "pdf_loading": "Wird geöffnet…",
+      "pdf_error": "Das Dokument konnte nicht geöffnet werden. Bitte versuchen Sie es erneut."
     },
     "clinical": {
       "empty": "Ihre Krankenakte ist leer.",

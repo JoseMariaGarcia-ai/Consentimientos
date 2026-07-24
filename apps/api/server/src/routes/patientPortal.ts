@@ -65,6 +65,28 @@ router.get('/consents', async (req, res) => {
   } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
 })
 
+// GET /api/patient/consents/:id/pdf — URL firmada y temporal del PDF ya
+// firmado. Comprueba explícitamente que el consentimiento pertenece al
+// paciente autenticado (no basta con conocer el id) — a diferencia de
+// GET /api/pdf/:consentId (uso interno del personal de clínica), aquí no se
+// puede confiar en que el llamante tenga acceso solo por estar autenticado.
+router.get('/consents/:id/pdf', async (req, res) => {
+  const { userId } = (req as any).user
+  try {
+    const patient = await getPatientRecord(userId)
+    const consent = await queryOne<{ id: string; status: string }>(
+      'SELECT id, status FROM consent_records WHERE id = $1 AND patient_id = $2',
+      [req.params.id, patient.id]
+    )
+    if (!consent) return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    if (consent.status !== 'signed') return res.status(409).json({ error: 'El consentimiento aún no está firmado' })
+
+    const key = `consents/${consent.id}/consent.pdf`
+    const url = await getPresignedUrl(key, 3600)
+    return res.json({ url })
+  } catch (err: any) { return res.status((err as any).status ?? 500).json({ error: err.message }) }
+})
+
 // GET /api/patient/clinical-records
 router.get('/clinical-records', async (req, res) => {
   const { userId } = (req as any).user

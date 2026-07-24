@@ -1296,7 +1296,10 @@
       "doctor": "Dr {{name}}",
       "signed_on": "Signed on {{date}}",
       "status_signed": "Signed",
-      "status_pending": "Pending"
+      "status_pending": "Pending",
+      "view_download": "View and download",
+      "pdf_loading": "Opening…",
+      "pdf_error": "Couldn't open the document. Please try again."
     },
     "clinical": {
       "empty": "Your clinical record is empty.",

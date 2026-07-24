@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Assinado a {{date}}",
       "status_signed": "Assinado",
-      "status_pending": "Pendente"
+      "status_pending": "Pendente",
+      "view_download": "Ver e transferir",
+      "pdf_loading": "A abrir…",
+      "pdf_error": "Não foi possível abrir o documento. Tente novamente."
     },
     "clinical": {
       "empty": "O seu historial clínico está vazio.",

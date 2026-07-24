@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "{{date}} tarihinde imzalandı",
       "status_signed": "İmzalandı",
-      "status_pending": "Beklemede"
+      "status_pending": "Beklemede",
+      "view_download": "Görüntüle ve indir",
+      "pdf_loading": "Açılıyor…",
+      "pdf_error": "Belge açılamadı. Lütfen tekrar deneyin."
     },
     "clinical": {
       "empty": "Klinik kaydınız boş.",

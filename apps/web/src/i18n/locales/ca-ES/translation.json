@@ -1296,7 +1296,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Signat el {{date}}",
       "status_signed": "Signat",
-      "status_pending": "Pendent"
+      "status_pending": "Pendent",
+      "view_download": "Veure i descarregar",
+      "pdf_loading": "Obrint…",
+      "pdf_error": "No s'ha pogut obrir el document. Torna-ho a provar."
     },
     "clinical": {
       "empty": "La teva història clínica està buida.",

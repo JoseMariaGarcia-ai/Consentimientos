@@ -1296,7 +1296,10 @@
       "doctor": "Dr {{name}}",
       "signed_on": "Signé le {{date}}",
       "status_signed": "Signé",
-      "status_pending": "En attente"
+      "status_pending": "En attente",
+      "view_download": "Voir et télécharger",
+      "pdf_loading": "Ouverture…",
+      "pdf_error": "Impossible d'ouvrir le document. Veuillez réessayer."
     },
     "clinical": {
       "empty": "Votre dossier clinique est vide.",

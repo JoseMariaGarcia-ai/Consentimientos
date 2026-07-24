@@ -1268,7 +1268,10 @@
       "doctor": "Dr. {{name}}",
       "signed_on": "Firmado el {{date}}",
       "status_signed": "Firmado",
-      "status_pending": "Pendiente"
+      "status_pending": "Pendiente",
+      "view_download": "Ver y descargar",
+      "pdf_loading": "Abriendo…",
+      "pdf_error": "No se pudo abrir el documento. Intentalo de nuevo."
     },
     "clinical": {
       "empty": "Tu historia clínica está vacía.",

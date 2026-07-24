@@ -1296,7 +1296,10 @@
       "doctor": "Dr {{name}}",
       "signed_on": "Signerat den {{date}}",
       "status_signed": "Signerat",
-      "status_pending": "Väntande"
+      "status_pending": "Väntande",
+      "view_download": "Visa och ladda ner",
+      "pdf_loading": "Öppnar…",
+      "pdf_error": "Dokumentet kunde inte öppnas. Försök igen."
     },
     "clinical": {
       "empty": "Din journal är tom.",

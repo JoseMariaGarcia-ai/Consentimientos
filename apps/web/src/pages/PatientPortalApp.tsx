@@ -108,8 +108,12 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
             <p className="text-xs text-slate-400 text-right max-w-[140px] leading-tight">{me.clinic_name}</p>
           )}
           {!isPreview && (
-            <button onClick={logout} className="p-2 rounded-lg hover:bg-white/10 transition-colors ml-3">
-              <LogOut className="w-4 h-4 text-slate-400" />
+            <button
+              onClick={logout}
+              className="ml-3 flex-shrink-0 text-white/80 hover:text-white text-sm border border-white/20 rounded-lg px-2.5 md:px-3 py-1.5 hover:bg-white/10 transition-colors flex items-center gap-1.5"
+            >
+              <LogOut className="w-4 h-4 sm:hidden" />
+              <span className="hidden sm:inline">{t('nav.logout')}</span>
             </button>
           )}
         </div>
@@ -146,7 +150,7 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
           </div>
         ) : (
           <>
-            {tab === 'consents' && <ConsentsTab consents={consents} />}
+            {tab === 'consents' && <ConsentsTab consents={consents} isPreview={isPreview} />}
             {tab === 'clinical' && <ClinicalTab records={clinical} />}
             {tab === 'photos'   && <PhotosTab sessions={photos} />}
           </>
@@ -158,9 +162,30 @@ export default function PatientPortalApp({ previewPatientId, onExitPreview }: Pa
 }
 
 /* ─── Consents Tab ─── */
-function ConsentsTab({ consents }: { consents: any[] }) {
+function ConsentsTab({ consents, isPreview }: { consents: any[]; isPreview: boolean }) {
   const { t } = useTranslation()
+  const [pdfLoadingId, setPdfLoadingId] = useState<string | null>(null)
+  const [pdfError, setPdfError] = useState<string | null>(null)
+
   if (consents.length === 0) return <EmptyState icon={FileText} text={t('patientPortalApp.consents.empty')} />
+
+  const handleOpenPdf = async (consentId: string) => {
+    setPdfError(null)
+    setPdfLoadingId(consentId)
+    try {
+      // En modo preview (personal de clínica viendo el portal "como paciente")
+      // se reutiliza el endpoint interno ya usado por el resto de la app; el
+      // paciente real usa su propio endpoint aislado por titularidad.
+      const { url } = await api.get(isPreview ? `/pdf/${consentId}` : `/patient/consents/${consentId}/pdf`)
+      window.open(url, '_blank', 'noopener,noreferrer')
+    } catch (err: any) {
+      console.error('[PatientPortalApp] pdf fetch failed:', err)
+      setPdfError(consentId)
+    } finally {
+      setPdfLoadingId(null)
+    }
+  }
+
   return (
     <div className="flex flex-col gap-3">
       {consents.map(c => (
@@ -183,6 +208,19 @@ function ConsentsTab({ consents }: { consents: any[] }) {
               </span>
             </div>
           </div>
+          {c.status === 'signed' && (
+            <div className="mt-3 pt-3 border-t border-slate-100">
+              <button
+                onClick={() => handleOpenPdf(c.id)}
+                disabled={pdfLoadingId === c.id}
+                className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800 disabled:opacity-50"
+              >
+                <Download className="w-3.5 h-3.5" />
+                {pdfLoadingId === c.id ? t('patientPortalApp.consents.pdf_loading') : t('patientPortalApp.consents.view_download')}
+              </button>
+              {pdfError === c.id && <p className="text-xs text-red-500 mt-1">{t('patientPortalApp.consents.pdf_error')}</p>}
+            </div>
+          )}
         </div>
       ))}
     </div>

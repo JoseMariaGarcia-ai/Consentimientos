@@ -1296,7 +1296,10 @@
       "doctor": "डॉ. {{name}}",
       "signed_on": "{{date}} को हस्ताक्षरित",
       "status_signed": "हस्ताक्षरित",
-      "status_pending": "लंबित"
+      "status_pending": "लंबित",
+      "view_download": "देखें और डाउनलोड करें",
+      "pdf_loading": "खोला जा रहा है…",
+      "pdf_error": "दस्तावेज़ नहीं खोला जा सका। कृपया पुनः प्रयास करें।"
     },
     "clinical": {
       "empty": "आपका क्लिनिकल रिकॉर्ड खाली है।",
