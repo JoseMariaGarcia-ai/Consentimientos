@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { resolvePatientDoctorScope, ownPatientIdsSubquery, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -57,6 +58,9 @@ router.get('/', async (req, res) => {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.json([])
     if (!patient_id) return res.status(400).json({ error: 'patient_id requerido' })
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.json([])
+    if (scope && !(await patientInScope(patient_id as string, scope))) return res.json([])
 
     const data = await query(
       `SELECT o.*, row_to_json(d) AS doctor
@@ -74,13 +78,15 @@ router.get('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicId = await getClinicId(userId)
-    const data = await queryOne(
-      `SELECT o.*, row_to_json(d) AS doctor
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Registro no encontrado' })
+    let sql = `SELECT o.*, row_to_json(d) AS doctor
        FROM odontogram_records o
        LEFT JOIN doctors d ON d.id = o.doctor_id
-       WHERE o.id = $1 AND o.clinic_id = $2`,
-      [req.params.id, clinicId]
-    )
+       WHERE o.id = $1 AND o.clinic_id = $2`
+    const params: any[] = [req.params.id, clinicId]
+    if (scope) { params.push(scope); sql += ` AND o.patient_id IN ${ownPatientIdsSubquery(params.length)}` }
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Registro no encontrado' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -95,6 +101,8 @@ router.post('/', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
     if (!patient_id) return res.status(400).json({ error: 'patient_id es obligatorio' })
     if (!doctor_id) return res.status(400).json({ error: 'doctor_id es obligatorio' })
     if (!record_date) return res.status(400).json({ error: 'record_date es obligatorio' })
@@ -102,6 +110,7 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'dentition_type no válido' })
     }
     if (!(await belongsToClinic('patients', patient_id, clinicId))) return res.status(404).json({ error: 'Paciente no encontrado' })
+    if (scope && !(await patientInScope(patient_id, scope))) return res.status(404).json({ error: 'Paciente no encontrado' })
     if (!(await belongsToClinic('doctors', doctor_id, clinicId))) return res.status(404).json({ error: 'Doctor no encontrado' })
 
     const normalizedTeeth = normalizeTeeth(teeth)
