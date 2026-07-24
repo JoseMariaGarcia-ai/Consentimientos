@@ -12,6 +12,7 @@ interface Ticket {
   status: 'open' | 'resolved'
   created_at: string
   resolved_at: string | null
+  notes: string | null
   clinic_name: string
   clinic_trade_name: string | null
   reporter?: { full_name?: string; email?: string } | null
@@ -88,10 +89,27 @@ function NewTicketModal({ onSave, onClose }: { onSave: (subject: string, descrip
   )
 }
 
-function TicketDetailModal({ ticket, isSuperAdmin, onClose, onToggleResolved }: {
-  ticket: Ticket; isSuperAdmin: boolean; onClose: () => void; onToggleResolved: (t: Ticket) => void
+function TicketDetailModal({ ticket, isSuperAdmin, onClose, onToggleResolved, onSaveNotes }: {
+  ticket: Ticket; isSuperAdmin: boolean; onClose: () => void; onToggleResolved: (t: Ticket) => void; onSaveNotes: (t: Ticket, notes: string) => Promise<void>
 }) {
   const { t } = useTranslation()
+  const [notes, setNotes] = useState(ticket.notes ?? '')
+  const [savingNotes, setSavingNotes] = useState(false)
+  const [notesSaved, setNotesSaved] = useState(false)
+
+  useEffect(() => { setNotes(ticket.notes ?? '') }, [ticket.id, ticket.notes])
+
+  const handleSaveNotes = async () => {
+    setSavingNotes(true)
+    try {
+      await onSaveNotes(ticket, notes)
+      setNotesSaved(true)
+      setTimeout(() => setNotesSaved(false), 2000)
+    } finally {
+      setSavingNotes(false)
+    }
+  }
+
   return (
     <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg" onClick={e => e.stopPropagation()}>
@@ -117,6 +135,28 @@ function TicketDetailModal({ ticket, isSuperAdmin, onClose, onToggleResolved }: 
           </div>
           {ticket.reporter?.full_name && (
             <p className="text-xs text-slate-400">{t('tickets.reported_by')}: {ticket.reporter.full_name}</p>
+          )}
+          {isSuperAdmin && (
+            <div>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">{t('tickets.notes')}</p>
+              <textarea
+                value={notes}
+                onChange={e => setNotes(e.target.value)}
+                rows={4}
+                placeholder={t('tickets.notes_placeholder')}
+                className="w-full px-3 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+              />
+              <div className="flex items-center gap-3 mt-2">
+                <button
+                  onClick={handleSaveNotes}
+                  disabled={savingNotes}
+                  className="px-3 py-1.5 text-xs font-medium bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 disabled:opacity-50"
+                >
+                  {savingNotes ? t('common.saving') : t('tickets.save_notes')}
+                </button>
+                {notesSaved && <span className="text-xs text-emerald-600 font-medium">✓ {t('common.saved')}</span>}
+              </div>
+            </div>
           )}
         </div>
         {isSuperAdmin && (
@@ -171,6 +211,12 @@ export default function Tickets() {
   const handleToggleResolved = async (ticket: Ticket) => {
     const nextStatus = ticket.status === 'resolved' ? 'open' : 'resolved'
     const updated = await api.put(`/tickets/${ticket.id}`, { status: nextStatus })
+    setTickets(prev => prev.map(x => x.id === ticket.id ? { ...x, ...updated } : x))
+    setDetail(d => d && d.id === ticket.id ? { ...d, ...updated } : d)
+  }
+
+  const handleSaveNotes = async (ticket: Ticket, notes: string) => {
+    const updated = await api.put(`/tickets/${ticket.id}`, { notes })
     setTickets(prev => prev.map(x => x.id === ticket.id ? { ...x, ...updated } : x))
     setDetail(d => d && d.id === ticket.id ? { ...d, ...updated } : d)
   }
@@ -259,6 +305,7 @@ export default function Tickets() {
           isSuperAdmin={isSuperAdmin}
           onClose={() => setDetail(null)}
           onToggleResolved={handleToggleResolved}
+          onSaveNotes={handleSaveNotes}
         />
       )}
     </div>

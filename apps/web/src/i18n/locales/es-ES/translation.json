@@ -1806,7 +1806,10 @@
     "status_resolved": "Resuelta",
     "mark_resolved": "Marcar como resuelta",
     "mark_open": "Reabrir",
-    "reported_by": "Reportado por"
+    "reported_by": "Reportado por",
+    "notes": "Notas internas",
+    "notes_placeholder": "Anota qué se ha hecho o qué ha sucedido con esta incidencia…",
+    "save_notes": "Guardar notas"
   },
   "signingDevices": {
     "title": "Dispositivos de firma",

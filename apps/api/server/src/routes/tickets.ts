@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
-import { sendTicketConfirmationEmail } from '../lib/ticketEmail'
+import { sendTicketConfirmationEmail, sendTicketResolvedEmail } from '../lib/ticketEmail'
 
 const router = Router()
 
@@ -73,20 +73,47 @@ router.post('/', async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// PUT /api/tickets/:id — superadmin only: toggle resolved / reopen.
+// PUT /api/tickets/:id — superadmin only: toggle resolved / reopen y/o
+// anotar notas internas (qué se ha hecho, qué ha sucedido). status es
+// opcional para poder guardar solo las notas sin tocar el estado.
 router.put('/:id', async (req, res) => {
-  const { status } = req.body
-  if (!['open', 'resolved'].includes(status)) return res.status(400).json({ error: 'status inválido' })
+  const { status, notes } = req.body
+  if (status !== undefined && !['open', 'resolved'].includes(status)) {
+    return res.status(400).json({ error: 'status inválido' })
+  }
   try {
     const current = await me(req)
     if (current?.role !== 'superadmin') return res.status(403).json({ error: 'Solo superadmin' })
     const { userId } = (req as any).user
 
-    const data = await queryOne(
-      `UPDATE support_tickets SET status=$1, resolved_at=$2, resolved_by=$3 WHERE id=$4 RETURNING *`,
-      [status, status === 'resolved' ? new Date().toISOString() : null, status === 'resolved' ? userId : null, req.params.id]
-    )
+    const existing = await queryOne<{ status: string }>('SELECT status FROM support_tickets WHERE id = $1', [req.params.id])
+    if (!existing) return res.status(404).json({ error: 'Ticket no encontrado' })
+
+    const nextStatus = status ?? existing.status
+    const becameResolved = nextStatus === 'resolved' && existing.status !== 'resolved'
+
+    // resolved_at/resolved_by solo se tocan al transicionar de estado (no al
+    // reguardar notas sobre un ticket que ya estaba resuelto).
+    const data = becameResolved
+      ? await queryOne<any>(
+          `UPDATE support_tickets SET status=$1, resolved_at=$2, resolved_by=$3, notes=COALESCE($4, notes) WHERE id=$5 RETURNING *`,
+          [nextStatus, new Date().toISOString(), userId, notes ?? null, req.params.id]
+        )
+      : nextStatus === 'open'
+      ? await queryOne<any>(
+          `UPDATE support_tickets SET status=$1, resolved_at=NULL, resolved_by=NULL, notes=COALESCE($2, notes) WHERE id=$3 RETURNING *`,
+          [nextStatus, notes ?? null, req.params.id]
+        )
+      : await queryOne<any>(
+          `UPDATE support_tickets SET status=$1, notes=COALESCE($2, notes) WHERE id=$3 RETURNING *`,
+          [nextStatus, notes ?? null, req.params.id]
+        )
     if (!data) return res.status(404).json({ error: 'Ticket no encontrado' })
+
+    if (becameResolved) {
+      sendTicketResolvedEmail({ ticketId: data.id }).catch(err => console.error('[ticketEmail] resolved send failed:', err.message))
+    }
+
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
