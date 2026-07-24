@@ -19,9 +19,16 @@
       "welcome_screen": "Привітання (екран)",
       "patient_screen": "Пацієнт (екран)",
       "patient_email": "Пацієнт (email)",
-      "total": "Разом"
+      "total": "Разом",
+      "avg_welcome": "Сер. час (привітання)",
+      "avg_patient": "Сер. час (пацієнт)"
     },
-    "no_clinic_data": "Немає даних за клініками в цьому діапазоні дат."
+    "no_clinic_data": "Немає даних за клініками в цьому діапазоні дат.",
+    "view_clinic": "Клініка",
+    "view_patient": "Пацієнт",
+    "top_clinic": "Клініка з найбільшою кількістю переглядів",
+    "by_clinic_chart_title": "За клініками",
+    "channel_split_title": "Екран vs. email"
   },
   "toxinModal": {
     "title_edit": "Редагувати запис про токсин",

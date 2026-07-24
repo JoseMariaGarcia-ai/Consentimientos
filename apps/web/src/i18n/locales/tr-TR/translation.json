@@ -19,9 +19,16 @@
       "welcome_screen": "Karşılama (ekran)",
       "patient_screen": "Hasta (ekran)",
       "patient_email": "Hasta (e-posta)",
-      "total": "Toplam"
+      "total": "Toplam",
+      "avg_welcome": "Ort. süre (karşılama)",
+      "avg_patient": "Ort. süre (hasta)"
     },
-    "no_clinic_data": "Bu tarih aralığında kliniğe göre veri yok."
+    "no_clinic_data": "Bu tarih aralığında kliniğe göre veri yok.",
+    "view_clinic": "Klinik",
+    "view_patient": "Hasta",
+    "top_clinic": "En çok görüntülenen klinik",
+    "by_clinic_chart_title": "Kliniğe göre",
+    "channel_split_title": "Ekran vs. e-posta"
   },
   "toxinModal": {
     "title_edit": "Toksin kaydını düzenle",

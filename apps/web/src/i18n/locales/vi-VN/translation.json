@@ -19,9 +19,16 @@
       "welcome_screen": "Chào mừng (màn hình)",
       "patient_screen": "Bệnh nhân (màn hình)",
       "patient_email": "Bệnh nhân (email)",
-      "total": "Tổng"
+      "total": "Tổng",
+      "avg_welcome": "TG trung bình (chào mừng)",
+      "avg_patient": "TG trung bình (bệnh nhân)"
     },
-    "no_clinic_data": "Không có dữ liệu theo phòng khám trong khoảng thời gian này."
+    "no_clinic_data": "Không có dữ liệu theo phòng khám trong khoảng thời gian này.",
+    "view_clinic": "Phòng khám",
+    "view_patient": "Bệnh nhân",
+    "top_clinic": "Phòng khám có nhiều lượt xem nhất",
+    "by_clinic_chart_title": "Theo phòng khám",
+    "channel_split_title": "Màn hình vs email"
   },
   "toxinModal": {
     "title_edit": "Chỉnh sửa bản ghi độc tố",

@@ -19,9 +19,16 @@
       "welcome_screen": "Willkommen (Bildschirm)",
       "patient_screen": "Patient (Bildschirm)",
       "patient_email": "Patient (E-Mail)",
-      "total": "Gesamt"
+      "total": "Gesamt",
+      "avg_welcome": "Ø Dauer (Willkommen)",
+      "avg_patient": "Ø Dauer (Patient)"
     },
-    "no_clinic_data": "Keine Daten pro Klinik in diesem Zeitraum."
+    "no_clinic_data": "Keine Daten pro Klinik in diesem Zeitraum.",
+    "view_clinic": "Klinik",
+    "view_patient": "Patient",
+    "top_clinic": "Klinik mit den meisten Aufrufen",
+    "by_clinic_chart_title": "Nach Klinik",
+    "channel_split_title": "Bildschirm vs. E-Mail"
   },
   "toxinModal": {
     "title_edit": "Toxin-Eintrag bearbeiten",

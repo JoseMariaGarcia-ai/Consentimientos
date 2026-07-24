@@ -19,9 +19,16 @@
       "welcome_screen": "Tervetuloa (näyttö)",
       "patient_screen": "Potilas (näyttö)",
       "patient_email": "Potilas (sähköposti)",
-      "total": "Yhteensä"
+      "total": "Yhteensä",
+      "avg_welcome": "Keskiaika (tervetuloa)",
+      "avg_patient": "Keskiaika (potilas)"
     },
-    "no_clinic_data": "Ei klinikkakohtaisia tietoja tällä aikavälillä."
+    "no_clinic_data": "Ei klinikkakohtaisia tietoja tällä aikavälillä.",
+    "view_clinic": "Klinikka",
+    "view_patient": "Potilas",
+    "top_clinic": "Eniten katselukertoja saanut klinikka",
+    "by_clinic_chart_title": "Klinikoittain",
+    "channel_split_title": "Näyttö vs. sähköposti"
   },
   "toxinModal": {
     "title_edit": "Muokkaa toksiinimerkintää",

@@ -19,9 +19,16 @@
       "welcome_screen": "Powitanie (ekran)",
       "patient_screen": "Pacjent (ekran)",
       "patient_email": "Pacjent (e-mail)",
-      "total": "Razem"
+      "total": "Razem",
+      "avg_welcome": "Śr. czas (powitanie)",
+      "avg_patient": "Śr. czas (pacjent)"
     },
-    "no_clinic_data": "Brak danych dla klinik w tym zakresie dat."
+    "no_clinic_data": "Brak danych dla klinik w tym zakresie dat.",
+    "view_clinic": "Klinika",
+    "view_patient": "Pacjent",
+    "top_clinic": "Klinika z największą liczbą wyświetleń",
+    "by_clinic_chart_title": "Wg kliniki",
+    "channel_split_title": "Ekran vs. e-mail"
   },
   "toxinModal": {
     "title_edit": "Edytuj wpis toksyny",

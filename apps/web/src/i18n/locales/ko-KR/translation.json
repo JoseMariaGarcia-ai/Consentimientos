@@ -19,9 +19,16 @@
       "welcome_screen": "환영 화면(화면)",
       "patient_screen": "환자(화면)",
       "patient_email": "환자(이메일)",
-      "total": "합계"
+      "total": "합계",
+      "avg_welcome": "평균 시간(환영 화면)",
+      "avg_patient": "평균 시간(환자)"
     },
-    "no_clinic_data": "이 기간에 클리닉별 데이터가 없습니다."
+    "no_clinic_data": "이 기간에 클리닉별 데이터가 없습니다.",
+    "view_clinic": "클리닉",
+    "view_patient": "환자",
+    "top_clinic": "가장 많이 조회된 클리닉",
+    "by_clinic_chart_title": "클리닉별",
+    "channel_split_title": "화면 vs 이메일"
   },
   "toxinModal": {
     "title_edit": "톡신 기록 수정",

@@ -19,9 +19,16 @@
       "welcome_screen": "Üdvözlés (képernyő)",
       "patient_screen": "Beteg (képernyő)",
       "patient_email": "Beteg (e-mail)",
-      "total": "Összesen"
+      "total": "Összesen",
+      "avg_welcome": "Átl. idő (üdvözlés)",
+      "avg_patient": "Átl. idő (beteg)"
     },
-    "no_clinic_data": "Nincs klinikánkénti adat ebben az időszakban."
+    "no_clinic_data": "Nincs klinikánkénti adat ebben az időszakban.",
+    "view_clinic": "Klinika",
+    "view_patient": "Beteg",
+    "top_clinic": "Legtöbb megtekintéssel rendelkező klinika",
+    "by_clinic_chart_title": "Klinikánként",
+    "channel_split_title": "Képernyő vs. e-mail"
   },
   "toxinModal": {
     "title_edit": "Toxinbejegyzés szerkesztése",

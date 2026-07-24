@@ -19,9 +19,16 @@
       "welcome_screen": "الترحيب (الشاشة)",
       "patient_screen": "المريض (الشاشة)",
       "patient_email": "المريض (البريد الإلكتروني)",
-      "total": "الإجمالي"
+      "total": "الإجمالي",
+      "avg_welcome": "متوسط الوقت (الترحيب)",
+      "avg_patient": "متوسط الوقت (المريض)"
     },
-    "no_clinic_data": "لا توجد بيانات حسب العيادة في هذا النطاق الزمني."
+    "no_clinic_data": "لا توجد بيانات حسب العيادة في هذا النطاق الزمني.",
+    "view_clinic": "العيادة",
+    "view_patient": "المريض",
+    "top_clinic": "العيادة الأكثر مشاهدة",
+    "by_clinic_chart_title": "حسب العيادة",
+    "channel_split_title": "الشاشة مقابل البريد الإلكتروني"
   },
   "toxinModal": {
     "title_edit": "تعديل سجل التوكسين",

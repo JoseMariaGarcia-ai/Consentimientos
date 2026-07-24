@@ -19,9 +19,16 @@
       "welcome_screen": "ウェルカム画面(画面)",
       "patient_screen": "患者(画面)",
       "patient_email": "患者(メール)",
-      "total": "合計"
+      "total": "合計",
+      "avg_welcome": "平均時間(ウェルカム画面)",
+      "avg_patient": "平均時間(患者)"
     },
-    "no_clinic_data": "この期間、クリニック別のデータはありません。"
+    "no_clinic_data": "この期間、クリニック別のデータはありません。",
+    "view_clinic": "クリニック",
+    "view_patient": "患者",
+    "top_clinic": "最も表示回数が多いクリニック",
+    "by_clinic_chart_title": "クリニック別",
+    "channel_split_title": "画面 vs メール"
   },
   "toxinModal": {
     "title_edit": "トキシン記録を編集",

@@ -19,9 +19,16 @@
       "welcome_screen": "Καλωσόρισμα (οθόνη)",
       "patient_screen": "Ασθενής (οθόνη)",
       "patient_email": "Ασθενής (email)",
-      "total": "Σύνολο"
+      "total": "Σύνολο",
+      "avg_welcome": "Μέσος χρόνος (καλωσόρισμα)",
+      "avg_patient": "Μέσος χρόνος (ασθενής)"
     },
-    "no_clinic_data": "Δεν υπάρχουν δεδομένα ανά κλινική σε αυτό το εύρος ημερομηνιών."
+    "no_clinic_data": "Δεν υπάρχουν δεδομένα ανά κλινική σε αυτό το εύρος ημερομηνιών.",
+    "view_clinic": "Κλινική",
+    "view_patient": "Ασθενής",
+    "top_clinic": "Κλινική με τις περισσότερες προβολές",
+    "by_clinic_chart_title": "Ανά κλινική",
+    "channel_split_title": "Οθόνη vs. email"
   },
   "toxinModal": {
     "title_edit": "Επεξεργασία καταγραφής τοξίνης",

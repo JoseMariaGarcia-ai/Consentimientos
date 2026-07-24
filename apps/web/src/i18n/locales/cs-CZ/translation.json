@@ -19,9 +19,16 @@
       "welcome_screen": "Uvítání (obrazovka)",
       "patient_screen": "Pacient (obrazovka)",
       "patient_email": "Pacient (e-mail)",
-      "total": "Celkem"
+      "total": "Celkem",
+      "avg_welcome": "Prům. doba (uvítání)",
+      "avg_patient": "Prům. doba (pacient)"
     },
-    "no_clinic_data": "V tomto období nejsou k dispozici žádná data podle kliniky."
+    "no_clinic_data": "V tomto období nejsou k dispozici žádná data podle kliniky.",
+    "view_clinic": "Klinika",
+    "view_patient": "Pacient",
+    "top_clinic": "Klinika s nejvíce zobrazeními",
+    "by_clinic_chart_title": "Podle kliniky",
+    "channel_split_title": "Obrazovka vs. e-mail"
   },
   "toxinModal": {
     "title_edit": "Upravit záznam toxinu",

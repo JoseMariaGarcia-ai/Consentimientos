@@ -19,9 +19,16 @@
       "welcome_screen": "Boas-vindas (tela)",
       "patient_screen": "Paciente (tela)",
       "patient_email": "Paciente (email)",
-      "total": "Total"
+      "total": "Total",
+      "avg_welcome": "Tempo médio (boas-vindas)",
+      "avg_patient": "Tempo médio (paciente)"
     },
-    "no_clinic_data": "Sem dados por clínica neste período."
+    "no_clinic_data": "Sem dados por clínica neste período.",
+    "view_clinic": "Clínica",
+    "view_patient": "Paciente",
+    "top_clinic": "Clínica com mais visualizações",
+    "by_clinic_chart_title": "Por clínica",
+    "channel_split_title": "Tela vs. email"
   },
   "toxinModal": {
     "title_edit": "Editar registro de toxina",

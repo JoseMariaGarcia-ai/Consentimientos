@@ -204,16 +204,33 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
        ORDER BY clinic_name`,
       params
     )
-    const byClinicMap = new Map<string, { clinic_id: string; clinic_name: string; welcome_screen: number; patient_screen: number; patient_email: number; total: number }>()
+    const byClinicMap = new Map<string, { clinic_id: string; clinic_name: string; welcome_screen: number; patient_screen: number; patient_email: number; total: number; avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null }>()
     for (const r of clinicRows) {
       const key = seriesKey(r.media_type, r.channel)
       if (!key) continue
-      const entry = byClinicMap.get(r.clinic_id) ?? { clinic_id: r.clinic_id, clinic_name: r.clinic_name, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0 }
+      const entry = byClinicMap.get(r.clinic_id) ?? { clinic_id: r.clinic_id, clinic_name: r.clinic_name, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0, avg_view_seconds_welcome: null, avg_view_seconds_patient: null }
       const count = parseInt(r.count, 10)
       entry[key] = count
       entry.total += count
       byClinicMap.set(r.clinic_id, entry)
     }
+
+    const clinicDurationRows = await query<{ clinic_id: string; media_type: string; avg_seconds: string | null; measured: string }>(
+      `SELECT mi.clinic_id, mi.media_type, AVG(mi.view_duration_seconds) AS avg_seconds, COUNT(*) FILTER (WHERE mi.view_duration_seconds IS NOT NULL) AS measured
+       FROM media_impressions mi
+       WHERE mi.lab_partner_id = $1 AND mi.channel = 'screen' AND mi.media_type IN ('welcome','patient') AND mi.shown_at >= $2 AND mi.shown_at < $3
+       GROUP BY mi.clinic_id, mi.media_type`,
+      params
+    )
+    for (const r of clinicDurationRows) {
+      if (parseInt(r.measured, 10) === 0) continue
+      const entry = byClinicMap.get(r.clinic_id)
+      if (!entry) continue
+      const avg = Math.round(parseFloat(r.avg_seconds ?? '0'))
+      if (r.media_type === 'welcome') entry.avg_view_seconds_welcome = avg
+      if (r.media_type === 'patient') entry.avg_view_seconds_patient = avg
+    }
+
     const byClinic = [...byClinicMap.values()].sort((a, b) => b.total - a.total)
 
     return res.json({

@@ -19,9 +19,16 @@
       "welcome_screen": "Benvenuto (schermo)",
       "patient_screen": "Paziente (schermo)",
       "patient_email": "Paziente (email)",
-      "total": "Totale"
+      "total": "Totale",
+      "avg_welcome": "Tempo medio (benvenuto)",
+      "avg_patient": "Tempo medio (paziente)"
     },
-    "no_clinic_data": "Nessun dato per clinica in questo intervallo di date."
+    "no_clinic_data": "Nessun dato per clinica in questo intervallo di date.",
+    "view_clinic": "Clinica",
+    "view_patient": "Paziente",
+    "top_clinic": "Clinica con più visualizzazioni",
+    "by_clinic_chart_title": "Per clinica",
+    "channel_split_title": "Schermo vs. email"
   },
   "toxinModal": {
     "title_edit": "Modifica registro tossina",

@@ -19,9 +19,16 @@
       "welcome_screen": "Velkomst (skærm)",
       "patient_screen": "Patient (skærm)",
       "patient_email": "Patient (e-mail)",
-      "total": "I alt"
+      "total": "I alt",
+      "avg_welcome": "Gns. tid (velkomst)",
+      "avg_patient": "Gns. tid (patient)"
     },
-    "no_clinic_data": "Ingen data pr. klinik i denne periode."
+    "no_clinic_data": "Ingen data pr. klinik i denne periode.",
+    "view_clinic": "Klinik",
+    "view_patient": "Patient",
+    "top_clinic": "Klinik med flest visninger",
+    "by_clinic_chart_title": "Pr. klinik",
+    "channel_split_title": "Skærm vs. e-mail"
   },
   "toxinModal": {
     "title_edit": "Rediger toksinregistrering",

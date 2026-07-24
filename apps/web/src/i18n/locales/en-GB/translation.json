@@ -19,9 +19,16 @@
       "welcome_screen": "Welcome (screen)",
       "patient_screen": "Patient (screen)",
       "patient_email": "Patient (email)",
-      "total": "Total"
+      "total": "Total",
+      "avg_welcome": "Avg time (welcome)",
+      "avg_patient": "Avg time (patient)"
     },
-    "no_clinic_data": "No per-clinic data in this date range."
+    "no_clinic_data": "No per-clinic data in this date range.",
+    "view_clinic": "Clinic",
+    "view_patient": "Patient",
+    "top_clinic": "Top clinic by views",
+    "by_clinic_chart_title": "By clinic",
+    "channel_split_title": "Screen vs. email"
   },
   "toxinModal": {
     "title_edit": "Edit toxin record",

@@ -19,9 +19,16 @@
       "welcome_screen": "Welkom (scherm)",
       "patient_screen": "Patiënt (scherm)",
       "patient_email": "Patiënt (e-mail)",
-      "total": "Totaal"
+      "total": "Totaal",
+      "avg_welcome": "Gem. tijd (welkom)",
+      "avg_patient": "Gem. tijd (patiënt)"
     },
-    "no_clinic_data": "Geen gegevens per kliniek in deze periode."
+    "no_clinic_data": "Geen gegevens per kliniek in deze periode.",
+    "view_clinic": "Kliniek",
+    "view_patient": "Patiënt",
+    "top_clinic": "Kliniek met de meeste weergaven",
+    "by_clinic_chart_title": "Per kliniek",
+    "channel_split_title": "Scherm vs. e-mail"
   },
   "toxinModal": {
     "title_edit": "Toxine-registratie bewerken",

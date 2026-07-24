@@ -19,9 +19,16 @@
       "welcome_screen": "ברוכים הבאים (מסך)",
       "patient_screen": "מטופל (מסך)",
       "patient_email": "מטופל (אימייל)",
-      "total": "סה\"כ"
+      "total": "סה\"כ",
+      "avg_welcome": "זמן ממוצע (ברוכים הבאים)",
+      "avg_patient": "זמן ממוצע (מטופל)"
     },
-    "no_clinic_data": "אין נתונים לפי מרפאה בטווח התאריכים הזה."
+    "no_clinic_data": "אין נתונים לפי מרפאה בטווח התאריכים הזה.",
+    "view_clinic": "מרפאה",
+    "view_patient": "מטופל",
+    "top_clinic": "המרפאה עם הכי הרבה צפיות",
+    "by_clinic_chart_title": "לפי מרפאה",
+    "channel_split_title": "מסך מול אימייל"
   },
   "toxinModal": {
     "title_edit": "עריכת רישום טוקסין",

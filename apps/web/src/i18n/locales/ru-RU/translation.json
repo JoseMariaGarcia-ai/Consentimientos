@@ -19,9 +19,16 @@
       "welcome_screen": "Приветствие (экран)",
       "patient_screen": "Пациент (экран)",
       "patient_email": "Пациент (email)",
-      "total": "Итого"
+      "total": "Итого",
+      "avg_welcome": "Ср. время (приветствие)",
+      "avg_patient": "Ср. время (пациент)"
     },
-    "no_clinic_data": "Нет данных по клиникам за этот период."
+    "no_clinic_data": "Нет данных по клиникам за этот период.",
+    "view_clinic": "Клиника",
+    "view_patient": "Пациент",
+    "top_clinic": "Клиника с наибольшим числом просмотров",
+    "by_clinic_chart_title": "По клиникам",
+    "channel_split_title": "Экран vs. email"
   },
   "toxinModal": {
     "title_edit": "Редактировать запись о токсине",

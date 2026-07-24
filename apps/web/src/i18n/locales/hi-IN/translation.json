@@ -19,9 +19,16 @@
       "welcome_screen": "स्वागत (स्क्रीन)",
       "patient_screen": "मरीज़ (स्क्रीन)",
       "patient_email": "मरीज़ (ईमेल)",
-      "total": "कुल"
+      "total": "कुल",
+      "avg_welcome": "औसत समय (स्वागत)",
+      "avg_patient": "औसत समय (मरीज़)"
     },
-    "no_clinic_data": "इस तिथि सीमा में क्लिनिक के अनुसार कोई डेटा नहीं है।"
+    "no_clinic_data": "इस तिथि सीमा में क्लिनिक के अनुसार कोई डेटा नहीं है।",
+    "view_clinic": "क्लिनिक",
+    "view_patient": "मरीज़",
+    "top_clinic": "सबसे ज़्यादा दृश्यों वाला क्लिनिक",
+    "by_clinic_chart_title": "क्लिनिक के अनुसार",
+    "channel_split_title": "स्क्रीन बनाम ईमेल"
   },
   "toxinModal": {
     "title_edit": "टॉक्सिन रिकॉर्ड संपादित करें",

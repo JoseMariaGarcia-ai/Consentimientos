@@ -19,9 +19,16 @@
       "welcome_screen": "Bun venit (ecran)",
       "patient_screen": "Pacient (ecran)",
       "patient_email": "Pacient (email)",
-      "total": "Total"
+      "total": "Total",
+      "avg_welcome": "Timp mediu (bun venit)",
+      "avg_patient": "Timp mediu (pacient)"
     },
-    "no_clinic_data": "Nu există date pe clinică în acest interval de date."
+    "no_clinic_data": "Nu există date pe clinică în acest interval de date.",
+    "view_clinic": "Clinică",
+    "view_patient": "Pacient",
+    "top_clinic": "Clinica cu cele mai multe vizualizări",
+    "by_clinic_chart_title": "Pe clinică",
+    "channel_split_title": "Ecran vs. email"
   },
   "toxinModal": {
     "title_edit": "Editare înregistrare toxină",
