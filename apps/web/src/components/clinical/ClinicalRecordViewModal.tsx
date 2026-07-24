@@ -16,8 +16,8 @@ function Field({ label, value, highlight }: { label: string; value: string; high
   )
 }
 
-function triLabel(t: (key: string) => string, v: boolean | null | undefined) {
-  if (v === true) return t('clinicalRecordForm.tri_state.yes')
+function triLabel(t: (key: string) => string, v: boolean | null | undefined, quantity?: string | null) {
+  if (v === true) return quantity ? `${t('clinicalRecordForm.tri_state.yes')} (${quantity})` : t('clinicalRecordForm.tri_state.yes')
   if (v === false) return t('clinicalRecordForm.tri_state.no')
   return null
 }
@@ -25,12 +25,12 @@ function triLabel(t: (key: string) => string, v: boolean | null | undefined) {
 export function ClinicalRecordViewModal({ record: r, onEdit, onClose }: Props) {
   const { t } = useTranslation()
   const habits = ([
-    ['is_pregnant', t('clinicalRecordForm.is_pregnant')],
-    ['tobacco_use', t('clinicalRecordForm.tobacco_use')],
-    ['alcohol_use', t('clinicalRecordForm.alcohol_use')],
-    ['drug_use', t('clinicalRecordForm.drug_use')],
+    ['is_pregnant', t('clinicalRecordForm.is_pregnant'), null],
+    ['tobacco_use', t('clinicalRecordForm.tobacco_use'), 'tobacco_quantity'],
+    ['alcohol_use', t('clinicalRecordForm.alcohol_use'), 'alcohol_quantity'],
+    ['drug_use', t('clinicalRecordForm.drug_use'), 'drug_quantity'],
   ] as const)
-    .map(([key, label]) => ({ label, value: triLabel(t, r[key]), alert: r[key] === true }))
+    .map(([key, label, quantityKey]) => ({ label, value: triLabel(t, r[key], quantityKey ? r[quantityKey] : null), alert: r[key] === true }))
     .filter((h): h is { label: string; value: string; alert: boolean } => h.value !== null)
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" onClick={onClose}>

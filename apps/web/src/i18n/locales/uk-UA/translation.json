@@ -124,7 +124,10 @@
       "unspecified": "Не вказано",
       "no": "Ні",
       "yes": "Так"
-    }
+    },
+    "tobacco_quantity_placeholder": "Напр. 10 сигарет/день",
+    "alcohol_quantity_placeholder": "Напр. 2 порції/тиждень",
+    "drug_quantity_placeholder": "Напр. вид і частота"
   },
   "mediaUploadSlot": {
     "file_too_large": "Файл перевищує ліміт {{maxSize}} МБ",

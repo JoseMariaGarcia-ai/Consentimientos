@@ -35,14 +35,21 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
     tobacco_use:         (initial.tobacco_use ?? null) as boolean | null,
     alcohol_use:         (initial.alcohol_use ?? null) as boolean | null,
     drug_use:            (initial.drug_use    ?? null) as boolean | null,
+    tobacco_quantity:    initial.tobacco_quantity ?? '',
+    alcohol_quantity:    initial.alcohol_quantity ?? '',
+    drug_quantity:       initial.drug_quantity    ?? '',
   })
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState('')
 
   const set = (k: string, v: string) => setForm(f => ({ ...f, [k]: v.toUpperCase() }))
   const setRaw = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
+  const quantityKeys: Record<string, string> = { tobacco_use: 'tobacco_quantity', alcohol_use: 'alcohol_quantity', drug_use: 'drug_quantity' }
   const setTriState = (k: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', v: boolean | null) =>
-    setForm(f => ({ ...f, [k]: v }))
+    setForm(f => {
+      const quantityKey = quantityKeys[k]
+      return { ...f, [k]: v, ...(quantityKey && v !== true ? { [quantityKey]: '' } : {}) }
+    })
 
   const handleCreatePatient = async (data: any) => {
     const created = await api.post('/patients', data)
@@ -68,20 +75,38 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
     }
   }
 
-  const triSelect = (key: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', label: string) => (
-    <div className="flex flex-col gap-1">
-      <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{label}</label>
-      <select
-        value={form[key] === null ? '' : form[key] ? 'yes' : 'no'}
-        onChange={e => setTriState(key, e.target.value === '' ? null : e.target.value === 'yes')}
-        className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        <option value="">{t('clinicalRecordForm.tri_state.unspecified')}</option>
-        <option value="no">{t('clinicalRecordForm.tri_state.no')}</option>
-        <option value="yes">{t('clinicalRecordForm.tri_state.yes')}</option>
-      </select>
-    </div>
-  )
+  const quantityPlaceholders: Partial<Record<string, string>> = {
+    tobacco_use: t('clinicalRecordForm.tobacco_quantity_placeholder') as string,
+    alcohol_use: t('clinicalRecordForm.alcohol_quantity_placeholder') as string,
+    drug_use: t('clinicalRecordForm.drug_quantity_placeholder') as string,
+  }
+
+  const triSelect = (key: 'is_pregnant' | 'tobacco_use' | 'alcohol_use' | 'drug_use', label: string) => {
+    const quantityKey = quantityKeys[key]
+    return (
+      <div className="flex flex-col gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50/60">
+        <label className="text-xs font-medium text-slate-600 uppercase tracking-wide leading-tight">{label}</label>
+        <select
+          value={form[key] === null ? '' : form[key] ? 'yes' : 'no'}
+          onChange={e => setTriState(key, e.target.value === '' ? null : e.target.value === 'yes')}
+          className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">{t('clinicalRecordForm.tri_state.unspecified')}</option>
+          <option value="no">{t('clinicalRecordForm.tri_state.no')}</option>
+          <option value="yes">{t('clinicalRecordForm.tri_state.yes')}</option>
+        </select>
+        {quantityKey && form[key] === true && (
+          <input
+            type="text"
+            value={(form as any)[quantityKey]}
+            onChange={e => setRaw(quantityKey, e.target.value)}
+            placeholder={quantityPlaceholders[key]}
+            className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        )}
+      </div>
+    )
+  }
 
   const textarea = (key: string, label: string, rows = 2) => (
     <div className="flex flex-col gap-1">
@@ -156,7 +181,7 @@ export function ClinicalRecordForm({ initial = {}, patients, doctors, onSave, on
           {/* Embarazo y hábitos */}
           <div className="flex flex-col gap-2 pt-2 border-t border-slate-100">
             <label className="text-xs font-medium text-slate-600 uppercase tracking-wide">{t('clinicalRecordForm.habits_title')}</label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {triSelect('is_pregnant', t('clinicalRecordForm.is_pregnant'))}
               {triSelect('tobacco_use', t('clinicalRecordForm.tobacco_use'))}
               {triSelect('alcohol_use', t('clinicalRecordForm.alcohol_use'))}

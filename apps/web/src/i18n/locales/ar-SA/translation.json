@@ -124,7 +124,10 @@
       "unspecified": "غير محدد",
       "no": "لا",
       "yes": "نعم"
-    }
+    },
+    "tobacco_quantity_placeholder": "مثال: 10 سجائر/يوم",
+    "alcohol_quantity_placeholder": "مثال: 2 كأس/أسبوع",
+    "drug_quantity_placeholder": "مثال: النوع والتكرار"
   },
   "mediaUploadSlot": {
     "file_too_large": "حجم الملف يتجاوز الحد الأقصى وهو {{maxSize}} ميجابايت",

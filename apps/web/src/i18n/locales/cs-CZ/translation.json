@@ -124,7 +124,10 @@
       "unspecified": "Neuvedeno",
       "no": "Ne",
       "yes": "Ano"
-    }
+    },
+    "tobacco_quantity_placeholder": "Např. 10 cigaret/den",
+    "alcohol_quantity_placeholder": "Např. 2 sklenice/týden",
+    "drug_quantity_placeholder": "Např. typ a četnost"
   },
   "mediaUploadSlot": {
     "file_too_large": "Soubor překračuje limit {{maxSize}} MB",

@@ -124,7 +124,10 @@
       "unspecified": "Ikke angivet",
       "no": "Nej",
       "yes": "Ja"
-    }
+    },
+    "tobacco_quantity_placeholder": "F.eks. 10 cigaretter/dag",
+    "alcohol_quantity_placeholder": "F.eks. 2 genstande/uge",
+    "drug_quantity_placeholder": "F.eks. type og hyppighed"
   },
   "mediaUploadSlot": {
     "file_too_large": "Filen overstiger grænsen på {{maxSize}} MB",

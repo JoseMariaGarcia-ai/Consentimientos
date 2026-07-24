@@ -124,7 +124,10 @@
       "unspecified": "Nincs megadva",
       "no": "Nem",
       "yes": "Igen"
-    }
+    },
+    "tobacco_quantity_placeholder": "Pl. 10 cigaretta/nap",
+    "alcohol_quantity_placeholder": "Pl. 2 ital/hét",
+    "drug_quantity_placeholder": "Pl. típus és gyakoriság"
   },
   "mediaUploadSlot": {
     "file_too_large": "A fájl meghaladja a(z) {{maxSize}} MB-os korlátot",

@@ -124,7 +124,10 @@
       "unspecified": "Μη καθορισμένο",
       "no": "Όχι",
       "yes": "Ναι"
-    }
+    },
+    "tobacco_quantity_placeholder": "Π.χ. 10 τσιγάρα/ημέρα",
+    "alcohol_quantity_placeholder": "Π.χ. 2 ποτά/εβδομάδα",
+    "drug_quantity_placeholder": "Π.χ. τύπος και συχνότητα"
   },
   "mediaUploadSlot": {
     "file_too_large": "Το αρχείο υπερβαίνει το όριο των {{maxSize}} MB",

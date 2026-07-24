@@ -124,7 +124,10 @@
       "unspecified": "Chưa xác định",
       "no": "Không",
       "yes": "Có"
-    }
+    },
+    "tobacco_quantity_placeholder": "VD: 10 điếu/ngày",
+    "alcohol_quantity_placeholder": "VD: 2 ly/tuần",
+    "drug_quantity_placeholder": "VD: loại và tần suất"
   },
   "mediaUploadSlot": {
     "file_too_large": "Tệp vượt quá giới hạn {{maxSize}} MB",

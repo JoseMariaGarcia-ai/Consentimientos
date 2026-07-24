@@ -124,7 +124,10 @@
       "unspecified": "לא צוין",
       "no": "לא",
       "yes": "כן"
-    }
+    },
+    "tobacco_quantity_placeholder": "לדוגמה: 10 סיגריות ליום",
+    "alcohol_quantity_placeholder": "לדוגמה: 2 משקאות בשבוע",
+    "drug_quantity_placeholder": "לדוגמה: סוג ותדירות"
   },
   "mediaUploadSlot": {
     "file_too_large": "הקובץ חורג מהמגבלה של {{maxSize}} מ\"ב",

@@ -124,7 +124,10 @@
       "unspecified": "Ei määritetty",
       "no": "Ei",
       "yes": "Kyllä"
-    }
+    },
+    "tobacco_quantity_placeholder": "Esim. 10 savuketta/pv",
+    "alcohol_quantity_placeholder": "Esim. 2 annosta/vko",
+    "drug_quantity_placeholder": "Esim. tyyppi ja tiheys"
   },
   "mediaUploadSlot": {
     "file_too_large": "Tiedosto ylittää {{maxSize}} Mt:n rajan",

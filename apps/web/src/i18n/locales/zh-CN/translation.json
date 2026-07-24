@@ -124,7 +124,10 @@
       "unspecified": "未指定",
       "no": "否",
       "yes": "是"
-    }
+    },
+    "tobacco_quantity_placeholder": "例:每天10支",
+    "alcohol_quantity_placeholder": "例:每周2杯",
+    "drug_quantity_placeholder": "例:种类和频率"
   },
   "mediaUploadSlot": {
     "file_too_large": "文件超过 {{maxSize}} MB 限制",

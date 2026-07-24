@@ -124,7 +124,10 @@
       "unspecified": "Sense especificar",
       "no": "No",
       "yes": "Sí"
-    }
+    },
+    "tobacco_quantity_placeholder": "Ex. 10 cigarretes/dia",
+    "alcohol_quantity_placeholder": "Ex. 2 copes/setmana",
+    "drug_quantity_placeholder": "Ex. tipus i freqüència"
   },
   "mediaUploadSlot": {
     "file_too_large": "L'arxiu supera el límit de {{maxSize}} MB",

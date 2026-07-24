@@ -124,7 +124,10 @@
       "unspecified": "Belirtilmedi",
       "no": "Hayır",
       "yes": "Evet"
-    }
+    },
+    "tobacco_quantity_placeholder": "Örn. günde 10 sigara",
+    "alcohol_quantity_placeholder": "Örn. haftada 2 kadeh",
+    "drug_quantity_placeholder": "Örn. tür ve sıklık"
   },
   "mediaUploadSlot": {
     "file_too_large": "Dosya {{maxSize}} MB sınırını aşıyor",

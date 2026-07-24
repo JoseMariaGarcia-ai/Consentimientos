@@ -124,7 +124,10 @@
       "unspecified": "Niet gespecificeerd",
       "no": "Nee",
       "yes": "Ja"
-    }
+    },
+    "tobacco_quantity_placeholder": "Bijv. 10 sigaretten/dag",
+    "alcohol_quantity_placeholder": "Bijv. 2 glazen/week",
+    "drug_quantity_placeholder": "Bijv. type en frequentie"
   },
   "mediaUploadSlot": {
     "file_too_large": "Het bestand overschrijdt de limiet van {{maxSize}} MB",

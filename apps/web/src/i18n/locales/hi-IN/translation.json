@@ -124,7 +124,10 @@
       "unspecified": "अनिर्दिष्ट",
       "no": "नहीं",
       "yes": "हाँ"
-    }
+    },
+    "tobacco_quantity_placeholder": "उदा. 10 सिगरेट/दिन",
+    "alcohol_quantity_placeholder": "उदा. 2 पेग/सप्ताह",
+    "drug_quantity_placeholder": "उदा. प्रकार और आवृत्ति"
   },
   "mediaUploadSlot": {
     "file_too_large": "फ़ाइल {{maxSize}} MB की सीमा से अधिक है",

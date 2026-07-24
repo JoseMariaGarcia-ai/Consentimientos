@@ -124,7 +124,10 @@
       "unspecified": "Nespecificat",
       "no": "Nu",
       "yes": "Da"
-    }
+    },
+    "tobacco_quantity_placeholder": "Ex. 10 țigări/zi",
+    "alcohol_quantity_placeholder": "Ex. 2 pahare/săptămână",
+    "drug_quantity_placeholder": "Ex. tip și frecvență"
   },
   "mediaUploadSlot": {
     "file_too_large": "Fișierul depășește limita de {{maxSize}} MB",

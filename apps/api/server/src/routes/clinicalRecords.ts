@@ -14,6 +14,12 @@ function triBool(v: unknown): boolean | null {
   return v === true || v === false ? v : null
 }
 
+// Cantidad libre (p.ej. "10 cigarrillos/día") — solo tiene sentido cuando el
+// hábito es "Sí", pero se guarda tal cual venga (string vacío -> null).
+function quantityText(v: unknown): string | null {
+  return typeof v === 'string' && v.trim() ? v.trim() : null
+}
+
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
   const { patientId } = req.query
@@ -49,8 +55,8 @@ router.post('/', async (req, res) => {
     await deductCredit(clinicId, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
-        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, is_pregnant, tobacco_use, alcohol_use, drug_use)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16) RETURNING *`,
+        (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, is_pregnant, tobacco_use, alcohol_use, drug_use, tobacco_quantity, alcohol_quantity, drug_quantity)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19) RETURNING *`,
       [
         clinicId,
         patientId,
@@ -68,6 +74,9 @@ router.post('/', async (req, res) => {
         triBool(b.tobacco_use),
         triBool(b.alcohol_use),
         triBool(b.drug_use),
+        quantityText(b.tobacco_quantity),
+        quantityText(b.alcohol_quantity),
+        quantityText(b.drug_quantity),
       ]
     )
     return res.status(201).json(data)
@@ -93,8 +102,9 @@ router.put('/:id', async (req, res) => {
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
         current_medications=$6, allergies=$7, physical_exam=$8, diagnosis=$9,
         treatment_plan=$10, notes=$11, is_pregnant=$12, tobacco_use=$13,
-        alcohol_use=$14, drug_use=$15, updated_at=NOW()
-       WHERE id=$16 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $17) RETURNING *`,
+        alcohol_use=$14, drug_use=$15, tobacco_quantity=$16, alcohol_quantity=$17,
+        drug_quantity=$18, updated_at=NOW()
+       WHERE id=$19 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $20) RETURNING *`,
       [
         patientId,
         doctorId,
@@ -111,6 +121,9 @@ router.put('/:id', async (req, res) => {
         triBool(b.tobacco_use),
         triBool(b.alcohol_use),
         triBool(b.drug_use),
+        quantityText(b.tobacco_quantity),
+        quantityText(b.alcohol_quantity),
+        quantityText(b.drug_quantity),
         req.params.id,
         userId,
       ]

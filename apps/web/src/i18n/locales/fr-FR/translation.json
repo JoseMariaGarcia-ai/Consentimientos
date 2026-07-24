@@ -124,7 +124,10 @@
       "unspecified": "Non précisé",
       "no": "Non",
       "yes": "Oui"
-    }
+    },
+    "tobacco_quantity_placeholder": "Ex. 10 cigarettes/jour",
+    "alcohol_quantity_placeholder": "Ex. 2 verres/semaine",
+    "drug_quantity_placeholder": "Ex. type et fréquence"
   },
   "mediaUploadSlot": {
     "file_too_large": "Le fichier dépasse la limite de {{maxSize}} Mo",

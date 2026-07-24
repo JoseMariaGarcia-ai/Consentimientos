@@ -124,7 +124,10 @@
       "unspecified": "未指定",
       "no": "いいえ",
       "yes": "はい"
-    }
+    },
+    "tobacco_quantity_placeholder": "例:1日10本",
+    "alcohol_quantity_placeholder": "例:週2杯",
+    "drug_quantity_placeholder": "例:種類と頻度"
   },
   "mediaUploadSlot": {
     "file_too_large": "ファイルが{{maxSize}}MBの上限を超えています",

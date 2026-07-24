@@ -124,7 +124,10 @@
       "unspecified": "미지정",
       "no": "아니오",
       "yes": "예"
-    }
+    },
+    "tobacco_quantity_placeholder": "예: 하루 10개비",
+    "alcohol_quantity_placeholder": "예: 주 2잔",
+    "drug_quantity_placeholder": "예: 종류 및 빈도"
   },
   "mediaUploadSlot": {
     "file_too_large": "파일이 {{maxSize}} MB 제한을 초과합니다",
