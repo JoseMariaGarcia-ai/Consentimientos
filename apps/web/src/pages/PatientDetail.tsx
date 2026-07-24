@@ -231,6 +231,18 @@ export default function PatientDetail() {
                       <span onClick={e => { e.stopPropagation(); handleDeleteClinical(r.id) }} className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50"><Trash2 className="w-4 h-4" /></span>
                     </div>
                   </div>
+                  {clinicalHabits(r, t).length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {clinicalHabits(r, t).map(h => (
+                        <span
+                          key={h.label}
+                          className={`text-xs font-medium px-2 py-1 rounded-full ${h.alert ? 'bg-amber-50 text-amber-700' : 'bg-slate-100 text-slate-500'}`}
+                        >
+                          {h.label}: {h.value}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                     {r.anamnesis && <Field label={t('patientDetail.fields.anamnesis')} value={r.anamnesis} />}
                     {r.allergies && <Field label={t('patientDetail.fields.allergies')} value={r.allergies} highlight />}
@@ -474,6 +486,25 @@ function EmptyState({ icon, text }: { icon: React.ReactNode; text: string }) {
       {icon}<p>{text}</p>
     </div>
   )
+}
+
+// Embarazo/tabaquismo/alcohol/drogas: solo se muestran los que constan
+// (true/false explícito), igual que en ClinicalRecordViewModal — un
+// registro sin preguntar/marcar queda en null y no debe aparecer como "No".
+function clinicalHabits(r: any, t: (key: string, opts?: any) => string) {
+  return ([
+    ['is_pregnant', t('clinicalRecordForm.is_pregnant'), null],
+    ['tobacco_use', t('clinicalRecordForm.tobacco_use'), 'tobacco_quantity'],
+    ['alcohol_use', t('clinicalRecordForm.alcohol_use'), 'alcohol_quantity'],
+    ['drug_use', t('clinicalRecordForm.drug_use'), 'drug_quantity'],
+  ] as const)
+    .filter(([key]) => r[key] === true || r[key] === false)
+    .map(([key, label, quantityKey]) => {
+      const value = r[key] === true
+        ? (quantityKey && r[quantityKey] ? `${t('clinicalRecordForm.tri_state.yes')} (${r[quantityKey]})` : t('clinicalRecordForm.tri_state.yes'))
+        : t('clinicalRecordForm.tri_state.no')
+      return { label, value, alert: r[key] === true }
+    })
 }
 
 function Field({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
