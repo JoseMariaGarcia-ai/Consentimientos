@@ -36,3 +36,12 @@ export function ownPatientIdsSubquery(paramIndex: number): string {
     UNION SELECT id FROM patients WHERE created_by_doctor_id = ${p}
   )`
 }
+
+// Comprueba si un paciente concreto está dentro del scope de un doctor
+// restringido — para los POST de consentimientos/historias/fotos/toxina/
+// odontogramas, que necesitan verificar el paciente antes de crear el
+// registro (el paciente ya se comprobó que pertenece a la clínica aparte).
+export async function patientInScope(patientId: string, doctorScope: string): Promise<boolean> {
+  const row = await queryOne(`SELECT 1 AS x WHERE $1 IN ${ownPatientIdsSubquery(2)}`, [patientId, doctorScope])
+  return !!row
+}

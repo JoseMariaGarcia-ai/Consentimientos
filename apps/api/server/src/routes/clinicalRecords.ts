@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { resolvePatientDoctorScope, ownPatientIdsSubquery, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -23,16 +24,20 @@ router.get('/', async (req, res) => {
   const { userId } = (req as any).user
   const { patientId } = req.query
   try {
-    const base = `
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.json([])
+    let base = `
       SELECT cr.*, row_to_json(p) AS patient, row_to_json(d) AS doctor
       FROM clinical_records cr
       LEFT JOIN patients p ON p.id = cr.patient_id
       LEFT JOIN doctors d ON d.id = cr.doctor_id
       WHERE cr.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)
     `
-    const data = patientId
-      ? await query(base + ` AND cr.patient_id = $2 ORDER BY cr.date DESC`, [userId, patientId])
-      : await query(base + ` ORDER BY cr.date DESC`, [userId])
+    const params: any[] = [userId]
+    if (scope) { params.push(scope); base += ` AND cr.patient_id IN ${ownPatientIdsSubquery(params.length)}` }
+    if (patientId) { params.push(patientId); base += ` AND cr.patient_id = $${params.length}` }
+    base += ' ORDER BY cr.date DESC'
+    const data = await query(base, params)
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
@@ -45,7 +50,12 @@ router.post('/', async (req, res) => {
     const clinicId = clinicRow!.clinic_id
     const patientId = b.patient_id ?? b.patientId
     const doctorId  = b.doctor_id  ?? b.doctorId  ?? null
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
     if (!(await belongsToClinic('patients', patientId, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (scope && !(await patientInScope(patientId, scope))) {
       return res.status(404).json({ error: 'Paciente no encontrado' })
     }
     if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId))) {
@@ -89,43 +99,49 @@ router.put('/:id', async (req, res) => {
     const clinicId = clinicRow!.clinic_id
     const patientId = b.patient_id ?? b.patientId
     const doctorId  = b.doctor_id  ?? b.doctorId  ?? null
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Historia clínica no encontrada' })
     if (!(await belongsToClinic('patients', patientId, clinicId))) {
       return res.status(404).json({ error: 'Paciente no encontrado' })
     }
     if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId))) {
       return res.status(404).json({ error: 'Doctor no encontrado' })
     }
-    const data = await queryOne(
-      `UPDATE clinical_records SET
+    if (scope && !(await patientInScope(patientId, scope))) {
+      return res.status(404).json({ error: 'Historia clínica no encontrada' })
+    }
+    let sql = `UPDATE clinical_records SET
         patient_id=$1, doctor_id=$2, date=$3, reason_for_visit=$4, anamnesis=$5,
         current_medications=$6, allergies=$7, physical_exam=$8, diagnosis=$9,
         treatment_plan=$10, notes=$11, is_pregnant=$12, tobacco_use=$13,
         alcohol_use=$14, drug_use=$15, tobacco_quantity=$16, alcohol_quantity=$17,
         drug_quantity=$18, updated_at=NOW()
-       WHERE id=$19 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $20) RETURNING *`,
-      [
-        patientId,
-        doctorId,
-        b.date || new Date().toISOString().split('T')[0],
-        b.reason_for_visit ?? b.reasonForVisit ?? null,
-        b.anamnesis ?? null,
-        b.current_medications ?? b.currentMedications ?? null,
-        b.allergies ?? null,
-        b.physical_exam ?? b.physicalExam ?? null,
-        b.diagnosis ?? null,
-        b.treatment_plan ?? b.treatmentPlan ?? null,
-        b.notes ?? null,
-        triBool(b.is_pregnant),
-        triBool(b.tobacco_use),
-        triBool(b.alcohol_use),
-        triBool(b.drug_use),
-        quantityText(b.tobacco_quantity),
-        quantityText(b.alcohol_quantity),
-        quantityText(b.drug_quantity),
-        req.params.id,
-        userId,
-      ]
-    )
+       WHERE id=$19 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $20)`
+    const params: any[] = [
+      patientId,
+      doctorId,
+      b.date || new Date().toISOString().split('T')[0],
+      b.reason_for_visit ?? b.reasonForVisit ?? null,
+      b.anamnesis ?? null,
+      b.current_medications ?? b.currentMedications ?? null,
+      b.allergies ?? null,
+      b.physical_exam ?? b.physicalExam ?? null,
+      b.diagnosis ?? null,
+      b.treatment_plan ?? b.treatmentPlan ?? null,
+      b.notes ?? null,
+      triBool(b.is_pregnant),
+      triBool(b.tobacco_use),
+      triBool(b.alcohol_use),
+      triBool(b.drug_use),
+      quantityText(b.tobacco_quantity),
+      quantityText(b.alcohol_quantity),
+      quantityText(b.drug_quantity),
+      req.params.id,
+      userId,
+    ]
+    if (scope) { params.push(scope); sql += ` AND patient_id IN ${ownPatientIdsSubquery(params.length)}` }
+    sql += ' RETURNING *'
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Historia clínica no encontrada' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -134,10 +150,13 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
-    const data = await queryOne(
-      'DELETE FROM clinical_records WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2) RETURNING id',
-      [req.params.id, userId]
-    )
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Historia clínica no encontrada' })
+    let sql = 'DELETE FROM clinical_records WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)'
+    const params: any[] = [req.params.id, userId]
+    if (scope) { params.push(scope); sql += ` AND patient_id IN ${ownPatientIdsSubquery(params.length)}` }
+    sql += ' RETURNING id'
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Historia clínica no encontrada' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
