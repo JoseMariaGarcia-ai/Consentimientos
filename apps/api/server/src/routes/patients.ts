@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { sendPatientWelcomeEmail } from '../lib/patientWelcomeEmail'
+import { resolvePatientDoctorScope, ownPatientIdsSubquery } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -27,10 +28,13 @@ function parseBody(b: any) {
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
   try {
-    const data = await query(
-      `SELECT * FROM patients WHERE clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1) ORDER BY created_at DESC`,
-      [userId]
-    )
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.json([])
+    let sql = `SELECT * FROM patients WHERE clinic_id = (SELECT clinic_id FROM app_users WHERE id = $1)`
+    const params: any[] = [userId]
+    if (scope) { params.push(scope); sql += ` AND id IN ${ownPatientIdsSubquery(params.length)}` }
+    sql += ' ORDER BY created_at DESC'
+    const data = await query(sql, params)
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
@@ -39,11 +43,13 @@ router.post('/', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
     const f = parseBody(req.body)
     const data = await queryOne<any>(
-      `INSERT INTO patients (clinic_id, first_name, last_name, full_name, date_of_birth, id_document, id_doc_type, phone, email, address, allergies, medications, blood_type)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING *`,
-      [clinicRow?.clinic_id, f.first_name, f.last_name, f.full_name, f.date_of_birth, f.id_document, f.id_doc_type, f.phone, f.email, f.address, f.allergies, f.medications, f.blood_type]
+      `INSERT INTO patients (clinic_id, first_name, last_name, full_name, date_of_birth, id_document, id_doc_type, phone, email, address, allergies, medications, blood_type, created_by_doctor_id)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) RETURNING *`,
+      [clinicRow?.clinic_id, f.first_name, f.last_name, f.full_name, f.date_of_birth, f.id_document, f.id_doc_type, f.phone, f.email, f.address, f.allergies, f.medications, f.blood_type, scope || null]
     )
 
     // Auto-create patient user and send welcome email if email provided
@@ -84,10 +90,12 @@ router.post('/:id/resend-welcome', async (req, res) => {
   const { id } = req.params
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const patient = await queryOne<any>(
-      'SELECT * FROM patients WHERE id = $1 AND clinic_id = $2',
-      [id, clinicRow?.clinic_id]
-    )
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Paciente no encontrado' })
+    let patientSql = 'SELECT * FROM patients WHERE id = $1 AND clinic_id = $2'
+    const patientParams: any[] = [id, clinicRow?.clinic_id]
+    if (scope) { patientParams.push(scope); patientSql += ` AND id IN ${ownPatientIdsSubquery(patientParams.length)}` }
+    const patient = await queryOne<any>(patientSql, patientParams)
     if (!patient) return res.status(404).json({ error: 'Paciente no encontrado' })
     const email = (patient.email ?? '').trim()
     if (!email) return res.status(400).json({ error: 'El paciente no tiene email' })
@@ -121,11 +129,14 @@ router.put('/:id', async (req, res) => {
   const { id } = req.params
   const f = parseBody(req.body)
   try {
-    const data = await queryOne(
-      `UPDATE patients SET first_name=$1, last_name=$2, full_name=$3, date_of_birth=$4, id_document=$5, id_doc_type=$6, phone=$7, email=$8, address=$9, allergies=$10, medications=$11, blood_type=$12, updated_at=NOW()
-       WHERE id=$13 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $14) RETURNING *`,
-      [f.first_name, f.last_name, f.full_name, f.date_of_birth, f.id_document, f.id_doc_type, f.phone, f.email, f.address, f.allergies, f.medications, f.blood_type, id, userId]
-    )
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Paciente no encontrado' })
+    let sql = `UPDATE patients SET first_name=$1, last_name=$2, full_name=$3, date_of_birth=$4, id_document=$5, id_doc_type=$6, phone=$7, email=$8, address=$9, allergies=$10, medications=$11, blood_type=$12, updated_at=NOW()
+       WHERE id=$13 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $14)`
+    const params: any[] = [f.first_name, f.last_name, f.full_name, f.date_of_birth, f.id_document, f.id_doc_type, f.phone, f.email, f.address, f.allergies, f.medications, f.blood_type, id, userId]
+    if (scope) { params.push(scope); sql += ` AND id IN ${ownPatientIdsSubquery(params.length)}` }
+    sql += ' RETURNING *'
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Paciente no encontrado' })
     return res.json(data)
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -134,10 +145,13 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
-    const data = await queryOne(
-      'DELETE FROM patients WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2) RETURNING id',
-      [req.params.id, userId]
-    )
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Paciente no encontrado' })
+    let sql = 'DELETE FROM patients WHERE id = $1 AND clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)'
+    const params: any[] = [req.params.id, userId]
+    if (scope) { params.push(scope); sql += ` AND id IN ${ownPatientIdsSubquery(params.length)}` }
+    sql += ' RETURNING id'
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Paciente no encontrado' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
