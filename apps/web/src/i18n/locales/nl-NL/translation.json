@@ -4,13 +4,24 @@
     "from": "Van",
     "to": "Tot",
     "welcome_total": "Aantal keer dat het welkomstscherm is getoond",
-    "patient_total": "Aantal keer dat de patiëntinhoud is getoond",
     "welcome_series": "Welkomstscherm",
-    "patient_series": "Patiëntinhoud",
     "no_data": "Geen weergaven geregistreerd in deze periode.",
-    "patient_note": "Patiëntinhoud wordt één keer per sessie getoond bij het openen van het patiëntenportaal.",
-    "campaign_total": "Aantal keren dat een advertentiecampagne is getoond",
-    "campaign_series": "Advertentiecampagnes"
+    "patient_note": "Patiëntcontent wordt één keer per sessie getoond bij het openen van het patiëntenportaal, en wordt ook opgenomen in de welkomst-e-mail en in elke verzonden toestemmings-e-mail.",
+    "patient_screen_total": "Keer op scherm getoond (patiëntenportaal)",
+    "patient_email_total": "Keer per e-mail verstuurd",
+    "avg_view_welcome": "Gemiddelde kijktijd — welkom",
+    "avg_view_patient": "Gemiddelde kijktijd — patiënt",
+    "patient_screen_series": "Patiëntcontent (scherm)",
+    "patient_email_series": "Patiëntcontent (e-mail)",
+    "by_clinic_title": "Per kliniek",
+    "table": {
+      "clinic": "Kliniek",
+      "welcome_screen": "Welkom (scherm)",
+      "patient_screen": "Patiënt (scherm)",
+      "patient_email": "Patiënt (e-mail)",
+      "total": "Totaal"
+    },
+    "no_clinic_data": "Geen gegevens per kliniek in deze periode."
   },
   "toxinModal": {
     "title_edit": "Toxine-registratie bewerken",

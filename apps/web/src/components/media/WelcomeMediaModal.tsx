@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '@/lib/api'
 import { useWelcomeMedia } from '@/context/WelcomeMediaContext'
@@ -40,14 +40,27 @@ export function WelcomeMediaModal() {
   const [closeDelay, setCloseDelay] = useState(0)
   const [visible, setVisible]   = useState(false)
   const { registerTrigger } = useWelcomeMedia()
+  const impressionIdRef = useRef<string | null>(null)
+  const openedAtRef = useRef<number>(0)
 
   const show = useCallback((c: Creative, delaySeconds: number) => {
     setCreative(c)
     setCloseDelay(delaySeconds)
     setVisible(true)
     localStorage.setItem(LS_LAST_SHOWN, Date.now().toString())
-    api.post('/media/impressions', { type: 'welcome', creative_id: c.id }).catch(() => {})
+    openedAtRef.current = Date.now()
+    api.post('/media/impressions', { type: 'welcome', creative_id: c.id })
+      .then((res: any) => { impressionIdRef.current = res?.id ?? null })
+      .catch(() => {})
   }, [])
+
+  const handleClose = () => {
+    setVisible(false)
+    if (impressionIdRef.current) {
+      const seconds = Math.round((Date.now() - openedAtRef.current) / 1000)
+      api.put(`/media/impressions/${impressionIdRef.current}`, { viewDurationSeconds: seconds }).catch(() => {})
+    }
+  }
 
   useEffect(() => {
     // Initial load: auto-show for session/interval triggers
@@ -93,7 +106,7 @@ export function WelcomeMediaModal() {
   return (
     <CreativeViewer
       creative={creative}
-      onClose={() => setVisible(false)}
+      onClose={handleClose}
       altText={t('welcomeMediaModal.welcomeAlt')}
       continueLabel={t('welcomeMediaModal.continue')}
       closeDelaySeconds={closeDelay}

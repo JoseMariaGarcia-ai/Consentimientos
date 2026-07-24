@@ -4,13 +4,24 @@
     "from": "De la",
     "to": "Până la",
     "welcome_total": "Numărul de afișări ale ecranului de bun venit",
-    "patient_total": "Numărul de afișări ale conținutului pentru pacient",
     "welcome_series": "Ecran de bun venit",
-    "patient_series": "Conținut pentru pacient",
     "no_data": "Nu există vizualizări înregistrate în acest interval de date.",
-    "patient_note": "Conținutul pentru pacient este afișat o dată pe sesiune la deschiderea portalului pacientului.",
-    "campaign_total": "Numărul de afișări ale unei campanii publicitare",
-    "campaign_series": "Campanii publicitare"
+    "patient_note": "Conținutul pentru pacient este afișat o dată pe sesiune la deschiderea portalului pacientului și este inclus și în emailul de bun venit și în fiecare email de consimțământ trimis.",
+    "patient_screen_total": "De câte ori a fost afișat pe ecran (portal pacient)",
+    "patient_email_total": "De câte ori a fost trimis prin email",
+    "avg_view_welcome": "Timp mediu de vizualizare — bun venit",
+    "avg_view_patient": "Timp mediu de vizualizare — pacient",
+    "patient_screen_series": "Conținut pentru pacient (ecran)",
+    "patient_email_series": "Conținut pentru pacient (email)",
+    "by_clinic_title": "Pe clinică",
+    "table": {
+      "clinic": "Clinică",
+      "welcome_screen": "Bun venit (ecran)",
+      "patient_screen": "Pacient (ecran)",
+      "patient_email": "Pacient (email)",
+      "total": "Total"
+    },
+    "no_clinic_data": "Nu există date pe clinică în acest interval de date."
   },
   "toxinModal": {
     "title_edit": "Editare înregistrare toxină",

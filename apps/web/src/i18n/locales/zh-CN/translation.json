@@ -4,13 +4,24 @@
     "from": "开始日期",
     "to": "结束日期",
     "welcome_total": "欢迎屏幕展示次数",
-    "patient_total": "患者内容展示次数",
     "welcome_series": "欢迎屏幕",
-    "patient_series": "患者内容",
     "no_data": "所选日期范围内没有展示记录。",
-    "patient_note": "患者内容在打开患者门户时每次会话显示一次。",
-    "campaign_total": "广告活动展示次数",
-    "campaign_series": "广告活动"
+    "patient_note": "打开患者门户时,每个会话会显示一次患者内容,该内容也会包含在欢迎邮件和每封发送的知情同意邮件中。",
+    "patient_screen_total": "屏幕展示次数(患者门户)",
+    "patient_email_total": "邮件发送次数",
+    "avg_view_welcome": "平均查看时长 — 欢迎屏",
+    "avg_view_patient": "平均查看时长 — 患者内容",
+    "patient_screen_series": "患者内容(屏幕)",
+    "patient_email_series": "患者内容(邮件)",
+    "by_clinic_title": "按诊所",
+    "table": {
+      "clinic": "诊所",
+      "welcome_screen": "欢迎屏(屏幕)",
+      "patient_screen": "患者(屏幕)",
+      "patient_email": "患者(邮件)",
+      "total": "总计"
+    },
+    "no_clinic_data": "该日期范围内没有按诊所划分的数据。"
   },
   "toxinModal": {
     "title_edit": "编辑毒素注射记录",

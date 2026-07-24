@@ -133,8 +133,18 @@ router.get('/:id', requireLabAccess, async (req, res) => {
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 
-// Daily welcome/patient impression counts for the stats dashboard.
-// Defaults to the current month when no from/to given.
+// Estadísticas de publicidad para el panel del laboratorio: bienvenida y
+// contenido para paciente (en pantalla vs. enviado por email), tiempo medio
+// de visualización en pantalla, y desglose por clínica vinculada. Las
+// campañas (lab_ad_campaigns) quedan fuera deliberadamente — se gestionan
+// aparte y no forman parte de estas estadísticas. Por defecto, mes en curso.
+function seriesKey(mediaType: string, channel: string): 'welcome_screen' | 'patient_screen' | 'patient_email' | null {
+  if (mediaType === 'welcome' && channel === 'screen') return 'welcome_screen'
+  if (mediaType === 'patient' && channel === 'screen') return 'patient_screen'
+  if (mediaType === 'patient' && channel === 'email') return 'patient_email'
+  return null
+}
+
 router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
   try {
     const { from, to } = req.query as { from?: string; to?: string }
@@ -142,30 +152,74 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
     const fromDate = from ? new Date(from) : new Date(now.getFullYear(), now.getMonth(), 1)
     const toDate = to ? new Date(to) : now
     const toExclusive = new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate() + 1)
+    const params = [req.params.id, fromDate.toISOString(), toExclusive.toISOString()]
 
-    const rows = await query<{ day: string; media_type: string; count: string }>(
-      `SELECT to_char(shown_at, 'YYYY-MM-DD') AS day, media_type, COUNT(*) AS count
+    const dailyRows = await query<{ day: string; media_type: string; channel: string; count: string }>(
+      `SELECT to_char(shown_at, 'YYYY-MM-DD') AS day, media_type, channel, COUNT(*) AS count
        FROM media_impressions
-       WHERE lab_partner_id = $1 AND shown_at >= $2 AND shown_at < $3
-       GROUP BY day, media_type ORDER BY day`,
-      [req.params.id, fromDate.toISOString(), toExclusive.toISOString()]
+       WHERE lab_partner_id = $1 AND media_type IN ('welcome','patient') AND shown_at >= $2 AND shown_at < $3
+       GROUP BY day, media_type, channel ORDER BY day`,
+      params
     )
-
-    const byDay = new Map<string, { date: string; welcome: number; patient: number; campaign: number }>()
-    for (const r of rows) {
-      const entry = byDay.get(r.day) ?? { date: r.day, welcome: 0, patient: 0, campaign: 0 }
-      entry[r.media_type as 'welcome' | 'patient' | 'campaign'] = parseInt(r.count, 10)
+    const byDay = new Map<string, { date: string; welcome_screen: number; patient_screen: number; patient_email: number }>()
+    for (const r of dailyRows) {
+      const key = seriesKey(r.media_type, r.channel)
+      if (!key) continue
+      const entry = byDay.get(r.day) ?? { date: r.day, welcome_screen: 0, patient_screen: 0, patient_email: 0 }
+      entry[key] = parseInt(r.count, 10)
       byDay.set(r.day, entry)
     }
     const daily = [...byDay.values()].sort((a, b) => a.date.localeCompare(b.date))
     const totals = daily.reduce(
-      (acc, d) => ({ welcome: acc.welcome + d.welcome, patient: acc.patient + d.patient, campaign: acc.campaign + d.campaign }),
-      { welcome: 0, patient: 0, campaign: 0 }
+      (acc, d) => ({
+        welcome_screen: acc.welcome_screen + d.welcome_screen,
+        patient_screen: acc.patient_screen + d.patient_screen,
+        patient_email: acc.patient_email + d.patient_email,
+      }),
+      { welcome_screen: 0, patient_screen: 0, patient_email: 0 }
     )
+
+    const durationRows = await query<{ media_type: string; avg_seconds: string | null; measured: string }>(
+      `SELECT media_type, AVG(view_duration_seconds) AS avg_seconds, COUNT(*) FILTER (WHERE view_duration_seconds IS NOT NULL) AS measured
+       FROM media_impressions
+       WHERE lab_partner_id = $1 AND channel = 'screen' AND media_type IN ('welcome','patient') AND shown_at >= $2 AND shown_at < $3
+       GROUP BY media_type`,
+      params
+    )
+    let avgViewSecondsWelcome: number | null = null
+    let avgViewSecondsPatient: number | null = null
+    for (const r of durationRows) {
+      if (parseInt(r.measured, 10) === 0) continue
+      const avg = Math.round(parseFloat(r.avg_seconds ?? '0'))
+      if (r.media_type === 'welcome') avgViewSecondsWelcome = avg
+      if (r.media_type === 'patient') avgViewSecondsPatient = avg
+    }
+
+    const clinicRows = await query<{ clinic_id: string; clinic_name: string; media_type: string; channel: string; count: string }>(
+      `SELECT c.id AS clinic_id, COALESCE(c.trade_name, c.name) AS clinic_name, mi.media_type, mi.channel, COUNT(*) AS count
+       FROM media_impressions mi
+       JOIN clinics c ON c.id = mi.clinic_id
+       WHERE mi.lab_partner_id = $1 AND mi.media_type IN ('welcome','patient') AND mi.shown_at >= $2 AND mi.shown_at < $3
+       GROUP BY c.id, clinic_name, mi.media_type, mi.channel
+       ORDER BY clinic_name`,
+      params
+    )
+    const byClinicMap = new Map<string, { clinic_id: string; clinic_name: string; welcome_screen: number; patient_screen: number; patient_email: number; total: number }>()
+    for (const r of clinicRows) {
+      const key = seriesKey(r.media_type, r.channel)
+      if (!key) continue
+      const entry = byClinicMap.get(r.clinic_id) ?? { clinic_id: r.clinic_id, clinic_name: r.clinic_name, welcome_screen: 0, patient_screen: 0, patient_email: 0, total: 0 }
+      const count = parseInt(r.count, 10)
+      entry[key] = count
+      entry.total += count
+      byClinicMap.set(r.clinic_id, entry)
+    }
+    const byClinic = [...byClinicMap.values()].sort((a, b) => b.total - a.total)
 
     return res.json({
       daily,
-      totals,
+      totals: { ...totals, avg_view_seconds_welcome: avgViewSecondsWelcome, avg_view_seconds_patient: avgViewSecondsPatient },
+      byClinic,
       from: fromDate.toISOString().slice(0, 10),
       to: toDate.toISOString().slice(0, 10),
     })

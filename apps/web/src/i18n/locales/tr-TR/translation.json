@@ -4,13 +4,24 @@
     "from": "Başlangıç",
     "to": "Bitiş",
     "welcome_total": "Karşılama ekranının gösterilme sayısı",
-    "patient_total": "Hasta içeriğinin gösterilme sayısı",
     "welcome_series": "Karşılama ekranı",
-    "patient_series": "Hasta içeriği",
     "no_data": "Bu tarih aralığında kayıtlı görüntülenme yok.",
-    "patient_note": "Hasta içeriği, hasta portalı açıldığında oturum başına bir kez gösterilir.",
-    "campaign_total": "Bir reklam kampanyasının gösterilme sayısı",
-    "campaign_series": "Reklam kampanyaları"
+    "patient_note": "Hasta içeriği, hasta portalı açıldığında oturum başına bir kez gösterilir ve ayrıca karşılama e-postasında ve gönderilen her onam e-postasında yer alır.",
+    "patient_screen_total": "Ekranda gösterilme sayısı (hasta portalı)",
+    "patient_email_total": "E-posta ile gönderilme sayısı",
+    "avg_view_welcome": "Ortalama görüntüleme süresi — karşılama",
+    "avg_view_patient": "Ortalama görüntüleme süresi — hasta",
+    "patient_screen_series": "Hasta içeriği (ekran)",
+    "patient_email_series": "Hasta içeriği (e-posta)",
+    "by_clinic_title": "Kliniğe göre",
+    "table": {
+      "clinic": "Klinik",
+      "welcome_screen": "Karşılama (ekran)",
+      "patient_screen": "Hasta (ekran)",
+      "patient_email": "Hasta (e-posta)",
+      "total": "Toplam"
+    },
+    "no_clinic_data": "Bu tarih aralığında kliniğe göre veri yok."
   },
   "toxinModal": {
     "title_edit": "Toksin kaydını düzenle",

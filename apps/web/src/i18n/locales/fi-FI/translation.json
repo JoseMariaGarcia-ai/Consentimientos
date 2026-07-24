@@ -4,13 +4,24 @@
     "from": "Alkaen",
     "to": "Päättyen",
     "welcome_total": "Tervetuloa-näytön näyttökertojen määrä",
-    "patient_total": "Potilassisällön näyttökertojen määrä",
     "welcome_series": "Tervetuloa-näyttö",
-    "patient_series": "Potilassisältö",
     "no_data": "Ei rekisteröityjä näyttökertoja tällä aikavälillä.",
-    "patient_note": "Potilassisältö näytetään kerran istuntoa kohden potilasportaalia avattaessa.",
-    "campaign_total": "Kuinka monta kertaa mainoskampanja näytettiin",
-    "campaign_series": "Mainoskampanjat"
+    "patient_note": "Potilassisältö näytetään kerran istuntoa kohden potilasportaalia avattaessa, ja se sisältyy myös tervetuloviestiin ja jokaiseen lähetettyyn suostumussähköpostiin.",
+    "patient_screen_total": "Näyttökertoja ruudulla (potilasportaali)",
+    "patient_email_total": "Lähetyskertoja sähköpostitse",
+    "avg_view_welcome": "Keskimääräinen katseluaika — tervetuloa",
+    "avg_view_patient": "Keskimääräinen katseluaika — potilas",
+    "patient_screen_series": "Potilassisältö (näyttö)",
+    "patient_email_series": "Potilassisältö (sähköposti)",
+    "by_clinic_title": "Klinikoittain",
+    "table": {
+      "clinic": "Klinikka",
+      "welcome_screen": "Tervetuloa (näyttö)",
+      "patient_screen": "Potilas (näyttö)",
+      "patient_email": "Potilas (sähköposti)",
+      "total": "Yhteensä"
+    },
+    "no_clinic_data": "Ei klinikkakohtaisia tietoja tällä aikavälillä."
   },
   "toxinModal": {
     "title_edit": "Muokkaa toksiinimerkintää",

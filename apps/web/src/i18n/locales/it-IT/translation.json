@@ -4,13 +4,24 @@
     "from": "Dal",
     "to": "Al",
     "welcome_total": "Numero di visualizzazioni della schermata di benvenuto",
-    "patient_total": "Numero di visualizzazioni del contenuto per il paziente",
     "welcome_series": "Schermata di benvenuto",
-    "patient_series": "Contenuto per il paziente",
     "no_data": "Nessuna visualizzazione registrata in questo intervallo di date.",
-    "patient_note": "Il contenuto per il paziente viene mostrato una volta per sessione all'apertura del portale paziente.",
-    "campaign_total": "Numero di volte in cui è stata mostrata una campagna pubblicitaria",
-    "campaign_series": "Campagne pubblicitarie"
+    "patient_note": "Il contenuto per il paziente viene mostrato una volta per sessione all'apertura del portale paziente, ed è incluso anche nell'email di benvenuto e in ogni email di consenso inviata.",
+    "patient_screen_total": "Volte mostrato a schermo (portale paziente)",
+    "patient_email_total": "Volte inviato via email",
+    "avg_view_welcome": "Tempo medio di visualizzazione — benvenuto",
+    "avg_view_patient": "Tempo medio di visualizzazione — paziente",
+    "patient_screen_series": "Contenuto paziente (schermo)",
+    "patient_email_series": "Contenuto paziente (email)",
+    "by_clinic_title": "Per clinica",
+    "table": {
+      "clinic": "Clinica",
+      "welcome_screen": "Benvenuto (schermo)",
+      "patient_screen": "Paziente (schermo)",
+      "patient_email": "Paziente (email)",
+      "total": "Totale"
+    },
+    "no_clinic_data": "Nessun dato per clinica in questo intervallo di date."
   },
   "toxinModal": {
     "title_edit": "Modifica registro tossina",

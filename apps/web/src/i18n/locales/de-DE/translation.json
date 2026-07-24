@@ -4,13 +4,24 @@
     "from": "Von",
     "to": "Bis",
     "welcome_total": "Anzahl der Anzeigen des Willkommensbildschirms",
-    "patient_total": "Anzahl der Anzeigen der Patienteninhalte",
     "welcome_series": "Willkommensbildschirm",
-    "patient_series": "Patienteninhalt",
     "no_data": "Keine Aufrufe im gewählten Zeitraum erfasst.",
-    "patient_note": "Der Patienteninhalt wird einmal pro Sitzung beim Öffnen des Patientenportals angezeigt.",
-    "campaign_total": "Wie oft eine Werbekampagne angezeigt wurde",
-    "campaign_series": "Werbekampagnen"
+    "patient_note": "Der Patienteninhalt wird einmal pro Sitzung beim Öffnen des Patientenportals angezeigt und ist außerdem in der Willkommens-E-Mail und in jeder gesendeten Einwilligungs-E-Mail enthalten.",
+    "patient_screen_total": "Anzahl der Bildschirmanzeigen (Patientenportal)",
+    "patient_email_total": "Anzahl der E-Mail-Versendungen",
+    "avg_view_welcome": "Durchschnittliche Anzeigedauer — Willkommen",
+    "avg_view_patient": "Durchschnittliche Anzeigedauer — Patient",
+    "patient_screen_series": "Patienteninhalt (Bildschirm)",
+    "patient_email_series": "Patienteninhalt (E-Mail)",
+    "by_clinic_title": "Nach Klinik",
+    "table": {
+      "clinic": "Klinik",
+      "welcome_screen": "Willkommen (Bildschirm)",
+      "patient_screen": "Patient (Bildschirm)",
+      "patient_email": "Patient (E-Mail)",
+      "total": "Gesamt"
+    },
+    "no_clinic_data": "Keine Daten pro Klinik in diesem Zeitraum."
   },
   "toxinModal": {
     "title_edit": "Toxin-Eintrag bearbeiten",

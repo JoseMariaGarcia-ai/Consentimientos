@@ -4,13 +4,24 @@
     "from": "Från",
     "to": "Till",
     "welcome_total": "Antal gånger välkomstskärmen har visats",
-    "patient_total": "Antal gånger patientinnehållet har visats",
     "welcome_series": "Välkomstskärm",
-    "patient_series": "Patientinnehåll",
     "no_data": "Inga visningar registrerade under denna period.",
-    "patient_note": "Patientinnehåll visas en gång per session när patientportalen öppnas.",
-    "campaign_total": "Antal gånger en annonskampanj visades",
-    "campaign_series": "Annonskampanjer"
+    "patient_note": "Patientinnehållet visas en gång per session när patientportalen öppnas, och ingår även i välkomstmejlet och i varje skickat samtyckesmejl.",
+    "patient_screen_total": "Antal gånger visat på skärm (patientportal)",
+    "patient_email_total": "Antal gånger skickat via e-post",
+    "avg_view_welcome": "Genomsnittlig visningstid — välkomst",
+    "avg_view_patient": "Genomsnittlig visningstid — patient",
+    "patient_screen_series": "Patientinnehåll (skärm)",
+    "patient_email_series": "Patientinnehåll (e-post)",
+    "by_clinic_title": "Per klinik",
+    "table": {
+      "clinic": "Klinik",
+      "welcome_screen": "Välkomst (skärm)",
+      "patient_screen": "Patient (skärm)",
+      "patient_email": "Patient (e-post)",
+      "total": "Totalt"
+    },
+    "no_clinic_data": "Inga data per klinik under denna period."
   },
   "toxinModal": {
     "title_edit": "Redigera toxinregistrering",

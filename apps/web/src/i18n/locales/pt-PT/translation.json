@@ -4,13 +4,24 @@
     "from": "De",
     "to": "Até",
     "welcome_total": "Vezes que o ecrã de boas-vindas foi mostrado",
-    "patient_total": "Vezes que o conteúdo para o paciente foi mostrado",
     "welcome_series": "Ecrã de boas-vindas",
-    "patient_series": "Conteúdo para o paciente",
     "no_data": "Sem visualizações registadas neste intervalo de datas.",
-    "patient_note": "O conteúdo para o paciente é apresentado uma vez por sessão ao abrir o portal do paciente.",
-    "campaign_total": "Número de vezes que uma campanha publicitária foi apresentada",
-    "campaign_series": "Campanhas publicitárias"
+    "patient_note": "O conteúdo para paciente é mostrado uma vez por sessão ao abrir o portal do paciente, e também é incluído no email de boas-vindas e em cada email de consentimento enviado.",
+    "patient_screen_total": "Vezes mostrado no ecrã (portal do paciente)",
+    "patient_email_total": "Vezes enviado por email",
+    "avg_view_welcome": "Tempo médio de visualização — boas-vindas",
+    "avg_view_patient": "Tempo médio de visualização — paciente",
+    "patient_screen_series": "Conteúdo para paciente (ecrã)",
+    "patient_email_series": "Conteúdo para paciente (email)",
+    "by_clinic_title": "Por clínica",
+    "table": {
+      "clinic": "Clínica",
+      "welcome_screen": "Boas-vindas (ecrã)",
+      "patient_screen": "Paciente (ecrã)",
+      "patient_email": "Paciente (email)",
+      "total": "Total"
+    },
+    "no_clinic_data": "Sem dados por clínica neste período."
   },
   "toxinModal": {
     "title_edit": "Editar registo de toxina",

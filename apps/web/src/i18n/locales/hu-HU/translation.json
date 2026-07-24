@@ -4,13 +4,24 @@
     "from": "Ettől",
     "to": "Eddig",
     "welcome_total": "Az üdvözlőképernyő megjelenítéseinek száma",
-    "patient_total": "A betegtartalom megjelenítéseinek száma",
     "welcome_series": "Üdvözlőképernyő",
-    "patient_series": "Betegtartalom",
     "no_data": "Ebben az időszakban nincs rögzített megtekintés.",
-    "patient_note": "A beteg számára szánt tartalom munkamenetenként egyszer jelenik meg a betegportál megnyitásakor.",
-    "campaign_total": "Hányszor jelent meg egy hirdetési kampány",
-    "campaign_series": "Hirdetési kampányok"
+    "patient_note": "A beteg tartalom munkamenetenként egyszer jelenik meg a betegportál megnyitásakor, és szerepel az üdvözlő e-mailben, valamint minden elküldött beleegyezési e-mailben is.",
+    "patient_screen_total": "Képernyőn megjelenítve (betegportál)",
+    "patient_email_total": "E-mailben elküldve",
+    "avg_view_welcome": "Átlagos megtekintési idő — üdvözlés",
+    "avg_view_patient": "Átlagos megtekintési idő — beteg",
+    "patient_screen_series": "Beteg tartalom (képernyő)",
+    "patient_email_series": "Beteg tartalom (e-mail)",
+    "by_clinic_title": "Klinikánként",
+    "table": {
+      "clinic": "Klinika",
+      "welcome_screen": "Üdvözlés (képernyő)",
+      "patient_screen": "Beteg (képernyő)",
+      "patient_email": "Beteg (e-mail)",
+      "total": "Összesen"
+    },
+    "no_clinic_data": "Nincs klinikánkénti adat ebben az időszakban."
   },
   "toxinModal": {
     "title_edit": "Toxinbejegyzés szerkesztése",

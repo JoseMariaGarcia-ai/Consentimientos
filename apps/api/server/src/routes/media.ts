@@ -119,6 +119,8 @@ router.get('/', async (req, res) => {
 // POST /api/media/impressions — log that a welcome/patient creative was
 // actually shown to clinic staff, for the lab partner's stats dashboard.
 // Registered before /:type so it isn't swallowed by that param route.
+// Siempre channel='screen' — la contraparte por email se registra aparte
+// desde patientAdBlock.ts, justo después de enviar el correo.
 router.post('/impressions', async (req, res) => {
   const { userId } = (req as any).user
   const { type, creative_id } = req.body
@@ -135,11 +137,31 @@ router.post('/impressions', async (req, res) => {
       labPartnerId = creative?.lab_partner_id ?? null
     }
 
-    await query(
-      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id) VALUES ($1,$2,$3,$4)`,
+    const row = await queryOne<{ id: string }>(
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id, channel) VALUES ($1,$2,$3,$4,'screen') RETURNING id`,
       [me.clinic_id, labPartnerId, type, creative_id ?? null]
     )
-    return res.status(201).json({ logged: true })
+    return res.status(201).json({ logged: true, id: row!.id })
+  } catch (err: any) { return res.status(500).json({ error: err.message }) }
+})
+
+// PUT /api/media/impressions/:id — registra cuánto tiempo estuvo visible el
+// creative en pantalla, una vez se cierra (la impresión ya se guardó al
+// mostrarse, aquí solo se completa con la duración real). Solo se permite
+// actualizar una impresión de la propia clínica del que llama.
+router.put('/impressions/:id', async (req, res) => {
+  const { userId } = (req as any).user
+  const seconds = Number(req.body.viewDurationSeconds)
+  if (!Number.isFinite(seconds) || seconds < 0) return res.status(400).json({ error: 'viewDurationSeconds inválido' })
+  try {
+    const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+    if (!me?.clinic_id) return res.status(400).json({ error: 'Usuario sin clínica asignada' })
+    const data = await queryOne(
+      `UPDATE media_impressions SET view_duration_seconds = $1 WHERE id = $2 AND clinic_id = $3 AND channel = 'screen' RETURNING id`,
+      [Math.round(seconds), req.params.id, me.clinic_id]
+    )
+    if (!data) return res.status(404).json({ error: 'Impresión no encontrada' })
+    return res.json({ updated: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 

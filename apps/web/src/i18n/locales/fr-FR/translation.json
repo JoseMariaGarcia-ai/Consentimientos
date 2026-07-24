@@ -4,13 +4,24 @@
     "from": "Du",
     "to": "Au",
     "welcome_total": "Nombre d'affichages de l'écran de bienvenue",
-    "patient_total": "Nombre d'affichages du contenu patient",
     "welcome_series": "Écran de bienvenue",
-    "patient_series": "Contenu patient",
     "no_data": "Aucune visualisation enregistrée sur cette période.",
-    "patient_note": "Le contenu patient s'affiche une fois par session à l'ouverture du portail patient.",
-    "campaign_total": "Nombre de fois qu'une campagne publicitaire a été affichée",
-    "campaign_series": "Campagnes publicitaires"
+    "patient_note": "Le contenu patient s'affiche une fois par session à l'ouverture du portail patient, et est aussi inclus dans l'email de bienvenue et dans chaque email de consentement envoyé.",
+    "patient_screen_total": "Nombre d'affichages à l'écran (portail patient)",
+    "patient_email_total": "Nombre d'envois par email",
+    "avg_view_welcome": "Durée moyenne de visualisation — bienvenue",
+    "avg_view_patient": "Durée moyenne de visualisation — patient",
+    "patient_screen_series": "Contenu patient (écran)",
+    "patient_email_series": "Contenu patient (email)",
+    "by_clinic_title": "Par clinique",
+    "table": {
+      "clinic": "Clinique",
+      "welcome_screen": "Bienvenue (écran)",
+      "patient_screen": "Patient (écran)",
+      "patient_email": "Patient (email)",
+      "total": "Total"
+    },
+    "no_clinic_data": "Aucune donnée par clinique sur cette période."
   },
   "toxinModal": {
     "title_edit": "Modifier l'enregistrement de toxine",

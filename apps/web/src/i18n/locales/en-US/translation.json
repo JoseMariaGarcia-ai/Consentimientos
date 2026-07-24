@@ -4,13 +4,24 @@
     "from": "From",
     "to": "To",
     "welcome_total": "Times the welcome screen was shown",
-    "patient_total": "Times the patient content was shown",
     "welcome_series": "Welcome screen",
-    "patient_series": "Patient content",
     "no_data": "No views recorded in this date range.",
-    "patient_note": "Patient content is shown once per session when the patient portal is opened.",
-    "campaign_total": "Times an advertising campaign was shown",
-    "campaign_series": "Advertising campaigns"
+    "patient_note": "Patient content is shown once per session when the patient portal is opened, and is also included in the welcome email and every consent email sent.",
+    "patient_screen_total": "Times shown on screen (patient portal)",
+    "patient_email_total": "Times sent by email",
+    "avg_view_welcome": "Average viewing time — welcome",
+    "avg_view_patient": "Average viewing time — patient",
+    "patient_screen_series": "Patient content (screen)",
+    "patient_email_series": "Patient content (email)",
+    "by_clinic_title": "By clinic",
+    "table": {
+      "clinic": "Clinic",
+      "welcome_screen": "Welcome (screen)",
+      "patient_screen": "Patient (screen)",
+      "patient_email": "Patient (email)",
+      "total": "Total"
+    },
+    "no_clinic_data": "No per-clinic data in this date range."
   },
   "toxinModal": {
     "title_edit": "Edit toxin record",

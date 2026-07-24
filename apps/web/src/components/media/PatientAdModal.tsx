@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '@/lib/api'
 import { pickCreative, type SlotData, type Creative } from '@/lib/mediaCreative'
@@ -15,6 +15,8 @@ export function PatientAdModal() {
   const [creative, setCreative] = useState<Creative | null>(null)
   const [closeDelay, setCloseDelay] = useState(0)
   const [visible, setVisible]   = useState(false)
+  const impressionIdRef = useRef<string | null>(null)
+  const openedAtRef = useRef<number>(0)
 
   useEffect(() => {
     if (sessionStorage.getItem(SS_SHOWN)) return
@@ -27,16 +29,27 @@ export function PatientAdModal() {
       setCloseDelay(slot.settings.close_delay_seconds ?? 0)
       setVisible(true)
       sessionStorage.setItem(SS_SHOWN, '1')
-      api.post('/media/impressions', { type: 'patient', creative_id: c.id }).catch(() => {})
+      openedAtRef.current = Date.now()
+      api.post('/media/impressions', { type: 'patient', creative_id: c.id })
+        .then((res: any) => { impressionIdRef.current = res?.id ?? null })
+        .catch(() => {})
     }).catch(() => {})
   }, [])
+
+  const handleClose = () => {
+    setVisible(false)
+    if (impressionIdRef.current) {
+      const seconds = Math.round((Date.now() - openedAtRef.current) / 1000)
+      api.put(`/media/impressions/${impressionIdRef.current}`, { viewDurationSeconds: seconds }).catch(() => {})
+    }
+  }
 
   if (!visible || !creative) return null
 
   return (
     <CreativeViewer
       creative={creative}
-      onClose={() => setVisible(false)}
+      onClose={handleClose}
       altText={t('patientAdModal.alt')}
       continueLabel={t('patientAdModal.continue')}
       closeDelaySeconds={closeDelay}

@@ -4,13 +4,24 @@
     "from": "Od",
     "to": "Do",
     "welcome_total": "Liczba wyświetleń ekranu powitalnego",
-    "patient_total": "Liczba wyświetleń treści dla pacjenta",
     "welcome_series": "Ekran powitalny",
-    "patient_series": "Treść dla pacjenta",
     "no_data": "Brak zarejestrowanych wyświetleń w tym zakresie dat.",
-    "patient_note": "Treść dla pacjenta jest wyświetlana raz na sesję przy otwarciu portalu pacjenta.",
-    "campaign_total": "Liczba wyświetleń kampanii reklamowej",
-    "campaign_series": "Kampanie reklamowe"
+    "patient_note": "Treść dla pacjenta wyświetla się raz na sesję po otwarciu portalu pacjenta, a także jest dołączana do e-maila powitalnego i każdego wysłanego e-maila ze zgodą.",
+    "patient_screen_total": "Liczba wyświetleń na ekranie (portal pacjenta)",
+    "patient_email_total": "Liczba wysłań e-mailem",
+    "avg_view_welcome": "Średni czas wyświetlania — powitanie",
+    "avg_view_patient": "Średni czas wyświetlania — pacjent",
+    "patient_screen_series": "Treść dla pacjenta (ekran)",
+    "patient_email_series": "Treść dla pacjenta (e-mail)",
+    "by_clinic_title": "Wg kliniki",
+    "table": {
+      "clinic": "Klinika",
+      "welcome_screen": "Powitanie (ekran)",
+      "patient_screen": "Pacjent (ekran)",
+      "patient_email": "Pacjent (e-mail)",
+      "total": "Razem"
+    },
+    "no_clinic_data": "Brak danych dla klinik w tym zakresie dat."
   },
   "toxinModal": {
     "title_edit": "Edytuj wpis toksyny",

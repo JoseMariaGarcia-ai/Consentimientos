@@ -121,7 +121,7 @@ export async function buildPatientAdBlock(clinicId: string | null | undefined): 
 
   const logImpression = async () => {
     await query(
-      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id) VALUES ($1,$2,'patient',$3)`,
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id, channel) VALUES ($1,$2,'patient',$3,'email')`,
       [clinicId, mediaOwner.column === 'lab_partner_id' ? mediaOwner.id : null, adCreative.id]
     ).catch(() => {})
   }

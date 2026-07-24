@@ -4,13 +4,24 @@
     "from": "Des de",
     "to": "Fins a",
     "welcome_total": "Vegades que s'ha mostrat la pantalla de benvinguda",
-    "patient_total": "Vegades que s'ha mostrat el contingut per al pacient",
     "welcome_series": "Pantalla de benvinguda",
-    "patient_series": "Contingut per al pacient",
     "no_data": "No hi ha visualitzacions registrades en aquest interval de dates.",
-    "patient_note": "El contingut per al pacient es mostra un cop per sessió en obrir el portal del pacient.",
-    "campaign_total": "Vegades mostrada una campanya publicitària",
-    "campaign_series": "Campanyes publicitàries"
+    "patient_note": "El contingut per al pacient es mostra una vegada per sessió en obrir el portal del pacient, i també s'inclou a l'email de benvinguda i a cada email de consentiment enviat.",
+    "patient_screen_total": "Vegades mostrat en pantalla (portal del pacient)",
+    "patient_email_total": "Vegades enviat per email",
+    "avg_view_welcome": "Temps mitjà de visualització — benvinguda",
+    "avg_view_patient": "Temps mitjà de visualització — pacient",
+    "patient_screen_series": "Contingut per al pacient (pantalla)",
+    "patient_email_series": "Contingut per al pacient (email)",
+    "by_clinic_title": "Per clínica",
+    "table": {
+      "clinic": "Clínica",
+      "welcome_screen": "Benvinguda (pantalla)",
+      "patient_screen": "Pacient (pantalla)",
+      "patient_email": "Pacient (email)",
+      "total": "Total"
+    },
+    "no_clinic_data": "Sense dades per clínica en aquest interval de dates."
   },
   "toxinModal": {
     "title_edit": "Editar registre de toxina",

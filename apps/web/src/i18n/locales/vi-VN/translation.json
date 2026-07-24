@@ -4,13 +4,24 @@
     "from": "Từ",
     "to": "Đến",
     "welcome_total": "Số lần màn hình chào mừng được hiển thị",
-    "patient_total": "Số lần nội dung dành cho bệnh nhân được hiển thị",
     "welcome_series": "Màn hình chào mừng",
-    "patient_series": "Nội dung dành cho bệnh nhân",
     "no_data": "Không có lượt xem nào được ghi nhận trong khoảng thời gian này.",
-    "patient_note": "Nội dung dành cho bệnh nhân được hiển thị một lần mỗi phiên khi mở cổng thông tin bệnh nhân.",
-    "campaign_total": "Số lần một chiến dịch quảng cáo được hiển thị",
-    "campaign_series": "Chiến dịch quảng cáo"
+    "patient_note": "Nội dung bệnh nhân được hiển thị một lần mỗi phiên khi mở cổng bệnh nhân, và cũng được đưa vào email chào mừng và mỗi email đồng ý được gửi.",
+    "patient_screen_total": "Số lần hiển thị trên màn hình (cổng bệnh nhân)",
+    "patient_email_total": "Số lần gửi qua email",
+    "avg_view_welcome": "Thời gian xem trung bình — màn hình chào mừng",
+    "avg_view_patient": "Thời gian xem trung bình — nội dung bệnh nhân",
+    "patient_screen_series": "Nội dung bệnh nhân (màn hình)",
+    "patient_email_series": "Nội dung bệnh nhân (email)",
+    "by_clinic_title": "Theo phòng khám",
+    "table": {
+      "clinic": "Phòng khám",
+      "welcome_screen": "Chào mừng (màn hình)",
+      "patient_screen": "Bệnh nhân (màn hình)",
+      "patient_email": "Bệnh nhân (email)",
+      "total": "Tổng"
+    },
+    "no_clinic_data": "Không có dữ liệu theo phòng khám trong khoảng thời gian này."
   },
   "toxinModal": {
     "title_edit": "Chỉnh sửa bản ghi độc tố",
