@@ -113,6 +113,18 @@ Desde el módulo de Certificado Digital / ampliación VeriFactu (18 julio 2026):
       Facturación > Certificado Digital (rol admin de esa clínica) antes de que
       `AEAT_MODE=production` bloquee la emisión sin él.
 
+Desde la revisión de URLs en emails (24 julio 2026):
+- [ ] Cambiar `APP_URL` en Railway (servicio backend/API) de la URL autogenerada de Railway
+      (`https://consentimientos-production.up.railway.app`) al dominio corporativo
+      `https://www.consentspro.com` — mientras esté mal puesta, TODOS los emails que llevan
+      enlace (magic link de acceso, invitaciones, aviso de consentimiento firmado/revocado,
+      bienvenida a paciente, recordatorio de bono IA, avisos de suscripción/facturación,
+      dispositivos de firma) salen con la URL fea de Railway en vez de la del dominio propio.
+      Código ya usa `process.env.APP_URL` en todos esos sitios — no hace falta tocar nada más
+      en cuanto se corrija la variable en Railway.
+- [ ] Revisar también `VITE_APP_URL` (variable de build del frontend, Railway) por el mismo
+      motivo — la usan Códigos promocionales y el enlace del kiosco de Control Horario.
+
 Desde el módulo de Backups (23 julio 2026):
 - [ ] Generar y configurar en Railway `BACKUP_ENCRYPTION_KEY` (`openssl rand -hex 32`)
       antes de que corra el primer backup automático de las 3:00 AM UTC — sin ella,
