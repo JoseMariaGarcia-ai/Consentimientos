@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Stethoscope, Mail, CheckCircle2, Circle, Send, Loader2, CalendarRange } from 'lucide-react'
+import { Stethoscope, Mail, CheckCircle2, Circle, Send, Loader2, CalendarRange, Users } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ALL_MODULES } from '@/lib/modules'
 
@@ -17,6 +17,7 @@ interface PermissionsResponse {
   hasAccount: boolean
   permissions: Record<string, boolean>
   canViewAllAgendas: boolean
+  canViewAllPatients: boolean
 }
 
 // Gestión por clínica de qué secciones ve cada doctor y si puede ver la
@@ -143,12 +144,14 @@ function DoctorPermissionsModal({ doctor, onClose, onSaved }: { doctor: Doctor; 
   const [saving, setSaving] = useState(false)
   const [permissions, setPermissions] = useState<Record<string, boolean>>({})
   const [canViewAllAgendas, setCanViewAllAgendas] = useState(false)
+  const [canViewAllPatients, setCanViewAllPatients] = useState(false)
   const [error, setError] = useState('')
 
   useEffect(() => {
     api.get(`/doctors/${doctor.id}/permissions`).then((data: PermissionsResponse) => {
       setPermissions(data.permissions ?? {})
       setCanViewAllAgendas(!!data.canViewAllAgendas)
+      setCanViewAllPatients(!!data.canViewAllPatients)
     }).catch(() => setError(t('doctorPermissions.load_error') as string)).finally(() => setLoading(false))
   }, [doctor.id, t])
 
@@ -158,7 +161,7 @@ function DoctorPermissionsModal({ doctor, onClose, onSaved }: { doctor: Doctor; 
     setSaving(true)
     setError('')
     try {
-      await api.put(`/doctors/${doctor.id}/permissions`, { permissions, canViewAllAgendas })
+      await api.put(`/doctors/${doctor.id}/permissions`, { permissions, canViewAllAgendas, canViewAllPatients })
       onSaved()
     } catch (err: any) {
       setError(err.message ?? t('doctorPermissions.save_error'))
@@ -194,6 +197,21 @@ function DoctorPermissionsModal({ doctor, onClose, onSaved }: { doctor: Doctor; 
                   <CalendarRange className="w-4 h-4 text-blue-500" />{t('doctorPermissions.view_all_agendas')}
                 </span>
                 <span className="text-xs text-slate-500">{t('doctorPermissions.view_all_agendas_hint')}</span>
+              </span>
+            </label>
+
+            <label className="flex items-start gap-3 p-3 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={canViewAllPatients}
+                onChange={e => setCanViewAllPatients(e.target.checked)}
+                className="mt-0.5"
+              />
+              <span className="flex flex-col gap-0.5">
+                <span className="text-sm font-medium text-slate-800 flex items-center gap-1.5">
+                  <Users className="w-4 h-4 text-blue-500" />{t('doctorPermissions.view_all_patients')}
+                </span>
+                <span className="text-xs text-slate-500">{t('doctorPermissions.view_all_patients_hint')}</span>
               </span>
             </label>
 
