@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "클리닉별",
     "channel_split_title": "화면 vs 이메일",
     "by_province_chart_title": "지역별",
-    "province_unset": "미지정"
+    "province_unset": "미지정",
+    "by_trigger_chart_title": "상황별",
+    "trigger": {
+      "session": "로그인 시",
+      "interval": "일정 간격마다",
+      "consent": "동의서에 서명할 때",
+      "clinical": "진료 기록 생성 시"
+    }
   },
   "toxinModal": {
     "title_edit": "톡신 기록 수정",

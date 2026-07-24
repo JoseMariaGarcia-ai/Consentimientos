@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Por clínica",
     "channel_split_title": "Tela vs. email",
     "by_province_chart_title": "Por província",
-    "province_unset": "Não especificado"
+    "province_unset": "Não especificado",
+    "by_trigger_chart_title": "Por contexto",
+    "trigger": {
+      "session": "Ao entrar na sessão",
+      "interval": "A cada intervalo definido",
+      "consent": "Ao assinar um consentimento",
+      "clinical": "Ao criar um prontuário"
+    }
   },
   "toxinModal": {
     "title_edit": "Editar registro de toxina",

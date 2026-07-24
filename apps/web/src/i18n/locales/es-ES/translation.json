@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Por clínica",
     "channel_split_title": "Pantalla vs. email",
     "by_province_chart_title": "Por provincia",
-    "province_unset": "Sin especificar"
+    "province_unset": "Sin especificar",
+    "by_trigger_chart_title": "Por contexto",
+    "trigger": {
+      "session": "Al entrar en sesión",
+      "interval": "Cada cierto intervalo",
+      "consent": "Al firmar un consentimiento",
+      "clinical": "Al crear una historia clínica"
+    }
   },
   "toxinModal": {
     "title_edit": "Editar registro de toxina",

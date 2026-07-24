@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "За клініками",
     "channel_split_title": "Екран vs. email",
     "by_province_chart_title": "За провінціями",
-    "province_unset": "Не вказано"
+    "province_unset": "Не вказано",
+    "by_trigger_chart_title": "За контекстом",
+    "trigger": {
+      "session": "При вході в систему",
+      "interval": "Через заданий інтервал",
+      "consent": "При підписанні згоди",
+      "clinical": "При створенні медичної картки"
+    }
   },
   "toxinModal": {
     "title_edit": "Редагувати запис про токсин",

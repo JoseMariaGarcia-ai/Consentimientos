@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Klinikoittain",
     "channel_split_title": "Näyttö vs. sähköposti",
     "by_province_chart_title": "Provinsseittain",
-    "province_unset": "Ei määritetty"
+    "province_unset": "Ei määritetty",
+    "by_trigger_chart_title": "Kontekstin mukaan",
+    "trigger": {
+      "session": "Kirjautuessa",
+      "interval": "Tietyin väliajoin",
+      "consent": "Kun suostumus allekirjoitetaan",
+      "clinical": "Kun potilaskertomus luodaan"
+    }
   },
   "toxinModal": {
     "title_edit": "Muokkaa toksiinimerkintää",

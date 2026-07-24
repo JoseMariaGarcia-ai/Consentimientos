@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "حسب العيادة",
     "channel_split_title": "الشاشة مقابل البريد الإلكتروني",
     "by_province_chart_title": "حسب المقاطعة",
-    "province_unset": "غير محدد"
+    "province_unset": "غير محدد",
+    "by_trigger_chart_title": "حسب السياق",
+    "trigger": {
+      "session": "عند تسجيل الدخول",
+      "interval": "كل فترة زمنية محددة",
+      "consent": "عند توقيع موافقة",
+      "clinical": "عند إنشاء سجل طبي"
+    }
   },
   "toxinModal": {
     "title_edit": "تعديل سجل التوكسين",

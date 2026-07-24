@@ -195,6 +195,22 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
       if (r.media_type === 'patient') avgViewSecondsPatient = avg
     }
 
+    // Desglose de la pantalla de bienvenida por contexto: al entrar en
+    // sesión, cada cierto intervalo, al firmar un consentimiento o al crear
+    // una historia clínica (ver show_trigger en clinic_media_settings).
+    const triggerRows = await query<{ trigger: string | null; count: string }>(
+      `SELECT trigger, COUNT(*) AS count
+       FROM media_impressions
+       WHERE lab_partner_id = $1 AND media_type = 'welcome' AND shown_at >= $2 AND shown_at < $3
+       GROUP BY trigger`,
+      params
+    )
+    const welcomeByTrigger = { session: 0, interval: 0, consent: 0, clinical: 0 }
+    for (const r of triggerRows) {
+      const count = parseInt(r.count, 10)
+      if (r.trigger && r.trigger in welcomeByTrigger) (welcomeByTrigger as any)[r.trigger] = count
+    }
+
     const clinicRows = await query<{ clinic_id: string; clinic_name: string; province: string | null; media_type: string; channel: string; count: string }>(
       `SELECT c.id AS clinic_id, COALESCE(c.trade_name, c.name) AS clinic_name, c.province, mi.media_type, mi.channel, COUNT(*) AS count
        FROM media_impressions mi
@@ -253,6 +269,7 @@ router.get('/:id/media-stats', requireLabAccess, async (req, res) => {
       totals: { ...totals, avg_view_seconds_welcome: avgViewSecondsWelcome, avg_view_seconds_patient: avgViewSecondsPatient },
       byClinic,
       byProvince,
+      welcomeByTrigger,
       from: fromDate.toISOString().slice(0, 10),
       to: toDate.toISOString().slice(0, 10),
     })

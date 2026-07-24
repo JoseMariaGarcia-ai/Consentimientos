@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "クリニック別",
     "channel_split_title": "画面 vs メール",
     "by_province_chart_title": "県別",
-    "province_unset": "未指定"
+    "province_unset": "未指定",
+    "by_trigger_chart_title": "コンテキスト別",
+    "trigger": {
+      "session": "ログイン時",
+      "interval": "一定間隔ごと",
+      "consent": "同意書に署名したとき",
+      "clinical": "カルテを作成したとき"
+    }
   },
   "toxinModal": {
     "title_edit": "トキシン記録を編集",

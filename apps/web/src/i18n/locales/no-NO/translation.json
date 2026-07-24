@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Per klinikk",
     "channel_split_title": "Skjerm vs. e-post",
     "by_province_chart_title": "Per provins",
-    "province_unset": "Ikke angitt"
+    "province_unset": "Ikke angitt",
+    "by_trigger_chart_title": "Etter kontekst",
+    "trigger": {
+      "session": "Ved innlogging",
+      "interval": "Med jevne mellomrom",
+      "consent": "Ved signering av samtykke",
+      "clinical": "Ved opprettelse av pasientjournal"
+    }
   },
   "toxinModal": {
     "title_edit": "Rediger toksinregistrering",

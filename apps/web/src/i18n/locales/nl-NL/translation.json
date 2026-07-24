@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Per kliniek",
     "channel_split_title": "Scherm vs. e-mail",
     "by_province_chart_title": "Per provincie",
-    "province_unset": "Niet opgegeven"
+    "province_unset": "Niet opgegeven",
+    "by_trigger_chart_title": "Per context",
+    "trigger": {
+      "session": "Bij inloggen",
+      "interval": "Elk vast interval",
+      "consent": "Bij het ondertekenen van een toestemming",
+      "clinical": "Bij het aanmaken van een patiëntendossier"
+    }
   },
   "toxinModal": {
     "title_edit": "Toxine-registratie bewerken",

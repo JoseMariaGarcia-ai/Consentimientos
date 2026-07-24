@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Klinikánként",
     "channel_split_title": "Képernyő vs. e-mail",
     "by_province_chart_title": "Tartományonként",
-    "province_unset": "Nincs megadva"
+    "province_unset": "Nincs megadva",
+    "by_trigger_chart_title": "Kontextus szerint",
+    "trigger": {
+      "session": "Bejelentkezéskor",
+      "interval": "Meghatározott időközönként",
+      "consent": "Beleegyezés aláírásakor",
+      "clinical": "Kórtörténet létrehozásakor"
+    }
   },
   "toxinModal": {
     "title_edit": "Toxinbejegyzés szerkesztése",

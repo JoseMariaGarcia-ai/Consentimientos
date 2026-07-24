@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Par clinique",
     "channel_split_title": "Écran vs. email",
     "by_province_chart_title": "Par province",
-    "province_unset": "Non précisé"
+    "province_unset": "Non précisé",
+    "by_trigger_chart_title": "Par contexte",
+    "trigger": {
+      "session": "À la connexion",
+      "interval": "À intervalle régulier",
+      "consent": "Lors de la signature d'un consentement",
+      "clinical": "Lors de la création d'un dossier clinique"
+    }
   },
   "toxinModal": {
     "title_edit": "Modifier l'enregistrement de toxine",

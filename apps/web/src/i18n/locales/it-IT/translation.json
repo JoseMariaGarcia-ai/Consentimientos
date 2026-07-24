@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Per clinica",
     "channel_split_title": "Schermo vs. email",
     "by_province_chart_title": "Per provincia",
-    "province_unset": "Non specificato"
+    "province_unset": "Non specificato",
+    "by_trigger_chart_title": "Per contesto",
+    "trigger": {
+      "session": "All'accesso",
+      "interval": "A intervalli regolari",
+      "consent": "Alla firma di un consenso",
+      "clinical": "Alla creazione di una cartella clinica"
+    }
   },
   "toxinModal": {
     "title_edit": "Modifica registro tossina",

@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "По клиникам",
     "channel_split_title": "Экран vs. email",
     "by_province_chart_title": "По провинциям",
-    "province_unset": "Не указано"
+    "province_unset": "Не указано",
+    "by_trigger_chart_title": "По контексту",
+    "trigger": {
+      "session": "При входе в систему",
+      "interval": "Через заданный интервал",
+      "consent": "При подписании согласия",
+      "clinical": "При создании медкарты"
+    }
   },
   "toxinModal": {
     "title_edit": "Редактировать запись о токсине",

@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "By clinic",
     "channel_split_title": "Screen vs. email",
     "by_province_chart_title": "By province",
-    "province_unset": "Unspecified"
+    "province_unset": "Unspecified",
+    "by_trigger_chart_title": "By context",
+    "trigger": {
+      "session": "On login",
+      "interval": "Every set interval",
+      "consent": "When a consent is signed",
+      "clinical": "When a clinical record is created"
+    }
   },
   "toxinModal": {
     "title_edit": "Edit toxin record",

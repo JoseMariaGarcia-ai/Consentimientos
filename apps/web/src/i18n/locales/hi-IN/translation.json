@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "क्लिनिक के अनुसार",
     "channel_split_title": "स्क्रीन बनाम ईमेल",
     "by_province_chart_title": "प्रांत के अनुसार",
-    "province_unset": "अनिर्दिष्ट"
+    "province_unset": "अनिर्दिष्ट",
+    "by_trigger_chart_title": "संदर्भ के अनुसार",
+    "trigger": {
+      "session": "लॉगिन पर",
+      "interval": "हर निश्चित अंतराल पर",
+      "consent": "सहमति पर हस्ताक्षर करते समय",
+      "clinical": "क्लिनिकल रिकॉर्ड बनाते समय"
+    }
   },
   "toxinModal": {
     "title_edit": "टॉक्सिन रिकॉर्ड संपादित करें",

@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Pe clinică",
     "channel_split_title": "Ecran vs. email",
     "by_province_chart_title": "Pe provincie",
-    "province_unset": "Nespecificat"
+    "province_unset": "Nespecificat",
+    "by_trigger_chart_title": "Pe context",
+    "trigger": {
+      "session": "La autentificare",
+      "interval": "La fiecare interval stabilit",
+      "consent": "La semnarea unui consimțământ",
+      "clinical": "La crearea unei fișe clinice"
+    }
   },
   "toxinModal": {
     "title_edit": "Editare înregistrare toxină",

@@ -121,10 +121,16 @@ router.get('/', async (req, res) => {
 // Registered before /:type so it isn't swallowed by that param route.
 // Siempre channel='screen' — la contraparte por email se registra aparte
 // desde patientAdBlock.ts, justo después de enviar el correo.
+const VALID_TRIGGERS = ['session', 'interval', 'consent', 'clinical']
+
 router.post('/impressions', async (req, res) => {
   const { userId } = (req as any).user
-  const { type, creative_id } = req.body
+  const { type, creative_id, trigger } = req.body
   if (!['welcome', 'patient'].includes(type)) return res.status(400).json({ error: 'Invalid type' })
+  // trigger solo tiene sentido para 'welcome' — de qué contexto vino
+  // (entrar en sesión, intervalo, al firmar un consentimiento, al crear una
+  // historia clínica). Se ignora silenciosamente para 'patient'.
+  const safeTrigger = type === 'welcome' && VALID_TRIGGERS.includes(trigger) ? trigger : null
   try {
     const me = await queryOne<{ clinic_id: string | null }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     if (!me?.clinic_id) return res.status(400).json({ error: 'Usuario sin clínica asignada' })
@@ -138,8 +144,8 @@ router.post('/impressions', async (req, res) => {
     }
 
     const row = await queryOne<{ id: string }>(
-      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id, channel) VALUES ($1,$2,$3,$4,'screen') RETURNING id`,
-      [me.clinic_id, labPartnerId, type, creative_id ?? null]
+      `INSERT INTO media_impressions (clinic_id, lab_partner_id, media_type, creative_id, channel, trigger) VALUES ($1,$2,$3,$4,'screen',$5) RETURNING id`,
+      [me.clinic_id, labPartnerId, type, creative_id ?? null, safeTrigger]
     )
     return res.status(201).json({ logged: true, id: row!.id })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Theo phòng khám",
     "channel_split_title": "Màn hình vs email",
     "by_province_chart_title": "Theo tỉnh",
-    "province_unset": "Chưa xác định"
+    "province_unset": "Chưa xác định",
+    "by_trigger_chart_title": "Theo ngữ cảnh",
+    "trigger": {
+      "session": "Khi đăng nhập",
+      "interval": "Theo khoảng thời gian cố định",
+      "consent": "Khi ký một bản đồng ý",
+      "clinical": "Khi tạo hồ sơ bệnh án"
+    }
   },
   "toxinModal": {
     "title_edit": "Chỉnh sửa bản ghi độc tố",

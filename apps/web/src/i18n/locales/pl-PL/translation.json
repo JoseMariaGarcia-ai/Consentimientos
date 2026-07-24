@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Wg kliniki",
     "channel_split_title": "Ekran vs. e-mail",
     "by_province_chart_title": "Wg prowincji",
-    "province_unset": "Nieokreślone"
+    "province_unset": "Nieokreślone",
+    "by_trigger_chart_title": "Wg kontekstu",
+    "trigger": {
+      "session": "Przy logowaniu",
+      "interval": "Co ustalony interwał",
+      "consent": "Przy podpisywaniu zgody",
+      "clinical": "Przy tworzeniu dokumentacji medycznej"
+    }
   },
   "toxinModal": {
     "title_edit": "Edytuj wpis toksyny",

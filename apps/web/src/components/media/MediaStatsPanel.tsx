@@ -16,7 +16,8 @@ interface ClinicRow {
 }
 interface ProvinceRow { province: string | null; welcome_screen: number; patient_screen: number; patient_email: number; total: number }
 interface Totals { welcome_screen: number; patient_screen: number; patient_email: number; avg_view_seconds_welcome: number | null; avg_view_seconds_patient: number | null }
-interface StatsResponse { daily: DailyPoint[]; totals: Totals; byClinic: ClinicRow[]; byProvince: ProvinceRow[]; from: string; to: string }
+interface WelcomeByTrigger { session: number; interval: number; consent: number; clinical: number }
+interface StatsResponse { daily: DailyPoint[]; totals: Totals; byClinic: ClinicRow[]; byProvince: ProvinceRow[]; welcomeByTrigger: WelcomeByTrigger; from: string; to: string }
 
 type View = 'clinic' | 'patient'
 
@@ -82,6 +83,13 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
     () => [...byClinic].sort((a, b) => b.welcome_screen - a.welcome_screen).slice(0, 10).map(c => ({ name: c.clinic_name, value: c.welcome_screen })),
     [byClinic]
   )
+  const triggerBarData = useMemo(() => {
+    const wt = data?.welcomeByTrigger
+    if (!wt) return []
+    return (['session', 'interval', 'consent', 'clinical'] as const)
+      .map(key => ({ name: t(`mediaStats.trigger.${key}`) as string, value: wt[key] }))
+      .filter(row => row.value > 0)
+  }, [data, t])
   const patientBarData = useMemo(
     () => [...byClinic].sort((a, b) => (b.patient_screen + b.patient_email) - (a.patient_screen + a.patient_email)).slice(0, 10)
       .map(c => ({ name: c.clinic_name, [t('mediaStats.patient_screen_series') as string]: c.patient_screen, [t('mediaStats.patient_email_series') as string]: c.patient_email })),
@@ -242,6 +250,23 @@ export function MediaStatsPanel({ labId }: { labId: string }) {
                     <YAxis type="category" dataKey="name" width={140} tick={{ fontSize: 11, fill: '#475569' }} />
                     <Tooltip />
                     <Bar dataKey="value" name={t('mediaStats.welcome_series')} fill="#F472B6" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
+
+          {triggerBarData.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{t('mediaStats.by_trigger_chart_title')}</p>
+              <div style={{ width: '100%', height: Math.max(160, triggerBarData.length * 40) }}>
+                <ResponsiveContainer>
+                  <BarChart data={triggerBarData} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                    <XAxis type="number" allowDecimals={false} tick={{ fontSize: 11, fill: '#94A3B8' }} />
+                    <YAxis type="category" dataKey="name" width={180} tick={{ fontSize: 11, fill: '#475569' }} />
+                    <Tooltip />
+                    <Bar dataKey="value" name={t('mediaStats.welcome_series')} fill="#9D174D" radius={[0, 4, 4, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

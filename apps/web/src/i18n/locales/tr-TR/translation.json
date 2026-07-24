@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Kliniğe göre",
     "channel_split_title": "Ekran vs. e-posta",
     "by_province_chart_title": "İle göre",
-    "province_unset": "Belirtilmemiş"
+    "province_unset": "Belirtilmemiş",
+    "by_trigger_chart_title": "Bağlama göre",
+    "trigger": {
+      "session": "Oturum açarken",
+      "interval": "Belirli aralıklarla",
+      "consent": "Bir onam imzalanırken",
+      "clinical": "Klinik kayıt oluşturulurken"
+    }
   },
   "toxinModal": {
     "title_edit": "Toksin kaydını düzenle",

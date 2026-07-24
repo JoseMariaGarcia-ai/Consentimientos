@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Podle kliniky",
     "channel_split_title": "Obrazovka vs. e-mail",
     "by_province_chart_title": "Podle provincie",
-    "province_unset": "Neuvedeno"
+    "province_unset": "Neuvedeno",
+    "by_trigger_chart_title": "Podle kontextu",
+    "trigger": {
+      "session": "Při přihlášení",
+      "interval": "V pravidelném intervalu",
+      "consent": "Při podpisu souhlasu",
+      "clinical": "Při vytvoření zdravotní dokumentace"
+    }
   },
   "toxinModal": {
     "title_edit": "Upravit záznam toxinu",

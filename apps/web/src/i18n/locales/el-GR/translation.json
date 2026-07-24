@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Ανά κλινική",
     "channel_split_title": "Οθόνη vs. email",
     "by_province_chart_title": "Ανά επαρχία",
-    "province_unset": "Δεν έχει οριστεί"
+    "province_unset": "Δεν έχει οριστεί",
+    "by_trigger_chart_title": "Ανά πλαίσιο",
+    "trigger": {
+      "session": "Κατά τη σύνδεση",
+      "interval": "Ανά τακτό διάστημα",
+      "consent": "Κατά την υπογραφή συναίνεσης",
+      "clinical": "Κατά τη δημιουργία ιατρικού φακέλου"
+    }
   },
   "toxinModal": {
     "title_edit": "Επεξεργασία καταγραφής τοξίνης",

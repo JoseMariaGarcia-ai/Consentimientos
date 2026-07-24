@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "לפי מרפאה",
     "channel_split_title": "מסך מול אימייל",
     "by_province_chart_title": "לפי פרובינציה",
-    "province_unset": "לא צוין"
+    "province_unset": "לא צוין",
+    "by_trigger_chart_title": "לפי הקשר",
+    "trigger": {
+      "session": "בכניסה למערכת",
+      "interval": "בכל פרק זמן קבוע",
+      "consent": "בעת חתימה על הסכמה",
+      "clinical": "בעת יצירת תיק רפואי"
+    }
   },
   "toxinModal": {
     "title_edit": "עריכת רישום טוקסין",

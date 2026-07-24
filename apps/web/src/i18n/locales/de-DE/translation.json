@@ -30,7 +30,14 @@
     "by_clinic_chart_title": "Nach Klinik",
     "channel_split_title": "Bildschirm vs. E-Mail",
     "by_province_chart_title": "Nach Provinz",
-    "province_unset": "Nicht angegeben"
+    "province_unset": "Nicht angegeben",
+    "by_trigger_chart_title": "Nach Kontext",
+    "trigger": {
+      "session": "Beim Anmelden",
+      "interval": "In festgelegten Intervallen",
+      "consent": "Beim Unterzeichnen einer Einwilligung",
+      "clinical": "Beim Erstellen einer Patientenakte"
+    }
   },
   "toxinModal": {
     "title_edit": "Toxin-Eintrag bearbeiten",
