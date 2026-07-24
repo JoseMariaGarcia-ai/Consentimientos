@@ -1,11 +1,17 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, Plus, Pencil, Save, X, Globe, ChevronDown, Star } from 'lucide-react'
+import { Search, Plus, Pencil, Save, X, Globe, ChevronDown, ChevronRight, Star } from 'lucide-react'
 import { api } from '@/lib/api'
 import { ConsentEditor } from '@/components/consents/ConsentEditor'
 import { SUPPORTED_LANGUAGES } from '@/i18n'
 import { useLanguageStore } from '@/store/languageStore'
 import { TEMPLATE_CATEGORIES, FAVORITE_CATEGORY } from '@/lib/templateCategories'
+
+// Quita acentos para que buscar "depilacion" encuentre "Depilación" —
+// coincidencia por cualquier parte del nombre, no solo desde el principio.
+function normalize(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+}
 
 interface Template {
   id: string
@@ -29,6 +35,16 @@ export default function Templates() {
   const [translating, setTranslating] = useState(false)
   const [saved, setSaved] = useState(false)
   const [form, setForm] = useState({ title: '', body: '' })
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
+
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prev => {
+      const next = new Set(prev)
+      if (next.has(category)) next.delete(category)
+      else next.add(category)
+      return next
+    })
+  }
 
   const load = async () => {
     setLoading(true)
@@ -48,9 +64,11 @@ export default function Templates() {
     setForm({ title: content.title ?? '', body: content.body ?? '' })
   }, [selected, editLang])
 
+  const searching = search.trim().length > 0
   const filtered = useMemo(() => {
-    const q = search.toLowerCase()
-    return templates.filter(t => t.treatmentType.toLowerCase().includes(q))
+    const q = normalize(search.trim())
+    if (!q) return templates
+    return templates.filter(t => normalize(t.treatmentType).includes(q))
   }, [templates, search])
 
   const grouped = useMemo(() => {
@@ -152,12 +170,19 @@ export default function Templates() {
           ) : filtered.length === 0 ? (
             <div className="text-center text-slate-400 text-sm py-8">{t('templates.empty')}</div>
           ) : (
-            grouped.map(([category, items]) => (
+            grouped.map(([category, items]) => {
+              const isExpanded = searching || expandedCategories.has(category)
+              return (
               <div key={category} className="flex flex-col gap-1">
-                <p className="px-1 text-xs font-semibold text-slate-400 uppercase tracking-wide">
-                  {t(`templates.categories.${category}`)} <span className="text-slate-300">({items.length})</span>
-                </p>
-                {items.map(tmpl => {
+                <button
+                  type="button"
+                  onClick={() => toggleCategory(category)}
+                  className="w-full flex items-center justify-between gap-2 px-1 py-1 text-xs font-semibold text-slate-400 uppercase tracking-wide hover:text-slate-600"
+                >
+                  <span>{t(`templates.categories.${category}`)} <span className="text-slate-300">({items.length})</span></span>
+                  {isExpanded ? <ChevronDown className="w-3.5 h-3.5 flex-shrink-0" /> : <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" />}
+                </button>
+                {isExpanded && items.map(tmpl => {
                   const hasLang = !!tmpl.contentJson?.[currentLanguage]?.body
                   const isFavorite = !!tmpl.isFavorite
                   return (
@@ -189,7 +214,8 @@ export default function Templates() {
                   )
                 })}
               </div>
-            ))
+              )
+            })
           )}
         </div>
       </div>
