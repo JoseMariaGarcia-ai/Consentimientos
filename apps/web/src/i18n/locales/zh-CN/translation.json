@@ -2380,6 +2380,8 @@
     "save_error": "权限保存失败",
     "view_all_agendas": "查看所有医生的日程",
     "view_all_agendas_hint": "如果关闭，该医生将只能查看和管理自己的日程。",
-    "sections_title": "可访问的版块"
+    "sections_title": "可访问的版块",
+    "view_all_patients": "查看诊所的所有患者",
+    "view_all_patients_hint": "如果关闭，该医生将只能看到自己的患者、知情同意书、病历、照片和其他数据。"
   }
 }

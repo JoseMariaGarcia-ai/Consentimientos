@@ -2434,6 +2434,8 @@
     "save_error": "Non è stato possibile salvare i permessi",
     "view_all_agendas": "Vedi l'agenda di tutti i dottori",
     "view_all_agendas_hint": "Se disattivato, questo dottore vedrà e potrà gestire solo la propria agenda.",
-    "sections_title": "Sezioni a cui ha accesso"
+    "sections_title": "Sezioni a cui ha accesso",
+    "view_all_patients": "Vedere tutti i pazienti della clinica",
+    "view_all_patients_hint": "Se disattivato, questo dottore vedrà solo i propri pazienti, consensi, cartelle, foto e altri dati."
   }
 }

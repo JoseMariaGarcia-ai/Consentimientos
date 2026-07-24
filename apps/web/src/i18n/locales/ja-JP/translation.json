@@ -2380,6 +2380,8 @@
     "save_error": "権限を保存できませんでした",
     "view_all_agendas": "すべての医師のスケジュールを表示",
     "view_all_agendas_hint": "無効にすると、この医師は自分のスケジュールのみを表示・管理できます。",
-    "sections_title": "アクセスできるセクション"
+    "sections_title": "アクセスできるセクション",
+    "view_all_patients": "クリニックのすべての患者を表示",
+    "view_all_patients_hint": "無効にすると、この医師は自分自身の患者、同意書、カルテ、写真、その他のデータのみを閲覧できます。"
   }
 }

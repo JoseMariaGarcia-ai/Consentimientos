@@ -2380,6 +2380,8 @@
     "save_error": "Nie udało się zapisać uprawnień",
     "view_all_agendas": "Zobacz kalendarz wszystkich lekarzy",
     "view_all_agendas_hint": "Jeśli wyłączone, ten lekarz będzie widział i mógł zarządzać tylko swoim własnym kalendarzem.",
-    "sections_title": "Sekcje, do których ma dostęp"
+    "sections_title": "Sekcje, do których ma dostęp",
+    "view_all_patients": "Zobacz wszystkich pacjentów kliniki",
+    "view_all_patients_hint": "Jeśli wyłączone, ten lekarz będzie widział tylko własnych pacjentów, zgody, historie, zdjęcia i pozostałe dane."
   }
 }

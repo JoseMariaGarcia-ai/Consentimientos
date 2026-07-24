@@ -2380,6 +2380,8 @@
     "save_error": "Oprávnění se nepodařilo uložit",
     "view_all_agendas": "Zobrazit kalendář všech lékařů",
     "view_all_agendas_hint": "Pokud je vypnuto, tento lékař uvidí a bude moci spravovat pouze svůj vlastní kalendář.",
-    "sections_title": "Sekce, ke kterým má přístup"
+    "sections_title": "Sekce, ke kterým má přístup",
+    "view_all_patients": "Zobrazit všechny pacienty kliniky",
+    "view_all_patients_hint": "Pokud je vypnuto, tento lékař uvidí pouze své vlastní pacienty, souhlasy, záznamy, fotografie a další údaje."
   }
 }

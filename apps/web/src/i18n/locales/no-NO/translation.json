@@ -2380,6 +2380,8 @@
     "save_error": "Kunne ikke lagre tillatelsene",
     "view_all_agendas": "Se kalenderen til alle leger",
     "view_all_agendas_hint": "Hvis deaktivert, vil denne legen kun se og administrere sin egen kalender.",
-    "sections_title": "Seksjoner vedkommende har tilgang til"
+    "sections_title": "Seksjoner vedkommende har tilgang til",
+    "view_all_patients": "Se alle klinikkens pasienter",
+    "view_all_patients_hint": "Hvis deaktivert, vil denne legen kun se sine egne pasienter, samtykker, journaler, bilder og andre data."
   }
 }

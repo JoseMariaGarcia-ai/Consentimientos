@@ -2380,6 +2380,8 @@
     "save_error": "De rechten konden niet worden opgeslagen",
     "view_all_agendas": "Agenda van alle artsen bekijken",
     "view_all_agendas_hint": "Indien uitgeschakeld, ziet en beheert deze arts alleen zijn/haar eigen agenda.",
-    "sections_title": "Secties waartoe hij/zij toegang heeft"
+    "sections_title": "Secties waartoe hij/zij toegang heeft",
+    "view_all_patients": "Alle patiënten van de kliniek bekijken",
+    "view_all_patients_hint": "Indien uitgeschakeld, ziet deze arts alleen zijn/haar eigen patiënten, toestemmingen, dossiers, foto's en overige gegevens."
   }
 }

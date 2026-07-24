@@ -2380,6 +2380,8 @@
     "save_error": "Die Berechtigungen konnten nicht gespeichert werden",
     "view_all_agendas": "Terminkalender aller Ärzte einsehen",
     "view_all_agendas_hint": "Wenn deaktiviert, sieht dieser Arzt nur seinen eigenen Terminkalender und kann nur diesen verwalten.",
-    "sections_title": "Bereiche, auf die er/sie Zugriff hat"
+    "sections_title": "Bereiche, auf die er/sie Zugriff hat",
+    "view_all_patients": "Alle Patienten der Klinik einsehen",
+    "view_all_patients_hint": "Wenn deaktiviert, sieht dieser Arzt nur eigene Patienten, Einwilligungen, Akten, Fotos und andere Daten."
   }
 }

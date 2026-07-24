@@ -2380,6 +2380,8 @@
     "save_error": "Det gick inte att spara behörigheterna",
     "view_all_agendas": "Visa alla läkares kalendrar",
     "view_all_agendas_hint": "Om inaktiverad kommer denna läkare endast att se och kunna hantera sin egen kalender.",
-    "sections_title": "Sektioner denna läkare har åtkomst till"
+    "sections_title": "Sektioner denna läkare har åtkomst till",
+    "view_all_patients": "Visa alla klinikens patienter",
+    "view_all_patients_hint": "Om inaktiverad kommer denna läkare endast att se sina egna patienter, samtycken, journaler, foton och andra uppgifter."
   }
 }

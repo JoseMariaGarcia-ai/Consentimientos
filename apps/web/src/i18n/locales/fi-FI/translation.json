@@ -2380,6 +2380,8 @@
     "save_error": "Käyttöoikeuksia ei voitu tallentaa",
     "view_all_agendas": "Näytä kaikkien lääkäreiden kalenterit",
     "view_all_agendas_hint": "Jos poissa käytöstä, tämä lääkäri näkee ja voi hallita vain omaa kalenteriaan.",
-    "sections_title": "Osiot, joihin hänellä on pääsy"
+    "sections_title": "Osiot, joihin hänellä on pääsy",
+    "view_all_patients": "Näytä kaikki klinikan potilaat",
+    "view_all_patients_hint": "Jos poissa käytöstä, tämä lääkäri näkee vain omat potilaansa, suostumuksensa, potilastietonsa, kuvansa ja muut tietonsa."
   }
 }

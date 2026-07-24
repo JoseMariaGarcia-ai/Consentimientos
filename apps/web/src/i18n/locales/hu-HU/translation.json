@@ -2380,6 +2380,8 @@
     "save_error": "A jogosultságokat nem sikerült menteni",
     "view_all_agendas": "Az összes orvos naptárának megtekintése",
     "view_all_agendas_hint": "Ha ki van kapcsolva, ez az orvos csak a saját naptárát látja és kezelheti.",
-    "sections_title": "Szakaszok, amelyekhez hozzáfér"
+    "sections_title": "Szakaszok, amelyekhez hozzáfér",
+    "view_all_patients": "Az összes klinikai páciens megtekintése",
+    "view_all_patients_hint": "Ha ki van kapcsolva, ez az orvos csak a saját pácienseit, beleegyezéseit, kórtörténeteit, fotóit és egyéb adatait látja."
   }
 }

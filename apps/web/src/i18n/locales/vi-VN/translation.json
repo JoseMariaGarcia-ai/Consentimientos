@@ -2380,6 +2380,8 @@
     "save_error": "Không thể lưu quyền",
     "view_all_agendas": "Xem lịch của tất cả bác sĩ",
     "view_all_agendas_hint": "Nếu tắt, bác sĩ này chỉ xem và quản lý được lịch của riêng mình.",
-    "sections_title": "Các phần mà bác sĩ này có quyền truy cập"
+    "sections_title": "Các phần mà bác sĩ này có quyền truy cập",
+    "view_all_patients": "Xem tất cả bệnh nhân của phòng khám",
+    "view_all_patients_hint": "Nếu tắt, bác sĩ này chỉ xem được bệnh nhân, phiếu đồng ý, hồ sơ, ảnh và dữ liệu khác của riêng mình."
   }
 }

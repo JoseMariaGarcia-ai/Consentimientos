@@ -2380,6 +2380,8 @@
     "save_error": "No s'han pogut desar els permisos",
     "view_all_agendas": "Veure l'agenda de tots els doctors",
     "view_all_agendas_hint": "Si no està activat, aquest doctor només veurà i podrà gestionar la seva pròpia agenda.",
-    "sections_title": "Seccions a les quals té accés"
+    "sections_title": "Seccions a les quals té accés",
+    "view_all_patients": "Veure tots els pacients de la clínica",
+    "view_all_patients_hint": "Si no està activat, aquest doctor només veurà pacients, consentiments, historials, fotos i altres registres seus."
   }
 }

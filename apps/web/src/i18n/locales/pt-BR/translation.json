@@ -2380,6 +2380,8 @@
     "save_error": "Não foi possível salvar as permissões",
     "view_all_agendas": "Ver a agenda de todos os médicos",
     "view_all_agendas_hint": "Se não estiver ativado, este médico só verá e poderá gerenciar sua própria agenda.",
-    "sections_title": "Seções às quais tem acesso"
+    "sections_title": "Seções às quais tem acesso",
+    "view_all_patients": "Ver todos os pacientes da clínica",
+    "view_all_patients_hint": "Se não estiver ativado, este médico só verá pacientes, consentimentos, prontuários, fotos e demais registros seus."
   }
 }

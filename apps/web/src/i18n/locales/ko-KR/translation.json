@@ -2380,6 +2380,8 @@
     "save_error": "권한을 저장할 수 없습니다",
     "view_all_agendas": "모든 의사의 일정 보기",
     "view_all_agendas_hint": "비활성화된 경우, 이 의사는 자신의 일정만 보고 관리할 수 있습니다.",
-    "sections_title": "접근 가능한 섹션"
+    "sections_title": "접근 가능한 섹션",
+    "view_all_patients": "클리닉의 모든 환자 보기",
+    "view_all_patients_hint": "비활성화된 경우, 이 의사는 자신의 환자, 동의서, 기록, 사진 및 기타 데이터만 볼 수 있습니다."
   }
 }

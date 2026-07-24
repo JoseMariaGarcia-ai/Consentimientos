@@ -2568,6 +2568,8 @@
     "save_error": "No se pudieron guardar los permisos",
     "view_all_agendas": "Ver la agenda de todos los doctores",
     "view_all_agendas_hint": "Si no está activado, este doctor solo verá y podrá gestionar su propia agenda.",
-    "sections_title": "Secciones a las que tiene acceso"
+    "sections_title": "Secciones a las que tiene acceso",
+    "view_all_patients": "Ver todos los pacientes de la clínica",
+    "view_all_patients_hint": "Si no está activado, este doctor solo verá pacientes, consentimientos, historias, fotos y demás registros suyos."
   }
 }

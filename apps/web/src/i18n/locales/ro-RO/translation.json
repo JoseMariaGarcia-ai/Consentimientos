@@ -2380,6 +2380,8 @@
     "save_error": "Permisiunile nu au putut fi salvate",
     "view_all_agendas": "Vizualizează agenda tuturor doctorilor",
     "view_all_agendas_hint": "Dacă este dezactivat, acest doctor va vedea și va putea gestiona doar propria agendă.",
-    "sections_title": "Secțiuni la care are acces"
+    "sections_title": "Secțiuni la care are acces",
+    "view_all_patients": "Vizualizează toți pacienții clinicii",
+    "view_all_patients_hint": "Dacă este dezactivat, acest doctor va vedea doar proprii pacienți, consimțăminte, fișe, fotografii și alte date."
   }
 }

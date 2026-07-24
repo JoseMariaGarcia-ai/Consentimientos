@@ -2380,6 +2380,8 @@
     "save_error": "İzinler kaydedilemedi",
     "view_all_agendas": "Tüm doktorların ajandasını görüntüle",
     "view_all_agendas_hint": "Devre dışıysa, bu doktor yalnızca kendi ajandasını görebilir ve yönetebilir.",
-    "sections_title": "Erişebildiği bölümler"
+    "sections_title": "Erişebildiği bölümler",
+    "view_all_patients": "Kliniğin tüm hastalarını görüntüle",
+    "view_all_patients_hint": "Devre dışıysa, bu doktor yalnızca kendi hastalarını, onaylarını, kayıtlarını, fotoğraflarını ve diğer verilerini görür."
   }
 }

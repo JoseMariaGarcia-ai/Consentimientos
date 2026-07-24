@@ -2380,6 +2380,8 @@
     "save_error": "Couldn't save the permissions",
     "view_all_agendas": "View all doctors' agendas",
     "view_all_agendas_hint": "If disabled, this doctor will only see and manage their own agenda.",
-    "sections_title": "Sections they can access"
+    "sections_title": "Sections they can access",
+    "view_all_patients": "View all patients in the clinic",
+    "view_all_patients_hint": "If disabled, this doctor will only see patients, consents, records, photos and other data of their own."
   }
 }

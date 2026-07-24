@@ -2380,6 +2380,8 @@
     "save_error": "Impossible d'enregistrer les permissions",
     "view_all_agendas": "Voir l'agenda de tous les médecins",
     "view_all_agendas_hint": "Si désactivé, ce médecin ne verra et ne pourra gérer que son propre agenda.",
-    "sections_title": "Sections auxquelles il a accès"
+    "sections_title": "Sections auxquelles il a accès",
+    "view_all_patients": "Voir tous les patients de la clinique",
+    "view_all_patients_hint": "Si désactivé, ce médecin ne verra que ses propres patients, consentements, dossiers, photos et autres données."
   }
 }
