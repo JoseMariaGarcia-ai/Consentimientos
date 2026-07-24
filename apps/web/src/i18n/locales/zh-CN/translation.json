@@ -384,7 +384,8 @@
       "scheduled": "已预约"
     },
     "past_day_no_create": "无法在已过去的日期预约",
-    "past_day_no_drag": "无法将预约移动到已过去的日期 — 点击查看/编辑"
+    "past_day_no_drag": "无法将预约移动到已过去的日期 — 点击查看/编辑",
+    "all_doctors": "所有医生"
   },
   "appointmentModal": {
     "title_edit": "编辑预约",
@@ -862,7 +863,11 @@
     "province_placeholder": "— 选择省份 —",
     "province_hint": "用于让使用新号码通过WhatsApp联系的患者可以按省份找到您的诊所。",
     "logo_upload": "上传徽标",
-    "logo_remove": "移除"
+    "logo_remove": "移除",
+    "tabs": {
+      "info": "信息",
+      "doctors": "医生"
+    }
   },
   "language": {
     "select": "语言",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "查看更多",
     "close": "关闭"
+  },
+  "doctorPermissions": {
+    "intro": "每位医生都可以拥有自己的登录账户，对应用各版块和日程表拥有独立的权限。",
+    "no_doctors": "还没有添加医生。请在医生版块中添加一位。",
+    "status_active": "账户已激活",
+    "status_no_account": "无账户",
+    "manage_permissions": "管理权限",
+    "no_email": "请为该医生添加邮箱以便邀请",
+    "invite": "邀请",
+    "invite_error": "邀请发送失败",
+    "modal_subtitle": "访问权限",
+    "load_error": "权限加载失败",
+    "save_error": "权限保存失败",
+    "view_all_agendas": "查看所有医生的日程",
+    "view_all_agendas_hint": "如果关闭，该医生将只能查看和管理自己的日程。",
+    "sections_title": "可访问的版块"
   }
 }

@@ -384,7 +384,8 @@
       "scheduled": "Bestilt time"
     },
     "past_day_no_create": "Du kan ikke booke avtaler på dager som allerede har passert",
-    "past_day_no_drag": "Du kan ikke flytte avtaler til dager som allerede har passert — trykk for å vise/redigere"
+    "past_day_no_drag": "Du kan ikke flytte avtaler til dager som allerede har passert — trykk for å vise/redigere",
+    "all_doctors": "Alle leger"
   },
   "appointmentModal": {
     "title_edit": "Rediger time",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Velg provins —",
     "province_hint": "Brukes slik at pasienter som skriver via WhatsApp fra et nytt nummer kan finne klinikken din etter provins.",
     "logo_upload": "Last opp logo",
-    "logo_remove": "Fjern"
+    "logo_remove": "Fjern",
+    "tabs": {
+      "info": "Data",
+      "doctors": "Leger"
+    }
   },
   "language": {
     "select": "Språk",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Se mer",
     "close": "Lukk"
+  },
+  "doctorPermissions": {
+    "intro": "Hver lege kan ha sin egen tilgangskonto, med uavhengige tillatelser til appens seksjoner og kalendere.",
+    "no_doctors": "Det er ennå ikke lagt til noen leger. Legg til en fra seksjonen Leger.",
+    "status_active": "Konto aktiv",
+    "status_no_account": "Ingen konto",
+    "manage_permissions": "Administrer tillatelser",
+    "no_email": "Legg til en e-post til denne legen for å kunne invitere vedkommende",
+    "invite": "Inviter",
+    "invite_error": "Kunne ikke sende invitasjonen",
+    "modal_subtitle": "Tilgangstillatelser",
+    "load_error": "Kunne ikke laste inn tillatelsene",
+    "save_error": "Kunne ikke lagre tillatelsene",
+    "view_all_agendas": "Se kalenderen til alle leger",
+    "view_all_agendas_hint": "Hvis deaktivert, vil denne legen kun se og administrere sin egen kalender.",
+    "sections_title": "Seksjoner vedkommende har tilgang til"
   }
 }

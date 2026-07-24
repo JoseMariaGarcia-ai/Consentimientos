@@ -384,7 +384,8 @@
       "scheduled": "Umówiona wizyta"
     },
     "past_day_no_create": "Nie można umawiać wizyt w minionych dniach",
-    "past_day_no_drag": "Nie można przenosić wizyt na miniony dzień — dotknij, aby zobaczyć/edytować"
+    "past_day_no_drag": "Nie można przenosić wizyt na miniony dzień — dotknij, aby zobaczyć/edytować",
+    "all_doctors": "Wszyscy lekarze"
   },
   "appointmentModal": {
     "title_edit": "Edytuj wizytę",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Wybierz prowincję —",
     "province_hint": "Używane, aby pacjenci piszący na WhatsApp z nowego numeru mogli znaleźć Twoją klinikę według prowincji.",
     "logo_upload": "Prześlij logo",
-    "logo_remove": "Usuń"
+    "logo_remove": "Usuń",
+    "tabs": {
+      "info": "Dane",
+      "doctors": "Lekarze"
+    }
   },
   "language": {
     "select": "Język",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Zobacz więcej",
     "close": "Zamknij"
+  },
+  "doctorPermissions": {
+    "intro": "Każdy lekarz może mieć własne konto dostępu, z niezależnymi uprawnieniami do sekcji aplikacji i kalendarzy.",
+    "no_doctors": "Nie dodano jeszcze żadnych lekarzy. Dodaj jednego w sekcji Lekarze.",
+    "status_active": "Konto aktywne",
+    "status_no_account": "Brak konta",
+    "manage_permissions": "Zarządzaj uprawnieniami",
+    "no_email": "Dodaj adres e-mail do tego lekarza, aby móc go zaprosić",
+    "invite": "Zaproś",
+    "invite_error": "Nie udało się wysłać zaproszenia",
+    "modal_subtitle": "Uprawnienia dostępu",
+    "load_error": "Nie udało się wczytać uprawnień",
+    "save_error": "Nie udało się zapisać uprawnień",
+    "view_all_agendas": "Zobacz kalendarz wszystkich lekarzy",
+    "view_all_agendas_hint": "Jeśli wyłączone, ten lekarz będzie widział i mógł zarządzać tylko swoim własnym kalendarzem.",
+    "sections_title": "Sekcje, do których ma dostęp"
   }
 }

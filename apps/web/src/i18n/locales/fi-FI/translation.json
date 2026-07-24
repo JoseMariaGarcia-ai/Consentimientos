@@ -384,7 +384,8 @@
       "scheduled": "Varattu käynti"
     },
     "past_day_no_create": "Menneille päiville ei voi varata aikoja",
-    "past_day_no_drag": "Aikoja ei voi siirtää menneille päiville — napauta nähdäksesi/muokataksesi"
+    "past_day_no_drag": "Aikoja ei voi siirtää menneille päiville — napauta nähdäksesi/muokataksesi",
+    "all_doctors": "Kaikki lääkärit"
   },
   "appointmentModal": {
     "title_edit": "Muokkaa käyntiä",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Valitse provinssi —",
     "province_hint": "Käytetään, jotta uudesta numerosta WhatsAppissa kirjoittavat potilaat löytävät klinikkasi provinssin mukaan.",
     "logo_upload": "Lataa logo",
-    "logo_remove": "Poista"
+    "logo_remove": "Poista",
+    "tabs": {
+      "info": "Tiedot",
+      "doctors": "Lääkärit"
+    }
   },
   "language": {
     "select": "Kieli",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Näytä lisää",
     "close": "Sulje"
+  },
+  "doctorPermissions": {
+    "intro": "Jokaisella lääkärillä voi olla oma käyttäjätili, jolla on itsenäiset käyttöoikeudet sovelluksen osioihin ja kalentereihin.",
+    "no_doctors": "Lääkäreitä ei ole vielä lisätty. Lisää yksi Lääkärit-osiosta.",
+    "status_active": "Tili aktiivinen",
+    "status_no_account": "Ei tiliä",
+    "manage_permissions": "Hallitse käyttöoikeuksia",
+    "no_email": "Lisää tälle lääkärille sähköposti, jotta voit kutsua hänet",
+    "invite": "Kutsu",
+    "invite_error": "Kutsua ei voitu lähettää",
+    "modal_subtitle": "Käyttöoikeudet",
+    "load_error": "Käyttöoikeuksia ei voitu ladata",
+    "save_error": "Käyttöoikeuksia ei voitu tallentaa",
+    "view_all_agendas": "Näytä kaikkien lääkäreiden kalenterit",
+    "view_all_agendas_hint": "Jos poissa käytöstä, tämä lääkäri näkee ja voi hallita vain omaa kalenteriaan.",
+    "sections_title": "Osiot, joihin hänellä on pääsy"
   }
 }

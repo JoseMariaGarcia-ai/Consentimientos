@@ -384,7 +384,8 @@
       "scheduled": "Appointment scheduled"
     },
     "past_day_no_create": "You can’t book appointments on past days",
-    "past_day_no_drag": "You can’t move appointments to past days — tap to view/edit"
+    "past_day_no_drag": "You can’t move appointments to past days — tap to view/edit",
+    "all_doctors": "All doctors"
   },
   "appointmentModal": {
     "title_edit": "Edit appointment",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Select province —",
     "province_hint": "Used so patients messaging on WhatsApp from a new number can find your clinic by province.",
     "logo_upload": "Upload logo",
-    "logo_remove": "Remove"
+    "logo_remove": "Remove",
+    "tabs": {
+      "info": "Info",
+      "doctors": "Doctors"
+    }
   },
   "language": {
     "select": "Language",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "See more",
     "close": "Close"
+  },
+  "doctorPermissions": {
+    "intro": "Each doctor can have their own login account, with independent permissions to the app sections and to the agendas.",
+    "no_doctors": "No doctors added yet. Add one from the Doctors section.",
+    "status_active": "Account active",
+    "status_no_account": "No account",
+    "manage_permissions": "Manage permissions",
+    "no_email": "Add an email to this doctor to be able to invite them",
+    "invite": "Invite",
+    "invite_error": "Couldn't send the invitation",
+    "modal_subtitle": "Access permissions",
+    "load_error": "Couldn't load the permissions",
+    "save_error": "Couldn't save the permissions",
+    "view_all_agendas": "View all doctors' agendas",
+    "view_all_agendas_hint": "If disabled, this doctor will only see and manage their own agenda.",
+    "sections_title": "Sections they can access"
   }
 }

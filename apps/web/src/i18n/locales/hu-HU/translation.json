@@ -384,7 +384,8 @@
       "scheduled": "Foglalt időpont"
     },
     "past_day_no_create": "Múltbeli napra nem foglalható időpont",
-    "past_day_no_drag": "Az időpontok nem helyezhetők át múltbeli napra — koppintson a megtekintéshez/szerkesztéshez"
+    "past_day_no_drag": "Az időpontok nem helyezhetők át múltbeli napra — koppintson a megtekintéshez/szerkesztéshez",
+    "all_doctors": "Összes orvos"
   },
   "appointmentModal": {
     "title_edit": "Időpont szerkesztése",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Válassz tartományt —",
     "province_hint": "Arra szolgál, hogy az új számról WhatsAppon író páciensek tartomány szerint megtalálják a klinikádat.",
     "logo_upload": "Logó feltöltése",
-    "logo_remove": "Eltávolítás"
+    "logo_remove": "Eltávolítás",
+    "tabs": {
+      "info": "Adatok",
+      "doctors": "Orvosok"
+    }
   },
   "language": {
     "select": "Nyelv",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Több megtekintése",
     "close": "Bezárás"
+  },
+  "doctorPermissions": {
+    "intro": "Minden orvosnak lehet saját hozzáférési fiókja, az alkalmazás szakaszaihoz és a naptárakhoz független jogosultságokkal.",
+    "no_doctors": "Még nincs felvett orvos. Adjon hozzá egyet az Orvosok szakaszból.",
+    "status_active": "Fiók aktív",
+    "status_no_account": "Nincs fiók",
+    "manage_permissions": "Jogosultságok kezelése",
+    "no_email": "Adjon meg egy e-mail-címet ehhez az orvoshoz, hogy meghívhassa",
+    "invite": "Meghívás",
+    "invite_error": "A meghívást nem sikerült elküldeni",
+    "modal_subtitle": "Hozzáférési jogosultságok",
+    "load_error": "A jogosultságokat nem sikerült betölteni",
+    "save_error": "A jogosultságokat nem sikerült menteni",
+    "view_all_agendas": "Az összes orvos naptárának megtekintése",
+    "view_all_agendas_hint": "Ha ki van kapcsolva, ez az orvos csak a saját naptárát látja és kezelheti.",
+    "sections_title": "Szakaszok, amelyekhez hozzáfér"
   }
 }

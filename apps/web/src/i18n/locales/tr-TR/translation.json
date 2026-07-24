@@ -384,7 +384,8 @@
       "scheduled": "Randevu planlandı"
     },
     "past_day_no_create": "Geçmiş günlere randevu alınamaz",
-    "past_day_no_drag": "Randevular geçmiş günlere taşınamaz — görüntülemek/düzenlemek için dokunun"
+    "past_day_no_drag": "Randevular geçmiş günlere taşınamaz — görüntülemek/düzenlemek için dokunun",
+    "all_doctors": "Tüm doktorlar"
   },
   "appointmentModal": {
     "title_edit": "Randevuyu düzenle",
@@ -862,7 +863,11 @@
     "province_placeholder": "— İl seçin —",
     "province_hint": "Yeni bir numaradan WhatsApp üzerinden yazan hastaların kliniğinizi ile göre bulabilmesi için kullanılır.",
     "logo_upload": "Logo yükle",
-    "logo_remove": "Kaldır"
+    "logo_remove": "Kaldır",
+    "tabs": {
+      "info": "Bilgiler",
+      "doctors": "Doktorlar"
+    }
   },
   "language": {
     "select": "Dil",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Daha fazla gör",
     "close": "Kapat"
+  },
+  "doctorPermissions": {
+    "intro": "Her doktor, uygulama bölümlerine ve ajandalara bağımsız izinlere sahip kendi erişim hesabına sahip olabilir.",
+    "no_doctors": "Henüz eklenmiş doktor yok. Doktorlar bölümünden bir tane ekleyin.",
+    "status_active": "Hesap aktif",
+    "status_no_account": "Hesap yok",
+    "manage_permissions": "İzinleri yönet",
+    "no_email": "Bu doktoru davet edebilmek için bir e-posta ekleyin",
+    "invite": "Davet et",
+    "invite_error": "Davet gönderilemedi",
+    "modal_subtitle": "Erişim izinleri",
+    "load_error": "İzinler yüklenemedi",
+    "save_error": "İzinler kaydedilemedi",
+    "view_all_agendas": "Tüm doktorların ajandasını görüntüle",
+    "view_all_agendas_hint": "Devre dışıysa, bu doktor yalnızca kendi ajandasını görebilir ve yönetebilir.",
+    "sections_title": "Erişebildiği bölümler"
   }
 }

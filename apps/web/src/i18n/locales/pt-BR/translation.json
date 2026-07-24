@@ -384,7 +384,8 @@
       "scheduled": "Consulta agendada"
     },
     "past_day_no_create": "Não é possível agendar consultas em dias passados",
-    "past_day_no_drag": "Não é possível mover consultas para dias passados — toque para ver/editar"
+    "past_day_no_drag": "Não é possível mover consultas para dias passados — toque para ver/editar",
+    "all_doctors": "Todos os médicos"
   },
   "appointmentModal": {
     "title_edit": "Editar agendamento",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Selecionar província —",
     "province_hint": "Usado para que pacientes que escrevem pelo WhatsApp de um número novo possam encontrar sua clínica por província.",
     "logo_upload": "Enviar logo",
-    "logo_remove": "Remover"
+    "logo_remove": "Remover",
+    "tabs": {
+      "info": "Dados",
+      "doctors": "Médicos"
+    }
   },
   "language": {
     "select": "Idioma",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Ver mais",
     "close": "Fechar"
+  },
+  "doctorPermissions": {
+    "intro": "Cada médico pode ter sua própria conta de acesso, com permissões independentes para as seções do aplicativo e as agendas.",
+    "no_doctors": "Ainda não há médicos cadastrados. Adicione um na seção Médicos.",
+    "status_active": "Conta ativa",
+    "status_no_account": "Sem conta",
+    "manage_permissions": "Gerenciar permissões",
+    "no_email": "Adicione um email a este médico para poder convidá-lo",
+    "invite": "Convidar",
+    "invite_error": "Não foi possível enviar o convite",
+    "modal_subtitle": "Permissões de acesso",
+    "load_error": "Não foi possível carregar as permissões",
+    "save_error": "Não foi possível salvar as permissões",
+    "view_all_agendas": "Ver a agenda de todos os médicos",
+    "view_all_agendas_hint": "Se não estiver ativado, este médico só verá e poderá gerenciar sua própria agenda.",
+    "sections_title": "Seções às quais tem acesso"
   }
 }

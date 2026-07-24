@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ChevronLeft, ChevronRight, Plus, CalendarRange, CheckCircle2 } from 'lucide-react'
 import { api } from '@/lib/api'
+import { useAuth } from '@/lib/auth'
 import { AppointmentModal } from './AppointmentModal'
 import { MonthView } from './MonthView'
 import { treatmentColorStyle } from '@/lib/treatmentColors'
@@ -172,6 +173,7 @@ function DraggableAppointmentBlock({ appt: a, top, height, leftPct, widthPct, pa
 
 export function AppointmentCalendar() {
   const { t } = useTranslation()
+  const { role } = useAuth()
   const today = todayStr()
   const [viewMode, setViewMode] = useState<'month' | 'day'>('month')
   const [date, setDate] = useState(today)
@@ -186,17 +188,34 @@ export function AppointmentCalendar() {
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState<{ open: boolean; initial?: any; defaultStartTime?: string }>({ open: false })
 
+  // Multi-agenda: un doctor sin permiso de "ver todas las agendas" queda fijado
+  // a la suya (el backend lo forzaría igualmente, esto solo evita mostrarle un
+  // selector que no podría usar). Clínica/admin siempre ven todas.
+  const [canViewAllAgendas, setCanViewAllAgendas] = useState(role !== 'doctor')
+  const [doctorFilter, setDoctorFilter] = useState('all')
+
+  useEffect(() => {
+    if (role !== 'doctor') return
+    api.get('/me').then(me => {
+      setCanViewAllAgendas(!!me.can_view_all_agendas)
+      if (!me.can_view_all_agendas && me.doctor_id) setDoctorFilter(me.doctor_id)
+    }).catch(() => {})
+  }, [role])
+
+  const showDoctorSelector = canViewAllAgendas && doctors.length > 1
+
   const loadAppointments = useCallback(async () => {
     setLoading(true)
     try {
-      const data = await api.get(`/appointments?from=${date}&to=${addDays(date, 1)}`)
+      const doctorParam = doctorFilter !== 'all' ? `&doctor_id=${doctorFilter}` : ''
+      const data = await api.get(`/appointments?from=${date}&to=${addDays(date, 1)}${doctorParam}`)
       setAppointments(Array.isArray(data) ? data : [])
     } catch {
       setAppointments([])
     } finally {
       setLoading(false)
     }
-  }, [date])
+  }, [date, doctorFilter])
 
   const loadDayAvailability = useCallback(async () => {
     try {
@@ -217,15 +236,16 @@ export function AppointmentCalendar() {
 
   const loadMonthData = useCallback(async () => {
     try {
+      const doctorParam = doctorFilter !== 'all' ? `&doctor_id=${doctorFilter}` : ''
       const [avail, appts] = await Promise.all([
         api.get(`/schedule/availability?from=${monthFrom}&to=${monthTo}`).catch(() => ({})),
-        api.get(`/appointments?from=${monthFrom}&to=${monthTo}`).catch(() => []),
+        api.get(`/appointments?from=${monthFrom}&to=${monthTo}${doctorParam}`).catch(() => []),
       ])
       setMonthAvailability(avail ?? {})
       setMonthAppointments(Array.isArray(appts) ? appts : [])
     } catch { /* ignore */ }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monthFrom, monthTo])
+  }, [monthFrom, monthTo, doctorFilter])
 
   useEffect(() => {
     if (viewMode === 'month') loadMonthData()
@@ -317,33 +337,43 @@ export function AppointmentCalendar() {
     <div className="flex flex-col gap-4">
       {/* Toolbar */}
       <div className="flex items-center justify-between flex-wrap gap-3">
-        {viewMode === 'day' ? (
-          <div className="flex items-center gap-2 flex-wrap">
-            <button
-              onClick={() => setViewMode('month')}
-              className="flex items-center gap-1.5 px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50"
+        <div className="flex items-center gap-2 flex-wrap">
+          {viewMode === 'day' && (
+            <>
+              <button
+                onClick={() => setViewMode('month')}
+                className="flex items-center gap-1.5 px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50"
+              >
+                <CalendarRange className="w-4 h-4" />{t('appointmentCalendar.view_month')}
+              </button>
+              <button onClick={() => setDate(d => addDays(d, -1))} className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50">
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <input
+                type="date"
+                value={date}
+                onChange={e => setDate(e.target.value)}
+                className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button onClick={() => setDate(d => addDays(d, 1))} className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50">
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <button onClick={() => setDate(today)} className="px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
+                {t('appointmentCalendar.today')}
+              </button>
+            </>
+          )}
+          {showDoctorSelector && (
+            <select
+              value={doctorFilter}
+              onChange={e => setDoctorFilter(e.target.value)}
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
             >
-              <CalendarRange className="w-4 h-4" />{t('appointmentCalendar.view_month')}
-            </button>
-            <button onClick={() => setDate(d => addDays(d, -1))} className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50">
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <input
-              type="date"
-              value={date}
-              onChange={e => setDate(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button onClick={() => setDate(d => addDays(d, 1))} className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50">
-              <ChevronRight className="w-4 h-4" />
-            </button>
-            <button onClick={() => setDate(today)} className="px-3 py-2 text-sm border border-slate-300 rounded-lg hover:bg-slate-50">
-              {t('appointmentCalendar.today')}
-            </button>
-          </div>
-        ) : (
-          <div />
-        )}
+              <option value="all">{t('appointmentCalendar.all_doctors')}</option>
+              {doctors.map((d: any) => <option key={d.id} value={d.id}>{d.name}</option>)}
+            </select>
+          )}
+        </div>
         <button
           onClick={() => setModal({ open: true, defaultStartTime: slots[0]?.iso })}
           disabled={isPastViewedDay}

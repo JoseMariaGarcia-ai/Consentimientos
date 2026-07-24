@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Save, Building2, Image as ImageIcon, X, Loader2 } from 'lucide-react'
+import { Save, Building2, Image as ImageIcon, X, Loader2, Stethoscope } from 'lucide-react'
 import { api } from '@/lib/api'
 import { compressImage, blobToBase64 } from '@/lib/imageCompression'
+import { useAuth } from '@/lib/auth'
+import { DoctorPermissionsPanel } from '@/components/clinic/DoctorPermissionsPanel'
 import type { Clinic } from '@consentspro/shared-types'
 import { PROVINCIAS_ES } from '@/constants/provinces'
 
@@ -22,6 +24,9 @@ function Field({ label, value, onChange, type = 'text' }: { label: string; value
 
 export default function ClinicPage() {
   const { t } = useTranslation()
+  const { role } = useAuth()
+  const canManageDoctors = role === 'clinica' || role === 'superadmin'
+  const [tab, setTab] = useState<'info' | 'doctors'>('info')
   const [form, setForm] = useState<Partial<Clinic>>({})
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -95,7 +100,7 @@ export default function ClinicPage() {
   if (loading) return <div className="p-12 text-center text-slate-400">{t('common.loading')}</div>
 
   return (
-    <div className="max-w-2xl flex flex-col gap-6">
+    <div className={tab === 'doctors' ? 'max-w-4xl flex flex-col gap-6' : 'max-w-2xl flex flex-col gap-6'}>
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
           <Building2 className="w-5 h-5 text-blue-600" />
@@ -106,6 +111,29 @@ export default function ClinicPage() {
         </div>
       </div>
 
+      {canManageDoctors && (
+        <div className="flex gap-1 bg-slate-100 rounded-xl p-1 w-fit">
+          <button
+            type="button"
+            onClick={() => setTab('info')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'info' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+          >
+            <Building2 className="w-4 h-4" />{t('clinic.tabs.info')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab('doctors')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === 'doctors' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+          >
+            <Stethoscope className="w-4 h-4" />{t('clinic.tabs.doctors')}
+          </button>
+        </div>
+      )}
+
+      {tab === 'doctors' && canManageDoctors ? (
+        <DoctorPermissionsPanel />
+      ) : (
+      <>
       {/* Main clinic config */}
       <form onSubmit={handleSubmit} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
         <div className="flex items-center gap-4">
@@ -193,6 +221,8 @@ export default function ClinicPage() {
           </div>
         </div>
       </form>
+      </>
+      )}
     </div>
   )
 }

@@ -11,6 +11,24 @@ async function belongsToClinic(table: string, id: string, clinicId: string): Pro
   return !!row
 }
 
+// Un doctor sin permiso de "ver todas las agendas" solo debe poder ver y
+// tocar sus propias citas — nunca se confía en un doctor_id que llegue del
+// cliente para decidir esto, se resuelve siempre en el servidor a partir de
+// quién ha iniciado sesión. Devuelve null si el solicitante no es un doctor
+// restringido (clinica/admin/superadmin/recepción, o un doctor con permiso
+// de ver todas, ven todo con normalidad); devuelve el doctors.id propio si
+// hay que forzar el filtro; devuelve '' si es un doctor sin ficha de doctor
+// vinculada todavía (no debe ver ninguna cita).
+async function resolveOwnDoctorScope(userId: string): Promise<string | null> {
+  const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
+  if (me?.role !== 'doctor') return null
+  const doctor = await queryOne<{ id: string; can_view_all_agendas: boolean }>(
+    'SELECT id, can_view_all_agendas FROM doctors WHERE app_user_id = $1', [userId]
+  )
+  if (!doctor) return ''
+  return doctor.can_view_all_agendas ? null : doctor.id
+}
+
 // No se pueden agendar citas en días ya pasados — comparación por DÍA (no
 // por hora exacta), para no bloquear un hueco de hoy aunque ya haya pasado
 // esa hora concreta.
@@ -20,12 +38,18 @@ function isPastDay(date: Date): boolean {
   return date < todayStart
 }
 
-// GET /api/appointments?from=YYYY-MM-DD&to=YYYY-MM-DD
+// GET /api/appointments?from=YYYY-MM-DD&to=YYYY-MM-DD&doctor_id=...
 router.get('/', async (req, res) => {
   const { userId } = (req as any).user
   const { from, to, patient_id } = req.query
+  let doctor_id = req.query.doctor_id as string | undefined
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
+
+    const ownScope = await resolveOwnDoctorScope(userId)
+    if (ownScope === '') return res.json([]) // doctor sin ficha vinculada — no ve ninguna cita
+    if (ownScope) doctor_id = ownScope // doctor restringido — se ignora cualquier doctor_id recibido
+
     let sql = `
       SELECT a.*, row_to_json(p) AS patient, row_to_json(d) AS doctor, row_to_json(t) AS treatment
       FROM appointments a
@@ -38,6 +62,7 @@ router.get('/', async (req, res) => {
     if (from) { params.push(from); sql += ` AND a.start_time >= $${params.length}` }
     if (to)   { params.push(to);   sql += ` AND a.start_time < $${params.length}` }
     if (patient_id) { params.push(patient_id); sql += ` AND a.patient_id = $${params.length}` }
+    if (doctor_id)  { params.push(doctor_id);  sql += ` AND a.doctor_id = $${params.length}` }
     sql += ' ORDER BY a.start_time ASC'
     const data = await query(sql, params)
     return res.json(data)
@@ -46,7 +71,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { userId } = (req as any).user
-  const { patient_id, doctor_id, treatment_id, start_time, notes } = req.body
+  const { patient_id, treatment_id, start_time, notes } = req.body
+  let { doctor_id } = req.body
   if (!patient_id || !treatment_id || !start_time) {
     return res.status(400).json({ error: 'patient_id, treatment_id y start_time son obligatorios' })
   }
@@ -54,6 +80,12 @@ router.post('/', async (req, res) => {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+
+    // Un doctor restringido solo puede agendar citas consigo mismo — se
+    // ignora cualquier doctor_id que envíe el cliente.
+    const ownScope = await resolveOwnDoctorScope(userId)
+    if (ownScope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
+    if (ownScope) doctor_id = ownScope
 
     const treatment = await queryOne<{ duration_minutes: number }>(
       'SELECT duration_minutes FROM treatments WHERE id = $1 AND clinic_id = $2', [treatment_id, clinicId]
@@ -99,15 +131,28 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { userId } = (req as any).user
-  const { patient_id, doctor_id, treatment_id, start_time, notes, status } = req.body
+  const { patient_id, treatment_id, start_time, notes, status } = req.body
+  let { doctor_id } = req.body
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     const clinicId = clinicRow?.clinic_id
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
-    const existing = await queryOne<{ start_time: string }>(
-      'SELECT start_time FROM appointments WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId]
+
+    // Un doctor restringido solo puede tocar sus propias citas (ni verlas ni
+    // reasignarlas a otro doctor) — se resuelve antes de cargar la cita para
+    // que el 404 sea indistinguible de "no existe" (no revela que la cita sí
+    // existe pero es de otro doctor).
+    const ownScope = await resolveOwnDoctorScope(userId)
+    if (ownScope === '') return res.status(404).json({ error: 'Cita no encontrada' })
+
+    const existing = await queryOne<{ start_time: string; doctor_id: string | null }>(
+      'SELECT start_time, doctor_id FROM appointments WHERE id = $1 AND clinic_id = $2', [req.params.id, clinicId]
     )
     if (!existing) return res.status(404).json({ error: 'Cita no encontrada' })
+    if (ownScope) {
+      if (existing.doctor_id !== ownScope) return res.status(404).json({ error: 'Cita no encontrada' })
+      doctor_id = ownScope
+    }
 
     const treatment = await queryOne<{ duration_minutes: number }>(
       'SELECT duration_minutes FROM treatments WHERE id = $1 AND clinic_id = $2', [treatment_id, clinicId]
@@ -163,10 +208,15 @@ router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicRow = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
-    const data = await queryOne(
-      'DELETE FROM appointments WHERE id = $1 AND clinic_id = $2 RETURNING id',
-      [req.params.id, clinicRow?.clinic_id]
-    )
+    const ownScope = await resolveOwnDoctorScope(userId)
+    if (ownScope === '') return res.status(404).json({ error: 'Cita no encontrada' })
+
+    let sql = 'DELETE FROM appointments WHERE id = $1 AND clinic_id = $2'
+    const params: any[] = [req.params.id, clinicRow?.clinic_id]
+    if (ownScope) { params.push(ownScope); sql += ` AND doctor_id = $${params.length}` }
+    sql += ' RETURNING id'
+
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Cita no encontrada' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }

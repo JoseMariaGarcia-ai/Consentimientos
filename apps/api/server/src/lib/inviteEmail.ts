@@ -5,6 +5,8 @@ const ROLE_LABEL: Record<string, string> = {
   superadmin: 'Superadministrador',
   clinica: 'Clínica',
   lab_partner: 'Laboratorio colaborador',
+  doctor: 'Doctor',
+  receptionist: 'Recepción',
 }
 
 export async function sendInviteEmail(user: { id: string; email: string; full_name: string; role: string }, clinicName: string | null) {

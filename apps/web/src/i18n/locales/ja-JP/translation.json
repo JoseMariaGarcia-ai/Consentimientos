@@ -384,7 +384,8 @@
       "scheduled": "予約あり"
     },
     "past_day_no_create": "過去の日付には予約できません",
-    "past_day_no_drag": "予約を過去の日付に移動することはできません — タップして表示/編集"
+    "past_day_no_drag": "予約を過去の日付に移動することはできません — タップして表示/編集",
+    "all_doctors": "すべての医師"
   },
   "appointmentModal": {
     "title_edit": "予約を編集",
@@ -862,7 +863,11 @@
     "province_placeholder": "— 県を選択 —",
     "province_hint": "新しい番号からWhatsAppでメッセージを送る患者が、県ごとにクリニックを見つけられるようにするために使用されます。",
     "logo_upload": "ロゴをアップロード",
-    "logo_remove": "削除"
+    "logo_remove": "削除",
+    "tabs": {
+      "info": "情報",
+      "doctors": "医師"
+    }
   },
   "language": {
     "select": "言語",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "もっと見る",
     "close": "閉じる"
+  },
+  "doctorPermissions": {
+    "intro": "各医師は、アプリのセクションとスケジュールに対して独立した権限を持つ、独自のアクセスアカウントを持つことができます。",
+    "no_doctors": "まだ医師が追加されていません。医師セクションから追加してください。",
+    "status_active": "アカウント有効",
+    "status_no_account": "アカウントなし",
+    "manage_permissions": "権限を管理",
+    "no_email": "この医師を招待できるようにメールアドレスを追加してください",
+    "invite": "招待",
+    "invite_error": "招待を送信できませんでした",
+    "modal_subtitle": "アクセス権限",
+    "load_error": "権限を読み込めませんでした",
+    "save_error": "権限を保存できませんでした",
+    "view_all_agendas": "すべての医師のスケジュールを表示",
+    "view_all_agendas_hint": "無効にすると、この医師は自分のスケジュールのみを表示・管理できます。",
+    "sections_title": "アクセスできるセクション"
   }
 }

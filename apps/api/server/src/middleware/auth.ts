@@ -100,22 +100,23 @@ export async function requireStaffRole(req: Request, res: Response, next: NextFu
 // se ocultaban en el frontend según el plan de la clínica (App.tsx guard()),
 // pero la API no comprobaba nada — una clínica sin el módulo contratado
 // podía seguir llamando a estos endpoints directamente. Igual que
-// requireAdmin/requireSuperAdmin, solo aplica a usuarios "clinica" (el
-// mismo rol al que App.tsx le filtra el menú): admin/superadmin/doctor/
-// receptionist/lab_partner no están sujetos a planes de suscripción, así
-// que pasan sin comprobar.
+// requireAdmin/requireSuperAdmin, aplica a usuarios "clinica" (permisos
+// derivados del plan) y "doctor" (permisos asignados a mano por la clínica
+// en Clínica > Doctores y permisos) — ambos consultan la misma tabla
+// user_permissions. admin/superadmin/receptionist/lab_partner no están
+// sujetos a esto, así que pasan sin comprobar.
 export function requireModuleAccess(moduleKey: string) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const userId = (req as any).user?.userId
     if (!userId) return res.status(401).json({ error: 'Unauthorized' })
     try {
       const me = await queryOne<{ role: string }>('SELECT role FROM app_users WHERE id = $1', [userId])
-      if (me?.role !== 'clinica') return next()
+      if (me?.role !== 'clinica' && me?.role !== 'doctor') return next()
       const perm = await queryOne<{ can_access: boolean }>(
         'SELECT can_access FROM user_permissions WHERE user_id = $1 AND module = $2', [userId, moduleKey]
       )
       if (!perm?.can_access) {
-        return res.status(403).json({ error: 'Este módulo no está incluido en tu plan actual' })
+        return res.status(403).json({ error: me.role === 'doctor' ? 'No tienes permiso para acceder a esta sección' : 'Este módulo no está incluido en tu plan actual' })
       }
       next()
     } catch (err: any) {

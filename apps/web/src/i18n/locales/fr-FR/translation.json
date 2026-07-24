@@ -384,7 +384,8 @@
       "scheduled": "Rendez-vous planifié"
     },
     "past_day_no_create": "Impossible de prendre des rendez-vous à des dates passées",
-    "past_day_no_drag": "Impossible de déplacer un rendez-vous vers une date passée — appuyez pour voir/modifier"
+    "past_day_no_drag": "Impossible de déplacer un rendez-vous vers une date passée — appuyez pour voir/modifier",
+    "all_doctors": "Tous les médecins"
   },
   "appointmentModal": {
     "title_edit": "Modifier le rendez-vous",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Sélectionner une province —",
     "province_hint": "Sert à ce que les patients qui écrivent sur WhatsApp depuis un nouveau numéro puissent trouver votre clinique par province.",
     "logo_upload": "Importer le logo",
-    "logo_remove": "Retirer"
+    "logo_remove": "Retirer",
+    "tabs": {
+      "info": "Infos",
+      "doctors": "Médecins"
+    }
   },
   "language": {
     "select": "Langue",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Voir plus",
     "close": "Fermer"
+  },
+  "doctorPermissions": {
+    "intro": "Chaque médecin peut avoir son propre compte d'accès, avec des permissions indépendantes sur les sections de l'application et sur les agendas.",
+    "no_doctors": "Aucun médecin ajouté pour le moment. Ajoutez-en un depuis la section Médecins.",
+    "status_active": "Compte actif",
+    "status_no_account": "Sans compte",
+    "manage_permissions": "Gérer les permissions",
+    "no_email": "Ajoutez un email à ce médecin pour pouvoir l'inviter",
+    "invite": "Inviter",
+    "invite_error": "Impossible d'envoyer l'invitation",
+    "modal_subtitle": "Permissions d'accès",
+    "load_error": "Impossible de charger les permissions",
+    "save_error": "Impossible d'enregistrer les permissions",
+    "view_all_agendas": "Voir l'agenda de tous les médecins",
+    "view_all_agendas_hint": "Si désactivé, ce médecin ne verra et ne pourra gérer que son propre agenda.",
+    "sections_title": "Sections auxquelles il a accès"
   }
 }

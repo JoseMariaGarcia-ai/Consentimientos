@@ -384,7 +384,8 @@
       "scheduled": "Appuntamento fissato"
     },
     "past_day_no_create": "Non è possibile prenotare appuntamenti in giorni passati",
-    "past_day_no_drag": "Non è possibile spostare gli appuntamenti a giorni passati — tocca per vedere/modificare"
+    "past_day_no_drag": "Non è possibile spostare gli appuntamenti a giorni passati — tocca per vedere/modificare",
+    "all_doctors": "Tutti i dottori"
   },
   "appointmentModal": {
     "title_edit": "Modifica appuntamento",
@@ -916,7 +917,11 @@
     "province_placeholder": "— Seleziona provincia —",
     "province_hint": "Serve affinché i pazienti che scrivono su WhatsApp da un numero nuovo possano trovare la tua clinica per provincia.",
     "logo_upload": "Carica logo",
-    "logo_remove": "Rimuovi"
+    "logo_remove": "Rimuovi",
+    "tabs": {
+      "info": "Dati",
+      "doctors": "Dottori"
+    }
   },
   "language": {
     "select": "Lingua",
@@ -2414,5 +2419,21 @@
   "campaignModal": {
     "open": "Vedi di più",
     "close": "Chiudi"
+  },
+  "doctorPermissions": {
+    "intro": "Ogni dottore può avere un proprio account di accesso, con permessi indipendenti alle sezioni dell'app e alle agende.",
+    "no_doctors": "Non ci sono ancora dottori aggiunti. Aggiungine uno dalla sezione Dottori.",
+    "status_active": "Account attivo",
+    "status_no_account": "Nessun account",
+    "manage_permissions": "Gestisci permessi",
+    "no_email": "Aggiungi un'email a questo dottore per poterlo invitare",
+    "invite": "Invita",
+    "invite_error": "Non è stato possibile inviare l'invito",
+    "modal_subtitle": "Permessi di accesso",
+    "load_error": "Non è stato possibile caricare i permessi",
+    "save_error": "Non è stato possibile salvare i permessi",
+    "view_all_agendas": "Vedi l'agenda di tutti i dottori",
+    "view_all_agendas_hint": "Se disattivato, questo dottore vedrà e potrà gestire solo la propria agenda.",
+    "sections_title": "Sezioni a cui ha accesso"
   }
 }

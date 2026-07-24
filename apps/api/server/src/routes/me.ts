@@ -14,7 +14,14 @@ router.get('/', async (req, res) => {
     const permissions = await query<{ module: string; can_access: boolean }>(
       'SELECT module, can_access FROM user_permissions WHERE user_id = $1', [userId]
     )
-    return res.json({ ...me, user_permissions: permissions })
+    // Un doctor necesita saber su propio doctor_id y si puede ver la agenda
+    // de toda la clínica o solo la suya, para pintar el selector de agenda
+    // correctamente (ver AppointmentCalendar.tsx).
+    let doctorInfo: { doctor_id: string; can_view_all_agendas: boolean } | null = null
+    if (me.role === 'doctor') {
+      doctorInfo = await queryOne('SELECT id AS doctor_id, can_view_all_agendas FROM doctors WHERE app_user_id = $1', [userId])
+    }
+    return res.json({ ...me, user_permissions: permissions, ...doctorInfo })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
 })
 

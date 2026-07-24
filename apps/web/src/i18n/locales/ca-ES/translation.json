@@ -384,7 +384,8 @@
       "scheduled": "Cita programada"
     },
     "past_day_no_create": "No es poden agendar cites en dies passats",
-    "past_day_no_drag": "No es poden moure cites a dies passats — prem per veure/editar"
+    "past_day_no_drag": "No es poden moure cites a dies passats — prem per veure/editar",
+    "all_doctors": "Tots els doctors"
   },
   "appointmentModal": {
     "title_edit": "Editar cita",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Seleccionar província —",
     "province_hint": "S'utilitza perquè els pacients que escriguin per WhatsApp des d'un número nou puguin trobar la teva clínica per província.",
     "logo_upload": "Pujar logo",
-    "logo_remove": "Treure"
+    "logo_remove": "Treure",
+    "tabs": {
+      "info": "Dades",
+      "doctors": "Doctors"
+    }
   },
   "language": {
     "select": "Idioma",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Veure més",
     "close": "Tancar"
+  },
+  "doctorPermissions": {
+    "intro": "Cada doctor pot tenir el seu propi compte d'accés, amb permisos independents a les seccions de l'aplicació i a les agendes.",
+    "no_doctors": "Encara no hi ha doctors donats d'alta. Afegeix-ne un des de la secció Doctors.",
+    "status_active": "Compte actiu",
+    "status_no_account": "Sense compte",
+    "manage_permissions": "Gestionar permisos",
+    "no_email": "Afegeix un email a aquest doctor per poder-lo convidar",
+    "invite": "Convidar",
+    "invite_error": "No s'ha pogut enviar la invitació",
+    "modal_subtitle": "Permisos d'accés",
+    "load_error": "No s'han pogut carregar els permisos",
+    "save_error": "No s'han pogut desar els permisos",
+    "view_all_agendas": "Veure l'agenda de tots els doctors",
+    "view_all_agendas_hint": "Si no està activat, aquest doctor només veurà i podrà gestionar la seva pròpia agenda.",
+    "sections_title": "Seccions a les quals té accés"
   }
 }

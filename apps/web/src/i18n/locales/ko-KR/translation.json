@@ -384,7 +384,8 @@
       "scheduled": "예약됨"
     },
     "past_day_no_create": "지난 날짜에는 예약할 수 없습니다",
-    "past_day_no_drag": "지난 날짜로 예약을 이동할 수 없습니다 — 눌러서 보기/수정"
+    "past_day_no_drag": "지난 날짜로 예약을 이동할 수 없습니다 — 눌러서 보기/수정",
+    "all_doctors": "모든 의사"
   },
   "appointmentModal": {
     "title_edit": "예약 수정",
@@ -862,7 +863,11 @@
     "province_placeholder": "— 주(도) 선택 —",
     "province_hint": "새 번호로 WhatsApp에 메시지를 보내는 환자가 지역별로 병원을 찾을 수 있도록 사용됩니다.",
     "logo_upload": "로고 업로드",
-    "logo_remove": "제거"
+    "logo_remove": "제거",
+    "tabs": {
+      "info": "정보",
+      "doctors": "의사"
+    }
   },
   "language": {
     "select": "언어",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "더 보기",
     "close": "닫기"
+  },
+  "doctorPermissions": {
+    "intro": "각 의사는 앱 섹션 및 일정에 대해 독립적인 권한을 가진 자체 액세스 계정을 가질 수 있습니다.",
+    "no_doctors": "아직 추가된 의사가 없습니다. 의사 섹션에서 추가하세요.",
+    "status_active": "계정 활성",
+    "status_no_account": "계정 없음",
+    "manage_permissions": "권한 관리",
+    "no_email": "이 의사를 초대하려면 이메일을 추가하세요",
+    "invite": "초대",
+    "invite_error": "초대를 보낼 수 없습니다",
+    "modal_subtitle": "액세스 권한",
+    "load_error": "권한을 불러올 수 없습니다",
+    "save_error": "권한을 저장할 수 없습니다",
+    "view_all_agendas": "모든 의사의 일정 보기",
+    "view_all_agendas_hint": "비활성화된 경우, 이 의사는 자신의 일정만 보고 관리할 수 있습니다.",
+    "sections_title": "접근 가능한 섹션"
   }
 }

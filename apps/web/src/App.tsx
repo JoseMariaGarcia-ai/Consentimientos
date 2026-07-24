@@ -63,6 +63,7 @@ function AppShell() {
   const { preview, exitPreview } = usePreview()
   const isSuperAdmin = role === 'superadmin'
   const isClinicaRole = role === 'clinica'
+  const isDoctorRole = role === 'doctor'
   const isLabPartnerRole = role === 'lab_partner'
   const [myModules, setMyModules] = useState<string[] | null>(null)
   const [myLabPartnerId, setMyLabPartnerId] = useState<string | null | undefined>(undefined)
@@ -77,10 +78,11 @@ function AppShell() {
     setSidebarOpen(false)
   }, [location.pathname])
 
-  // Real permission enforcement for logged-in "clinica" staff — Configuración
-  // is always excluded regardless of any stored permission row.
+  // Real permission enforcement for logged-in "clinica" staff and for
+  // "doctor" staff (permisos asignados a mano por la clínica en Clínica >
+  // Doctores y permisos) — Configuración siempre queda excluida.
   useEffect(() => {
-    if (!isClinicaRole) { setMyModules(null); return }
+    if (!isClinicaRole && !isDoctorRole) { setMyModules(null); return }
     api.get('/me').then((me: any) => {
       const perms = Object.fromEntries((me.user_permissions ?? []).map((p: any) => [p.module, p.can_access]))
       const modules = ALL_MODULES
@@ -88,7 +90,7 @@ function AppShell() {
         .map(m => m.key)
       setMyModules(modules)
     }).catch(() => setMyModules([...DEFAULT_CLINICA_MODULES]))
-  }, [isClinicaRole])
+  }, [isClinicaRole, isDoctorRole])
 
   // A real lab_partner login has no dedicated route of its own — it must
   // render LabPartnerPortal directly instead of falling through to the
@@ -151,7 +153,7 @@ function AppShell() {
   const isClinicaPreview = activePreview?.role === 'clinica'
   const allowedModules = isClinicaPreview
     ? ((activePreview!.clinicaModules ?? DEFAULT_CLINICA_MODULES) as string[]).filter(m => m !== 'settings')
-    : isClinicaRole
+    : (isClinicaRole || isDoctorRole)
     ? myModules ?? undefined
     : undefined
 
@@ -185,7 +187,7 @@ function AppShell() {
               <Route path="/clinic" element={guard('clinic', <ClinicPage />)} />
               <Route path="/lab-partners" element={guard('lab-partners', <LabPartners />)} />
               <Route path="/templates" element={guard('templates', <Templates />)} />
-              <Route path="/settings" element={isClinicaRole ? <Navigate to="/" /> : <Settings />} />
+              <Route path="/settings" element={(isClinicaRole || isDoctorRole) ? <Navigate to="/" /> : <Settings />} />
               <Route path="/clinical-records" element={guard('clinical-records', <ClinicalRecords />)} />
               <Route path="/photos" element={guard('photos', <PhotoSessions />)} />
               <Route path="/toxina" element={guard('toxin', <Toxina />)} />

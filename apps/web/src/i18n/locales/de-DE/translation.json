@@ -384,7 +384,8 @@
       "scheduled": "Termin gebucht"
     },
     "past_day_no_create": "Termine an vergangenen Tagen können nicht gebucht werden",
-    "past_day_no_drag": "Termine können nicht auf vergangene Tage verschoben werden — tippen zum Ansehen/Bearbeiten"
+    "past_day_no_drag": "Termine können nicht auf vergangene Tage verschoben werden — tippen zum Ansehen/Bearbeiten",
+    "all_doctors": "Alle Ärzte"
   },
   "appointmentModal": {
     "title_edit": "Termin bearbeiten",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Provinz auswählen —",
     "province_hint": "Wird verwendet, damit Patienten, die über WhatsApp von einer neuen Nummer schreiben, deine Klinik nach Provinz finden können.",
     "logo_upload": "Logo hochladen",
-    "logo_remove": "Entfernen"
+    "logo_remove": "Entfernen",
+    "tabs": {
+      "info": "Daten",
+      "doctors": "Ärzte"
+    }
   },
   "language": {
     "select": "Sprache",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Mehr ansehen",
     "close": "Schließen"
+  },
+  "doctorPermissions": {
+    "intro": "Jeder Arzt kann ein eigenes Zugangskonto haben, mit unabhängigen Berechtigungen für die App-Bereiche und die Terminkalender.",
+    "no_doctors": "Es wurden noch keine Ärzte angelegt. Füge einen im Bereich Ärzte hinzu.",
+    "status_active": "Konto aktiv",
+    "status_no_account": "Kein Konto",
+    "manage_permissions": "Berechtigungen verwalten",
+    "no_email": "Füge diesem Arzt eine E-Mail-Adresse hinzu, um ihn einladen zu können",
+    "invite": "Einladen",
+    "invite_error": "Die Einladung konnte nicht gesendet werden",
+    "modal_subtitle": "Zugriffsberechtigungen",
+    "load_error": "Die Berechtigungen konnten nicht geladen werden",
+    "save_error": "Die Berechtigungen konnten nicht gespeichert werden",
+    "view_all_agendas": "Terminkalender aller Ärzte einsehen",
+    "view_all_agendas_hint": "Wenn deaktiviert, sieht dieser Arzt nur seinen eigenen Terminkalender und kann nur diesen verwalten.",
+    "sections_title": "Bereiche, auf die er/sie Zugriff hat"
   }
 }

@@ -26,6 +26,16 @@ export async function applyUserPermissions(userId: string, permissions: Record<s
   }
 }
 
+// Permisos por defecto de un doctor recién invitado: acceso a las secciones
+// clínicas del día a día (agenda, pacientes, consentimientos, historia
+// clínica, fotos, toxina, whatsapp, tickets...), sin gestión de la propia
+// clínica ni de otros doctores — el titular de la clínica ajusta esto
+// después desde Clínica > Doctores y permisos.
+const DOCTOR_DEFAULT_EXCLUDED = new Set(['clinic', 'doctors', 'settings', 'templates', 'lab-partners', 'invoicing', 'time-tracking', 'budgets'])
+export function defaultDoctorPermissions(): Record<string, boolean> {
+  return Object.fromEntries(ALL_MODULES.map(m => [m, !DOCTOR_DEFAULT_EXCLUDED.has(m)]))
+}
+
 // Sets clinics.plan and re-applies the new plan's permissions to every
 // "clinica"-role user of that clinic — used both by the admin UI
 // (routes/users.ts) and by the Stripe webhook when a subscription becomes

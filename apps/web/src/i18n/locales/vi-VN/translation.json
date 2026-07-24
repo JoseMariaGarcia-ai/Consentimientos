@@ -384,7 +384,8 @@
       "scheduled": "Đã đặt lịch"
     },
     "past_day_no_create": "Không thể đặt lịch hẹn vào những ngày đã qua",
-    "past_day_no_drag": "Không thể chuyển lịch hẹn sang ngày đã qua — chạm để xem/chỉnh sửa"
+    "past_day_no_drag": "Không thể chuyển lịch hẹn sang ngày đã qua — chạm để xem/chỉnh sửa",
+    "all_doctors": "Tất cả bác sĩ"
   },
   "appointmentModal": {
     "title_edit": "Chỉnh sửa lịch hẹn",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Chọn tỉnh —",
     "province_hint": "Dùng để bệnh nhân nhắn tin qua WhatsApp từ số mới có thể tìm phòng khám của bạn theo tỉnh.",
     "logo_upload": "Tải lên logo",
-    "logo_remove": "Xóa"
+    "logo_remove": "Xóa",
+    "tabs": {
+      "info": "Thông tin",
+      "doctors": "Bác sĩ"
+    }
   },
   "language": {
     "select": "Ngôn ngữ",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Xem thêm",
     "close": "Đóng"
+  },
+  "doctorPermissions": {
+    "intro": "Mỗi bác sĩ có thể có tài khoản truy cập riêng, với quyền độc lập đối với các phần của ứng dụng và lịch hẹn.",
+    "no_doctors": "Chưa có bác sĩ nào được thêm. Thêm một bác sĩ từ phần Bác sĩ.",
+    "status_active": "Tài khoản đang hoạt động",
+    "status_no_account": "Không có tài khoản",
+    "manage_permissions": "Quản lý quyền",
+    "no_email": "Thêm email cho bác sĩ này để có thể mời họ",
+    "invite": "Mời",
+    "invite_error": "Không thể gửi lời mời",
+    "modal_subtitle": "Quyền truy cập",
+    "load_error": "Không thể tải quyền",
+    "save_error": "Không thể lưu quyền",
+    "view_all_agendas": "Xem lịch của tất cả bác sĩ",
+    "view_all_agendas_hint": "Nếu tắt, bác sĩ này chỉ xem và quản lý được lịch của riêng mình.",
+    "sections_title": "Các phần mà bác sĩ này có quyền truy cập"
   }
 }

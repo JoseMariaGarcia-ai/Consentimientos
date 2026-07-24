@@ -384,7 +384,8 @@
       "scheduled": "Programare stabilită"
     },
     "past_day_no_create": "Nu se pot programa întâlniri în zile trecute",
-    "past_day_no_drag": "Nu se pot muta programările în zile trecute — atinge pentru a vedea/edita"
+    "past_day_no_drag": "Nu se pot muta programările în zile trecute — atinge pentru a vedea/edita",
+    "all_doctors": "Toți doctorii"
   },
   "appointmentModal": {
     "title_edit": "Editare programare",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Selectează provincia —",
     "province_hint": "Se folosește pentru ca pacienții care scriu pe WhatsApp de la un număr nou să-ți poată găsi clinica după provincie.",
     "logo_upload": "Încarcă logo",
-    "logo_remove": "Elimină"
+    "logo_remove": "Elimină",
+    "tabs": {
+      "info": "Date",
+      "doctors": "Doctori"
+    }
   },
   "language": {
     "select": "Limbă",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Vezi mai mult",
     "close": "Închide"
+  },
+  "doctorPermissions": {
+    "intro": "Fiecare doctor poate avea propriul cont de acces, cu permisiuni independente pentru secțiunile aplicației și pentru agende.",
+    "no_doctors": "Încă nu a fost adăugat niciun doctor. Adăugați unul din secțiunea Doctori.",
+    "status_active": "Cont activ",
+    "status_no_account": "Fără cont",
+    "manage_permissions": "Gestionare permisiuni",
+    "no_email": "Adăugați un email acestui doctor pentru a-l putea invita",
+    "invite": "Invită",
+    "invite_error": "Invitația nu a putut fi trimisă",
+    "modal_subtitle": "Permisiuni de acces",
+    "load_error": "Permisiunile nu au putut fi încărcate",
+    "save_error": "Permisiunile nu au putut fi salvate",
+    "view_all_agendas": "Vizualizează agenda tuturor doctorilor",
+    "view_all_agendas_hint": "Dacă este dezactivat, acest doctor va vedea și va putea gestiona doar propria agendă.",
+    "sections_title": "Secțiuni la care are acces"
   }
 }

@@ -384,7 +384,8 @@
       "scheduled": "Cita agendada"
     },
     "past_day_no_create": "No se pueden agendar citas en días pasados",
-    "past_day_no_drag": "No se pueden mover citas a días pasados — pulsa para ver/editar"
+    "past_day_no_drag": "No se pueden mover citas a días pasados — pulsa para ver/editar",
+    "all_doctors": "Todos los doctores"
   },
   "appointmentModal": {
     "title_edit": "Editar cita",
@@ -842,7 +843,11 @@
     "province_placeholder": "— Seleccionar provincia —",
     "province_hint": "Se usa para que los pacientes que escriban por WhatsApp desde un número nuevo puedan encontrar tu clínica por provincia.",
     "logo_upload": "Subir logo",
-    "logo_remove": "Quitar"
+    "logo_remove": "Quitar",
+    "tabs": {
+      "info": "Datos",
+      "doctors": "Doctores"
+    }
   },
   "language": {
     "select": "Idioma",
@@ -2340,5 +2345,21 @@
   "campaignModal": {
     "open": "Ver más",
     "close": "Cerrar"
+  },
+  "doctorPermissions": {
+    "intro": "Cada doctor puede tener su propia cuenta de acceso, con permisos independientes a las secciones de la aplicación y a las agendas.",
+    "no_doctors": "Todavía no hay doctores dados de alta. Agrega uno desde la sección Doctores.",
+    "status_active": "Cuenta activa",
+    "status_no_account": "Sin cuenta",
+    "manage_permissions": "Gestionar permisos",
+    "no_email": "Agrega un email a este doctor para poder invitarlo",
+    "invite": "Invitar",
+    "invite_error": "No se pudo enviar la invitación",
+    "modal_subtitle": "Permisos de acceso",
+    "load_error": "No se pudieron cargar los permisos",
+    "save_error": "No se pudieron guardar los permisos",
+    "view_all_agendas": "Ver la agenda de todos los doctores",
+    "view_all_agendas_hint": "Si no está activado, este doctor solo verá y podrá gestionar su propia agenda.",
+    "sections_title": "Secciones a las que tiene acceso"
   }
 }

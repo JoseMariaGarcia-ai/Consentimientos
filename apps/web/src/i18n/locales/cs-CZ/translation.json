@@ -384,7 +384,8 @@
       "scheduled": "Naplánovaná schůzka"
     },
     "past_day_no_create": "Na uplynulé dny nelze objednávat schůzky",
-    "past_day_no_drag": "Schůzky nelze přesouvat na uplynulé dny — klepnutím zobrazíte/upravíte"
+    "past_day_no_drag": "Schůzky nelze přesouvat na uplynulé dny — klepnutím zobrazíte/upravíte",
+    "all_doctors": "Všichni lékaři"
   },
   "appointmentModal": {
     "title_edit": "Upravit schůzku",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Vybrat provincii —",
     "province_hint": "Používá se, aby pacienti, kteří píší přes WhatsApp z nového čísla, mohli najít vaši kliniku podle provincie.",
     "logo_upload": "Nahrát logo",
-    "logo_remove": "Odebrat"
+    "logo_remove": "Odebrat",
+    "tabs": {
+      "info": "Údaje",
+      "doctors": "Lékaři"
+    }
   },
   "language": {
     "select": "Jazyk",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Zobrazit více",
     "close": "Zavřít"
+  },
+  "doctorPermissions": {
+    "intro": "Každý lékař může mít svůj vlastní přístupový účet s nezávislými oprávněními k sekcím aplikace a kalendářům.",
+    "no_doctors": "Zatím nebyli přidáni žádní lékaři. Přidejte jednoho v sekci Lékaři.",
+    "status_active": "Účet aktivní",
+    "status_no_account": "Bez účtu",
+    "manage_permissions": "Spravovat oprávnění",
+    "no_email": "Přidejte tomuto lékaři e-mail, abyste ho mohli pozvat",
+    "invite": "Pozvat",
+    "invite_error": "Pozvánku se nepodařilo odeslat",
+    "modal_subtitle": "Přístupová oprávnění",
+    "load_error": "Oprávnění se nepodařilo načíst",
+    "save_error": "Oprávnění se nepodařilo uložit",
+    "view_all_agendas": "Zobrazit kalendář všech lékařů",
+    "view_all_agendas_hint": "Pokud je vypnuto, tento lékař uvidí a bude moci spravovat pouze svůj vlastní kalendář.",
+    "sections_title": "Sekce, ke kterým má přístup"
   }
 }

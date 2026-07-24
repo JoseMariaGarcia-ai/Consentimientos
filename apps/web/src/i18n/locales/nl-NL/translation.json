@@ -384,7 +384,8 @@
       "scheduled": "Afspraak gepland"
     },
     "past_day_no_create": "Je kunt geen afspraken boeken op dagen die al voorbij zijn",
-    "past_day_no_drag": "Je kunt afspraken niet naar dagen in het verleden verplaatsen — tik om te bekijken/bewerken"
+    "past_day_no_drag": "Je kunt afspraken niet naar dagen in het verleden verplaatsen — tik om te bekijken/bewerken",
+    "all_doctors": "Alle artsen"
   },
   "appointmentModal": {
     "title_edit": "Afspraak bewerken",
@@ -862,7 +863,11 @@
     "province_placeholder": "— Provincie selecteren —",
     "province_hint": "Wordt gebruikt zodat patiënten die via WhatsApp vanaf een nieuw nummer schrijven jouw kliniek op provincie kunnen vinden.",
     "logo_upload": "Logo uploaden",
-    "logo_remove": "Verwijderen"
+    "logo_remove": "Verwijderen",
+    "tabs": {
+      "info": "Gegevens",
+      "doctors": "Artsen"
+    }
   },
   "language": {
     "select": "Taal",
@@ -2360,5 +2365,21 @@
   "campaignModal": {
     "open": "Meer bekijken",
     "close": "Sluiten"
+  },
+  "doctorPermissions": {
+    "intro": "Elke arts kan een eigen toegangsaccount hebben, met onafhankelijke rechten voor de app-secties en de agenda's.",
+    "no_doctors": "Er zijn nog geen artsen toegevoegd. Voeg er een toe vanuit de sectie Artsen.",
+    "status_active": "Account actief",
+    "status_no_account": "Geen account",
+    "manage_permissions": "Rechten beheren",
+    "no_email": "Voeg een e-mailadres toe aan deze arts om hem/haar te kunnen uitnodigen",
+    "invite": "Uitnodigen",
+    "invite_error": "De uitnodiging kon niet worden verzonden",
+    "modal_subtitle": "Toegangsrechten",
+    "load_error": "De rechten konden niet worden geladen",
+    "save_error": "De rechten konden niet worden opgeslagen",
+    "view_all_agendas": "Agenda van alle artsen bekijken",
+    "view_all_agendas_hint": "Indien uitgeschakeld, ziet en beheert deze arts alleen zijn/haar eigen agenda.",
+    "sections_title": "Secties waartoe hij/zij toegang heeft"
   }
 }
