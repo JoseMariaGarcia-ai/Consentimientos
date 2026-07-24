@@ -35,6 +35,7 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
   const [compareOpen, setCompareOpen]     = useState(false)
   const [deletingPhoto, setDeletingPhoto] = useState<string | null>(null)
   const [progress, setProgress]           = useState(0)
+  const [dragOver, setDragOver]           = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const remaining = MAX - session.photos.length
@@ -116,7 +117,11 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
       </div>
 
       {/* Photo grid */}
-      <div className="p-4">
+      <div
+        className="p-4"
+        onDragOver={e => { e.preventDefault() }}
+        onDrop={e => { e.preventDefault() }}
+      >
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
           {session.photos.map(photo => (
             <div key={photo.id} className="relative group" style={{ aspectRatio: '1' }}>
@@ -151,7 +156,17 @@ export function PhotoSessionPanel({ session, onChange, onDelete }: Props) {
             <button
               onClick={() => inputRef.current?.click()}
               disabled={uploading}
-              className="flex flex-col items-center justify-center border-2 border-dashed border-slate-300 hover:border-violet-400 rounded-xl text-slate-400 hover:text-violet-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              onDragOver={e => { e.preventDefault(); e.stopPropagation(); if (!uploading) setDragOver(true) }}
+              onDragLeave={e => { e.preventDefault(); e.stopPropagation(); setDragOver(false) }}
+              onDrop={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                setDragOver(false)
+                if (!uploading) handleFiles(e.dataTransfer.files)
+              }}
+              className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+                dragOver ? 'border-violet-500 bg-violet-50 text-violet-600' : 'border-slate-300 hover:border-violet-400 text-slate-400 hover:text-violet-500'
+              }`}
               style={{ aspectRatio: '1' }}
             >
               {uploading ? (
