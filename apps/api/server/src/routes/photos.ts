@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { uploadFile, deleteFile, listFiles, getPresignedUrl } from '../lib/r2'
 import { queryOne } from '../lib/db'
+import { resolvePatientDoctorScope, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -9,7 +10,11 @@ async function ownsPatient(userId: string, patientId: string): Promise<boolean> 
     'SELECT p.id FROM patients p WHERE p.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)',
     [patientId, userId]
   )
-  return !!row
+  if (!row) return false
+  const scope = await resolvePatientDoctorScope(userId)
+  if (scope === '') return false
+  if (scope && !(await patientInScope(patientId, scope))) return false
+  return true
 }
 
 // GET /api/photos/:patientId — list photos with presigned URLs

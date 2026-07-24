@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { sendBudgetEmail } from '../lib/budgetEmail'
+import { resolvePatientDoctorScope, ownPatientIdsSubquery, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -44,6 +45,8 @@ router.get('/', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.json([])
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.json([])
 
     let sql = `
       SELECT b.*, row_to_json(p) AS patient,
@@ -53,6 +56,7 @@ router.get('/', async (req, res) => {
       WHERE b.clinic_id = $1
     `
     const params: any[] = [clinicId]
+    if (scope)      { params.push(scope);             sql += ` AND (b.patient_id IS NULL OR b.patient_id IN ${ownPatientIdsSubquery(params.length)})` }
     if (date_from)  { params.push(date_from);        sql += ` AND b.created_at >= $${params.length}` }
     if (date_to)    { params.push(date_to);           sql += ` AND b.created_at < $${params.length}::date + INTERVAL '1 day'` }
     if (patient_id) { params.push(patient_id);        sql += ` AND b.patient_id = $${params.length}` }
@@ -68,13 +72,15 @@ router.get('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicId = await getClinicId(userId)
-    const data = await queryOne<any>(
-      `SELECT b.*, row_to_json(p) AS patient
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    let sql = `SELECT b.*, row_to_json(p) AS patient
        FROM budgets b
        LEFT JOIN patients p ON p.id = b.patient_id
-       WHERE b.id = $1 AND b.clinic_id = $2`,
-      [req.params.id, clinicId]
-    )
+       WHERE b.id = $1 AND b.clinic_id = $2`
+    const params: any[] = [req.params.id, clinicId]
+    if (scope) { params.push(scope); sql += ` AND (b.patient_id IS NULL OR b.patient_id IN ${ownPatientIdsSubquery(params.length)})` }
+    const data = await queryOne<any>(sql, params)
     if (!data) return res.status(404).json({ error: 'Presupuesto no encontrado' })
     data.items = await loadItems(data.id)
     return res.json(data)
@@ -87,7 +93,12 @@ router.post('/', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(403).json({ error: 'Tu cuenta no está vinculada a ninguna ficha de doctor' })
     if (patient_id && !(await belongsToClinic('patients', patient_id, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (patient_id && scope && !(await patientInScope(patient_id, scope))) {
       return res.status(404).json({ error: 'Paciente no encontrado' })
     }
     const validatedItems = validateItems(items)
@@ -116,8 +127,17 @@ router.put('/:id', async (req, res) => {
   try {
     const clinicId = await getClinicId(userId)
     if (!clinicId) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Presupuesto no encontrado' })
     if (!(await belongsToClinic('budgets', req.params.id, clinicId))) return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    const existing = await queryOne<{ patient_id: string | null }>('SELECT patient_id FROM budgets WHERE id = $1', [req.params.id])
+    if (scope && existing?.patient_id && !(await patientInScope(existing.patient_id, scope))) {
+      return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    }
     if (patient_id && !(await belongsToClinic('patients', patient_id, clinicId))) {
+      return res.status(404).json({ error: 'Paciente no encontrado' })
+    }
+    if (patient_id && scope && !(await patientInScope(patient_id, scope))) {
       return res.status(404).json({ error: 'Paciente no encontrado' })
     }
     const validatedItems = validateItems(items)
@@ -144,7 +164,13 @@ router.delete('/:id', async (req, res) => {
   const { userId } = (req as any).user
   try {
     const clinicId = await getClinicId(userId)
-    const data = await queryOne('DELETE FROM budgets WHERE id = $1 AND clinic_id = $2 RETURNING id', [req.params.id, clinicId])
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    let sql = 'DELETE FROM budgets WHERE id = $1 AND clinic_id = $2'
+    const params: any[] = [req.params.id, clinicId]
+    if (scope) { params.push(scope); sql += ` AND (patient_id IS NULL OR patient_id IN ${ownPatientIdsSubquery(params.length)})` }
+    sql += ' RETURNING id'
+    const data = await queryOne(sql, params)
     if (!data) return res.status(404).json({ error: 'Presupuesto no encontrado' })
     return res.json({ deleted: true })
   } catch (err: any) { return res.status(500).json({ error: err.message }) }
@@ -159,6 +185,14 @@ router.post('/:id/send-email', async (req, res) => {
     const clinicId = await getClinicId(userId)
     if (!clinicId || !(await belongsToClinic('budgets', req.params.id, clinicId))) {
       return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    }
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '') return res.status(404).json({ error: 'Presupuesto no encontrado' })
+    if (scope) {
+      const existing = await queryOne<{ patient_id: string | null }>('SELECT patient_id FROM budgets WHERE id = $1', [req.params.id])
+      if (existing?.patient_id && !(await patientInScope(existing.patient_id, scope))) {
+        return res.status(404).json({ error: 'Presupuesto no encontrado' })
+      }
     }
     const buffer = Buffer.from(pdfBase64, 'base64')
     const sent = await sendBudgetEmail({ budgetId: req.params.id, clinicId, pdfBuffer: buffer })

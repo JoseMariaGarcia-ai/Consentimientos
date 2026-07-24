@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
+import { resolvePatientDoctorScope, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
@@ -13,12 +14,16 @@ router.post('/', async (req, res) => {
     const me = await queryOne<{ clinic_id: string }>('SELECT clinic_id FROM app_users WHERE id = $1', [userId])
     if (!me?.clinic_id) return res.status(403).json({ error: 'Usuario sin clínica asignada' })
 
-    const consent = await queryOne(
-      `SELECT cr.id FROM consent_records cr JOIN patients p ON p.id = cr.patient_id
+    const consent = await queryOne<{ id: string; patient_id: string }>(
+      `SELECT cr.id, cr.patient_id FROM consent_records cr JOIN patients p ON p.id = cr.patient_id
        WHERE cr.id = $1 AND p.clinic_id = $2`,
       [consent_id, me.clinic_id]
     )
     if (!consent) return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    const scope = await resolvePatientDoctorScope(userId)
+    if (scope === '' || (scope && !(await patientInScope(consent.patient_id, scope)))) {
+      return res.status(404).json({ error: 'Consentimiento no encontrado' })
+    }
 
     const device = await queryOne(
       `SELECT id FROM signing_devices WHERE clinic_id = $1 AND revoked_at IS NULL LIMIT 1`,

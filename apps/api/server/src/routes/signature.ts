@@ -2,17 +2,22 @@ import { Router } from 'express'
 import crypto from 'crypto'
 import { queryOne, query } from '../lib/db'
 import { sendConsentEmail } from '../lib/consentEmail'
+import { resolvePatientDoctorScope, patientInScope } from '../lib/doctorScope'
 
 const router = Router()
 
 async function consentBelongsToClinic(consentId: string, userId: string): Promise<boolean> {
-  const row = await queryOne(
-    `SELECT cr.id FROM consent_records cr
+  const row = await queryOne<{ patient_id: string }>(
+    `SELECT cr.patient_id FROM consent_records cr
      JOIN patients p ON p.id = cr.patient_id
      WHERE cr.id = $1 AND p.clinic_id = (SELECT clinic_id FROM app_users WHERE id = $2)`,
     [consentId, userId]
   )
-  return !!row
+  if (!row) return false
+  const scope = await resolvePatientDoctorScope(userId)
+  if (scope === '') return false
+  if (scope && !(await patientInScope(row.patient_id, scope))) return false
+  return true
 }
 
 // Doctor signature — saves doctor_signature_data_url, status stays pending
