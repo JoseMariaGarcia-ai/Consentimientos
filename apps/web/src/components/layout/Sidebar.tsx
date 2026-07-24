@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LayoutDashboard, Users, UserCog, FileText, Building2, BookOpen, Settings, ClipboardList, Camera, Zap, CalendarClock, Syringe, MessageCircle, Receipt, Workflow, LifeBuoy, BadgeEuro, Clock, Sparkles, TrendingUp, GripVertical } from 'lucide-react'
 import { LanguageSelector } from '../language/LanguageSelector'
-import { useCredits } from '@/hooks/useCredits'
 import { useOpenTickets } from '@/hooks/useOpenTickets'
 import { useWhatsAppUnread } from '@/hooks/useWhatsAppUnread'
 
@@ -46,7 +45,6 @@ interface SidebarProps {
 
 export function Sidebar({ open, onClose, allowedModules, isSuperAdmin, sidebarOrder, onReorder }: SidebarProps) {
   const { t } = useTranslation()
-  const { low } = useCredits()
   const { count: openTickets } = useOpenTickets()
   const { adminUnread, clinicsUnread } = useWhatsAppUnread()
   const visibleNavItems = allowedModules ? navItems.filter(i => allowedModules.includes(i.moduleKey)) : navItems
@@ -185,23 +183,18 @@ export function Sidebar({ open, onClose, allowedModules, isSuperAdmin, sidebarOr
             </div>
           ))}
 
-          {/* Recargar — highlighted when credits are low */}
+          {/* Recargar (Bono IA) */}
           <NavLink
             to="/recharge"
             onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 mx-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                isActive
-                  ? 'bg-amber-100 text-amber-800'
-                  : low
-                  ? 'text-amber-600 bg-amber-50 hover:bg-amber-100'
-                  : 'text-slate-600 hover:bg-slate-50'
+                isActive ? 'bg-amber-100 text-amber-800' : 'text-slate-600 hover:bg-slate-50'
               }`
             }
           >
-            <Zap className={`w-4 h-4 ${low ? 'text-amber-500' : ''}`} />
+            <Zap className="w-4 h-4" />
             {t('nav.recharge')}
-            {low && <span className="ml-auto w-2 h-2 rounded-full bg-amber-500 animate-pulse" />}
           </NavLink>
         </nav>
 

@@ -831,7 +831,8 @@
     "revoke": "Tilbakekall",
     "errors": {
       "deleteFailed": "Kunne ikke slette samtykket"
-    }
+    },
+    "create_error": "Kunne ikke opprette samtykket. Prøv igjen."
   },
   "signature": {
     "title": "Pasientens signatur",

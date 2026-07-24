@@ -831,7 +831,8 @@
     "revoke": "Revoke",
     "errors": {
       "deleteFailed": "Could not delete the consent"
-    }
+    },
+    "create_error": "Couldn't create the consent. Please try again."
   },
   "signature": {
     "title": "Patient signature",

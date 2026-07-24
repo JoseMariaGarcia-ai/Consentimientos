@@ -831,7 +831,8 @@
     "revoke": "Revogar",
     "errors": {
       "deleteFailed": "Não foi possível eliminar o consentimento"
-    }
+    },
+    "create_error": "Não foi possível criar o consentimento. Tenta novamente."
   },
   "signature": {
     "title": "Assinatura do paciente",

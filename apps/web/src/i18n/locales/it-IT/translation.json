@@ -885,7 +885,8 @@
     "revoke": "Revoca",
     "errors": {
       "deleteFailed": "Impossibile eliminare il consenso"
-    }
+    },
+    "create_error": "Impossibile creare il consenso. Riprova."
   },
   "signature": {
     "title": "Firma del paziente",

@@ -831,7 +831,8 @@
     "revoke": "İptal et",
     "errors": {
       "deleteFailed": "Onay silinemedi"
-    }
+    },
+    "create_error": "Onam oluşturulamadı. Lütfen tekrar deneyin."
   },
   "signature": {
     "title": "Hasta imzası",

@@ -1,7 +1,6 @@
 import { Router } from 'express'
 import crypto from 'crypto'
 import { query, queryOne } from '../lib/db'
-import { deductCredit } from '../lib/credits'
 import { requireSuperAdmin } from '../middleware/auth'
 import { notifyConsentRevoked } from '../lib/consentRevocationEmail'
 
@@ -136,7 +135,6 @@ router.post('/', async (req, res) => {
     if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId!))) {
       return res.status(404).json({ error: 'Doctor no encontrado' })
     }
-    await deductCredit(clinicId!, 'consents_available')
     const data = await queryOne(
       `INSERT INTO consent_records (patient_id, doctor_id, template_id, language, jurisdiction, status)
        VALUES ($1,$2,$3,$4,$5,'pending') RETURNING *`,

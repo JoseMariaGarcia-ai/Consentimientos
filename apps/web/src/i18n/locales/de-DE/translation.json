@@ -831,7 +831,8 @@
     "revoke": "Widerrufen",
     "errors": {
       "deleteFailed": "Die Einwilligung konnte nicht gelöscht werden"
-    }
+    },
+    "create_error": "Die Einwilligung konnte nicht erstellt werden. Bitte versuchen Sie es erneut."
   },
   "signature": {
     "title": "Patientenunterschrift",

@@ -831,7 +831,8 @@
     "revoke": "Revocă",
     "errors": {
       "deleteFailed": "Nu s-a putut șterge consimțământul"
-    }
+    },
+    "create_error": "Consimțământul nu a putut fi creat. Încearcă din nou."
   },
   "signature": {
     "title": "Semnătura pacientului",

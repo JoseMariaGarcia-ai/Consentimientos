@@ -831,7 +831,8 @@
     "revoke": "Återkalla",
     "errors": {
       "deleteFailed": "Kunde inte ta bort samtycket"
-    }
+    },
+    "create_error": "Samtycket kunde inte skapas. Försök igen."
   },
   "signature": {
     "title": "Patientens signatur",

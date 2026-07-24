@@ -831,7 +831,8 @@
     "revoke": "Peru",
     "errors": {
       "deleteFailed": "Suostumusta ei voitu poistaa"
-    }
+    },
+    "create_error": "Suostumusta ei voitu luoda. Yritä uudelleen."
   },
   "signature": {
     "title": "Potilaan allekirjoitus",

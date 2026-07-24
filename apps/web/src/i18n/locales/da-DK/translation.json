@@ -831,7 +831,8 @@
     "revoke": "Tilbagekald",
     "errors": {
       "deleteFailed": "Kunne ikke slette samtykket"
-    }
+    },
+    "create_error": "Samtykket kunne ikke oprettes. Prøv igen."
   },
   "signature": {
     "title": "Patientunderskrift",

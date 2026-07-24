@@ -831,7 +831,8 @@
     "revoke": "Odvolat",
     "errors": {
       "deleteFailed": "Souhlas se nepodařilo smazat"
-    }
+    },
+    "create_error": "Souhlas se nepodařilo vytvořit. Zkuste to znovu."
   },
   "signature": {
     "title": "Podpis pacienta",

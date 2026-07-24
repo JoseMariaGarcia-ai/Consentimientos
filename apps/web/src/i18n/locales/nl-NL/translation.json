@@ -831,7 +831,8 @@
     "revoke": "Intrekken",
     "errors": {
       "deleteFailed": "De toestemming kon niet worden verwijderd"
-    }
+    },
+    "create_error": "De toestemming kon niet worden aangemaakt. Probeer het opnieuw."
   },
   "signature": {
     "title": "Handtekening patiënt",

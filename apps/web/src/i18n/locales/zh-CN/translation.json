@@ -831,7 +831,8 @@
     "revoke": "撤销",
     "errors": {
       "deleteFailed": "无法删除同意书"
-    }
+    },
+    "create_error": "无法创建知情同意书,请重试。"
   },
   "signature": {
     "title": "患者签名",

@@ -42,6 +42,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const [saving, setSaving] = useState(false)
   const [translating, setTranslating] = useState(false)
   const [handoffError, setHandoffError] = useState('')
+  const [createError, setCreateError] = useState('')
   const [showNewPatientModal, setShowNewPatientModal] = useState(false)
 
   const selectedTemplate = templates.find(t => t.id === templateId)
@@ -100,6 +101,7 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
   const handleCreate = async () => {
     if (!patientId || !doctorId || !templateId) return
     setSaving(true)
+    setCreateError('')
     try {
       const record = await api.post('/consents', {
         patientId,
@@ -111,6 +113,8 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
       })
       setConsentId(record.id)
       setStep('preview')
+    } catch (err: any) {
+      setCreateError(err.message ?? t('consents.create_error'))
     } finally {
       setSaving(false)
     }
@@ -269,6 +273,12 @@ export function ConsentModal({ initialPatientId, continueRecord, onClose, onSave
                 >
                   {translating ? t('consents.translating') : t('consents.translate')}
                 </button>
+              )}
+
+              {createError && (
+                <div className="px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+                  ⚠️ {createError}
+                </div>
               )}
 
               <div className="flex justify-end gap-3 pt-2 border-t border-slate-100">

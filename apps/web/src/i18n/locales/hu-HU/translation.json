@@ -831,7 +831,8 @@
     "revoke": "Visszavonás",
     "errors": {
       "deleteFailed": "A hozzájárulást nem sikerült törölni"
-    }
+    },
+    "create_error": "A beleegyezést nem sikerült létrehozni. Próbáld újra."
   },
   "signature": {
     "title": "Beteg aláírása",

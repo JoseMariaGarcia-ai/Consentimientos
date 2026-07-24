@@ -831,7 +831,8 @@
     "revoke": "Révoquer",
     "errors": {
       "deleteFailed": "Impossible de supprimer le consentement"
-    }
+    },
+    "create_error": "Impossible de créer le consentement. Veuillez réessayer."
   },
   "signature": {
     "title": "Signature du patient",

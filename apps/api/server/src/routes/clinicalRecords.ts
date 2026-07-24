@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
-import { deductCredit } from '../lib/credits'
 
 const router = Router()
 
@@ -52,7 +51,6 @@ router.post('/', async (req, res) => {
     if (doctorId && !(await belongsToClinic('doctors', doctorId, clinicId))) {
       return res.status(404).json({ error: 'Doctor no encontrado' })
     }
-    await deductCredit(clinicId, 'clinical_records_available')
     const data = await queryOne(
       `INSERT INTO clinical_records
         (clinic_id, patient_id, doctor_id, date, reason_for_visit, anamnesis, current_medications, allergies, physical_exam, diagnosis, treatment_plan, notes, is_pregnant, tobacco_use, alcohol_use, drug_use, tobacco_quantity, alcohol_quantity, drug_quantity)

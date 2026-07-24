@@ -1,7 +1,6 @@
 import { Router } from 'express'
 import { query, queryOne } from '../lib/db'
 import { uploadFile, deleteFile, getPresignedUrl } from '../lib/r2'
-import { deductCredit } from '../lib/credits'
 
 const router = Router()
 const MAX_PHOTOS_PER_SESSION = 10
@@ -58,7 +57,6 @@ router.post('/', async (req, res) => {
     if (doctor_id && !(await belongsToClinic('doctors', doctor_id, clinicId))) {
       return res.status(404).json({ error: 'Doctor no encontrado' })
     }
-    await deductCredit(clinicId, 'photo_sessions_available')
     const session = await queryOne(
       `INSERT INTO photo_sessions (clinic_id, patient_id, doctor_id, name, notes, session_date)
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,

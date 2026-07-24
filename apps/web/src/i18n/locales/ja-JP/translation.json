@@ -831,7 +831,8 @@
     "revoke": "取り消す",
     "errors": {
       "deleteFailed": "同意を削除できませんでした"
-    }
+    },
+    "create_error": "同意書を作成できませんでした。もう一度お試しください。"
   },
   "signature": {
     "title": "患者の署名",

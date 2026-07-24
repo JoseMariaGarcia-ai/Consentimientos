@@ -831,7 +831,8 @@
     "revoke": "Thu hồi",
     "errors": {
       "deleteFailed": "Không thể xóa sự đồng ý"
-    }
+    },
+    "create_error": "Không thể tạo bản đồng ý. Vui lòng thử lại."
   },
   "signature": {
     "title": "Chữ ký bệnh nhân",

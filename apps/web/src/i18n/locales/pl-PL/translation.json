@@ -831,7 +831,8 @@
     "revoke": "Odwołaj",
     "errors": {
       "deleteFailed": "Nie udało się usunąć zgody"
-    }
+    },
+    "create_error": "Nie udało się utworzyć zgody. Spróbuj ponownie."
   },
   "signature": {
     "title": "Podpis pacjenta",

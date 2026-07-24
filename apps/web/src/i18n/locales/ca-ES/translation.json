@@ -831,7 +831,8 @@
     "revoke": "Revocar",
     "errors": {
       "deleteFailed": "No s'ha pogut eliminar el consentiment"
-    }
+    },
+    "create_error": "No s'ha pogut crear el consentiment. Torna-ho a provar."
   },
   "signature": {
     "title": "Signatura del pacient",
